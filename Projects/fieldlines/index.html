@@ -19,14 +19,6 @@ However, I hope it may be useful for other students as well.
 
 <script type="application/javascript">
  
-//var description;
-//var metas = document.getElementsByTagName('meta');
-//for (var x=0,y=metas.length; x<y; x++) {
-//  if (metas[x].name.toLowerCase() == "description") {
-//    description = metas[x];
-//  }
-//}
-
    //flag to stop computing lines 
    var StopRun = 0;
 
@@ -34,6 +26,7 @@ However, I hope it may be useful for other students as well.
    var LinesOutstanding = 0;
    var LinesKilled = 0;
    var LinesClosed = 0;
+   var myStatus = "";
    //steps taken
    var steps = 0;
 
@@ -192,28 +185,28 @@ However, I hope it may be useful for other students as well.
 
    //called when page initialized or refreshed
    function init() {
-   Reset();
-   var canvas = document.getElementById("canvas");
-   canvas.addEventListener("click", ev_canvas, false);
-   canvas.addEventListener("mousemove", ev_info, false);
+      Reset();
+      var canvas = document.getElementById("canvas");
+      canvas.addEventListener("click", ev_canvas, false);
+      canvas.addEventListener("mousemove", ev_info, false);
    }
 
    //clear charges
    function ClearCharges()
    {
-   Chx = [];
-   Chy = [];
-   ChSgn = [];
-   ChLaw = [];
-   ClearField();
+      Chx = [];
+      Chy = [];
+      ChSgn = [];
+      ChLaw = [];
+      ClearField();
    return;
    }
  
    //Clear field lines drawn
    function ClearField()
    {
-   ClearCanvas();
-   document.getElementById("dropCharge").options[9].selected=true;
+      ClearCanvas();
+      document.getElementById("dropCharge").options[9].selected=true;
    action = 0;
    canvas.style.cursor="default";
    var ctx = canvas.getContext("2d");
@@ -261,23 +254,25 @@ However, I hope it may be useful for other students as well.
    function ev_info (ev) {
         var canvas = document.getElementById("canvas");
         var info = document.getElementById("info");
-   fixPosition(ev); 
-   info.innerHTML = "<sub>&nbsp;&nbsp;&nbsp;</sub>x = " 
-       + ((ev._x-canvas.width/2)/PixelsPerMeter).toFixed(2) + " m <BR>";
-   info.innerHTML += "<sub>&nbsp;&nbsp;&nbsp;</sub>y = " 
-       + ((ev._y-canvas.height/2)/PixelsPerMeter).toFixed(2) + " m <BR>"; 
-   var F = getField(ev._x,ev._y);
-   info.innerHTML += "<sub>&nbsp;&nbsp;</sub>V =" 
-                      + (F[0]/PixelsPerMeter).toPrecision(3) + " Volts<BR>";      
-   info.innerHTML += "E<sub>x</sub> = " + F[1].toPrecision(3) + " N/C<BR>";      
-   info.innerHTML += "E<sub>y</sub> = " + F[2].toPrecision(3) + " N/C<BR>";      
+        fixPosition(ev); 
+        info.innerHTML = "<sub>&nbsp;&nbsp;&nbsp;</sub>x = " 
+           + ((ev._x-canvas.width/2)/PixelsPerMeter).toFixed(2) + " m <BR>";
+        info.innerHTML += "<sub>&nbsp;&nbsp;&nbsp;</sub>y = " 
+           + ((ev._y-canvas.height/2)/PixelsPerMeter).toFixed(2) + " m <BR>"; 
+        var F = getField(ev._x,ev._y);
+        info.innerHTML += "<sub>&nbsp;&nbsp;</sub>V =" 
+           + (F[0]/PixelsPerMeter).toPrecision(3) + " Volts<BR>";      
+        info.innerHTML += "E<sub>x</sub> = " + F[1].toPrecision(3) + " N/C<BR>";      
+        info.innerHTML += "E<sub>y</sub> = " + F[2].toPrecision(3) + " N/C<BR>";      
    }
  
    function update_run_info() {
-       runinfo.innerHTML = "Job Status:<HR>Steps:" + steps + "<BR>";
-   runinfo.innerHTML += "Lines Running = " + LinesOutstanding + "<BR>";      
-   runinfo.innerHTML += " Lines Killed = " + LinesKilled + "<BR>";      
-   runinfo.innerHTML += " Lines Closed = " + LinesClosed + "<BR>";      
+      runinfo.innerHTML = "Job Status:<HR>";
+      runinfo.innerHTML += "Status: " + myStatus + "<BR>";
+      runinfo.innerHTML += "Steps: " + steps + "<BR>";
+      runinfo.innerHTML += "Lines Running: " + LinesOutstanding + "<BR>";      
+      runinfo.innerHTML += " Lines Killed: " + LinesKilled + "<BR>";      
+      runinfo.innerHTML += " Lines Closed: " + LinesClosed + "<BR>";      
    }
 
    function ev_canvas (ev) {
@@ -341,6 +336,7 @@ However, I hope it may be useful for other students as well.
          }
       }
       ctx.restore();
+      
    return;
    }
       
@@ -481,6 +477,11 @@ However, I hope it may be useful for other students as well.
        if ( (netCh < 0. && ChSgn[m] > 0.) || (netCh >= 0. && ChSgn[m] < 0.) ){ 
        if ( (Math.pow(x0 - Chx[m],2.) + Math.pow(y0 - Chy[m],2.)) < Math.pow(shift,2.) ){
            LinesClosed++;
+           if (LinesKilled + LinesClosed == LinesOutstanding){
+              myStatus = "Run complete";
+              document.getElementById("DrawButton").value="Draw Field Lines";
+              document.getElementById("DrawButton").style.background = "rgb(28, 184, 65)";
+           }
            update_run_info();
            return;
        }}
@@ -490,6 +491,11 @@ However, I hope it may be useful for other students as well.
    var dist2 = Math.pow( x0 - canvas.width/2, 2.0) + Math.pow( y0-canvas.height/2.,2.0);
    if ( Math.pow(dist2,0.5) > maxRadius ) {
         LinesKilled++;
+        if (LinesKilled + LinesClosed == LinesOutstanding){
+            myStatus = "Run complete";
+            document.getElementById("DrawButton").value="Draw Field Lines";
+            document.getElementById("DrawButton").style.background = "rgb(28, 184, 65)";
+        }
         update_run_info();
         return;
    }
@@ -497,9 +503,13 @@ However, I hope it may be useful for other students as well.
    if (StopRun == 1){
        DrawCharges(ctx); 
        steps=0;
+       myStatus = "Stopped";
        update_run_info();
-      return;
+       document.getElementById("DrawButton").value="Draw Field Lines";
+       document.getElementById("DrawButton").style.background = "rgb(28, 184, 65)";
+       return;
    }
+
 
    ctx.closePath();
    setTimeout(function(){drawSegment(ctx,x0,y0);},0);
@@ -516,11 +526,13 @@ However, I hope it may be useful for other students as well.
             document.getElementById("DrawButton").value="Draw Field Lines";
             document.getElementById("DrawButton").style.background = "rgb(28, 184, 65)";
             StopRun = 1;
+            myStatus = "Stopped";
         }
         else{
             document.getElementById("DrawButton").value="Stop";
             document.getElementById("DrawButton").style.background = "rgb(202, 60, 60)";
             StopRun = 0;
+            myStatus = "Running";
         }
         LinesOutstanding=0;
         LinesKilled=0;
