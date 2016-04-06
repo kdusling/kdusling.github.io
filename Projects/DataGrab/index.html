@@ -179,10 +179,25 @@ document.getElementById('main').addEventListener('mousemove', ev_mousemove, fals
 
 document.getElementById('main').addEventListener('keydown', ev_checkKey, false);
 
-blankimage = new Image();
-blankimage.src = 'http://kdusling.github.io/Projects/DataGrab/480px-No_image_template.svg.png';
+img = new Image();
+img.src = 'http://kdusling.github.io/Projects/DataGrab/higgs.png';
+
+ctxZoom = document.getElementById('zoom').getContext('2d');
 ctxMain = document.getElementById('main').getContext('2d');
-ctxMain.drawImage(blankimage,MainX/2.-50,MainY/2.-50,100,100 );
+ScaleX = img.width/MainX;
+ScaleY = img.height/MainY;
+   
+  img.onload = function(evt) {
+        ScaleX = MainX/this.width;
+        ScaleY = MainY/this.height;
+        if (ScaleX >= ScaleY) {
+           ScaleX = ScaleY;
+        } else {
+           ScaleY = ScaleX;
+        }
+        ctxMain.drawImage(img, 0,0, this.width*ScaleX, this.height*ScaleY);
+  }
+
 
 }
 
@@ -229,8 +244,10 @@ function ev_mousemove (e) {
    myX = x - document.getElementById('main').offsetLeft;
    myY = y - document.getElementById('main').offsetTop;
 
-DrawCoord();
-DrawZoom();
+   if (ctxZoom){
+      DrawCoord();
+      DrawZoom();
+    }
 }
 
 function DrawCoord()
@@ -241,7 +258,7 @@ function DrawCoord()
 
    if (logx) {
       var bx = Math.log(y1/y2)/(pt3y-pt4y);
-      var ax = y1/Math.exp(b*pt3y);
+      var ax = y1/Math.exp(bx*pt3y);
       realX = ax*Math.exp(bx*myX);
    } else {
       realX = (x2-x1)/(pt2x-pt1x)*(myX-pt1x)+x1;
@@ -249,7 +266,7 @@ function DrawCoord()
    
    if (logy) {
       var by= Math.log(y1/y2)/(pt3y-pt4y);
-      var ay = y1/Math.exp(b*pt3y);
+      var ay = y1/Math.exp(by*pt3y);
       realY = ay*Math.exp(by*myY);
    } else {
       realY = (y2-y1)/(pt4y-pt3y)*(myY-pt3y)+y1;
@@ -291,12 +308,12 @@ function DrawInfo()
 
 function writeInfoConsole(){
      
-   var mystr = ""; 
+   var mystr = "<PRE>"; 
    for (var i = 0; i < saveX.length; i++){
-       mystr += saveX[i].toFixed(3) + "  " + saveY[i].toFixed(3) + "\n";
+       mystr += saveX[i].toFixed(3) + "\t" + saveY[i].toFixed(3) + "\n";
    }
-
-writeConsole(mystr);
+   mystr += "</PRE>"
+   window.open().document.write(mystr);
 
 }
 
@@ -354,7 +371,6 @@ function handleFileSelect(evt) {
    document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
    ctxZoom = document.getElementById('zoom').getContext('2d');
    ctxMain = document.getElementById('main').getContext('2d');
-   img = new Image();
    url = window.URL || window.webkitURL;
    src = url.createObjectURL(myfile);
    img.src = src;
@@ -443,9 +459,9 @@ function writeConsole(content) {
    </div>
 </td>
 
-<td width=300px valign=top>
+<td width=300px valign=top style="padding-left: 1cm;">
 <div id="coord" style="border: 0px solid black; height: 50px; overflow: auto;"></div>
-<div id="info" style="border: 0px solid black; height: 400px; overflow: auto;"></div>
+<div id="info" style="border: 0px solid black; height: 170px; overflow: auto;"></div>
 <BR>
 <div style="cursor: pointer"  onclick="writeInfoConsole();"><font color="blue">Create text file</font></div>
 </td></tr>
