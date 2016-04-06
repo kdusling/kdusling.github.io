@@ -1,5 +1,13 @@
 <html>
-<head>
+    <head>
+
+        <title>Data Scraper</title>
+        <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+        <meta name="description" content="
+        This javascript code allows users to upload an image file
+        and scrape the data from it.  
+        "> 
+
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 <link rel="stylesheet" type="text/css" href="style.css" />
 
@@ -424,7 +432,7 @@ function writeConsole(content) {
 }
 
 </script>
-
+</head>
 <body onload="init()"
 
 <BR><BR>
@@ -471,6 +479,22 @@ function writeConsole(content) {
 <output id="list"><BR><BR><BR></output>
 </td></tr>
 </table>
+
+Instructions:<BR>
+<ol>
+    <li> Upload a file by clicking "Choose File"</li>
+    <li> Choose four reference points
+        <ul>
+            <li>Place mouse at given point 
+            <li>Press '1' for x<sub>1</sub>, '2' for x<sub>2</sub>, '3' for
+            y<sub>1</sub>, and '4' for y<sub>2</sub> 
+            <li>Enter values for x<sub>1</sub>, x<sub>2</sub>, y<sub>1</sub>,
+            y<sub>2</sub> under Axis Def'n</li>
+        </ul>
+        <li>Click on points to add data to list</li> 
+        <li>'Create text file'</li>
+        <li>Arrow keys with 'enter' can be used for better precision</li>
+    </ul>
 
 </body>
 </html>
