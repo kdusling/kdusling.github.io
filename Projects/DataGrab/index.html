@@ -401,11 +401,27 @@ function handleFileSelect(evt) {
 function AddPoint()
 {
    if (pt1x > 0 && pt2x > 0 && pt3x > 0 && pt4x >0){
+
+   if (logx) {
+      var bx = Math.log(y1/y2)/(pt3y-pt4y);
+      var ax = y1/Math.exp(bx*pt3y);
+      realX = ax*Math.exp(bx*myX);
+   } else {
       realX = (x2-x1)/(pt2x-pt1x)*(myX-pt1x)+x1;
-      realY = (y2-y1)/(pt4y-pt3y)*(myY-pt3y)+y1;
-      saveX.push(realX);
-      saveY.push(realY);
    }
+
+   if (logy) {
+      var by= Math.log(y1/y2)/(pt3y-pt4y);
+      var ay = y1/Math.exp(by*pt3y);
+      realY = ay*Math.exp(by*myY);
+   } else {
+      realY = (y2-y1)/(pt4y-pt3y)*(myY-pt3y)+y1;
+   } 
+       
+   saveX.push(realX);
+   saveY.push(realY);
+   }
+
 DrawInfo();
 }
 
