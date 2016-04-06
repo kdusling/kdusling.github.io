@@ -180,7 +180,7 @@ document.getElementById('main').addEventListener('mousemove', ev_mousemove, fals
 document.getElementById('main').addEventListener('keydown', ev_checkKey, false);
 
 blankimage = new Image();
-blankimage.src = '480px-No_image_template.svg.png';
+blankimage.src = 'http://kdusling.github.io/Projects/DataGrab/480px-No_image_template.svg.png';
 ctxMain = document.getElementById('main').getContext('2d');
 ctxMain.drawImage(blankimage,MainX/2.-50,MainY/2.-50,100,100 );
 
@@ -192,11 +192,11 @@ function ev_checkKey(e) {
 
     if (e.keyCode == '38') {
         // up arrow
-        myY ++;
+        myY --;
     }
     else if (e.keyCode == '40') {
         // down arrow
-        myY --;
+        myY ++;
     }
     else if (e.keyCode == '37') {
        // left arrow
