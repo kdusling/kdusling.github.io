@@ -401,6 +401,9 @@ function handleFileSelect(evt) {
 function AddPoint()
 {
    if (pt1x > 0 && pt2x > 0 && pt3x > 0 && pt4x >0){
+       
+   var logx = document.getElementById("logX").checked ;
+   var logy = document.getElementById("logY").checked ;
 
    if (logx) {
       var bx = Math.log(y1/y2)/(pt3y-pt4y);
