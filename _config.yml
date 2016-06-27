@@ -1,4 +1,6 @@
 name: Kevin Dusling
 markdown: kramdown
-source: ['editorial']
-include: ['editorial/temp.html']
+source: [editorial/]
+source: [editorial/temp.html]
+include: [editoria/]
+include: [editorial/temp.html]
