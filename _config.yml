@@ -1,3 +1,4 @@
 name: Kevin Dusling
 markdown: kramdown
 include: ['editorial']
+include: ['editorial/temp.html']
