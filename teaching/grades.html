@@ -1,0 +1,14 @@
+
+<script type="text/javascript">
+function search_navigate() {
+    var obj = document.getElementById("navbar_search");
+    var keyword = obj.value;
+    var dst = "http://yoursite.com/search/" + keyword;
+    window.location = dst;
+}
+</script>
+
+<span id="navbar_form">
+    <input type="search" placeholder="Search Articles..." id="navbar_search" />
+    <input type="button" id="navbar_submit" value="Submit" onClick="search_navigate()" />
+</span>
