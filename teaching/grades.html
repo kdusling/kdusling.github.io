@@ -1,13 +1,30 @@
-
+<!doctype html>
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta charset="utf-8">
+      <meta name="author" content="" />
+      <meta name="description" content="">
+      <title></title>
+      <link rel='stylesheet' href='styles/style.css' />
+      <link rel='stylesheet' href='styles/basscss.css' />
+      <link rel="stylesheet" href="styles/foundation-icons.css" />
+      <link rel="shortcut icon" href="favicon.png" />
+   </head>
 <script type="text/javascript">
 function search_navigate() {
     var obj = document.getElementById("navbar_search");
     var course = document.getElementById("course").value;
     var rid = document.getElementById("rid").value;
-    var dst = "https://docs.google.com/spreadsheets/d/" + course + "/gviz/tq?tqx=out:html&tq=SELECT%20*%20WHERE%20A%20CONTAINS%20%27ID%27%20OR%20A%20CONTAINS%20%27" + rid + "%27&gid=0";
+    var dst = "https://docs.google.com/spreadsheets/d/" + course + "/gviz/tq?tqx=out:html&tq=SELECT%20*      
+%20WHERE%20A%20CONTAINS%20%27ID%27%20OR%20A%20CONTAINS%20%27" + rid + "%27&gid=0";
     window.location = dst;
 }
 </script>
+
+<body>
+
+<div class="container px2">
 
 <span id="navbar_form">
 
@@ -19,3 +36,8 @@ function search_navigate() {
     <input type="search" placeholder="Student ID" id="rid" />
     <input type="button" id="navbar_submit" value="Submit" onClick="search_navigate()" />
 </span>
+
+</div>
+
+</body>
+</html>
