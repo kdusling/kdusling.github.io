@@ -2,13 +2,20 @@
 <script type="text/javascript">
 function search_navigate() {
     var obj = document.getElementById("navbar_search");
-    var keyword = obj.value;
-    var dst = "http://yoursite.com/search/" + keyword;
+    var course = document.getElementById("course").value;
+    var rid = document.getElementById("rid").value;
+    var dst = "https://docs.google.com/spreadsheets/d/" + keyword + "/gviz/tq?tqx=out:html&tq=SELECT%20*%20WHERE%20A%20CONTAINS%20%27ID%27%20OR%20A%20CONTAINS%20%27" + rid + "%27&gid=0";
     window.location = dst;
 }
 </script>
 
 <span id="navbar_form">
-    <input type="search" placeholder="Search Articles..." id="navbar_search" />
+
+    <select name="course" id="course">
+        <option selected="selected">Select One</option>
+        <option value="1tkBAWYsLpeK8NNYPKJa2V8-9PU_O9DQHwLK-vW9BFgY">MET 201</option>
+    </select>
+
+    <input type="search" placeholder="Student ID" id="rid" />
     <input type="button" id="navbar_submit" value="Submit" onClick="search_navigate()" />
 </span>
