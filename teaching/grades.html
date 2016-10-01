@@ -21,6 +21,7 @@ function search_navigate() {
       var ihtml = "<object style=\"width: 800px;\" type=\"text/html\" data=\"" + dst + "\" ></object>";
       
       document.getElementById("demo").innerHTML = ihtml;
+      document.getElementById("Legend1").display = "block";
     }
 </script>
   
@@ -47,11 +48,12 @@ function search_navigate() {
 
 <div id="demo" style="width:800px;"></div>
 
-<BR><BR>
+<div id="Legend1" style="width:800px; display: none;">
 Legend:<BR>
 P = Present<BR>
 A = Absent
- 
+</div>
+
 </section>
 
 </body>
