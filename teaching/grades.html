@@ -11,21 +11,17 @@
       <link rel='stylesheet' href='../styles/style.css' />
       <link rel='stylesheet' href='../styles/basscss.css' />
       <link rel="stylesheet" href="../styles/foundation-icons.css" />
-
       
 <script type="text/javascript">
     
-    function search_navigate() {
-         var obj = document.getElementById("navbar_search");
-         var course = document.getElementById("course").value;
-         var rid = document.getElementById("rid").value;
-         var dst = "https://docs.google.com/spreadsheets/d/" + course + "/gviz/tq?tqx=out:html&tq=SELECT%20*%20WHERE%20A%20=%20%27ID%27%20OR%20A%20=%20%27" + rid + "%27&gid=0";
-
-         var ihtml = '<object type="text/html" data=" . dst . '" ></object>';
-         document.getElementById("demo").innerHTML = ihtml;
-    
+function search_navigate() {
+      var obj = document.getElementById("navbar_search");
+      var course = document.getElementById("course").value;
+      var rid = document.getElementById("rid").value;
+      var dst = "https://docs.google.com/spreadsheets/d/" + course + "/gviz/tq?tqx=out:html&tq=SELECT%20*%20WHERE%20A%20=%20%27ID%27%20OR%20A%20=%20%27" + rid + "%27&gid=0";
+      var ihtml = '<object type="text/html" data=" . dst . '" ></object>';
+      document.getElementById("demo").innerHTML = ihtml;
     }
-
 </script>
   
   
@@ -45,10 +41,8 @@
     <input type="button" id="navbar_submit" value="Submit" onClick="search_navigate()" />
 </span>
 
-
 <div id="demo"><h2>Let AJAX change this text</h2></div>
 
-<button type="button" onclick="loadDoc()">Change Content</button>
 
 
 </div>
