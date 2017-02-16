@@ -33,18 +33,6 @@
 
 
 
-<style>
-table {
-    border-collapse: separate;
-    empty-cells: hide;
-}
-
-th,td {
-    padding: 15px;
-    text-align: left;
-} 
-</style>
-      
 <span id="navbar_form">
     Select Course: 
     <select name="course" id="course">
@@ -78,8 +66,8 @@ function search_navigate() {
       var dst = "https://docs.google.com/spreadsheets/d/" + course +
           "/gviz/tq?tqx=out:html&tq=SELECT%20*%20WHERE%20A%20=%20%27Student%20ID%27%20OR%20A%20=%20%27" + rid + "%27&gid=0";
 
-      var ihtml = "<object style=\"width: 2000px; border: 1px;\" type=\"text/html\" data=\"" + dst + "\" ></object>";
-      
+      var ihtml = "<link rel="stylesheet\" href="sheetstable.css\" /><object style=\"width: 2000px; border: 1px;\" type=\"text/html\" data=\"" + dst + "\" ></object>";
+
       document.getElementById("results").innerHTML = ihtml;
       document.getElementById("Legend1").style.display = 'block';
     }
