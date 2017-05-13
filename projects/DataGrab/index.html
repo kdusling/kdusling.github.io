@@ -463,7 +463,7 @@ DrawInfo();
 width=30px onclick='zoomsize*=1./1.1; DrawZoom();'><img style="cursor: pointer"
 align="right" src="48px-Gnome-zoom-out.svg.png" width=30px
 onclick='zoomsize*=1.1; if(zoomsize>zoomsizeMax){zoomsize = zoomsizeMax;}
-              DrawZoom(); '><BR>print(zoomsize);
+              DrawZoom(); '><BR>document.write(zoomsize);
 </span>
 <canvas id="zoom" style="align: right; border: 2px solid black" ></canvas><BR>
    <div style="border: 0px solid black">
