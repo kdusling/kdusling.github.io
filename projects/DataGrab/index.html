@@ -333,7 +333,7 @@ function writeInfoConsole(){
 
 function DrawZoom()
 {     
- zoominfo.innerHTML = zoomsize;
+ zoominfo.innerHTML = realY.toFixed(2) . " pixels";
 
    ctxZoom.drawImage(img, myX/ScaleX-zoomsize/2., myY/ScaleY-zoomsize/2., zoomsize,zoomsize,0,0,ZoomX, ZoomY);
 
@@ -465,8 +465,10 @@ DrawInfo();
 width=30px onclick='zoomsize*=1./1.1; DrawZoom();'><img style="cursor: pointer"
 align="right" src="48px-Gnome-zoom-out.svg.png" width=30px
 onclick='zoomsize*=1.1; if(zoomsize>zoomsizeMax){zoomsize = zoomsizeMax;}
-              DrawZoom(); '><BR><div id="zoominfo" style="border: 0px solid black;"></div>
+              DrawZoom(); '>
 </span>
+              <BR><div id="zoominfo" style="border: 0px solid
+                  black; align: right;"></div>
 <canvas id="zoom" style="align: right; border: 2px solid black" ></canvas><BR>
    <div style="border: 0px solid black">
    <table>
