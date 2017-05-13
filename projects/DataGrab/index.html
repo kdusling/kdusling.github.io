@@ -464,11 +464,10 @@ DrawInfo();
 <img style="cursor: pointer" align="right" src="48px-Gnome-zoom-in.svg.png"
 width=30px onclick='zoomsize*=1./1.1; DrawZoom();'><img style="cursor: pointer"
 align="right" src="48px-Gnome-zoom-out.svg.png" width=30px
-onclick='zoomsize*=1.1; if(zoomsize>zoomsizeMax){zoomsize = zoomsizeMax;}
-              DrawZoom(); '>
+onclick='zoomsize*=1.1; if(zoomsize>zoomsizeMax){zoomsize = zoomsizeMax;} DrawZoom(); '>
 </span>
-              <BR><div id="zoominfo" style="border: 0px solid
-                  black; align: right;"></div>
+<BR><div id="zoominfo" style="border: 0px solid black; align: right;"></div>
+
 <canvas id="zoom" style="align: right; border: 2px solid black" ></canvas><BR>
    <div style="border: 0px solid black">
    <table>
