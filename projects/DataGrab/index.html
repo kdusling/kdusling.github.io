@@ -290,7 +290,8 @@ function DrawCoord()
    if (pt1x > 0 && pt2x > 0 && pt3x > 0 && pt4x >0){
       var coord = document.getElementById("coord");
       coord.innerHTML = "x = " + realX.toFixed(4) + "   y= " + realY.toFixed(4);
-      coord.innerHTML += "<HR>"; 
+      coord.innerHTML += "<HR>";
+      coord.innerHTML += "<div style='cursor: pointer' onclick='writeInfoConsole();'><font color='blue'>Create text file</font></div> </td></tr>"
    }
 
 }
@@ -464,7 +465,7 @@ DrawInfo();
 <canvas id="zoom" style="align: right; border: 2px solid black" ></canvas><BR>
    <div style="border: 0px solid black">
    <table>
-   <tr><td colspan=2>Axis Definition</td><td></td></tr>
+   <tr><td colspan=2>Axis Definitions</td><td></td></tr>
    <tr><td><canvas id="pts1" style="border: 0px solid black" width=30px height=30px></canvas></td>
    <td> x<sub>1</sub>=<input type="text" style="width: 5em" tabindex=5  onchange='x1=parseFloat(this.value); DrawZoom();'><BR></td>
    <td rowspan=2 align=center><input type="checkbox" name="logX" id="logX" tabindex=9/>&nbsp;Log</td></tr>
