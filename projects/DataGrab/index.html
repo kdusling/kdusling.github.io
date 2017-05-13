@@ -333,8 +333,7 @@ function writeInfoConsole(){
 
 function DrawZoom()
 {     
- zoominfo.innerHTML = realY.toFixed(2) . "pixels";
-
+   zoominfo.innerhtml = zoomsize;     
    ctxZoom.drawImage(img, myX/ScaleX-zoomsize/2., myY/ScaleY-zoomsize/2., zoomsize,zoomsize,0,0,ZoomX, ZoomY);
 
    ctxZoom.beginPath();
