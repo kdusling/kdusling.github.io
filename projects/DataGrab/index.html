@@ -464,7 +464,7 @@ DrawInfo();
 <canvas id="zoom" style="align: right; border: 2px solid black" ></canvas><BR>
    <div style="border: 0px solid black">
    <table>
-   <tr><td colspan=2>Axis Def'n</td><td></td></tr>
+   <tr><td colspan=2>Axis Definition</td><td></td></tr>
    <tr><td><canvas id="pts1" style="border: 0px solid black" width=30px height=30px></canvas></td>
    <td> x<sub>1</sub>=<input type="text" style="width: 5em" tabindex=5  onchange='x1=parseFloat(this.value); DrawZoom();'><BR></td>
    <td rowspan=2 align=center><input type="checkbox" name="logX" id="logX" tabindex=9/>&nbsp;Log</td></tr>
@@ -494,18 +494,23 @@ DrawInfo();
 
 Instructions:<BR>
 <ol>
-    <li> Upload a file by clicking "Choose File"</li>
-    <li> Choose four reference points
+    <li> Upload an image file via "Choose File"</li>
+    <li> Choose four reference points from axes:
         <ul>
             <li>Place mouse at given point 
             <li>Press '1' for x<sub>1</sub>, '2' for x<sub>2</sub>, '3' for
             y<sub>1</sub>, and '4' for y<sub>2</sub> 
-            <li>Enter values for x<sub>1</sub>, x<sub>2</sub>, y<sub>1</sub>,
-            y<sub>2</sub> under Axis Def'n</li>
+            <li>Input values for x<sub>1</sub>, x<sub>2</sub>, y<sub>1</sub>,
+            y<sub>2</sub> under 'Axis Definitions'</li>
         </ul>
-        <li>Click on points to add data to list</li> 
-        <li>'Create text file'</li>
-        <li>Arrow keys with 'enter' can be used for better precision</li>
+    <li>Now that the scales have been set points can be added:
+		<ul>
+			<li>Simply click on any location on plot to add point to collection
+			<li>Alternatively, place cursor on plot and hit 'enter'
+			<li>Once cursor is on plot arrow keys can be used for better accuracy
+			<li>Use '+' and '-' to adjust zoom 
+		</ul>
+	<li>Use 'Create text file' to export values</li>
     </ul>
 
 </body>
