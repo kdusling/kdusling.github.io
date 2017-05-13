@@ -459,12 +459,16 @@ DrawInfo();
 </td>
 
 <td width=240 align="right">
-<img style="cursor: pointer" align="right" src="48px-Gnome-zoom-in.svg.png" width=50px onclick='zoomsize*=1./1.1; DrawZoom();'><img style="cursor: pointer" align="right" src="48px-Gnome-zoom-out.svg.png" width=50px onclick='zoomsize*=1.1; if(zoomsize>zoomsizeMax){zoomsize = zoomsizeMax;} DrawZoom(); '>
+<img style="cursor: pointer" align="right" src="48px-Gnome-zoom-in.svg.png"
+width=30px onclick='zoomsize*=1./1.1; DrawZoom();'><img style="cursor: pointer"
+align="right" src="48px-Gnome-zoom-out.svg.png" width=30px
+onclick='zoomsize*=1.1; if(zoomsize>zoomsizeMax){zoomsize = zoomsizeMax;}
+              DrawZoom(); '><BR>print(zoomsize);
 </span>
 <canvas id="zoom" style="align: right; border: 2px solid black" ></canvas><BR>
    <div style="border: 0px solid black">
    <table>
-   <tr><td colspan=2>Axis Definitions</td><td></td></tr>
+   <tr><td colspan=2>Axis Definitions:</td><td></td></tr>
    <tr><td><canvas id="pts1" style="border: 0px solid black" width=30px height=30px></canvas></td>
    <td> x<sub>1</sub>=<input type="text" style="width: 5em" tabindex=5  onchange='x1=parseFloat(this.value); DrawZoom();'><BR></td>
    <td rowspan=2 align=center><input type="checkbox" name="logX" id="logX" tabindex=9/>&nbsp;Log</td></tr>
