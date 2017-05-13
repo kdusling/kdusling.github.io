@@ -16,7 +16,6 @@
        and scrape the data from it.  
       "> 
 
-
 <script type="application/javascript">
 
 //this stores our saved point values
@@ -291,7 +290,6 @@ function DrawCoord()
       var coord = document.getElementById("coord");
       coord.innerHTML = "x = " + realX.toFixed(4) + "   y= " + realY.toFixed(4);
       coord.innerHTML += "<HR>";
-      coord.innerHTML += "<div style='cursor: pointer' onclick='writeInfoConsole();'><font color='blue'>Create text file</font></div> </td></tr>"
    }
 
 }
@@ -308,6 +306,7 @@ function DrawInfo()
        info.innerHTML += "     <img src='x.png' id='item" + i + "' ><BR>";
       
       }
+      info.innerHTML += "<div style='cursor: pointer' onclick='writeInfoConsole();'><font color='blue'>Create text file</font></div> </td></tr>"
 
       for (var i = 0; i < saveX.length; i++){
          document.getElementById("item"+i).onclick = function() {RemovePoint(this.id);}; 
@@ -447,7 +446,7 @@ DrawInfo();
 </script>
 </head>
 <body onload="init()"
-
+    <a href="help.html" target="_blank">View instructions</a>
 <BR><BR>
 
 <table border="0" cellpadding="5px">
