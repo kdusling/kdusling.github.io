@@ -756,8 +756,6 @@ Precision: <select id="dropError" class="pure-input-1-2" onchange="UpdateError()
 &nbsp;&nbsp;
 
 <input type="button" class="button-draw pure-button" id=DrawButton onclick="DrawFieldLines();" value = "Draw Field Lines">
-
-&nbsp;&nbsp;&nbsp;&nbsp; <a href="help.html">View Instructions</a>
 </td></tr>
 
 <tr><td>
@@ -766,8 +764,10 @@ Precision: <select id="dropError" class="pure-input-1-2" onchange="UpdateError()
       </canvas>
       </td>
       <td>
- <div id="info" style="width:200; height:195; border: 5px solid #FFFFFF;" valign=top ></div>
- <div id="runinfo" style="width:200; height:195; border: 5px solid #FFFFFF;" valign=top ></div>
+ <div id="info" style="width:200; height:195; border: 5px solid #FFFFFF;"
+     valign=top align=left></div>
+ <div id="runinfo" style="width:200; height:195; border: 5px solid #FFFFFF;"
+     valign=top align=left></div>
 </td>
 
 <tr><td colspan = 2>
@@ -777,6 +777,7 @@ Precision: <select id="dropError" class="pure-input-1-2" onchange="UpdateError()
 <button type="button" class="button-mine pure-button" onclick="StopRun=1;ClearField();">Clear Field Lines</button>
 <button type="button" class="button-mine pure-button" onclick="StopRun=1;Reset();">Clear Fields & Charges</button>
 <button type="button" class="button-mine pure-button" onclick="StopRun=1;Print();">Print</button>
+&nbsp;&nbsp;&nbsp;&nbsp; <a href="help.html">Instructions</a>
 </td></tr>
 </table>
 
