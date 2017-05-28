@@ -85,12 +85,14 @@ request.onload = function() {
     // split into lines
     var fileContentLines = fileContent.split( '\n' );
     // get a random index (line number)
-    var randomLineIndex = Math.floor( Math.random() * fileContentLines.length );
+    var randomLineIndex = Math.floor( Math.random() * fileContentLines.length / 4 );
     // extract the value
-    var randomLine = fileContentLines[ randomLineIndex ];
+    var quote = fileContentLines[ 4*randomLineIndex ];
+    var cite = fileContentLines[ 4*randomLineIndex+1 ];
+    var link = fileContentLines[ 4*randomLineIndex+2 ];
 
     // add the random line in a div
-    document.getElementById( 'qotd' ).innerHTML = randomLine;
+    document.getElementById( 'qotd' ).innerHTML = quote + cite + link;
 };
 request.open( 'GET', 'http://kdusling.github.io/quotes.txt', true );
 request.send();
