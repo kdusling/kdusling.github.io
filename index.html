@@ -92,7 +92,7 @@ request.onload = function() {
     var link = fileContentLines[ 4*randomLineIndex+2 ];
 
     // add the random line in a div
-    document.getElementById( 'qotd' ).innerHTML = quote + cite + link;
+    document.getElementById( 'qotd' ).innerHTML = quote + '&mdash <a href="' + link + ">" + author + "</a>";
 };
 request.open( 'GET', 'http://kdusling.github.io/quotes.txt', true );
 request.send();
