@@ -77,6 +77,26 @@ src='//cdn.clustrmaps.com/map_v2.js?cl=080808&w=300&d=JFxHUi0OGyqf72dVkRakL7RPSS
 </div>
 <div style="clear: both;"></div>
 
+<script type="text/javascript">
+var request = new XMLHttpRequest();
+request.onload = function() {
+    // get the file contents
+    var fileContent = this.responseText;
+    // split into lines
+    var fileContentLines = fileContent.split( '\n' );
+    // get a random index (line number)
+    var randomLineIndex = Math.floor( Math.random() * fileContentLines.length );
+    // extract the value
+    var randomLine = fileContentLines[ randomLineIndex ];
+
+    // add the random line in a div
+    document.getElementById( 'qotd' ).innerHTML = randomLine;
+};
+request.open( 'GET', 'http://kdusling.github.io/quotes.txt', true );
+request.send();
+</script>
+<div id="qotd"></div>
+
 
 
 <hr>
@@ -84,7 +104,7 @@ src='//cdn.clustrmaps.com/map_v2.js?cl=080808&w=300&d=JFxHUi0OGyqf72dVkRakL7RPSS
 <a href="https://github.com/"><img style="vertical-align:middle" src="/images/Octocat.png" height="20"></a>
 <span style=""><a href="http://kdusling.github.io/">Kevin Dusling</a> &nbsp;&nbsp; |
     &nbsp;&nbsp; <a href="/sitenav.html">site map</a> &nbsp;&nbsp; |
-    &nbsp; &nbsp; last modified: 14-May-2017</span> 
+    &nbsp; &nbsp; last modified: 28-May-2017</span> 
 </div>
 
 </body>
