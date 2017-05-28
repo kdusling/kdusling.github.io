@@ -85,12 +85,12 @@ request.onload = function() {
     // split into lines
     var fileContentLines = fileContent.split( '\n' );
     // get a random index (line number)
-    var randomLineIndex = Math.floor( Math.random() * fileContentLines.length / 4 );
+    var randomLineIndex = Math.floor( Math.random() * fileContentLines.length / 4 - 1 );
     // extract the value
 	alert(randomLineIndex);
-    var quote = fileContentLines[ 4*randomLineIndex ];
-    var cite = fileContentLines[ 4*randomLineIndex+1 ];
-    var link = fileContentLines[ 4*randomLineIndex+2 ];
+    var quote = fileContentLines[ 4*randomLineIndex+1 ];
+    var cite = fileContentLines[ 4*randomLineIndex+2 ];
+    var link = fileContentLines[ 4*randomLineIndex+3 ];
 
     // add the random line in a div
     document.getElementById( 'qotd' ).innerHTML = quote + '&mdash <a href="' + link + ">" + author + "</a>";
