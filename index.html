@@ -87,9 +87,9 @@ request.onload = function() {
     // get a random index (line number)
     var randomLineIndex = Math.floor( Math.random() * (fileContentLines.length / 4 - 1) );
     // extract the value
-    var quote = fileContentLines[ 0 ];
-    var cite = fileContentLines[ 1 ];
-    var link = fileContentLines[ 4*randomLineIndex*0+2 ];
+    var quote = fileContentLines[ randomLineIndex*0+33 ];
+    var cite = fileContentLines[ 4 ];
+    var link = fileContentLines[ 4*randomLineIndex*0+5 ];
 alert(quote);
 alert(cite);
 alert(link);
