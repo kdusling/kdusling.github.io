@@ -92,12 +92,12 @@ request.onload = function() {
     var link = fileContentLines[ 4*randomLineIndex+5 ];
 
     // add the random line in a div
-    document.getElementById( 'qotd' ).innerHTML = randomLineIndex + quot + "&nbsp;&nbsp;&mdash; <a href='" + link + "'>" + cite + "</a>";
+    document.getElementById( 'qotd' ).innerHTML = quot + "&nbsp;&nbsp;&mdash; <a href='" + link + "'>" + cite + "</a>";
 };
 request.open( 'GET', 'http://kdusling.github.io/quotes.txt', true );
 request.send();
 </script>
-<p id="qotd"></p>
+<p id="qotd" style="font-style: italic; margin:10px 5px 15px 20px;"></p>
 
 
 
