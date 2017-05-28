@@ -87,9 +87,9 @@ request.onload = function() {
     // get a random index (line number)
     var randomLineIndex = Math.floor( Math.random() * (fileContentLines.length / 4 - 1) );
     // extract the value
-    var quote = fileContentLines[ 4*randomLineIndex+1 ];
-    var cite = fileContentLines[ 4*randomLineIndex+2 ];
-    var link = fileContentLines[ 4*randomLineIndex+3 ];
+    var quote = fileContentLines[ 4*randomLineIndex ];
+    var cite = fileContentLines[ 4*randomLineIndex+1 ];
+    var link = fileContentLines[ 4*randomLineIndex+2 ];
 
     // add the random line in a div
     document.getElementById( 'qotd' ).innerHTML = randomLineIndex + "&mdash; <a href='" + link + "'>" + cite + "</a>";
