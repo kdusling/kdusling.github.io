@@ -3,62 +3,60 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>Data Scraper</title>
+      <title>Pipe and tube data</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta charset="utf-8">
       <meta name="author" content="Kevin Dusling" />
       <meta NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
       <link rel="stylesheet" href="/styles/foundation-icons.css" />
       <link rel='stylesheet' href='/styles/mystyle.css' />
-      <meta name="description" content="
-       This utility allows users to upload an image file
-       and scrape the data from it.  
+      <meta name="description" content="Find pipe sizes, diameters, wall thickness, flow areas and Darcy friction factor.
       "> 
 
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script type="text/javascript" src="pipes.js"></script>
+      <link rel="stylesheet" type="text/css" href="style.css">
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script type="text/javascript" src="pipes.js"></script>
 </head>
 
 
   <script type="text/javascript">
-//  alert(steelpipes.length);
-window.onload = function () {
-  var pipeselect = document.getElementById("pipeDropDown");
-  for(var i = 0; i < pipes.length; i++) {
-    var optG = document.getElementById(pipes[i].sch + pipes[i].mat);
-    var opt = document.createElement("option");
-    opt.textContent = pipes[i].display;
-    opt.innerHTML = pipes[i].display;
-    opt.value = pipes[i].id;
-    optG.appendChild(opt);
-   }
-}
 
-function update(ddlpipe){
-  document.getElementById("seltitle").setAttribute("disabled","true");
-  var selVal = ddlpipe.value;
+  window.onload = function () {
+    var pipeselect = document.getElementById("pipeDropDown");
+    for(var i = 0; i < pipes.length; i++) {
+      var optG = document.getElementById(pipes[i].sch + pipes[i].mat);
+      var opt = document.createElement("option");
+      opt.textContent = pipes[i].display;
+      opt.innerHTML = pipes[i].display;
+      opt.value = pipes[i].id;
+      optG.appendChild(opt);
+    }
+  }
 
-  var mypipe = pipes.find(x => x.id === ddlpipe.value);
-  var pipeinfo = document.getElementById("pipeinfo");
-   document.getElementById("npsin").innerHTML  =  mypipe.display;
-   document.getElementById("dnmm").innerHTML  =  mypipe.DN;
-   document.getElementById("odin").innerHTML = mypipe.od;
-   document.getElementById("odmm").innerHTML = (25.4*mypipe.od).toFixed(2);
-   document.getElementById("wtin").innerHTML = mypipe.t;
-   document.getElementById("wtmm").innerHTML = (25.4*mypipe.t).toFixed(2);
-   document.getElementById("idin").innerHTML = innerD(mypipe).toFixed(3);
-   document.getElementById("idmm").innerHTML = (25.4*innerD(mypipe)).toFixed(2);
-   document.getElementById("idft").innerHTML = (innerD(mypipe)/12.).toFixed(4);
-   document.getElementById("areain").innerHTML = area(mypipe).toFixed(3);
-   document.getElementById("areamm").innerHTML = (645.16*area(mypipe)).toFixed(3);
-   document.getElementById("areaft").innerHTML = (area(mypipe)/144.).toFixed(6);
-   document.getElementById("weight").innerHTML = weightus(mypipe).toFixed(2);
-   document.getElementById("weightsi").innerHTML = (1.48816*weightus(mypipe)).toFixed(2);
-   document.getElementById("eps").innerHTML = roughness(mypipe).toFixed(4);
-   document.getElementById("ft").innerHTML =  ffturb(mypipe).toFixed(3);
+  function update(ddlpipe){
+    document.getElementById("seltitle").setAttribute("disabled","true");
+    var selVal = ddlpipe.value;
 
-   drawChart(mypipe);
+    var mypipe = pipes.find(x => x.id === ddlpipe.value);
+    var pipeinfo = document.getElementById("pipeinfo");
+    document.getElementById("npsin").innerHTML  =  mypipe.display;
+    document.getElementById("dnmm").innerHTML  =  mypipe.DN;
+    document.getElementById("odin").innerHTML = mypipe.od;
+    document.getElementById("odmm").innerHTML = (25.4*mypipe.od).toFixed(2);
+    document.getElementById("wtin").innerHTML = mypipe.t;
+    document.getElementById("wtmm").innerHTML = (25.4*mypipe.t).toFixed(2);
+    document.getElementById("idin").innerHTML = innerD(mypipe).toFixed(3);
+    document.getElementById("idmm").innerHTML = (25.4*innerD(mypipe)).toFixed(2);
+    document.getElementById("idft").innerHTML = (innerD(mypipe)/12.).toFixed(4);
+    document.getElementById("areain").innerHTML = area(mypipe).toFixed(3);
+    document.getElementById("areamm").innerHTML = (645.16*area(mypipe)).toFixed(3);
+    document.getElementById("areaft").innerHTML = (area(mypipe)/144.).toFixed(6);
+    document.getElementById("weight").innerHTML = weightus(mypipe).toFixed(2);
+    document.getElementById("weightsi").innerHTML = (1.48816*weightus(mypipe)).toFixed(2);
+    document.getElementById("eps").innerHTML = roughness(mypipe).toFixed(4);
+    document.getElementById("ft").innerHTML =  ffturb(mypipe).toFixed(3);
+
+    drawChart(mypipe);
 }
 </script>
 
@@ -66,15 +64,13 @@ function update(ddlpipe){
 <body>
 
 
-  <div class="styled-select slate" style="display: inline-block; vertical-align: top">
-  <select id="pipeDropDown" onchange="update(this)">
-     <option id="seltitle">NPS (in) </option>
-     <optgroup id="40comSteel" label="Schedule 40"></optgroup>
-     <optgroup id="80comSteel" label="Schedule 80"></optgroup>
-     </optgroup>
-  </select>
-  </div>
-
+<div class="styled-select slate" style="display: inline-block; vertical-align: top">
+<select id="pipeDropDown" onchange="update(this)">
+   <option id="seltitle">NPS (in) </option>
+   <optgroup id="40comSteel" label="Schedule 40"></optgroup>
+   <optgroup id="80comSteel" label="Schedule 80"></optgroup>
+</select>
+</div>
 
 <div id="pipeinfo" style="display: inline-block;
 width: 650px;
@@ -82,19 +78,20 @@ padding: 5px;
 font-size: 18px;
 line-height: 1;
 border: 1px solid #ddd;
-
 border-radius: 5px;">
 
 <table>
   <tr><td rowspan=2>Nominal Pipe Size</td><td>NPS (in)</td><td>DN (mm)</td></tr>
   <tr><td id="npsin"></td><td id="dnmm"></td></tr>
 </table>
+
 <BR><BR>
 <table>
   <tr><td colspan=2>Outside Diameter</td><td colspan=2>Wall Thickness</td></tr>
   <tr><td>(in)</td><td>(mm)</td><td>(in)</td><td>(mm)</td>
   <tr><td id="odin"></td><td id="odmm"></td><td id="wtin"></td><td id="wtmm"></td>
 </table>
+
 <BR><BR>
 <table>
   <tr><td colspan=3>Inside Diameter</td><td colspan=3>Flow Area</td></tr>
@@ -112,6 +109,10 @@ border-radius: 5px;">
 
 <div id="moody_div"></div>
 
+</div>
+
+<div>
+ The data in the above table is based on ASME/ANSI B 36.10 Welded and Seamless Wrought Steel Pipe.
 </div>
 
 </body>
