@@ -1,0 +1,35 @@
+
+
+
+select{
+    width: 150px;
+    padding: 5px;
+    font-size: 18px;
+    line-height: 1;
+    border: 0;
+    border-radius: 5px;
+    height: 34px;
+    background: url("dwnarw.png") no-repeat right #ddd; background-size: 34px;
+    -webkit-appearance: none;
+    background-position-x: 115px;
+}
+
+table {
+    color: #333; /* Lighten up font color */
+    font-family: Helvetica, Arial, sans-serif; /* Nicer font */
+    border-collapse:
+    collapse; border-spacing: 0;
+    width: 650px;
+}
+
+td, th { border: 1px solid #CCC; height: 30px; } /* Make cells a bit taller */
+
+th {
+    background: #F3F3F3; /* Light grey background */
+    font-weight: bold; /* Make sure they're bold */
+}
+
+td {
+    background: #FAFAFA; /* Lighter grey background */
+    text-align: center; /* Center our text */
+}
