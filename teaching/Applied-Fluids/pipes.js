@@ -141,7 +141,7 @@ function drawChart(pipe) {
 
 
      var moodyOptions = {
-       title: "Moody's diagram for relativie roughness, D/\u03B5=" + (1.0/rr).toPrecision(3),
+       title: "Moody's diagram for relative roughness, \u03B5/D=" + (rr).toPrecision(3),
        legend: 'none',
        width: 600,
        height: 400,
