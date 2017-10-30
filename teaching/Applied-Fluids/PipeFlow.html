@@ -56,6 +56,14 @@
     document.getElementById("eps").innerHTML = roughness(mypipe).toFixed(4);
     document.getElementById("ft").innerHTML =  ffturb(mypipe).toFixed(3);
 
+    document.getElementById("Sy").innerHTML =  30000;
+    document.getElementById("St").innerHTML =  48000;
+    document.getElementById("SySI").innerHTML =  (30000./145.0377).toFixed(0);
+    document.getElementById("StSI").innerHTML =  (48000./145.0377).toFixed(0);
+    document.getElementById("burstpress").innerHTML =  (2.0*48000.*mypipe.t/mypipe.od).toFixed(0);
+    document.getElementById("burstpressSI").innerHTML =  (2.0*48000.*mypipe.t/mypipe.od/.145038).toFixed(0);
+    document.getElementById("workpress").innerHTML =  (2.0*30000.*mypipe.t/mypipe.od).toFixed(0);
+    document.getElementById("workpressSI").innerHTML =  (2.0*30000.*mypipe.t/mypipe.od/.145038).toFixed(0);
     drawChart(mypipe);
 }
 </script>
@@ -101,10 +109,20 @@ border-radius: 5px;">
 
 <BR><BR>
 <table>
+  <tr><td colspan=2>Yield Strength</td><td colspan=2>Ultimate (Tensile) Strength</td><td colspan=2>Ultimate burst pressure</td><td colspan=2>Internal pressure at minimum yield</td></tr>
+  <tr><td>(psi)</td><td>(MPa)</td><td>(psi)</td><td>(MPa)</td><td>(psi)</td><td>(kPa)</td><td>(psi)</td><td>(kPa)</td></tr>
+  <tr><td id="Sy"></td><td id="SySI"></td><td id="St"></td><td id="StSI"></td>
+  <td id="burstpress"></td><td id="burstpressSI"></td><td id="workpress"></td><td id="workpressSI"></td></tr>
+</table>
+
+<BR><BR>
+<table>
     <tr><td colspan=2>Weight</td><td rowspan=2>Absolute<BR>Roughness (in)</td><td rowspan=2>Friction factor in zone<BR> of complete turbulence, <em>f<sub>T</sub></em>.</td></tr>
   <tr><td>(lb/ft)</td><td>(kg/m)</td></tr>
   <tr><td id="weight"></td><td id="weightsi"></td><td id="eps"></td><td id="ft"></td>
 </table>
+
+
 
 <div id="moody_div">
 </div>
@@ -112,6 +130,8 @@ border-radius: 5px;">
 <div style="font-size: 10pt">
  The data in the above table is based on ASME/ANSI B 36.10 Welded and Seamless Wrought Steel Pipe.
  Friction factor is calculated from numerical solution of Colebrook-White equation.
+ <BR><BR>
+ Burst pressure and minimum yield pressures are based on ASTM Specification A53 Grade A pipe with minimum tensile strength of 48,000 psi and yield strength of 30,000 psi.
 </div>
 
 
