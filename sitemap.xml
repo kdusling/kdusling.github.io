@@ -1,27 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
 
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-<?xml version="1.0" encoding="UTF-8"?>
-
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-   <url>
-
-      <loc>https://kdusling.github.io/</loc>
-
-      <lastmod>2017-01-01</lastmod>
-
-      <changefreq>monthly</changefreq>
-
-      <priority>1.0</priority>
-
-   </url>
-
-   <url>
-
-      <loc>https://kdusling.github.io/teaching/Applied-Fluids/PipeFlow.html</loc>
-
-      <changefreq>yearly</changefreq>
-
-   </url>
-
-</urlset>
+   <url>
+
+      <loc>https://kdusling.github.io/</loc>
+
+      <lastmod>2017-01-01</lastmod>
+
+      <changefreq>monthly</changefreq>
+
+      <priority>1.0</priority>
+
+   </url>
+
+   <url>
+
+      <loc>https://kdusling.github.io/teaching/Applied-Fluids/PipeFlow.html</loc>
+
+      <changefreq>yearly</changefreq>
+
+   </url>
+
+</urlset>
