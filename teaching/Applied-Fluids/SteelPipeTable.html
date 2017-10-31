@@ -1,0 +1,123 @@
+
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Pipe and tube data</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta charset="utf-8">
+      <meta name="author" content="Kevin Dusling" />
+      <meta NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+
+      <meta name="description" content="Find pipe sizes, diameters, wall thickness, flow areas and Darcy friction factor.
+      Schedule 40 and Schedule 80 steel pipes">
+
+      <script type="text/javascript" src="pipes.js"></script>
+      <style>
+
+     body {
+       font-family: "Helvetica Neue", Helvetica, Arial;
+       font-size: 11px;
+       line-height: 14px;
+       font-weight: 400;
+       color: #373D3F;
+       -webkit-font-smoothing: antialiased;
+       font-smoothing: antialiased;
+       background: #FFFFFF;
+     }
+
+     table {
+       margin: 0 0 0 0;
+       width: 100%;
+     }
+
+
+     tr {
+       background: #f6f6f6;
+     }
+     tr:nth-of-type(odd) {
+       background: #e9e9e9;
+     }
+     td {
+       padding: 2px 2px;
+       text-align: center;
+     }
+
+     </style>
+
+
+</head>
+
+
+  <script type="text/javascript">
+
+  window.onload = function () {
+    var pipeselect = document.getElementById("pipeDropDown");
+    for(var i = 0; i < pipes.length; i++) {
+      var table = document.getElementById("myTable");
+      var row = table.insertRow(i+2);
+
+      var mypipe=pipes[i];
+
+      if (mypipe.sch != 40){
+        continue;
+      }
+
+      var cell = row.insertCell(-1);
+      cell.innerHTML =  mypipe.display;
+      cell = row.insertCell(-1);
+      cell.innerHTML =  mypipe.DN;
+      cell = row.insertCell(-1);
+      cell.innerHTML = (mypipe.od).toFixed(3);
+      cell = row.insertCell(-1);
+      cell.innerHTML =  (25.4*mypipe.od).toFixed(1);
+      cell = row.insertCell(-1);
+      cell.innerHTML =  (mypipe.t).toFixed(3);
+      cell = row.insertCell(-1);
+      cell.innerHTML =  (25.4*mypipe.t).toFixed(2);
+      cell = row.insertCell(-1);
+      cell.innerHTML = innerD(mypipe).toFixed(3);
+      cell = row.insertCell(-1);
+      cell.innerHTML = (25.4*innerD(mypipe)).toFixed(1);
+      cell = row.insertCell(-1);
+      cell.innerHTML =  (innerD(mypipe)/12.).toPrecision(4);
+      cell = row.insertCell(-1);
+      cell.innerHTML =  area(mypipe).toPrecision(4);
+      cell = row.insertCell(-1);
+      cell.innerHTML = parseFloat((645.16*area(mypipe)).toPrecision(4));
+      cell = row.insertCell(-1);
+      cell.innerHTML = (area(mypipe)/144.).toPrecision(4);
+      cell = row.insertCell(-1);
+      cell.innerHTML = weightus(mypipe).toFixed(2);
+      cell = row.insertCell(-1);
+      cell.innerHTML = (1.48816*weightus(mypipe)).toFixed(2);
+      cell = row.insertCell(-1);
+      cell.innerHTML = (2.0*24500.*mypipe.t/mypipe.od).toFixed(0);
+      cell = row.insertCell(-1);
+      cell.innerHTML = (2.0*24500.*mypipe.t/mypipe.od/.145038).toFixed(0);
+      cell = row.insertCell(-1);
+      cell.innerHTML =  ffturb(mypipe).toFixed(3);
+    }
+  }
+
+
+</script>
+
+
+<body>
+
+<table id="myTable">
+  <tr style="font-weight: 900; color: #ffffff; background: #2980b9;"><td colspan=2>Nominal Pipe Size</td><td colspan=2>Outside Diameter</td><td colspan=2>Wall Thickness</td><td colspan=3>Inside Diameter</td><td colspan=3>Flow Area</td><td colspan=2>Weight</td><td colspan=2>Maximum allowable pressure</td><td rowspan=2>Friction factor in zone<BR> of complete turbulence, <em>f<sub>T</sub></em>.</td></tr>
+  <tr style="font-weight: 900; color: #ffffff; background: #2980b9;"><td>NPS (in)</td><td>DN (mm)</td><td>(in)</td><td>(mm)</td><td>(in)</td><td>(mm)</td><td>(in)</td><td>(mm)</td><td>(ft)</td><td>(in<sup>2</sup>)</td><td>(mm<sup>2</sup>)</td><td>(ft<sup>2</sup>)</td><td>(lb/ft)</td><td>(kg/m)</td><td>(psi)</td><td>(kPa)</td></tr>
+</table>
+
+
+<div style="font-size: 10pt">
+ The data in the above table is based on ASME/ANSI B 36.10 Welded and Seamless Wrought Steel Pipe.
+ Friction factor is calculated with roughness 0.0018 in from numerical solution of Colebrook-White equation.
+ <BR><BR>
+ Burst pressure and minimum yield pressures are based on ASTM Specification A53 Grade A pipe with minimum tensile strength of 48,000 psi and yield strength of 30,000 psi.
+</div>
+
+</body>
+</html>
