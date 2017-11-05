@@ -1,0 +1,219 @@
+
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Pipe and tube data</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta charset="utf-8">
+      <meta name="author" content="Kevin Dusling" />
+      <meta NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+      <meta name="description" content="">
+
+      <link rel="stylesheet" type="text/css" href="style.css">
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+
+
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart', 'line']});
+
+    var bases = [0,11,20,32,47,51,71,84.852];
+    var dTdh = [-6.5, 0.0, 1.0, 2.8, 0.0, -2.8, -2.0];
+
+    var Tb = [288.150];
+    var Pb = [101325];
+    var Erad = 6356.766; // Earth radius in km
+    var M = 28.9644; // mean molecular weight of air (grams/mole)
+    var R = 8.31432; // joules / (K mole)
+    var GMR = 34.1631947; //hydrostatic constant (K/km)
+    var G = GMR*R/M; //gravity at sea level
+
+    for(var i = 1; i <= 7; i++) {
+		   Tb [i] = Tb[i-1] + dTdh[i-1]*(bases[i] - bases[i-1]);
+       if (dTdh[i-1] == 0.0){
+         Pb [i] = Pb[i-1]*Math.exp(-GMR*(bases[i] - bases[i-1])/Tb[i-1]);
+       } else {
+         Pb [i] = Pb[i-1]*Math.pow(1 + dTdh[i-1]*(bases[i] - bases[i-1])/Tb[i-1],-GMR/dTdh[i-1]);
+       }
+	  }
+
+    function atmprop(z){
+
+      //z is the geometric altitude and h is the geopotential altitude
+      var h = Erad*z/(Erad+z);
+      var gratio = Math.pow(Erad/(z+Erad),2);
+
+      var baseindex = bases.findIndex(function(element, index, array){return element > h})-1;
+      T =  Tb[baseindex] + dTdh[baseindex]*(h-bases[baseindex]);
+      if (dTdh[baseindex] == 0.0){
+        P = Pb[baseindex]*Math.exp(-GMR*(h- bases[baseindex])/Tb[baseindex]);
+      } else {
+        P = Pb[baseindex]*Math.pow(1 + dTdh[baseindex]*(h- bases[baseindex])/Tb[baseindex],-GMR/dTdh[baseindex]);
+      }
+
+      N = M*P/(1000.*R*T);
+
+	    return {z: z, h: h, t: T, g: G*gratio, p: P, n:N};
+    }
+
+  window.onload = function () {
+//drawChart();
+    }
+
+function drawChart() {
+
+  var datalin = new google.visualization.DataTable();
+  datalin.addColumn('number', 'altitude (km)');
+  datalin.addColumn('number', 'Temp (C)');
+  datalin.addColumn('number', 'g');
+  datalin.addColumn('number', 'p');
+  datalin.addColumn('number', 'n');
+  datalin.addColumn({'type': 'string', 'role': 'tooltip', 'p': {'html': true}});
+
+  datalin.addRows(87);
+
+  for(var i = 0; i <= 86; i++) {
+    var props = atmprop(i);
+    datalin.setCell(i, 0, props.z );
+    datalin.setCell(i, 1, props.t-273.15 );
+    datalin.setCell(i, 2, props.g );
+    datalin.setCell(i, 3, props.p );
+    datalin.setCell(i, 4, props.n );
+    var tooltip = "<div style='padding:5px 5px 5px 5px;'>";
+    tooltip += "Altitude: " + props.z + " km<BR>";
+    tooltip += "Temperature: " + (props.t-273.15).toFixed(1) + " [\u00B0C]<BR>";
+    tooltip += "g: " + (props.g).toFixed(2) + " m/s<sup>2</sup><BR>" ;
+    tooltip += "p: " + (props.p).toFixed(2) + " Pa<BR>" ;
+    tooltip += "n: " + (props.n).toPrecision(3) + " kg/m<sup>3</sup><BR>" ;
+    tooltip += "</div>";
+    datalin.setCell(i, 5, tooltip );
+  }
+
+
+     var options = {
+       vAxes: {
+            0: {
+              title: 'altitude (km)',
+              viewWindowMode:'explicit',
+              viewWindow: {max:100,min:0},
+              ticks: [0, 20, 40, 60, 80, 100]
+            }
+        },
+       series: {0: { targetAxisIndex:0},
+       },
+       title: "Standard Atmosphere" ,
+       legend: 'none',
+       tooltip: {isHtml: true},
+       width: 600,
+       height: 400,
+        hAxis: {
+         title: "Temperature [\u00B0C]",
+         scaleType: 'linear',
+       },
+     };
+
+     // Create a view that shows everyone hired since 2007.
+     var view = new google.visualization.DataView(datalin);
+     view.setColumns([1,0,5]);
+     //view.setRows(view.getFilteredRows([{column: 1}]));
+     var chart = new google.visualization.LineChart(document.getElementById('Temp_div'));
+     chart.draw(view, options);
+}
+
+function update(){
+  var altstr =document.getElementById("alt").value;
+  var alt = parseFloat( altstr.replace(/[^\d\.]/g,'') );
+  var units = document.getElementById("units").value;
+
+  var unitflag;
+  var altkm;
+
+  if (units == "kilometers")
+  {
+    unitflag = "SI";
+    altkm = alt;
+  }
+  if (units == "meters")
+  {
+    unitflag = "SI";
+    altkm = alt/1000.;
+  }
+
+  if (units === "feet")
+  {
+      unitflag = "US";
+      altkm = alt/3280.84;
+  }
+
+  if (units === "miles")
+  {
+      unitflag = "US";
+      altkm = alt*1.609344;
+  }
+
+  var res = document.getElementById("results");
+  res.innerHTML = "";
+
+  if (altkm < 0 || altkm > 84.852 )
+  {
+  res.innerHTML = "<font style='color: red'>Sorry, this program only computes up to altitudes of 84 km.</font>";
+  return;
+  }
+
+
+  var props = atmprop(altkm);
+
+
+  if (unitflag == "SI"){
+    res.innerHTML += "Altitude: " + (altkm).toFixed(1) + " km<BR>" ;
+    res.innerHTML += "Temperature: " + (props.t-273.15).toFixed(2) + " \u00B0C<BR>";
+    res.innerHTML += "Pressure: " + (props.p).toFixed(3) + " Pa<BR>" ;
+    res.innerHTML += "Density: " + (props.n).toPrecision(3) + " kg/m<sup>3</sup><BR>" ;
+    res.innerHTML += "accl. of gravity: " + (props.g).toFixed(2) + " m/s<sup>2</sup><BR>" ;
+  }
+
+  if (unitflag == "US"){
+    res.innerHTML += "Altitude: " + (altkm*3280.84).toFixed(1) + " ft<BR>" ;
+    res.innerHTML += "Temperature: " + (9.0/5.0*(props.t-273.15) + 32.0).toFixed(2) + " \u00B0F<BR>";
+    res.innerHTML += "Pressure: " + (props.p/6894.76).toFixed(3) + " psi<BR>" ;
+    res.innerHTML += "Density: " + (props.n/515.379).toPrecision(3) + " kg/m<sup>3</sup><BR>" ;
+    res.innerHTML += "accl. of gravity: " + (3.2808399*props.g).toFixed(2) + " m/s<sup>2</sup><BR>" ;
+  }
+
+
+}
+
+</script>
+
+
+<body>
+
+  <!--<div id="Temp_div"> </div>-->
+
+  <h1 style="color: #2980b9; font-weight: 900;" id=title>The 1976 U.S. Standard Atmosphere</h1>
+
+
+  <div style="display: inline-block; vertical-align: top; font-size: 18px">
+  Altitude: <input name="alt" type="text" id="alt">
+  <select id="units">
+     <option id="km">kilometers</option>
+     <option id="ft">feet</option>
+     <option id="ft">meters</option>
+     <option id="ft">miles</option>
+  </select>
+  <button type="button" onclick="update()">Compute</button>
+
+<BR><BR>
+  <div id="results" style="font-size: 18px; background-color: #FAFAFA;
+  padding: 5px 5px; border-radius: 5px; border: 1px solid #CCC;">Computes the 1976 U.S. standard atmosphere.  <BR>For more information see
+  <a href="http://www.pdas.com/atmos.html">PDAS</a> and <a href="https://en.wikipedia.org/wiki/U.S._Standard_Atmosphere">Wikipedia</a>.</div>
+
+ </div>
+
+
+
+
+
+</body>
+</html>

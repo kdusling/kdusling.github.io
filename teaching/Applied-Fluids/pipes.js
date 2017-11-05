@@ -102,9 +102,7 @@ function FrictionFactor(Re, rr)
 return c;
 }
 
-
 google.charts.load('current', {'packages':['corechart', 'line']});
-//google.charts.setOnLoadCallback(drawChart);
 
 function drawChart(pipe) {
 
