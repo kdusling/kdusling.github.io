@@ -177,8 +177,8 @@ function update(){
     res.innerHTML += "Altitude: " + (altkm*3280.84).toFixed(1) + " ft<BR>" ;
     res.innerHTML += "Temperature: " + (9.0/5.0*(props.t-273.15) + 32.0).toFixed(2) + " \u00B0F<BR>";
     res.innerHTML += "Pressure: " + (props.p/6894.76).toFixed(3) + " psi<BR>" ;
-    res.innerHTML += "Density: " + (props.n/515.379).toPrecision(3) + " kg/m<sup>3</sup><BR>" ;
-    res.innerHTML += "accl. of gravity: " + (3.2808399*props.g).toFixed(2) + " m/s<sup>2</sup><BR>" ;
+    res.innerHTML += "Density: " + (props.n/515.379).toPrecision(3) + " slugs/ft<sup>3</sup><BR>" ;
+    res.innerHTML += "accl. of gravity: " + (3.2808399*props.g).toFixed(2) + " ft/s<sup>2</sup><BR>" ;
   }
 
 
