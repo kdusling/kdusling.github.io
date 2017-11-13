@@ -1,0 +1,217 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dimensions & Units</title>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="html-table-of-contents.js" type="text/javascript"></script>
+</head>
+<body  onload="htmlTableOfContents();">
+\(
+\newcommand{\s}{\mathrm{s}}
+\newcommand{\hr}{\mathrm{hr}}
+\newcommand{\kg}{\mathrm{kg}}
+\newcommand{\kN}{\mathrm{kN}}
+\newcommand{\inch}{\mathrm{in}}
+\newcommand{\ft}{\mathrm{ft}}
+\newcommand{\m}{\mathrm{m}}
+\newcommand{\cm}{\mathrm{cm}}
+\newcommand{\lb}{\mathrm{lb}}
+\newcommand{\lbm}{\mathrm{lbm}}
+\newcommand{\lbf}{\mathrm{lbf}}
+\newcommand{\N}{\mathrm{N}}
+\newcommand{\slug}{\mathrm{slug}}
+\newcommand{\Pa}{\mathrm{Pa}}
+\newcommand{\mph}{\mathrm{mph}}
+\renewcommand{\psi}{\mathrm{psi}}
+\newcommand{\C}{^\circ\mathrm{C}}
+\newcommand{\F}{^\circ\mathrm{F}}
+\)
+
+<h1>Dimensions & Units</h1>
+
+<p>
+As you will soon discover a fluency with unit conversions is absolutely essential.
+A careful watch over units can prevent errors
+from occurring and in some instances a problem can be solved by dimensional analysis alone.
+</p>
+
+<p>
+Though used interchangeably there is a subtle distinction between the meaning of the words unit and dimension.
+A <em>dimension</em> is a measure of some physical quantity without assigning it a numerical value.
+A choice of <em>units</em> is a way to assign a numeric value to a given dimension.
+For example, length is a dimension and it can be expressed in units of meters,
+feet, inches, fathoms (1 fathom = 6 ft), etc.
+</p>
+
+<p>
+There are seven primary (or base) dimensions:  mass, length, time, temperature,
+electric current, amount of light, and amount of matter.
+In fluid mechanics we will make use of the first four: mass, length, time, and temperature.
+</p>
+
+<p>
+From these base dimensions other derived quantities can be defined.  A simple example of a derived quantity is that of area.  Area has dimensions of length squared and the units can be anything from $\cm^2$, m$^2$, ft$^2$, acres ($1~\textrm{acre}=43,560~\ft^2$), barns ($1~\textrm{barn} = 10^{-28}~\m^2$), etc. Examples of other derived quantities that you are already familiar
+with include volume, velocity, acceleration, and force.
+</p>
+
+<p>
+After a <a href="https://www.vox.com/2014/5/29/5758542/time-for-the-US-to-use-the-metric-system">failed effort</a> to move the United States over to the metric system we are unfortunately burdened with the use of two disparate system of units. If you live/work in the United States you must know both.
+</p>
+<p>
+We first introduce the International System of Units (SI) which is closely related (often used synonymously) with the metric system.  <a href="#tabSI">Table 1</a> shows an abbreviated list of units in the SI system.  NIST <a href="https://physics.nist.gov/cuu/Units/index.html">hosts a great website</a> on SI units.
+</p>
+
+<table id="tabSI">
+<caption>Table 1: The international system of units (SI).
+Force is a derived unit and can be expressed in terms
+of SI base units as $\mathrm{N}=\mathrm{kg}\cdot \mathrm{m/s}^2$.
+</caption>
+         <tr><th>Quantity</th><th>Name</th><th> Symbol</th></tr>
+         <tr><td>length  </td><td> meter    </td><td> m </td></tr>
+         <tr><td>time    </td><td> second   </td><td> s  </td></tr>
+         <tr><td>mass    </td><td> kilogram </td><td> kg  </td></tr>
+         <tr><td>temperature </td><td> Kelvin </td><td> K </td></tr>
+         <tr><td>force   </td><td> Newton   </td><td> N</td></tr>
+</table>
+
+
+<p>
+The second set of units we will use is the U.S. customary system (USCS or USC) which is closely related (many times used synonymously) with the English or Imperial system.  <a href="#tabUS">Table 2</a> shows an abbreviated list of units in the U.S. customary system.
+</p>
+
+<table  id="tabUS">
+<caption>Table 2: The U.S. customary system of units.
+Mass is a derived unit and can be expressed in terms of USC base units as $\slug=\lb\cdot s^2/\ft$.
+</caption>
+<tr><th>Quantity</th><th>Name</th><th> Symbol</th></tr>
+        <tr><td>length  </td><td>  foot    </td><td>  ft</td></tr>
+        <tr><td>time    </td><td>  second   </td><td>  s </td></tr>
+        <tr><td>force   </td><td>  pound </td><td>  lb  </td></tr>
+        <tr><td>temperature </td><td>  Fahrenheit </td><td> $^\circ$F </td></tr>
+        <tr><td>mass    </td><td>  slug   </td><td>   lb$\cdot$s$^2$/ft </td></tr>
+
+</table>
+<p>
+Sometimes you will hear the term <em>SAE</em> used in regard to tools, bolts and fasteners.  This refers to sizes measured in inches as specified by the Society of Automotive Engineers which used USC one time ago.  The society itself now uses metric
+(though the term <em>SAE</em> when used in the context of sizes still indicates USC).
+</p>
+
+<h2>Unit Conversion</h2>
+
+
+<div class="example">
+A car travelling at 60 mph has a kinetic energy of 240,000 ft-lbs.  Compute the car's mass.
+
+<hr>
+
+First we need to convert mph into the base units of ft/s.
+$$
+\require{cancel}
+60~\mph=60\frac{\cancel{\textrm{mile}}}{\cancel{\hr}}\times \frac{1~\cancel{\hr}}{3600~\s}\times\frac{5280~\ft}{1~\cancel{\textrm{mile}}}=88~\ft/\s
+$$
+
+The kinetic energy of the car is
+$$
+\textrm{KE}=\frac{1}{2}mv^2\,.
+$$
+We can rearrange this expression to solve for the mass
+$$
+m=\frac{2\textrm{KE}}{v^2}=\frac{2\times 240,000~\ft\cdot\lb}{\left(88~\ft/\s\right)^2}=62~\cancel{\ft}\cdot\lb\frac{\s^2}{\ft^{\cancel{2}}}=62~\lb\cdot\s^2/\ft
+$$
+From <a href="#tabUS">table 2</a> we see that lb$\cdot$s$^2$/ft is a slug and therefore our final result for the mass is
+$$
+m=62~\slug
+$$
+
+In case you are curious this happens to weigh about 2000 pounds.
+</div>
+
+<h2>Weight vs. Mass</h2>
+
+<p>
+You've heard this before but students still get this confused;
+The weight and mass of an object are two fundamentally different concepts.
+The mass of an object quantifies the amount of substance.
+It is unchanging;  15 kg of steel (15 kg happens to be about 1 slug) is 15 kg
+of steel whether it is on the earth's surface, on the moon or floating around
+in interstellar space.
+</p>
+
+<p>
+The weight of an object is the force produced by a mass when acted upon by gravity.
+$$
+\begin{align}
+    \textrm{weight}&=\textrm{mass}\times\textrm{acceleration due to gravity}\\
+    w&=mg
+\end{align}
+$$
+
+Unless specified otherwise the acceleration due to gravity on earth is $g=9.81~\m/\s^2$ when using SI units and $g=32.2~\ft/\s^2$ in USCS.
+</p>
+
+<div class="example">
+A steel ball of mass 30 kg is suspended from a wire.  What is the tension in the wire?
+
+<hr>
+
+The tension in the wire will be the weight of the steel ball.  Using $w=mg$ we have
+\begin{equation}
+w=30~\kg \times 9.81~\frac{\m}{\s^2}=294~\frac{\kg\cdot\m}{\s^2}=294~\N\nonumber
+\end{equation}
+
+</div>
+
+<h3>Pound-Mass vs. Pound-Force</h3>
+
+<p>
+To add to this nightmare of two systems an additional confusion arises as some use a different unit for mass called pound-mass (lbm) instead of the unit of slugs.  While the name of this unit has the word `pound' in it, lbm is {\em not} a unit of force but a unit of mass.  It is related to the base unit of slug through
+$$
+32.2~\lbm=1~\slug
+$$
+
+So if you are given an object's mass (not weight) in units of lbm you will first need to convert it to slugs before using it in equations.  The weight of an object (which is a force) is sometimes then designated as pounds-force (lbf).  Unlike lbm which is a unit of mass the lbf is, as expected, a unit of force.
+</p>
+
+<div class="example">
+A steel ball of mass 100 lbm is suspended from a wire.  What is the tension in the wire if this setup is located at the surface of the earth?  How about at the surface of the Moon where $g=5.4$ ft/s$^2$?
+
+<hr>
+
+First we convert from lbm to slugs.
+
+$$
+100~\lbm=100~\cancel{\lbm}\times\frac{1~\slug}{32.2~\cancel{\lbm}}=3.11~\slug
+$$
+
+Now that we have the mass in terms of the base units of slugs we use $w=mg$,
+
+$$
+w=3.11~\slug \times 32.2~\frac{\ft}{\s^2}=100~\frac{\slug\cdot\ft}{\s^2}=100~\lbf\nonumber
+$$
+
+The above example should motivate why the unit of pound-mass was introduced;  A mass of 1 lbm on the earth's surface has a weight of 1 lbf.  On the moon the tension in the wire would be
+
+$$
+w=3.11~\slug \times 5.4~\frac{\ft}{\s^2}=16.8~\frac{\slug\cdot\ft}{\s^2}=16.8~\lbf\nonumber
+$$
+
+So the relation that a mass of 1 lbm has a weight of 1 lbf is only true when $g$ is taken at its standard value.
+
+</div>
+
+<p>
+References:<BR>
+<a href="http://www.cengage.com/resource_uploads/downloads/1111136025_277026.pdf">Systems of Units and Conversion Factors (pdf)</a>
+</p>
+
+</body>
+</html>

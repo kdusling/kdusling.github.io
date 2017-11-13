@@ -1,0 +1,177 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Minor Losses</title>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="html-table-of-contents.js" type="text/javascript"></script>
+</head>
+<body  onload="htmlTableOfContents();">
+\(
+\newcommand{\s}{\mathrm{s}}
+\newcommand{\hr}{\mathrm{hr}}
+\newcommand{\kg}{\mathrm{kg}}
+\newcommand{\kN}{\mathrm{kN}}
+\newcommand{\inch}{\mathrm{in}}
+\newcommand{\ft}{\mathrm{ft}}
+\newcommand{\m}{\mathrm{m}}
+\newcommand{\cm}{\mathrm{cm}}
+\newcommand{\lb}{\mathrm{lb}}
+\newcommand{\lbm}{\mathrm{lbm}}
+\newcommand{\lbf}{\mathrm{lbf}}
+\newcommand{\N}{\mathrm{N}}
+\newcommand{\slug}{\mathrm{slug}}
+\newcommand{\Pa}{\mathrm{Pa}}
+\newcommand{\mph}{\mathrm{mph}}
+\renewcommand{\psi}{\mathrm{psi}}
+\newcommand{\C}{^\circ\mathrm{C}}
+\newcommand{\F}{^\circ\mathrm{F}}
+\)
+
+<h1>Minor Losses</h1>
+
+<p>
+Energy losses through valves, bends, expansions, contractions, gauges, flow meters, etc, are generally referred to as <em>minor losses</em>.  Note that the cumulative effect of a number of <em>minor losses</em> can be substantial.
+</p>
+
+<p>
+Energy losses are proportional to the velocity head near the component of interest.  The energy loss through a component can be expressed as
+$$
+    h_L=K\left(\frac{v^2}{2g}\right)
+$$
+where $h_L$ is the minor loss, $K$ is the resistance coefficient and $v$ is the average velocity in the pipe in the vicinity of the component.  The velocity that is used in the above expression will depend on the specific problem.
+</p>
+
+<h2>Sudden Enlargement</h2>
+
+<p>
+As fluid flows through an enlargement the decrease in velocity (think continuity eqn) is accompanied by an increase in pressure (think Bernoulli's eqn).  If the enlargement is sharp or sudden regions of turbulence develop in the corners of the larger pipe.  The regions of turbulence result in the dissipation of kinetic energy into internal energy.  The energy loss (expressed as a loss of head) is written as
+$$
+    h_L=K\left(\frac{v_1^2}{2g}\right)
+$$
+where $v_1$ is the velocity in the <em>smaller</em> section of pipe.
+</p>
+<figure>
+<img src="img\expansion.png">
+<figcaption>Cartoon of flow through an abrupt enlargement.</figcaption>
+</figure>
+
+<p>
+Under some <a href="http://www.nptel.ac.in/courses/112104118/lecture-14/14-6_losses_sudden_enlarg.htm">simplifying assumptions the resisiteve coefficient can be derived</a>:
+$$
+K\approx \left[1-\frac{A_1}{A_2}\right]^2
+$$
+The above expression works fairly well for moderate velocities and is a reasonable starting point for estimating losses due to a sudden expansion.  If the sudden transition between pipe sizes can be made more gradual the energy loss can be reduced.  A <em>diffuser</em> converts kinetic energy to pressure energy by a gradual enlargement in pipe size.
+</p>
+
+
+<h3>Exit Loss</h3>
+
+<p>
+When a fluid flows from a pipe into a large tank or reservoir all of the kinetic energy is dissipated (the kinetic energy in the static tank is zero).  This can be treated as a limiting case of sudden expansion by taking $A_1\to 0$ in our expression for the resistive coefficient.  This results in $K\to 1$ and a head loss of
+$$
+    h_L=1.0\left(\frac{v_1^2}{2g}\right)
+$$
+</p>
+
+<figure>
+<img src="img\exitloss.png">
+<figcaption><em>Exit loss</em> results from a fluid flowing into a static reservoir.</figcaption>
+</figure>
+
+<h2>Sudden Contraction</h2>
+
+<p>
+A sudden contraction in a pipe results in a drop in pressure due to the sudden increase in velocity and the loss of energy due to turbulence.  The energy loss (expressed as a loss of head) is written as
+$$
+    h_L=K\left(\frac{v_2^2}{2g}\right)
+$$
+where $v_2$ is the velocity in the <em>smaller</em> section of pipe downstream of the contraction.
+</p>
+
+<p>
+The mechanism of energy loss in a contraction is much more complex than that of an expansion.  The cartoon below shows the path of the flow stream.  Regions of turbulence develop both before the contraction and after the contraction.   The region where the cross-section is minimum is known as the <em>vena contracta</em>.
+</p>
+
+<p>
+  A number of empirical equations for the resistance coefficient for sudden contraction can be found in the literature.
+One of the <a href="http://amzn.to/2hla1qx">simplest I found</a> is a good starting point for rough estimates of losses in sudden contractions.
+$$
+K\approx 0.5\left[1-\frac{A_2}{A_1}\right]
+$$
+In practice however more accurate resistive coefficients should be taken from other resources such as
+<a href="http://amzn.to/2zzrC8C">CRANE Technical Paper 410</a>.
+</p>
+
+<figure>
+<img src="img\contraction.png">
+<figcaption>Cartoon of flow through a sudden contraction.</figcaption>
+</figure>
+
+<h3>Entrance Loss</h3>
+
+<p>
+The losses that occur when a fluid flows from a larger reservoir or tank into a pipe are called <em>entrance losses</em>.
+For a square-edged inlet as shown in the cartoon below the resistive coefficient is $K\approx0.5$.  This is the limiting case of $A_1\to \infty$ in the equation for $K$ above.  Chamfered and rounded inlets have smaller resistance coefficients.  For a chamfered inlet $K\approx 0.25$ and for a well-rounded inlet $K\approx 0.04$.
+
+<figure>
+<img src="img\entranceloss.png">
+<figcaption><em>Entrance loss</em> results from a fluid flowing from a large tank or reservoir into a pipe.</figcaption>
+</figure>
+
+</p>
+
+<h2>Valves and Fittings</h2>
+
+<p>
+The same formula is applied for losses though a valve or fitting
+$$
+    h_L=K\left(\frac{v^2}{2g}\right)
+$$
+where $v$ is the velocity at the valve.  The resistance coefficient is typically expressed as
+$$
+K=\left(L_e/D\right)f_T
+$$
+where the factor $\left(L_e/D\right)$ is called the equivalent length ratio and is usually considered to be a constant for a given type of valve or fitting.  Values for $\left(L_e/D\right)$ for some common types of valves and fittings is given in the <a href="#LeOverD">table below</a>.  The term $f_T$ is the friction factor in the pipe to which the valve is connected taken in the zone of complete turbulence.  The tables for <a href="../SteelPipeTable.html?sch=40&mat=comSteel">Schedule 40</a> and <a href="../SteelPipeTable.html?sch=40&mat=comSteel">Schedule 80</a> list the values of $f_T$ for commercial steel pipes.
+
+</p>
+
+<table id="LeOverD" class="lefttable">
+  <tr><th>Fitting Type</th><th>Equivalent Length, $L_e/D$</th></tr>
+  <tr><td>Gate valve (fully open)</td><td>8</td></tr>
+  <tr><td>Globe valve (fully open)</td><td>340</td></tr>
+  <tr><td>Angle valve (fully open)</td><td>150</td></tr>
+  <tr><td>Butterfly valve (fully open):</td><td></td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp; 50 mm (2") - 200 mm (8")</td><td>45</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp; 250 mm (10") - 350 mm (14")</td><td>35</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp; 400 mm (16")- 600 mm (24")</td><td>25</td></tr>
+  <tr><td>90&#176; standard elbow</td><td>30</td></tr>
+  <tr><td>45&#176; standard elbow</td><td>16</td></tr>
+  <tr><td>Close pattern return bend</td><td>50</td></tr>
+</table>
+
+<p>
+The value of $L_e$ is called the equivalent length of pipe; it is the length of straight pipe that would give the same resistance to flow.  For example a 2" fully open globe valve that has an $L_e/D=340$ would have $L_e=57~\ft$.  This value of $L_e$ can than be added to the actual length of pipe to determine the total losses.  While convenient, this procedure is only accurate when the actual pipe flows are in the zone of complete turbulence.
+</p>
+
+<p>
+<figure>
+<img src="img/wafer-type-centerline-butterfly-valve.jpg" alt="Wafer type centerline butterfly valve.">
+<img src="img/knife-gate-valve.jpg" alt="Knife gate valve.">
+<img src="img/din-globe-valve.jpg"  alt="DIN globe valve.">
+<figcaption><em>Left: Wafer type centerline butterfly valve.  Middle: Knife gate valve.  <BR>Right: A DIN globe valve.  Images from <a href="http://www.metalsvalve.com">Metals Valve</a>. </figcaption>
+</figure>
+</p>
+
+
+
+</body>
+</html>
