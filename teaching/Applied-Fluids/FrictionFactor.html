@@ -1,0 +1,85 @@
+
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Friction Factor</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta charset="utf-8">
+      <meta name="author" content="Kevin Dusling" />
+      <meta NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+      <meta name="description" content="Darcy friction factor calculator">
+
+      <link rel="stylesheet" type="text/css" href="style.css">
+      <script type="text/javascript" src="pipes.js"></script>
+      <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+      </script>
+      <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+      </script>
+</head>
+
+
+  <script type="text/javascript">
+
+function update(){
+  var Nr = parseFloat(document.getElementById("Nr").value);
+  var rr = parseFloat(document.getElementById("rr").value);
+
+  var res = document.getElementById("results");
+
+  if (rr <= 0 || isNaN(rr) )
+    {rr = 0.;}
+
+  if ( Nr > 0. && Nr <= 2000) {
+    res.innerHTML = "Flow is laminar:<BR>";
+    res.innerHTML += "$f=$" + (64./Nr).toPrecision(4);
+  }
+
+  if ( Nr > 2000 && Nr < 4000) {
+    res.innerHTML = "<font color=red>Flow is in the critical zone and therefore unreliable.</font><BR>";
+    res.innerHTML += "$f_{max}=$" + (FrictionFactor(Nr,rr)).toPrecision(4) + "<BR>";
+    res.innerHTML += "$f_{min}=$" + (64./Nr).toPrecision(4);
+  }
+
+  if ( Nr >= 4000) {
+    res.innerHTML = "Flow is turbulent:<BR>";
+    res.innerHTML += "$f=$" + (FrictionFactor(Nr,rr)).toPrecision(4);
+  }
+
+  MathJax.Hub.Queue(["Typeset",MathJax.Hub,"results"]);
+
+}
+
+</script>
+
+
+<body>
+
+
+  <h1 style="color: #2980b9; font-weight: 900;" id=title>Darcy friction factor calculator</h1>
+
+  <div style="display: inline-block; vertical-align: top; font-size: 18px">
+
+  <table style="border=0; background: transparent; width: 500px;">
+  <tr><td>Reynolds Number: </td><td><input name="Nr" type="text" id="Nr"></td></tr>
+  <tr><td>Relative Roughness (&epsilon;/D): </td><td><input name="rr" type="text" id="rr"></td></tr>
+</table>
+<BR>
+  <button type="button" onclick="update()">Compute</button>
+
+<BR><BR>
+  <div id="results" style="font-size: 18px; background-color: #FAFAFA;
+  padding: 5px 5px; border-radius: 5px; border: 1px solid #CCC;">  Friction factor is calculated from numerical solution of Colebrook-White equation.
+
+</div>
+ </div>
+
+
+
+
+
+
+</body>
+</html>
