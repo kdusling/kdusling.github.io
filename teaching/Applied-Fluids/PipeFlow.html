@@ -26,7 +26,7 @@
     for(var i = 0; i < pipes.length; i++) {
       var optG = document.getElementById(pipes[i].sch + pipes[i].mat);
       var opt = document.createElement("option");
-      opt.textContent = pipes[i].display;
+      opt.textContent = pipes[i].display ;
       opt.innerHTML = pipes[i].display;
       opt.value = pipes[i].id;
       optG.appendChild(opt);
@@ -39,7 +39,7 @@
 
     var mypipe = pipes.find(x => x.id === ddlpipe.value);
     var pipeinfo = document.getElementById("pipeinfo");
-    document.getElementById("npsin").innerHTML  =  mypipe.display;
+    document.getElementById("npsin").innerHTML  =  mypipe.nps;
     document.getElementById("dnmm").innerHTML  =  mypipe.DN;
     document.getElementById("odin").innerHTML = mypipe.od;
     document.getElementById("odmm").innerHTML = (25.4*mypipe.od).toFixed(2);
@@ -71,9 +71,9 @@
 
 <body>
 
-<div class="styled-select slate" style="display: inline-block; vertical-align: top">
+<div class="styled-select slate" style="display: inline-block; vertical-align: top;">
 <select id="pipeDropDown" onchange="update(this)">
-   <option id="seltitle">NPS (in) </option>
+   <option id="seltitle">NPS in &nbsp;&mdash;&nbsp; DN mm </option>
    <optgroup id="40comSteel" label="Schedule 40"></optgroup>
    <optgroup id="80comSteel" label="Schedule 80"></optgroup>
 </select>

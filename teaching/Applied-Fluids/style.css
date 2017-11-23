@@ -2,7 +2,7 @@
 
 
 select{
-    width: 150px;
+    width: 200px;
     padding: 5px;
     font-size: 18px;
     line-height: 1;
@@ -11,7 +11,7 @@ select{
     height: 34px;
     background: url("dwnarw.png") no-repeat right #ddd; background-size: 34px;
     -webkit-appearance: none;
-    background-position-x: 115px;
+    background-position-x: 165px;
 }
 
 input {
