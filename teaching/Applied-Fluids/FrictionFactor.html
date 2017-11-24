@@ -23,6 +23,18 @@
 
   <script type="text/javascript">
 
+  window.onload = function () {
+    var pipeselect = document.getElementById("pipeDropDown");
+    for(var i = 0; i < pipes.length; i++) {
+      var optG = document.getElementById(pipes[i].sch + pipes[i].mat);
+      var opt = document.createElement("option");
+      opt.textContent = pipes[i].display ;
+      opt.innerHTML = pipes[i].display;
+      opt.value = pipes[i].id;
+      optG.appendChild(opt);
+    }
+  }
+
 function update(){
   var Nr = parseFloat(document.getElementById("Nr").value);
   var rr = parseFloat(document.getElementById("rr").value);
@@ -52,9 +64,26 @@ function update(){
 
 }
 
+
+function updaterr(ddlpipe){
+  document.getElementById("seltitle").setAttribute("disabled","true");
+  var selVal = ddlpipe.value;
+
+  var mypipe = pipes.find(x => x.id === ddlpipe.value);
+  document.getElementById("rr").value = (roughness(mypipe)/innerD(mypipe)).toFixed(6);
+}
+
+function clearpipe(){
+ document.getElementById('pipeDropDown').selectedIndex = 0;
+}
+
 </script>
 
-
+<style type="text/css">
+         td {
+             padding: 10px;
+         }
+     </style>
 <body>
 
 
@@ -63,8 +92,17 @@ function update(){
   <div style="display: inline-block; vertical-align: top; font-size: 18px">
 
   <table style="border=0; background: transparent; width: 500px;">
-  <tr><td>Reynolds Number: </td><td><input name="Nr" type="text" id="Nr"></td></tr>
-  <tr><td>Relative Roughness (&epsilon;/D): </td><td><input name="rr" type="text" id="rr"></td></tr>
+  <tr style="padding:50px;"><td>Reynolds Number: </td><td><input name="Nr" type="text" id="Nr"></td></tr>
+  <tr><td>Relative Roughness (&epsilon;/D): </td><td><input name="rr" type="text" id="rr" onchange="clearpipe()"></td></tr>
+  <tr><td>or choose a steel pipe size:</td><td>
+    <div class="styled-select slate" style="display: inline-block; vertical-align: top;">
+    <select id="pipeDropDown" onchange="updaterr(this)">
+       <option id="seltitle">NPS in &nbsp;&mdash;&nbsp; DN mm </option>
+       <optgroup id="40comSteel" label="Schedule 40"></optgroup>
+       <optgroup id="80comSteel" label="Schedule 80"></optgroup>
+    </select>
+    </div>
+  </td></tr>
 </table>
 <BR>
   <button type="button" onclick="update()">Compute</button>
