@@ -86,7 +86,7 @@
       var row = table.insertRow(i);
 
       var cell = row.insertCell(-1);
-      cell.innerHTML =  mypipe.display;
+      cell.innerHTML =  (mypipe.display).substr(0, (mypipe.display).indexOf('in'));
       cell = row.insertCell(-1);
       cell.innerHTML =  mypipe.DN;
       cell = row.insertCell(-1);
