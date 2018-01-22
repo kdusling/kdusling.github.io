@@ -8,5 +8,12 @@
 
   ga('create', 'UA-79202801-1', 'auto');
   ga('send', 'pageview');
+</script>
 
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  CommonHTML: { linebreaks: { automatic: true } },
+  "HTML-CSS": { linebreaks: { automatic: true } },
+         SVG: { linebreaks: { automatic: true } }
+});
 </script>
