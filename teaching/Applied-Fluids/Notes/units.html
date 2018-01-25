@@ -177,6 +177,23 @@
 </table>
 <p>Sometimes you will hear the term <em>SAE</em> used in regard to tools, bolts and fasteners. This refers to sizes measured in inches as specified by the Society of Automotive Engineers which used USC one time ago. The society itself now uses metric (though the term <em>SAE</em> when used in the context of sizes still indicates USC).</p>
 <h2 id="unit-conversions-and-consistency">Unit conversions and consistency</h2>
+<p>Often it will be necessary to convert between the SI and US system of units (<em>e.g.</em> between feet and meters). And often it may be a conversion between different derived units within the same system (<em>e.g.</em> between km and m). The general approach to unit conversion is to multiply a given quantity by a <em>conversion factor</em> such that the original units cancel out, and the desired units remain.</p>
+<p>For example, here are a few conversion factors for the dimension of length <span class="math display">\[
+\frac{3.281~\mathrm{ft}}{\mathrm{m}}\qquad \frac{12~\mathrm{in}}{\mathrm{ft}} \qquad \frac{1000~\mathrm{m}}{\mathrm{km}} \qquad \frac{5280~\mathrm{ft}}{\mathrm{mi}}
+\]</span> Note that the reciprocal of any of these fractions is also a conversion factor. Here are some examples.</p>
+<div class="example">
+<p>Convert a distance of 3 miles into feet and kilometers using the conversion factors listed above.</p>
+<hr />
+<p>Let us start by converting 3 miles into feet. <span class="math display">\[
+3 \cancel{\mathrm{mi}} \times\left(\frac{5280~\mathrm{ft}}{\cancel{\mathrm{mi}}}\right)=15\,840~\mathrm{ft}
+\]</span> Now in order to convert from miles to km using only the conversion factors listed above we will first have to convert from miles to feet and then from feet to meters and finally from meters to km. This is done in one step as follows. <span class="math display">\[
+3 \cancel{\mathrm{mi}} \times\left(\frac{5280~\mathrm{ft}}{\cancel{\mathrm{mi}}}\right)\times \left(\frac{\mathrm{m}}{3.281~\mathrm{ft}}\right)
+\times \left(\frac{\mathrm{km}}{1000~\mathrm{m}}\right)=4.83~\mathrm{km}
+\]</span> If we had used a more comprehensive table of conversion factors we could have instead converted between miles and km directly. <span class="math display">\[
+3 \cancel{\mathrm{mi}} \times \left(\frac{1.609~\mathrm{km}}{\mathrm{mi}}\right)=4.83~\mathrm{km}
+\]</span></p>
+</div>
+<p>The above approach works because any conversion factor evaluates to unity as the numerator and denominator are physically equal to each other. Multiplying any quantity by a conversion factor therefore does not change the true physical value of the quantity even though it does change its units.</p>
 <p>It is imperative that results be dimensionally consistent when performing calculations. We do this by canceling units when solving for quantities. Here are some examples.</p>
 <div class="example">
 <p>A car is travelling at 80 kilometers per hour (km/h). How many minutes would it take to travel 16 km?</p>
@@ -251,7 +268,7 @@ T_K=T_C + 273.15
 T_R=T_F+459.67
 \]</span></p>
 <table>
-<caption>Table 4: A comparison among temperature scales. <span class="math inline">\(^\dagger\)</span> melting and boiling points are at standard pressure.</caption>
+<caption>Table 4: A comparison among temperature scales. <span class="math inline">\(^\dagger\)</span>Melting and boiling points are at standard pressure.</caption>
 <thead>
 <tr class="header">
 <th></th>
