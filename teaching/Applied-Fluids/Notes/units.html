@@ -40,12 +40,26 @@
 <header>
 <h1 class="title">Dimensions &amp; Units</h1>
 </header>
+<nav id="TOC">
+<ul>
+<li><a href="#the-international-system-of-units-si">The International System of Units (SI)</a></li>
+<li><a href="#the-u.s.-customary-system-uscs">The U.S. Customary System (USCS)</a></li>
+<li><a href="#unit-conversions-and-consistency">Unit conversions and consistency</a></li>
+<li><a href="#weight-vs.mass">Weight vs. Mass</a><ul>
+<li><a href="#pound-mass-vs.pound-force">Pound-Mass vs. Pound-Force</a></li>
+</ul></li>
+<li><a href="#temperature">Temperature</a><ul>
+<li><a href="#absolute-temperature">Absolute temperature</a></li>
+</ul></li>
+</ul>
+</nav>
 <span class="math display">\[\require{cancel}\]</span>
 <p>As you will soon discover a fluency with unit conversions is absolutely essential. A careful watch over units can prevent errors from occurring and in some instances a problem can be solved by dimensional analysis alone.</p>
 <p>Though used interchangeably there is a subtle distinction between the meaning of the words unit and dimension. A <em>dimension</em> is a measure of some physical quantity without assigning it a numerical value. A choice of <em>units</em> is a way to assign a numeric value to a given dimension. For example, length is a dimension and it can be expressed in units of meters, feet, inches, fathoms (1 fathom = 6 ft), etc.</p>
 <p>There are seven primary (or base) dimensions: mass, length, time, temperature, electric current, amount of light, and amount of matter. In fluid mechanics we will make use of the first four: mass, length, time, and temperature.</p>
 <p>From these base dimensions other derived quantities can be defined. A simple example of a derived quantity is that of area. Area has dimensions of length squared and the units can be anything from <span class="math inline">\(\mathrm{cm}^2\)</span>, m<span class="math inline">\(^2\)</span>, ft<span class="math inline">\(^2\)</span>, acres (<span class="math inline">\(1~\textrm{acre}=43,560~\mathrm{ft}^2\)</span>), barns (<span class="math inline">\(1~\textrm{barn} = 10^{-28}~\mathrm{m}^2\)</span>), etc. Examples of other derived quantities that you are already familiar with include volume, velocity, acceleration, and force.</p>
 <p>After a <a href="https://www.vox.com/2014/5/29/5758542/time-for-the-US-to-use-the-metric-system">failed effort</a> to move the United States over to the metric system we are unfortunately burdened with the use of two disparate system of units. If you live/work in the United States you must know both.</p>
+<h2 id="the-international-system-of-units-si">The International System of Units (SI)</h2>
 <p>We first introduce the International System of Units (SI) which is closely related (often used synonymously) with the metric system. <a href="#tabSI">Table 1</a> shows an abbreviated list of units in the SI system. NIST <a href="https://physics.nist.gov/cuu/Units/index.html">hosts a great website</a> on SI units.</p>
 <table>
 <caption>Table 1: The international system of units (SI). Force is a derived unit and can be expressed in terms of SI base units as <span class="math inline">\(\mathrm{N}=\mathrm{kg}\cdot \mathrm{m/s}^2\)</span>. <a name="tabSI"></a></caption>
@@ -84,9 +98,48 @@
 </tr>
 </tbody>
 </table>
-<p>The second set of units we will use is the U.S. customary system (USCS or USC) which is closely related (many times used synonymously) with the English or Imperial system. <a href="#tabUS">Table 2</a> shows an abbreviated list of units in the U.S. customary system.</p>
+<p>Because the actual size of physical quantities can vary depending on the problem at hand prefixes can be added to the basic quantities above when working in the SI system. <a href="#SIprefix">Table 2</a> shows some commonly used prefixes.</p>
 <table>
-<caption>Table 2: The U.S. customary system of units. Mass is a derived unit and can be expressed in terms of USC base units as <span class="math inline">\(\mathrm{slug}=\mathrm{lb}\cdot  s^2/\mathrm{ft}\)</span>. <a name="tabUS"></a></caption>
+<caption>Table 2: Common SI unit prefixes <a name="SIprefix"></a></caption>
+<thead>
+<tr class="header">
+<th>Prefix</th>
+<th>SI symbol</th>
+<th style="text-align: left;">Factor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>mega</td>
+<td>M</td>
+<td style="text-align: left;"><span class="math inline">\(10^6=1\,000\,000\)</span></td>
+</tr>
+<tr class="even">
+<td>kilo</td>
+<td>k</td>
+<td style="text-align: left;"><span class="math inline">\(10^3=1\,000\)</span></td>
+</tr>
+<tr class="odd">
+<td>centi</td>
+<td>c</td>
+<td style="text-align: left;"><span class="math inline">\(10^{-2}=0.01\)</span></td>
+</tr>
+<tr class="even">
+<td>milli</td>
+<td>m</td>
+<td style="text-align: left;"><span class="math inline">\(10^{-3}=0.001\)</span></td>
+</tr>
+<tr class="odd">
+<td>micro</td>
+<td><span class="math inline">\(\mu\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(10^{-6}=0.000\,001\)</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-u.s.-customary-system-uscs">The U.S. Customary System (USCS)</h2>
+<p>The second set of units we will use is the U.S. customary system (USCS or USC) which is closely related (many times used synonymously) with the English or Imperial system. <a href="#tabUS">Table 3</a> shows an abbreviated list of units in the U.S. customary system.</p>
+<table>
+<caption>Table 3: The U.S. customary system of units. Mass is a derived unit and can be expressed in terms of USC base units as <span class="math inline">\(\mathrm{slug}=\mathrm{lb}\cdot  s^2/\mathrm{ft}\)</span>. <a name="tabUS"></a></caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Quantity</th>
@@ -123,14 +176,30 @@
 </tbody>
 </table>
 <p>Sometimes you will hear the term <em>SAE</em> used in regard to tools, bolts and fasteners. This refers to sizes measured in inches as specified by the Society of Automotive Engineers which used USC one time ago. The society itself now uses metric (though the term <em>SAE</em> when used in the context of sizes still indicates USC).</p>
-<h2 id="unit-conversion">Unit Conversion</h2>
+<h2 id="unit-conversions-and-consistency">Unit conversions and consistency</h2>
+<p>It is imperative that results be dimensionally consistent when performing calculations. We do this by canceling units when solving for quantities. Here are some examples.</p>
+<div class="example">
+<p>A car is travelling at 80 kilometers per hour (km/h). How many minutes would it take to travel 16 km?</p>
+<hr />
+<p>To find the solution we use the expression <span class="math inline">\(x=vt\)</span>, where <span class="math inline">\(x\)</span> is the distance, <span class="math inline">\(v\)</span> the velocity and <span class="math inline">\(t\)</span> the time. Solving for time we have <span class="math display">\[
+t=\frac{x}{v}
+\]</span> Next we substitute in the known values of <span class="math inline">\(x\)</span> and <span class="math inline">\(v\)</span> <span class="math display">\[
+t=\frac{16~\mathrm{km}}{80~\mathrm{km}/\mathrm{hr}}=\dfrac{16~\mathrm{km}}{\dfrac{80~\mathrm{km}}{1~\cancel{\mathrm{hr}}}}\times\frac{1~\mathrm{hr}}{1~\cancel{\mathrm{hr}}}=\frac{16~\cancel{\mathrm{km}}\cdot\mathrm{hr}}{80~\cancel{\mathrm{km}}}=0.2~\mathrm{hr}\\
+\]</span></p>
+<p>We can leave the answer in hours but it is more natural to express it in minutes.</p>
+<p><span class="math display">\[
+t=0.2~\cancel{\mathrm{hr}}\times \frac{60~\mathrm{min}}{1~\cancel{\mathrm{hr}}}=12~\mathrm{min}
+\]</span> The final answer is that the car takes 12 minutes to travel 16 km at 80 km/h.</p>
+</div>
+<p>Here is another example that uses the US customary system of units.</p>
 <div class="example">
 <p>A car travelling at 60 mph has a kinetic energy of 240,000 ft-lbs. Compute the car's mass.</p>
 <hr />
 <p>First we need to convert mph into the base units of ft/s. <span class="math display">\[
 60~\mathrm{mph}=60\frac{\cancel{\textrm{mile}}}{\cancel{\mathrm{hr}}}\times
 \frac{1~\cancel{\mathrm{hr}}}{3600~\mathrm{s}}\times\frac{5280~\mathrm{ft}}{1~\cancel{\textrm{mile}}}=88~\mathrm{ft}/\mathrm{s}
-\]</span> The kinetic energy of the car is <span class="math display">\[
+\]</span></p>
+<p>The kinetic energy of the car is <span class="math display">\[
 \textrm{KE}=\frac{1}{2}mv^2\,. \]</span> We can rearrange this expression to solve for the mass <span class="math display">\[ m=\frac{2\textrm{KE}}{v^2}=\frac{2\times
 240,000~\mathrm{ft}\cdot\mathrm{lb}}{\left(88~\mathrm{ft}/\mathrm{s}\right)^2}=62~\cancel{\mathrm{ft}}\cdot\mathrm{lb}\frac{\mathrm{s}^2}{\mathrm{ft}^{\cancel{2}}}=62~\mathrm{lb}\cdot\mathrm{s}^2/\mathrm{ft}
 \]</span> From <a href="#tabUS">table 2</a> we see that lb<span class="math inline">\(\cdot\)</span>s<span class="math inline">\(^2\)</span>/ft is a slug and therefore our final result for the mass is <span class="math display">\[ m=62~\mathrm{slug}
@@ -138,9 +207,12 @@
 </div>
 <h2 id="weight-vs.mass">Weight vs. Mass</h2>
 <p>You’ve heard this before but students still get this confused; The weight and mass of an object are two fundamentally different concepts. The mass of an object quantifies the amount of substance. It is unchanging; 15 kg of steel (15 kg happens to be about 1 slug) is 15 kg of steel whether it is on the earth's surface, on the moon or floating around in interstellar space.</p>
-<p>The weight of an object is the force produced by a mass when acted upon by gravity. <span class="math display">\[ \begin{align}
+<p>The weight of an object is the force produced by a mass when acted upon by gravity.</p>
+<p><span class="math display">\[ \begin{align}
 \textrm{weight}&amp;=\textrm{mass}\times\textrm{acceleration due to
-gravity}\\ w&amp;=mg \end{align} \]</span> Unless specified otherwise the acceleration due to gravity on earth is <span class="math inline">\(g=9.81~\mathrm{m}/\mathrm{s}^2\)</span> when using SI units and <span class="math inline">\(g=32.2~\mathrm{ft}/\mathrm{s}^2\)</span> in USCS.</p>
+gravity}\\ w&amp;=mg
+\end{align} \]</span></p>
+<p>Unless specified otherwise the acceleration due to gravity on earth is <span class="math inline">\(g=9.81~\mathrm{m}/\mathrm{s}^2\)</span> when using SI units and <span class="math inline">\(g=32.2~\mathrm{ft}/\mathrm{s}^2\)</span> in USCS.</p>
 <div class="example">
 <p>A steel ball of mass 30 kg is suspended from a wire. What is the tension in the wire?</p>
 <hr />
@@ -162,6 +234,71 @@ gravity}\\ w&amp;=mg \end{align} \]</span> Unless specified otherwise the accele
 5.4~\frac{\mathrm{ft}}{\mathrm{s}^2}=16.8~\frac{\mathrm{slug}\cdot\mathrm{ft}}{\mathrm{s}^2}=16.8~\mathrm{lbf}\nonumber
 \]</span> So the relation that a mass of 1 lbm has a weight of 1 lbf is only true when <span class="math inline">\(g\)</span> is taken at its standard value.</p>
 </div>
+<h2 id="temperature">Temperature</h2>
+<p>The most commonly used temperature scale in the world is <span class="math inline">\(^\circ\mathrm{C}\)</span> (degrees Celsius). At sea level on Earth water freezes at <span class="math inline">\(0^\circ\mathrm{C}\)</span> and boils at <span class="math inline">\(100^\circ\mathrm{C}\)</span>.</p>
+<p>In the United States <span class="math inline">\(^\circ\mathrm{F}\)</span> (degrees Fahrenheit is used). At sea level on Earth water freezes at <span class="math inline">\(32^\circ\mathrm{F}\)</span> and boils at <span class="math inline">\(212^\circ\mathrm{F}\)</span>.</p>
+<p>Given a temperature <span class="math inline">\(T_F\)</span> in <span class="math inline">\(^\circ\mathrm{F}\)</span>, the temperature <span class="math inline">\(T_C\)</span> in <span class="math inline">\(^\circ\mathrm{C}\)</span> is <span class="math display">\[
+T_C=\frac{T_F-32}{1.8}
+\]</span> Given a temperature <span class="math inline">\(T_C\)</span> in <span class="math inline">\(^\circ\mathrm{C}\)</span>, the temperature <span class="math inline">\(T_F\)</span> in <span class="math inline">\(^\circ\mathrm{F}\)</span> is <span class="math display">\[
+T_F=1.8T_C+32
+\]</span></p>
+<h3 id="absolute-temperature">Absolute temperature</h3>
+<p>The reference points in the above temperature scales of Celsius and Fahrenheit are somewhat arbitrary. An <em>absolute temperature</em> is defined such that its zero point corresponds to the condition where all molecular motion stops, so called <em>absolute zero</em>.</p>
+<p>In the SI unit system, the standard unit of absolute temperature is kelvin (K). The spacing between points on the kelvin scale is the same as the Celsius scale. As the freezing point of water is measured to be <span class="math inline">\(273.15~\)</span>K we can convert from a temperature in Celsius to a temperature <span class="math inline">\(T_K\)</span> in kelvin by <span class="math display">\[
+T_K=T_C + 273.15
+\]</span></p>
+<p>Another absolute temperature scale, the Rankine scale (<span class="math inline">\(^\circ R\)</span>), has spacing between degrees that is the same as the Fahrenheit scale. Absolute zero, corresponding to <span class="math inline">\(0^\circ R\)</span>, is at <span class="math inline">\(-459.67^\circ\mathrm{F}\)</span>. A measurement in Fahrenheit can be converted to a temperature in Rankine, <span class="math inline">\(T_R\)</span> by <span class="math display">\[
+T_R=T_F+459.67
+\]</span></p>
+<table>
+<caption>Table 4: A comparison among temperature scales. <span class="math inline">\(^\dagger\)</span> melting and boiling points are at standard pressure.</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th>Celsius</th>
+<th>Fahrenheit</th>
+<th style="text-align: left;">Kelvin</th>
+<th style="text-align: left;">Rankine</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Absolute zero</td>
+<td>-273.15</td>
+<td>-459.67</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td>Ice melts<span class="math inline">\(^\dagger\)</span></td>
+<td>0</td>
+<td>32</td>
+<td style="text-align: left;">273.15</td>
+<td style="text-align: left;">459.67</td>
+</tr>
+<tr class="odd">
+<td>Average surface temperature on Earth</td>
+<td>15</td>
+<td>59</td>
+<td style="text-align: left;">288</td>
+<td style="text-align: left;">519</td>
+</tr>
+<tr class="even">
+<td>Average body temperature</td>
+<td>37</td>
+<td>98</td>
+<td style="text-align: left;">310</td>
+<td style="text-align: left;">558</td>
+</tr>
+<tr class="odd">
+<td>Water boils<span class="math inline">\(^\dagger\)</span></td>
+<td>100</td>
+<td>212</td>
+<td style="text-align: left;">373</td>
+<td style="text-align: left;">671</td>
+</tr>
+</tbody>
+</table>
 <p>References:<br />
 <a href="http://www.cengage.com/resource_uploads/downloads/1111136025_277026.pdf">Systems of Units and Conversion Factors (pdf)</a></p>
 <hr>
