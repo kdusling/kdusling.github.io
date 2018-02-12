@@ -1,5 +1,4 @@
 
-
 function htmlTableOfContents (documentRef) {
     var documentRef = documentRef || document;
     var toc = documentRef.getElementById('toc');

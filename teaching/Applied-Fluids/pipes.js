@@ -1,5 +1,4 @@
 
-
 var pipes=[
 {id:"0.125st40", nps:"0.125", display:"&nbsp;&nbsp;&nbsp;<sup>1</sup>&frasl;<sub>8</sub> in &mdash; &nbsp;&nbsp;&nbsp;&nbsp;6 mm",
     od:0.405, t:0.068,  sch:40, DN:6,  mat:"comSteel"},

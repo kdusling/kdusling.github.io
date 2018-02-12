@@ -1,6 +1,5 @@
 
 
-
 select{
     width: 200px;
     padding: 5px;
@@ -64,6 +63,12 @@ td {
   padding: 20px;
   max-width:7.5in;
   width:7.5in;
+}
+
+.printbox legend {
+  font-size: 14px;
+  color: #2980b9;
+  font-weight: bold;
 }
 
 .printbox hr{
