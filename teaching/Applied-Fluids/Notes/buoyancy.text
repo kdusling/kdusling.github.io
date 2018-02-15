@@ -1,7 +1,5 @@
 
----
-title: Buoyancy
----
+% Buoyancy
 
 $$\require{cancel}$$
 \newcommand{\kg}{\mathrm{kg}}
@@ -14,31 +12,23 @@ $$\require{cancel}$$
 \newcommand{\N}{\mathrm{N}}
 \newcommand{\Pa}{\mathrm{Pa}}
 
+# The nature of buoyancy
 
-Buoyant force
--------------
+We all
 
-Buoyancy is a force that opposes the weight of a submerged or partially
-submerged object. The buoyancy force acts vertically upward at the
-*centroid* of the displaced volume. It will be important later to
-differentiate between centroid and center of gravity. The centroid is
-the geometric center of the object. The center of gravity is the average
-location of the weight of an object. For objects of uniform density the
-centroid and center of gravity coincide. The magnitude of the buoyant
-force is given as;
+# Buoyant force
+
+Buoyancy is a force that opposes the weight of a submerged or partially submerged object. The buoyancy force acts vertically upward at the *centroid* of the displaced volume. It will be important later to differentiate between centroid and center of gravity. The centroid is the geometric center of the object. The center of gravity is the average location of the weight of an object. For objects of uniform density the centroid and center of gravity coincide. The magnitude of the buoyant force is given as;
+
 $$
 \begin{align}
-\textrm{Buoyant force}&=\textrm{Specific weight of fluid}\times\textrm{Displaced
-volume of fluid}\nonumber\\ 
+\textrm{Buoyant force}&=\textrm{Specific weight of fluid}\times\textrm{Displaced volume of fluid}\nonumber\\
 F_b&=\gamma_f\,\times\, V_d
 \end{align}
 $$
 
-An object will float if the buoyant force is larger than the force of
-gravity and will sink otherwise. The weight of a solid object is given
-by $w=\gamma V$, where $\gamma$ is the specific weight of the
-object (not the fluid) and $V$ is the volume of the object (which is
-different than $V_d$ if the object is partially submerged).
+An object will float if the buoyant force is larger than the force of gravity and will sink otherwise. The weight of a solid object is given by $w=\gamma V$, where $\gamma$ is the specific weight of the object (not the fluid) and $V$ is the volume of the object (which is different than $V_d$ if the object is partially submerged).
+
 
 ::: {.example}
 A cube $0.50~\m$ on a side is made of steel having a specific weight
@@ -60,14 +50,17 @@ with an average specific weight greater than that of surrounding fluid
 will tend to sink. We therefore draw the external force $F_{ext}$ as
 pointing upward in our free-body diagram.
 
-![](buoyancy1.png)
+![](buoyancy-img/buoyancy1.png)
 
-In equilibrium the sum of the forces must equal zero, $$ \sum
-F_y=F_b+F_{ext}-w=0 $$ solving for $F_{ext}$ $$
-F_{ext}=w-F_b $$
+In equilibrium the sum of the forces must equal zero,
+$$ \sum F_y=F_b+F_{ext}-w=0 $$
+solving for $F_{ext}$
+$$ F_{ext}=w-F_b $$
 
-In evaluating the weight we will need the volume of the cube: $$
-V=(0.5~\m)^3 = 0.125~\m^3 $$
+In evaluating the weight we will need the volume of the cube:
+$$
+V=(0.5~\m)^3 = 0.125~\m^3
+$$
 
 The weight of the cube is therefore $$ w=\gamma_{\rm
 steel}\,\times\, V = 76.5~\frac{\kN}{\m^3}\times 0.125~\m^3
