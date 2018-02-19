@@ -30,14 +30,15 @@
 <body>
 
 
- <link rel="stylesheet" href="sheetstable.css" />
+   <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+ <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
 
 <span id="navbar_form">
-    Select Course: 
+    Select Course:
     <select name="course" id="course">
-    <option value="1JuOTrptcgMbidfoe8rQHyx3r0v8dxBvAE4EIraoxcHo">MET 212 Spring 2017</option>
-    <option value="1tkBAWYsLpeK8NNYPKJa2V8-9PU_O9DQHwLK-vW9BFgY">MET 201 Fall 2016</option>
-    <option value="1t_L9Bji9SIQcAwl8e1OsA4fbU0p025dgJXcbSjAccDI">MET 212 Fall 2016</option>
+    <option value="1xkInSuKeM9MI1VHJiv5fu3BrCPTb5h-WBAVpyhrwBOI">MET 212 Fall 2018</option>
+    <option value="1tkBAWYsLpeK8NNYPKJa2V8-9PU_O9DQHwLK-vW9BFgY">MET 201 Fall 2018</option>
     </select>
     <BR><BR>
     Student ID: <input type="search" placeholder="R00000000" id="rid" />
@@ -54,13 +55,21 @@
 
 
 <script type="text/javascript">
-    
+
 function search_navigate() {
       var obj = document.getElementById("navbar_search");
       var course = document.getElementById("course").value;
       var rid = document.getElementById("rid").value;
       var dst = "https://docs.google.com/spreadsheets/d/" + course +
-          "/gviz/tq?tqx=out:html&tq=SELECT%20*%20WHERE%20A%20=%20%27Student%20ID%27%20OR%20A%20=%20%27" + rid + "%27&gid=0";
+          "/gviz/tq?tqx=out:html&tq=select%20*%20where%20C%20contains%20'" + rid + "'&gid=0";
+
+          var query = new google.visualization.Query(
+            'https://docs.google.com/spreadsheets/d/1xkInSuKeM9MI1VHJiv5fu3BrCPTb5h-WBAVpyhrwBOI/edit#gid=0'
+          );
+
+
+query.setQuery('select *');
+query.send(handleQueryResponse);
 
       var ihtml = "<object style=\"width: 2000px; border: 1px;\" type=\"text/html\" data=\"" + dst + "\" ></object>";
 
@@ -69,6 +78,14 @@ function search_navigate() {
 
     }
 
+    function handleSelectResponse(response) {
+		if (response.isError()) {
+        alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+        return;
+      }
+alert('yo');
+return;
+    }
 </script>
 
 
@@ -79,7 +96,7 @@ function search_navigate() {
 <a href="https://github.com/"><img style="vertical-align:middle" src="/images/Octocat.png" height="20"></a>
 <span style=""><a href="http://kdusling.github.io/">Kevin Dusling</a> &nbsp;&nbsp; |
     &nbsp;&nbsp; <a href="/sitenav.html">site map</a> &nbsp;&nbsp; |
-    &nbsp; &nbsp; last modified: 08-Mar-2017</span> 
+    &nbsp; &nbsp; last modified: 19-Feb-2018</span> 
 </div>
 
 </body>
