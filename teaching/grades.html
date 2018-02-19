@@ -41,7 +41,7 @@
     Select Course:
     <select name="course" id="course">
     <option value="1xkInSuKeM9MI1VHJiv5fu3BrCPTb5h-WBAVpyhrwBOI">MET 212 Fall 2018</option>
-    <option value="">MET 201 Fall 2018</option>
+    <option value="115IzRzDr3e-jGvXeVrCskZe2EFNnHsVIOCTBOqiVYnU">MET 201 Fall 2018</option>
     </select>
     <BR><BR>
     Student ID: <input type="search" placeholder="R00000000" id="rid" />
@@ -61,7 +61,7 @@ function search_navigate() {
       var rid = document.getElementById("rid").value;
 
       var query = new google.visualization.Query(
-          "https://docs.google.com/spreadsheets/d/" + course + "/edit#gid=0"
+          "https://docs.google.com/spreadsheets/d/" + course + "/edit?usp=sharing"
       );
 
       query.setQuery("select * where C = '" + rid + "'");
@@ -87,13 +87,13 @@ function search_navigate() {
 
         var myHTML = "<table style='width: 500px;'><tr>"
         for(i=2; i < nc; i++){
-             myHTML += "<td>";
+             myHTML += "<th>";
              myHTML +=  data.getColumnLabel(i);
-             myHTML += "</td>";
+             myHTML += "</th>";
             }
         myHTML += "</tr><tr>"
         for(i=2; i < nc; i++){
-             myHTML += "<td>" + data.getValue(0,i) + "</td>";
+             myHTML += "<td align='center'>" + data.getValue(0,i) + "</td>";
             }
         myHTML += "</tr></table>"
         document.getElementById("display").innerHTML = myHTML;
