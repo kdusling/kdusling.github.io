@@ -51,7 +51,7 @@
 
 <BR><BR>
 
-<div id="display" style="width: 2000px;"></div>
+<div id="display" style="width: 500px;"></div>
 
 
 <script type="text/javascript">
@@ -80,23 +80,23 @@ function search_navigate() {
 
       var data = response.getDataTable();
       var nc = data.getNumberOfColumns();
-      var dis = document.getElementById("display");
 
       if ( data.getNumberOfRows() == 0 ){
-        dis.innerHTML = "Error ... please try again.";
+        document.getElementById("display").innerHTML = "Error ... please try again.";
       } else {
 
-        dis.innerHTML = "<table><th>"
+        var myHTML = "<table style='width: 500px;'><tr>"
         for(i=2; i < nc; i++){
-             dis.innerHTML += "<td>";
-             dis.innerHTML +=  data.getColumnLabel(i);
-             dis.innerHTML += "</td>";
+             myHTML += "<td>";
+             myHTML +=  data.getColumnLabel(i);
+             myHTML += "</td>";
             }
-        dis.innerHTML += "</th><tr>"
+        myHTML += "</tr><tr>"
         for(i=2; i < nc; i++){
-             dis.innerHTML += "<td>" + data.getValue(0,i) + "</td>";
+             myHTML += "<td>" + data.getValue(0,i) + "</td>";
             }
-        dis.innerHTML += "</tr></table>"
+        myHTML += "</tr></table>"
+        document.getElementById("display").innerHTML = myHTML;
       }
         return;
     }
