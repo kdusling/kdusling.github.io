@@ -30,15 +30,18 @@
 <body>
 
 
-   <script type="text/javascript" src="http://www.google.com/jsapi"></script>
- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+   <script type="text/javascript">
+     google.load('visualization', '1', {packages: ['corechart']});
+   </script>
+
 
 
 <span id="navbar_form">
     Select Course:
     <select name="course" id="course">
     <option value="1xkInSuKeM9MI1VHJiv5fu3BrCPTb5h-WBAVpyhrwBOI">MET 212 Fall 2018</option>
-    <option value="1tkBAWYsLpeK8NNYPKJa2V8-9PU_O9DQHwLK-vW9BFgY">MET 201 Fall 2018</option>
+    <option value="">MET 201 Fall 2018</option>
     </select>
     <BR><BR>
     Student ID: <input type="search" placeholder="R00000000" id="rid" />
@@ -48,43 +51,54 @@
 
 <BR><BR>
 
-<div id="results" style="width: 2000px;"></div>
-
-<div id="Legend1" style="width: 800px; display: none;">
-</div>
+<div id="display" style="width: 2000px;"></div>
 
 
 <script type="text/javascript">
 
 function search_navigate() {
-      var obj = document.getElementById("navbar_search");
       var course = document.getElementById("course").value;
       var rid = document.getElementById("rid").value;
-      var dst = "https://docs.google.com/spreadsheets/d/" + course +
-          "/gviz/tq?tqx=out:html&tq=select%20*%20where%20C%20contains%20'" + rid + "'&gid=0";
 
-          var query = new google.visualization.Query(
-            'https://docs.google.com/spreadsheets/d/1xkInSuKeM9MI1VHJiv5fu3BrCPTb5h-WBAVpyhrwBOI/edit#gid=0'
-          );
+      var query = new google.visualization.Query(
+          "https://docs.google.com/spreadsheets/d/" + course + "/edit#gid=0"
+      );
 
+      query.setQuery("select * where C = '" + rid + "'");
+      query.send(handleQueryResponse);
 
-query.setQuery('select *');
-query.send(handleQueryResponse);
-
-      var ihtml = "<object style=\"width: 2000px; border: 1px;\" type=\"text/html\" data=\"" + dst + "\" ></object>";
-
-      document.getElementById("results").innerHTML = ihtml;
-      document.getElementById("Legend1").style.display = 'block';
 
     }
 
-    function handleSelectResponse(response) {
+    function handleQueryResponse(response) {
 		if (response.isError()) {
-        alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+        //alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+          var dis = document.getElementById("display");
+          dis.innerHTML = "Error in query ... please try again.";
         return;
       }
-alert('yo');
-return;
+
+      var data = response.getDataTable();
+      var nc = data.getNumberOfColumns();
+      var dis = document.getElementById("display");
+
+      if ( data.getNumberOfRows() == 0 ){
+        dis.innerHTML = "Error ... please try again.";
+      } else {
+
+        dis.innerHTML = "<table><th>"
+        for(i=2; i < nc; i++){
+             dis.innerHTML += "<td>";
+             dis.innerHTML +=  data.getColumnLabel(i);
+             dis.innerHTML += "</td>";
+            }
+        dis.innerHTML += "</th><tr>"
+        for(i=2; i < nc; i++){
+             dis.innerHTML += "<td>" + data.getValue(0,i) + "</td>";
+            }
+        dis.innerHTML += "</tr></table>"
+      }
+        return;
     }
 </script>
 
