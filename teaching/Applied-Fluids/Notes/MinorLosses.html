@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Minor Losses</title>
+  <title>Energy loss due to friction</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -37,10 +37,13 @@
 </head>
 <body>
 <header>
-<h1 class="title">Minor Losses</h1>
+<h1 class="title">Energy loss due to friction</h1>
 </header>
 <nav id="TOC">
 <ul>
+<li><a href="#energy-loss-in-pipes-due-to-friction">Energy loss in pipes due to friction</a></li>
+<li><a href="#hydraulic-diameter">Hydraulic Diameter</a></li>
+<li><a href="#minor-losses">Minor Losses</a><ul>
 <li><a href="#sudden-enlargement">Sudden Enlargement</a><ul>
 <li><a href="#exit-loss">Exit Loss</a></li>
 </ul></li>
@@ -48,9 +51,65 @@
 <li><a href="#entrance-loss">Entrance Loss</a></li>
 </ul></li>
 <li><a href="#valves-and-fittings">Valves and Fittings</a></li>
+</ul></li>
 </ul>
 </nav>
 <span class="math display">\[\require{cancel}\]</span>
+<h1 id="energy-loss-in-pipes-due-to-friction">Energy loss in pipes due to friction</h1>
+<p>As a fluid flows through a pipe energy will be dissipated due to friction. As we will see the amount of energy lost will depend on the type of fluid, the fluid’s velocity and the condition of the pipe.</p>
+<p>Losses due to friction will cause the pressure to decrease along the length of the pipe, therefore increasing the amount of power that a pump must deliver to the fluid. These losses can become significant in systems where long stretches of piping are employed (for example, in heat exchangers, oil pipelines, fire protection systems to name a few).</p>
+<p>The first step in calculating the energy loss is identifying whether the flow can be characterized as laminar or turbulent.</p>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Los_Angeles_attack_sub_2.jpg" alt="Laminar and turbulent water flow over the hull of a submarine. By US Navy [Public domain], via Wikimedia Commons" width="350" /><figcaption>Laminar and turbulent water flow over the hull of a submarine. By US Navy [Public domain], via <a href="https://commons.wikimedia.org/wiki/File%3ALos_Angeles_attack_sub_2.jpg">Wikimedia Commons</a></figcaption>
+</figure>
+<p>The Reynold’s number for round pipes is <span class="math display">\[
+N_R=\frac{v D\rho}{\eta}=\frac{vD}{\nu}
+\]</span></p>
+<table>
+<caption>Quantities that enter into the determination of the Reynold’s number for round pipes</caption>
+<thead>
+<tr class="header">
+<th>Quantity</th>
+<th>Symbol</th>
+<th>SI units</th>
+<th>US units</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Velocity</td>
+<td><span class="math inline">\(v\)</span></td>
+<td>m/s</td>
+<td>ft/s</td>
+</tr>
+<tr class="even">
+<td>Diameter</td>
+<td><span class="math inline">\(D\)</span></td>
+<td>m</td>
+<td>ft</td>
+</tr>
+<tr class="odd">
+<td>Density</td>
+<td><span class="math inline">\(\rho\)</span></td>
+<td>kg/m<span class="math inline">\(^3\)</span></td>
+<td>slugs/ft<span class="math inline">\(^3\)</span></td>
+</tr>
+<tr class="even">
+<td>Dynamic Viscosity</td>
+<td><span class="math inline">\(\eta\)</span></td>
+<td>kg/m<span class="math inline">\(\cdot\)</span>s</td>
+<td>slugs/ft<span class="math inline">\(\cdot\)</span>s</td>
+</tr>
+<tr class="odd">
+<td>Kinematic Viscosity</td>
+<td><span class="math inline">\(\nu\)</span></td>
+<td>m<span class="math inline">\(^2\)</span>/s</td>
+<td>ft<span class="math inline">\(^2\)</span>/s</td>
+</tr>
+</tbody>
+</table>
+<h1 id="hydraulic-diameter">Hydraulic Diameter</h1>
+<h1 id="minor-losses">Minor Losses</h1>
 <p>Energy losses through valves, bends, expansions, contractions, gauges, flow meters, etc, are generally referred to as <em>minor losses</em>. Note that the cumulative effect of a number of <em>minor losses</em> can be substantial.</p>
 <p>Energy losses are proportional to the velocity head near the component of interest. The energy loss through a component can be expressed as <span class="math display">\[ h_L=K\left(\frac{v^2}{2g}\right) \]</span> where <span class="math inline">\(h_L\)</span> is the minor loss, <span class="math inline">\(K\)</span> is the resistance coefficient and <span class="math inline">\(v\)</span> is the average velocity in the pipe in the vicinity of the component. The velocity that is used in the above expression will depend on the specific problem.</p>
 <h2 id="sudden-enlargement">Sudden Enlargement</h2>
@@ -59,7 +118,7 @@ h_L=K\left(\frac{v_1^2}{2g}\right) \]</span> where <span class="math inline">\(v
 <figure>
 <img src="img\expansion.png" alt="Cartoon of flow through an abrupt enlargement." /><figcaption>Cartoon of flow through an abrupt enlargement.</figcaption>
 </figure>
-<p>Under some <a href="http://www.nptel.ac.in/courses/112104118/lecture-14/14-6_losses_sudden_enlarg.htm">simplifying assumptions the resisiteve coefficient can be derived</a>:</p>
+<p>Under some <a href="http://www.nptel.ac.in/courses/112104118/lecture-14/14-6_losses_sudden_enlarg.htm">simplifying assumptions the resistive coefficient can be derived</a>:</p>
 <p><span class="math display">\[ K\approx \left[1-\frac{A_1}{A_2}\right]^2 \]</span> The above expression works fairly well for moderate velocities and is a reasonable starting point for estimating losses due to a sudden expansion. If the sudden transition between pipe sizes can be made more gradual the energy loss can be reduced. A <em>diffuser</em> converts kinetic energy to pressure energy by a gradual enlargement in pipe size.</p>
 <h3 id="exit-loss">Exit Loss</h3>
 <p>When a fluid flows from a pipe into a large tank or reservoir all of the kinetic energy is dissipated (the kinetic energy in the static tank is zero). This can be treated as a limiting case of sudden expansion by taking <span class="math inline">\(A_1\to 0\)</span> in our expression for the resistive coefficient. This results in <span class="math inline">\(K\to 1\)</span> and a head loss of <span class="math display">\[
@@ -135,8 +194,8 @@ K=\left(L_e/D\right)f_T \]</span> where the factor <span class="math inline">\(\
 </tr>
 </tbody>
 </table>
-<p>The value of <span class="math inline">\(L_e\)</span> is called the equivalent length of pipe; it is the length of straight pipe that would produce the same loss as the valve. For example a 2&quot; fully open globe valve <span class="math inline">\((L_e/D=340)\)</span> has <span class="math inline">\(L_e \approx 57\~\mathrm{ft}\)</span>. This value of <span class="math inline">\(L_e\)</span> can than be added to the actual length of pipe to determine the total losses. While convenient, this procedure is only accurate when the actual pipe flows are in the zone of complete turbulence.</p>
-<p><img src="img/wafer-type-centerline-butterfly-valve.jpg" /> <img src="img/knife-gate-valve.jpg" /> <img src="img/din-globe-valve.jpg" /></p>
+<p>The value of <span class="math inline">\(L_e\)</span> is called the equivalent length of pipe; it is the length of straight pipe that would produce the same loss as the valve. For example a 2&quot; fully open globe valve <span class="math inline">\((L_e/D=340)\)</span> has <span class="math inline">\(L_e \approx 57~\mathrm{ft}\)</span>. This value of <span class="math inline">\(L_e\)</span> can than be added to the actual length of pipe to determine the total losses. While convenient, this procedure is only accurate when the actual pipe flows are in the zone of complete turbulence.</p>
+<p><img style="float: left;" src="img/wafer-type-centerline-butterfly-valve.jpg"> <img style="float: left;" src="img/knife-gate-valve.jpg"> <img style="" src="img/din-globe-valve.jpg"></p>
 <p><em>Left: Wafer type centerline butterfly valve. Middle: Knife gate valve. Right: A DIN globe valve. Images from <a href="http://www.metalsvalve.com">Metals Valve</a>.</em></p>
 <hr>
 <div>

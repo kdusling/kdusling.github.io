@@ -76,6 +76,14 @@ th {
   text-align: center;
 }
 
+/* ---- Images ---- */
+figure {
+    display: table;
+    width: 1px; /* This can be any width, so long as it's narrower than any image */
+}
+img, figcaption {
+    display: table-row;
+}
 .example {
   border-radius: 25px;
   border: 2px solid #2980b9;
