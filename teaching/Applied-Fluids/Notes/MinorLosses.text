@@ -9,11 +9,13 @@ $$\require{cancel}$$
 \newcommand{\inch}{\mathrm{in}}
 \newcommand{\ft}{\mathrm{ft}}
 \newcommand{\m}{\mathrm{m}}
+\newcommand{\mm}{\mathrm{mm}}
 \newcommand{\cm}{\mathrm{cm}}
 \newcommand{\lb}{\mathrm{lb}}
 \newcommand{\lbm}{\mathrm{lbm}}
 \newcommand{\lbf}{\mathrm{lbf}}
 \newcommand{\N}{\mathrm{N}}
+\newcommand{\L}{\mathrm{L}}
 \newcommand{\slug}{\mathrm{slug}}
 \newcommand{\Pa}{\mathrm{Pa}}
 \newcommand{\mph}{\mathrm{mph}}
@@ -23,22 +25,33 @@ $$\require{cancel}$$
 
 # Energy loss in pipes due to friction
 
-As a fluid flows through a pipe energy will be dissipated due to friction.
-As we will see the amount of energy lost will depend on the type of fluid,
-the fluid's velocity and the condition of the pipe.
+As a fluid flows through a pipe energy will be dissipated due to friction. As we will see the amount of energy lost will depend on the type of fluid, the fluid's velocity and the condition of the pipe.
 
-Losses due to friction will cause the pressure to decrease along the length of the pipe, therefore increasing the amount of power that a pump must deliver to the fluid.  These losses can become significant in systems where long stretches of piping are employed (for example, in heat exchangers, oil pipelines, fire protection systems to name a few).
+Losses due to friction will cause the pressure to decrease along the length of the pipe, therefore increasing the amount of power that a pump must deliver to the fluid.  These losses can become significant in systems where long stretches of piping are employed (for example, in heat exchangers, oil pipelines, fire protection systems, etc.).
 
-The first step in calculating the energy loss is identifying whether the flow can be characterized as laminar or turbulent.
+The general energy equation was written as
+$$
+\frac{p_1}{\gamma}+z_1+\frac{v_1^2}{2g}+h_A-h_R-h_L=\frac{p_2}{\gamma}+z_2+\frac{v_2^2}{2g}
+$$
+where the term $h_L$ was the energy loss.  One component of the energy loss is due to friction.  For flow in pipes and tubes the energy loss is determined from Darcy's equation
+
+$$
+h_L=f\times \frac{L}{D}\times \frac{v^2}{2g}
+$$
+
+In the above expression $L$ is the length of pipe, $D$ its diameter, and $v$ the average velocity of flow.  The dimensionless quantity $f$ is called the friction factor.  The method of obtaining $f$ will depend on whether the flow is laminar or turbulent.
+
+We all have an intuitive notion of what we mean by laminar or turbulent flow.  Laminar flow has the appearance of smooth and steady stream while turbulent flow appears chaotic and irregular and may contain eddies and swirls of fluid.
+But how can we quantitatively predict how the flow will behave, in particular if the flow is occurring in an opaque pipe where observations of the flow cannot be made.
 
 ![Laminar and turbulent water flow over the hull of a submarine. By US Navy [Public domain], via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File%3ALos_Angeles_attack_sub_2.jpg)](https://upload.wikimedia.org/wikipedia/commons/8/8d/Los_Angeles_attack_sub_2.jpg){width=350px}
 
-
-
-The Reynold's number for round pipes is
+In an 1883 paper Osborne Reynolds showed that a single dimensionless number, now called the Reynolds number ($N_R$), determines whether the flow is laminar or turbulent.  The Reynold's number for round pipes is
 $$
 N_R=\frac{v D\rho}{\eta}=\frac{vD}{\nu}
 $$
+
+The quantities entering into the definition of the Reynold's number are summarized in the table below.
 
 Quantity                  Symbol     SI units         US units
 --------                  ------     --------         --------
@@ -50,6 +63,39 @@ Kinematic Viscosity         $\nu$       m$^2$/s          ft$^2$/s
 
 Table:  Quantities that enter into the determination of the Reynold's
 number for round pipes
+
+For practical purposes, if $N_R < 2000$ the flow is laminar and for $N_R>4000$ the flow is turbulent.  The range of Reynold's numbers between 2000 and 4000 is known as the *critical region* and the behavior of the flow is difficult if not impossible to predict.  The design of most systems will avoid flows in this regime.
+
+::: {.example}
+Gasoline at $25\C$ is pumped through a DN 25 schedule 80 steel pipe at an average velocity of $1~\m/\s$.  Is the flow laminar or turbulent?
+
+------------------------------------------------------------------
+
+To determine the nature of the flow we compute the Reynold's number.
+$$
+N_R=\frac{v D\rho}{\eta}
+$$
+
+From <a href="https://kdusling.github.io/teaching/Applied-Fluids/PropertiesOfCommonLiquids.html">this table</a> we find that for gasoline at $25\C$
+$$
+\rho=680~\kg/\m^3\,\nonumber\\
+\eta=2.87\times 10^{-4}~\Pa\cdot\s
+$$
+From <a href="https://kdusling.github.io/teaching/Applied-Fluids/SteelPipeTable.html?sch=80&mat=comSteel">this table</a> we find that for DN 25 schedule 80 pipe
+$$
+D=24.3~\mm\,\nonumber\\
+$$
+
+We now have everything we need to find the Reynold's number
+$$
+N_R=\frac{v D\rho}{\eta}=\frac{\left(1~\m/\s\right)\left(0.0243~\m\right)\left(680~\kg/m^3\right)}{\eta=2.87\times 10^{-4}~\Pa\cdot\s}=1000
+$$
+:::
+
+## Friction losses in laminar flows
+
+## Friction losses in turbulent flows
+
 
 # Hydraulic Diameter
 
