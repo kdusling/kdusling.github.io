@@ -59,22 +59,22 @@
 </nav>
 <span class="math display">\[\require{cancel}\]</span>
 <h1 id="energy-loss-in-pipes-due-to-friction">Energy loss in pipes due to friction</h1>
-<p>As a fluid flows through a pipe energy will be dissipated due to friction. As we will see the amount of energy lost will depend on the type of fluid, the fluid’s velocity and the condition of the pipe.</p>
+<p>As a fluid flows through a pipe energy will be dissipated due to friction. As we will see the amount of energy lost will depend on the type of fluid, the fluid’s velocity and the condition (<em>i.e.</em> roughness) of the pipe.</p>
 <p>Losses due to friction will cause the pressure to decrease along the length of the pipe, therefore increasing the amount of power that a pump must deliver to the fluid. These losses can become significant in systems where long stretches of piping are employed (for example, in heat exchangers, oil pipelines, fire protection systems, etc.).</p>
 <p>The general energy equation was written as <span class="math display">\[
 \frac{p_1}{\gamma}+z_1+\frac{v_1^2}{2g}+h_A-h_R-h_L=\frac{p_2}{\gamma}+z_2+\frac{v_2^2}{2g}
 \]</span> where the term <span class="math inline">\(h_L\)</span> was the energy loss. One component of the energy loss is due to friction. For flow in pipes and tubes the energy loss is determined from Darcy’s equation</p>
-<p><span class="math display">\[
+<p><span id="eq:Darcy" style="display: inline-block; position: relative; width: 100%"><span class="math display">\[
 h_L=f\times \frac{L}{D}\times \frac{v^2}{2g}
-\]</span></p>
+\]</span><span style="position: absolute; right: 0em; top: 50%; line-height:0; text-align: right">(1)</span></span> </p>
 <p>In the above expression <span class="math inline">\(L\)</span> is the length of pipe, <span class="math inline">\(D\)</span> its diameter, and <span class="math inline">\(v\)</span> the average velocity of flow. The dimensionless quantity <span class="math inline">\(f\)</span> is called the friction factor. The method of obtaining <span class="math inline">\(f\)</span> will depend on whether the flow is laminar or turbulent.</p>
 <p>We all have an intuitive notion of what we mean by laminar or turbulent flow. Laminar flow has the appearance of smooth and steady stream while turbulent flow appears chaotic and irregular and may contain eddies and swirls of fluid. But how can we quantitatively predict how the flow will behave, in particular if the flow is occurring in an opaque pipe where observations of the flow cannot be made.</p>
 <figure>
 <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Los_Angeles_attack_sub_2.jpg" alt="Laminar and turbulent water flow over the hull of a submarine. By US Navy [Public domain], via Wikimedia Commons" width="350" /><figcaption>Laminar and turbulent water flow over the hull of a submarine. By US Navy [Public domain], via <a href="https://commons.wikimedia.org/wiki/File%3ALos_Angeles_attack_sub_2.jpg">Wikimedia Commons</a></figcaption>
 </figure>
-<p>In an 1883 paper Osborne Reynolds showed that a single dimensionless number, now called the Reynolds number (<span class="math inline">\(N_R\)</span>), determines whether the flow is laminar or turbulent. The Reynold’s number for round pipes is <span class="math display">\[
+<p>In an 1883 paper Osborne Reynolds showed that a single dimensionless number, now called the Reynolds number (<span class="math inline">\(N_R\)</span>), determines whether the flow is laminar or turbulent. The Reynold’s number for round pipes is <span id="eq:Reynolds" style="display: inline-block; position: relative; width: 100%"><span class="math display">\[
 N_R=\frac{v D\rho}{\eta}=\frac{vD}{\nu}
-\]</span></p>
+\]</span><span style="position: absolute; right: 0em; top: 50%; line-height:0; text-align: right">(2)</span></span> </p>
 <p>The quantities entering into the definition of the Reynold’s number are summarized in the table below.</p>
 <table>
 <caption>Quantities that enter into the determination of the Reynold’s number for round pipes</caption>
@@ -121,22 +121,38 @@ N_R=\frac{v D\rho}{\eta}=\frac{vD}{\nu}
 </table>
 <p>For practical purposes, if <span class="math inline">\(N_R &lt; 2000\)</span> the flow is laminar and for <span class="math inline">\(N_R&gt;4000\)</span> the flow is turbulent. The range of Reynold’s numbers between 2000 and 4000 is known as the <em>critical region</em> and the behavior of the flow is difficult if not impossible to predict. The design of most systems will avoid flows in this regime.</p>
 <div class="example">
-<p>Gasoline at <span class="math inline">\(25^\circ\mathrm{C}\)</span> is pumped through a DN 25 schedule 80 steel pipe at an average velocity of <span class="math inline">\(1~\mathrm{m}/\mathrm{s}\)</span>. Is the flow laminar or turbulent?</p>
+<p>Glycerin at <span class="math inline">\(25^\circ\mathrm{C}\)</span> is pumped through a DN 125 schedule 80 steel pipe at an average velocity of <span class="math inline">\(v=5~\mathrm{m}/\mathrm{s}\)</span>. Is the flow laminar or turbulent?</p>
 <hr />
 <p>To determine the nature of the flow we compute the Reynold’s number. <span class="math display">\[
 N_R=\frac{v D\rho}{\eta}
 \]</span></p>
-<p>From <a href="https://kdusling.github.io/teaching/Applied-Fluids/PropertiesOfCommonLiquids.html">this table</a> we find that for gasoline at <span class="math inline">\(25^\circ\mathrm{C}\)</span> <span class="math display">\[
-\rho=680~\mathrm{kg}/\mathrm{m}^3\,\nonumber\\
-\eta=2.87\times 10^{-4}~\mathrm{Pa}\cdot\mathrm{s}
-\]</span> From <a href="https://kdusling.github.io/teaching/Applied-Fluids/SteelPipeTable.html?sch=80&mat=comSteel">this table</a> we find that for DN 25 schedule 80 pipe <span class="math display">\[
-D=24.3~\mathrm{mm}\,\nonumber\\
+<p>From <a href="https://kdusling.github.io/teaching/Applied-Fluids/PropertiesOfCommonLiquids.html">this table</a> we find that for glycerin at <span class="math inline">\(25^\circ\mathrm{C}\)</span>: <span class="math display">\[
+\rho=1263~\mathrm{kg}/\mathrm{m}^3\,,\quad
+\eta=9.50\times 10^{-1}~\mathrm{Pa}\cdot\mathrm{s}
+\]</span> From <a href="https://kdusling.github.io/teaching/Applied-Fluids/SteelPipeTable.html?sch=80&mat=comSteel">this table</a> we find that for DN 125 schedule 80 pipe <span class="math inline">\(D=122.3~\mathrm{mm}\)</span>. We now have everything we need to find the Reynold’s number <span class="math display">\[
+N_R=\frac{v D\rho}{\eta}=\frac{\left(5~\mathrm{m}/\mathrm{s}\right)\left(0.1223~\mathrm{m}\right)\left(1263~\mathrm{kg}/\mathrm{m}^3\right)}{9.50\times 10^{-1}~\mathrm{Pa}\cdot\mathrm{s}}=813
 \]</span></p>
-<p>We now have everything we need to find the Reynold’s number <span class="math display">\[
-N_R=\frac{v D\rho}{\eta}=\frac{\left(1~\mathrm{m}/\mathrm{s}\right)\left(0.0243~\mathrm{m}\right)\left(680~\mathrm{kg}/m^3\right)}{\eta=2.87\times 10^{-4}~\mathrm{Pa}\cdot\mathrm{s}}=1000
-\]</span></p>
+<p>Notice that all the units cancel in the above expression resulting in a dimensionless Reynold’s number. Since <span class="math inline">\(N_R=813\)</span> is less than <span class="math inline">\(2000\)</span> the flow is laminar.</p>
 </div>
 <h2 id="friction-losses-in-laminar-flows">Friction losses in laminar flows</h2>
+<p>For laminar flows the friction factor can be derived but that goes beyond the scope of these notes. For laminar flows, <span class="math inline">\(N_R &lt; 2000\)</span>, the friction factor is <span class="math display">\[
+f=\frac{64}{N_R}
+\]</span></p>
+<p>As a side note, if we substitute the above friction factor into Darcy’s equation (eq. <a href="#eq:Darcy">1</a>) and replace the Reynold’s number with the form given in eq. <a href="#eq:Reynolds">2</a> we obtain what is known as the Hagen-Poiseuille equation <span class="math display">\[
+h_L=\frac{32\eta L v}{\gamma D^2}
+\]</span> This equation for <span class="math inline">\(h_L\)</span> is valid only for laminar flows. Reminder, the Darcy Equation (eq. <a href="#eq:Darcy">1</a>) for <span class="math inline">\(h_L\)</span> is valid for <em>both</em> laminar and turbulent flows as long as the appropriate friction factor is used.</p>
+<p>In practice I never use the Hagen-Poiseuille equation. Instead I use Darcy’s equation along with <span class="math inline">\(f=64/N_R\)</span> for laminar flows.</p>
+<div class="example">
+<p>Glycerin at <span class="math inline">\(25^\circ\mathrm{C}\)</span> is pumped through <span class="math inline">\(100~\mathrm{m}\)</span> of DN 125 schedule 80 steel pipe at an average velocity of <span class="math inline">\(v=5~\mathrm{m}/\mathrm{s}\)</span>. Determine the energy loss.</p>
+<hr />
+<p>From the previous example we found <span class="math inline">\(N_R=813\)</span> and therefore expect the flow to be laminar. The energy loss is determined from Darcy’s equation <span class="math display">\[
+h_L=f\times \frac{L}{D}\times \frac{v^2}{2g}
+\]</span> Since the flow is laminar we take <span class="math display">\[
+f=\frac{64}{N_R}=\frac{64}{813}=0.0787
+\]</span> and therefore have <span class="math display">\[
+h_L=0.0787\times \frac{100~\mathrm{m}}{0.1223~\mathrm{m}}\times \frac{\left(5~\mathrm{m}/\mathrm{s}\right)^2}{2(9.81~\mathrm{m}/s^2)}=82~\mathrm{m}
+\]</span> Remember that the quantity <span class="math inline">\(h_L\)</span> is the energy loss per unit weight. We can write it as <span class="math inline">\(h_L=82~\mathrm{N}\cdot \mathrm{m}/\mathrm{N}=82~{\rm J}/\mathrm{N}\)</span>. This means that for every newtwon of glycerin that flows through the 100 meters of pipe 82 joules of energy will be dissipated.</p>
+</div>
 <h2 id="friction-losses-in-turbulent-flows">Friction losses in turbulent flows</h2>
 <h1 id="hydraulic-diameter">Hydraulic Diameter</h1>
 <h1 id="minor-losses">Minor Losses</h1>
