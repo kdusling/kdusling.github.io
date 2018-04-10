@@ -1,10 +1,9 @@
 
-(function() {
   const myQuestions = [
     {
-      question: "Who is the strongest?",
+      question: "Who is $x=4$ the strongest?",
       answers: {
-        a: "Superman",
+        a: "Superman $$x=6$$",
         b: "The Terminator",
         c: "Waluigi, obviously"
       },
@@ -124,24 +123,4 @@
   function showPreviousSlide() {
     showSlide(currentSlide - 1);
   }
-
-  const quizContainer = document.getElementById("quiz");
-  const resultsContainer = document.getElementById("results");
-  const submitButton = document.getElementById("submit");
-
-  // display quiz right away
-  buildQuiz();
-
-  const previousButton = document.getElementById("previous");
-  const nextButton = document.getElementById("next");
-  const slides = document.querySelectorAll(".slide");
-  let currentSlide = 0;
-
-  showSlide(0);
-
-  // on submit, show results
-  submitButton.addEventListener("click", showResults);
-  previousButton.addEventListener("click", showPreviousSlide);
-  nextButton.addEventListener("click", showNextSlide);
-})();
 
