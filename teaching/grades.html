@@ -36,6 +36,38 @@
    </script>
 
 
+<style type="text/css">
+	.TFtableCol{
+		border-collapse:collapse;
+	}
+  .TFtableCol th{
+    padding:7px; border:#4e95f4 1px solid; min-width: 100px;
+  }
+	.TFtableCol td{
+		padding:7px; border:#4e95f4 1px solid;
+	}
+	/* improve visual readability for IE8 and below */
+	.TFtableCol tr{
+		background: #b8d1f3;
+	}
+	/*  Define the background color for all the ODD table columns  */
+	.TFtableCol tr td:nth-child(odd){
+		background: #b8d1f3;
+	}
+  .TFtableCol tr th:nth-child(odd){
+    background: #b8d1f3;
+  }
+	/*  Define the background color for all the EVEN table columns  */
+	.TFtableCol tr td:nth-child(even){
+		background: #dae5f4;
+	}
+  .TFtableCol tr th:nth-child(even){
+    background: #dae5f4;
+  }
+</style>
+
+
+
 
 <span id="navbar_form">
     Select Course:
@@ -51,7 +83,7 @@
 
 <BR><BR>
 
-<div id="display" style="width: 500px;"></div>
+<div id="display"></div>
 
 
 <script type="text/javascript">
@@ -100,9 +132,9 @@ function search_navigate() {
         document.getElementById("display").innerHTML = "Error ... please try again.";
       } else {
 
-        var myHTML = "<table><tr>"
+        var myHTML = "<table class='TFtableCol'><tr>"
         for(i=2; i < nc; i++){
-             myHTML += "<th  style='width: 100px;'>";
+             myHTML += "<th>";
              myHTML +=  data.getColumnLabel(i);
              myHTML += "</th>";
             }
