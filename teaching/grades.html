@@ -100,9 +100,9 @@ function search_navigate() {
         document.getElementById("display").innerHTML = "Error ... please try again.";
       } else {
 
-        var myHTML = "<table style='width: 500px;'><tr>"
+        var myHTML = "<table><tr>"
         for(i=2; i < nc; i++){
-             myHTML += "<th>";
+             myHTML += "<th  style='width: 100px;'>";
              myHTML +=  data.getColumnLabel(i);
              myHTML += "</th>";
             }
@@ -125,7 +125,7 @@ function search_navigate() {
 <a href="https://github.com/"><img style="vertical-align:middle" src="/images/Octocat.png" height="20"></a>
 <span style=""><a href="http://kdusling.github.io/">Kevin Dusling</a> &nbsp;&nbsp; |
     &nbsp;&nbsp; <a href="/sitenav.html">site map</a> &nbsp;&nbsp; |
-    &nbsp; &nbsp; last modified: 12-Apr-2018</span> 
+    &nbsp; &nbsp; last modified: 18-Apr-2018</span> 
 </div>
 
 </body>
