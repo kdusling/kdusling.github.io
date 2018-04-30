@@ -7,4 +7,4 @@ This is my test page
 
 $$x=17\sin(3x)$$
 
-try again234567
+try again2345678 and some inline $x^3=3$
