@@ -1,6 +1,6 @@
-	name: Kevin Dusling
-	markdown: rdiscount
-	theme: minima
-	baseurl: "/teaching/Applied-Fluids/Course"
-	production_url : https://kdusling.github.io/teaching/Applied-Fluids/Course/
-	BASE_PATH : https://kdusling.github.io/teaching/Applied-Fluids/Course/
+name: Kevin Dusling
+markdown: rdiscount
+theme: minima
+baseurl: "/teaching/Applied-Fluids/Course"
+production_url : https://kdusling.github.io/teaching/Applied-Fluids/Course/
+BASE_PATH : https://kdusling.github.io/teaching/Applied-Fluids/Course/
