@@ -1,2 +1,4 @@
 	name: Kevin Dusling
-	markdown: kramdown
+	markdown: rdiscount
+	baseurl: /teaching/Applied-Fluids/Course
+	#theme: minima
