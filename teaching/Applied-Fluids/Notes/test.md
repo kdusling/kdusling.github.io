@@ -85,13 +85,13 @@ problem at hand prefixes can be added to the basic quantities above when
 working in the SI system.  [Table 2](#SIprefix) shows some commonly used
 prefixes.
 
-  Prefix    SI symbol   Factor
-  ------    ---------   -------
-  mega      M           $10^6=1\,000\,000$
-  kilo      k           $10^3=1\,000$
-  centi     c           $10^{-2}=0.01$
-  milli     m           $10^{-3}=0.001$
-  micro     $\mu$       $10^{-6}=0.000\,001$
+  Prefix |   SI symbol |  Factor
+  ------ |   --------- |  -------
+  mega   |   M         |  $10^6=1\,000\,000$
+  kilo   |   k         |  $10^3=1\,000$
+  centi  |   c         |  $10^{-2}=0.01$
+  milli  |   m         |  $10^{-3}=0.001$
+  micro  |   $\mu$     |  $10^{-6}=0.000\,001$
 
   : Table 2: Common SI unit prefixes <a name="SIprefix"></a>
 
@@ -102,13 +102,13 @@ or USC) which is closely related (many times used synonymously) with the
 English or Imperial system. [Table 3](#tabUS) shows an abbreviated list
 of units in the U.S. customary system.
 
-  Quantity      Name         Symbol
-  ------------- ------------ -------------------------
-  length        foot         ft
-  time          second       s
-  force         pound        lb
-  temperature   Fahrenheit   $^\circ$F
-  mass          slug         lb$\cdot$s$^2$/ft
+  Quantity     | Name         Symbol
+  -------------| -----------| -------------------------
+  length       | foot       |  ft
+  time         | second     |  s
+  force        | pound      |  lb
+  temperature  | Fahrenheit |  $^\circ$F
+  mass         | slug       |  lb$\cdot$s$^2$/ft
 
   : Table 3: The U.S. customary system of units. Mass is a derived unit
   and can be expressed in terms of USC base units as $\slug=\lb\cdot
@@ -322,13 +322,13 @@ $$
 T_R=T_F+459.67
 $$
 
-                                           Celsius      Fahrenheit    Kelvin    Rankine
-   --------                                -------      ----------    -------   --------
-   Absolute zero                           -273.15      -459.67           0         0
-   Ice melts$^\dagger$                           0          32         273.15    459.67
-   Average surface temperature on Earth         15          59            288       519
-   Average body temperature                     37          98            310       558
-   Water boils$^\dagger$                       100         212            373       671
+                                          | Celsius    |  Fahrenheit  |  Kelvin   | Rankine
+   --------                               | -------    |  ----------  |  -------  | --------
+   Absolute zero                          | -273.15    |  -459.67     |      0    |     0
+   Ice melts$^\dagger$                    |       0    |      32      |   273.15  |  459.67
+   Average surface temperature on Earth   |      15    |      59      |      288  |     519
+   Average body temperature               |      37    |      98      |      310  |     558
+   Water boils$^\dagger$                  |     100    |     212      |      373  |     671
 
    : Table 4: A comparison among temperature scales.  $^\dagger$Melting and boiling points are at standard pressure.
 
