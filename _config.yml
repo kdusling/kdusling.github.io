@@ -1,3 +1,3 @@
 name: Kevin Dusling
-markdown: rdiscount
+markdown: kramdown
 relative_permalinks: false
