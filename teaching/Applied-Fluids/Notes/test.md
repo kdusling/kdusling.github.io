@@ -4,11 +4,9 @@ title: Dimensions & Units
 use_math: true
 ---
 
-
-%Dimensions & Units
-
-$$\require{cancel}$$
-$$\newcommand{\s}{\mathrm{s}}
+$$
+\require{cancel}
+\newcommand{\s}{\mathrm{s}}
 \newcommand{\min}{\mathrm{min}}
 \newcommand{\hr}{\mathrm{hr}}
 \newcommand{\kg}{\mathrm{kg}}
@@ -28,7 +26,8 @@ $$\newcommand{\s}{\mathrm{s}}
 \newcommand{\mph}{\mathrm{mph}}
 \renewcommand{\psi}{\mathrm{psi}}
 \newcommand{\C}{^\circ\mathrm{C}}
-\newcommand{\F}{^\circ\mathrm{F}}$$
+\newcommand{\F}{^\circ\mathrm{F}}
+$$
 
 As you will soon discover a fluency with unit conversions is absolutely
 essential. A careful watch over units can prevent errors from occurring
@@ -69,13 +68,13 @@ closely related (often used synonymously) with the metric system. [Table
 [hosts a great website](https://physics.nist.gov/cuu/Units/index.html)
 on SI units.
 
-  Quantity      Name       Symbol
-  ------------- ---------- --------
-  length        meter      m
-  time          second     s
-  mass          kilogram   kg
-  temperature   Kelvin     K
-  force         Newton     N
+  Quantity      | Name      | Symbol
+  ------------- | --------  | --------
+  length        | meter     | m
+  time          | second    | s
+  mass          | kilogram  | kg
+  temperature   | Kelvin    | K
+  force         | Newton    | N
 
   : Table 1: The international system of units (SI). Force is a derived
   unit and can be expressed in terms of SI base units as
