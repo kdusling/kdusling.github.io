@@ -29,44 +29,20 @@ $$
 \newcommand{\F}{^\circ\mathrm{F}}
 $$
 
-As you will soon discover a fluency with unit conversions is absolutely
-essential. A careful watch over units can prevent errors from occurring
-and in some instances a problem can be solved by dimensional analysis
-alone.
+As you will soon discover a fluency with unit conversions is absolutely essential. A careful watch over units can prevent errors from occurring and in some instances a problem can be solved by dimensional analysis alone.
 
-Though used interchangeably there is a subtle distinction between the
-meaning of the words unit and dimension. A *dimension* is a measure of
-some physical quantity without assigning it a numerical value. A choice
-of *units* is a way to assign a numeric value to a given dimension. For
-example, length is a dimension and it can be expressed in units of
-meters, feet, inches, fathoms (1 fathom = 6 ft), etc.
+Though used interchangeably there is a subtle distinction between the meaning of the words unit and dimension. A *dimension* is a measure of some physical quantity without assigning it a numerical value. A choice of *units* is a way to assign a numeric value to a given dimension. For example, length is a dimension and it can be expressed in units of meters, feet, inches, fathoms (1 fathom = 6 ft), etc.
 
-There are seven primary (or base) dimensions: mass, length, time,
-temperature, electric current, amount of light, and amount of matter. In
-fluid mechanics we will make use of the first four: mass, length, time,
-and temperature.
+There are seven primary (or base) dimensions: mass, length, time, temperature, electric current, amount of light, and amount of matter.  In fluid mechanics we will make use of the first four: mass, length, time, and temperature.
 
-From these base dimensions other derived quantities can be defined. A
-simple example of a derived quantity is that of area. Area has
-dimensions of length squared and the units can be anything from
-$$\cm^2$$, m$$^2$$, ft$$^2$$, acres
-($$1~\textrm{acre}=43,560~\ft^2$$), barns ($$1~\textrm{barn} =
-10^{-28}~\m^2$$), etc. Examples of other derived quantities that you
-are already familiar with include volume, velocity, acceleration, and
-force.
+From these base dimensions other derived quantities can be defined. A simple example of a derived quantity is that of area. Area has
+dimensions of length squared and the units can be anything from $$\cm^2$$, m$$^2$$, ft$$^2$$, acres ($$1~\textrm{acre}=43,560~\ft^2$$), barns ($$1~\textrm{barn} = 10^{-28}~\m^2$$), etc. Examples of other derived quantities that you are already familiar with include volume, velocity, acceleration, and force.
 
-After a [failed effort](https://www.vox.com/2014/5/29/5758542/time-for-the-US-to-use-the-metric-system)
-to move the United States over to the metric system we are unfortunately
-burdened with the use of two disparate system of units. If you live/work
-in the United States you must know both.
+After a [failed effort](https://www.vox.com/2014/5/29/5758542/time-for-the-US-to-use-the-metric-system) to move the United States over to the metric system we are unfortunately burdened with the use of two disparate system of units. If you live/work in the United States you must know both.
 
 ## The International System of Units (SI)
 
-We first introduce the International System of Units (SI) which is
-closely related (often used synonymously) with the metric system. [Table
-1](#tabSI) shows an abbreviated list of units in the SI system. NIST
-[hosts a great website](https://physics.nist.gov/cuu/Units/index.html)
-on SI units.
+We first introduce the International System of Units (SI) which is closely related (often used synonymously) with the metric system. [Table 1](#tabSI) shows an abbreviated list of units in the SI system. NIST [hosts a great website] https://physics.nist.gov/cuu/Units/index.html) on SI units.
 
   Quantity      | Name      | Symbol
   ------------- | --------  | --------
@@ -75,10 +51,7 @@ on SI units.
   mass          | kilogram  | kg
   temperature   | Kelvin    | K
   force         | Newton    | N
-
-  : Table 1: The international system of units (SI). Force is a derived
-  unit and can be expressed in terms of SI base units as
-  $\mathrm{N}=\mathrm{kg}\cdot \mathrm{m/s}^2$. <a name="tabSI"></a>
+  : Table 1: The international system of units (SI). Force is a derived unit and can be expressed in terms of SI base units as $\mathrm{N}=\mathrm{kg}\cdot \mathrm{m/s}^2$. <a name="tabSI"></a>
 
 Because the actual size of physical quantities can vary depending on the
 problem at hand prefixes can be added to the basic quantities above when
@@ -87,12 +60,11 @@ prefixes.
 
   Prefix |   SI symbol |  Factor
   ------ |   --------- |  -------
-  mega   |   M         |  $10^6=1\,000\,000$
-  kilo   |   k         |  $10^3=1\,000$
-  centi  |   c         |  $10^{-2}=0.01$
-  milli  |   m         |  $10^{-3}=0.001$
-  micro  |   $\mu$     |  $10^{-6}=0.000\,001$
-
+  mega   |   M         |  $$10^6=1\,000\,000$$
+  kilo   |   k         |  $$10^3=1\,000$$
+  centi  |   c         |  $$10^{-2}=0.01$$
+  milli  |   m         |  $$10^{-3}=0.001$$
+  micro  |   $\mu$     |  $$10^{-6}=0.000\,001$$
   : Table 2: Common SI unit prefixes <a name="SIprefix"></a>
 
 ## The U.S. Customary System (USCS)
@@ -107,8 +79,8 @@ of units in the U.S. customary system.
   length       | foot       |  ft
   time         | second     |  s
   force        | pound      |  lb
-  temperature  | Fahrenheit |  $^\circ$F
-  mass         | slug       |  lb$\cdot$s$^2$/ft
+  temperature  | Fahrenheit |  $$^\circ$$F
+  mass         | slug       |  lb$$\cdot$$s$$^2$$/ft
 
   : Table 3: The U.S. customary system of units. Mass is a derived unit
   and can be expressed in terms of USC base units as $\slug=\lb\cdot
