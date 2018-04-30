@@ -144,9 +144,7 @@ Here are some examples.
 
 <div class="example">
 A car is travelling at 80 kilometers per hour (km/h).  How many minutes would it take to travel 16 km?
-
-------------------------------------------------------------------
-
+---
 To find the solution we use the expression $x=vt$, where $x$ is the distance,
 $v$ the velocity and $t$ the time.  Solving for time we have 
 $$
