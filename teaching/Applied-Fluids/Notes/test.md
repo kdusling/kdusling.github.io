@@ -1,3 +1,9 @@
+---
+layout: course
+title: Dimensions & Units
+use_math: true
+---
+
 
 %Dimensions & Units
 
