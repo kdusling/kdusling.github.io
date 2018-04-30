@@ -3,7 +3,10 @@
     tex2jax: {
       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
       processEscapes: true
-    }
+    },
+      CommonHTML: { linebreaks: { automatic: true } },
+      "HTML-CSS": { linebreaks: { automatic: true } },
+      SVG: { linebreaks: { automatic: true } }
   });
 </script>
 <script
@@ -15,4 +18,8 @@
   type="text/javascript"
   charset="utf-8"  
   src="https://vincenttam.github.io/javascripts/MathJaxLocal.js">
+</script>
+
+<script type="text/x-mathjax-config">
+
 </script>
