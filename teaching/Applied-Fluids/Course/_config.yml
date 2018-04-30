@@ -1,6 +1,7 @@
 name: Kevin Dusling
 markdown: rdiscount
 relative_permalinks: false
+include: ['/teaching/Applied-Fluids/Course']
 #baseurl: "/teaching/Applied-Fluids/Course"
 #production_url : https://kdusling.github.io/teaching/Applied-Fluids/Course/
 #BASE_PATH : https://kdusling.github.io/teaching/Applied-Fluids/Course/
