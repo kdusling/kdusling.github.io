@@ -44,15 +44,15 @@ After a [failed effort](https://www.vox.com/2014/5/29/5758542/time-for-the-US-to
 
 We first introduce the International System of Units (SI) which is closely related (often used synonymously) with the metric system. [Table 1](#tabSI) shows an abbreviated list of units in the SI system. NIST [hosts a great website] https://physics.nist.gov/cuu/Units/index.html) on SI units.
 
-  Quantity      | Name      | Symbol
-  ------------- | --------  | --------
-  length        | meter     | m
-  time          | second    | s
-  mass          | kilogram  | kg
-  temperature   | Kelvin    | K
-  force         | Newton    | N
-  ====
-  Table 1: The international system of units (SI). Force is a derived unit and can be expressed in terms of SI base units as $\mathrm{N}=\mathrm{kg}\cdot \mathrm{m/s}^2$. <a name="tabSI"></a>
+    | Quantity      | Name      | Symbol
+    | ------------- | --------  | --------
+    | length        | meter     | m
+    | time          | second    | s
+    | mass          | kilogram  | kg
+    | temperature   | Kelvin    | K
+    | force         | Newton    | N
+    | ====
+    | Table 1: The international system of units (SI). Force is a derived unit and can be expressed in terms of SI base units as $$\mathrm{N}=\mathrm{kg}\cdot \mathrm{m/s}^2$$. <a name="tabSI"></a>
 
 Because the actual size of physical quantities can vary depending on the
 problem at hand prefixes can be added to the basic quantities above when
