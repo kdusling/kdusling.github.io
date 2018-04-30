@@ -8,7 +8,7 @@ use_math: true
 %Dimensions & Units
 
 $$\require{cancel}$$
-\newcommand{\s}{\mathrm{s}}
+$$\newcommand{\s}{\mathrm{s}}
 \newcommand{\min}{\mathrm{min}}
 \newcommand{\hr}{\mathrm{hr}}
 \newcommand{\kg}{\mathrm{kg}}
@@ -28,7 +28,7 @@ $$\require{cancel}$$
 \newcommand{\mph}{\mathrm{mph}}
 \renewcommand{\psi}{\mathrm{psi}}
 \newcommand{\C}{^\circ\mathrm{C}}
-\newcommand{\F}{^\circ\mathrm{F}}
+\newcommand{\F}{^\circ\mathrm{F}}$$
 
 As you will soon discover a fluency with unit conversions is absolutely
 essential. A careful watch over units can prevent errors from occurring
