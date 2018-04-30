@@ -49,9 +49,9 @@ and temperature.
 From these base dimensions other derived quantities can be defined. A
 simple example of a derived quantity is that of area. Area has
 dimensions of length squared and the units can be anything from
-$\cm^2$, m$^2$, ft$^2$, acres
-($1~\textrm{acre}=43,560~\ft^2$), barns ($1~\textrm{barn} =
-10^{-28}~\m^2$), etc. Examples of other derived quantities that you
+$$\cm^2$$, m$$^2$$, ft$$^2$$, acres
+($$1~\textrm{acre}=43,560~\ft^2$$), barns ($$1~\textrm{barn} =
+10^{-28}~\m^2$$), etc. Examples of other derived quantities that you
 are already familiar with include volume, velocity, acceleration, and
 force.
 
@@ -169,7 +169,7 @@ It is imperative that results be dimensionally consistent when performing calcul
 We do this by canceling units when solving for quantities.
 Here are some examples.
 
-::: {.example}
+<div class="example">
 A car is travelling at 80 kilometers per hour (km/h).  How many minutes would it take to travel 16 km?
 
 ------------------------------------------------------------------
@@ -190,7 +190,7 @@ $$
 t=0.2~\cancel{\hr}\times \frac{60~\min}{1~\cancel{\hr}}=12~\min
 $$
 The final answer is that the car takes 12 minutes to travel 16 km at 80 km/h.
-:::
+</div>
 
 Here is another example that uses the US customary system of units.
 
