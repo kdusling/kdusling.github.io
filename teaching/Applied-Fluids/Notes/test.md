@@ -1,7 +1,6 @@
 ---
 layout: course
 title: Dimensions & Units
-use_math: true
 ---
 
 $$
@@ -51,8 +50,8 @@ We first introduce the International System of Units (SI) which is closely relat
 | mass          | kilogram  | kg
 | temperature   | Kelvin    | K
 | force         | Newton    | N
-| ====
-| Table 1: The international system of units (SI). Force is a derived unit and can be expressed in terms of SI base units as $$\mathrm{N}=\mathrm{kg}\cdot \mathrm{m/s}^2$$. <a name="tabSI"></a>
+
+Table 1: The international system of units (SI). Force is a derived unit and can be expressed in terms of SI base units as $$\mathrm{N}=\mathrm{kg}\cdot \mathrm{m/s}^2$$. <a name="tabSI"></a>
 
 Because the actual size of physical quantities can vary depending on the
 problem at hand prefixes can be added to the basic quantities above when
@@ -146,7 +145,7 @@ Here are some examples.
 A car is travelling at 80 kilometers per hour (km/h).  How many minutes would it take to travel 16 km?
 ---
 To find the solution we use the expression $x=vt$, where $x$ is the distance,
-$v$ the velocity and $t$ the time.  Solving for time we have 
+$v$ the velocity and $t$ the time.  Solving for time we have
 $$
 t=\frac{x}{v}
 $$
@@ -275,12 +274,12 @@ $$
 The reference points in the above temperature scales of Celsius and Fahrenheit
 are somewhat arbitrary.  An *absolute temperature* is defined such that its
 zero point corresponds to the condition where all molecular motion stops, so
-called *absolute zero*. 
+called *absolute zero*.
 
 In the SI unit system, the standard unit of absolute temperature is kelvin (K).
 The spacing between points on the kelvin scale is the same as the Celsius
 scale.  As the freezing point of water is measured to be $273.15~$K we can
-convert from a temperature in Celsius to a temperature $T_K$ in kelvin by 
+convert from a temperature in Celsius to a temperature $T_K$ in kelvin by
 $$
 T_K=T_C + 273.15
 $$
