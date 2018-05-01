@@ -1,0 +1,90 @@
+
+
+select{
+    width: 200px;
+    padding: 5px;
+    font-size: 18px;
+    line-height: 1;
+    border: 0;
+    border-radius: 5px;
+    height: 34px;
+    background: url("dwnarw.png") no-repeat right #ddd; background-size: 34px;
+    -webkit-appearance: none;
+    background-position-x: 165px;
+}
+
+input {
+    width: 150px;
+    padding: 0px;
+    font-size: 18px;
+    line-height: 1;
+    border-radius: 5px;
+    height: 30px;
+    -webkit-appearance: none;
+    background-position-x: 115px;
+}
+
+button {
+    background-color: #2980b9; /*blue*/
+    border: none;
+    color: white;
+    padding: 5px 32px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    height: 34px;
+}
+
+table {
+    color: #333; /* Lighten up font color */
+    font-family: Helvetica, Arial, sans-serif; /* Nicer font */
+    border-collapse:
+    collapse; border-spacing: 0;
+    width: 650px;
+}
+
+td, th { border: 1px solid #CCC; height: 30px; } /* Make cells a bit taller */
+
+th {
+    background: #F3F3F3; /* Light grey background */
+    font-weight: bold; /* Make sure they're bold */
+}
+
+td {
+    background: #FAFAFA; /* Lighter grey background */
+    text-align: center; /* Center our text */
+}
+
+.printbox {
+  border-radius: 25px;
+  border: 2px solid #2980b9;
+  padding: 20px;
+  max-width:7.5in;
+  width:7.5in;
+}
+
+.printbox legend {
+  font-size: 14px;
+  color: #2980b9;
+  font-weight: bold;
+}
+
+.printbox hr{
+  height: 1px; border:none;
+  color: #2980b9;
+  background-color: #2980b9;
+}
+
+.printbox h1{
+  font-size: 18px;
+  color: #2980b9;
+}
+
+.printbox h2{
+  font-size: 14px;
+  color: #2980b9;
+  font-weight: bold;
+  font-style: italic;
+}

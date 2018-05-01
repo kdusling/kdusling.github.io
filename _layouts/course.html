@@ -2,18 +2,39 @@
 <html>
   <head>
     <title>{{ page.title }}</title>
-    <link href="https://kdusling.github.io/teaching/Applied-Fluids/Notes/style.css" rel="stylesheet" type="text/css" media="all">
-    {% if page.use_math %}
-      {% include mathjax_support %}
-    {% endif %}
+    <link href="/css/course.css" rel="stylesheet" type="text/css" media="all">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      CommonHTML: { linebreaks: { automatic: true } },
+      "HTML-CSS": { linebreaks: { automatic: true } },
+      SVG: { linebreaks: { automatic: true } }
+    });
+    </script>
   </head>
   <body>
     <div class="container-narrow">
       <div class="content">
         {{ content }}
       </div>
-      <hr/>
-      {% include footer %}
+      <hr>
+      <div>
+
+      &copy; 2015&mdash;2018
+
+      &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+
+      <a href="http://kdusling.github.io/">Kevin Dusling</a>
+
+      &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+
+      <a href="https://kdusling.github.io/teaching/Applied-Fluids/Resources.html">
+
+      Applied Fluid Mechanics Resources & Notes</a>
+
+      </div>
+
+
     </div>
   </body>
 </html>
