@@ -43,20 +43,6 @@ After a [failed effort](https://www.vox.com/2014/5/29/5758542/time-for-the-US-to
 
 We first introduce the International System of Units (SI) which is closely related (often used synonymously) with the metric system. [Table 1](#tabSI) shows an abbreviated list of units in the SI system. NIST [hosts a great website] https://physics.nist.gov/cuu/Units/index.html) on SI units.
 
-\begin{table}
-\caption{An important answer in several bases.\label{table:answer}}
-\begin{tabular}{|r|lc|}
-  \hline
-  2A & hexadecimal & (base 16) \\
-  52 & octal & (base 8) \\
-  101010 & binary & (base 2) \\
-  \hline
-  42 & decimal & (base 10) \\
-  \hline
-  \multicolumn{3}{|c|}{\textsc{All your base are belong to us.}} \\
-  \hline
-\end{tabular}
-\end{table}
 
 <table>
   <thead>
@@ -64,38 +50,15 @@ We first introduce the International System of Units (SI) which is closely relat
   </thead>
   <tbody>
     <tr><td>length</td><td>meter</td><td>m</td></tr>
-    <tr>
-      <td>time</td>
-      <td>second</td>
-      <td>s</td>
-    </tr>
-    <tr>
-      <td>mass</td>
-      <td>kilogram</td>
-      <td>kg</td>
-    </tr>
-    <tr>
-      <td>temperature</td>
-      <td>Kelvin</td>
-      <td>K</td>
-    </tr>
-    <tr>
-      <td>force</td>
-      <td>Newton</td>
-      <td>N</td>
-    </tr>
+    <tr><td>time</td><td>second</td><td>s</td></tr>
+    <tr><td>mass</td><td>kilogram</td><td>kg</td></tr>
+    <tr><td>temperature</td><td>Kelvin</td><td>K</td></tr>
+    <tr><td>force</td><td>Newton</td><td>N</td></tr>
   </tbody>
+  <caption>
+  Table 1: The international system of units (SI). Force is a derived unit and can be expressed in terms of SI base units as $$\mathrm{N}=\mathrm{kg}\cdot \mathrm{m/s}^2$$. <a name="tabSI"></a>
+  </caption>
 </table>
-
-Quantity      | Name      | Symbol
-------------- | --------  | --------
-length        | meter     | m
-time          | second    | s
-mass          | kilogram  | kg
-temperature   | Kelvin    | K
-force         | Newton    | N
-
-Table 1: The international system of units (SI). Force is a derived unit and can be expressed in terms of SI base units as $$\mathrm{N}=\mathrm{kg}\cdot \mathrm{m/s}^2$$. <a name="tabSI"></a>
 
 Because the actual size of physical quantities can vary depending on the
 problem at hand prefixes can be added to the basic quantities above when
