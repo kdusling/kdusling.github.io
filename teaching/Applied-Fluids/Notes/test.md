@@ -43,13 +43,13 @@ After a [failed effort](https://www.vox.com/2014/5/29/5758542/time-for-the-US-to
 
 We first introduce the International System of Units (SI) which is closely related (often used synonymously) with the metric system. [Table 1](#tabSI) shows an abbreviated list of units in the SI system. NIST [hosts a great website] https://physics.nist.gov/cuu/Units/index.html) on SI units.
 
-| Quantity      | Name      | Symbol
-| ------------- | --------  | --------
-| length        | meter     | m
-| time          | second    | s
-| mass          | kilogram  | kg
-| temperature   | Kelvin    | K
-| force         | Newton    | N
+Quantity      | Name      | Symbol
+------------- | --------  | --------
+length        | meter     | m
+time          | second    | s
+mass          | kilogram  | kg
+temperature   | Kelvin    | K
+force         | Newton    | N
 
 Table 1: The international system of units (SI). Force is a derived unit and can be expressed in terms of SI base units as $$\mathrm{N}=\mathrm{kg}\cdot \mathrm{m/s}^2$$. <a name="tabSI"></a>
 
@@ -58,14 +58,15 @@ problem at hand prefixes can be added to the basic quantities above when
 working in the SI system.  [Table 2](#SIprefix) shows some commonly used
 prefixes.
 
-  Prefix |   SI symbol |  Factor
-  ------ |   --------- |  -------
-  mega   |   M         |  $$10^6=1\,000\,000$$
-  kilo   |   k         |  $$10^3=1\,000$$
-  centi  |   c         |  $$10^{-2}=0.01$$
-  milli  |   m         |  $$10^{-3}=0.001$$
-  micro  |   $\mu$     |  $$10^{-6}=0.000\,001$$
-  : Table 2: Common SI unit prefixes <a name="SIprefix"></a>
+Prefix |   SI symbol |  Factor
+------ |   --------- |  -------
+mega   |   M         |  $$10^6=1\,000\,000$$
+kilo   |   k         |  $$10^3=1\,000$$
+centi  |   c         |  $$10^{-2}=0.01$$
+milli  |   m         |  $$10^{-3}=0.001$$
+micro  |   $\mu$     |  $$10^{-6}=0.000\,001$$
+
+: Table 2: Common SI unit prefixes <a name="SIprefix"></a>
 
 ## The U.S. Customary System (USCS)
 
