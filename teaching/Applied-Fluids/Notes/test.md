@@ -251,26 +251,38 @@ weight of an object (which is a force) is sometimes then designated as
 pounds-force (lbf). Unlike lbm which is a unit of mass the lbf is, as
 expected, a unit of force.
 
-::: {.example}
+<div class="well well-lg">
 A steel ball of mass 100 lbm is suspended from a wire. What is the tension in
 the wire if this setup is located at the surface of the earth? How about at the
 surface of the Moon where $g=5.4$ ft/s$^2$?
 
-------------------------------------------------------------------------
+<hr>
 
-First we convert from lbm to slugs. $$
+First we convert from lbm to slugs.
+
+$$
 100~\lbm=100~\cancel{\lbm}\times\frac{1~\slug}{32.2~\cancel{\lbm}}=3.11~\slug
-$$ Now that we have the mass in terms of the base units of slugs we
-use $w=mg$, $$ w=3.11~\slug \times
+$$
+
+Now that we have the mass in terms of the base units of slugs we
+use $$w=mg$$,
+
+$$ w=3.11~\slug \times
 32.2~\frac{\ft}{\s^2}=100~\frac{\slug\cdot\ft}{\s^2}=100~\lbf\nonumber
-$$ The above example should motivate why the unit of pound-mass was
+$$
+
+The above example should motivate why the unit of pound-mass was
 introduced; A mass of 1 lbm on the earth\'s surface has a weight of 1
-lbf. On the moon the tension in the wire would be $$ w=3.11~\slug
+lbf. On the moon the tension in the wire would be
+
+$$ w=3.11~\slug
 \times
 5.4~\frac{\ft}{\s^2}=16.8~\frac{\slug\cdot\ft}{\s^2}=16.8~\lbf\nonumber
-$$ So the relation that a mass of 1 lbm has a weight of 1 lbf is only
-true when $g$ is taken at its standard value.
-:::
+$$
+
+So the relation that a mass of 1 lbm has a weight of 1 lbf is only
+true when $$g$$ is taken at its standard value.
+</div>
 
 ## Temperature
 
