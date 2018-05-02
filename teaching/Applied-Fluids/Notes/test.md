@@ -120,9 +120,9 @@ units remain.
 
 For example, here are a few conversion factors for the dimension of length
 
-$$
+\[
 \frac{3.281~\ft}{\m}\qquad \frac{12~\inch}{\ft} \qquad \frac{1000~\m}{\km} \qquad \frac{5280~\ft}{\mi}
-$$
+\]
 
 Note that the reciprocal of any of these fractions is also a conversion factor.
 Here are some examples.
