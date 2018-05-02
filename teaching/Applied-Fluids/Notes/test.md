@@ -56,7 +56,10 @@ We first introduce the International System of Units (SI) which is closely relat
     <tr><td>force</td><td>Newton</td><td>N</td></tr>
   </tbody>
   <caption>
-  Table 1: The international system of units (SI). Force is a derived unit and can be expressed in terms of SI base units as $$\mathrm{N}=\mathrm{kg}\cdot\mathrm{m/s}^2$$. <a name="tabSI"></a>
+  Table 1: The international system of units (SI). Force is a derived unit and can be expressed in terms of SI base units as
+  $$
+  \mathrm{N}=\mathrm{kg}\cdot\mathrm{m/s}^2
+  $$. <a name="tabSI"></a>
   </caption>
 </table>
 
@@ -116,17 +119,19 @@ The general approach to unit conversion is to multiply a given quantity by a
 units remain.
 
 For example, here are a few conversion factors for the dimension of length
+
 $$
 \frac{3.281~\ft}{\m}\qquad \frac{12~\inch}{\ft} \qquad \frac{1000~\m}{\km} \qquad \frac{5280~\ft}{\mi}
 $$
+
 Note that the reciprocal of any of these fractions is also a conversion factor.
 Here are some examples.
 
-::: {.example}
+<div class="example">
 Convert a distance of 3 miles into feet and kilometers using the conversion
 factors listed above.
 
-------------------------------------------------------------------
+<hr>
 
 Let us start by converting 3 miles into feet.
 $$
@@ -144,7 +149,7 @@ converted between miles and km directly.
 $$
 3 \cancel{\mi} \times \left(\frac{1.609~\km}{\mi}\right)=4.83~\km
 $$
-:::
+</div>
 
 The above approach works because any conversion factor evaluates to unity
 as the numerator and denominator are physically equal to each other.
