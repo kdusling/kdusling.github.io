@@ -215,7 +215,7 @@ to solve for the mass $$ m=\frac{2\textrm{KE}}{v^2}=\frac{2\times
 $$
 
 From [table 2](#tabUS) we see that lb$\cdot$s$^2$/ft is a slug and therefore our final result for the mass is $ m=62~\slug$ In case you are curious this happens to weigh about 2000 pounds.
-:::
+</div>
 
 ## Weight vs. Mass
 
@@ -338,7 +338,7 @@ $$
 Table 4: A comparison among temperature scales.  $^\dagger$Melting and boiling points are at standard pressure.
 </caption>
 <thead>
-<tr><th>  Celsius    </th><th>  Fahrenheit  </th><th>  Kelvin   </th><th> Rankine </th></tr>
+<tr><th> &nbsp; </th><th> Celsius    </th><th>  Fahrenheit  </th><th>  Kelvin   </th><th> Rankine </th></tr>
 </thead>
 <tbody>
 <tr><td>Absolute zero                          </td><td> -273.15    </td><td>  -459.67    </td><td>      0    </td><td>     0   </td></tr>
