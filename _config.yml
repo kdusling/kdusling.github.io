@@ -1,3 +1,5 @@
 name: Kevin Dusling
 markdown: kramdown
+kramdown:
+    parse_block_html: true
 #relative_permalinks: false

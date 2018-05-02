@@ -43,11 +43,11 @@ There are seven primary (or base) dimensions: mass, length, time, temperature, e
 From these base dimensions other derived quantities can be defined. A simple example of a derived quantity is that of area. Area has
 dimensions of length squared and the units can be anything from $\cm^2$, m$^2$, ft$^2$, acres ($1~\textrm{acre}=43,560~\ft^2$), barns ($1~\textrm{barn} = 10^{-28}~\m^2$), etc. Examples of other derived quantities that you are already familiar with include volume, velocity, acceleration, and force.
 
-After a [failed effort](https://www.vox.com/2014/5/29/5758542/time-for-the-US-to-use-the-metric-system) to move the United States over to the metric system we are unfortunately burdened with the use of two disparate system of units. If you live/work in the United States you must know both.
+After a [failed effort](https://www.vox.com/2014/5/29/5758542/time-for-the-US-to-use-the-metric-system) to move the United States over to the metric system we are unfortunately burdened with the use of two disparate system of units. If you live/work in the United States you absolutely must know both.
 
 ## The International System of Units (SI)
 
-We first introduce the International System of Units (SI) which is closely related (often used synonymously) with the metric system. [Table 1](#tabSI) shows an abbreviated list of units in the SI system. NIST [hosts a great website] https://physics.nist.gov/cuu/Units/index.html) on SI units.
+We first introduce the International System of Units (SI) which is closely related (often used synonymously) with the metric system. [Table 1](#tabSI) shows an abbreviated list of units in the SI system. NIST [hosts a great website](https://physics.nist.gov/cuu/Units/index.html) on SI units.
 
 
 <table>
@@ -80,8 +80,8 @@ prefixes.
 <tr><th>Prefix </th><th>   SI symbol </th><th>  Factor  </th></tr>
 </thead>
 <tbody>
-  <tr><td>mega   </td><td>   M      </td><td class="text-left">  $10^6=1\,000\,000$ </td></tr>
-  <tr><td>kilo   </td><td>   k      </td><td class="text-left">  $10^3=1\,000$ </td></tr>
+  <tr><td>mega   </td><td>   M      </td><td class="text-left">  $10^6&nbsp;=1\,000\,000$ </td></tr>
+  <tr><td>kilo   </td><td>   k      </td><td class="text-left">  $10^3&nbsp;=1\,000$ </td></tr>
   <tr><td>centi  </td><td>   c      </td><td class="text-left">  $10^{-2}=0.01$ </td></tr>
   <tr><td>milli  </td><td>   m      </td><td class="text-left">  $10^{-3}=0.001$ </td></tr>
   <tr><td>micro  </td><td> $\mu$  </td><td class="text-left">  $10^{-6}=0.000\,001$ </td></tr>
@@ -123,21 +123,13 @@ context of sizes still indicates USC).
 
 ## Unit conversions and consistency
 
-Often it will be necessary to convert between the SI and US system of units
-(*e.g.* between feet and meters).  And often it may be a conversion between
-different derived units within the same system (*e.g.* between km and m).
-The general approach to unit conversion is to multiply a given quantity by a
-*conversion factor* such that the original units cancel out, and the desired
-units remain.
-
-For example, here are a few conversion factors for the dimension of length
+It will frequently be necessary to convert between different derived units within the same system (*e.g.* between km and m).  Other times you may need to convert between the SI and US system of units (*e.g.* between feet and meters). The general approach to unit conversion is to multiply a given quantity by a *conversion factor* such that the original units cancel out, and the desired units remain.  For example, here are a few conversion factors for the dimension of length
 
 $$
 \frac{3.281~\ft}{\m}\qquad \frac{12~\inch}{\ft} \qquad \frac{1000~\m}{\km} \qquad \frac{5280~\ft}{\mi}
 $$
 
-Note that the reciprocal of any of these fractions is also a conversion factor.
-Here are some examples.
+Note that the reciprocal of any of these fractions is also a conversion factor.  Here are a few example problems showing this approach to unit conversion and consistency.
 
 <div class="example">
 Convert a distance of 3 miles into feet and kilometers using the conversion
@@ -156,8 +148,7 @@ $$
 3 \cancel{\mi} \times\left(\frac{5280~\ft}{\cancel{\mi}}\right)\times \left(\frac{\m}{3.281~\ft}\right)
 \times \left(\frac{\km}{1000~\m}\right)=4.83~\km
 $$
-If we had used a more [comprehensive table of conversion factors](../ConversionFactors.html) we could have instead
-converted between miles and km directly.
+If we had used a more [comprehensive table of conversion factors](../ConversionFactors.html) we could have instead converted between miles and km directly.
 $$
 3 \cancel{\mi} \times \left(\frac{1.609~\km}{\mi}\right)=4.83~\km
 $$
