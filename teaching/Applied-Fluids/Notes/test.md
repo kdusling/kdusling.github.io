@@ -80,8 +80,8 @@ prefixes.
 <tr><th>Prefix </th><th>   SI symbol </th><th>  Factor  </th></tr>
 </thead>
 <tbody>
-  <tr><td>mega   </td><td>   M      </td><td class="text-left">  $10^6&nbsp;=1\,000\,000$ </td></tr>
-  <tr><td>kilo   </td><td>   k      </td><td class="text-left">  $10^3&nbsp;=1\,000$ </td></tr>
+  <tr><td>mega   </td><td>   M      </td><td class="text-left">  $10^6&nbsp;&nbsp;=1\,000\,000$ </td></tr>
+  <tr><td>kilo   </td><td>   k      </td><td class="text-left">  $10^3&nbsp;&nbsp;=1\,000$ </td></tr>
   <tr><td>centi  </td><td>   c      </td><td class="text-left">  $10^{-2}=0.01$ </td></tr>
   <tr><td>milli  </td><td>   m      </td><td class="text-left">  $10^{-3}=0.001$ </td></tr>
   <tr><td>micro  </td><td> $\mu$  </td><td class="text-left">  $10^{-6}=0.000\,001$ </td></tr>
@@ -231,12 +231,12 @@ A steel ball of mass 30 kg is suspended from a wire. What is the tension in the 
 
 <hr>
 
-The tension in the wire will be the weight of the steel ball. Using
-$w=mg$ we have
+The tension in the wire will be the weight of the steel ball. Using $w=mg$ we have
 
 $$
 w=30~\kg \times 9.81~\frac{\m}{\s^2}=294~\frac{\kg\cdot\m}{\s^2}=294~\N
 $$
+
 </div>
 
 ### Pound-Mass vs. Pound-Force
@@ -284,39 +284,32 @@ true when $g$ is taken at its standard value.
 
 ## Temperature
 
-The most commonly used temperature scale in the world is $\C$ (degrees
-Celsius).  At sea level on Earth water freezes at $0\C$ and boils at $100\C$.
-
-In the United States $\F$ (degrees Fahrenheit) is used.  At sea level on Earth water freezes at $32\F$ and boils at $212\F$.
+The most commonly used temperature scale in the world is $\C$ (degrees Celsius).  At sea level on Earth water freezes at $0\C$ and boils at $100\C$.  In the United States $\F$ (degrees Fahrenheit) is used.  At sea level on Earth water freezes at $32\F$ and boils at $212\F$.
 
 Given a temperature $T_F$ in $\F$, the temperature $T_C$ in $\C$ is
+
 $$
 T_C=\frac{T_F-32}{1.8}
 $$
+
 Given a temperature $T_C$ in $\C$, the temperature $T_F$ in $\F$ is
+
 $$
 T_F=1.8T_C+32
 $$
 
 ### Absolute temperature
 
-The reference points in the above temperature scales of Celsius and Fahrenheit
-are somewhat arbitrary.  An *absolute temperature* is defined such that its
-zero point corresponds to the condition where all molecular motion stops, so
-called *absolute zero*.
+The reference points in the above temperature scales of Celsius and Fahrenheit are somewhat arbitrary.  An *absolute temperature* is defined such that its zero point corresponds to the condition where all molecular motion stops, so called *absolute zero*.
 
-In the SI unit system, the standard unit of absolute temperature is kelvin (K).
-The spacing between points on the kelvin scale is the same as the Celsius
-scale.  As the freezing point of water is measured to be $273.15~$K we can
-convert from a temperature in Celsius to a temperature $T_K$ in kelvin by
+In the SI unit system, the standard unit of absolute temperature is kelvin (K). The spacing between points on the kelvin scale is the same as the Celsius scale.  As the freezing point of water is measured to be $273.15~$K we can convert from a temperature in Celsius to a temperature $T_K$ in kelvin by
+
 $$
 T_K=T_C + 273.15
 $$
 
-Another absolute temperature scale, the Rankine scale ($^\circ R$), has spacing
-between degrees that is the same as the Fahrenheit scale.  Absolute zero,
-corresponding to $0^\circ R$, is at $-459.67\F$.  A measurement in Fahrenheit
-can be converted to a temperature in Rankine, $T_R$ by
+Another absolute temperature scale, the Rankine scale ($^\circ R$), has spacing between degrees that is the same as the Fahrenheit scale.  Absolute zero, corresponding to $0^\circ R$, is at $-459.67\F$.  A measurement in Fahrenheit can be converted to a temperature in Rankine, $T_R$ by
+
 $$
 T_R=T_F+459.67
 $$
@@ -339,6 +332,6 @@ Table 4: A comparison among temperature scales.  $^\dagger$Melting and boiling p
 
 
 
-References:\
+References:<BR>
 [Systems of Units and Conversion Factors
 (pdf)](http://www.cengage.com/resource_uploads/downloads/1111136025_277026.pdf)

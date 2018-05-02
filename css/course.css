@@ -88,13 +88,13 @@ img, figcaption {
   padding: 20px;
   max-width: 80%;
   margin-top: 40px;
-  margin-bottom: 40px;  
+  margin-bottom: 40px;
   margin-left: auto ;
   margin-right: auto ;
 }
 
 .example hr{
-  height: 1px; border:none;
+  height: 2px; border:none;
   color: #2980b9;
   background-color: #2980b9;
 }
