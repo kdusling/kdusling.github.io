@@ -137,31 +137,30 @@ factors listed above.
 
 <hr>
 
-Let us start by converting 3 miles into feet.
+We start by converting 3 miles into feet.
+
 $$
 3 \cancel{\mi} \times\left(\frac{5280~\ft}{\cancel{\mi}}\right)=15\,840~\ft
 $$
-Now in order to convert from miles to km using only the conversion factors listed above
-we will first have to convert from miles to feet and then from
-feet to meters and finally from meters to km.  This is done in one step as follows.
+
+Now in order to convert from miles to km using only the conversion factors listed above we will first have to convert from miles to feet and then from feet to meters and finally from meters to km.  This is done in one step as follows.
+
 $$
 3 \cancel{\mi} \times\left(\frac{5280~\ft}{\cancel{\mi}}\right)\times \left(\frac{\m}{3.281~\ft}\right)
 \times \left(\frac{\km}{1000~\m}\right)=4.83~\km
 $$
+
 If we had used a more [comprehensive table of conversion factors](../ConversionFactors.html) we could have instead converted between miles and km directly.
+
 $$
 3 \cancel{\mi} \times \left(\frac{1.609~\km}{\mi}\right)=4.83~\km
 $$
+
 </div>
 
-The above approach works because any conversion factor evaluates to unity
-as the numerator and denominator are physically equal to each other.
-Multiplying any quantity by a conversion factor therefore does not change the
-true physical value of the quantity even though it does change its units.
+The above approach works because any conversion factor evaluates to unity; the numerator and denominator of the conversion factor are physically equivalent and therefore cancel.  Multiplying any quantity by a conversion factor therefore does not change the true physical value of the quantity even though it does change its units.
 
-It is imperative that results be dimensionally consistent when performing calculations.
-We do this by canceling units when solving for quantities.
-Here are some examples.
+It is imperative that results be dimensionally consistent when performing calculations.  We do this by canceling units when solving for quantities.  If the resulting units turn out to not make sense (*e.g.* the question was asking for a time and the units somehow ended up resulting in m$2$) a mistake was made.  So keeping track of units is a good way to check your work.  Here are some more examples.
 
 <div class="example">
 A car is travelling at 80 kilometers per hour (km/h).  How many minutes would it take to travel 16 km?
@@ -192,7 +191,7 @@ Here is another example that uses the US customary system of units.
 
 <div class="example">
 A car travelling at 60 mph has a kinetic energy of 240,000 ft-lbs.
-Compute the car\'s mass.
+Compute the car's mass.
 
 <hr>
 
@@ -216,24 +215,16 @@ From [table 2](#tabUS) we see that lb$\cdot$s$^2$/ft is a slug and therefore our
 
 ## Weight vs. Mass
 
-You've heard this before but students still get this confused; The
-weight and mass of an object are two fundamentally different concepts.
-The mass of an object quantifies the amount of substance. It is
-unchanging; 15 kg of steel (15 kg happens to be about 1 slug) is 15 kg
-of steel whether it is on the earth\'s surface, on the moon or floating
-around in interstellar space.
+You've heard this before but students still get this confused; The weight and mass of an object are two fundamentally different concepts.  The mass of an object quantifies the amount of substance. It is unchanging; 15 kg of steel (15 kg happens to be about 1 slug) is 15 kg of steel whether it is on the earth's surface, on the moon or floating around in interstellar space.
 
-The weight of an object is the force produced by a mass when acted upon
-by gravity.
+The weight of an object is the force produced by a mass when acted upon by gravity.
 
 $$ \begin{align}
 \textrm{weight}&=\textrm{mass}\times\textrm{acceleration due to
 gravity}\\ w&=mg
 \end{align} $$
 
-Unless specified otherwise the
-acceleration due to gravity on earth is $g=9.81~\m/\s^2$ when
-using SI units and $g=32.2~\ft/\s^2$ in USCS.
+Unless specified otherwise the acceleration due to gravity on earth is $g=9.81~\m/\s^2$ when using SI units and $g=32.2~\ft/\s^2$ in USCS.
 
 <div class="example">
 A steel ball of mass 30 kg is suspended from a wire. What is the tension in the wire?
