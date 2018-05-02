@@ -67,19 +67,20 @@ working in the SI system.  [Table 2](#SIprefix) shows some commonly used
 prefixes.
 
 <table>
+<caption>
+  Table 2: Common SI unit prefixes <a name="SIprefix"></a>
+</caption>
 <thead>
 <tr><th>Prefix </th><th>   SI symbol </th><th>  Factor  </th></tr>
 </thead>
 <tbody>
-  <tr><td>mega   </td><td>   M      </td><td class="text-left">  $10^6=1\,000\,000$ </td></tr>
-  <tr><td>kilo   </td><td>   k      </td><td class="text-left">  $$10^3=1\,000$$ </td></tr>
-  <tr><td>centi  </td><td>   c      </td><td class="text-left">  $$10^{-2}=0.01$$ </td></tr>
-  <tr><td>milli  </td><td>   m      </td><td class="text-left">  $$10^{-3}=0.001$$ </td></tr>
-  <tr><td>micro  </td><td> $$\mu$$  </td><td class="text-left">  $$10^{-6}=0.000\,001$$ </td></tr>
+  <tr><td>mega   </td><td>   M      </td><td style="text-align: right;">  $10^6=1\,000\,000$ </td></tr>
+  <tr><td>kilo   </td><td>   k      </td><td class="text-left">  $10^3=1\,000$ </td></tr>
+  <tr><td>centi  </td><td>   c      </td><td class="text-left">  $10^{-2}=0.01$ </td></tr>
+  <tr><td>milli  </td><td>   m      </td><td class="text-left">  $10^{-3}=0.001$ </td></tr>
+  <tr><td>micro  </td><td> $\mu$  </td><td class="text-left">  $10^{-6}=0.000\,001$ </td></tr>
 </tbody>
-<caption>
-  Table 2: Common SI unit prefixes <a name="SIprefix"></a>
-</caption>
+
 </table>
 
 ## The U.S. Customary System (USCS)
@@ -89,17 +90,24 @@ or USC) which is closely related (many times used synonymously) with the
 English or Imperial system. [Table 3](#tabUS) shows an abbreviated list
 of units in the U.S. customary system.
 
-  Quantity     | Name         Symbol
-  -------------| -----------| -------------------------
-  length       | foot       |  ft
-  time         | second     |  s
-  force        | pound      |  lb
-  temperature  | Fahrenheit |  $$^\circ$$F
-  mass         | slug       |  lb$$\cdot$$s$$^2$$/ft
+<table>
+<caption>
+Table 3: The U.S. customary system of units. Mass is a derived unit
+and can be expressed in terms of USC base units as $\slug=\lb\cdot
+s^2/\ft$.  <a name="tabUS"></a>
+</caption>
+<thead>
+<tr><th>  Quantity     </th><th>  Name      </th><th>    Symbol  </th></tr>
+</thead>
+<tbody>
+<tr><td>  length       </td><td> foot       </td><td>  ft  </td></tr>
+<tr><td>  time         </td><td> second     </td><td>  s   </td></tr>
+<tr><td>  force        </td><td> pound      </td><td>  lb  </td></tr>
+<tr><td>  temperature  </td><td> Fahrenheit </td><td>  $$^\circ$$F  </td></tr>
+<tr><td>  mass         </td><td> slug       </td><td>  lb$$\cdot$$s$$^2$$/ft  </td></tr>
+</tbody>
+</table>
 
-  : Table 3: The U.S. customary system of units. Mass is a derived unit
-  and can be expressed in terms of USC base units as $\slug=\lb\cdot
-  s^2/\ft$.  <a name="tabUS"></a>
 
 Sometimes you will hear the term *SAE* used in regard to tools, bolts
 and fasteners. This refers to sizes measured in inches as specified by
