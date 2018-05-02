@@ -39,10 +39,6 @@ a:hover, a:active {
   color: #F26D21;
 }
 
-p {
-    max-width:650px;
-}
-
 div {
   page-break-inside: avoid;
 }
