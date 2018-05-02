@@ -10,11 +10,18 @@
     <link href="/css/course.css" rel="stylesheet" type="text/css" media="all">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
     <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      CommonHTML: { linebreaks: { automatic: true } },
-      "HTML-CSS": { linebreaks: { automatic: true } },
-      SVG: { linebreaks: { automatic: true } }
-    });
+      MathJax.Hub.Config({
+        // enable automatic line breaks (might look ugly)
+        CommonHTML: { linebreaks: { automatic: true } },
+        "HTML-CSS": { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } },
+
+        // enable $ for inline math -> use \$ for ordinary dollar-sign
+        tex2jax: {
+          inlineMath: [['$','$'], ['\\(','\\)']],
+          processEscapes: true
+        },
+      });
     </script>
 
   </head>
