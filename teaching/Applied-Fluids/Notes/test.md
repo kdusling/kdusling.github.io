@@ -56,10 +56,7 @@ We first introduce the International System of Units (SI) which is closely relat
     <tr><td>force</td><td>Newton</td><td>N</td></tr>
   </tbody>
   <caption>
-  Table 1: The international system of units (SI). Force is a derived unit and can be expressed in terms of SI base units as
-  $$
-  \mathrm{N}=\mathrm{kg}\cdot\mathrm{m/s}^2
-  $$. <a name="tabSI"></a>
+  Table 1: The international system of units (SI). Force is a derived unit and can be expressed in terms of SI base units as $\mathrm{N}=\mathrm{kg}\cdot\mathrm{m/s}^2$. <a name="tabSI"></a>
   </caption>
 </table>
 
