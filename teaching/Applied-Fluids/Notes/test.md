@@ -70,7 +70,7 @@ prefixes.
 <tr><th>Prefix </th><th>   SI symbol </th><th>  Factor  </th></tr>
 </thead>
 <tbody>
-  <tr><td>mega   </td><td>   M      </td><td class="text-left">  $$10^6=1\,000\,000$$ </td></tr>
+  <tr><td>mega   </td><td>   M      </td><td class="text-left">  $10^6=1\,000\,000$ </td></tr>
   <tr><td>kilo   </td><td>   k      </td><td class="text-left">  $$10^3=1\,000$$ </td></tr>
   <tr><td>centi  </td><td>   c      </td><td class="text-left">  $$10^{-2}=0.01$$ </td></tr>
   <tr><td>milli  </td><td>   m      </td><td class="text-left">  $$10^{-3}=0.001$$ </td></tr>
