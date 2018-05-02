@@ -56,7 +56,7 @@ We first introduce the International System of Units (SI) which is closely relat
     <tr><td>force</td><td>Newton</td><td>N</td></tr>
   </tbody>
   <caption>
-  Table 1: The international system of units (SI). Force is a derived unit and can be expressed in terms of SI base units as $\mathrm{N}=\mathrm{kg}\cdot\mathrm{m/s}^2$. <a name="tabSI"></a>
+  Table 1: The international system of units (SI). Force is a derived unit and can be expressed in terms of SI base units as \$$\mathrm{N}=\mathrm{kg}\cdot\mathrm{m/s}^2$$. <a name="tabSI"></a>
   </caption>
 </table>
 
@@ -68,15 +68,17 @@ prefixes.
 <table>
 <thead>
 <tr><th>Prefix </th><th>   SI symbol </th><th>  Factor  </th></tr>
-<tr><td>mega   </td><td>   M      </td><td>  $$10^6=1\,000\,000$$ </td></tr>
-<tr><td>kilo   </td><td>   k      </td><td>  $$10^3=1\,000$$ </td></tr>
-<tr><td>centi  </td><td>   c      </td><td>  $$10^{-2}=0.01$$ </td></tr>
-<tr><td>milli  </td><td>   m      </td><td>  $$10^{-3}=0.001$$ </td></tr>
-<tr><td>micro  </td><td>   $$\mu$$  </td><td>  $$10^{-6}=0.000\,001$$ </td></tr>
-  </tbody>
-  <caption>
+</thead>
+<tbody>
+  <tr><td>mega   </td><td>   M      </td><td>  $$10^6=1\,000\,000$$ </td></tr>
+  <tr><td>kilo   </td><td>   k      </td><td>  $$10^3=1\,000$$ </td></tr>
+  <tr><td>centi  </td><td>   c      </td><td>  $$10^{-2}=0.01$$ </td></tr>
+  <tr><td>milli  </td><td>   m      </td><td>  $$10^{-3}=0.001$$ </td></tr>
+  <tr><td>micro  </td><td> $$\mu$$  </td><td>  $$10^{-6}=0.000\,001$$ </td></tr>
+</tbody>
+<caption>
   Table 2: Common SI unit prefixes <a name="SIprefix"></a>
-  </caption>
+</caption>
 </table>
 
 ## The U.S. Customary System (USCS)
