@@ -35,7 +35,7 @@ Though used interchangeably there is a subtle distinction between the meaning of
 There are seven primary (or base) dimensions: mass, length, time, temperature, electric current, amount of light, and amount of matter.  In fluid mechanics we will make use of the first four: mass, length, time, and temperature.
 
 From these base dimensions other derived quantities can be defined. A simple example of a derived quantity is that of area. Area has
-dimensions of length squared and the units can be anything from $$\cm^2$$, m$$^2$$, ft$$^2$$, acres ($$1~\textrm{acre}=43,560~\ft^2$$), barns ($$1~\textrm{barn} = 10^{-28}~\m^2$$), etc. Examples of other derived quantities that you are already familiar with include volume, velocity, acceleration, and force.
+dimensions of length squared and the units can be anything from $\cm^2$, m$^2$, ft$^2$, acres ($1~\textrm{acre}=43,560~\ft^2$), barns ($1~\textrm{barn} = 10^{-28}~\m^2$), etc. Examples of other derived quantities that you are already familiar with include volume, velocity, acceleration, and force.
 
 After a [failed effort](https://www.vox.com/2014/5/29/5758542/time-for-the-US-to-use-the-metric-system) to move the United States over to the metric system we are unfortunately burdened with the use of two disparate system of units. If you live/work in the United States you must know both.
 
@@ -45,6 +45,9 @@ We first introduce the International System of Units (SI) which is closely relat
 
 
 <table>
+<caption>
+Table 1: The international system of units (SI). Force is a derived unit and can be expressed in terms of SI base units as $\mathrm{N}=\mathrm{kg}\cdot\mathrm{m/s}^2$. <a name="tabSI"></a>
+</caption>
   <thead>
     <tr><th>Quantity</th><th>Name</th><th>Symbol</th></tr>
   </thead>
@@ -55,9 +58,7 @@ We first introduce the International System of Units (SI) which is closely relat
     <tr><td>temperature</td><td>Kelvin</td><td>K</td></tr>
     <tr><td>force</td><td>Newton</td><td>N</td></tr>
   </tbody>
-  <caption>
-  Table 1: The international system of units (SI). Force is a derived unit and can be expressed in terms of SI base units as $\mathrm{N}=\mathrm{kg}\cdot\mathrm{m/s}^2$. <a name="tabSI"></a>
-  </caption>
+
 </table>
 
 Because the actual size of physical quantities can vary depending on the

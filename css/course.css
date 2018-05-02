@@ -46,6 +46,8 @@ div {
 table {
   margin: 0 0 0 0;
   page-break-inside: avoid;
+  margin-left: auto ;
+  margin-right: auto ;
 }
 
 caption {
