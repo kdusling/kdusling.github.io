@@ -72,7 +72,7 @@ problem at hand prefixes can be added to the basic quantities above when
 working in the SI system.  [Table 2](#SIprefix) shows some commonly used
 prefixes.
 
-<table class="table table-striped">
+<table class="table table-striped table-condensed">
 <caption>
   Table 2: Common SI unit prefixes <a name="SIprefix"></a>
 </caption>
@@ -96,7 +96,7 @@ or USC) which is closely related (many times used synonymously) with the
 English or Imperial system. [Table 3](#tabUS) shows an abbreviated list
 of units in the U.S. customary system.
 
-<table>
+<table class="table table-bordered">
 <caption>
 Table 3: The U.S. customary system of units. Mass is a derived unit
 and can be expressed in terms of USC base units as $\slug=\lb\cdot
