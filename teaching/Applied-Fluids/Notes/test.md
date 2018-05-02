@@ -50,7 +50,7 @@ After a [failed effort](https://www.vox.com/2014/5/29/5758542/time-for-the-US-to
 We first introduce the International System of Units (SI) which is closely related (often used synonymously) with the metric system. [Table 1](#tabSI) shows an abbreviated list of units in the SI system. NIST [hosts a great website](https://physics.nist.gov/cuu/Units/index.html) on SI units.
 
 
-<table>
+<table class="table">
 <caption>
 Table 1: The international system of units (SI). Force is a derived unit and can be expressed in terms of SI base units as $\mathrm{N}=\mathrm{kg}\cdot\mathrm{m/s}^2$. <a name="tabSI"></a>
 </caption>
@@ -72,7 +72,7 @@ problem at hand prefixes can be added to the basic quantities above when
 working in the SI system.  [Table 2](#SIprefix) shows some commonly used
 prefixes.
 
-<table>
+<table class="table table-striped">
 <caption>
   Table 2: Common SI unit prefixes <a name="SIprefix"></a>
 </caption>

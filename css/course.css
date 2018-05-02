@@ -79,7 +79,7 @@ img, figcaption {
 
 .example hr{
   border:none;
-  border-bottom: 2px solid #2980b9;
+  border-bottom: 1px solid #2980b9;
 }
 
 .lefttable td:first-child {
