@@ -74,7 +74,7 @@ prefixes.
 <tr><th>Prefix </th><th>   SI symbol </th><th>  Factor  </th></tr>
 </thead>
 <tbody>
-  <tr><td>mega   </td><td>   M      </td><td style="text-align: right;">  $10^6=1\,000\,000$ </td></tr>
+  <tr><td>mega   </td><td>   M      </td><td class="text-left">  $10^6=1\,000\,000$ </td></tr>
   <tr><td>kilo   </td><td>   k      </td><td class="text-left">  $10^3=1\,000$ </td></tr>
   <tr><td>centi  </td><td>   c      </td><td class="text-left">  $10^{-2}=0.01$ </td></tr>
   <tr><td>milli  </td><td>   m      </td><td class="text-left">  $10^{-3}=0.001$ </td></tr>
@@ -103,8 +103,8 @@ s^2/\ft$.  <a name="tabUS"></a>
 <tr><td>  length       </td><td> foot       </td><td>  ft  </td></tr>
 <tr><td>  time         </td><td> second     </td><td>  s   </td></tr>
 <tr><td>  force        </td><td> pound      </td><td>  lb  </td></tr>
-<tr><td>  temperature  </td><td> Fahrenheit </td><td>  $$^\circ$$F  </td></tr>
-<tr><td>  mass         </td><td> slug       </td><td>  lb$$\cdot$$s$$^2$$/ft  </td></tr>
+<tr><td>  temperature  </td><td> Fahrenheit </td><td>  $^\circ$F  </td></tr>
+<tr><td>  mass         </td><td> slug       </td><td>  lb$\cdot$s$^2$/ft  </td></tr>
 </tbody>
 </table>
 
@@ -168,13 +168,16 @@ Here are some examples.
 
 <div class="example">
 A car is travelling at 80 kilometers per hour (km/h).  How many minutes would it take to travel 16 km?
----
+<hr>
 To find the solution we use the expression $x=vt$, where $x$ is the distance,
 $v$ the velocity and $t$ the time.  Solving for time we have
+
 $$
 t=\frac{x}{v}
 $$
+
 Next we substitute in the known values of $x$ and $v$
+
 $$
 t=\frac{16~\km}{80~\km/\hr}=\dfrac{16~\km}{\dfrac{80~\km}{1~\cancel{\hr}}}\times\frac{1~\hr}{1~\cancel{\hr}}=\frac{16~\cancel{\km}\cdot\hr}{80~\cancel{\km}}=0.2~\hr\\
 $$
@@ -184,31 +187,34 @@ We can leave the answer in hours but it is more natural to express it in minutes
 $$
 t=0.2~\cancel{\hr}\times \frac{60~\min}{1~\cancel{\hr}}=12~\min
 $$
+
 The final answer is that the car takes 12 minutes to travel 16 km at 80 km/h.
 </div>
 
 Here is another example that uses the US customary system of units.
 
-::: {.example}
+<div class="example">
 A car travelling at 60 mph has a kinetic energy of 240,000 ft-lbs.
 Compute the car\'s mass.
 
-------------------------------------------------------------------
+<hr>
 
 First we need to convert mph into the base units of ft/s.
+
 $$
 60~\mph=60\frac{\cancel{\textrm{mile}}}{\cancel{\hr}}\times
 \frac{1~\cancel{\hr}}{3600~\s}\times\frac{5280~\ft}{1~\cancel{\textrm{mile}}}=88~\ft/\s
 $$
 
 The kinetic energy of the car is
+
 $$
 \textrm{KE}=\frac{1}{2}mv^2\,. $$ We can rearrange this expression
 to solve for the mass $$ m=\frac{2\textrm{KE}}{v^2}=\frac{2\times
 240,000~\ft\cdot\lb}{\left(88~\ft/\s\right)^2}=62~\cancel{\ft}\cdot\lb\frac{\s^2}{\ft^{\cancel{2}}}=62~\lb\cdot\s^2/\ft
-$$ From [table 2](#tabUS) we see that lb$\cdot$s$^2$/ft is a
-slug and therefore our final result for the mass is $$ m=62~\slug
-$$ In case you are curious this happens to weigh about 2000 pounds.
+$$
+
+From [table 2](#tabUS) we see that lb$\cdot$s$^2$/ft is a slug and therefore our final result for the mass is $ m=62~\slug$ In case you are curious this happens to weigh about 2000 pounds.
 :::
 
 ## Weight vs. Mass
@@ -232,17 +238,18 @@ Unless specified otherwise the
 acceleration due to gravity on earth is $g=9.81~\m/\s^2$ when
 using SI units and $g=32.2~\ft/\s^2$ in USCS.
 
-::: {.example}
-A steel ball of mass 30 kg is suspended from a wire. What is the tension
-in the wire?
+<div class="example">
+A steel ball of mass 30 kg is suspended from a wire. What is the tension in the wire?
 
-------------------------------------------------------------------------
+<hr>
 
 The tension in the wire will be the weight of the steel ball. Using
-$w=mg$ we have \begin{equation} w=30~\kg \times
-9.81~\frac{\m}{\s^2}=294~\frac{\kg\cdot\m}{\s^2}=294~\N\nonumber
-\end{equation}
-:::
+$w=mg$ we have
+
+$$
+w=30~\kg \times 9.81~\frac{\m}{\s^2}=294~\frac{\kg\cdot\m}{\s^2}=294~\N
+$$
+</div>
 
 ### Pound-Mass vs. Pound-Force
 
@@ -257,10 +264,8 @@ weight of an object (which is a force) is sometimes then designated as
 pounds-force (lbf). Unlike lbm which is a unit of mass the lbf is, as
 expected, a unit of force.
 
-<div class="well well-lg">
-A steel ball of mass 100 lbm is suspended from a wire. What is the tension in
-the wire if this setup is located at the surface of the earth? How about at the
-surface of the Moon where $$g=5.4$$ ft/s$$^2$$?
+<div class="example">
+A steel ball of mass 100 lbm is suspended from a wire. What is the tension in the wire if this setup is located at the surface of the earth? How about at the surface of the Moon where $g=5.4$ ft/s$^2$?
 
 <hr>
 
@@ -271,23 +276,22 @@ $$
 $$
 
 Now that we have the mass in terms of the base units of slugs we
-use $$w=mg$$,
+use $w=mg$,
 
-$$ w=3.11~\slug \times
-32.2~\frac{\ft}{\s^2}=100~\frac{\slug\cdot\ft}{\s^2}=100~\lbf\nonumber
+$$
+w=3.11~\slug \times 32.2~\frac{\ft}{\s^2}=100~\frac{\slug\cdot\ft}{\s^2}=100~\lbf
 $$
 
 The above example should motivate why the unit of pound-mass was
 introduced; A mass of 1 lbm on the earth\'s surface has a weight of 1
 lbf. On the moon the tension in the wire would be
 
-$$ w=3.11~\slug
-\times
-5.4~\frac{\ft}{\s^2}=16.8~\frac{\slug\cdot\ft}{\s^2}=16.8~\lbf\nonumber
+$$
+w=3.11~\slug \times 5.4~\frac{\ft}{\s^2}=16.8~\frac{\slug\cdot\ft}{\s^2}=16.8~\lbf\nonumber
 $$
 
 So the relation that a mass of 1 lbm has a weight of 1 lbf is only
-true when $$g$$ is taken at its standard value.
+true when $g$ is taken at its standard value.
 </div>
 
 ## Temperature
@@ -329,15 +333,21 @@ $$
 T_R=T_F+459.67
 $$
 
-                                          | Celsius    |  Fahrenheit  |  Kelvin   | Rankine
-   --------                               | -------    |  ----------  |  -------  | --------
-   Absolute zero                          | -273.15    |  -459.67     |      0    |     0
-   Ice melts$^\dagger$                    |       0    |      32      |   273.15  |  459.67
-   Average surface temperature on Earth   |      15    |      59      |      288  |     519
-   Average body temperature               |      37    |      98      |      310  |     558
-   Water boils$^\dagger$                  |     100    |     212      |      373  |     671
-
-   : Table 4: A comparison among temperature scales.  $^\dagger$Melting and boiling points are at standard pressure.
+<table>
+<caption>
+Table 4: A comparison among temperature scales.  $^\dagger$Melting and boiling points are at standard pressure.
+</caption>
+<thead>
+<tr><th>  Celsius    </th><th>  Fahrenheit  </th><th>  Kelvin   </th><th> Rankine </th></tr>
+</thead>
+<tbody>
+<tr><td>Absolute zero                          </td><td> -273.15    </td><td>  -459.67    </td><td>      0    </td><td>     0   </td></tr>
+<tr><td>Ice melts$^\dagger$                    </td><td>       0    </td><td>      32     </td><td>   273.15  </td><td>  459.67 </td></tr>
+<tr><td>Average surface temperature on Earth   </td><td>      15    </td><td>      59     </td><td>      288  </td><td>     519 </td></tr>
+<tr><td>Average body temperature               </td><td>      37    </td><td>      98     </td><td>      310  </td><td>     558 </td></tr>
+<tr><td>Water boils$^\dagger$                  </td><td>     100    </td><td>     212     </td><td>      373  </td><td>     671 </td></tr>
+</tbody>
+</table>
 
 
 
