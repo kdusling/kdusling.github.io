@@ -28,6 +28,8 @@ $$
 \newcommand{\F}{^\circ\mathrm{F}}
 $$
 
+{:toc}
+
 As you will soon discover a fluency with unit conversions is absolutely essential. A careful watch over units can prevent errors from occurring and in some instances a problem can be solved by dimensional analysis alone.
 
 Though used interchangeably there is a subtle distinction between the meaning of the words unit and dimension. A *dimension* is a measure of some physical quantity without assigning it a numerical value. A choice of *units* is a way to assign a numeric value to a given dimension. For example, length is a dimension and it can be expressed in units of meters, feet, inches, fathoms (1 fathom = 6 ft), etc.
