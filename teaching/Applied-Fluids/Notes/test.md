@@ -254,7 +254,7 @@ expected, a unit of force.
 <div class="well well-lg">
 A steel ball of mass 100 lbm is suspended from a wire. What is the tension in
 the wire if this setup is located at the surface of the earth? How about at the
-surface of the Moon where $g=5.4$ ft/s$^2$?
+surface of the Moon where $$g=5.4$$ ft/s$$^2$$?
 
 <hr>
 
