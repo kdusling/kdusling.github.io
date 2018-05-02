@@ -28,6 +28,7 @@ $$
 \newcommand{\F}{^\circ\mathrm{F}}
 $$
 
+* A markdown unordered list
 {:toc}
 
 As you will soon discover a fluency with unit conversions is absolutely essential. A careful watch over units can prevent errors from occurring and in some instances a problem can be solved by dimensional analysis alone.
