@@ -50,7 +50,7 @@ After a [failed effort](https://www.vox.com/2014/5/29/5758542/time-for-the-US-to
 We first introduce the International System of Units (SI) which is closely related (often used synonymously) with the metric system. [Table 1](#tabSI) shows an abbreviated list of units in the SI system. NIST [hosts a great website](https://physics.nist.gov/cuu/Units/index.html) on SI units.
 
 
-<table class="table table-striped table-condensed">
+<table class="table table-striped">
 <caption>
 Table 1: The international system of units (SI). Force is a derived unit and can be expressed in terms of SI base units as $\mathrm{N}=\mathrm{kg}\cdot\mathrm{m/s}^2$. <a name="tabSI"></a>
 </caption>
@@ -72,7 +72,7 @@ problem at hand prefixes can be added to the basic quantities above when
 working in the SI system.  [Table 2](#SIprefix) shows some commonly used
 prefixes.
 
-<table class="table table-striped table-condensed">
+<table class="table table-striped">
 <caption>
   Table 2: Common SI unit prefixes <a name="SIprefix"></a>
 </caption>
@@ -80,8 +80,8 @@ prefixes.
 <tr><th>Prefix </th><th>   SI symbol </th><th>  Factor  </th></tr>
 </thead>
 <tbody>
-  <tr><td>mega   </td><td>   M      </td><td class="text-left">  $10^6 &nbsp;&nbsp;&nbsp; =1\,000\,000$ </td></tr>
-  <tr><td>kilo   </td><td>   k      </td><td class="text-left">  $10^3 &nbsp;&nbsp;&nbsp; =1\,000$ </td></tr>
+  <tr><td>mega   </td><td>   M      </td><td class="text-left">  $10^6\, =1\,000\,000$ </td></tr>
+  <tr><td>kilo   </td><td>   k      </td><td class="text-left">  $10^3\, =1\,000$ </td></tr>
   <tr><td>centi  </td><td>   c      </td><td class="text-left">  $10^{-2}=0.01$ </td></tr>
   <tr><td>milli  </td><td>   m      </td><td class="text-left">  $10^{-3}=0.001$ </td></tr>
   <tr><td>micro  </td><td> $\mu$  </td><td class="text-left">  $10^{-6}=0.000\,001$ </td></tr>
@@ -96,7 +96,7 @@ or USC) which is closely related (many times used synonymously) with the
 English or Imperial system. [Table 3](#tabUS) shows an abbreviated list
 of units in the U.S. customary system.
 
-<table class="table table-striped table-condensed">
+<table class="table table-striped">
 <caption>
 Table 3: The U.S. customary system of units. Mass is a derived unit
 and can be expressed in terms of USC base units as $\slug=\lb\cdot
@@ -314,7 +314,7 @@ $$
 T_R=T_F+459.67
 $$
 
-<table class="table table-striped table-condensed">
+<table class="table table-striped">
 <caption>
 Table 4: A comparison among temperature scales.  $^\dagger$Melting and boiling points are at standard pressure.
 </caption>
