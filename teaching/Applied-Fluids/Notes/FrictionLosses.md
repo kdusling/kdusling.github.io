@@ -83,10 +83,11 @@ Quantities that enter into the determination of the Reynold's number for round p
 
 For practical purposes, if $N_R < 2000$ the flow is laminar and for $N_R>4000$ the flow is turbulent.  The range of Reynold's numbers between 2000 and 4000 is known as the *critical region* and the behavior of the flow is difficult if not impossible to predict.  The design of most systems will avoid flows in this regime.
 
-::: {.example}
+<div class="example">
+
 Glycerin at $25\C$ is pumped through a DN 125 schedule 80 steel pipe at an average velocity of $v=5~\m/\s$.  Is the flow laminar or turbulent?
 
-------------------------------------------------------------------
+<hr>
 
 To determine the nature of the flow we compute the Reynold's number.
 $$
@@ -104,7 +105,7 @@ N_R=\frac{v D\rho}{\eta}=\frac{\left(5~\m/\s\right)\left(0.1223~\m\right)\left(1
 $$
 
 Notice that all the units cancel in the above expression resulting in a dimensionless Reynold's number.  Since $N_R=813$ is less than $2000$ the flow is laminar.
-:::
+</div>
 
 ## Friction losses in laminar flows
 
@@ -121,10 +122,10 @@ This equation for $h_L$ is valid only for laminar flows.  Reminder, the Darcy Eq
 
 In practice I never use the Hagen-Poiseuille equation.  Instead I use Darcy's equation along with $f=64/N_R$ for laminar flows.
 
-::: {.example}
+<div class="example">
 Glycerin at $25\C$ is pumped through $100~\m$ of DN 125 schedule 80 steel pipe at an average velocity of $v=5~\m/\s$.  Determine the energy loss.
 
-------------------------------------------------------------------
+<hr>
 
 From the previous example we found $N_R=813$ and therefore expect the flow to be laminar.  The energy loss is determined from Darcy's equation
 $$
@@ -140,7 +141,7 @@ h_L=0.0787\times \frac{100~\m}{0.1223~\m}\times \frac{\left(5~\m/\s\right)^2}{2(
 $$
 Remember that the quantity $h_L$ is the energy loss per unit weight.  We can write it as $h_L=82~\N\cdot \m/\N=82~{\rm J}/\N$.  This means that for every newtwon of glycerin that flows through the 100 meters of pipe 82 joules of energy will be dissipated.
 
-:::
+</div>
 
 ## Friction losses in turbulent flows
 
