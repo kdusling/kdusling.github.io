@@ -60,7 +60,7 @@ But how can we quantitatively predict how the flow will behave, in particular if
 In an 1883 paper Osborne Reynolds showed that a single dimensionless number, now called the Reynolds number ($N_R$), determines whether the flow is laminar or turbulent.  The Reynold's number for round pipes is
 $$
 N_R=\frac{v D\rho}{\eta}=\frac{vD}{\nu}
-$$ {#eq:Reynolds}
+$$
 
 The quantities entering into the definition of the Reynold's number are summarized in the table below.
 
@@ -73,12 +73,11 @@ Quantities that enter into the determination of the Reynold's number for round p
 <tr><th> Quantity </th><th> Symbol    </th><th>  SI units  </th><th>  US units</th></tr>
 </thead>
 <tbody>
-<tr><td>Velocity            </td><td> $v$    </td><td> m/s    </td><td>     ft/s    </td></tr>
-<tr><td>Diameter            </td><td> $D$    </td><td> $D$ </td><td>   ft  </td></tr>
-<tr><td>Density             </td><td> $\rho$ </td><td>      kg/m$^3$     </td><td>      slugs/ft$^3$  </td></tr>
-<tr><td>Dynamic Viscosity   </td><td> $\eta$ </td><td>      kg/m$\cdot$s     </td><td>      slugs/ft$\cdot$s
-  </td></tr>
-<tr><td>Kinematic Viscosity </td><td> $\nu$  </td><td>     m$^2$/s     </td><td>      ft$^2$/s  </td></tr>
+<tr><td>Velocity            </td><td> $v$    </td><td> m/s           </td><td>  ft/s             </td></tr>
+<tr><td>Diameter            </td><td> $D$    </td><td> $D$           </td><td>  ft               </td></tr>
+<tr><td>Density             </td><td> $\rho$ </td><td> kg/m$^3$      </td><td>  slugs/ft$^3$     </td></tr>
+<tr><td>Dynamic Viscosity   </td><td> $\eta$ </td><td> kg/m$\cdot$s  </td><td>  slugs/ft$\cdot$s </td></tr>
+<tr><td>Kinematic Viscosity </td><td> $\nu$  </td><td> m$^2$/s       </td><td>  ft$^2$/s         </td></tr>
 </tbody>
 </table>
 
