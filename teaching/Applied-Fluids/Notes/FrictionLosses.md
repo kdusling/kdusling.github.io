@@ -1,31 +1,32 @@
 ---
 layout: course
 title: Energy loss due to friction
----
-
+---
+
 $$
 \require{cancel}
-\newcommand{\s}{\mathrm{s}}
-\newcommand{\hr}{\mathrm{hr}}
-\newcommand{\kg}{\mathrm{kg}}
-\newcommand{\kN}{\mathrm{kN}}
-\newcommand{\inch}{\mathrm{in}}
-\newcommand{\ft}{\mathrm{ft}}
-\newcommand{\m}{\mathrm{m}}
-\newcommand{\mm}{\mathrm{mm}}
-\newcommand{\cm}{\mathrm{cm}}
-\newcommand{\lb}{\mathrm{lb}}
-\newcommand{\lbm}{\mathrm{lbm}}
-\newcommand{\lbf}{\mathrm{lbf}}
-\newcommand{\N}{\mathrm{N}}
-\newcommand{\L}{\mathrm{L}}
-\newcommand{\slug}{\mathrm{slug}}
-\newcommand{\Pa}{\mathrm{Pa}}
-\newcommand{\mph}{\mathrm{mph}}
-\renewcommand{\psi}{\mathrm{psi}}
-\newcommand{\C}{^\circ\mathrm{C}}
-\newcommand{\F}{^\circ\mathrm{F}}
-$$
+\newcommand{\s}{\mathrm{s}}
+\newcommand{\min}{\mathrm{min}}
+\newcommand{\hr}{\mathrm{hr}}
+\newcommand{\kg}{\mathrm{kg}}
+\newcommand{\kN}{\mathrm{kN}}
+\newcommand{\inch}{\mathrm{in}}
+\newcommand{\ft}{\mathrm{ft}}
+\newcommand{\m}{\mathrm{m}}
+\newcommand{\km}{\mathrm{km}}
+\newcommand{\mi}{\mathrm{mi}}
+\newcommand{\cm}{\mathrm{cm}}
+\newcommand{\lb}{\mathrm{lb}}
+\newcommand{\lbm}{\mathrm{lbm}}
+\newcommand{\lbf}{\mathrm{lbf}}
+\newcommand{\N}{\mathrm{N}}
+\newcommand{\slug}{\mathrm{slug}}
+\newcommand{\Pa}{\mathrm{Pa}}
+\newcommand{\mph}{\mathrm{mph}}
+\renewcommand{\psi}{\mathrm{psi}}
+\newcommand{\C}{^\circ\mathrm{C}}
+\newcommand{\F}{^\circ\mathrm{F}}
+$$
 
 # Energy loss due to friction
 {:.no_toc}
@@ -35,7 +36,7 @@ $$
 
 # Energy loss in pipes due to friction
 
-As a fluid flows through a pipe energy will be dissipated due to friction. As we will see the amount of energy lost will depend on the type of fluid, the fluid's velocity and the condition (*i.e.* roughness) of the pipe.
+As a fluid flows through a pipe energy will be dissipated due to friction. As we will see the amount of energy lost will depend on the type of fluid, the fluid's velocity and the condition (*i.e.* material, roughness) of the pipe.
 
 Losses due to friction will cause the pressure to decrease along the length of the pipe, therefore increasing the amount of power that a pump must deliver to the fluid.  These losses can become significant in systems where long stretches of piping are employed (for example, in heat exchangers, oil pipelines, fire protection systems, etc.).
 
@@ -47,7 +48,7 @@ where the term $h_L$ was the energy loss.  One component of the energy loss is d
 
 $$
 h_L=f\times \frac{L}{D}\times \frac{v^2}{2g}
-$$ {#eq:Darcy}
+$$
 
 In the above expression $L$ is the length of pipe, $D$ its diameter, and $v$ the average velocity of flow.  The dimensionless quantity $f$ is called the friction factor.  The method of obtaining $f$ will depend on whether the flow is laminar or turbulent.
 
@@ -62,18 +63,25 @@ N_R=\frac{v D\rho}{\eta}=\frac{vD}{\nu}
 $$ {#eq:Reynolds}
 
 The quantities entering into the definition of the Reynold's number are summarized in the table below.
-
-Quantity                  Symbol     SI units         US units
---------                  ------     --------         --------
-Velocity                    $v$         m/s              ft/s
-Diameter                    $D$         m                ft
-Density                     $\rho$      kg/m$^3$        slugs/ft$^3$
-Dynamic Viscosity           $\eta$      kg/m$\cdot$s    slugs/ft$\cdot$s
-Kinematic Viscosity         $\nu$       m$^2$/s          ft$^2$/s
-
-Table:  Quantities that enter into the determination of the Reynold's
-number for round pipes
-
+
+
+<table class="table table-striped">
+<caption>
+Quantities that enter into the determination of the Reynold's number for round pipes
+</caption>
+<thead>
+<tr><th> Quantity </th><th> Symbol    </th><th>  SI units  </th><th>  US units</th></tr>
+</thead>
+<tbody>
+<tr><td>Velocity            </td><td> $v$    </td><td> m/s    </td><td>     ft/s    </td></tr>
+<tr><td>Diameter            </td><td> $D$    </td><td> $D$ </td><td>   ft  </td></tr>
+<tr><td>Density             </td><td> $\rho$ </td><td>      kg/m$^3$     </td><td>      slugs/ft$^3$  </td></tr>
+<tr><td>Dynamic Viscosity   </td><td> $\eta$ </td><td>      kg/m$\cdot$s     </td><td>      slugs/ft$\cdot$s
+  </td></tr>
+<tr><td>Kinematic Viscosity </td><td> $\nu$  </td><td>     m$^2$/s     </td><td>      ft$^2$/s  </td></tr>
+</tbody>
+</table>
+
 For practical purposes, if $N_R < 2000$ the flow is laminar and for $N_R>4000$ the flow is turbulent.  The range of Reynold's numbers between 2000 and 4000 is known as the *critical region* and the behavior of the flow is difficult if not impossible to predict.  The design of most systems will avoid flows in this regime.
 
 ::: {.example}
