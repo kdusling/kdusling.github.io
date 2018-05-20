@@ -1,7 +1,10 @@
-
-%Energy loss due to friction
+---
+layout: course
+title: Energy loss due to friction
+---
 
-$$\require{cancel}$$
+$$
+\require{cancel}
 \newcommand{\s}{\mathrm{s}}
 \newcommand{\hr}{\mathrm{hr}}
 \newcommand{\kg}{\mathrm{kg}}
@@ -22,7 +25,14 @@ $$\require{cancel}$$
 \renewcommand{\psi}{\mathrm{psi}}
 \newcommand{\C}{^\circ\mathrm{C}}
 \newcommand{\F}{^\circ\mathrm{F}}
-
+$$
+
+# Energy loss due to friction
+{:.no_toc}
+
+* A markdown unordered list for the toc
+{:toc}
+
 # Energy loss in pipes due to friction
 
 As a fluid flows through a pipe energy will be dissipated due to friction. As we will see the amount of energy lost will depend on the type of fluid, the fluid's velocity and the condition (*i.e.* roughness) of the pipe.
