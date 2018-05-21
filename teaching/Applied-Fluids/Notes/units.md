@@ -160,7 +160,7 @@ $$
 
 The above approach works because any conversion factor evaluates to unity; the numerator and denominator of the conversion factor are physically equivalent and therefore cancel.  Multiplying any quantity by a conversion factor therefore does not change the true physical value of the quantity even though it does change its units.
 
-It is imperative that results be dimensionally consistent when performing calculations.  We do this by canceling units when solving for quantities.  If the resulting units turn out to not make sense (*e.g.* the question was asking for a time and the units somehow ended up resulting in m$2$) a mistake was made.  So keeping track of units is a good way to check your work.  Here are some more examples.
+It is imperative that results be dimensionally consistent when performing calculations.  We do this by canceling units when solving for quantities.  If the resulting units turn out to not make sense (*e.g.* the question was asking for a time and the units somehow ended up resulting in an area) a mistake was made.  So keeping track of units is a good way to check your work.  Here are some more examples.
 
 <div class="example">
 A car is travelling at 80 kilometers per hour (km/h).  How many minutes would it take to travel 16 km?
@@ -184,7 +184,7 @@ $$
 t=0.2~\cancel{\hr}\times \frac{60~\min}{1~\cancel{\hr}}=12~\min
 $$
 
-The final answer is that the car takes 12 minutes to travel 16 km at 80 km/h.
+The final answer is the car takes 12 minutes to travel 16 km at 80 km/h.
 </div>
 
 Here is another example that uses the US customary system of units.
@@ -203,14 +203,17 @@ $$
 $$
 
 The kinetic energy of the car is
-
 $$
-\textrm{KE}=\frac{1}{2}mv^2\,. $$ We can rearrange this expression
-to solve for the mass $$ m=\frac{2\textrm{KE}}{v^2}=\frac{2\times
+\textrm{KE}=\frac{1}{2}mv^2\,.
+$$
+
+We can rearrange this expression to solve for the mass
+$$
+m=\frac{2\textrm{KE}}{v^2}=\frac{2\times
 240,000~\ft\cdot\lb}{\left(88~\ft/\s\right)^2}=62~\cancel{\ft}\cdot\lb\frac{\s^2}{\ft^{\cancel{2}}}=62~\lb\cdot\s^2/\ft
 $$
 
-From [table 2](#tabUS) we see that lb$\cdot$s$^2$/ft is a slug and therefore our final result for the mass is $ m=62~\slug$ In case you are curious this happens to weigh about 2000 pounds.
+From [table 2](#tabUS) we see that lb$\cdot$s$^2$/ft is a slug and therefore our final result for the mass is $ m=62~\slug$.  In case you are curious this happens to weigh about 2000 pounds.
 </div>
 
 ## Weight vs. Mass
@@ -224,7 +227,7 @@ $$ \begin{align}
 gravity}\\ w&=mg
 \end{align} $$
 
-Unless specified otherwise the acceleration due to gravity on earth is $g=9.81~\m/\s^2$ when using SI units and $g=32.2~\ft/\s^2$ in USCS.
+Unless specified otherwise the acceleration due to gravity at earth's surface is $g=9.81~\m/\s^2$ when using SI units and $g=32.2~\ft/\s^2$ in USCS.
 
 <div class="example">
 A steel ball of mass 30 kg is suspended from a wire. What is the tension in the wire?
@@ -245,7 +248,7 @@ To add to this nightmare of two systems an additional confusion arises
 as some use a different unit for mass called pound-mass (lbm) instead of
 the unit of slugs. While the name of this unit has the word \`pound\' in
 it, lbm is *not* a unit of force but a unit of mass. It is related
-to the base unit of slug through $$ 32.2~\lbm=1~\slug $$ So if
+to the base unit of slug through $32.2~\lbm=1~\slug $.  So if
 you are given an object\'s mass (not weight) in units of lbm you will
 first need to convert it to slugs before using it in equations. The
 weight of an object (which is a force) is sometimes then designated as
@@ -286,32 +289,32 @@ true when $g$ is taken at its standard value.
 
 The most commonly used temperature scale in the world is $\C$ (degrees Celsius).  At sea level on Earth water freezes at $0\C$ and boils at $100\C$.  In the United States $\F$ (degrees Fahrenheit) is used.  At sea level on Earth water freezes at $32\F$ and boils at $212\F$.
 
-Given a temperature $T_F$ in $\F$, the temperature $T_C$ in $\C$ is
+Given a temperature in Fahrenheit $T(\F)$, the temperature in Celsius $T(\C)$ is
 
 $$
-T_C=\frac{T_F-32}{1.8}
+T(\C)=\frac{T(\F)-32}{1.8}
 $$
 
-Given a temperature $T_C$ in $\C$, the temperature $T_F$ in $\F$ is
+Given a temperature in Celsius $T(\C)$, the temperature in Fahrenheit $T(\F)$ is
 
 $$
-T_F=1.8T_C+32
+T(\F)=1.8T(\C)+32
 $$
 
 ### Absolute temperature
 
 The reference points in the above temperature scales of Celsius and Fahrenheit are somewhat arbitrary.  An *absolute temperature* is defined such that its zero point corresponds to the condition where all molecular motion stops, so called *absolute zero*.
 
-In the SI unit system, the standard unit of absolute temperature is kelvin (K). The spacing between points on the kelvin scale is the same as the Celsius scale.  As the freezing point of water is measured to be $273.15~$K we can convert from a temperature in Celsius to a temperature $T_K$ in kelvin by
+In the SI unit system, the standard unit of absolute temperature is kelvin (K). The spacing between points on the kelvin scale is the same as the Celsius scale.  As the freezing point of water is measured to be $273.15~$K we can convert from a temperature in Celsius to a temperature $T(K)$ in kelvin by
 
 $$
-T_K=T_C + 273.15
+T(K)=T(\C) + 273.15
 $$
 
-Another absolute temperature scale, the Rankine scale ($^\circ R$), has spacing between degrees that is the same as the Fahrenheit scale.  Absolute zero, corresponding to $0^\circ R$, is at $-459.67\F$.  A measurement in Fahrenheit can be converted to a temperature in Rankine, $T_R$ by
+Another absolute temperature scale, the Rankine scale ($^\circ R$), has spacing between degrees that is the same as the Fahrenheit scale.  Absolute zero, corresponding to $0^\circ R$, is at $-459.67\F$.  A measurement in Fahrenheit can be converted to a temperature in Rankine, $T(^\circ R)$ by
 
 $$
-T_R=T_F+459.67
+T(^\circ R)=T(\F)+459.67
 $$
 
 <table class="table table-striped">
