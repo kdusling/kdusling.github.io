@@ -298,7 +298,7 @@ $$
 Given a temperature in Celsius $T(\C)$, the temperature in Fahrenheit $T(\F)$ is
 
 $$
-T(\F)=\frac{9}{5}\times T(\C)+32
+T(\F)=\frac{9}{5} T(\C)+32
 $$
 
 ### Absolute temperature
