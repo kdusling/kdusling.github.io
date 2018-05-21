@@ -208,9 +208,9 @@ $$
 $$
 
 We can rearrange this expression to solve for the mass
+
 $$
-m=\frac{2\textrm{KE}}{v^2}=\frac{2\times
-240,000~\ft\cdot\lb}{\left(88~\ft/\s\right)^2}=62~\cancel{\ft}\cdot\lb\frac{\s^2}{\ft^{\cancel{2}}}=62~\lb\cdot\s^2/\ft
+m=\frac{2\textrm{KE}}{v^2}=\frac{2\times 240,000~\ft\cdot\lb}{\left(88~\ft/\s\right)^2}=62~\cancel{\ft}\cdot\lb\frac{\s^2}{\ft^{\cancel{2}}}=62~\lb\cdot\s^2/\ft
 $$
 
 From [table 2](#tabUS) we see that lb$\cdot$s$^2$/ft is a slug and therefore our final result for the mass is $ m=62~\slug$.  In case you are curious this happens to weigh about 2000 pounds.
@@ -292,13 +292,13 @@ The most commonly used temperature scale in the world is $\C$ (degrees Celsius).
 Given a temperature in Fahrenheit $T(\F)$, the temperature in Celsius $T(\C)$ is
 
 $$
-T(\C)=\frac{T(\F)-32}{1.8}
+T(\C)=\frac{5}{9}\left[T(\F)-32\right]
 $$
 
 Given a temperature in Celsius $T(\C)$, the temperature in Fahrenheit $T(\F)$ is
 
 $$
-T(\F)=1.8T(\C)+32
+T(\F)=\frac{9}{5}\times T(\C)+32
 $$
 
 ### Absolute temperature
