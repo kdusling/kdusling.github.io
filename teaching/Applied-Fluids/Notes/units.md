@@ -146,14 +146,14 @@ $$
 Now in order to convert from miles to km using only the conversion factors listed above we will first have to convert from miles to feet and then from feet to meters and finally from meters to km.  This is done in one step as follows.
 
 $$
-3 \cancel{\mi} \times\left(\frac{5280~\ft}{\cancel{\mi}}\right)\times \left(\frac{\m}{3.281~\ft}\right)
-\times \left(\frac{\km}{1000~\m}\right)=4.83~\km
+3 \cancel{\mi} \times\left(\frac{5280~\cancel{\ft}}{\cancel{\mi}}\right)\times \left(\frac{\cancel{\m}}{3.281~\cancel{\ft}}\right)
+\times \left(\frac{\km}{1000~\cancel{\m}}\right)=4.83~\km
 $$
 
 If we had used a more [comprehensive table of conversion factors](../ConversionFactors.html) we could have instead converted between miles and km directly.
 
 $$
-3 \cancel{\mi} \times \left(\frac{1.609~\km}{\mi}\right)=4.83~\km
+3 \cancel{\mi} \times \left(\frac{1.609~\km}{\cancel{\mi}}\right)=4.83~\km
 $$
 
 </div>
