@@ -3,40 +3,42 @@
 <html>
     <head>
         <title>Units & Dimensions</title>
+
+
+
         <script type="text/x-mathjax-config">
               MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'],
               ['\\(','\\)']]}});
         </script>
+
         <script type="text/javascript" async
               src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
         </script>
-<script src="html2canvas.min.js"></script>
 
-<script language="javascript">
-window.takeScreenShot = function() {
-    html2canvas(document.getElementById("target"), {
-        onrendered: function (canvas) {
-            document.body.appendChild(canvas);
-        },
-        width:320,
-        height:220
-    });
-}
+        <link rel="stylesheet" type="text/css" href="style.css">
 
-</script>
 
-        <link rel="stylesheet" type="text/css" href="quiz.css">
-    </head>
 
-    <body>
+</head>
 
-      <div id="target">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis eleifend elit. Donec lectus sem, scelerisque sit amet facilisis quis, gravida a lacus. Nunc at lorem egestas, gravida lorem quis, pulvinar ante. Quisque id tempus libero. Mauris hendrerit nunc risus, ac laoreet lectus gravida et. Nam euismod magna ac enim posuere sagittis. Fusce at egestas enim, eu hendrerit enim.
-      </div>
+<body>
+<h1>Dimensions & Units</h1>
+    <div id="list2">
+      <ol>
 
-      <button onclick="takeScreenShot()">to image</button>
+<li><p>
+Convert 2250 millimeters to meters.
+</p></li>
 
-    </body>
+<li><p>
+Convert $4.45\times 10^6$ square millimeters to square meters.
+</p></li>
+</div>
 
+<button onclick="screenshot()">to image</button>
+
+
+
+</body>
 
 </html>
