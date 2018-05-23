@@ -38,11 +38,15 @@ A *fluid* is a substance that continually deforms or flows under an applied shea
 
 ## Density, specific weight & specific gravity
 
+### Density
 $$ \begin{align}
 \textrm{density}&=\textrm{mass}/\textrm{Volume}\\
 \rho&=m/V
 \end{align} $$
 
+### Specific weight
+
+### Specific gravity
 
 
 ## Pressure

@@ -326,7 +326,7 @@ Table 4: A comparison among temperature scales.  $^\dagger$Melting and boiling p
 
 
 
-## References:
+## References
 
 [Systems of Units and Conversion Factors
 (pdf)](http://www.cengage.com/resource_uploads/downloads/1111136025_277026.pdf)
