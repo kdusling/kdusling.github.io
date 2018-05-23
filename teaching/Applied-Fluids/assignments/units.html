@@ -10,41 +10,33 @@
         <script type="text/javascript" async
               src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
         </script>
+<script src="html2canvas.min.js"></script>
 
+<script language="javascript">
+window.takeScreenShot = function() {
+    html2canvas(document.getElementById("target"), {
+        onrendered: function (canvas) {
+            document.body.appendChild(canvas);
+        },
+        width:320,
+        height:220
+    });
+}
+
+</script>
 
         <link rel="stylesheet" type="text/css" href="quiz.css">
     </head>
 
     <body>
 
-<h1>Units & Dimensions</h1>
-<div class="quiz-container">
+      <div id="target">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis eleifend elit. Donec lectus sem, scelerisque sit amet facilisis quis, gravida a lacus. Nunc at lorem egestas, gravida lorem quis, pulvinar ante. Quisque id tempus libero. Mauris hendrerit nunc risus, ac laoreet lectus gravida et. Nam euismod magna ac enim posuere sagittis. Fusce at egestas enim, eu hendrerit enim.
+      </div>
 
-  <div class="slide">
-     <div class="question">The high speed AGV Italo train runs from Milan to Rome (564 km)  2h 48m.  What is its average speed in kmph?   </div>
-     <div class="answers"> 100 </div>
-   </div>
-
-
-</div>
-
-
-<button id="submit">Submit Quiz</button>
-<div id="results"></div>
+      <button onclick="takeScreenShot()">to image</button>
 
     </body>
 
-   <script>
-  //const quizContainer = document.getElementById("quiz");
-  //const resultsContainer = document.getElementById("results");
-  //const submitButton = document.getElementById("submit");
-
-  // display quiz right away
-//  buildQuiz();
-
-
-  // on submit, show results
-  //submitButton.addEventListener("click", showResults);
-  </script>
 
 </html>
