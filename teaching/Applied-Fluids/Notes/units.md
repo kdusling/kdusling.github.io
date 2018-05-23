@@ -244,16 +244,7 @@ $$
 
 ### Pound-Mass vs. Pound-Force
 
-To add to this nightmare of two systems an additional confusion arises
-as some use a different unit for mass called pound-mass (lbm) instead of
-the unit of slugs. While the name of this unit has the word \`pound\' in
-it, lbm is *not* a unit of force but a unit of mass. It is related
-to the base unit of slug through $32.2~\lbm=1~\slug $.  So if
-you are given an object\'s mass (not weight) in units of lbm you will
-first need to convert it to slugs before using it in equations. The
-weight of an object (which is a force) is sometimes then designated as
-pounds-force (lbf). Unlike lbm which is a unit of mass the lbf is, as
-expected, a unit of force.
+To add to this nightmare of two systems an additional confusion arises as some use a different unit for mass called pound-mass (lbm) instead of the unit of slugs. While the name of this unit has the word \`pound\' in it, lbm is *not* a unit of force but a unit of mass. It is related to the base unit of slug through $32.2~\lbm=1~\slug $.  So if you are given an object\'s mass (not weight) in units of lbm you will first need to convert it to slugs before using it in equations. The weight of an object (which is a force) is sometimes then designated as pounds-force (lbf). Unlike lbm which is a unit of mass the lbf is, as expected, a unit of force.
 
 <div class="example">
 A steel ball of mass 100 lbm is suspended from a wire. What is the tension in the wire if this setup is located at the surface of the earth? How about at the surface of the Moon where $g=5.4$ ft/s$^2$?
@@ -311,7 +302,7 @@ $$
 T(K)=T(\C) + 273.15
 $$
 
-Another absolute temperature scale, the Rankine scale ($^\circ R$), has spacing between degrees that is the same as the Fahrenheit scale.  Absolute zero, corresponding to $0^\circ R$, is at $-459.67\F$.  A measurement in Fahrenheit can be converted to a temperature in Rankine, $T(^\circ R)$ by
+Another absolute temperature scale, the Rankine scale ($^\circ R$), has spacing between degrees that is the same as the Fahrenheit scale.  Absolute zero, corresponding to $0^\circ R,$ is at $-459.67\F$.  A measurement in Fahrenheit can be converted to a temperature in Rankine, $T(^\circ R)$ by
 
 $$
 T(^\circ R)=T(\F)+459.67
@@ -335,6 +326,7 @@ Table 4: A comparison among temperature scales.  $^\dagger$Melting and boiling p
 
 
 
-References:<BR>
+## References:
+
 [Systems of Units and Conversion Factors
 (pdf)](http://www.cengage.com/resource_uploads/downloads/1111136025_277026.pdf)
