@@ -44,7 +44,7 @@ The sections below will go through a number of physical properties that are comm
 
 The *density* of the fluid is its mass per unit volume:
 $$
-\textrm{density}&=\textrm{mass}/\textrm{Volume}\\
+\textrm{density}=\textrm{mass}/\textrm{Volume}\\
 $$
 
 The density is represented by the Greek letter $\rho$ (rho).  If a quantity of fluid has a mass $m$ and a volume $V$, its density can be expressed as
@@ -52,14 +52,14 @@ $$
 \rho&=m/V
 $$
 
-The units for density are $\kg/\m^3$ in the SI system and $\slugs/\ft^3$ in the U.S. Customary System.
+The units for density are $\kg/\m^3$ in the SI system and $\slug/\ft^3$ in the U.S. Customary System.
 
 ### Specific weight
 
 The *specific weight* of the fluid is its weight per unit volume:
 
 $$
-\textrm{specific weight}&=\textrm{weight}/\textrm{Volume}\\
+\textrm{specific weight}=\textrm{weight}/\textrm{Volume}\\
 $$
 
 The specific weight is represented by the Greek letter $\gamma$ (gamma).  If a quantity of fluid has a weight $s$ and a volume $V$, its specific weight can be expressed as
@@ -78,6 +78,21 @@ $$
 
 ### Specific gravity
 
+It is often convenient to report the density or specific weight of a fluid with respect to a given reference fluid (water at $4\C$ will be used in this class).  The specific weight and density of water at $4\C$ is:
+$$
+\gamma=9.81~\text{kN}/\text{m}^3=62.4~\text{lb}/\text{ft}^3 \quad
+\rho=1000~\text{kg}/\text{m}^3=1.94~\text{slugs}/\text{ft}^3
+$$
+
+The specific gravity of a substance is its density (or specific weight) divided by the density (or specific weight) of water at $4\C$.
+
+In the SI system
+$$
+\begin{align}
+sg&=\frac{\gamma}{9.81~\kN/\m^3}=\frac{\rho}{1000~\kg/\m^3} \quad \textrm{SI system}
+sg&=\frac{\gamma}{62.4~\lb/\ft^3}=\frac{\rho}{1.94~\slug/\ft^3} \quad \textrm{USCS}
+\end{align}
+$$
 
 ## Pressure
 
