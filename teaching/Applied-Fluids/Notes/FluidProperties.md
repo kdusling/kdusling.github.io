@@ -109,6 +109,7 @@ To compute the weight we use $w=mg$ where $g=9.81~\m/s^2$.  We have
 $$
 w=140~\kg\times 9.81~\m/s^2=1373~\kg\cdot\m/s^2
 $$
+
 A $\kg\cdot\m/s^2$ is a Newton (N) and the weight is therefore
 
 $$
@@ -132,11 +133,41 @@ We can solve for the specific gravity by dividing the oil's density (or specific
 $$
 \sg=\frac{\rho}{1000~\kg/\m^3}=\frac{875~\kg/\m^3}{1000~\kg/\m^3}=0.875
 $$
+
 or equivalently
 
 $$
 \sg=\frac{\gamma}{9.81~\kN/\m^3}=\frac{8.581~\kN/\m^3}{9.81~\kN/\m^3}=0.875
 $$
+
+We note that the units cancel when compute the specific gravity leaving us with a dimensionless quantity as expected.
+
+</div>
+
+<div class="example">
+
+Glycerine at $77\F$ has a specific weight of 1.263.  Compute its density and specific weight.  How much does a gallon of Glycerine weigh?
+
+<hr>
+
+Since Fahrenheit was used in the statement of the problem it makes sense to work in the US system of units.  The density and specific weight can be found by multiplying the specific gravity with the density and specific weight of water.  First compute the density:
+
+$$
+\rho=\sg\times 1.94~\slug/\ft^3=1.263\times 1.94~\slug/\ft^3=2.45~\slug/\ft^3
+$$
+
+And now the specific weight:
+
+$$
+\gamma=\sg\times 62.4~\lb/\ft^3=1.263\times 62.4~\lb/\ft^3=78.81~\lb/\ft^3
+$$
+
+To find the weight of a gallon of Glycerine we use the relation $\gamma=w/V$ and solve for $w$:
+
+$$
+w=\gamma \times V = 78.81~\lb/\ft^3\times 1~\cancel{\text{gal}}\times \frac{\ft^3}{\text{7.48 \cancel{gal}}}=10.5~\lb
+$$
+
 
 </div>
 
