@@ -65,7 +65,7 @@ $$
 The specific weight is represented by the Greek letter $\gamma$ (gamma).  If a quantity of fluid has a weight $s$ and a volume $V$, its specific weight can be expressed as
 
 $$
-\gamma&=w/V
+\gamma=w/V
 $$
 
 The units for density are $\N/\m^3$ in the SI system and $\lb/\ft^3$ in the U.S. Customary System.
@@ -86,13 +86,29 @@ $$
 
 The specific gravity of a substance is its density (or specific weight) divided by the density (or specific weight) of water at $4\C$.
 
-In the SI system
 $$
 \begin{align}
-sg&=\frac{\gamma}{9.81~\kN/\m^3}=\frac{\rho}{1000~\kg/\m^3} \quad \textrm{SI system}
-sg&=\frac{\gamma}{62.4~\lb/\ft^3}=\frac{\rho}{1.94~\slug/\ft^3} \quad \textrm{USCS}
+sg&=\frac{\gamma}{9.81~\kN/\m^3}=\frac{\rho}{1000~\kg/\m^3} \qquad \textrm{SI system}\\
+sg&=\frac{\gamma}{62.4~\lb/\ft^3}=\frac{\rho}{1.94~\slug/\ft^3} \qquad \textrm{USCS}
 \end{align}
 $$
+
+Note that the specific gravity of a fluid is dimensionless. Remember, that the three quantities (density, specific weight and specific gravity) we just introduced are three ways of representing the same thing (the amount of fluid per unit volume).  In the following examples we will demonstrate how the concepts are commonly used.
+
+<div class="example">
+An oil barrel has a volume of $0.16~\m^3$ and a mass of $140~\kg$.  Compute the weight of the barrel.  Then compute the density, specific weight and specific gravity of the oil.  
+
+<hr>
+
+To compute the weight we use $w=mg$ where $g=9.81~\m/s^2$.  We have
+$$
+w=140~\kg\times g=9.81~\m/s^2=1373.4~\kg\cdot\m/s^2
+$$
+A $\kg\cdot\m/s^2$ is a Newton (N) and the weight is therefore
+w=1373.3~\N=1.373\times 10^3 \N=1.373 \textrm{kN}
+$$
+
+</div>
 
 ## Pressure
 
