@@ -26,6 +26,7 @@ $$
 \renewcommand{\psi}{\mathrm{psi}}
 \newcommand{\C}{^\circ\mathrm{C}}
 \newcommand{\F}{^\circ\mathrm{F}}
+\newcommand{\sg}{\mathrm{sg}}
 $$
 
 # The nature of fluids
@@ -43,13 +44,15 @@ The sections below will go through a number of physical properties that are comm
 ### Density
 
 The *density* of the fluid is its mass per unit volume:
+
 $$
 \textrm{density}=\textrm{mass}/\textrm{Volume}\\
 $$
 
 The density is represented by the Greek letter $\rho$ (rho).  If a quantity of fluid has a mass $m$ and a volume $V$, its density can be expressed as
+
 $$
-\rho&=m/V
+\rho=m/V
 $$
 
 The units for density are $\kg/\m^3$ in the SI system and $\slug/\ft^3$ in the U.S. Customary System.
@@ -79,8 +82,9 @@ $$
 ### Specific gravity
 
 It is often convenient to report the density or specific weight of a fluid with respect to a given reference fluid (water at $4\C$ will be used in this class).  The specific weight and density of water at $4\C$ is:
+
 $$
-\gamma=9.81~\text{kN}/\text{m}^3=62.4~\text{lb}/\text{ft}^3 \quad
+\gamma=9.81~\text{kN}/\text{m}^3=62.4~\text{lb}/\text{ft}^3 \qquad
 \rho=1000~\text{kg}/\text{m}^3=1.94~\text{slugs}/\text{ft}^3
 $$
 
@@ -88,8 +92,8 @@ The specific gravity of a substance is its density (or specific weight) divided 
 
 $$
 \begin{align}
-sg&=\frac{\gamma}{9.81~\kN/\m^3}=\frac{\rho}{1000~\kg/\m^3} \qquad \textrm{SI system}\\
-sg&=\frac{\gamma}{62.4~\lb/\ft^3}=\frac{\rho}{1.94~\slug/\ft^3} \qquad \textrm{USCS}
+\sg&=\frac{\gamma}{9.81~\kN/\m^3}=\frac{\rho}{1000~\kg/\m^3} \qquad\qquad \textrm{SI system}\\
+\sg&=\frac{\gamma}{62.4~\lb/\ft^3}=\frac{\rho}{1.94~\slug/\ft^3} \qquad\qquad \textrm{USCS}
 \end{align}
 $$
 
@@ -101,11 +105,37 @@ An oil barrel has a volume of $0.16~\m^3$ and a mass of $140~\kg$.  Compute the 
 <hr>
 
 To compute the weight we use $w=mg$ where $g=9.81~\m/s^2$.  We have
+
 $$
-w=140~\kg\times g=9.81~\m/s^2=1373.4~\kg\cdot\m/s^2
+w=140~\kg\times 9.81~\m/s^2=1373~\kg\cdot\m/s^2
 $$
 A $\kg\cdot\m/s^2$ is a Newton (N) and the weight is therefore
-w=1373.3~\N=1.373\times 10^3 \N=1.373 \textrm{kN}
+
+$$
+w=1373~\N=1.373\times 10^3 \N=1.373 \kN
+$$
+
+The density is the mass of the oil divided by the volume of oil.
+
+$$
+\rho=\frac{m}{V}=\frac{140~\kg}{0.16~\m^3}=875~\frac{\kg}{\m^3}
+$$
+
+The specific weight is the weight of the oil divided by the volume of oil.
+
+$$
+\gamma=\frac{w}{V}=\frac{1.373~\kN}{0.16~\m^3}=8.581~\frac{\kN}{\m^3}
+$$
+
+We can solve for the specific gravity by dividing the oil's density (or specific weight) with that of water at $4\C$.  Both should yield the same result.
+
+$$
+\sg=\frac{\rho}{1000~\kg/\m^3}=\frac{875~\kg/\m^3}{1000~\kg/\m^3}=0.875
+$$
+or equivalently
+
+$$
+\sg=\frac{\gamma}{9.81~\kN/\m^3}=\frac{8.581~\kN/\m^3}{9.81~\kN/\m^3}=0.875
 $$
 
 </div>
