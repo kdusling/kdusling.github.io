@@ -165,9 +165,8 @@ $$
 To find the weight of a gallon of Glycerine we use the relation $\gamma=w/V$ and solve for $w$:
 
 $$
-w=\gamma \times V = 78.81~\lb/\ft^3\times 1~\cancel{\text{gal}}\times \frac{\ft^3}{\text{7.48 \cancel{gal}}}=10.5~\lb
+w=\gamma \times V = 78.81~\lb/\ft^3\times 1~\cancel{\text{gal}}\left( \frac{\ft^3}{7.48~\cancel{\text{gal}}}\right)=10.5~\lb
 $$
-
 
 </div>
 
