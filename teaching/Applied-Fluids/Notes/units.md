@@ -20,7 +20,7 @@ $$
 \newcommand{\lbm}{\mathrm{lbm}}
 \newcommand{\lbf}{\mathrm{lbf}}
 \newcommand{\N}{\mathrm{N}}
-\newcommand{\slug}{\mathrm{slug}}
+\newcommand{\slug}{\mathrm{slugs}}
 \newcommand{\Pa}{\mathrm{Pa}}
 \newcommand{\mph}{\mathrm{mph}}
 \renewcommand{\psi}{\mathrm{psi}}
@@ -327,6 +327,6 @@ Table 4: A comparison among temperature scales.  $^\dagger$Melting and boiling p
 
 
 ## References
+[The NIST reference on Constants, Units and, Uncertainty](https://physics.nist.gov/cuu/Units/index.html)
 
-[Systems of Units and Conversion Factors
-(pdf)](http://www.cengage.com/resource_uploads/downloads/1111136025_277026.pdf)
+[Systems of Units and Conversion Factors (pdf)](http://www.cengage.com/resource_uploads/downloads/1111136025_277026.pdf)

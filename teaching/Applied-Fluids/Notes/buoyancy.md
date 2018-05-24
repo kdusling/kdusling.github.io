@@ -4,7 +4,7 @@ title: Buoyancy
 ---
 
 $$
-\require{cancel}$$
+\require{cancel}
 \newcommand{\kg}{\mathrm{kg}}
 \newcommand{\kN}{\mathrm{kN}}
 \newcommand{\inch}{\mathrm{in}}
