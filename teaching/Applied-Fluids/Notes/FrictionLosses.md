@@ -202,8 +202,9 @@ In practice however more accurate resistive coefficients should be taken from o
 ### Entrance Loss
 
 The losses that occur when a fluid flows from a larger reservoir or tank into a pipe are called *entrance losses*. For a square-edged inlet as shown in the cartoon below the resistive coefficient is $K\approx0.5$. This is the limiting case of $A_1\to \infty$ in the equation for $K$ above. Chamfered and rounded inlets have smaller resistance coefficients. For a chamfered inlet $K\approx 0.25$ and for a well-rounded inlet $K\approx 0.04$.
-
-![*Entrance loss* results from a fluid flowing from a large tank or reservoir into a pipe.](img\entranceloss.png)
+
+<img style="width: 250px" src="img\entranceloss.png" alt="*Entrance loss* results from a fluid flowing from a large tank or reservoir into a pipe.">
+
 
 ### Valves and Fittings
 
@@ -231,7 +232,7 @@ where the factor $\left(L_e/D\right)$ is called the equivalent length ratio and
 <tr><td>Butterfly valve (fully open):                           </td><td>&nbsp;                         </td></tr>
 <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;50 mm (2") - 200 mm (8")        </td><td>&nbsp;&nbsp;&nbsp;&nbsp; 45    </td></tr>
 <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;250 mm (10") - 350 mm (14")     </td><td>&nbsp;&nbsp;&nbsp;&nbsp; 35    </td></tr>
-<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;400 mm (16")- 600 mm (24")      </td><td>&nbsp;&nbsp;&nbsp;&nbsp; 25    </td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;400 mm (16")- 600 mm (24")      </td><td style="padding-right: 10px;> 25    </td></tr>
 <tr><td>90° standard elbow                                      </td><td>&nbsp;&nbsp;&nbsp;&nbsp; 30    </td></tr>
 <tr><td>45° standard elbow                                      </td><td>&nbsp;&nbsp;&nbsp;&nbsp; 16    </td></tr>
 <tr><td>Close pattern return bend                               </td><td>&nbsp;&nbsp;&nbsp;&nbsp; 50    </td></tr>
