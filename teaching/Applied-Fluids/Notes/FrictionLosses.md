@@ -56,6 +56,12 @@ We all have an intuitive notion of what we mean by laminar or turbulent flow.  L
 But how can we quantitatively predict how the flow will behave, in particular if the flow is occurring in an opaque pipe where observations of the flow cannot be made.
 
 ![Laminar and turbulent water flow over the hull of a submarine. By US Navy [Public domain], via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File%3ALos_Angeles_attack_sub_2.jpg)](https://upload.wikimedia.org/wikipedia/commons/8/8d/Los_Angeles_attack_sub_2.jpg){width=250px}
+
+<figure>
+  <img src="https://commons.wikimedia.org/wiki/File%3ALos_Angeles_attack_sub_2.jpg" alt="Exit loss" width="600">
+  <figcaption>Laminar and turbulent water flow over the hull of a submarine. By US Navy [Public domain], via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File%3ALos_Angeles_attack_sub_2.jpg)
+  </figcaption>
+</figure>
 
 In an 1883 paper Osborne Reynolds showed that a single dimensionless number, now called the Reynolds number ($N_R$), determines whether the flow is laminar or turbulent.  The Reynold's number for round pipes is
 $$
@@ -254,10 +260,12 @@ where the factor $\left(L_e/D\right)$ is called the equivalent length ratio and
 </tbody>
 </table>
 
-The value of $L_e$ is called the equivalent length of pipe; it is the length of straight pipe that would produce the same loss as the valve.  For example a 2\" fully open globe valve $(L_e/D=340)$ has $L_e \approx 57~\ft$. This value of $L_e$ can than be added to the actual length of pipe to determine the total losses. While convenient, this procedure is only accurate when the actual pipe flows are in the zone of complete turbulence.
-
+The value of $L_e$ is called the equivalent length of pipe; it is the length of straight pipe that would produce the same loss as the valve.  For example a 2" fully open globe valve $(L_e/D=340)$ has $L_e \approx 57~\ft$. This value of $L_e$ can than be added to the actual length of pipe to determine the total losses. While convenient, this procedure is only accurate when the actual pipe flows are in the zone of complete turbulence.
+
+<figure>
 <img style="float: left;" src="img/wafer-type-centerline-butterfly-valve.jpg">
 <img style="float: left;" src="img/knife-gate-valve.jpg">
 <img style="" src="img/din-globe-valve.jpg">
-
-*Left: Wafer type centerline butterfly valve. Middle: Knife gate valve.  Right: A DIN globe valve. Images from [Metals Valve](http://www.metalsvalve.com).*
+<figcaption>Left: Wafer type centerline butterfly valve. Middle: Knife gate valve.  Right: A DIN globe valve. Images from [Metals Valve](http://www.metalsvalve.com).*
+</figcaption>
+</figure>
