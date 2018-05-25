@@ -42,13 +42,13 @@ As a fluid flows through a pipe energy will be dissipated due to friction. As we
 Losses due to friction will cause the pressure to decrease along the length of the pipe, therefore increasing the amount of power that a pump must deliver to the fluid.  These losses can become significant in systems where long stretches of piping are employed (for example, in heat exchangers, oil pipelines, fire protection systems, etc.).  As a reminder, the general energy equation was written as
 
 $$
-\frac{p_1}{\gamma}+z_1+\frac{v_1^2}{2g}+h_A-h_R-h_L=\frac{p_2}{\gamma}+z_2+\frac{v_2^2}{2g}
+\frac{p_1}{\gamma}+z_1+\frac{v_1^2}{2g}+h_A-h_R-h_L=\frac{p_2}{\gamma}+z_2+\frac{v_2^2}{2g}\,,
 $$
 
 where the term $h_L$ was the energy loss, one component of which is the energy loss due to friction.  In this section we will learn how to compute the quantity $h_L$ in various circumstances.  For fluid flows in pipes and tubes the energy loss is determined from *Darcy's equation*
 
 $$
-h_L=f\times \frac{L}{D}\times \frac{v^2}{2g}
+h_L=f\times \frac{L}{D}\times \frac{v^2}{2g}\,.
 $$
 
 In the above expression $L$ is the length of pipe, $D$ its diameter, and $v$ the average velocity of flow.  The dimensionless quantity $f$ is called the *friction factor*.  The method of obtaining $f$ will depend on whether the flow is laminar or turbulent.
@@ -153,6 +153,8 @@ Remember that the quantity $h_L$ is the energy loss per unit weight.  We can wri
 </div>
 
 ## Friction losses in turbulent flows
+
+For turbulent flows we again use Darcy's equation, however in this case there is no longer a nice analytic expression for the friction factor.  Instead, the friction factor, $f$ must be 
 
 # Hydraulic Diameter
 
@@ -269,10 +271,10 @@ where the factor $\left(L_e/D\right)$ is called the equivalent length ratio and
 
 The value of $L_e$ is called the equivalent length of pipe; it is the length of straight pipe that would produce the same loss as the valve.  For example a 2" fully open globe valve $(L_e/D=340)$ has $L_e \approx 57~\ft$. This value of $L_e$ can than be added to the actual length of pipe to determine the total losses. While convenient, this procedure is only accurate when the actual pipe flows are in the zone of complete turbulence.
 
-<div class="photo" style="width: 100%;">
-<img style="float: left;" src="img/FL_wafer-type-centerline-butterfly-valve.jpg">
-<img style="float: left;" src="img/FL_knife-gate-valve.jpg">
-<img style="" src="img/FL_din-globe-valve.jpg">
+<div class="photo" style="width: auto;">
+<img style="float: left; width: 200px;" src="img/FL_wafer-type-centerline-butterfly-valve.jpg">
+<img style="float: left; width: 200px;" src="img/FL_knife-gate-valve.jpg">
+<img style="width: 200px;" src="img/FL_din-globe-valve.jpg">
   <p>
   Left: Wafer type centerline butterfly valve. Middle: Knife gate valve.  Right: A DIN globe valve. Images from [Metals Valve](http://www.metalsvalve.com).
   </p>
