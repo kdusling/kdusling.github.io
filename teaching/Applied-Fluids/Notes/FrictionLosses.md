@@ -175,17 +175,14 @@ The above expression works fairly well for moderate velocities and is a reasona
 
 ### Exit Loss
 
-When a fluid flows from a pipe into a large tank or reservoir all of the
-kinetic energy is dissipated (the kinetic energy in the static tank is
-zero). This can be treated as a limiting case of sudden expansion by
-taking $A_1\to 0$ in our expression for the resistive coefficient.
-This results in $K\to 1$ and a head loss of $$
-h_L=1.0\left(\frac{v_1^2}{2g}\right) $$
+When a fluid flows from a pipe into a large tank or reservoir all of the kinetic energy is dissipated (the kinetic energy in the static tank is zero). This can be treated as a limiting case of sudden expansion by taking $A_1\to 0$ in our expression for the resistive coefficient. This results in $K\to 1$ and a head loss of
+
+$$ h_L=1.0\left(\frac{v_1^2}{2g}\right) $$
 
 ![*Exit loss* results from a fluid flowing into a static
 reservoir.](img\exitloss.png)
 
-##Sudden Contraction
+## Sudden Contraction
 
 A sudden contraction in a pipe results in a drop in pressure due to the sudden increase in velocity and the loss of energy due to turbulence. The energy loss (expressed as a loss of head) is written as
 
@@ -195,10 +192,7 @@ where $v_2$ is the velocity in the *smaller* section of pipe downstream of the 
 
 The mechanism of energy loss in a contraction is much more complex than that of an expansion. The cartoon below shows the path of the flow stream. Regions of turbulence develop both before the contraction and after the contraction. The region where the cross-section is minimum is known as the *vena contracta*.
 
-A number of empirical equations for the resistance coefficient for
-sudden contraction can be found in the literature. One of the [simplest
-I found](http://amzn.to/2hla1qx) is a good starting point for rough
-estimates of losses in sudden contractions.
+A number of empirical equations for the resistance coefficient for sudden contraction can be found in the literature. One of the [simplest I found](http://amzn.to/2hla1qx) is a good starting point for rough estimates of losses in sudden contractions.
 
 $$ K\approx 0.5\left[1-\frac{A_2}{A_1}\right] $$
 
@@ -208,13 +202,7 @@ In practice however more accurate resistive coefficients should be taken from o
 
 ### Entrance Loss
 
-The losses that occur when a fluid flows from a larger reservoir or tank
-into a pipe are called *entrance losses*. For a square-edged inlet as
-shown in the cartoon below the resistive coefficient is
-$K\approx0.5$. This is the limiting case of $A_1\to \infty$ in
-the equation for $K$ above. Chamfered and rounded inlets have smaller
-resistance coefficients. For a chamfered inlet $K\approx 0.25$ and
-for a well-rounded inlet $K\approx 0.04$.
+The losses that occur when a fluid flows from a larger reservoir or tank into a pipe are called *entrance losses*. For a square-edged inlet as shown in the cartoon below the resistive coefficient is $K\approx0.5$. This is the limiting case of $A_1\to \infty$ in the equation for $K$ above. Chamfered and rounded inlets have smaller resistance coefficients. For a chamfered inlet $K\approx 0.25$ and for a well-rounded inlet $K\approx 0.04$.
 
 ![*Entrance loss* results from a fluid flowing from a large tank or
 reservoir into a pipe.](img\entranceloss.png)
