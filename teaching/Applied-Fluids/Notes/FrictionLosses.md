@@ -164,8 +164,12 @@ As fluid flows through an enlargement the decrease in velocity (think continuit
 $$ h_L=K\left(\frac{v_1^2}{2g}\right) $$
 
 where $v_1$ is the velocity in the *smaller* section of pipe.
-
-![Cartoon of flow through an abrupt enlargement.](img\expansion.png)
+
+<figure>
+  <img src="img\expansion.png" alt="Exit loss" width="600">
+  <figcaption>Cartoon of flow through an abrupt enlargement.
+  </figcaption>
+</figure>
 
 Under some [simplifying assumptions the resistive coefficient can be derived](http://www.nptel.ac.in/courses/112104118/lecture-14/14-6_losses_sudden_enlarg.htm):
 
@@ -178,8 +182,12 @@ The above expression works fairly well for moderate velocities and is a reasona
 When a fluid flows from a pipe into a large tank or reservoir all of the kinetic energy is dissipated (the kinetic energy in the static tank is zero). This can be treated as a limiting case of sudden expansion by taking $A_1\to 0$ in our expression for the resistive coefficient. This results in $K\to 1$ and a head loss of
 
 $$ h_L=1.0\left(\frac{v_1^2}{2g}\right) $$
-
-![*Exit loss* results from a fluid flowing into a static reservoir.](img\exitloss.png)
+
+<figure>
+  <img src="img\exitloss.png" alt="Exit loss" width="600">
+  <figcaption>*Exit loss* results from a fluid flowing into a static reservoir.
+  </figcaption>
+</figure>
 
 ## Sudden Contraction
 
@@ -197,14 +205,18 @@ $$ K\approx 0.5\left[1-\frac{A_2}{A_1}\right] $$
 
 In practice however more accurate resistive coefficients should be taken from other resources such as [CRANE Technical Paper 410](http://amzn.to/2zzrC8C).
 
-![Cartoon of flow through a sudden contraction.](img\contraction.png)
-
+<figure>
+  <img src="img\contraction.png" alt="sudden contraction">
+  <figcaption>Cartoon of flow through a sudden contraction.
+  </figcaption>
+</figure>
+
 ### Entrance Loss
 
 The losses that occur when a fluid flows from a larger reservoir or tank into a pipe are called *entrance losses*. For a square-edged inlet as shown in the cartoon below the resistive coefficient is $K\approx0.5$. This is the limiting case of $A_1\to \infty$ in the equation for $K$ above. Chamfered and rounded inlets have smaller resistance coefficients. For a chamfered inlet $K\approx 0.25$ and for a well-rounded inlet $K\approx 0.04$.
 
 <figure>
-  <img src="img\entranceloss.png" alt="Entrance loss" width="500">
+  <img src="img\entranceloss.png" alt="Entrance loss" width="600">
   <figcaption>*Entrance loss* results from a fluid flowing from a large tank or reservoir into a pipe.
   </figcaption>
 </figure>
@@ -235,7 +247,7 @@ where the factor $\left(L_e/D\right)$ is called the equivalent length ratio and
 <tr><td>Butterfly valve (fully open):                           </td><td>&nbsp;                         </td></tr>
 <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;50 mm (2") - 200 mm (8")        </td><td>&nbsp;&nbsp;&nbsp;&nbsp; 45    </td></tr>
 <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;250 mm (10") - 350 mm (14")     </td><td>&nbsp;&nbsp;&nbsp;&nbsp; 35    </td></tr>
-<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;400 mm (16")- 600 mm (24")      </td><td style="padding-left: 25px;"> 25    </td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;400 mm (16")- 600 mm (24")      </td><td style="padding-left: 50px;"> 25    </td></tr>
 <tr><td>90° standard elbow                                      </td><td>&nbsp;&nbsp;&nbsp;&nbsp; 30    </td></tr>
 <tr><td>45° standard elbow                                      </td><td>&nbsp;&nbsp;&nbsp;&nbsp; 16    </td></tr>
 <tr><td>Close pattern return bend                               </td><td>&nbsp;&nbsp;&nbsp;&nbsp; 50    </td></tr>
