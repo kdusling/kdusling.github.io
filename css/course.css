@@ -56,20 +56,19 @@ caption {
     font-size: 80%;
 }
 
-
-
 /* ---- Images ---- */
 figure {
     display: inline-block;
-    border: 1px dotted gray;
+    border: 1px gray;
     margin: 20px; /* adjust as needed */
 }
 figure img {
     vertical-align: top;
 }
 figure figcaption {
-    border: 1px dotted blue;
+    border: 1px gray;
     text-align: center;
+    display: table-caption;
 }
 
 .example {
