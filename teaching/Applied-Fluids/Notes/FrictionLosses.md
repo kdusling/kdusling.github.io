@@ -13,6 +13,7 @@ $$
 \newcommand{\inch}{\mathrm{in}}
 \newcommand{\ft}{\mathrm{ft}}
 \newcommand{\m}{\mathrm{m}}
+\newcommand{\mm}{\mathrm{mm}}
 \newcommand{\km}{\mathrm{km}}
 \newcommand{\mi}{\mathrm{mi}}
 \newcommand{\cm}{\mathrm{cm}}
@@ -144,7 +145,7 @@ and therefore have
 $$
 h_L=0.0787\times \frac{100~\m}{0.1223~\m}\times \frac{\left(5~\m/\s\right)^2}{2(9.81~\m/s^2)}=82~\m
 $$
-Remember that the quantity $h_L$ is the energy loss per unit weight.  We can write it as $h_L=82~\N\cdot \m/\N=82~{\rm J}/\N$.  This means that for every newtwon of glycerin that flows through the 100 meters of pipe 82 joules of energy will be dissipated.
+Remember that the quantity $h_L$ is the energy loss per unit weight.  We can write it as $h_L=82~\N\cdot \m/\N=82~{\rm J}/\N$.  This means that for every newton of glycerin that flows through the 100 meters of pipe 82 joules of energy will be dissipated.
 
 </div>
 
@@ -212,21 +213,23 @@ $$ K\approx 0.5\left[1-\frac{A_2}{A_1}\right] $$
 
 In practice however more accurate resistive coefficients should be taken from other resources such as [CRANE Technical Paper 410](http://amzn.to/2zzrC8C).
 
-<figure>
-  <img src="img\contraction.png" alt="sudden contraction">
-  <figcaption>Cartoon of flow through a sudden contraction.
-  </figcaption>
-</figure>
+<div class="photo" style="width: 300px;">
+  <img src="img\contraction.png" alt="Sudden contraction">
+  <p>
+  Cartoon of flow through a sudden contraction.
+  </p>
+</div>
 
 ### Entrance Loss
 
 The losses that occur when a fluid flows from a larger reservoir or tank into a pipe are called *entrance losses*. For a square-edged inlet as shown in the cartoon below the resistive coefficient is $K\approx0.5$. This is the limiting case of $A_1\to \infty$ in the equation for $K$ above. Chamfered and rounded inlets have smaller resistance coefficients. For a chamfered inlet $K\approx 0.25$ and for a well-rounded inlet $K\approx 0.04$.
 
-<figure>
-  <img src="img\entranceloss.png" alt="Entrance loss" width="600">
-  <figcaption>*Entrance loss* results from a fluid flowing from a large tank or reservoir into a pipe.
-  </figcaption>
-</figure>
+<div class="photo" style="width: 300px;">
+  <img src="img\entranceloss.png" alt="Entrance loss">
+  <p>
+  *Entrance loss* results from a fluid flowing from a large tank or reservoir into a pipe.
+  </p>
+</div>
 
 ### Valves and Fittings
 
