@@ -57,19 +57,20 @@ caption {
 }
 
 /* ---- Images ---- */
-figure {
-    display: table;
-    border: 1px gray;
-    margin: 20px; /* adjust as needed */
+.photo {
+    width: 600px;
+    border: 1px solid #ccc;
+    background-color: #efefef;
+    padding: 20px;
+
 }
-figure img {
-    vertical-align: top;
+
+.photo img{
+  max-width: 100%;
+  width: 100%;
 }
-figure figcaption {
-    border: 1px gray;
-    text-align: center;
-    display: table-caption;
-}
+
+.photo p{}
 
 .example {
   border-radius: 25px;
