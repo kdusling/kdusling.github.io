@@ -179,8 +179,7 @@ When a fluid flows from a pipe into a large tank or reservoir all of the kineti
 
 $$ h_L=1.0\left(\frac{v_1^2}{2g}\right) $$
 
-![*Exit loss* results from a fluid flowing into a static
-reservoir.](img\exitloss.png)
+![*Exit loss* results from a fluid flowing into a static reservoir.](img\exitloss.png)
 
 ## Sudden Contraction
 
@@ -204,21 +203,17 @@ In practice however more accurate resistive coefficients should be taken from o
 
 The losses that occur when a fluid flows from a larger reservoir or tank into a pipe are called *entrance losses*. For a square-edged inlet as shown in the cartoon below the resistive coefficient is $K\approx0.5$. This is the limiting case of $A_1\to \infty$ in the equation for $K$ above. Chamfered and rounded inlets have smaller resistance coefficients. For a chamfered inlet $K\approx 0.25$ and for a well-rounded inlet $K\approx 0.04$.
 
-![*Entrance loss* results from a fluid flowing from a large tank or
-reservoir into a pipe.](img\entranceloss.png)
+![*Entrance loss* results from a fluid flowing from a large tank or reservoir into a pipe.](img\entranceloss.png)
 
-###Valves and Fittings
+### Valves and Fittings
 
 The same formula is applied for losses though a valve or fitting
 
-$$
-h_L=K\left(\frac{v^2}{2g}\right) $$
+$$ h_L=K\left(\frac{v^2}{2g}\right) $$
 
 where $v$ is the velocity at the valve. The resistance coefficient is typically expressed as
 
-$$
-K=\left(L_e/D\right)f_T
-$$
+$$ K=\left(L_e/D\right)f_T $$
 
 where the factor $\left(L_e/D\right)$ is called the equivalent length ratio and is usually considered to be a constant for a given type of valve or fitting. Values for $\left(L_e/D\right)$ for some common types of valves and fittings is given in the [table below](#LeOverD). The term $f_T$ is the friction factor in the pipe to which the valve is connected taken in the zone of complete turbulence. The tables for [Schedule 40](../SteelPipeTable.html?sch=40&mat=comSteel) and [Schedule 80](../SteelPipeTable.html?sch=40&mat=comSteel) list the values of $f_T$ for commercial steel pipes.
 
@@ -247,6 +242,6 @@ The value of $L_e$ is called the equivalent length of pipe; it is the length of
 
 <img style="float: left;" src="img/wafer-type-centerline-butterfly-valve.jpg">
 <img style="float: left;" src="img/knife-gate-valve.jpg">
-<img style="float: left;" src="img/din-globe-valve.jpg">
+<img style="" src="img/din-globe-valve.jpg">
 
 *Left: Wafer type centerline butterfly valve. Middle: Knife gate valve.  Right: A DIN globe valve. Images from [Metals Valve](http://www.metalsvalve.com).*
