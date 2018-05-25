@@ -58,7 +58,7 @@ caption {
 
 /* ---- Images ---- */
 figure {
-    display: inline-block;
+    display: table;
     border: 1px gray;
     margin: 20px; /* adjust as needed */
 }
