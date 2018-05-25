@@ -54,12 +54,13 @@ In the above expression $L$ is the length of pipe, $D$ its diameter, and $v$ the
 
 We all have an intuitive notion of what we mean by laminar or turbulent flow.  Laminar flow has the appearance of smooth and steady stream while turbulent flow appears chaotic and irregular and may contain eddies and swirls of fluid.
 But how can we quantitatively predict how the flow will behave, in particular if the flow is occurring in an opaque pipe where observations of the flow cannot be made.
-
-<figure>
+
+<div class="photo">
   <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Los_Angeles_attack_sub_2.jpg">
-  <figcaption>Laminar and turbulent water flow over the hull of a submarine. By US Navy [Public domain], via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File%3ALos_Angeles_attack_sub_2.jpg).
-  </figcaption>
-</figure>
+  <p>
+  Laminar and turbulent water flow over the hull of a submarine. By US Navy [Public domain], via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File%3ALos_Angeles_attack_sub_2.jpg).
+  </p>
+</div>
 
 In an 1883 paper Osborne Reynolds showed that a single dimensionless number, now called the Reynolds number ($N_R$), determines whether the flow is laminar or turbulent.  The Reynold's number for round pipes is
 $$
@@ -169,11 +170,12 @@ $$ h_L=K\left(\frac{v_1^2}{2g}\right) $$
 
 where $v_1$ is the velocity in the *smaller* section of pipe.
 
-<figure>
-  <img src="img\expansion.png" alt="Exit loss" width="600">
-  <figcaption>Cartoon of flow through an abrupt enlargement.
-  </figcaption>
-</figure>
+<div class="photo" style="width: 300px;">
+  <img src="img\expansion.png" alt="Sudden enlargement">
+  <p>
+  Cartoon of flow through an abrupt enlargement.
+  </p>
+</div>
 
 Under some [simplifying assumptions the resistive coefficient can be derived](http://www.nptel.ac.in/courses/112104118/lecture-14/14-6_losses_sudden_enlarg.htm):
 
@@ -187,11 +189,12 @@ When a fluid flows from a pipe into a large tank or reservoir all of the kineti
 
 $$ h_L=1.0\left(\frac{v_1^2}{2g}\right) $$
 
-<figure>
-  <img src="img\exitloss.png" alt="Exit loss" width="600">
-  <figcaption>*Exit loss* results from a fluid flowing into a static reservoir.
-  </figcaption>
-</figure>
+<div class="photo" style="width: 300px;">
+  <img src="img\exitloss.png" alt="Exit loss">
+  <p>
+  *Exit loss* results from a fluid flowing into a static reservoir.
+  </p>
+</div>
 
 ## Sudden Contraction
 
