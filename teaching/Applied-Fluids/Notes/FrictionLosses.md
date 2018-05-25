@@ -145,43 +145,33 @@ Remember that the quantity $h_L$ is the energy loss per unit weight.  We can wri
 
 ## Friction losses in turbulent flows
 
-
 # Hydraulic Diameter
 
 # Minor Losses
 
-Energy losses through valves, bends, expansions, contractions, gauges,
-flow meters, etc, are generally referred to as *minor losses*. Note that
-the cumulative effect of a number of *minor losses* can be substantial.
+Energy losses through valves, bends, expansions, contractions, gauges, flow meters, etc, are generally referred to as *minor losses*. Note that the cumulative effect of a number of *minor losses* can be substantial.
 
-Energy losses are proportional to the velocity head near the component
-of interest. The energy loss through a component can be expressed as
-$$ h_L=K\left(\frac{v^2}{2g}\right) $$ where $h_L$ is the
-minor loss, $K$ is the resistance coefficient and $v$ is the average
-velocity in the pipe in the vicinity of the component. The velocity that
-is used in the above expression will depend on the specific problem.
+Energy losses are proportional to the velocity head near the component of interest. The energy loss through a component can be expressed as
+
+$$ h_L=K\left(\frac{v^2}{2g}\right) $$
+
+where $h_L$ is the minor loss, $K$ is the resistance coefficient and $v$ is the average velocity in the pipe in the vicinity of the component. The velocity that is used in the above expression will depend on the specific problem.
 
 ## Sudden Enlargement
 
-As fluid flows through an enlargement the decrease in velocity (think
-continuity eqn) is accompanied by an increase in pressure (think
-Bernoulli\'s eqn). If the enlargement is sharp or sudden regions of
-turbulence develop in the corners of the larger pipe. The regions of
-turbulence result in the dissipation of kinetic energy into internal
-energy. The energy loss (expressed as a loss of head) is written as $$
-h_L=K\left(\frac{v_1^2}{2g}\right) $$ where $v_1$ is the
-velocity in the *smaller* section of pipe.
+As fluid flows through an enlargement the decrease in velocity (think continuity eqn) is accompanied by an increase in pressure (think Bernoulli\'s eqn). If the enlargement is sharp or sudden regions of turbulence develop in the corners of the larger pipe. The regions of turbulence result in the dissipation of kinetic energy into internal energy. The energy loss (expressed as a loss of head) is written as
+
+$$ h_L=K\left(\frac{v_1^2}{2g}\right) $$
+
+where $v_1$ is the velocity in the *smaller* section of pipe.
 
 ![Cartoon of flow through an abrupt enlargement.](img\expansion.png)
 
 Under some [simplifying assumptions the resistive coefficient can be derived](http://www.nptel.ac.in/courses/112104118/lecture-14/14-6_losses_sudden_enlarg.htm):
 
-$$ K\approx \left[1-\frac{A_1}{A_2}\right]^2 $$ The above
-expression works fairly well for moderate velocities and is a reasonable
-starting point for estimating losses due to a sudden expansion. If the
-sudden transition between pipe sizes can be made more gradual the energy
-loss can be reduced. A *diffuser* converts kinetic energy to pressure
-energy by a gradual enlargement in pipe size.
+$$ K\approx \left[1-\frac{A_1}{A_2}\right]^2 $$
+
+The above expression works fairly well for moderate velocities and is a reasonable starting point for estimating losses due to a sudden expansion. If the sudden transition between pipe sizes can be made more gradual the energy loss can be reduced. A *diffuser* converts kinetic energy to pressure energy by a gradual enlargement in pipe size.
 
 ### Exit Loss
 
@@ -252,43 +242,23 @@ where the factor $\left(L_e/D\right)$ is called the equivalent length ratio and
 <tr><th> Fitting Type  </th><th> Equivalent Length, $L_e/D$ </th></tr>
 </thead>
 <tbody>
-<tr><td>Gate valve (fully open)      </td><td> 8    </td></tr>
-<tr><td>Globe valve (fully open)       </td><td> 340    </td></tr>
-<tr><td>Angle valve (fully open)      </td><td> 150    </td></tr>
-<tr><td>Butterfly valve (fully open):      </td><td> &nbsp;    </td></tr>
-<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;50 mm (2\") - 200 mm (8\")      </td><td> 45    </td></tr>
-<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;250 mm (10\") - 350 mm (14\")     </td><td> 35    </td></tr>
-<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;400 mm (16\")- 600 mm (24\")      </td><td> 25    </td></tr>
-<tr><td>90° standard elbow      </td><td> 30    </td></tr>
-<tr><td>45° standard elbow      </td><td> 16    </td></tr>
-<tr><td>Close pattern return bend       </td><td> 50    </td></tr>
+<tr><td>Gate valve (fully open)                                 </td><td>&nbsp;&nbsp;&nbsp;&nbsp; 8     </td></tr>
+<tr><td>Globe valve (fully open)                                </td><td>&nbsp;&nbsp;&nbsp;&nbsp; 340   </td></tr>
+<tr><td>Angle valve (fully open)                                </td><td>&nbsp;&nbsp;&nbsp;&nbsp; 150   </td></tr>
+<tr><td>Butterfly valve (fully open):                           </td><td>&nbsp;                         </td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;50 mm (2") - 200 mm (8")        </td><td>&nbsp;&nbsp;&nbsp;&nbsp; 45    </td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;250 mm (10") - 350 mm (14")     </td><td>&nbsp;&nbsp;&nbsp;&nbsp; 35    </td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;400 mm (16")- 600 mm (24")      </td><td>&nbsp;&nbsp;&nbsp;&nbsp; 25    </td></tr>
+<tr><td>90° standard elbow                                      </td><td>&nbsp;&nbsp;&nbsp;&nbsp; 30    </td></tr>
+<tr><td>45° standard elbow                                      </td><td>&nbsp;&nbsp;&nbsp;&nbsp; 16    </td></tr>
+<tr><td>Close pattern return bend                               </td><td>&nbsp;&nbsp;&nbsp;&nbsp; 50    </td></tr>
 </tbody>
 </table>
 
-  Fitting Type                         Equivalent Length, $L_e/D$
-  ------------------------------------ -------------------------------
-  Gate valve (fully open)              8
-  Globe valve (fully open)             340
-  Angle valve (fully open)             150
-  Butterfly valve (fully open):
-       50 mm (2\") - 200 mm (8\")      45
-       250 mm (10\") - 350 mm (14\")   35
-       400 mm (16\")- 600 mm (24\")    25
-  90° standard elbow                   30
-  45° standard elbow                   16
-  Close pattern return bend            50
-
-The value of $L_e$ is called the equivalent length of pipe; it is the
-length of straight pipe that would produce the same loss as the valve.
-For example a 2\" fully open globe valve $(L_e/D=340)$ has $L_e
-\approx 57~\ft$. This value of $L_e$ can than be added to the
-actual length of pipe to determine the total losses. While convenient,
-this procedure is only accurate when the actual pipe flows are in the
-zone of complete turbulence.
+The value of $L_e$ is called the equivalent length of pipe; it is the length of straight pipe that would produce the same loss as the valve.  For example a 2\" fully open globe valve $(L_e/D=340)$ has $L_e \approx 57~\ft$. This value of $L_e$ can than be added to the actual length of pipe to determine the total losses. While convenient, this procedure is only accurate when the actual pipe flows are in the zone of complete turbulence.
 
 <img style="float: left;" src="img/wafer-type-centerline-butterfly-valve.jpg">
 <img style="float: left;" src="img/knife-gate-valve.jpg">
-<img style="" src="img/din-globe-valve.jpg">
+<img style="float: left;" src="img/din-globe-valve.jpg">
 
-*Left: Wafer type centerline butterfly valve. Middle: Knife gate
-valve.  Right: A DIN globe valve. Images from [Metals Valve](http://www.metalsvalve.com).*
+*Left: Wafer type centerline butterfly valve. Middle: Knife gate valve.  Right: A DIN globe valve. Images from [Metals Valve](http://www.metalsvalve.com).*
