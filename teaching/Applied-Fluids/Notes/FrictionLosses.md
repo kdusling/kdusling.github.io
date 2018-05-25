@@ -39,27 +39,28 @@ $$
 
 As a fluid flows through a pipe energy will be dissipated due to friction. As we will see the amount of energy lost will depend on the type of fluid, the fluid's velocity and the condition (*i.e.* material, roughness) of the pipe.
 
-Losses due to friction will cause the pressure to decrease along the length of the pipe, therefore increasing the amount of power that a pump must deliver to the fluid.  These losses can become significant in systems where long stretches of piping are employed (for example, in heat exchangers, oil pipelines, fire protection systems, etc.).
-
-The general energy equation was written as
+Losses due to friction will cause the pressure to decrease along the length of the pipe, therefore increasing the amount of power that a pump must deliver to the fluid.  These losses can become significant in systems where long stretches of piping are employed (for example, in heat exchangers, oil pipelines, fire protection systems, etc.).  As a reminder, the general energy equation was written as
+
 $$
 \frac{p_1}{\gamma}+z_1+\frac{v_1^2}{2g}+h_A-h_R-h_L=\frac{p_2}{\gamma}+z_2+\frac{v_2^2}{2g}
 $$
-where the term $h_L$ was the energy loss.  One component of the energy loss is due to friction.  For flow in pipes and tubes the energy loss is determined from Darcy's equation
+
+where the term $h_L$ was the energy loss, one component of which is the energy loss due to friction.  In this section we will learn how to compute the quantity $h_L$ in various circumstances.  For fluid flows in pipes and tubes the energy loss is determined from *Darcy's equation*
 
 $$
 h_L=f\times \frac{L}{D}\times \frac{v^2}{2g}
 $$
 
-In the above expression $L$ is the length of pipe, $D$ its diameter, and $v$ the average velocity of flow.  The dimensionless quantity $f$ is called the friction factor.  The method of obtaining $f$ will depend on whether the flow is laminar or turbulent.
+In the above expression $L$ is the length of pipe, $D$ its diameter, and $v$ the average velocity of flow.  The dimensionless quantity $f$ is called the *friction factor*.  The method of obtaining $f$ will depend on whether the flow is laminar or turbulent.
 
 We all have an intuitive notion of what we mean by laminar or turbulent flow.  Laminar flow has the appearance of smooth and steady stream while turbulent flow appears chaotic and irregular and may contain eddies and swirls of fluid.
 But how can we quantitatively predict how the flow will behave, in particular if the flow is occurring in an opaque pipe where observations of the flow cannot be made.
 
-<div class="photo">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Los_Angeles_attack_sub_2.jpg">
+<div class="photo" style="width: 400px;">
+  <img src="img/FL_rapids.jpg">
+  <!-- https://pixabay.com/en/rapids-water-turbulence-flowing-355737/ -->
   <p>
-  Laminar and turbulent water flow over the hull of a submarine. By US Navy [Public domain], via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File%3ALos_Angeles_attack_sub_2.jpg).
+  Laminar and turbulent water flow.
   </p>
 </div>
 
@@ -115,16 +116,18 @@ Notice that all the units cancel in the above expression resulting in a dimensio
 
 ## Friction losses in laminar flows
 
-For laminar flows the friction factor can be derived but that goes beyond the scope of these notes.  For laminar flows, $N_R < 2000$, the friction factor is
+For laminar flows, $N_R < 2000$, the friction factor is
 $$
 f=\frac{64}{N_R}
-$$
-
-As a side note, if we substitute the above friction factor into Darcy's equation (+@eq:Darcy) and replace the Reynold's number with the form given in +@eq:Reynolds we obtain what is known as the Hagen-Poiseuille equation
+$$
+
+The above expression can be derived from first principles but that goes beyond the scope of these notes.  As a side note, if we substitute the above friction factor into Darcy's equation along with the explicity expression for the Reynold's number we obtain what is known as the Hagen-Poiseuille equation
+
 $$
 h_L=\frac{32\eta L v}{\gamma D^2}
 $$
-This equation for $h_L$ is valid only for laminar flows.  Reminder, the Darcy Equation (+@eq:Darcy) for $h_L$ is valid for *both* laminar and turbulent flows as long as the appropriate friction factor is used.
+
+This equation for $h_L$ is valid only for laminar flows.  Reminder, the Darcy Equation for $h_L$ is valid for *both* laminar and turbulent flows as long as the appropriate friction factor is used.
 
 In practice I never use the Hagen-Poiseuille equation.  Instead I use Darcy's equation along with $f=64/N_R$ for laminar flows.
 
@@ -231,7 +234,7 @@ The losses that occur when a fluid flows from a larger reservoir or tank into a
   </p>
 </div>
 
-### Valves and Fittings
+## Valves and Fittings
 
 The same formula is applied for losses though a valve or fitting
 
@@ -266,10 +269,11 @@ where the factor $\left(L_e/D\right)$ is called the equivalent length ratio and
 
 The value of $L_e$ is called the equivalent length of pipe; it is the length of straight pipe that would produce the same loss as the valve.  For example a 2" fully open globe valve $(L_e/D=340)$ has $L_e \approx 57~\ft$. This value of $L_e$ can than be added to the actual length of pipe to determine the total losses. While convenient, this procedure is only accurate when the actual pipe flows are in the zone of complete turbulence.
 
-<figure>
-<img style="float: left;" src="img/wafer-type-centerline-butterfly-valve.jpg">
-<img style="float: left;" src="img/knife-gate-valve.jpg">
-<img style="" src="img/din-globe-valve.jpg">
-<figcaption>Left: Wafer type centerline butterfly valve. Middle: Knife gate valve.  Right: A DIN globe valve. Images from [Metals Valve](http://www.metalsvalve.com).*
-</figcaption>
-</figure>
+<div class="photo" style="width: 100%;">
+<img style="float: left;" src="img/FL_wafer-type-centerline-butterfly-valve.jpg">
+<img style="float: left;" src="img/FL_knife-gate-valve.jpg">
+<img style="" src="img/FL_din-globe-valve.jpg">
+  <p>
+  Left: Wafer type centerline butterfly valve. Middle: Knife gate valve.  Right: A DIN globe valve. Images from [Metals Valve](http://www.metalsvalve.com).
+  </p>
+</div>
