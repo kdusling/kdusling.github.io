@@ -55,9 +55,9 @@ In the above expression $L$ is the length of pipe, $D$ its diameter, and $v$ the
 We all have an intuitive notion of what we mean by laminar or turbulent flow.  Laminar flow has the appearance of smooth and steady stream while turbulent flow appears chaotic and irregular and may contain eddies and swirls of fluid.
 But how can we quantitatively predict how the flow will behave, in particular if the flow is occurring in an opaque pipe where observations of the flow cannot be made.
 
-<figure  class="figure">
-  <img class="figure-img img-fluid rounded"  src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Los_Angeles_attack_sub_2.jpg">
-  <figcaption  class="figure-caption">Laminar and turbulent water flow over the hull of a submarine. By US Navy [Public domain], via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File%3ALos_Angeles_attack_sub_2.jpg).
+<figure>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Los_Angeles_attack_sub_2.jpg">
+  <figcaption>Laminar and turbulent water flow over the hull of a submarine. By US Navy [Public domain], via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File%3ALos_Angeles_attack_sub_2.jpg).
   </figcaption>
 </figure>
 

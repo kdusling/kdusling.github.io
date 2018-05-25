@@ -59,13 +59,18 @@ caption {
 
 
 /* ---- Images ---- */
-figure {
-    display: table;
-    width: 1px; /* This can be any width, so long as it's narrower than any image */
-}
-img, figcaption {
-    display: table-row;
-}
+figure {
+    display: inline-block;
+    border: 1px dotted gray;
+    margin: 20px; /* adjust as needed */
+}
+figure img {
+    vertical-align: top;
+}
+figure figcaption {
+    border: 1px dotted blue;
+    text-align: center;
+}
 
 .example {
   border-radius: 25px;
