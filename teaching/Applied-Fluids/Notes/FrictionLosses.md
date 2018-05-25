@@ -195,28 +195,24 @@ h_L=1.0\left(\frac{v_1^2}{2g}\right) $$
 ![*Exit loss* results from a fluid flowing into a static
 reservoir.](img\exitloss.png)
 
-Sudden Contraction
-------------------
+##Sudden Contraction
 
-A sudden contraction in a pipe results in a drop in pressure due to the
-sudden increase in velocity and the loss of energy due to turbulence.
-The energy loss (expressed as a loss of head) is written as $$
-h_L=K\left(\frac{v_2^2}{2g}\right) $$ where $v_2$ is the
-velocity in the *smaller* section of pipe downstream of the contraction.
+A sudden contraction in a pipe results in a drop in pressure due to the sudden increase in velocity and the loss of energy due to turbulence. The energy loss (expressed as a loss of head) is written as
+
+$$h_L=K\left(\frac{v_2^2}{2g}\right) $$
+
+where $v_2$ is the velocity in the *smaller* section of pipe downstream of the contraction.
 
-The mechanism of energy loss in a contraction is much more complex than
-that of an expansion. The cartoon below shows the path of the flow
-stream. Regions of turbulence develop both before the contraction and
-after the contraction. The region where the cross-section is minimum is
-known as the *vena contracta*.
+The mechanism of energy loss in a contraction is much more complex than that of an expansion. The cartoon below shows the path of the flow stream. Regions of turbulence develop both before the contraction and after the contraction. The region where the cross-section is minimum is known as the *vena contracta*.
 
-A number of empirical equations for the resistance coefficient for
+A number of empirical equations for the resistance coefficient for
 sudden contraction can be found in the literature. One of the [simplest
-I found](http://amzn.to/2hla1qx) is a good starting point for rough
-estimates of losses in sudden contractions. $$ K\approx
-0.5\left[1-\frac{A_2}{A_1}\right] $$ In practice however more
-accurate resistive coefficients should be taken from other resources
-such as [CRANE Technical Paper 410](http://amzn.to/2zzrC8C).
+I found](http://amzn.to/2hla1qx) is a good starting point for rough
+estimates of losses in sudden contractions.
+
+$$ K\approx 0.5\left[1-\frac{A_2}{A_1}\right] $$
+
+In practice however more accurate resistive coefficients should be taken from other resources such as [CRANE Technical Paper 410](http://amzn.to/2zzrC8C).
 
 ![Cartoon of flow through a sudden contraction.](img\contraction.png)
 
@@ -233,22 +229,41 @@ for a well-rounded inlet $K\approx 0.04$.
 ![*Entrance loss* results from a fluid flowing from a large tank or
 reservoir into a pipe.](img\entranceloss.png)
 
-Valves and Fittings
--------------------
+###Valves and Fittings
 
-The same formula is applied for losses though a valve or fitting $$
-h_L=K\left(\frac{v^2}{2g}\right) $$ where $v$ is the velocity
-at the valve. The resistance coefficient is typically expressed as $$
-K=\left(L_e/D\right)f_T $$ where the factor
-$\left(L_e/D\right)$ is called the equivalent length ratio and is
-usually considered to be a constant for a given type of valve or
-fitting. Values for $\left(L_e/D\right)$ for some common types of
-valves and fittings is given in the [table below](#LeOverD). The term
-$f_T$ is the friction factor in the pipe to which the valve is
-connected taken in the zone of complete turbulence. The tables for
-[Schedule 40](../SteelPipeTable.html?sch=40&mat=comSteel) and [Schedule
-80](../SteelPipeTable.html?sch=40&mat=comSteel) list the values of
-$f_T$ for commercial steel pipes.
+The same formula is applied for losses though a valve or fitting
+
+$$
+h_L=K\left(\frac{v^2}{2g}\right) $$
+
+where $v$ is the velocity at the valve. The resistance coefficient is typically expressed as
+
+$$
+K=\left(L_e/D\right)f_T
+$$
+
+where the factor $\left(L_e/D\right)$ is called the equivalent length ratio and is usually considered to be a constant for a given type of valve or fitting. Values for $\left(L_e/D\right)$ for some common types of valves and fittings is given in the [table below](#LeOverD). The term $f_T$ is the friction factor in the pipe to which the valve is connected taken in the zone of complete turbulence. The tables for [Schedule 40](../SteelPipeTable.html?sch=40&mat=comSteel) and [Schedule 80](../SteelPipeTable.html?sch=40&mat=comSteel) list the values of $f_T$ for commercial steel pipes.
+
+<table class="table table-striped">
+<caption>
+
+</caption>
+<thead>
+<tr><th> Fitting Type  </th><th> Equivalent Length, $L_e/D$ </th></tr>
+</thead>
+<tbody>
+<tr><td>Gate valve (fully open)      </td><td> 8    </td></tr>
+<tr><td>Globe valve (fully open)       </td><td> 340    </td></tr>
+<tr><td>Angle valve (fully open)      </td><td> 150    </td></tr>
+<tr><td>Butterfly valve (fully open):      </td><td> &nbsp;    </td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;50 mm (2\") - 200 mm (8\")      </td><td> 45    </td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;250 mm (10\") - 350 mm (14\")     </td><td> 35    </td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;400 mm (16\")- 600 mm (24\")      </td><td> 25    </td></tr>
+<tr><td>90° standard elbow      </td><td> 30    </td></tr>
+<tr><td>45° standard elbow      </td><td> 16    </td></tr>
+<tr><td>Close pattern return bend       </td><td> 50    </td></tr>
+</tbody>
+</table>
 
   Fitting Type                         Equivalent Length, $L_e/D$
   ------------------------------------ -------------------------------
