@@ -121,7 +121,7 @@ $$
 f=\frac{64}{N_R}
 $$
 
-The above expression can be derived from first principles but that goes beyond the scope of these notes.  As a side note, if we substitute the above friction factor into Darcy's equation along with the explicity expression for the Reynold's number we obtain what is known as the Hagen-Poiseuille equation
+The above expression can be derived from first principles but that goes beyond the scope of these notes.  As a side note, if we substitute the above friction factor into Darcy's equation along with the explicit expression for the Reynold's number we obtain what is known as the Hagen-Poiseuille equation
 
 $$
 h_L=\frac{32\eta L v}{\gamma D^2}
@@ -154,7 +154,14 @@ Remember that the quantity $h_L$ is the energy loss per unit weight.  We can wri
 
 ## Friction losses in turbulent flows
 
-For turbulent flows we again use Darcy's equation, however in this case there is no longer a nice analytic expression for the friction factor.  Instead, the friction factor, $f$ must be 
+For turbulent flows we again use Darcy's equation, however in this case there is no longer a nice expression for the friction factor.  Instead, the friction factor, $f$ must be found empirically.  
+
+<div class="photo" style="width: 600px;">
+  <img src="../imgs/Moody.png" alt="Exit loss">
+  <p>
+  Moody diagram showing the friction factor vs Reynolds number.
+  </p>
+</div>
 
 # Hydraulic Diameter
 
@@ -195,7 +202,7 @@ When a fluid flows from a pipe into a large tank or reservoir all of the kineti
 
 $$ h_L=1.0\left(\frac{v_1^2}{2g}\right) $$
 
-<div class="photo" style="width: 300px;">
+<div class="photo" style="width: 500px;">
   <img src="img\exitloss.png" alt="Exit loss">
   <p>
   *Exit loss* results from a fluid flowing into a static reservoir.
@@ -229,7 +236,7 @@ In practice however more accurate resistive coefficients should be taken from o
 
 The losses that occur when a fluid flows from a larger reservoir or tank into a pipe are called *entrance losses*. For a square-edged inlet as shown in the cartoon below the resistive coefficient is $K\approx0.5$. This is the limiting case of $A_1\to \infty$ in the equation for $K$ above. Chamfered and rounded inlets have smaller resistance coefficients. For a chamfered inlet $K\approx 0.25$ and for a well-rounded inlet $K\approx 0.04$.
 
-<div class="photo" style="width: 300px;">
+<div class="photo" style="width: 500px;">
   <img src="img\entranceloss.png" alt="Entrance loss">
   <p>
   *Entrance loss* results from a fluid flowing from a large tank or reservoir into a pipe.
@@ -256,25 +263,25 @@ where the factor $\left(L_e/D\right)$ is called the equivalent length ratio and
 <tr><th> Fitting Type  </th><th> Equivalent Length, $L_e/D$ </th></tr>
 </thead>
 <tbody>
-<tr><td>Gate valve (fully open)                                 </td><td>&nbsp;&nbsp;&nbsp;&nbsp; 8     </td></tr>
-<tr><td>Globe valve (fully open)                                </td><td>&nbsp;&nbsp;&nbsp;&nbsp; 340   </td></tr>
-<tr><td>Angle valve (fully open)                                </td><td>&nbsp;&nbsp;&nbsp;&nbsp; 150   </td></tr>
+<tr><td>Gate valve (fully open)                                 </td><td style="padding-left: 50px;"> 8     </td></tr>
+<tr><td>Globe valve (fully open)                                </td><td style="padding-left: 50px;"> 340   </td></tr>
+<tr><td>Angle valve (fully open)                                </td><td style="padding-left: 50px;"> 150   </td></tr>
 <tr><td>Butterfly valve (fully open):                           </td><td>&nbsp;                         </td></tr>
-<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;50 mm (2") - 200 mm (8")        </td><td>&nbsp;&nbsp;&nbsp;&nbsp; 45    </td></tr>
-<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;250 mm (10") - 350 mm (14")     </td><td>&nbsp;&nbsp;&nbsp;&nbsp; 35    </td></tr>
-<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;400 mm (16")- 600 mm (24")      </td><td style="padding-left: 50px;"> 25    </td></tr>
-<tr><td>90° standard elbow                                      </td><td>&nbsp;&nbsp;&nbsp;&nbsp; 30    </td></tr>
-<tr><td>45° standard elbow                                      </td><td>&nbsp;&nbsp;&nbsp;&nbsp; 16    </td></tr>
-<tr><td>Close pattern return bend                               </td><td>&nbsp;&nbsp;&nbsp;&nbsp; 50    </td></tr>
+<tr><td style="padding-left: 50px;">50 mm (2") - 200 mm (8")    </td><td style="padding-left: 50px;"> 45    </td></tr>
+<tr><td style="padding-left: 50px;">250 mm (10") - 350 mm (14") </td><td style="padding-left: 50px;"> 35    </td></tr>
+<tr><td style="padding-left: 50px;">400 mm (16")- 600 mm (24")  </td><td style="padding-left: 50px;"> 25    </td></tr>
+<tr><td>90° standard elbow                                      </td><td style="padding-left: 50px;"> 30    </td></tr>
+<tr><td>45° standard elbow                                      </td><td style="padding-left: 50px;"> 16    </td></tr>
+<tr><td>Close pattern return bend                               </td><td style="padding-left: 50px;"> 50    </td></tr>
 </tbody>
 </table>
 
 The value of $L_e$ is called the equivalent length of pipe; it is the length of straight pipe that would produce the same loss as the valve.  For example a 2" fully open globe valve $(L_e/D=340)$ has $L_e \approx 57~\ft$. This value of $L_e$ can than be added to the actual length of pipe to determine the total losses. While convenient, this procedure is only accurate when the actual pipe flows are in the zone of complete turbulence.
 
 <div class="photo" style="width: auto;">
-<img style="float: left; width: 200px;" src="img/FL_wafer-type-centerline-butterfly-valve.jpg">
-<img style="float: left; width: 200px;" src="img/FL_knife-gate-valve.jpg">
-<img style="width: 200px;" src="img/FL_din-globe-valve.jpg">
+<img style="float: left; height: 200px;" src="img/FL_wafer-type-centerline-butterfly-valve.jpg">
+<img style="float: left; height: 200px;" src="img/FL_knife-gate-valve.jpg">
+<img style="height: 200px;" src="img/FL_din-globe-valve.jpg">
   <p>
   Left: Wafer type centerline butterfly valve. Middle: Knife gate valve.  Right: A DIN globe valve. Images from [Metals Valve](http://www.metalsvalve.com).
   </p>
