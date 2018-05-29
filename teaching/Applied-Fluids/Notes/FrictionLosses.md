@@ -88,7 +88,7 @@ Quantities that enter into the determination of the Reynold's number for round p
 </tbody>
 </table>
 
-For practical purposes, if $N_R < 2000$ the flow is laminar and for $N_R>4000$ the flow is turbulent.  The range of Reynold's numbers between 2000 and 4000 is known as the *critical region* and the behavior of the flow is difficult if not impossible to predict.  The design of most systems will avoid flows in this regime.
+For practical purposes, if $N_R < 2000$ the flow is laminar and for $N_R>4000$ the flow is turbulent.  The range of Reynold's numbers between 2000 and 4000 is known as the *transition region* and the behavior of the flow is difficult if not impossible to predict.  The design of most systems will avoid flows in this regime.
 
 <div class="example">
 
@@ -154,14 +154,16 @@ Remember that the quantity $h_L$ is the energy loss per unit weight.  We can wri
 
 ## Friction losses in turbulent flows
 
-For turbulent flows we again use Darcy's equation, however in this case there is no longer a nice expression for the friction factor.  Instead, the friction factor, $f$ must be found empirically.  
+For turbulent flows we again use Darcy's equation, however in this case there is no longer a nice expression for the friction factor.  Instead, the friction factor, $f$ must be found empirically.  The *Moody diagram* is a graphical representation of thousands of pipe flow experiments showing the friction factor, $f$, as a function of the Reynolds number, $N_R$, for various relative roughness, $\epsilon/D$ of the pipe.
 
-<div class="photo" style="width: 600px;">
-  <img src="../imgs/Moody.png" alt="Exit loss">
+<div class="photo" style="width: 100%;">
+  <img src="../imgs/Moody.png" alt="Moody Diagram">
   <p>
   Moody diagram showing the friction factor vs Reynolds number.
   </p>
 </div>
+
+There is a lot going on in the above plot.  I recommend making a full page printout of the above.  Let's walk through all the features of the plot.  First, note that this is a double-log plot (*i.e.* both the x and y axis are in log scale).  The left most curve that is labelled *Laminar* corresponds to a friction factor $f=64/N_R$ that we used earlier when the Reynolds number was less than 2000 and the flow was considered to be laminar.  In the region between a Reynolds number of about 2000 to 4000 represented by the grayed area label *Transition Region* is where reliable results for the friction factor are unavailable; avoiding working in this region.  Above a Reynolds number of 4000 the flow is considered turbulent.  The friction factor depends not only on the Reynolds number *but also* on the relative roughness of the pipe.
 
 # Hydraulic Diameter
 
@@ -183,7 +185,7 @@ $$ h_L=K\left(\frac{v_1^2}{2g}\right) $$
 
 where $v_1$ is the velocity in the *smaller* section of pipe.
 
-<div class="photo" style="width: 300px;">
+<div class="photo" style="width: 500px;">
   <img src="img\expansion.png" alt="Sudden enlargement">
   <p>
   Cartoon of flow through an abrupt enlargement.
@@ -225,7 +227,7 @@ $$ K\approx 0.5\left[1-\frac{A_2}{A_1}\right] $$
 
 In practice however more accurate resistive coefficients should be taken from other resources such as [CRANE Technical Paper 410](http://amzn.to/2zzrC8C).
 
-<div class="photo" style="width: 300px;">
+<div class="photo" style="width: 500px;">
   <img src="img\contraction.png" alt="Sudden contraction">
   <p>
   Cartoon of flow through a sudden contraction.
@@ -279,9 +281,9 @@ where the factor $\left(L_e/D\right)$ is called the equivalent length ratio and
 The value of $L_e$ is called the equivalent length of pipe; it is the length of straight pipe that would produce the same loss as the valve.  For example a 2" fully open globe valve $(L_e/D=340)$ has $L_e \approx 57~\ft$. This value of $L_e$ can than be added to the actual length of pipe to determine the total losses. While convenient, this procedure is only accurate when the actual pipe flows are in the zone of complete turbulence.
 
 <div class="photo" style="width: auto;">
-<img style="float: left; height: 200px;" src="img/FL_wafer-type-centerline-butterfly-valve.jpg">
-<img style="float: left; height: 200px;" src="img/FL_knife-gate-valve.jpg">
-<img style="height: 200px;" src="img/FL_din-globe-valve.jpg">
+<img style="float: left; height: 200px; width: auto;" src="img/FL_wafer-type-centerline-butterfly-valve.jpg">
+<img style="float: left; height: 200px; width: auto;" src="img/FL_knife-gate-valve.jpg">
+<img style="height: 200px; width: auto;" src="img/FL_din-globe-valve.jpg">
   <p>
   Left: Wafer type centerline butterfly valve. Middle: Knife gate valve.  Right: A DIN globe valve. Images from [Metals Valve](http://www.metalsvalve.com).
   </p>
