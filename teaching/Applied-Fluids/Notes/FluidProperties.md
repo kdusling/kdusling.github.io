@@ -170,6 +170,28 @@ $$
 
 </div>
 
+## Viscosity
+
+A fluid's *viscosity* is a measure of the fluid's resistance to motion under an applied shear force.  When you stir a pot of honey the spoon generates the ``applied shear force``.  The difficulty in moving the spoon due to the fluid's resistance is a specific property of the honey, *i.e.* the honey's viscosity.  How is this fluid property *quantified*.
+
+We start of in the same way as every other fluids textbook.  Imagine two flat surfaces separated by the fluid of interest.  The plates are large so that we can ignore what is going on at the edges.  The lower surface is stationary while the upper surface moves at a fixed velocity $v$.  The distance between the surfaces (the thickness of the layer of fluid) is $y$.  Here is a picture of the setup I have in mind.
+
+<div class="photo" style="width: 500px;">
+  <img src="img\CouetteFLow.png" alt="Couette Flow">
+  <p>
+  Velocity profile of a thin layer of fluid between to parallel plates (known as Couette Flow).
+  </p>
+</div>
+
+So what is the fluid doing between these two plates; one stationary, one moving.
+Well, a basic condition, which we state without justification, is that a fluid in contact with a surface has the same velocity as that surface.  This is known as the *no-slip condition*.  Therefore, the velocity of the fluid in contact with the bottom plate is zero and the velocity of the fluid in contact with the top plate is $v$.
+
+If the thickness of the fluid is small we can assume that the velocity increases from the lower stationary plate to the upper moving plate in a straight-line (linear) fashion.  This rate-of-change in velocity from the bottom plate to the top is known as the *shear rate* or *velocity gradient* and expressed as $\Delta v/\Delta y$ (*i.e.* it's the slope of the velocity profile).  The shear rate is sometimes written as $\dot{\gamma}$ (the Greek letter gamma with a dot (representing a derivative)) and has units $1/s$ (*i.e.* reciprocal seconds or inverse seconds).
+
+$$
+\tau=\eta \left(\frac{\Delta v}{\Delta y}\right)=\eta \, \dot{\gamma}
+$$
+
 ## Pressure
 
 ## Compressibility
@@ -179,7 +201,6 @@ $$
 ## Surface tension
 
 
-## Viscosity
 
 
 
