@@ -176,7 +176,7 @@ A fluid's *viscosity* is a measure of the fluid's resistance to motion under an 
 
 We start off in the same way as every other fluids textbook.  Imagine two flat surfaces separated by the fluid of interest.  The plates are large so that we can ignore what is going on at the edges.  A force $F$ is applied to the upper surface in order for it to maintain a constant velocity $v$.  The lower surface remains stationary.  The distance between the surfaces (the thickness of the layer of fluid) is $y$.  Here is a picture of the setup I have in mind.
 
-<div class="photo" style="width: 500px;">
+<div class="photo" style="width: 800px;">
   <img src="img\CouetteFlow.png" alt="Couette Flow">
   <p>
   Velocity profile of a thin layer of fluid between to parallel plates (known as Couette Flow).
@@ -187,7 +187,7 @@ The upper plate creates an applied shear stress of magnitude $\tau=F/A$, where $
 
 So what is the fluid doing between these two plates; one stationary, one moving. Well, a basic condition, which we state without justification, is that a fluid in contact with a surface has the same velocity as that surface.  This is known as the *no-slip condition*.  Therefore, the velocity of the fluid in contact with the bottom plate is zero and the velocity of the fluid in contact with the top plate is $v$.
 
-If the thickness of the fluid is small we can assume that the velocity increases from the lower stationary plate to the upper moving plate in a straight-line (linear) fashion.  This rate-of-change in velocity from the bottom plate to the top is known as the *shear rate* or *velocity gradient* or *strain* and expressed as $\Delta v/\Delta y$ (*i.e.* it's the slope of the velocity profile).  The shear rate is often written as $\dot{\gamma}$ (the Greek letter gamma with a dot--representing a derivative) and has units $1/s$ (*i.e.* reciprocal seconds or inverse seconds).
+If the thickness of the fluid is small we can assume that the velocity increases from the lower stationary plate to the upper moving plate in a straight-line (linear) fashion.  This rate-of-change in velocity from the bottom plate to the top is known as the *shear rate* or *velocity gradient* or *strain* and expressed as $\Delta v/\Delta y$ (*i.e.* it's the slope of the velocity profile).  The shear rate is often written as $\dot{\gamma}$ (the Greek letter gamma with a dot--the dot represents a derivative) and has units $1/s$ (*i.e.* reciprocal seconds or inverse seconds).
 
 The relation between the applied shear stress and the strain that develops in the fluid is a measure of the fluids viscosity.  For example, the external force required to generate the same upper-plate velocity in honey and water would be much larger for the honey (the honey is more viscous).
 
@@ -206,11 +206,15 @@ $$
 \tau=\eta \left(\frac{\Delta v}{\Delta y}\right)=\eta \, \dot{\gamma}
 $$
 
-The Greek-letter $eta$ represents the dynamic viscosity and it has units of $\lbf\cdot s/\ft^2$ in the US system or $N\cdot s/\m^2$ in the SI system.  Coming back to our example of Olive Oil we see from line drawn on the above graph that it has a dynamic viscosity of $\eta_{\rm Olive Oil}=0.0363\,$N\cdot s/\m^2$.
+The Greek-letter $eta$ represents the dynamic viscosity and it has units of $\lb \cdot s/\ft^2$ in the US system or $\Pa\cdot s$ in the SI system.  Coming back to our example of Olive Oil we see from the fit on the above graph that it has a dynamic viscosity of $\eta=0.0363\,$\Pa \cdot s$.
 
+### Temperature Dependence of Viscosity
 
+### Viscosity Measurement
 
 ## Pressure
+
+### Pressure Measurement
 
 ## Compressibility
 
