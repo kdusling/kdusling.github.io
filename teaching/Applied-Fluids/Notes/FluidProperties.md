@@ -172,6 +172,8 @@ $$
 
 ## Viscosity
 
+### Dynamic Viscosity
+
 A fluid's *viscosity* is a measure of the fluid's resistance to motion under an applied shear force.  When you stir a pot of honey the spoon generates the "applied shear force".  The difficulty in moving the spoon due to the fluid's resistance is a specific property of the honey, *i.e.* the honey's viscosity.  How is this fluid property *quantified*.
 
 We start off in the same way as every other fluids textbook.  Imagine two flat surfaces separated by the fluid of interest.  The plates are large so that we can ignore what is going on at the edges.  A force $F$ is applied to the upper surface in order for it to maintain a constant velocity $v$.  The lower surface remains stationary.  The distance between the surfaces (the thickness of the layer of fluid) is $y$.  Here is a picture of the setup I have in mind.
@@ -187,26 +189,51 @@ The upper plate creates an applied shear stress of magnitude $\tau=F/A$, where $
 
 So what is the fluid doing between these two plates; one stationary, one moving. Well, a basic condition, which we state without justification, is that a fluid in contact with a surface has the same velocity as that surface.  This is known as the *no-slip condition*.  Therefore, the velocity of the fluid in contact with the bottom plate is zero and the velocity of the fluid in contact with the top plate is $v$.
 
-If the thickness of the fluid is small we can assume that the velocity increases from the lower stationary plate to the upper moving plate in a straight-line (linear) fashion.  This rate-of-change in velocity from the bottom plate to the top is known as the *shear rate* or *velocity gradient* or *strain* and expressed as $\Delta v/\Delta y$ (*i.e.* it's the slope of the velocity profile).  The shear rate is often written as $\dot{\gamma}$ (the Greek letter gamma with a dot--the dot represents a derivative) and has units $1/s$ (*i.e.* reciprocal seconds or inverse seconds).
+If the thickness of the fluid is small we assume that the velocity increases from the lower stationary plate to the upper moving plate in a straight-line (linear) fashion.  This rate-of-change in velocity from the bottom plate to the top is known as the *shear rate* or *velocity gradient* or *strain* and expressed as $\Delta v/\Delta y$ (*i.e.* it's the slope of the velocity profile).  The shear rate is often written as $\dot{\gamma}$ (the Greek letter gamma with a dot--the dot represents a derivative) and has units $1/s$ (*i.e.* reciprocal seconds or inverse seconds).
 
-The relation between the applied shear stress and the strain that develops in the fluid is a measure of the fluids viscosity.  For example, the external force required to generate the same upper-plate velocity in honey and water would be much larger for the honey (the honey is more viscous).
 
-In practice a series of measurements would be performed where the external force (applied shear stress) is varied and the resultant strain rates recorded.  Below is an example of such an experiment on Olive Oil.  Each data point (square) represents one such measurement.  For each applied shear stress (y-axis) there is one corresponding shear rate (x-axis).  
+The amount of applied shear stress that is necessary to generate a certain strain is a measure of the fluids viscosity.  For example, the external force required to generate the same upper-plate velocity in honey and water would be much larger for the honey (the honey is more viscous).
+
+In practice a series of measurements would be performed where the external force (applied shear stress) is varied and the resultant strain rates recorded.  The graph below shows the results of such an experiment using Olive Oil.  Each data point (square) represents one such measurement.  For each applied shear stress (y-axis) there is one corresponding shear rate (x-axis).  
 
 <div class="photo" style="width: 500px;">
   <img src="img\OliveOil.png" alt="Rheogram for Olive Oil">
   <p>
-  Rheogram for Olive Oil -- a Newtonian fluid. Data from <a href="https://sites.google.com/site/jfsteffe/">Steffe</a>.
+  Rheogram for Olive Oil -- a Newtonian fluid -- at $40\C$. Data from <a href="https://sites.google.com/site/jfsteffe/">Steffe</a>.
   </p>
 </div>
 
-One readily observes a linear (straight-line) relationship between the stress and strain for this particular fluid.   A fluid that exhibits this type of behavior is known as *Newtonian* and the slope of the line corresponding to the data is known as the *dynamic* or *absolute viscosity*.  For a Newtonian fluid we therefore have
+One readily observes a linear relationship between the stress and strain for this particular fluid.   A fluid that exhibits this type of behavior is known as *Newtonian*.  The slope of the line in the stress-strain curve is known as the *dynamic* or *absolute viscosity*.  For a Newtonian fluid we therefore have
 
 $$
-\tau=\eta \left(\frac{\Delta v}{\Delta y}\right)=\eta \, \dot{\gamma}
+\tau=\eta \left(\frac{\Delta v}{\Delta y}\right)
 $$
 
-The Greek-letter $eta$ represents the dynamic viscosity and it has units of $\lb \cdot s/\ft^2$ in the US system or $\Pa\cdot s$ in the SI system.  Coming back to our example of Olive Oil we see from the fit on the above graph that it has a dynamic viscosity of $\eta=0.0363\,$\Pa \cdot s$.
+where $\eta$ (Greek letter eta) is the dynamic viscosity, $\tau$ is the applied shear stress and $\Delta v/\Delta y$ is the shear rate.  
+
+The dynamic viscosity has units of $\Pa\cdot s$ in the SI system and $\lb \cdot s/\ft^2$ in the US system.  Coming back to our example of Olive Oil we see that it has a dynamic viscosity of $\eta=0.0363\,\Pa \cdot s$.  
+
+In many fluid property resources the dynamic viscosity will be given in an older unit call the centipoise (cP).  A centipoise is equivalent to a milli-Pa$\cdot s$ which is $1.0\times 10^{-3}\,\Pa\cdot s$.  So the viscosity of the Olive Oil considered above has a dynamic viscosity of $\eta=36.3 {\rm cP}$.
+
+### Kinematic Viscosity
+
+### Non-Newtonian fluids
+
+<div class="photo" style="width: 500px;">
+  <img src="img\ShearStrainNonNewtonian.png" alt="Rheogram for Olive Oil">
+  <p>
+
+  </p>
+</div>
+
+
+<div class="photo" style="width: 500px;">
+  <img src="img\ApparentViscosity.png" alt="Rheogram for Olive Oil">
+  <p>
+
+  </p>
+</div>
+
 
 ### Temperature Dependence of Viscosity
 
