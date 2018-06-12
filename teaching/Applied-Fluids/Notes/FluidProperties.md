@@ -84,35 +84,32 @@ $$
 It is often convenient to report the density of a fluid with respect to a given reference fluid (water at $4\C$ will be used in this course).  The density of water at $4\C$ is:
 
 $$
-\rho=1000~\text{kg}/\text{m}^3\quad \textrm{SI}\\ \rho=1.94~\text{slugs}/\text{ft}^3\quad \textrm{USCS}
+\rho=1000~\text{kg}/\text{m}^3\quad \textrm{SI}\,, \qquad\qquad \rho=1.94~\text{slugs}/\text{ft}^3\quad \textrm{USCS}
 $$
 
 The specific gravity of a substance is defined by the fluid's density divided by the density of water at $4\C$.
 
 $$
-\begin{align}
-\sg&=\frac{\rho}{1000~\kg/\m^3}\quad \textrm{SI} \\
-\sg&=\frac{\rho}{1.94~\slug/\ft^3} \qquad \textrm{USCS}
-\end{align}
+\sg&=\frac{\rho}{1000~\kg/\m^3}\quad \textrm{SI}\,, \qquad\qquad
+\sg&=\frac{\rho}{1.94~\slug/\ft^3} \quad \textrm{USCS}
 $$
 
-Alternatively, the specific weight can be used to calculate the specific gravity.  In this case the specific gravity is defined as the fluid's specific weight dividing by the specific weight of water at $4\C$ where
+Alternatively, the specific weight can be used to calculate the specific gravity.  In this case the specific gravity is defined as the fluid's specific weight dividing by the specific weight of water at $4\C$.   The specific weight of water at $4\C$ is:
 
 $$
-\gamma=9.81~\text{kN}/\text{m}^3\quad \textrm{SI}\\ \gamma=62.4~\text{lb}/\text{ft}^3\quad \textrm{USCS}
+\gamma=9.81~\text{kN}/\text{m}^3\quad \textrm{SI}\,, \qquad\qquad \gamma=62.4~\text{lb}/\text{ft}^3\quad \textrm{USCS}
 $$
 
+And the specific gravity (sg) of a fluid can be computed from its specific weight ($\gamma$) by computing
+
 $$
-\begin{align}
-\sg&=\frac{\gamma}{9.81~\kN/\m^3}\quad \textrm{SI} \\
- \textrm{SI system}\\
-\sg&=\frac{\gamma}{62.4~\lb/\ft^3}=\frac{\rho}{1.94~\slug/\ft^3} \qquad \textrm{USCS}
-\end{align}
+\sg&=\frac{\gamma}{9.81~\kN/\m^3}\quad \textrm{SI}\,, \qquad\qquad
+\sg&=\frac{\gamma}{62.4~\lb/\ft^3} \quad \textrm{USCS}
 $$
 
-Regardless of whether one uses the definition involving specific weight or density, the same specific gravity will be obtained.  The example below will explicitly demonstrate this.  The reason being is that specific weight and density are proportional to one another by a factor of the mass which cancels in the ratio when computing the specific gravity.
+Note that the two definitions for the specific gravity (the one using density and the one using specific weight) are equivalent.   This is because specific weight is just the density times mass and the factor of mass cancels in the ratios.  The example below will explicitly illustrate this.
 
-Note that the specific gravity of a fluid is dimensionless. Remember, that the three quantities (density, specific weight and specific gravity) are three ways of representing the same thing (the amount of fluid per unit volume).  In the following examples we will demonstrate how the concepts are commonly used.
+Note that the specific gravity of a fluid is dimensionless. Don't get confused, the three quantities (density, specific weight and specific gravity) are three ways of representing the same thing (the amount of fluid per unit volume).  In the following examples we will demonstrate how these concepts are commonly used.
 
 <div class="example">
 An oil barrel has a volume of $0.16~\m^3$ and a mass of $140~\kg$.  Compute the weight of the barrel.  Then compute the density, specific weight and specific gravity of the oil.  
@@ -128,7 +125,7 @@ $$
 A $\kg\cdot\m/s^2$ is a Newton (N) and the weight is therefore
 
 $$
-w=1373~\N=1.373\times 10^3 \N=1.373 \kN
+w=1373~\N=1.373\times 10^3~\N=1.373~\kN
 $$
 
 The density is the mass of the oil divided by the volume of oil.
@@ -155,17 +152,17 @@ $$
 \sg=\frac{\gamma}{9.81~\kN/\m^3}=\frac{8.581~\kN/\m^3}{9.81~\kN/\m^3}=0.875
 $$
 
-We note that the units cancel when compute the specific gravity leaving us with a dimensionless quantity as expected.
+We note that the units cancel when computing the specific gravity leaving us with a dimensionless quantity as expected.
 
 </div>
 
 <div class="example">
 
-Glycerine at $77\F$ has a specific weight of 1.263.  Compute its density and specific weight.  How much does a gallon of Glycerine weigh?
+Glycerine at $77\F$ has a specific gravity of 1.263.  Compute its density and specific weight.  How much does a gallon of Glycerine weigh?
 
 <hr>
 
-Since Fahrenheit was used in the statement of the problem it makes sense to work in the US system of units.  The density and specific weight can be found by multiplying the specific gravity with the density and specific weight of water.  First compute the density:
+Since Fahrenheit was used in the statement of the problem it makes sense to work in the US system of units.  The density and specific weight can be found by multiplying the given specific gravity of Glycerine with the density and specific weight of water.  First compute the density:
 
 $$
 \rho=\sg\times 1.94~\slug/\ft^3=1.263\times 1.94~\slug/\ft^3=2.45~\slug/\ft^3
