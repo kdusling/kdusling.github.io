@@ -49,7 +49,7 @@ $$
 \textrm{density}=\textrm{mass}/\textrm{Volume}\\
 $$
 
-The density is represented by the Greek letter rho ($\rho).  If a quantity of fluid has a mass $m$ and a volume $V$, its density is
+The density is represented by the Greek letter rho ($\rho$).  If a quantity of fluid has a mass $m$ and a volume $V$, its density is
 
 $$
 \rho=m/V
