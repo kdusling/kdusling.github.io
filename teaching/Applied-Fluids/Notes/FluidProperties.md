@@ -35,7 +35,7 @@ $$
 * A markdown unordered list for the toc
 {:toc}
 
-A *fluid* is a substance that continually deforms or flows under an applied shear stress.  While in common parlance a fluid typically refers to a liquid, in the sciences the term fluid can refer to a liquid or a gas.  For this course, our working definition of a *liquid* is a fluid that is incompressible ([see below](#Compressibility)).
+A *fluid* is a substance that continually deforms or flows under an applied shear stress.  Under the ordinary usage of the word fluid we usually have a liquid in mind.   In the sciences a fluid can be a liquid or a gas.  What is the dividing line between a gas and a liquid if they are both fluids?  For this course, our working definition of a *liquid* is a fluid that is incompressible ([see below](#Compressibility)).
 
 The sections below will go through a number of physical properties that are commonly used to characterize fluids.  
 
@@ -49,7 +49,7 @@ $$
 \textrm{density}=\textrm{mass}/\textrm{Volume}\\
 $$
 
-The density is represented by the Greek letter $\rho$ (rho).  If a quantity of fluid has a mass $m$ and a volume $V$, its density can be expressed as
+The density is represented by the Greek letter rho ($\rho).  If a quantity of fluid has a mass $m$ and a volume $V$, its density is
 
 $$
 \rho=m/V
@@ -65,7 +65,7 @@ $$
 \textrm{specific weight}=\textrm{weight}/\textrm{Volume}\\
 $$
 
-The specific weight is represented by the Greek letter $\gamma$ (gamma).  If a quantity of fluid has a weight $s$ and a volume $V$, its specific weight can be expressed as
+The specific weight is represented by the Greek letter gamma ($\gamma$).  If a quantity of fluid has a weight $w$ and a volume $V$, its specific weight is
 
 $$
 \gamma=w/V
@@ -73,7 +73,7 @@ $$
 
 The units for density are $\N/\m^3$ in the SI system and $\lb/\ft^3$ in the U.S. Customary System.
 
-It is simple to convert between the density and specific weight.  Since the weight of a fluid is just its mass times gravity, $w=mg$ ($g$ being the acceleration due to gravity), the specific weight can be computed from the density via
+It is straightforward to convert between density and specific weight.  Since the weight of a fluid is just its mass times gravity, $w=mg$ ($g$ being the acceleration due to gravity), the specific weight can be computed from the density via
 
 $$
 \gamma=\rho g
@@ -81,23 +81,38 @@ $$
 
 ### Specific gravity
 
-It is often convenient to report the density or specific weight of a fluid with respect to a given reference fluid (water at $4\C$ will be used in this class).  The specific weight and density of water at $4\C$ is:
+It is often convenient to report the density of a fluid with respect to a given reference fluid (water at $4\C$ will be used in this course).  The density of water at $4\C$ is:
 
 $$
-\gamma=9.81~\text{kN}/\text{m}^3=62.4~\text{lb}/\text{ft}^3 \qquad
-\rho=1000~\text{kg}/\text{m}^3=1.94~\text{slugs}/\text{ft}^3
+\rho=1000~\text{kg}/\text{m}^3\quad \textrm{SI}\\ \rho=1.94~\text{slugs}/\text{ft}^3\quad \textrm{USCS}
 $$
 
-The specific gravity of a substance is its density (or specific weight) divided by the density (or specific weight) of water at $4\C$.
+The specific gravity of a substance is defined by the fluid's density divided by the density of water at $4\C$.
 
 $$
 \begin{align}
-\sg&=\frac{\gamma}{9.81~\kN/\m^3}=\frac{\rho}{1000~\kg/\m^3} \qquad\qquad \textrm{SI system}\\
-\sg&=\frac{\gamma}{62.4~\lb/\ft^3}=\frac{\rho}{1.94~\slug/\ft^3} \qquad\qquad \textrm{USCS}
+\sg&=\frac{\rho}{1000~\kg/\m^3}\quad \textrm{SI} \\
+\sg&=\frac{\rho}{1.94~\slug/\ft^3} \qquad \textrm{USCS}
 \end{align}
 $$
 
-Note that the specific gravity of a fluid is dimensionless. Remember, that the three quantities (density, specific weight and specific gravity) we just introduced are three ways of representing the same thing (the amount of fluid per unit volume).  In the following examples we will demonstrate how the concepts are commonly used.
+Alternatively, the specific weight can be used to calculate the specific gravity.  In this case the specific gravity is defined as the fluid's specific weight dividing by the specific weight of water at $4\C$ where
+
+$$
+\gamma=9.81~\text{kN}/\text{m}^3\quad \textrm{SI}\\ \gamma=62.4~\text{lb}/\text{ft}^3\quad \textrm{USCS}
+$$
+
+$$
+\begin{align}
+\sg&=\frac{\gamma}{9.81~\kN/\m^3}\quad \textrm{SI} \\
+ \textrm{SI system}\\
+\sg&=\frac{\gamma}{62.4~\lb/\ft^3}=\frac{\rho}{1.94~\slug/\ft^3} \qquad \textrm{USCS}
+\end{align}
+$$
+
+Regardless of whether one uses the definition involving specific weight or density, the same specific gravity will be obtained.  The example below will explicitly demonstrate this.  The reason being is that specific weight and density are proportional to one another by a factor of the mass which cancels in the ratio when computing the specific gravity.
+
+Note that the specific gravity of a fluid is dimensionless. Remember, that the three quantities (density, specific weight and specific gravity) are three ways of representing the same thing (the amount of fluid per unit volume).  In the following examples we will demonstrate how the concepts are commonly used.
 
 <div class="example">
 An oil barrel has a volume of $0.16~\m^3$ and a mass of $140~\kg$.  Compute the weight of the barrel.  Then compute the density, specific weight and specific gravity of the oil.  
@@ -216,6 +231,16 @@ The dynamic viscosity has units of $\Pa\cdot s$ in the SI system and $\lb \cdot 
 In many fluid property resources the dynamic viscosity will be given in an older unit call the centipoise (cP).  A centipoise is equivalent to a milli-Pa$\cdot s$ which is $1.0\times 10^{-3}\,\Pa\cdot s$.  So the viscosity of the Olive Oil considered above has a dynamic viscosity of $\eta=36.3 {\rm cP}$.
 
 ### Kinematic Viscosity
+
+The *kinematic viscosity*, represented by the Greek letter nu ($\nu$) is defined as the ratio of the dynamic viscosity over the density of the fluid.
+
+$$
+\nu=\frac{\eta}{\rho}
+$$
+
+The reason for introducing the kinematic viscosity is that many calculations will end up involving precisely this ratio.  Based on the definition given above the units for kinematic viscosity in the SI system is $m^2/s$ and in the US system $\ft^2/s$.  Kinematic viscosities are sometimes reports in an older unit called the centistoke whish is $1.0\times 10^{-6}\,\m^2/s=1~\mm^2/s.
+
+The dynamic viscosity characterizes how much pressure would be required to move a move a fluid inside it for a certain distance..  The kinematic viscosity characterizes how long a fluid takes to drain or leak under its own weight.
 
 ### Non-Newtonian fluids
 
