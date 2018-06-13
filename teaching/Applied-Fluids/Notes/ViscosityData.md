@@ -40,11 +40,11 @@ $$
 <div class="photo" style="width: 500px;">
   <img src="img\VisSteam.png" alt="Dynamic viscosity of liquid water and water-vapor.">
   <p>
-  Dynamic viscosity of water vapor (blue) and dry air (red) at atmospheric pressure.  Data from [Kestin, J.; Sengers, J.V.; Kamgar-Parsi, B.; Levelt Sengers, J.M.H., Thermophysical Properties of Fluid H2O, J. Phys. Chem. Ref. Data, 1984, 13, 1, 175-183.][Kestin84] and respectively.
+  Dynamic viscosity of water vapor (blue) and dry air (red) at atmospheric pressure.  Data from [test][Kestin84] and respectively.
   </p>
 </div>
 
-
+Kestin, J.; Sengers, J.V.; Kamgar-Parsi, B.; Levelt Sengers, J.M.H., Thermophysical Properties of Fluid H2O, J. Phys. Chem. Ref. Data, 1984, 13, 1, 175-183.][Kestin84]
 %\bibitem{Dixon07}
 %Dixon, John C., The Shock Absorber Handbook, John Wiley \& Sons, Ltd. (2007)
 %\url{http://dx.doi.org/10.1002/9780470516430.app2}
