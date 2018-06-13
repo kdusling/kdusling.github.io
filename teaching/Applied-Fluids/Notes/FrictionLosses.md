@@ -157,7 +157,7 @@ Remember that the quantity $h_L$ is the energy loss per unit weight.  We can wri
 For turbulent flows we again use Darcy's equation, however in this case there is no longer a nice expression for the friction factor.  Instead, the friction factor, $f$ must be found empirically.  The *Moody diagram* is a graphical representation of thousands of pipe flow experiments showing the friction factor, $f$, as a function of the Reynolds number, $N_R$, for various relative roughness, $\epsilon/D$ of the pipe.
 
 <div class="photo" style="width: 100%;">
-  <img src="../imgs/Moody.png" alt="Moody Diagram">
+  <img src="img/Moody.png" alt="Moody Diagram">
   <p>
   Moody diagram showing the friction factor vs Reynolds number.
   </p>
