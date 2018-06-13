@@ -264,7 +264,7 @@ The previous section described a fluid as Newtonian if there was a linear relati
 
 ### Temperature Dependence of Viscosity
 
-The viscosity of a fluid can change drastically with temperature.  As far as I'm aware, all liquids experience a decrease in viscosity with an increase in temperature.  Think of motor oil, which is difficult to pour when cold but flows easily when the temperature is increased.  Gases follow the opposite trend, their viscosity increases with increasing temperature. Also, the sensitivity to temperature is greater for liquids. As an example of this the dynamic viscosity of liquid water (curve below $100\C$) and water-vapor (curve above $100\C$) is shown in the figure below.  Note that the y-axis is a logarithmic scale.
+The viscosity of a fluid can change drastically with temperature.  As far as I'm aware, all liquids experience a decrease in viscosity with an increase in temperature.  Think of motor oil, which is difficult to pour when cold but flows easily when the temperature is increased.  Gases follow the opposite trend, their viscosity increases with increasing temperature. Note that the viscosity of gases are less sensitive to temperature changes than liquids.   As an example, the dynamic viscosity of liquid water (curve below $100\C$) and water-vapor (curve above $100\C$) is shown in the figure below.  Note that the y-axis is a logarithmic scale.
 
 <div class="photo" style="width: 500px;">
   <img src="img\VisWaterSteam.png" alt="Dynamic viscosity of liquid water and water-vapor.">
@@ -272,6 +272,8 @@ The viscosity of a fluid can change drastically with temperature.  As far as I'm
 Dynamic viscosity of liquid water and water-vapor on a log-linear plot.
   </p>
 </div>
+
+Viscosity Index
 
 
 

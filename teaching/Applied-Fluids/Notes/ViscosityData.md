@@ -44,6 +44,8 @@ $$
   </p>
 </div>
 
+This is a [reference style link][linkid].
+
 Kestin, J.; Sengers, J.V.; Kamgar-Parsi, B.; Levelt Sengers, J.M.H., Thermophysical Properties of Fluid H2O, J. Phys. Chem. Ref. Data, 1984, 13, 1, 175-183.][Kestin84]
 %\bibitem{Dixon07}
 %Dixon, John C., The Shock Absorber Handbook, John Wiley \& Sons, Ltd. (2007)
