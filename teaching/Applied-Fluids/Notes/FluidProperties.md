@@ -184,9 +184,14 @@ $$
 
 ## Viscosity
 
-### Dynamic Viscosity
+A fluid's *viscosity* is a measure of the fluid's resistance to motion under an applied shear force.  When you stir a pot of honey the spoon generates the "applied shear force".  The difficulty in moving the spoon due to the fluid's resistance is a specific property of the honey, *i.e.* the honey's viscosity.  
 
-A fluid's *viscosity* is a measure of the fluid's resistance to motion under an applied shear force.  When you stir a pot of honey the spoon generates the "applied shear force".  The difficulty in moving the spoon due to the fluid's resistance is a specific property of the honey, *i.e.* the honey's viscosity.  How is this fluid property *quantified*.
+In the following sections we will introduce two different (but very closely related) definitions of the viscosity.  The so-called *dynamic viscosity* will be represented by the Greek letter eta ($\eta$).  Imagine you have a tube or pipe (or drinking straw) held horizontally with a fluid inside.  You blow into the tube in order to move the fluid a certain distance in the tube.  The amount of force required to perform this task will depend on the fluid's dynamic viscosity.
+
+The second viscosity is called the *kinematic viscosity* and will be represented by the Greek letter nu ()$\nu$).  Imagine a tank filled with a liquid that has a crack or small opening.  The amount of time it takes for the liquid to leak or drain from the tank under its own weight will depend on the fluid's kinematic viscosity.
+
+
+### Dynamic Viscosity
 
 We start off in the same way as every other fluids textbook.  Imagine two flat surfaces separated by the fluid of interest.  The plates are large so that we can ignore what is going on at the edges.  A force $F$ is applied to the upper surface in order for it to maintain a constant velocity $v$.  The lower surface remains stationary.  The distance between the surfaces (the thickness of the layer of fluid) is $y$.  Here is a picture of the setup I have in mind.
 
@@ -202,7 +207,6 @@ The upper plate creates an applied shear stress of magnitude $\tau=F/A$, where $
 So what is the fluid doing between these two plates; one stationary, one moving. Well, a basic condition, which we state without justification, is that a fluid in contact with a surface has the same velocity as that surface.  This is known as the *no-slip condition*.  Therefore, the velocity of the fluid in contact with the bottom plate is zero and the velocity of the fluid in contact with the top plate is $v$.
 
 If the thickness of the fluid is small we assume that the velocity increases from the lower stationary plate to the upper moving plate in a straight-line (linear) fashion.  This rate-of-change in velocity from the bottom plate to the top is known as the *shear rate* or *velocity gradient* or *strain* and expressed as $\Delta v/\Delta y$ (*i.e.* it's the slope of the velocity profile).  The shear rate is often written as $\dot{\gamma}$ (the Greek letter gamma with a dot--the dot represents a derivative) and has units $1/s$ (*i.e.* reciprocal seconds or inverse seconds).
-
 
 The amount of applied shear stress that is necessary to generate a certain strain is a measure of the fluids viscosity.  For example, the external force required to generate the same upper-plate velocity in honey and water would be much larger for the honey (the honey is more viscous).
 
@@ -235,11 +239,12 @@ $$
 \nu=\frac{\eta}{\rho}
 $$
 
-The reason for introducing the kinematic viscosity is that many calculations will end up involving precisely this ratio.  Based on the definition given above the units for kinematic viscosity in the SI system is $m^2/s$ and in the US system $\ft^2/s$.  Kinematic viscosities are sometimes reports in an older unit called the centistoke whish is $1.0\times 10^{-6}\,\m^2/s=1~\mm^2/s.
-
-The dynamic viscosity characterizes how much pressure would be required to move a move a fluid inside it for a certain distance..  The kinematic viscosity characterizes how long a fluid takes to drain or leak under its own weight.
+The reason for introducing the kinematic viscosity is that many calculations will end up involving precisely this ratio.  Based on the definition given above the units for kinematic viscosity in the SI system is $m^2/s$ and in the US system $\ft^2/s$.  Kinematic viscosities are oftentimes reported in an older unit called the centistoke whish is $1.0\times 10^{-6}\,\m^2/s=1~\mm^2/s$.
 
 ### Non-Newtonian fluids
+
+The previous section described a fluid as Newtonian if there was a linear relationship between the applied stress and resulting strain.  This is an idealization and while it serves as a reasonable description of many of the fluids we will encounter other fluids are not so simple.
+
 
 <div class="photo" style="width: 500px;">
   <img src="img\ShearStrainNonNewtonian.png" alt="Rheogram for Olive Oil">
@@ -258,6 +263,17 @@ The dynamic viscosity characterizes how much pressure would be required to move 
 
 
 ### Temperature Dependence of Viscosity
+
+The viscosity of a fluid can change drastically with temperature.  As far as I'm aware, all liquids experience a decrease in viscosity with an increase in temperature.  Think of motor oil, which is difficult to pour when cold but flows easily when the temperature is increased.  Gases follow the opposite trend, their viscosity increases with increasing temperature. Also, the sensitivity to temperature is greater for liquids. As an example of this the dynamic viscosity of liquid water (curve below $100\C$) and water-vapor (curve above $100\C$) is shown in the figure below.  Note that the y-axis is a logarithmic scale.
+
+<div class="photo" style="width: 500px;">
+  <img src="img\VisWaterSteam.png" alt="Dynamic viscosity of liquid water and water-vapor.">
+  <p>
+Dynamic viscosity of liquid water and water-vapor on a log-linear plot.
+  </p>
+</div>
+
+
 
 ### Viscosity Measurement
 
