@@ -40,7 +40,7 @@ $$
 <div class="photo" style="width: 500px;">
   <img src="img\VisSteam.png" alt="Dynamic viscosity of liquid water and water-vapor.">
   <p>
-  Dynamic viscosity of water vapor (blue) and dry air (red) at atmospheric pressure.  Data from [Kestin, J.; Sengers, J.V.; Kamgar-Parsi, B.; Levelt Sengers, J.M.H., Thermophysical Properties of Fluid H2O, J. Phys. Chem. Ref. Data, 1984, 13, 1, 175-183. [doi:10.1063/1.555707] ][Kestin84] and respectively.
+  Dynamic viscosity of water vapor (blue) and dry air (red) at atmospheric pressure.  Data from [Kestin, J.; Sengers, J.V.; Kamgar-Parsi, B.; Levelt Sengers, J.M.H., Thermophysical Properties of Fluid H2O, J. Phys. Chem. Ref. Data, 1984, 13, 1, 175-183.][Kestin84] and respectively.
   </p>
 </div>
 
