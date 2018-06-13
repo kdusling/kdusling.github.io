@@ -90,8 +90,8 @@ $$
 The specific gravity of a substance is defined by the fluid's density divided by the density of water at $4\C$.
 
 $$
-\sg&=\frac{\rho}{1000~\kg/\m^3}\quad \textrm{SI}\,, \qquad\qquad
-\sg&=\frac{\rho}{1.94~\slug/\ft^3} \quad \textrm{USCS}
+\sg=\frac{\rho}{1000~\kg/\m^3}\quad \textrm{SI}\,, \qquad\qquad
+\sg=\frac{\rho}{1.94~\slug/\ft^3} \quad \textrm{USCS}
 $$
 
 Alternatively, the specific weight can be used to calculate the specific gravity.  In this case the specific gravity is defined as the fluid's specific weight dividing by the specific weight of water at $4\C$.   The specific weight of water at $4\C$ is:
@@ -103,8 +103,8 @@ $$
 And the specific gravity (sg) of a fluid can be computed from its specific weight ($\gamma$) by computing
 
 $$
-\sg&=\frac{\gamma}{9.81~\kN/\m^3}\quad \textrm{SI}\,, \qquad\qquad
-\sg&=\frac{\gamma}{62.4~\lb/\ft^3} \quad \textrm{USCS}
+\sg=\frac{\gamma}{9.81~\kN/\m^3}\quad \textrm{SI}\,, \qquad\qquad
+\sg=\frac{\gamma}{62.4~\lb/\ft^3} \quad \textrm{USCS}
 $$
 
 Note that the two definitions for the specific gravity (the one using density and the one using specific weight) are equivalent.   This is because specific weight is just the density times mass and the factor of mass cancels in the ratios.  The example below will explicitly illustrate this.
