@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Viscosity Index</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta charset="utf-8">
+      <meta name="author" content="Kevin Dusling" />
+      <meta NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+      <meta name="description" content="">
+
+      <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+
+  <script>
+
+function dlog(x){
+  return Math.log10(Math.log10(x));
+
+}
+
+function calcVi(Q1,Q2) {
+     var Q3,Q4,Q5,Q6,Q7;
+
+
+        if ( Q2 >= 2 && Q2 < 4){
+           Q3 = 0.827 * Math.pow(Q2,2) + 1.632 * Q2 - 0.181;
+           Q4 = 0.3094 * Math.pow(Q2,2) + 0.182 * Q2;
+           Q6 = (Q3 + Q4 - Q1) / Q4 * 100;
+           }
+
+        if ( Q2 >= 4 && Q2 < 6.1){
+           Q3 = -2.6758 * Math.pow(Q2,2) + 96.671 * Q2 - 269.664 * Math.sqrt(Q2) + 215.025;
+           Q4 = -7.1955 * Math.pow(Q2,2) + 241.992 * Q2 - 725.478 * Math.sqrt(Q2) + 603.88;
+           Q6 = (Q3 + Q4 - Q1) / Q4 * 100;
+           }
+
+        if ( Q2 >= 6.1 && Q2 < 7.2){
+           Q3 = 2.32 * Math.pow(Q2,1.5626);
+           Q4 = 2.838 * Math.pow(Q2,2) - 27.35 * Q2 + 81.83;
+           Q6 = (Q3 + Q4 - Q1) / Q4 * 100;
+           }
+
+        if ( Q2 >= 7.2 && Q2 < 12.4){
+           Q3 = 0.1922 * Math.pow(Q2,2) + 8.25 * Q2 - 18.728;
+           Q4 = 0.5463 * Math.pow(Q2,2) + 2.442 * Q2 - 14.16;
+           Q6 = (Q3 + Q4 - Q1) / Q4 * 100;
+           }
+
+        if ( Q2 >= 12.4 && Q2 <= 70){
+           Q3 = 1795.2 * Math.pow(Q2,(-2)) + 0.1818 * Math.pow(Q2,2) + 10.357 * Q2 - 54.547;
+           Q4 = 0.6995 * Math.pow(Q2,2) - 1.19 * Q2 + 7.6;
+           Q6 = (Q3 + Q4 - Q1) / Q4 * 100;
+           }
+
+        if ( Q2 > 70){
+           Q3 = 0.1684 * Math.pow(Q2,2) + 11.85 * Q2 -97;
+           Q5 = 0.8353 * Math.pow(Q2,2) + 14.67 * Q2 -216;
+           Q4 = 0.6669 * Math.pow(Q2,2) + 2.82 * Q2 -119;
+           Q6 =(Q5 - Q1) / Q4 * 100;
+           }
+
+
+
+    if (Q6 >= 100) {
+
+        Q7 = ((Math.log(Q3) / Math.log(10)) - (Math.log(Q1) / Math.log (10))) / ( Math.log(Q2)/ Math.log(10));
+        Q6 = (( Math.pow(10,Q7)-1) / 0.00715 ) + 100;
+
+    }
+
+    return Q6;
+}
+
+function calcNu(nu1,T1,nu2,T2,myT){
+  var lambda = 0.7;
+
+  var B = -(dlog(nu2+lambda)-dlog(nu1+lambda))/(Math.log10(T2)-Math.log10(T1));
+  var A = dlog(nu2+lambda)+B*Math.log10(T2);
+  alert(A + "   " + B);
+  return nu = Math.pow(10,Math.pow(10, A-B*Math.log10(myT) )) - lambda;
+}
+
+
+function update(){
+  var nu1 = parseFloat(document.getElementById("nu1").value);
+  var T1 =parseFloat(document.getElementById("T1").value) + 273.15;
+  var nu2 =parseFloat(document.getElementById("nu2").value);
+  var T2 = parseFloat(document.getElementById("T2").value) + 273.15;
+  var myT = parseFloat(document.getElementById("myT").value) + 273.15;
+
+  var nu = calcNu(nu1,T1,nu2,T2,myT);
+  var res = document.getElementById("results");
+  res.innerHTML = "";
+
+
+  res.innerHTML += nu + "     ";
+  res.innerHTML += calcVi( calcNu(nu1,T1,nu2,T2,313.15), calcNu(nu1,T1,nu2,T2,373.15)) + "     ";
+  res.innerHTML += parseInt(calcVi( calcNu(nu1,T1,nu2,T2,313.15), calcNu(nu1,T1,nu2,T2,373.15)));
+
+}
+
+</script>
+
+
+<body>
+
+  <!--<div id="Temp_div"> </div>-->
+
+  <h1 style="color: #2980b9; font-weight: 900;" id=title>Viscosity Index Calculator</h1>
+
+
+  <div style="display: inline-block; vertical-align: top; font-size: 18px">
+  nu1: <input name="nu1" type="text" id="nu1">
+  T1: <input name="T1" type="text" id="T1">
+  nu2: <input name="nu2" type="text" id="nu2">
+  T2: <input name="T2" type="text" id="T2">
+myT: <input name="myT" type="text" id="myT">
+  <button type="button" onclick="update()">Compute</button>
+
+<BR><BR>
+  <div id="results" style="font-size: 18px; background-color: #FAFAFA;
+  padding: 5px 5px; border-radius: 5px; border: 1px solid #CCC;"></div>
+
+ </div>
+
+
+
+
+
+</body>
+</html>

@@ -264,7 +264,7 @@ The previous section described a fluid as Newtonian if there was a linear relati
 
 ### Temperature Dependence of Viscosity
 
-The viscosity of a fluid can change drastically with temperature.  As far as I'm aware, all liquids experience a decrease in viscosity with an increase in temperature.  Think of motor oil, which is difficult to pour when cold but flows easily when the temperature is increased.  Gases follow the opposite trend, their viscosity increases with increasing temperature. Note that the viscosity of gases are less sensitive to temperature changes than liquids.   As an example, the dynamic viscosity of liquid water (curve below $100\C$) and water-vapor (curve above $100\C$) is shown in the figure below.  Note that the y-axis is a logarithmic scale.
+The viscosity of a fluid can change drastically with temperature.  As far as I'm aware, all liquids experience a decrease in viscosity with an increase in temperature.  Think of motor oil, which is difficult to pour when cold but flows easily when the temperature is increased.  Gases follow the opposite trend, their viscosity increases with increasing temperature. Note that the viscosity of gases tend to be less sensitive to temperature changes than liquids.   The figure below shows the temperature dependence of the dynamic viscosity of liquid water (curve below $100\C$) and water-vapor (curve above $100\C$).
 
 <div class="photo" style="width: 500px;">
   <img src="img\VisWaterSteam.png" alt="Dynamic viscosity of liquid water and water-vapor.">
@@ -273,9 +273,14 @@ Dynamic viscosity of liquid water and water-vapor on a log-linear plot.
   </p>
 </div>
 
-Viscosity Index
+The *viscosity index* ($VI$) of a liquid is a measure of how greatly the kinematic viscosity varies with temperature.  It is an important property of hydraulic fluids and lubricants that operate at a wide range in temperatures.  A liquid with a low $VI$ exhibits a large relative change in viscosity with temperature.  A liquid with a high $VI$ is less sensitive to temperature variations.  The viscosity index is a dimensionless quantity that was originally setup to be measured on a scale from 0 to 100.   But since the scale's conception there a variety of lubricants have been designed that can reach a $VI$ of over 400.
 
-
+<div class="photo" style="width: 500px;">
+  <img src="img\isoVG100.png" alt="Kinematic viscosity for three different viscosity indices.">
+  <p>
+Kinematic viscosity for an ISO VG 100 lubricant for a viscosity index of 50 (red), 100 (blue), and 150 (black).  An ISO VG 100 has a kinematic viscosity of 100 cSt at $40\C$.
+  </p>
+</div>
 
 ### Viscosity Measurement
 
