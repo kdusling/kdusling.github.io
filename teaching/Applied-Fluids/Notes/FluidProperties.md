@@ -35,9 +35,7 @@ $$
 * A markdown unordered list for the toc
 {:toc}
 
-A *fluid* is a substance that continually deforms or flows under an applied shear stress.  Under the ordinary usage of the word fluid we usually have a liquid in mind.   In the sciences a fluid can be a liquid or a gas.  What is the dividing line between a gas and a liquid if they are both fluids?  For this course, our working definition of a *liquid* is a fluid that is incompressible ([see below](#Compressibility)).
-
-The sections below will go through a number of physical properties that are commonly used to characterize fluids.  
+A *fluid* is a substance that continually deforms or flows under an applied shear stress.  Under the ordinary usage of the word fluid we usually have a liquid in mind.   In the sciences a fluid refers to a liquid or a gas.  What is the dividing line between a gas and a liquid if they are both fluids?  For this course, our working definition of a *liquid* is a fluid that is incompressible ([see below](#Compressibility)).  For this course, our working definition of *gas* is a fluid that is compressible.  The sections below will go through a number of physical properties that are commonly used to characterize fluids.
 
 ## Density, specific weight & specific gravity
 
@@ -71,7 +69,7 @@ $$
 \gamma=w/V
 $$
 
-The units for density are $\N/\m^3$ in the SI system and $\lb/\ft^3$ in the U.S. Customary System.
+The units for specific weight are $\N/\m^3$ in the SI system and $\lb/\ft^3$ in the U.S. Customary System.
 
 It is straightforward to convert between density and specific weight.  Since the weight of a fluid is just its mass times gravity, $w=mg$ ($g$ being the acceleration due to gravity), the specific weight can be computed from the density via
 
@@ -81,22 +79,26 @@ $$
 
 ### Specific gravity
 
-It is often convenient to report the density of a fluid with respect to a given reference fluid (water at $4\C$ will be used in this course).  The density of water at $4\C$ is:
+It is often convenient to report the density of a fluid with respect to a given reference fluid.  A common choice of reference fluid is water at a temperature of $4\C$ and is what will be used throughout this course.   Two numbers you will come to memorize is the density of water at this temperature in the SI and US system of units:   
 
 $$
+\textrm{Density of water at 4\C} \qquad\qquad
 \rho=1000~\text{kg}/\text{m}^3\quad \textrm{SI}\,, \qquad\qquad \rho=1.94~\text{slugs}/\text{ft}^3\quad \textrm{USCS}
 $$
 
-The specific gravity of a substance is defined by the fluid's density divided by the density of water at $4\C$.
+The specific gravity of a substance is then defined by the substance's density divided by the density of water at $4\C$.
 
 $$
 \sg=\frac{\rho}{1000~\kg/\m^3}\quad \textrm{SI}\,, \qquad\qquad
 \sg=\frac{\rho}{1.94~\slug/\ft^3} \quad \textrm{USCS}
 $$
 
-Alternatively, the specific weight can be used to calculate the specific gravity.  In this case the specific gravity is defined as the fluid's specific weight dividing by the specific weight of water at $4\C$.   The specific weight of water at $4\C$ is:
+Note that when computing the specific gravity of a substance you always divide by the density of water at $4\C$ regardless of the temperature of the substance.  Also, note that some industries use water at a temperature of $15.6\C$ as a reference.  The density of water at this slightly higher temperature is smaller by less than a tenth of a percent and will make little difference in practical applications.
+
+Alternatively, the specific weight can be used to calculate the specific gravity.  In this case the specific gravity is defined as the substance's specific weight dividing by the specific weight of water at $4\C$:
 
 $$
+\textrm{specific weight of water at $4\C$} \qquad\qquad
 \gamma=9.81~\text{kN}/\text{m}^3\quad \textrm{SI}\,, \qquad\qquad \gamma=62.4~\text{lb}/\text{ft}^3\quad \textrm{USCS}
 $$
 
@@ -107,7 +109,7 @@ $$
 \sg=\frac{\gamma}{62.4~\lb/\ft^3} \quad \textrm{USCS}
 $$
 
-Note that the two definitions for the specific gravity (the one using density and the one using specific weight) are equivalent.   This is because specific weight is just the density times mass and the factor of mass cancels in the ratios.  The example below will explicitly illustrate this.
+Note that the two definitions for the specific gravity (the one using density and the one using specific weight) are equivalent.   This is because specific weight is just the density times mass and the factor of mass cancels in the above ratios.  The example below will explicitly illustrate this.
 
 Note that the specific gravity of a fluid is dimensionless. Don't get confused, the three quantities (density, specific weight and specific gravity) are three ways of representing the same thing (the amount of fluid per unit volume).  In the following examples we will demonstrate how these concepts are commonly used.
 
@@ -181,6 +183,8 @@ w=\gamma \times V = 78.81~\lb/\ft^3\times 1~\cancel{\text{gal}}\left( \frac{\ft^
 $$
 
 </div>
+
+### API gravity
 
 ## Viscosity
 
@@ -281,6 +285,17 @@ The *viscosity index* ($VI$) of a liquid is a measure of how greatly the kinemat
 Kinematic viscosity for an ISO VG 100 lubricant for a viscosity index of 50 (red), 100 (blue), and 150 (black).  An ISO VG 100 has a kinematic viscosity of 100 cSt at $40\C$.
   </p>
 </div>
+
+
+### SAE Viscosity Grades
+
+[SAE](http://www.tribology-abc.com/abc/viscosity.htm#SAE)
+
+
+
+### ISO Viscosity Grades
+
+[ISO](http://www.tribology-abc.com/abc/viscosity.htm#SI)
 
 ### Viscosity Measurement
 
