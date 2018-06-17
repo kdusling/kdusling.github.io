@@ -82,8 +82,13 @@ $$
 It is often convenient to report the density of a fluid with respect to a given reference fluid.  A common choice of reference fluid is water at a temperature of $4\C$ and is what will be used throughout this course.   Two numbers you will come to memorize is the density of water at this temperature in the SI and US system of units:   
 
 $$
-\textrm{Density of water at 4\C} \qquad\qquad
-\rho=1000~\text{kg}/\text{m}^3\quad \textrm{SI}\,, \qquad\qquad \rho=1.94~\text{slugs}/\text{ft}^3\quad \textrm{USCS}
+\begin{align*}
+\textrm{density of water at 4\C:}  &&
+\renewcommand\arraystretch{1.3}
+\begin{array}{@{}l@{\hskip 0.5in}c}
+\rho=1000~\text{kg}/\text{m}^3 & \textrm{SI}\\  \rho=1.94~\text{slugs}/\text{ft}^3 & \textrm{USCS}
+\end{array}  
+\end{align*}
 $$
 
 The specific gravity of a substance is then defined by the substance's density divided by the density of water at $4\C$.
@@ -98,8 +103,13 @@ Note that when computing the specific gravity of a substance you always divide b
 Alternatively, the specific weight can be used to calculate the specific gravity.  In this case the specific gravity is defined as the substance's specific weight dividing by the specific weight of water at $4\C$:
 
 $$
-\textrm{specific weight of water at $4\C$} \qquad\qquad
-\gamma=9.81~\text{kN}/\text{m}^3\quad \textrm{SI}\,, \qquad\qquad \gamma=62.4~\text{lb}/\text{ft}^3\quad \textrm{USCS}
+\begin{align*}
+\textrm{specific weight of water at 4\C:}  &&
+\renewcommand\arraystretch{1.3}
+\begin{array}{@{}l@{\hskip 0.5in}c}
+\gamma=9.81~\text{kN}/\text{m}^3 & \textrm{SI}\\  \gamma=62.4~\text{lb}/\text{ft}^3 & \textrm{USCS}
+\end{array}  
+\end{align*}
 $$
 
 And the specific gravity (sg) of a fluid can be computed from its specific weight ($\gamma$) by computing
