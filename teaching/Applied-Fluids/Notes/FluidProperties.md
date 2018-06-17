@@ -196,6 +196,37 @@ $$
 
 ### API gravity
 
+The petroleum industry uses its own measure for density of petroleum products called *API gravity*.  API stands for the American Petroleum Institute.  API gravity is calculated form the specific gravity of an oil by the relationship
+
+$$
+\textrm{API gravity} = \frac{141.5}{\textrm{sg}}-131.5
+$$
+
+While these API values do not have units they are often referred to as degrees (deg API).  API gravity is inversely related to specific gravity.  So the lower the oil's API gravity the higher its density.  The above equation can be solved for the specific gravity
+
+$$
+\textrm{sg} = \frac{141.5}{131.5+\textrm{API gravity}}
+$$
+
+Note, that this sg uses a reference temperature of $60\F$.  From the above definition of API gravity we can calculate that an oil with the same specific weight of water (*i.e.* sg=1) has an API gravity of
+$$
+\frac{141.5}{1.0}-131.5=1^\circ \textrm{API}
+$$
+
+This is very heavy for an oil.  Oil's with an API gravity at or below $10^\circ$ API are usually classified as "extra heavy oil".  "Medium oils" are around $20^\circ$ API and "light oils" around $45^\circ$ API.
+
+<div class="example">
+
+In the worldwide oil industry an oil barrel has a volume of 42 US gallons.  On the European stock exchange companies often report their production as a mass of oil in metric tons (1 metric ton = 1000 kg).   
+
+Western Canadian Select is a heavy crude oil with an API gravity of $20.5^\circ$.  Compute the number of barrels needed to hold a metric ton of  Western Canadian Select.
+
+<hr>
+
+
+</div>
+
+
 ## Viscosity
 
 A fluid's *viscosity* is a measure of the fluid's resistance to motion under an applied shear force.  When you stir a pot of honey the spoon generates the "applied shear force".  The difficulty in moving the spoon due to the fluid's resistance is a specific property of the honey, *i.e.* the honey's viscosity.  
