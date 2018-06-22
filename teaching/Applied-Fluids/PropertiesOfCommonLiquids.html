@@ -100,10 +100,10 @@
 
       //Bulk Modulus
       cell = row.insertCell(-1);
-      num =  (myliquid.K).toFixed(2);
+      cell.innerHTML =  (myliquid.K).toFixed(2);
 
       cell = row.insertCell(-1);
-      num =  (1.45038*myliquid.K).toFixed(2);
+      cell.innerHTML =  (1.45038*myliquid.K).toFixed(2);
 
 
       i++;
@@ -138,10 +138,11 @@
 
 </table>
 <BR>
+The above table lists the properties of common liquids at room temperature and pressure.<BR>
 For SI units: T=25&deg;C, P=101 kPa (abs)<BR>
 For U.S. Customary System units: T=77&deg;F, P=14.7 psia<BR><BR>
 Densities and specific weights in the above table are calculated directly from
-the specific gravity of water at $4\C~(39.2\F)$:
+the specific gravity of water at $4^\circ\text{C}$:
 
 $$
 \gamma=9.81~\text{kN}/\text{m}^3=62.4~\text{lb}/\text{ft}^3 \quad
