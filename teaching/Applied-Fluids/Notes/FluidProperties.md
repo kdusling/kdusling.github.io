@@ -327,6 +327,7 @@ Kinematic viscosity for an ISO VG 100 lubricant for a viscosity index of 50 (red
   </p>
 </div>
 
+https://wiki.anton-paar.com/en/calculators/
 
 ### SAE Viscosity Grades
 
@@ -356,3 +357,10 @@ Kinematic viscosity for an ISO VG 100 lubricant for a viscosity index of 50 (red
 
 
 References:
+
+%\bibitem{Kestin84} Kestin, J.; Sengers, J.V.; Kamgar-Parsi, B.; Levelt Sengers, J.M.H., Thermophysical Properties of Fluid H2O, J. Phys. Chem. Ref. Data, 1984, 13, 1, 175-183. [doi:10.1063/1.555707]
+%\url{http://webbook.nist.gov/chemistry/fluid/}
+
+%\bibitem{Dixon07}
+%Dixon, John C., The Shock Absorber Handbook, John Wiley \& Sons, Ltd. (2007)
+%\url{http://dx.doi.org/10.1002/9780470516430.app2}
