@@ -3,6 +3,7 @@ var liquids=[
 {id:"Acetone", display:"Acetone",        sg:0.787, vis:0.316, st:23.1,  K:0.92, vp:30},
 {id:"Benzene", display:"Benzene",        sg:0.876, vis:0.601, st:28.2,  K:1.05, vp:14},
 {id:"Glycerine", display:"Glycerine",    sg:1.263, vis:950,   st:63.0,  K:4.35, vp:0},
+{id:"Kerosene", display:"Kerosene",      sg:0.823, vis:1.64,  st:0,     K:1.3,  vp:0.7},
 {id:"Octane", display:"Octane",          sg:0.701, vis:0.51,  st:21.14, K:0,    vp:1.9},
 {id:"Propane", display:"Propane",        sg:0.495, vis:0.11,  st:6.6,   K:0,    vp:0},
 {id:"SeaWater", display:"Sea Water",     sg:1.030, vis:0.103, st:0,     K:2.34, vp:2.4},
