@@ -202,18 +202,18 @@ $$
 \textrm{API gravity} = \frac{141.5}{\textrm{sg}}-131.5
 $$
 
-While these API values do not have units they are often referred to as degrees (deg API).  API gravity is inversely related to specific gravity.  So the lower the oil's API gravity the higher its density.  The above equation can be solved for the specific gravity
+While these API values do not have units they are often referred to as degrees (deg API).  API gravity is inversely related to specific gravity.  So the lower the oil's API gravity the higher its density.  The above equation can be solved for the specific gravity in terms of the API gravity if its given,
 
 $$
 \textrm{sg} = \frac{141.5}{131.5+\textrm{API gravity}}
 $$
 
-Note, that this sg uses a reference temperature of $60\F$.  From the above definition of API gravity we can calculate that an oil with the same specific weight of water (*i.e.* sg=1) has an API gravity of
-$$
+Note, that the specific gravity in this context uses a reference temperature of $60\F$.  From the above definition of API gravity we can calculate that an oil having the same density of water (*i.e.* sg=1) has an API gravity of
+$
 \frac{141.5}{1.0}-131.5=1^\circ \textrm{API}
-$$
+$
 
-This is very heavy for an oil.  Oil's with an API gravity at or below $10^\circ$ API are usually classified as "extra heavy oil".  "Medium oils" are around $20^\circ$ API and "light oils" around $45^\circ$ API.
+This is very heavy for an oil.  Oil's with an API gravity at or below $10^\circ$ API are usually classified as "extra heavy oil".  "Medium oils" are around $20^\circ$ API and "light oils" around $45^\circ$ API.  Remember, the higher the API the lower the density (oil floats on water).
 
 <div class="example">
 
@@ -223,6 +223,29 @@ Western Canadian Select is a heavy crude oil with an API gravity of $20.5^\circ$
 
 <hr>
 
+The above problem is asking us to find the volume of 1000 kg of a type of heavy crude oil.  First, let us use the API gravity to find the specific gravity of the oil.
+
+$$
+\textrm{sg} = \frac{141.5}{131.5+\textrm{API gravity}}=\textrm{sg} = \frac{141.5}{131.5+20.5}=0.931
+$$
+
+Now that we have the specific gravity we can find the density,
+
+$$
+\rho = \sg\times\left(1000~\kg/\m^3\right)=931~\kg/\m^3
+$$
+
+and next the volume
+
+$$
+V=\frac{m}{\rho}=\frac{1000~\kg}{931~\kg/\m^3}=1.074~\m^3
+$$
+
+Now the last part might be the trickiest to some.  We need to convert the above volume of $1.074~\m^3$ in a number of barrels.  I do this by a careful cancellation of units as follows.
+
+$$
+V=1.074~\m^3\times\left(\frac{1000 \L}{\m^3}\right)\times\left(\frac{\gal \L}{3.785~\L}\right)\times\left(\frac{1~\textrm{barrels}}{42~\gal}\right)=6.76~\barrels
+$$
 
 </div>
 
