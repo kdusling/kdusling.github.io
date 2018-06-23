@@ -13,12 +13,15 @@ $$
 \newcommand{\inch}{\mathrm{in}}
 \newcommand{\ft}{\mathrm{ft}}
 \newcommand{\m}{\mathrm{m}}
+\newcommand{\mm}{\mathrm{mm}}
 \newcommand{\km}{\mathrm{km}}
 \newcommand{\mi}{\mathrm{mi}}
 \newcommand{\cm}{\mathrm{cm}}
 \newcommand{\lb}{\mathrm{lb}}
 \newcommand{\lbm}{\mathrm{lbm}}
 \newcommand{\lbf}{\mathrm{lbf}}
+\newcommand{\gal}{\mathrm{gal}}
+\newcommand{\L}{\mathrm{L}}
 \newcommand{\N}{\mathrm{N}}
 \newcommand{\slug}{\mathrm{slugs}}
 \newcommand{\Pa}{\mathrm{Pa}}
@@ -83,7 +86,7 @@ It is often convenient to report the density of a fluid with respect to a given 
 
 $$
 \begin{align*}
-\textrm{density of water at 4\C:}  &&
+\textrm{density of water at}~4\C:  &&
 \renewcommand\arraystretch{1.3}
 \begin{array}{@{}l@{\hskip 0.5in}c}
 \rho=1000~\text{kg}/\text{m}^3 & \textrm{SI}\\  \rho=1.94~\text{slugs}/\text{ft}^3 & \textrm{USCS}
@@ -104,7 +107,7 @@ Alternatively, the specific weight can be used to calculate the specific gravity
 
 $$
 \begin{align*}
-\textrm{specific weight of water at 4\C:}  &&
+\textrm{specific weight of water at}~4\C:  &&
 \renewcommand\arraystretch{1.3}
 \begin{array}{@{}l@{\hskip 0.5in}c}
 \gamma=9.81~\text{kN}/\text{m}^3 & \textrm{SI}\\  \gamma=62.4~\text{lb}/\text{ft}^3 & \textrm{USCS}
@@ -210,10 +213,10 @@ $$
 
 Note, that the specific gravity in this context uses a reference temperature of $60\F$.  From the above definition of API gravity we can calculate that an oil having the same density of water (*i.e.* sg=1) has an API gravity of
 $
-\frac{141.5}{1.0}-131.5=1^\circ \textrm{API}
+\frac{141.5}{1.0}-131.5=10^\circ \textrm{API}
 $
 
-This is very heavy for an oil.  Oil's with an API gravity at or below $10^\circ$ API are usually classified as "extra heavy oil".  "Medium oils" are around $20^\circ$ API and "light oils" around $45^\circ$ API.  Remember, the higher the API the lower the density (oil floats on water).
+This is very heavy for an oil.  Oil's with an API gravity at or below $10^\circ$ API are usually classified as "extra heavy oil".  "Medium oils" are around $20^\circ$ API and "light oils" around $45^\circ$ API.  Remember, the higher the API the lower the density (Any oil with an API greater than $10^\circ$ will float on water).
 
 <div class="example">
 
@@ -226,37 +229,105 @@ Western Canadian Select is a heavy crude oil with an API gravity of $20.5^\circ$
 The above problem is asking us to find the volume of 1000 kg of a type of heavy crude oil.  First, let us use the API gravity to find the specific gravity of the oil.
 
 $$
-\textrm{sg} = \frac{141.5}{131.5+\textrm{API gravity}}=\textrm{sg} = \frac{141.5}{131.5+20.5}=0.931
+\textrm{sg} = \frac{141.5}{131.5+\textrm{API gravity}}=\textrm{sg} = \frac{141.5}{131.5+20.5}=0.931\,.
 $$
 
 Now that we have the specific gravity we can find the density,
 
 $$
-\rho = \sg\times\left(1000~\kg/\m^3\right)=931~\kg/\m^3
+\rho = \sg\times\left(1000~\kg/\m^3\right)=931~\kg/\m^3\,,
 $$
 
 and next the volume
 
 $$
-V=\frac{m}{\rho}=\frac{1000~\kg}{931~\kg/\m^3}=1.074~\m^3
+V=\frac{m}{\rho}=\frac{1000~\kg}{931~\kg/\m^3}=1.074~\m^3\,.
 $$
 
-Now the last part might be the trickiest to some.  We need to convert the above volume of $1.074~\m^3$ in a number of barrels.  I do this by a careful cancellation of units as follows.
+Now the last part might be the trickiest to some.  We need to convert the above volume of $1.074~\m^3$ into a number of barrels.  I do this by a careful cancellation of units as follows.
 
 $$
-V=1.074~\m^3\times\left(\frac{1000 \L}{\m^3}\right)\times\left(\frac{\gal \L}{3.785~\L}\right)\times\left(\frac{1~\textrm{barrels}}{42~\gal}\right)=6.76~\barrels
+V=1.074~\m^3\times\left(\frac{1000 \L}{\m^3}\right)\times\left(\frac{\gal}{3.785~\L}\right)\times\left(\frac{1~\text{barrels}}{42~\gal}\right)=6.76~\text{barrels}
 $$
 
 </div>
+
+## Pressure
+
+*Pressure* if the force applied perpendicular to a surface per unit area.
+
+$$
+\textrm{Pressure}=\frac{\textrm{Force}}{\textrm{Area}} \qquad\qquad p=\frac{F}{A}
+$$
+
+For this definition to work the area must be small enough so that the force is uniformly distributed over that area.  The standard unit of pressure in the SI system is $\N/\m^2$ and has its own name, the pascal (Pa).  The standard unit of pressure in the US system is $\lb/\ft^2$ but is rarely used.  Instead,  $\lb/\in^2$, abbreviated psi, is used most often.
+
+<div class="example">
+
+A package of dimension $1~ft\times 1~ft\times 1~ft$ that weighs 36 pounds
+rests on a table.  What pressure does the package exert on the table?    
+
+<hr>
+
+We assume that the weight of the package is uniformly distributed.  The pressure is given as
+
+$$
+p=\frac{F}{A} = \frac{36~\lb}{(1~\ft)^2} = 36 \lb/\ft^2 =36~\rm{psf}
+$$
+
+So our answer is 36 psf (pounds per square foot).  However, this unit is rarely used so we now convert to the usual psi.
+
+$$
+p=36\frac{\lb}{\ft^2}\times\left(\frac{1~\ft}{12~\in})^2=0.25~\psi
+$$
+
+</div>
+
+A fluid (gas or liquid) exerts a pressure on objects they are in contact with.  This pressure is created by the molecules of the fluid impacting the confining container.  Note that this pressure acts on the fluid itself as well.  
+
+For a static (not moving) fluid there are two principals we can state
+
+1.  Pressure acts uniformly on a small volume of fluid
+2.  Pressure acts perpendicular to its confining boundary
+
+## Compressibility
+
+$$
+K=\frac{-\Delta p}{(\Delta V)/V}
+$$
+
+## Vapor pressure
+
+Imagine you have a sealed container half filled with water.  Some of the water molecules will have sufficient kinetic energy to escape from the surface (evaporate) and other molecules following their escape will re-enter the liquid (condense).  Over time the system will reach a steady-state where the rates of evaporation and condensation are the same.  In equilibrium, the pressure exerted by the vapor on the liquid is called the *vapor pressure*.  It is a property of the fluid and it value will depend on the fluid's temperature.  
+
+For example, at room temperature the vapor pressure of water is about 2.4 kPa.  If the ambient pressure is brought below this value water will boil at room temperature as shown in the following movie.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/739990nm0QY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+The consideration of vapor pressure will be of particular importance in this class due to a phenomenon know as *cavitation*.  In a hydraulic system, such as those containing pumps and pipelines, if the fluid pressure drops below the vapor pressure local boiling can occur and vapor bubbles will form in the fluid.  If these bubbles move into a region of high pressure they can collapse producing large forces on nearby solid surfaces.  These cavitation bubbles are strong enough to erode the metal surfaces of hydraulic machinery such as pumps, turbines and propellers (see picture below).  As long as the fluid pressure can be maintained is kept above the vapor pressure in a closed hydraulic system cavitation can be avoided.
+
+<a title="By Erik Axdahl (The original uploader was Axda0002 at English Wikipedia.) (Original text: Erik Axdahl en:User:Axda0002) [CC BY-SA 2.5 (https://creativecommons.org/licenses/by-sa/2.5)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Cavitation_Propeller_Damage.JPG"><img width="512" alt="Cavitation Propeller Damage" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Cavitation_Propeller_Damage.JPG/512px-Cavitation_Propeller_Damage.JPG"></a>
+
+<div class="photo" style="width: 400px;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Cavitation_Propeller_Damage.JPG/512px-Cavitation_Propeller_Damage.JPG" alt="Cavitation Propeller Damage">  <p>
+  Cavitation damage evident on the propeller of a personal watercraft. Note the concentrated damage on the outer edge of the propeller where the speed of the blade is fastest.<BR><BR>
+
+  By Erik Axdahl (The original uploader was Axda0002 at English Wikipedia.) (Original text: Erik Axdahl en:User:Axda0002) [CC BY-SA 2.5 (https://creativecommons.org/licenses/by-sa/2.5)], via Wikimedia Commons
+  </p>
+</div>
+
+## Surface tension
+
+### Pressure Measurement
 
 
 ## Viscosity
 
 A fluid's *viscosity* is a measure of the fluid's resistance to motion under an applied shear force.  When you stir a pot of honey the spoon generates the "applied shear force".  The difficulty in moving the spoon due to the fluid's resistance is a specific property of the honey, *i.e.* the honey's viscosity.  
 
-In the following sections we will introduce two different (but very closely related) definitions of the viscosity.  The so-called *dynamic viscosity* will be represented by the Greek letter eta ($\eta$).  Imagine you have a tube or pipe (or drinking straw) held horizontally with a fluid inside.  You blow into the tube in order to move the fluid a certain distance in the tube.  The amount of force required to perform this task will depend on the fluid's dynamic viscosity.
+In the following sections we will introduce two different (but very closely related) definitions of the viscosity.  The *dynamic viscosity* will be represented by the Greek letter eta ($\eta$).  Imagine you have a tube or pipe (or drinking straw) held horizontally with a fluid inside.  You blow into the tube in order to move the fluid a certain distance.  The amount of force required to perform this task will depend on the fluid's dynamic viscosity.
 
-The second viscosity is called the *kinematic viscosity* and will be represented by the Greek letter nu ()$\nu$).  Imagine a tank filled with a liquid that has a crack or small opening.  The amount of time it takes for the liquid to leak or drain from the tank under its own weight will depend on the fluid's kinematic viscosity.
+The second definition of viscosity is called the *kinematic viscosity* and will be represented by the Greek letter nu ($\nu$).  Imagine a tank filled with a liquid that has a crack or small opening.  The amount of time it takes for the liquid to leak or drain from the tank under its own weight will depend on the fluid's kinematic viscosity.
 
 
 ### Dynamic Viscosity
@@ -297,7 +368,7 @@ where $\eta$ (Greek letter eta) is the dynamic viscosity, $\tau$ is the applied 
 
 The dynamic viscosity has units of $\Pa\cdot s$ in the SI system and $\lb \cdot s/\ft^2$ in the US system.  Coming back to our example of Olive Oil we see that it has a dynamic viscosity of $\eta=0.0363\,\Pa \cdot s$.  
 
-In many fluid property resources the dynamic viscosity will be given in an older unit call the centipoise (cP).  A centipoise is equivalent to a milli-Pa$\cdot s$ which is $1.0\times 10^{-3}\,\Pa\cdot s$.  So the viscosity of the Olive Oil considered above has a dynamic viscosity of $\eta=36.3 {\rm cP}$.
+In many fluid property resources the dynamic viscosity will be given in an older unit call the centipoise (cP).  A centipoise is equivalent to a milli-Pa$\cdot s$ which is $1.0\times 10^{-3}\,\Pa\cdot s$.  The viscosity of the Olive Oil considered above has a dynamic viscosity of $\eta=36.3~{\rm cP}$.
 
 ### Kinematic Viscosity
 
@@ -307,7 +378,14 @@ $$
 \nu=\frac{\eta}{\rho}
 $$
 
-The reason for introducing the kinematic viscosity is that many calculations will end up involving precisely this ratio.  Based on the definition given above the units for kinematic viscosity in the SI system is $m^2/s$ and in the US system $\ft^2/s$.  Kinematic viscosities are oftentimes reported in an older unit called the centistoke whish is $1.0\times 10^{-6}\,\m^2/s=1~\mm^2/s$.
+The reason for introducing the kinematic viscosity is that many calculations will end up involving precisely this ratio.  Based on the definition given above the units for kinematic viscosity in the SI system is $m^2/s$ and in the US system $\ft^2/s$.  Kinematic viscosities are oftentimes reported in an older unit called the centistoke (cSt) which is $1.0\times 10^{-6}\,\m^2/s=1~\mm^2/s$.
+
+Returning to the example of olive oil.  If its density is $930~\N/\m^3$ its kinematic viscosity is
+$$
+\nu=\frac{0.0363\,\Pa \cdot s}{930~\kg/\m^3}=3.9\times 10^{-5}~\frac{\m^2}{s}=39~\rm{cSt}
+$$
+
+It is worth taking a minute to show how the units worked out.  A
 
 ### Non-Newtonian fluids
 
@@ -364,15 +442,7 @@ https://wiki.anton-paar.com/en/calculators/
 
 ### Viscosity Measurement
 
-## Pressure
 
-### Pressure Measurement
-
-## Compressibility
-
-## Vapor pressure
-
-## Surface tension
 
 
 
