@@ -229,7 +229,7 @@ Western Canadian Select is a heavy crude oil with an API gravity of $20.5^\circ$
 The above problem is asking us to find the volume of 1000 kg of a type of heavy crude oil.  First, let us use the API gravity to find the specific gravity of the oil.
 
 $$
-\textrm{sg} = \frac{141.5}{131.5+\textrm{API gravity}}=\textrm{sg} = \frac{141.5}{131.5+20.5}=0.931\,.
+\textrm{sg} = \frac{141.5}{131.5+\textrm{API gravity}}= \frac{141.5}{131.5+20.5}=0.931\,.
 $$
 
 Now that we have the specific gravity we can find the density,
@@ -264,7 +264,7 @@ For this definition to work the area must be small enough so that the force is u
 
 <div class="example">
 
-A package of dimension $1~ft\times 1~ft\times 1~ft$ that weighs 36 pounds
+A package of dimension $1~\ft\times 1~\ft\times 1~\ft$ that weighs 36 pounds
 rests on a table.  What pressure does the package exert on the table?    
 
 <hr>
@@ -272,13 +272,13 @@ rests on a table.  What pressure does the package exert on the table?
 We assume that the weight of the package is uniformly distributed.  The pressure is given as
 
 $$
-p=\frac{F}{A} = \frac{36~\lb}{(1~\ft)^2} = 36 \lb/\ft^2 =36~\rm{psf}
+p=\frac{F}{A} = \frac{36~\lb}{(1~\ft)^2} = 36~\lb/\ft^2 =36~\rm{psf}
 $$
 
 So our answer is 36 psf (pounds per square foot).  However, this unit is rarely used so we now convert to the usual psi.
 
 $$
-p=36\frac{\lb}{\ft^2}\times\left(\frac{1~\ft}{12~\in})^2=0.25~\psi
+p=36\frac{\lb}{\ft^2}\times\left(\frac{1~\ft}{12~\in}\right)^2=0.25~\psi
 $$
 
 </div>
@@ -289,6 +289,8 @@ For a static (not moving) fluid there are two principals we can state
 
 1.  Pressure acts uniformly on a small volume of fluid
 2.  Pressure acts perpendicular to its confining boundary
+
+### Pressure Measurement
 
 ## Compressibility
 
@@ -302,23 +304,38 @@ Imagine you have a sealed container half filled with water.  Some of the water m
 
 For example, at room temperature the vapor pressure of water is about 2.4 kPa.  If the ambient pressure is brought below this value water will boil at room temperature as shown in the following movie.
 
+<div class="photo" style="width: 400px;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/739990nm0QY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<p>
+Plainfield Chemistry - Water Boiling at Room Temperature
+</p>
+</div>
 
 The consideration of vapor pressure will be of particular importance in this class due to a phenomenon know as *cavitation*.  In a hydraulic system, such as those containing pumps and pipelines, if the fluid pressure drops below the vapor pressure local boiling can occur and vapor bubbles will form in the fluid.  If these bubbles move into a region of high pressure they can collapse producing large forces on nearby solid surfaces.  These cavitation bubbles are strong enough to erode the metal surfaces of hydraulic machinery such as pumps, turbines and propellers (see picture below).  As long as the fluid pressure can be maintained is kept above the vapor pressure in a closed hydraulic system cavitation can be avoided.
 
-<a title="By Erik Axdahl (The original uploader was Axda0002 at English Wikipedia.) (Original text: Erik Axdahl en:User:Axda0002) [CC BY-SA 2.5 (https://creativecommons.org/licenses/by-sa/2.5)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Cavitation_Propeller_Damage.JPG"><img width="512" alt="Cavitation Propeller Damage" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Cavitation_Propeller_Damage.JPG/512px-Cavitation_Propeller_Damage.JPG"></a>
-
 <div class="photo" style="width: 400px;">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Cavitation_Propeller_Damage.JPG/512px-Cavitation_Propeller_Damage.JPG" alt="Cavitation Propeller Damage">  <p>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Cavitation_Propeller_Damage.JPG/512px-Cavitation_Propeller_Damage.JPG" alt="Cavitation Propeller Damage">
+  <p>
   Cavitation damage evident on the propeller of a personal watercraft. Note the concentrated damage on the outer edge of the propeller where the speed of the blade is fastest.<BR><BR>
 
-  By Erik Axdahl (The original uploader was Axda0002 at English Wikipedia.) (Original text: Erik Axdahl en:User:Axda0002) [CC BY-SA 2.5 (https://creativecommons.org/licenses/by-sa/2.5)], via Wikimedia Commons
+  By Erik Axdahl (The original uploader was Axda0002 at English Wikipedia.) (Original text: Erik Axdahl en:User:Axda0002) [<a href="https://creativecommons.org/licenses/by-sa/2.5">CC BY-SA 2.5</a>], via Wikimedia Commons
   </p>
 </div>
 
 ## Surface tension
 
-### Pressure Measurement
+The molecules of a liquid attract each other.  For example, in water hydrogen bonds result in a strong cohesive force among the water molecules.  In the bulk of the water these molecular interactions are balanced in all directions.  However, at the surface there is an imbalance and the water molecules cohere more strongly to the neighboring molecules resulting in apparent film at the surface.  It is more difficult to move an object through the surface than to move it through the fluid when fully immersed.
+
+<div class="photo" style="width: 400px;">
+  <img src="img/WaterStrider.jpg" alt="Water Strider">
+  <p>
+  A water strider supported on the surface of water by surface tension.
+  </p>
+</div>
+
+$$
+\rm{Surface tension}=\frac{\rm{work}}{\rm{area}}
+$$
 
 
 ## Viscosity
@@ -432,13 +449,35 @@ https://wiki.anton-paar.com/en/calculators/
 
 ### SAE Viscosity Grades
 
+The internal combustion engine has many parts that move against each other.  Motor oil acts as a lubricant by creating a thin film between surfaces of adjacent moving parts.  
+
+The main concern regarding motor oils is their viscosity.  If the oil's viscosity is too high, the lubricant may not flow to where it is needed.  If the viscosity is too low  the fluid might not sufficiently separate and protect the parts as intended.
+
+The SAE International had developed a rating system for engine oils and automotive gear lubricants.  Kinematic viscosity is the main
+
+The Society of Automotive Engineers has a classification system for engine oils and gear lubricants (transmission fluid).  There are two separate classes of oils, monograde and multigrade.  First let us describe monogrades of which there are two types.  There are "straight" grades defined by their viscosities at high temperatures and "W" grades (the "W" stands for winter) which puts further constraints on their lower temperature viscosities.
+
+The straight grades include: 20, 30, 40, 50, and 60.  For an oil to be classified as one of these the kinematic viscosity must fall within a certain range at $100\C$ and have a minimum kinematic viscosity at $150\C$ tested at a high shear rate.  Both viscosities are tested using standards set by ASTM international.  For example SAE 30 must have a kinematic viscosity between 5.6 and 9.3 $\mm^2/s$ at $100\C$ and a kinematic viscosity larger than 2.6 $\mm^2/s$ at $150\C$.  The winter grades include:  0W, 5W, 10W, 15W, 20W, 25W.  For the winter grades there is no requirement at $150\C$ and only a minimum kinematic viscosity at $100\C$.  In addition there are maximums set on the dynamic viscosity at low temperatures (below freezing).  For example, a SAE 15W oil must have a dynamic viscosity less than $7000~\m\Pa/s$ at $-20\C$ and less than $60,000~\m\Pa/s$ at $-25\C$ and a kinematic viscosity larger than $5.6~\mm^2/s$ at $100\C$.
+
+Multigrade oils must satisify both the low and high temperature reuiresments.  For example, SAE 15W-30 must satisify the the SAE15W conditions at cold temperature sand the SAE30 conditions at high temperatures.
+
+
 [SAE](http://www.tribology-abc.com/abc/viscosity.htm#SAE)
+https://wiki.anton-paar.com/en/sae-viscosity-grades/
 
+The grades for gear oils include: 70W, 75W, 80W, 85W, 80, 85, 90, 110, 140, 190, 250.  The height weights or grades for gear oils have nothing to do with them being heavier or more viscous.  The numbers are simply a classification scheme.  Note that the stanard tests for gear oils are different.
 
+http://www.tribology-abc.com/abc/viscosity.htm#SAE306
 
 ### ISO Viscosity Grades
 
+For industrial applications it is recommended to use the ISO viscosity classification.  Each ISO viscosity grade requires the oil to have a specified kinematic viscosity at a temperature of $40\C$.  
+
+For example and ISO VG 150 must have a kinematic viscosity within 10% of 100 $\mm^2/s$ at $40\C$.  And ISO VG 10 must  have a kinematic viscosity within 10% of 10 $\mm^2/s$ at $40\C$.
+
 [ISO](http://www.tribology-abc.com/abc/viscosity.htm#SI)
+
+The viscosity of the oil at different temperatures can be approximated by using its viscosity at $40\C$ along with its viscosity index (VI).
 
 ### Viscosity Measurement
 
