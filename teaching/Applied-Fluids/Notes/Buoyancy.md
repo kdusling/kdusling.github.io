@@ -51,7 +51,10 @@ We start by drawing a free-body diagram of the cube. The force of gravity acts a
 
 Our intuition tells us that the cube of steel will sink and that the external force must be upward. Our intuition is correct as an object with an average specific weight greater than that of surrounding fluid will tend to sink. We therefore draw the external force $F_{ext}$ as pointing upward in our free-body diagram.
 
-![](buoyancy-img/buoyancy1.png)
+<div class="photo" style="width: 500px;">
+  <img src="img\buoyancy1.png" alt="">
+  <p>  </p>
+</div>
 
 In equilibrium the sum of the forces must equal zero,
 

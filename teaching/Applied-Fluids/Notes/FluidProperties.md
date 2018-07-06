@@ -38,51 +38,51 @@ $$
 * A markdown unordered list for the toc
 {:toc}
 
-A *fluid* is a substance that continually deforms or flows under an applied shear stress.  Under the ordinary usage of the word fluid we usually have a liquid in mind.   In the sciences a fluid refers to a liquid or a gas.  What is the dividing line between a gas and a liquid if they are both fluids?  For this course, our working definition of a *liquid* is a fluid that is incompressible ([see below](#Compressibility)).  For this course, our working definition of *gas* is a fluid that is compressible.  The sections below will go through a number of physical properties that are commonly used to characterize fluids.
+A *fluid* is a substance that continually deforms or flows under an applied shear stress.  Both liquids and gases fit this description and the word fluid can refer to either a liquid or a gas.  What is the dividing line between a gas and a liquid if they are both fluids?  For this course, our working definition of a *liquid* is a fluid that is incompressible ([see below](#compressibility)) and a *gas* is a fluid that is compressible.  Again, that will be our working definition *for this course*.  The sections below will go through a number of physical properties that are commonly used to characterize fluids.
 
 ## Density, specific weight & specific gravity
 
 ### Density
 
-The *density* of the fluid is its mass per unit volume:
+The *density* of a fluid is its mass per unit volume,
 
 $$
-\textrm{density}=\textrm{mass}/\textrm{Volume}\\
+\textrm{density}=\textrm{mass}/\textrm{Volume}\,.\\
 $$
 
-The density is represented by the Greek letter rho ($\rho$).  If a quantity of fluid has a mass $m$ and a volume $V$, its density is
+The density is represented by the Greek letter rho ($\rho$).  If a quantity of fluid has a mass $m$ and a volume $V$ its density is
 
 $$
-\rho=m/V
+\rho=m/V\,.
 $$
 
 The units for density are $\kg/\m^3$ in the SI system and $\slug/\ft^3$ in the U.S. Customary System.
 
 ### Specific weight
 
-The *specific weight* of the fluid is its weight per unit volume:
+The *specific weight* of a fluid is its weight per unit volume,
 
 $$
-\textrm{specific weight}=\textrm{weight}/\textrm{Volume}\\
+\textrm{specific weight}=\textrm{weight}/\textrm{Volume}\,.\\
 $$
 
-The specific weight is represented by the Greek letter gamma ($\gamma$).  If a quantity of fluid has a weight $w$ and a volume $V$, its specific weight is
+The specific weight is represented by the Greek letter gamma ($\gamma$).  If a quantity of fluid has a weight $w$ and a volume $V$ its specific weight is
 
 $$
-\gamma=w/V
+\gamma=w/V\,.
 $$
 
 The units for specific weight are $\N/\m^3$ in the SI system and $\lb/\ft^3$ in the U.S. Customary System.
 
-It is straightforward to convert between density and specific weight.  Since the weight of a fluid is just its mass times gravity, $w=mg$ ($g$ being the acceleration due to gravity), the specific weight can be computed from the density via
+It is straightforward to convert between density and specific weight.  Since the weight of a fluid is just its mass times gravity, $w=mg$ ($g$ being the acceleration due to gravity), the specific weight can be computed from the density with
 
 $$
-\gamma=\rho g
+\gamma=\rho g\,.
 $$
 
 ### Specific gravity
 
-It is often convenient to report the density of a fluid with respect to a given reference fluid.  A common choice of reference fluid is water at a temperature of $4\C$ and is what will be used throughout this course.   Two numbers you will come to memorize is the density of water at this temperature in the SI and US system of units:   
+It is often convenient to report the density of a fluid with respect to a given reference fluid.  A common choice of reference fluid is water at a temperature of $4\C$ and this is what will be used throughout this course unless specified otherwise.   Two quantities you will come to memorize is the density of water at this temperature in the SI and US system of units:   
 
 $$
 \begin{align*}
@@ -94,7 +94,7 @@ $$
 \end{align*}
 $$
 
-The specific gravity of a substance is then defined by the substance's density divided by the density of water at $4\C$.
+The specific gravity of a substance is then defined by the substance's density divided by the density of water at $4\C$:
 
 $$
 \sg=\frac{\rho}{1000~\kg/\m^3}\quad \textrm{SI}\,, \qquad\qquad
@@ -103,7 +103,7 @@ $$
 
 Note that when computing the specific gravity of a substance you always divide by the density of water at $4\C$ regardless of the temperature of the substance.  Also, note that some industries use water at a temperature of $15.6\C$ as a reference.  The density of water at this slightly higher temperature is smaller by less than a tenth of a percent and will make little difference in practical applications.
 
-Alternatively, the specific weight can be used to calculate the specific gravity.  In this case the specific gravity is defined as the substance's specific weight dividing by the specific weight of water at $4\C$:
+Alternatively, the specific weight can be used to calculate the specific gravity.  In this case the specific gravity is defined as the substance's specific weight divided by the specific weight of water at $4\C$:
 
 $$
 \begin{align*}
@@ -115,16 +115,16 @@ $$
 \end{align*}
 $$
 
-And the specific gravity (sg) of a fluid can be computed from its specific weight ($\gamma$) by computing
+And the specific gravity (sg) of a fluid can be computed from its specific weight ($\gamma$) with
 
 $$
 \sg=\frac{\gamma}{9.81~\kN/\m^3}\quad \textrm{SI}\,, \qquad\qquad
 \sg=\frac{\gamma}{62.4~\lb/\ft^3} \quad \textrm{USCS}
 $$
 
-Note that the two definitions for the specific gravity (the one using density and the one using specific weight) are equivalent.   This is because specific weight is just the density times mass and the factor of mass cancels in the above ratios.  The example below will explicitly illustrate this.
+Note that the two definitions for the specific gravity (the one using density and the one using specific weight) are equivalent.   This is because specific weight is just the density times $g$ and the factor of $g$ cancels in the above ratios.  The example below will explicitly illustrate this.
 
-Note that the specific gravity of a fluid is dimensionless. Don't get confused, the three quantities (density, specific weight and specific gravity) are three ways of representing the same thing (the amount of fluid per unit volume).  In the following examples we will demonstrate how these concepts are commonly used.
+The specific gravity of a fluid is dimensionless. Don't get confused, the three quantities (density, specific weight and specific gravity) are three ways of representing the same thing (the amount of fluid per unit volume).  The following examples will demonstrate how these concepts are related.
 
 <div class="example">
 An oil barrel has a volume of $0.16~\m^3$ and a mass of $140~\kg$.  Compute the weight of the barrel.  Then compute the density, specific weight and specific gravity of the oil.  
@@ -167,7 +167,7 @@ $$
 \sg=\frac{\gamma}{9.81~\kN/\m^3}=\frac{8.581~\kN/\m^3}{9.81~\kN/\m^3}=0.875
 $$
 
-We note that the units cancel when computing the specific gravity leaving us with a dimensionless quantity as expected.
+The units cancel when computing the specific gravity leaving us with a dimensionless quantity as expected.
 
 </div>
 
@@ -177,7 +177,7 @@ Glycerine at $77\F$ has a specific gravity of 1.263.  Compute its density and sp
 
 <hr>
 
-Since Fahrenheit was used in the statement of the problem it makes sense to work in the US system of units.  The density and specific weight can be found by multiplying the given specific gravity of Glycerine with the density and specific weight of water.  First compute the density:
+Since Fahrenheit was used in the statement of the problem it makes sense to work in the US system of units.  The density and specific weight can be found by multiplying the given specific gravity of Glycerine with the density and specific weight of water at $4\C$.  First compute the density:
 
 $$
 \rho=\sg\times 1.94~\slug/\ft^3=1.263\times 1.94~\slug/\ft^3=2.45~\slug/\ft^3
@@ -192,20 +192,20 @@ $$
 To find the weight of a gallon of Glycerine we use the relation $\gamma=w/V$ and solve for $w$:
 
 $$
-w=\gamma \times V = 78.81~\lb/\ft^3\times 1~\cancel{\text{gal}}\left( \frac{\ft^3}{7.48~\cancel{\text{gal}}}\right)=10.5~\lb
+w=\gamma \times V = 78.81~\frac{\lb}{\cancel{\ft^3}}\times 1~\cancel{\text{gal}}\left( \frac{\cancel{\ft^3}}{7.48~\cancel{\text{gal}}}\right)=10.5~\lb
 $$
 
 </div>
 
 ### API gravity
 
-The petroleum industry uses its own measure for density of petroleum products called *API gravity*.  API stands for the American Petroleum Institute.  API gravity is calculated form the specific gravity of an oil by the relationship
+The petroleum industry uses its own measure for density of petroleum products called *API gravity*.  API stands for the American Petroleum Institute.  API gravity is calculated from the specific gravity of an oil with
 
 $$
 \textrm{API gravity} = \frac{141.5}{\textrm{sg}}-131.5
 $$
 
-While these API values do not have units they are often referred to as degrees (deg API).  API gravity is inversely related to specific gravity.  So the lower the oil's API gravity the higher its density.  The above equation can be solved for the specific gravity in terms of the API gravity if its given,
+While these API values do not have units they are often referred to as degrees (deg API).  API gravity is inversely related to specific gravity.  So the lower the oil's API gravity the higher its density.  If the API gravity is given the specific gravity can be found with
 
 $$
 \textrm{sg} = \frac{141.5}{131.5+\textrm{API gravity}}
@@ -216,7 +216,7 @@ $
 \frac{141.5}{1.0}-131.5=10^\circ \textrm{API}
 $
 
-This is very heavy for an oil.  Oil's with an API gravity at or below $10^\circ$ API are usually classified as "extra heavy oil".  "Medium oils" are around $20^\circ$ API and "light oils" around $45^\circ$ API.  Remember, the higher the API the lower the density (Any oil with an API greater than $10^\circ$ will float on water).
+This is very heavy for an oil.  Oil having an API gravity at or below $10^\circ$ API are usually classified as "extra heavy oil".  "Medium oils" are around $20^\circ$ API and "light oils" around $45^\circ$ API.  Remember, the higher the API the lower the density (Any oil with an API greater than $10^\circ$ will float on water).
 
 <div class="example">
 
@@ -244,13 +244,15 @@ $$
 V=\frac{m}{\rho}=\frac{1000~\kg}{931~\kg/\m^3}=1.074~\m^3\,.
 $$
 
-Now the last part might be the trickiest to some.  We need to convert the above volume of $1.074~\m^3$ into a number of barrels.  I do this by a careful cancellation of units as follows.
+Now the last part might be the trickiest.  We need to convert the above volume of $1.074~\m^3$ into a number of barrels.  I do this by a careful cancellation of units as follows.
 
 $$
-V=1.074~\m^3\times\left(\frac{1000 \L}{\m^3}\right)\times\left(\frac{\gal}{3.785~\L}\right)\times\left(\frac{1~\text{barrels}}{42~\gal}\right)=6.76~\text{barrels}
+V=1.074~\m^3\times\left(\frac{1000~ \L}{\m^3}\right)\times\left(\frac{\gal}{3.785~\L}\right)\times\left(\frac{1~\text{barrels}}{42~\gal}\right)=6.76~\text{barrels}
 $$
 
 </div>
+
+There is a closely related scale called the <a href="https://en.wikipedia.org/wiki/Baum%C3%A9_scale">Baumé scale</a>.  It is very similar to to API gravity scale but has different definitions depending on whether the liquid's density is less than or greater than that of water.  I won't go into the details here as using API gravity is preferred.  But if you see a substance (typically a petroleum product) reported in degrees Baumé, it is yet another way of reporting the specific gravity.
 
 ## Pressure
 
@@ -260,7 +262,7 @@ $$
 \textrm{Pressure}=\frac{\textrm{Force}}{\textrm{Area}} \qquad\qquad p=\frac{F}{A}
 $$
 
-For this definition to work the area must be small enough so that the force is uniformly distributed over that area.  The standard unit of pressure in the SI system is $\N/\m^2$ and has its own name, the pascal (Pa).  The standard unit of pressure in the US system is $\lb/\ft^2$ but is rarely used.  Instead,  $\lb/\in^2$, abbreviated psi, is used most often.
+For this definition to work the area must be small enough so that the force is uniformly distributed over that area.  The standard unit of pressure in the SI system is $\N/\m^2$ and has its own name, the pascal (Pa).  The standard unit of pressure in the US system is $\lb/\ft^2$ but is rarely used.  Instead,  $\lb/\inch^2$, abbreviated psi, is used most often.
 
 <div class="example">
 
@@ -275,22 +277,37 @@ $$
 p=\frac{F}{A} = \frac{36~\lb}{(1~\ft)^2} = 36~\lb/\ft^2 =36~\rm{psf}
 $$
 
-So our answer is 36 psf (pounds per square foot).  However, this unit is rarely used so we now convert to the usual psi.
+So our answer is 36 psf (pounds per square foot).  However, this unit is rarely used so convert to the usual psi:
 
 $$
-p=36\frac{\lb}{\ft^2}\times\left(\frac{1~\ft}{12~\in}\right)^2=0.25~\psi
+p=36\frac{\lb}{\ft^2}\times\left(\frac{1~\ft}{12~\inch}\right)^2=0.25~\psi
 $$
 
 </div>
 
-A fluid (gas or liquid) exerts a pressure on objects they are in contact with.  This pressure is created by the molecules of the fluid impacting the confining container.  Note that this pressure acts on the fluid itself as well.  
-
-For a static (not moving) fluid there are two principals we can state
+A fluid (gas or liquid) exerts a pressure on objects they are in contact with.  This pressure is created by the molecules of the fluid impacting the confining container.  Note that this pressure acts internally on the fluid itself as well.  For a static (not moving) fluid there are two important principals
 
 1.  Pressure acts uniformly on a small volume of fluid
 2.  Pressure acts perpendicular to its confining boundary
 
-### Pressure Measurement
+<div class="photo" style="width: 400px;">
+  <img src="img/Pressure_at_point.png">
+  <p>
+  The pressure acting on a small volume of fluid acts uniformly in all directions.
+  </p>
+</div>
+
+<div class="example">
+
+<div><p style="float: left;"><img src="img/pressure_piston.png" height="200px" width="200px"></p>
+<p>
+A cylinder containing a liquid with a movable piston supports a load of $200~\N$.  What is the pressure in the liquid under the piston of area $2500~\mm^2$.  Neglect the weight of the piston.
+</p>
+</div>
+
+
+
+</div>
 
 ## Compressibility
 
