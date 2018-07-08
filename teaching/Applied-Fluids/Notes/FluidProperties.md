@@ -297,15 +297,25 @@ A fluid (gas or liquid) exerts a pressure on objects they are in contact with.  
   </p>
 </div>
 
+<div class="photo" style="width: 500px;">
+  <img src="img/pressure_dist_piston.png" style="width: 220px;">
+  <img src="img/pressure_dist_pipe.png" style="width: 220px;"><BR>
+  <img src="img/pressure_dist_heat_exchanger.png" style="width: 220px;">
+  <img src="img/pressure_dist_reducer.png" style="width: 220px;">
+  <p>
+  The pressure acting on a small volume of fluid acts uniformly in all directions.
+  </p>
+</div>
+
 <div class="example">
 
-<div><p style="float: left;"><img src="img/pressure_piston.png" height="200px" width="200px"></p>
+<div><p style="float: left;"><img src="img/pressure_piston.png" width="200px"></p>
 <p>
 A cylinder containing a liquid with a movable piston supports a load of $200~\N$.  What is the pressure in the liquid under the piston of area $2500~\mm^2$.  Neglect the weight of the piston.
 </p>
 </div>
 
-
+test
 
 </div>
 
@@ -321,7 +331,7 @@ Imagine you have a sealed container half filled with water.  Some of the water m
 
 For example, at room temperature the vapor pressure of water is about 2.4 kPa.  If the ambient pressure is brought below this value water will boil at room temperature as shown in the following movie.
 
-<div class="photo" style="width: 400px;">
+<div class="photo" style="width: 580px;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/739990nm0QY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 <p>
 Plainfield Chemistry - Water Boiling at Room Temperature
