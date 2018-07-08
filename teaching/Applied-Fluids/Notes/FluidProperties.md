@@ -290,18 +290,23 @@ A fluid (gas or liquid) exerts a pressure on objects they are in contact with.  
 1.  Pressure acts uniformly on a small volume of fluid
 2.  Pressure acts perpendicular to its confining boundary
 
-<div class="photo" style="width: 400px;">
-  <img src="img/Pressure_at_point.png">
+<img src="img/Pressure_at_point.png">
+<img src="img/Pressure_at_point.png" style="width:300px">
+<img src="img/Pressure_at_point.png" style="width:300px">
+<img src="img/Pressure_at_point.png" style="width:300px; image-rendering: -webkit-optimize-contrast;">
+
+<div class="photo" style="width: 500px;">
+  <img src="img/Pressure_at_point.png" style="width:auto; height:auto;">
   <p>
   The pressure acting on a small volume of fluid acts uniformly in all directions.
   </p>
 </div>
 
-<div class="photo" style="width: 500px;">
-  <img src="img/pressure_dist_piston.png" style="height: 220px; width:auto;">
-  <img src="img/pressure_dist_pipe.png" style="height: 220px; width:auto;">
-  <img src="img/pressure_dist_heat_exchanger.png" style="height: 220px; width:auto;">
-  <img src="img/pressure_dist_reducer.png" style="height: 220px; width:auto;">
+<div class="photo" style="width: 800px;">
+  <img src="img/pressure_dist_piston.png"  style="width:auto; height:auto;">
+  <img src="img/pressure_dist_pipe.png"  style="width:auto; height:auto;">
+  <img src="img/pressure_dist_heat_exchanger.png"  style="width:auto; height:auto;">
+  <img src="img/pressure_dist_reducer.png"  style="width:auto; height:auto;">
   <p>
   Direction of the force exerted by the fluid pressure on various boundaries.  Left to right: Fluid power cylinder, pipe or tube, heat exchanger consisting of a pipe inside another pipe, reducer used in an HVAC system
   </p>
@@ -311,7 +316,7 @@ A fluid (gas or liquid) exerts a pressure on objects they are in contact with.  
 
 <table style="border:0;">
 <tr><td>
-<img src="img/pressure_piston.png" style="width: 200px; image-rendering: -webkit-optimize-contrast; ">
+<img src="img/pressure_piston.png" style="width: 200px; height: auto; image-rendering: -webkit-optimize-contrast; ">
 </td><td>
 A cylinder containing a liquid with a movable piston supports a load of $200~\N$.  What is the pressure in the liquid under the piston of area $2500~\mm^2$.  Neglect the weight of the piston.
 </td></tr></table>
