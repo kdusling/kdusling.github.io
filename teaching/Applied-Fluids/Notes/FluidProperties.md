@@ -311,8 +311,8 @@ A fluid (gas or liquid) exerts a pressure on objects they are in contact with.  
 <div class="example">
 
 <table style="border:0 padding:10px;">
-<tr><td>
-<img src="img/pressure_piston.png" style="width:232px; height: auto;">
+<tr><td style="width:250px;>
+<img src="img/pressure_piston.png" style="auto; height: auto;">
 </td><td>
 A cylinder containing a liquid with a movable piston supports a load of $200~\N$.  The piston has an area of $2500~\mm^2$ and is of negligible weight.   What is the pressure in the liquid?
 </td></tr></table>
@@ -328,10 +328,10 @@ $$
 We now need to convert this to the standard unit of pressure, the *pascal* which is a $\N/\m^2$.  We make this conversion using the factor of $1~\m=1000~\mm$:
 
 $$
-p=0.08\frac{\N}{\cancel{\mm^2}}\times\left(\frac{1000~\cancel{\mm}}{1~\m}\right)^2=80\,000~\N/\m^2=80\,000~\Pa=80~\mathrm{kPa}=0.08~\mathrm{MPa}
+p=0.08\frac{\N}{\cancel{\mm^2}}\times\left(\frac{1000~\cancel{\mm}}{1~\m}\right)^2=80\,000~\N/\m^2=80\,000~\Pa=80~\mathrm{kPa}
 $$
 
-Reporting the result as $0.08~\N/\mm^2$, while technically correct is of bad form and should be avoided.  Reporting the result in $\N/\m^2$, $\Pa$, $\mathrm{kPa}$ and $\mathrm{MPa}$ are all okay.  Given the magnitude of the result I would lean towards reporting in $\mathrm{kPa}$ or $\mathrm{MPa}$.
+Reporting the result as $0.08~\N/\mm^2$, while technically correct is of bad form and should be avoided.  Reporting the result in $\Pa$ or $\mathrm{kPa}$ are both okay.  Given the magnitude of the result I would lean towards reporting in $\mathrm{kPa}$ or even as $0.08~\mathrm{MPa}$.
 
 </div>
 
