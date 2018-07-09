@@ -290,10 +290,6 @@ A fluid (gas or liquid) exerts a pressure on objects they are in contact with.  
 1.  Pressure acts uniformly on a small volume of fluid
 2.  Pressure acts perpendicular to its confining boundary
 
-<img src="img/Pressure_at_point.png">
-<img src="img/Pressure_at_point.png" style="width:300px">
-<img src="img/Pressure_at_point.png" style="width:300px">
-<img src="img/Pressure_at_point.png" style="width:300px; image-rendering: -webkit-optimize-contrast;">
 
 <div class="photo" style="width: 500px;">
   <img src="img/Pressure_at_point.png" style="width:auto; height:auto;">
@@ -314,9 +310,9 @@ A fluid (gas or liquid) exerts a pressure on objects they are in contact with.  
 
 <div class="example">
 
-<table style="border:0;">
+<table style="border:0 padding:10px;">
 <tr><td>
-<img src="img/pressure_piston.png" style="width: 200px; height: auto; image-rendering: -webkit-optimize-contrast; ">
+<img src="img/pressure_piston.png" style="width:auto; height: auto;">
 </td><td>
 A cylinder containing a liquid with a movable piston supports a load of $200~\N$.  What is the pressure in the liquid under the piston of area $2500~\mm^2$.  Neglect the weight of the piston.
 </td></tr></table>

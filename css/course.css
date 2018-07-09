@@ -55,6 +55,11 @@ caption {
     caption-side: bottom;
     font-size: 80%;
 }
+
+img{
+  max-width: 100%;
+  width: 100%;
+}
 
 /* ---- Images ---- */
 .photo {
