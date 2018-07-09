@@ -47,7 +47,7 @@ A *fluid* is a substance that continually deforms or flows under an applied shea
 The *density* of a fluid is its mass per unit volume,
 
 $$
-\textrm{density}=\textrm{mass}/\textrm{Volume}\,.\\
+\mathrm{density}=\mathrm{mass}/\mathrm{Volume}\,.\\
 $$
 
 The density is represented by the Greek letter rho ($\rho$).  If a quantity of fluid has a mass $m$ and a volume $V$ its density is
@@ -63,7 +63,7 @@ The units for density are $\kg/\m^3$ in the SI system and $\slug/\ft^3$ in the U
 The *specific weight* of a fluid is its weight per unit volume,
 
 $$
-\textrm{specific weight}=\textrm{weight}/\textrm{Volume}\,.\\
+\mathrm{specific weight}=\mathrm{weight}/\mathrm{Volume}\,.\\
 $$
 
 The specific weight is represented by the Greek letter gamma ($\gamma$).  If a quantity of fluid has a weight $w$ and a volume $V$ its specific weight is
@@ -86,10 +86,10 @@ It is often convenient to report the density of a fluid with respect to a given 
 
 $$
 \begin{align*}
-\textrm{density of water at}~4\C:  &&
+\mathrm{density of water at}~4\C:  &&
 \renewcommand\arraystretch{1.3}
 \begin{array}{@{}l@{\hskip 0.5in}c}
-\rho=1000~\text{kg}/\text{m}^3 & \textrm{SI}\\  \rho=1.94~\text{slugs}/\text{ft}^3 & \textrm{USCS}
+\rho=1000~\text{kg}/\text{m}^3 & \mathrm{SI}\\  \rho=1.94~\text{slugs}/\text{ft}^3 & \mathrm{USCS}
 \end{array}  
 \end{align*}
 $$
@@ -97,8 +97,8 @@ $$
 The specific gravity of a substance is then defined by the substance's density divided by the density of water at $4\C$:
 
 $$
-\sg=\frac{\rho}{1000~\kg/\m^3}\quad \textrm{SI}\,, \qquad\qquad
-\sg=\frac{\rho}{1.94~\slug/\ft^3} \quad \textrm{USCS}
+\sg=\frac{\rho}{1000~\kg/\m^3}\quad \mathrm{SI}\,, \qquad\qquad
+\sg=\frac{\rho}{1.94~\slug/\ft^3} \quad \mathrm{USCS}
 $$
 
 Note that when computing the specific gravity of a substance you always divide by the density of water at $4\C$ regardless of the temperature of the substance.  Also, note that some industries use water at a temperature of $15.6\C$ as a reference.  The density of water at this slightly higher temperature is smaller by less than a tenth of a percent and will make little difference in practical applications.
@@ -107,10 +107,10 @@ Alternatively, the specific weight can be used to calculate the specific gravity
 
 $$
 \begin{align*}
-\textrm{specific weight of water at}~4\C:  &&
+\mathrm{specific weight of water at}~4\C:  &&
 \renewcommand\arraystretch{1.3}
 \begin{array}{@{}l@{\hskip 0.5in}c}
-\gamma=9.81~\text{kN}/\text{m}^3 & \textrm{SI}\\  \gamma=62.4~\text{lb}/\text{ft}^3 & \textrm{USCS}
+\gamma=9.81~\text{kN}/\text{m}^3 & \mathrm{SI}\\  \gamma=62.4~\text{lb}/\text{ft}^3 & \mathrm{USCS}
 \end{array}  
 \end{align*}
 $$
@@ -118,8 +118,8 @@ $$
 And the specific gravity (sg) of a fluid can be computed from its specific weight ($\gamma$) with
 
 $$
-\sg=\frac{\gamma}{9.81~\kN/\m^3}\quad \textrm{SI}\,, \qquad\qquad
-\sg=\frac{\gamma}{62.4~\lb/\ft^3} \quad \textrm{USCS}
+\sg=\frac{\gamma}{9.81~\kN/\m^3}\quad \mathrm{SI}\,, \qquad\qquad
+\sg=\frac{\gamma}{62.4~\lb/\ft^3} \quad \mathrm{USCS}
 $$
 
 Note that the two definitions for the specific gravity (the one using density and the one using specific weight) are equivalent.   This is because specific weight is just the density times $g$ and the factor of $g$ cancels in the above ratios.  The example below will explicitly illustrate this.
@@ -202,18 +202,18 @@ $$
 The petroleum industry uses its own measure for density of petroleum products called *API gravity*.  API stands for the American Petroleum Institute.  API gravity is calculated from the specific gravity of an oil with
 
 $$
-\textrm{API gravity} = \frac{141.5}{\textrm{sg}}-131.5
+\mathrm{API gravity} = \frac{141.5}{\mathrm{sg}}-131.5
 $$
 
 While these API values do not have units they are often referred to as degrees (deg API).  API gravity is inversely related to specific gravity.  So the lower the oil's API gravity the higher its density.  If the API gravity is given the specific gravity can be found with
 
 $$
-\textrm{sg} = \frac{141.5}{131.5+\textrm{API gravity}}
+\mathrm{sg} = \frac{141.5}{131.5+\mathrm{API gravity}}
 $$
 
 Note, that the specific gravity in this context uses a reference temperature of $60\F$.  From the above definition of API gravity we can calculate that an oil having the same density of water (*i.e.* sg=1) has an API gravity of
 $
-\frac{141.5}{1.0}-131.5=10^\circ \textrm{API}
+\frac{141.5}{1.0}-131.5=10^\circ \mathrm{API}
 $
 
 This is very heavy for an oil.  Oil having an API gravity at or below $10^\circ$ API are usually classified as "extra heavy oil".  "Medium oils" are around $20^\circ$ API and "light oils" around $45^\circ$ API.  Remember, the higher the API the lower the density (Any oil with an API greater than $10^\circ$ will float on water).
@@ -229,7 +229,7 @@ Western Canadian Select is a heavy crude oil with an API gravity of $20.5^\circ$
 The above problem is asking us to find the volume of 1000 kg of a type of heavy crude oil.  First, let us use the API gravity to find the specific gravity of the oil.
 
 $$
-\textrm{sg} = \frac{141.5}{131.5+\textrm{API gravity}}= \frac{141.5}{131.5+20.5}=0.931\,.
+\mathrm{sg} = \frac{141.5}{131.5+\mathrm{API gravity}}= \frac{141.5}{131.5+20.5}=0.931\,.
 $$
 
 Now that we have the specific gravity we can find the density,
@@ -247,7 +247,7 @@ $$
 Now the last part might be the trickiest.  We need to convert the above volume of $1.074~\m^3$ into a number of barrels.  I do this by a careful cancellation of units as follows.
 
 $$
-V=1.074~\m^3\times\left(\frac{1000~ \L}{\m^3}\right)\times\left(\frac{\gal}{3.785~\L}\right)\times\left(\frac{1~\text{barrels}}{42~\gal}\right)=6.76~\text{barrels}
+V=1.074~\m^3\times\left(\frac{1000~ \L}{\m^3}\right)\times\left(\frac{\gal}{3.785~\L}\right)\times\left(\frac{1~\mathrm{barrels}}{42~\gal}\right)=6.76~\mathrm{barrels}
 $$
 
 </div>
@@ -259,7 +259,7 @@ There is a closely related scale called the <a href="https://en.wikipedia.org/wi
 *Pressure* if the force applied perpendicular to a surface per unit area.
 
 $$
-\textrm{Pressure}=\frac{\textrm{Force}}{\textrm{Area}} \qquad\qquad p=\frac{F}{A}
+\mathrm{Pressure}=\frac{\mathrm{Force}}{\mathrm{Area}} \qquad\qquad p=\frac{F}{A}
 $$
 
 For this definition to work the area must be small enough so that the force is uniformly distributed over that area.  The standard unit of pressure in the SI system is $\N/\m^2$ and has its own name, the pascal (Pa).  The standard unit of pressure in the US system is $\lb/\ft^2$ but is rarely used.  Instead,  $\lb/\inch^2$, abbreviated psi, is used most often.
@@ -300,8 +300,8 @@ A fluid (gas or liquid) exerts a pressure on objects they are in contact with.  
 
 <div class="photo" style="width: 800px;">
   <img src="img/pressure_dist_piston.png"  style="width:auto; height:auto;">
-  <img src="img/pressure_dist_pipe.png"  style="width:auto; height:auto;">
-  <img src="img/pressure_dist_heat_exchanger.png"  style="width:auto; height:auto;">
+  <img src="img/pressure_dist_pipe.png"  style="width:150px; height:auto;">
+  <img src="img/pressure_dist_heat_exchanger.png"  style="width:150px; height:auto;">
   <img src="img/pressure_dist_reducer.png"  style="width:auto; height:auto;">
   <p>
   Direction of the force exerted by the fluid pressure on various boundaries.  Left to right: Fluid power cylinder, pipe or tube, heat exchanger consisting of a pipe inside another pipe, reducer used in an HVAC system
@@ -328,10 +328,10 @@ $$
 We now need to convert this to the standard unit of pressure, the *pascal* which is a $\N/\m^2$.  We make this conversion using the factor of $1~\m=1000~\mm$:
 
 $$
-p=0.08\frac{\N}{\cancel{\mm^2}}\times(\frac{1000~\mm}{1~\m})^2=80\,000~\N/\m^2=80\,000~\Pa=80~kPa=0.08~MPa
+p=0.08\frac{\N}{\cancel{\mm^2}}\times(\frac{1000~\mm}{1~\m})^2=80\,000~\N/\m^2=80\,000~\Pa=80~\mathrm{kPa}=0.08~\mathrm{MPa}
 $$
 
-Reporting the result as 0.08~\N/\mm^2, while technically not incorrect is of bad form and should be avoided.  Reporting the result in $\N/\m^2$, Pa, kPa and MPa are all okay.  Given the magnitude I would lean towards reporting the result in kPa or MPa.
+Reporting the result as $0.08~\N/\mm^2$, while technically correct is of bad form and should be avoided.  Reporting the result in $\N/\m^2$, $\Pa$, $\mathrm{kPa}$ and $\mathrm{MPa}$ are all okay.  Given the magnitude of the result I would lean towards reporting in $\mathrm{kPa}$ or $\mathrm{MPa}$.
 
 </div>
 
