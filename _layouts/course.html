@@ -11,10 +11,7 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
-        // enable automatic line breaks (might look ugly)
-        CommonHTML: { linebreaks: { automatic: true } },
-        "HTML-CSS": { linebreaks: { automatic: true } },
-        SVG: { linebreaks: { automatic: true } },
+
 
         // enable $ for inline math -> use \$ for ordinary dollar-sign
         tex2jax: {
@@ -22,16 +19,21 @@
           processEscapes: true
         },
 
+        "SVG":{
+          font:font,
+          linebreaks: { automatic: true }
+        },
+
+        "HTML-CSS": {
+          webFont: font,
+          imageFont: font,
+          preferredFont: font,
+          availableFonts: [],
+          scale: 85,
+          mtextFontInherit: true,
+          linebreaks: { automatic: true }
+        },
         
-        MatchWebFonts: {
-          matchFor: {
-            "HTML-CSS": true,
-            NativeMML: false,
-            SVG: false
-          },
-          fontCheckDelay: 2000,
-          fontCheckTimeout: 30 * 1000
-        }
       });
     </script>
 

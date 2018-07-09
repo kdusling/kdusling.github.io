@@ -285,7 +285,7 @@ $$
 
 </div>
 
-A fluid (gas or liquid) exerts a pressure on objects they are in contact with.  This pressure is created by the molecules of the fluid impacting the confining container.  Note that this pressure acts internally on the fluid itself as well.  For a static (not moving) fluid there are two important principals
+A fluid (gas or liquid) exerts a pressure on objects they are in contact with.  This pressure is created by the molecules of the fluid impacting the confining container.  Note that this pressure acts internally on the fluid itself as well.  For a static (not moving) fluid there are two important principles
 
 1.  Pressure acts uniformly on a small volume of fluid
 2.  Pressure acts perpendicular to its confining boundary
@@ -314,13 +314,13 @@ A fluid (gas or liquid) exerts a pressure on objects they are in contact with.  
 <tr><td>
 <img src="img/pressure_piston.png" style="width:auto; height: auto;">
 </td><td>
-A cylinder containing a liquid with a movable piston supports a load of $200~\N$.  What is the pressure in the liquid under the piston of area $2500~\mm^2$.  Neglect the weight of the piston.
+A cylinder containing a liquid with a movable piston supports a load of $200~\N$.  The piston has an area of $2500~\mm^2$ and is of negligible weight.   What is the pressure in the liquid?
 </td></tr></table>
 
 <hr>
 
-Here is my solution
-
+We assume that the fluid under the piston is uniformly supporting the load.  
+From the second principle above
 </div>
 
 ## Compressibility
