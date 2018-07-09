@@ -298,10 +298,10 @@ A fluid (gas or liquid) exerts a pressure on objects they are in contact with.  
   </p>
 </div>
 
-<div class="photo" style="width: 800px;">
+<div class="photo" style="width: 900px;">
   <img src="img/pressure_dist_piston.png"  style="width:auto; height:auto;">
-  <img src="img/pressure_dist_pipe.png"  style="width:150px; height:auto;">
-  <img src="img/pressure_dist_heat_exchanger.png"  style="width:150px; height:auto;">
+  <img src="img/pressure_dist_pipe.png"  style="width:200px; height:auto;">
+  <img src="img/pressure_dist_heat_exchanger.png"  style="width:200px; height:auto;">
   <img src="img/pressure_dist_reducer.png"  style="width:auto; height:auto;">
   <p>
   Direction of the force exerted by the fluid pressure on various boundaries.  Left to right: Fluid power cylinder, pipe or tube, heat exchanger consisting of a pipe inside another pipe, reducer used in an HVAC system
@@ -312,14 +312,14 @@ A fluid (gas or liquid) exerts a pressure on objects they are in contact with.  
 
 <table style="border:0 padding:10px;">
 <tr><td>
-<img src="img/pressure_piston.png" style="width:auto; height: auto;">
+<img src="img/pressure_piston.png" style="width:232px; height: auto;">
 </td><td>
 A cylinder containing a liquid with a movable piston supports a load of $200~\N$.  The piston has an area of $2500~\mm^2$ and is of negligible weight.   What is the pressure in the liquid?
 </td></tr></table>
 
 <hr>
 
-We assume that the fluid under the piston is uniformly supporting the load.   From the second principle the pressure exerts a force perpendicular to the piston as shown in the figure.  Using the definition of pressure_piston
+We assume that the fluid under the piston is uniformly supporting the load.   From the second principle the pressure exerts a force perpendicular to the piston as shown in the figure.  Using the definition of pressure
 
 $$
 p=\frac{F}{A}=\frac{200~\N}{2500~\mm^2}=0.08~\N/\mm^2
@@ -328,7 +328,7 @@ $$
 We now need to convert this to the standard unit of pressure, the *pascal* which is a $\N/\m^2$.  We make this conversion using the factor of $1~\m=1000~\mm$:
 
 $$
-p=0.08\frac{\N}{\cancel{\mm^2}}\times(\frac{1000~\mm}{1~\m})^2=80\,000~\N/\m^2=80\,000~\Pa=80~\mathrm{kPa}=0.08~\mathrm{MPa}
+p=0.08\frac{\N}{\cancel{\mm^2}}\times\left(\frac{1000~\cancel{\mm}}{1~\m}\right)^2=80\,000~\N/\m^2=80\,000~\Pa=80~\mathrm{kPa}=0.08~\mathrm{MPa}
 $$
 
 Reporting the result as $0.08~\N/\mm^2$, while technically correct is of bad form and should be avoided.  Reporting the result in $\N/\m^2$, $\Pa$, $\mathrm{kPa}$ and $\mathrm{MPa}$ are all okay.  Given the magnitude of the result I would lean towards reporting in $\mathrm{kPa}$ or $\mathrm{MPa}$.
