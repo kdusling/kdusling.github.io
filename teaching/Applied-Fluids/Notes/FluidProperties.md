@@ -319,8 +319,17 @@ A cylinder containing a liquid with a movable piston supports a load of $200~\N$
 
 <hr>
 
-We assume that the fluid under the piston is uniformly supporting the load.  
-From the second principle above
+We assume that the fluid under the piston is uniformly supporting the load.   From the second principle the pressure exerts a force perpendicular to the piston as shown in the figure.  Using the definition of pressure_piston
+
+$$
+p=\frac{F}{A}=\frac{200~\N}{2500~\mm^2}=0.08~\N/\mm^2
+$$
+
+We now need to convert this to the standard unit of pressure, the *pascal* which is a $\N/\m^2$.  We make this conversion using the factor of $1~\m=1000~\mm$:
+
+$$
+p=0.08\frac{\N}{\cancel{\mm^2}}\times(\frac{1000~\mm}{1~\m})^2=80\,000~\N/\m^2=80\,000~\Pa=80~kPa=0.08~MPa
+$$
 </div>
 
 ## Compressibility
