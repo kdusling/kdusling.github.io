@@ -330,6 +330,9 @@ We now need to convert this to the standard unit of pressure, the *pascal* which
 $$
 p=0.08\frac{\N}{\cancel{\mm^2}}\times(\frac{1000~\mm}{1~\m})^2=80\,000~\N/\m^2=80\,000~\Pa=80~kPa=0.08~MPa
 $$
+
+Reporting the result as 0.08~\N/\mm^2, while technically not incorrect is of bad form and should be avoided.  Reporting the result in $\N/\m^2$, Pa, kPa and MPa are all okay.  Given the magnitude I would lean towards reporting the result in kPa or MPa.
+
 </div>
 
 ## Compressibility
