@@ -8,34 +8,30 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="/css/course.css" rel="stylesheet" type="text/css" media="all">
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
+
     <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        var font = "Neo-Euler";
+var font = "Neo-Euler";
+MathJax.Hub.Config({
+	tex2jax: {
+		inlineMath: [['$','$']],
+		displayMath: [['\\[','\\]']],
+		processEscapes: true,
+	},
+	"SVG":{
+		font:font
+	},
+	"HTML-CSS": {
+		webFont: font,
+		imageFont: font,
+		preferredFont: font,
+		availableFonts: [],
+		scale: 85,
+		mtextFontInherit: true
+	}
+}); </script> <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-        "SVG":{
-          font:font,
-          linebreaks: { automatic: true }
-        },
 
-        "HTML-CSS": {
-          webFont: font,
-          imageFont: font,
-          preferredFont: font,
-          availableFonts: [],
-          scale: 85,
-          mtextFontInherit: true,
-          linebreaks: { automatic: true }
-        },
 
-        // enable $ for inline math -> use \$ for ordinary dollar-sign
-        tex2jax: {
-          inlineMath: [['$','$'], ['\\(','\\)']],
-          processEscapes: true
-        },
-
-      });
-    </script>
 
   </head>
   <body>
