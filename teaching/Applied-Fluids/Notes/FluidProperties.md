@@ -311,7 +311,7 @@ A fluid (gas or liquid) exerts a pressure on objects they are in contact with.  
 <div class="example">
 
 <table style="border:0 padding:10px;">
-<tr><td style="width:250px;>
+<tr><td style="width:250px;">
 <img src="img/pressure_piston.png" style="auto; height: auto;">
 </td><td>
 A cylinder containing a liquid with a movable piston supports a load of $200~\N$.  The piston has an area of $2500~\mm^2$ and is of negligible weight.   What is the pressure in the liquid?
@@ -331,11 +331,13 @@ $$
 p=0.08\frac{\N}{\cancel{\mm^2}}\times\left(\frac{1000~\cancel{\mm}}{1~\m}\right)^2=80\,000~\N/\m^2=80\,000~\Pa=80~\mathrm{kPa}
 $$
 
-Reporting the result as $0.08~\N/\mm^2$, while technically correct is of bad form and should be avoided.  Reporting the result in $\Pa$ or $\mathrm{kPa}$ are both okay.  Given the magnitude of the result I would lean towards reporting in $\mathrm{kPa}$ or even as $0.08~\mathrm{MPa}$.
+Reporting the result as $0.08~\N/\mm^2$, while technically correct is bad form and should be avoided.  Reporting the result in $\Pa$ or $\mathrm{kPa}$ are both okay.  Given the magnitude of the result I would lean towards reporting in $\mathrm{kPa}$ or even as $0.08~\mathrm{MPa}$.
 
 </div>
 
 ## Compressibility
+
+A fluid (gas or liquid) will change its volume when subjected to a change in pressure.  For example, in the previous problem as the load is increased the volume that is occupied by the fluid in the cylinder will decrease.  For a liquid, such as water, this change in volume may not even be visible.  For a gas it will be more apparent.  The fluid property that quantifies this behavior is the *bulk modulus*.
 
 $$
 K=\frac{-\Delta p}{(\Delta V)/V}
@@ -377,7 +379,7 @@ The molecules of a liquid attract each other.  For example, in water hydrogen bo
 </div>
 
 $$
-\rm{Surface tension}=\frac{\rm{work}}{\rm{area}}
+\mathrm{Surface tension}=\frac{\mathrm{work}}{\mathrm{area}}
 $$
 
 
