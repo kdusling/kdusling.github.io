@@ -38,7 +38,9 @@ $$
 * A markdown unordered list for the toc
 {:toc}
 
-A *fluid* is a substance that continually deforms or flows under an applied shear stress.  Both liquids and gases fit this description and the word fluid can refer to either a liquid or a gas.  What is the dividing line between a gas and a liquid if they are both fluids?  For this course, our working definition of a *liquid* is a fluid that is incompressible ([see below](#compressibility)) and a *gas* is a fluid that is compressible.  Again, that will be our working definition *for this course*.  The sections below will go through a number of physical properties that are commonly used to characterize fluids.
+A *fluid* is a substance that continually deforms or flows under an applied shear stress.  Both liquids and gases fit this description and the word fluid is used to refer to either.  What is the dividing line between a gas and a liquid if they are both fluids?  For this course, our working definition of a *liquid* is a fluid that is incompressible ([see below](#compressibility)) and a *gas* is a fluid that is compressible.  Again, that is our working definition *for this course*.  
+
+The sections below go through a number of physical properties that are commonly used to characterize fluids.
 
 ## Density, specific weight & specific gravity
 
@@ -63,7 +65,7 @@ The units for density are $\kg/\m^3$ in the SI system and $\slug/\ft^3$ in the U
 The *specific weight* of a fluid is its weight per unit volume,
 
 $$
-\mathrm{specific weight}=\mathrm{weight}/\mathrm{Volume}\,.\\
+\mathrm{specific~weight}=\mathrm{weight}/\mathrm{Volume}\,.\\
 $$
 
 The specific weight is represented by the Greek letter gamma ($\gamma$).  If a quantity of fluid has a weight $w$ and a volume $V$ its specific weight is
@@ -82,11 +84,11 @@ $$
 
 ### Specific gravity
 
-It is often convenient to report the density of a fluid with respect to a given reference fluid.  A common choice of reference fluid is water at a temperature of $4\C$ and this is what will be used throughout this course unless specified otherwise.   Two quantities you will come to memorize is the density of water at this temperature in the SI and US system of units:   
+It is often convenient to report the density of a fluid with respect to a given reference fluid.  A common choice of reference fluid is water at a temperature of $4\C$ and this is what will be used throughout this course unless specified otherwise.   Two quantities you will come to memorize are the density of water at this temperature in the SI and US system of units:   
 
 $$
 \begin{align*}
-\mathrm{density of water at}~4\C:  &&
+\mathrm{density~of~water~at}~4\C:  &&
 \renewcommand\arraystretch{1.3}
 \begin{array}{@{}l@{\hskip 0.5in}c}
 \rho=1000~\text{kg}/\text{m}^3 & \mathrm{SI}\\  \rho=1.94~\text{slugs}/\text{ft}^3 & \mathrm{USCS}
@@ -107,7 +109,7 @@ Alternatively, the specific weight can be used to calculate the specific gravity
 
 $$
 \begin{align*}
-\mathrm{specific weight of water at}~4\C:  &&
+\mathrm{specific~weight~of~water~at}~4\C:  &&
 \renewcommand\arraystretch{1.3}
 \begin{array}{@{}l@{\hskip 0.5in}c}
 \gamma=9.81~\text{kN}/\text{m}^3 & \mathrm{SI}\\  \gamma=62.4~\text{lb}/\text{ft}^3 & \mathrm{USCS}
@@ -199,22 +201,23 @@ $$
 
 ### API gravity
 
-The petroleum industry uses its own measure for density of petroleum products called *API gravity*.  API stands for the American Petroleum Institute.  API gravity is calculated from the specific gravity of an oil with
+The petroleum industry uses its own measure for density of petroleum products called *API gravity*.  API stands for the American Petroleum Institute.  API gravity is calculated from the specific gravity of an oil using
 
 $$
-\mathrm{API gravity} = \frac{141.5}{\mathrm{sg}}-131.5
+\mathrm{API~gravity} = \frac{141.5}{\mathrm{sg}}-131.5
 $$
 
 While these API values do not have units they are often referred to as degrees (deg API).  API gravity is inversely related to specific gravity.  So the lower the oil's API gravity the higher its density.  If the API gravity is given the specific gravity can be found with
 
 $$
-\mathrm{sg} = \frac{141.5}{131.5+\mathrm{API gravity}}
+\mathrm{sg} = \frac{141.5}{131.5+\mathrm{API~gravity}}
 $$
 
-Note, that the specific gravity in this context uses a reference temperature of $60\F$.  From the above definition of API gravity we can calculate that an oil having the same density of water (*i.e.* sg=1) has an API gravity of
-$
-\frac{141.5}{1.0}-131.5=10^\circ \mathrm{API}
-$
+Note, that the specific gravity in this context uses a reference temperature of $60\F$.  From the above definition of API gravity we can calculate that an oil having the same density of water (*i.e.* sg=1) has an API gravity of,
+
+$$
+\mathrm{API~gravity~of~water}=\frac{141.5}{1.0}-131.5=10^\circ \mathrm{API}
+$$
 
 This is very heavy for an oil.  Oil having an API gravity at or below $10^\circ$ API are usually classified as "extra heavy oil".  "Medium oils" are around $20^\circ$ API and "light oils" around $45^\circ$ API.  Remember, the higher the API the lower the density (Any oil with an API greater than $10^\circ$ will float on water).
 
@@ -262,7 +265,7 @@ $$
 \mathrm{Pressure}=\frac{\mathrm{Force}}{\mathrm{Area}} \qquad\qquad p=\frac{F}{A}
 $$
 
-For this definition to work the area must be small enough so that the force is uniformly distributed over that area.  The standard unit of pressure in the SI system is $\N/\m^2$ and has its own name, the pascal (Pa).  The standard unit of pressure in the US system is $\lb/\ft^2$ but is rarely used.  Instead,  $\lb/\inch^2$, abbreviated psi, is used most often.
+For this definition to work the area must be small enough so that the force is uniformly distributed over that area.  The standard unit of pressure in the SI system is $\N/\m^2$ and has its own name, the pascal (Pa).  The standard unit of pressure in the US system is $\lb/\ft^2$ but is rarely used.  Instead,  $\lb/\inch^2$, abbreviated psi, is used most often.  Note that pressure is a scalar quantity; it has a magnitude but no direction.  Of course, the force generated from a pressure has both a magnitude and direction and you will oftentimes hear that the fluid pressure acts in a certain direction.  The intended meaning is clear but in the back of your head remind yourself that pressure is actually a scalar quantity.  
 
 <div class="example">
 
@@ -290,6 +293,7 @@ A fluid (gas or liquid) exerts a pressure on objects they are in contact with.  
 1.  Pressure acts uniformly on a small volume of fluid
 2.  Pressure acts perpendicular to its confining boundary
 
+These two principles are illustrated in the following pictures.
 
 <div class="photo" style="width: 500px;">
   <img src="img/Pressure_at_point.png" style="width:auto; height:auto;">
@@ -304,7 +308,7 @@ A fluid (gas or liquid) exerts a pressure on objects they are in contact with.  
   <img src="img/pressure_dist_heat_exchanger.png"  style="width:200px; height:auto;">
   <img src="img/pressure_dist_reducer.png"  style="width:auto; height:auto;">
   <p>
-  Direction of the force exerted by the fluid pressure on various boundaries.  Left to right: Fluid power cylinder, pipe or tube, heat exchanger consisting of a pipe inside another pipe, reducer used in an HVAC system
+  Direction of the force exerted by the fluid pressure on various boundaries.  Left to right: Fluid power cylinder, pipe or tube, heat exchanger consisting of a pipe inside another pipe, a reducer used in an HVAC system
   </p>
 </div>
 
@@ -335,13 +339,48 @@ Reporting the result as $0.08~\N/\mm^2$, while technically correct is bad form a
 
 </div>
 
+The above definition of the pressure (force applied perpendicular to a surface per unit area) is sometimes referred to as the *mechanical pressure* in order to differentiate it from the *thermodynamic pressure* that appears in a fluid's equation of state.  For a static fluid in equilibrium these two pressures are equivalent.  When we discuss fluids in motion we will sometimes refer to a *static pressure* which can be identified with the thermodynamic pressure along with an additional *dynamic pressure* when the fluid is moving.  We'll come back to this in more detail later.  For a while we will be working with static fluids in equilibrium where there is one pressure and the mechanical and thermodynamic definitions coincide.   
+
 ## Compressibility
 
-A fluid (gas or liquid) will change its volume when subjected to a change in pressure.  For example, in the previous problem as the load is increased the volume that is occupied by the fluid in the cylinder will decrease.  For a liquid, such as water, this change in volume may not even be visible.  For a gas it will be more apparent.  The fluid property that quantifies this behavior is the *bulk modulus*.
+A fluid (gas or liquid) will change its volume when the pressure changes.  For example, in the previous problem of the movable piston as the load is increased the volume that is occupied by the fluid in the cylinder will decrease.  For a liquid, such as water, this change in volume may be so small that it is not visible.  For a gas it will be more apparent.  The fluid property that quantifies this behavior is the *bulk modulus*, in these notes represented by the letter $K$ though sometimes $E$ or $B$ is used.
 
 $$
 K=\frac{-\Delta p}{(\Delta V)/V}
 $$
+
+In the above expression $Delta V$ is the change in volume of the fluid occurring under a change in pressure $\Delta p$.  The ratio $\Delta V/V$ -- the change in volume over initial volume is dimensionless and the bulk modulus therefore has the same dimensions as pressure.  Actually, the volume $V$ can be the initial or final.  The above definition is really only valid for small changes in volume (think differentials) where it wouldn't make a difference if the initial or final volume is used.
+
+<div class="example">
+
+If the cylinder of the previous problem contains Glycerin ($K=4509~\MPa$) what percent volume change occurs when the load of $200~\N$ is placed on the movable piston.
+
+<hr>
+
+We wish to find the percent change in volume.  This corresponds to $100\times \Delta V/V$.  First, solving for $\Delta V/V$ we have
+
+$$
+\Delta V/V=\frac{-\Delta p}{E}
+$$
+
+The pressure goes from zero to $0.08~\MPa$ as the load in placed on the piston.
+The change in pressure (initial minus final) is
+
+$$
+\Delta p=0-0.08~\MPa = -0.08~\MPa
+$$
+
+We therefore have that
+
+$$
+\Delta V/V=\frac{-\Delta p}{E}=\frac{-(-0.08~\Mpa)}{4509~\Mpa}=1.8\times 10^-5
+$$
+
+The percent change in volume is therefore 0.0018\%.
+
+</div>
+
+As the above example demonstrates, the large bulk modulus of most liquids results in very tiny changes in volume under the types of pressures we expect to normally encounter.  For this reason, reasons will be treated as incompressible unless stated otherwise.  For gases, bulk modulus is rarely used since it is necessary to specify how the temperature changes during the compression.  The bulk modulus of some common liquids is <a href="https://kdusling.github.io/teaching/Applied-Fluids/PropertiesOfCommonLiquids.html">listed here</a>.
 
 ## Vapor pressure
 
@@ -350,7 +389,7 @@ Imagine you have a sealed container half filled with water.  Some of the water m
 For example, at room temperature the vapor pressure of water is about 2.4 kPa.  If the ambient pressure is brought below this value water will boil at room temperature as shown in the following movie.
 
 <div class="photo" style="width: 580px;">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/739990nm0QY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="600" height="315" src="https://www.youtube.com/embed/739990nm0QY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 <p>
 Plainfield Chemistry - Water Boiling at Room Temperature
 </p>
@@ -369,7 +408,7 @@ The consideration of vapor pressure will be of particular importance in this cla
 
 ## Surface tension
 
-The molecules of a liquid attract each other.  For example, in water hydrogen bonds result in a strong cohesive force among the water molecules.  In the bulk of the water these molecular interactions are balanced in all directions.  However, at the surface there is an imbalance and the water molecules cohere more strongly to the neighboring molecules resulting in apparent film at the surface.  It is more difficult to move an object through the surface than to move it through the fluid when fully immersed.
+The molecules of a liquid attract each other.  For example, in water hydrogen bonds result in a strong cohesive force among the water molecules.  In the bulk of the water these molecular interactions are balanced in all directions.  However, at the surface there is an imbalance and the water molecules cohere more strongly to the neighboring molecules resulting in apparent film at the surface.  It is more difficult to move an object through the surface than to move it through the fluid when fully immersed.  The liquid behaves as though its been covered with a thin elastic membrane.  The strength of this membrane (loosely speaking) is quantified by the fluid's *surface tension* usually represented by the Greek letter gamma ($\gamma$).  It is expressed as a force per unit length or an energy (work) per unit area.
 
 <div class="photo" style="width: 400px;">
   <img src="img/WaterStrider.jpg" alt="Water Strider">
@@ -378,9 +417,6 @@ The molecules of a liquid attract each other.  For example, in water hydrogen bo
   </p>
 </div>
 
-$$
-\mathrm{Surface tension}=\frac{\mathrm{work}}{\mathrm{area}}
-$$
 
 
 ## Viscosity
