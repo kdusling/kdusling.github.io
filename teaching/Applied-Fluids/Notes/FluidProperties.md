@@ -25,6 +25,8 @@ $$
 \newcommand{\N}{\mathrm{N}}
 \newcommand{\slug}{\mathrm{slugs}}
 \newcommand{\Pa}{\mathrm{Pa}}
+\newcommand{\kPa}{\mathrm{kPa}}
+\newcommand{\MPa}{\mathrm{MPa}}
 \newcommand{\mph}{\mathrm{mph}}
 \renewcommand{\psi}{\mathrm{psi}}
 \newcommand{\C}{^\circ\mathrm{C}}
@@ -335,7 +337,7 @@ $$
 p=0.08\frac{\N}{\cancel{\mm^2}}\times\left(\frac{1000~\cancel{\mm}}{1~\m}\right)^2=80\,000~\N/\m^2=80\,000~\Pa=80~\mathrm{kPa}
 $$
 
-Reporting the result as $0.08~\N/\mm^2$, while technically correct is bad form and should be avoided.  Reporting the result in $\Pa$ or $\mathrm{kPa}$ are both okay.  Given the magnitude of the result I would lean towards reporting in $\mathrm{kPa}$ or even as $0.08~\mathrm{MPa}$.
+Reporting the result as $0.08~\N/\mm^2$, while technically correct is bad form and should be avoided.  Reporting the result in $\Pa$ or $\kPa$ are both okay.  Given the magnitude of the result I would lean towards reporting in $\kPa$ or even as $0.08~\MPa$.
 
 </div>
 
@@ -388,8 +390,8 @@ Imagine you have a sealed container half filled with water.  Some of the water m
 
 For example, at room temperature the vapor pressure of water is about 2.4 kPa.  If the ambient pressure is brought below this value water will boil at room temperature as shown in the following movie.
 
-<div class="photo" style="width: 580px;">
-<iframe width="600" height="315" src="https://www.youtube.com/embed/739990nm0QY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<div class="photo" style="width: 500px;">
+<iframe width="427" height="240" src="https://www.youtube.com/embed/739990nm0QY?ecver=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 <p>
 Plainfield Chemistry - Water Boiling at Room Temperature
 </p>
