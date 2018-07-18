@@ -8,7 +8,8 @@ title: Dimensions & Units
 
 <div style="width: 600px">
 
-1. ![](png/unit1-001.png)
+1. ![](png/unit1-001-2.png)
+1. ![](png/unit1-001-4.png)
 
 1. ![](png/unit1-002.png)
 
