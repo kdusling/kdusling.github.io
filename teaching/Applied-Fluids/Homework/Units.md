@@ -6,7 +6,7 @@ title: Dimensions & Units
 # Dimensions & Units
 {:.no_toc}
 
-<div style="width: 800px">
+<div style="width: 600px">
 
 1. ![](png/unit1-001.png)
 
