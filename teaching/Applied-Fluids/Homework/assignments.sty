@@ -5,6 +5,7 @@
 \RequirePackage[most]{tcolorbox}
 \RequirePackage{amsmath}
 \RequirePackage{cancel}
+\RequirePackage{enumerate}
 
 \newenvironment{absolutelynopagebreak}
 {\par\nobreak\vfil\penalty0\vfilneg\vtop\bgroup}
@@ -12,7 +13,11 @@
 
 \newenvironment{question}{
 \begin{absolutelynopagebreak}
+\stepcounter{Qnum}
+\begin{enumerate}
+\item[\arabic{Qnum}.]
 }{
+\end{enumerate}
 \end{absolutelynopagebreak}
 }
 
