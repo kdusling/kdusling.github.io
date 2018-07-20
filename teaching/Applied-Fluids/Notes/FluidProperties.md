@@ -40,7 +40,7 @@ $$
 * A markdown unordered list for the toc
 {:toc}
 
-A *fluid* is a substance that continually deforms or flows under an applied shear stress.  Both liquids and gases fit this description and the word fluid is used to refer to either.  What is the dividing line between a gas and a liquid if they are both fluids?  For this course, our working definition of a *liquid* is a fluid that is incompressible ([see below](#compressibility)) and a *gas* is a fluid that is compressible.  Again, that is our working definition *for this course*.  
+A *fluid* is a substance that continually deforms or flows under an applied shear stress.  Both liquids and gases fit this description and the word fluid refers to either.  What differentiates a gas from a liquid if both are fluids?  For this course, our working definition of a *liquid* is a fluid that is incompressible ([see below](#compressibility)) and a *gas* is a fluid that is compressible.  Again, that is our working definition *for this course*.  
 
 The sections below go through a number of physical properties that are commonly used to characterize fluids.
 
@@ -78,7 +78,7 @@ $$
 
 The units for specific weight are $\N/\m^3$ in the SI system and $\lb/\ft^3$ in the U.S. Customary System.
 
-It is straightforward to convert between density and specific weight.  Since the weight of a fluid is just its mass times gravity, $w=mg$ ($g$ being the acceleration due to gravity), the specific weight can be computed from the density with
+It is straightforward to convert between density and specific weight.  Since the weight of a fluid is just its mass times gravity, $w=mg$ ($g$ being the acceleration due to gravity), the specific weight can be computed from the density using
 
 $$
 \gamma=\rho g\,.
@@ -86,7 +86,7 @@ $$
 
 ### Specific gravity
 
-It is often convenient to report the density of a fluid with respect to a given reference fluid.  A common choice of reference fluid is water at a temperature of $4\C$ and this is what will be used throughout this course unless specified otherwise.   Two quantities you will come to memorize are the density of water at this temperature in the SI and US system of units:   
+It is often convenient to report the density of a fluid with respect to a given reference fluid.  A common choice of reference fluid is water at a temperature of $4\C$.  We will use this as our reference fluid unless specified otherwise.   Two quantities you will come to memorize are the density of water at this temperature in the SI and US system of units:   
 
 $$
 \begin{align*}
@@ -98,14 +98,14 @@ $$
 \end{align*}
 $$
 
-The specific gravity of a substance is then defined by the substance's density divided by the density of water at $4\C$:
+The specific gravity of a substance is then defined as the substance's density divided by the density of water at $4\C$:
 
 $$
 \sg=\frac{\rho}{1000~\kg/\m^3}\quad \mathrm{SI}\,, \qquad\qquad
 \sg=\frac{\rho}{1.94~\slug/\ft^3} \quad \mathrm{USCS}
 $$
 
-Note that when computing the specific gravity of a substance you always divide by the density of water at $4\C$ regardless of the temperature of the substance.  Also, note that some industries use water at a temperature of $15.6\C$ as a reference.  The density of water at this slightly higher temperature is smaller by less than a tenth of a percent and will make little difference in practical applications.
+Note that when computing the specific gravity of a substance you always divide by the density of water at its reference temperature (here $4\C$) regardless of the temperature of the substance.  Some industries use water at a temperature of $15.6\C$ as a reference.  The density of water at this slightly higher temperature is smaller by less than a tenth of a percent and will make little difference in practical applications.
 
 Alternatively, the specific weight can be used to calculate the specific gravity.  In this case the specific gravity is defined as the substance's specific weight divided by the specific weight of water at $4\C$:
 
@@ -119,23 +119,23 @@ $$
 \end{align*}
 $$
 
-And the specific gravity (sg) of a fluid can be computed from its specific weight ($\gamma$) with
+And the specific gravity (sg) of a fluid can be computed from its specific weight ($\gamma$) using
 
 $$
 \sg=\frac{\gamma}{9.81~\kN/\m^3}\quad \mathrm{SI}\,, \qquad\qquad
 \sg=\frac{\gamma}{62.4~\lb/\ft^3} \quad \mathrm{USCS}
 $$
 
-Note that the two definitions for the specific gravity (the one using density and the one using specific weight) are equivalent.   This is because specific weight is just the density times $g$ and the factor of $g$ cancels in the above ratios.  The example below will explicitly illustrate this.
+Note that the two definitions for the specific gravity (the one using density and the one using specific weight) are equivalent.   This is because specific weight is just the density times $g$ and the factor of $g$ cancels in the above ratios.  The example below will illustrate this.
 
-The specific gravity of a fluid is dimensionless. Don't get confused, the three quantities (density, specific weight and specific gravity) are three ways of representing the same thing (the amount of fluid per unit volume).  The following examples will demonstrate how these concepts are related.
+The specific gravity of a fluid is dimensionless. Don't get confused, the three quantities (density, specific weight and specific gravity) are three ways of representing the same thing (the amount of fluid per unit volume).  The following examples demonstrate how these concepts are related.
 
 <div class="example">
 An oil barrel has a volume of $0.16~\m^3$ and a mass of $140~\kg$.  Compute the weight of the barrel.  Then compute the density, specific weight and specific gravity of the oil.  
 
 <hr>
 
-To compute the weight we use $w=mg$ where $g=9.81~\m/s^2$.  We have
+To compute the weight use $w=mg$ where $g=9.81~\m/s^2$.  We have
 
 $$
 w=140~\kg\times 9.81~\m/s^2=1373~\kg\cdot\m/s^2
@@ -181,13 +181,13 @@ Glycerine at $77\F$ has a specific gravity of 1.263.  Compute its density and sp
 
 <hr>
 
-Since Fahrenheit was used in the statement of the problem it makes sense to work in the US system of units.  The density and specific weight can be found by multiplying the given specific gravity of Glycerine with the density and specific weight of water at $4\C$.  First compute the density:
+Since Fahrenheit was used in the statement of the problem we will work in the US system of units.  The density and specific weight can be found by multiplying the given specific gravity of Glycerine with the density and specific weight of water at $4\C$.  First compute the density:
 
 $$
 \rho=\sg\times 1.94~\slug/\ft^3=1.263\times 1.94~\slug/\ft^3=2.45~\slug/\ft^3
 $$
 
-And now the specific weight:
+And then the specific weight:
 
 $$
 \gamma=\sg\times 62.4~\lb/\ft^3=1.263\times 62.4~\lb/\ft^3=78.81~\lb/\ft^3
@@ -209,7 +209,7 @@ $$
 \mathrm{API~gravity} = \frac{141.5}{\mathrm{sg}}-131.5
 $$
 
-While these API values do not have units they are often referred to as degrees (deg API).  API gravity is inversely related to specific gravity.  So the lower the oil's API gravity the higher its density.  If the API gravity is given the specific gravity can be found with
+Even though API values are dimensionless they are often quoted as degrees (deg API).  API gravity is inversely related to specific gravity; the lower the oil's API gravity the higher its density.  If the API gravity is given the specific gravity can be found with
 
 $$
 \mathrm{sg} = \frac{141.5}{131.5+\mathrm{API~gravity}}
@@ -231,10 +231,10 @@ Western Canadian Select is a heavy crude oil with an API gravity of $20.5^\circ$
 
 <hr>
 
-The above problem is asking us to find the volume of 1000 kg of a type of heavy crude oil.  First, let us use the API gravity to find the specific gravity of the oil.
+The problem is asking us to find the volume of 1000 kg of a specific type of heavy crude oil.  First, let us use the API gravity to find the specific gravity of the oil.
 
 $$
-\mathrm{sg} = \frac{141.5}{131.5+\mathrm{API gravity}}= \frac{141.5}{131.5+20.5}=0.931\,.
+\mathrm{sg} = \frac{141.5}{131.5+\mathrm{API~gravity}}= \frac{141.5}{131.5+20.5}=0.931\,.
 $$
 
 Now that we have the specific gravity we can find the density,
@@ -257,21 +257,22 @@ $$
 
 </div>
 
-There is a closely related scale called the <a href="https://en.wikipedia.org/wiki/Baum%C3%A9_scale">Baumé scale</a>.  It is very similar to to API gravity scale but has different definitions depending on whether the liquid's density is less than or greater than that of water.  I won't go into the details here as using API gravity is preferred.  But if you see a substance (typically a petroleum product) reported in degrees Baumé, it is yet another way of reporting the specific gravity.
+There is a closely related scale called the <a href="https://en.wikipedia.org/wiki/Baum%C3%A9_scale">Baumé scale</a>.  It is very similar to the API gravity scale but has different definitions depending on whether the liquid's density is greater or less than that of water.  I won't go into the details here as using API gravity is preferred.  But if you see a substance (typically a petroleum product) reported in degrees Baumé, it is yet another way of reporting the specific gravity.
 
 ## Pressure
 
-*Pressure* if the force applied perpendicular to a surface per unit area.
+*Pressure* is the force applied perpendicular to a surface per unit area.
 
 $$
-\mathrm{Pressure}=\frac{\mathrm{Force}}{\mathrm{Area}} \qquad\qquad p=\frac{F}{A}
+\mathrm{Pressure}=\frac{\mathrm{Force}}{\mathrm{Area}}\, \qquad\qquad p=\frac{F}{A}
 $$
 
-For this definition to work the area must be small enough so that the force is uniformly distributed over that area.  The standard unit of pressure in the SI system is $\N/\m^2$ and has its own name, the pascal (Pa).  The standard unit of pressure in the US system is $\lb/\ft^2$ but is rarely used.  Instead,  $\lb/\inch^2$, abbreviated psi, is used most often.  Note that pressure is a scalar quantity; it has a magnitude but no direction.  Of course, the force generated from a pressure has both a magnitude and direction and you will oftentimes hear that the fluid pressure acts in a certain direction.  The intended meaning is clear but in the back of your head remind yourself that pressure is actually a scalar quantity.  
+For this definition to work the area must be small enough so that the force is uniformly distributed over that area.  The standard unit of pressure in the SI system is $\N/\m^2$ and has its own name, the pascal (Pa).  The standard unit of pressure in the US system is $\lb/\ft^2$ but is rarely used.  Instead,  $\lb/\inch^2$, abbreviated psi, is the standard.  Note that pressure is a scalar quantity; it has a magnitude but no direction.  Of course, the force generated from the pressure on an object has both a magnitude and direction.
+You will oftentimes hear that the fluid pressure acts in a certain direction and while the intended meaning is clear you should remind yourself (not others) that pressure is actually a scalar quantity and has no direction.
 
 <div class="example">
 
-A package of dimension $1~\ft\times 1~\ft\times 1~\ft$ that weighs 36 pounds
+A package of dimension $1~\ft\times 1~\ft\times 1~\ft$ weighing 36 pounds
 rests on a table.  What pressure does the package exert on the table?    
 
 <hr>
@@ -290,19 +291,7 @@ $$
 
 </div>
 
-A fluid (gas or liquid) exerts a pressure on objects they are in contact with.  This pressure is created by the molecules of the fluid impacting the confining container.  Note that this pressure acts internally on the fluid itself as well.  For a static (not moving) fluid there are two important principles
-
-1.  Pressure acts uniformly on a small volume of fluid
-2.  Pressure acts perpendicular to its confining boundary
-
-These two principles are illustrated in the following pictures.
-
-<div class="photo" style="width: 500px;">
-  <img src="img/Pressure_at_point.png" style="width:auto; height:auto;">
-  <p>
-  The pressure acting on a small volume of fluid acts uniformly in all directions.
-  </p>
-</div>
+A fluid (gas or liquid) exerts pressure on any object it's in contact with including its confining container.  Pressure is generated by the collisions of the fluid's molecules with the walls of the container. Each molecule that bounces off the fluid's container transfers a bit of momentum.  Averaging over the billions of collisions occurring each second results in a net force per unit area (pressure) acting on the wall.  The pressure acts perpendicular to its confining boundary.
 
 <div class="photo" style="width: 900px;">
   <img src="img/pressure_dist_piston.png"  style="width:auto; height:auto;">
@@ -313,6 +302,22 @@ These two principles are illustrated in the following pictures.
   Direction of the force exerted by the fluid pressure on various boundaries.  Left to right: Fluid power cylinder, pipe or tube, heat exchanger consisting of a pipe inside another pipe, a reducer used in an HVAC system
   </p>
 </div>
+
+The pressure generated by the fluid acts internally on itself as well.  For example, if we draw an imaginary boundary around some volume of fluid, the fluid outside this volume will exert a pressure on the fluid inside.  If this volume is small the pressure acts uniformly in all directions.
+
+<div class="photo" style="width: 500px;">
+  <img src="img/Pressure_at_point.png" style="width:auto; height:auto;">
+  <p>
+  The pressure acting on a small volume of fluid acts uniformly in all directions.
+  </p>
+</div>
+
+Summarizing, for a static (not moving) fluid there are two important principles
+
+1. Pressure acts uniformly on a small volume of fluid
+2. Pressure acts perpendicular to its confining boundary
+
+
 
 <div class="example">
 
@@ -337,7 +342,7 @@ $$
 p=0.08\frac{\N}{\cancel{\mm^2}}\times\left(\frac{1000~\cancel{\mm}}{1~\m}\right)^2=80\,000~\N/\m^2=80\,000~\Pa=80~\mathrm{kPa}
 $$
 
-Reporting the result as $0.08~\N/\mm^2$, while technically correct is bad form and should be avoided.  Reporting the result in $\Pa$ or $\kPa$ are both okay.  Given the magnitude of the result I would lean towards reporting in $\kPa$ or even as $0.08~\MPa$.
+Reporting the result as $0.08~\N/\mm^2$, while technically correct is bad form and should be avoided.  Reporting the result in $\Pa$ or $\kPa$ are both acceptable.  Given the magnitude of the result I would lean towards reporting in $\kPa$ or even as $0.08~\MPa$.
 
 </div>
 
@@ -351,7 +356,7 @@ $$
 K=\frac{-\Delta p}{(\Delta V)/V}
 $$
 
-In the above expression $Delta V$ is the change in volume of the fluid occurring under a change in pressure $\Delta p$.  The ratio $\Delta V/V$ -- the change in volume over initial volume is dimensionless and the bulk modulus therefore has the same dimensions as pressure.  Actually, the volume $V$ can be the initial or final.  The above definition is really only valid for small changes in volume (think differentials) where it wouldn't make a difference if the initial or final volume is used.
+In the above expression $\Delta V$ is the change in volume of the fluid occurring under a change in pressure $\Delta p$.  The ratio $\Delta V/V$ -- the change in volume over initial volume is dimensionless and the bulk modulus therefore has the same dimensions as pressure.  Actually, the volume $V$ can be the initial or final.  The above definition is really only valid for small changes in volume (think differentials) where it wouldn't make a difference if the initial or final volume is used.
 
 <div class="example">
 
@@ -362,7 +367,7 @@ If the cylinder of the previous problem contains Glycerin ($K=4509~\MPa$) what p
 We wish to find the percent change in volume.  This corresponds to $100\times \Delta V/V$.  First, solving for $\Delta V/V$ we have
 
 $$
-\Delta V/V=\frac{-\Delta p}{E}
+\Delta V/V=\frac{-\Delta p}{K}
 $$
 
 The pressure goes from zero to $0.08~\MPa$ as the load in placed on the piston.
@@ -375,20 +380,20 @@ $$
 We therefore have that
 
 $$
-\Delta V/V=\frac{-\Delta p}{E}=\frac{-(-0.08~\Mpa)}{4509~\Mpa}=1.8\times 10^-5
+\Delta V/V=\frac{-\Delta p}{E}=\frac{-(-0.08~\Mpa)}{4509~\Mpa}=1.8\times 10^{-5}
 $$
 
 The percent change in volume is therefore 0.0018\%.
 
 </div>
 
-As the above example demonstrates, the large bulk modulus of most liquids results in very tiny changes in volume under the types of pressures we expect to normally encounter.  For this reason, reasons will be treated as incompressible unless stated otherwise.  For gases, bulk modulus is rarely used since it is necessary to specify how the temperature changes during the compression.  The bulk modulus of some common liquids is <a href="https://kdusling.github.io/teaching/Applied-Fluids/PropertiesOfCommonLiquids.html">listed here</a>.
+As the above example demonstrates, the large bulk modulus of most liquids results in very tiny changes in volume under the types of pressures we expect to normally encounter.  For this reason, liquids will be treated as incompressible unless stated otherwise.  For gases, bulk modulus is rarely used since it is necessary to specify how the temperature changes during the compression.  The bulk modulus of some common liquids is <a href="https://kdusling.github.io/teaching/Applied-Fluids/PropertiesOfCommonLiquids.html">listed here</a>.
 
 ## Vapor pressure
 
-Imagine you have a sealed container half filled with water.  Some of the water molecules will have sufficient kinetic energy to escape from the surface (evaporate) and other molecules following their escape will re-enter the liquid (condense).  Over time the system will reach a steady-state where the rates of evaporation and condensation are the same.  In equilibrium, the pressure exerted by the vapor on the liquid is called the *vapor pressure*.  It is a property of the fluid and it value will depend on the fluid's temperature.  
+Imagine you have a sealed container half filled with water.  Some of the water molecules will have sufficient kinetic energy to escape from the surface (evaporate) and other molecules following their escape will re-enter the liquid (condense).  Over time the system will reach a steady-state where the rates of evaporation and condensation are the same.  In equilibrium, the pressure exerted by the vapor on the liquid is called the *vapor pressure*.  It is a property of the fluid depends on the fluid's temperature.  
 
-For example, at room temperature the vapor pressure of water is about 2.4 kPa.  If the ambient pressure is brought below this value water will boil at room temperature as shown in the following movie.
+For example, at room temperature the vapor pressure of water is about 2.4 kPa (atmospheric pressure is about 101 kPa).  If the ambient pressure is brought below this value water will boil at room temperature as seen in the following movie.
 
 <div class="photo" style="width: 500px;">
 <iframe width="427" height="240" src="https://www.youtube.com/embed/739990nm0QY?ecver=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -397,7 +402,7 @@ Plainfield Chemistry - Water Boiling at Room Temperature
 </p>
 </div>
 
-The consideration of vapor pressure will be of particular importance in this class due to a phenomenon know as *cavitation*.  In a hydraulic system, such as those containing pumps and pipelines, if the fluid pressure drops below the vapor pressure local boiling can occur and vapor bubbles will form in the fluid.  If these bubbles move into a region of high pressure they can collapse producing large forces on nearby solid surfaces.  These cavitation bubbles are strong enough to erode the metal surfaces of hydraulic machinery such as pumps, turbines and propellers (see picture below).  As long as the fluid pressure can be maintained is kept above the vapor pressure in a closed hydraulic system cavitation can be avoided.
+The consideration of vapor pressure will be of particular importance in this class due to a phenomenon know as *cavitation*.  In a hydraulic system, such as those containing pumps and pipelines, if the fluid pressure drops below the vapor pressure local boiling can occur and vapor bubbles will form in the fluid.  If these bubbles move into a region of high pressure they can collapse producing large forces on nearby solid surfaces.  These cavitation bubbles are strong enough to erode the metal surfaces of hydraulic machinery such as pumps, turbines and propellers (see picture below).  As long as the fluid pressure can be maintained above the vapor pressure in a closed hydraulic system cavitation can be avoided.
 
 <div class="photo" style="width: 400px;">
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Cavitation_Propeller_Damage.JPG/512px-Cavitation_Propeller_Damage.JPG" alt="Cavitation Propeller Damage">
