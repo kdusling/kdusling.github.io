@@ -395,9 +395,9 @@ Imagine you have a sealed container half filled with water.  Some of the water m
 
 For example, at room temperature the vapor pressure of water is about 2.4 kPa (atmospheric pressure is about 101 kPa).  If the ambient pressure is brought below this value water will boil at room temperature as seen in the following movie.
 
-<div class="photo" style="width: 500px;">
+<div class="photo" style="width: 600px;">
 
-<iframe width="425" src="https://www.youtube-nocookie.com/embed/rM04U5BO3Ug" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rM04U5BO3Ug" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 <p>
 Video: Water Boiling at Room Temperature
@@ -457,7 +457,7 @@ The upper plate creates an applied shear stress of magnitude $\tau=F/A$, where $
 
 So what is the fluid doing between these two plates; one stationary, one moving. Well, a basic condition, which we state without justification, is that a fluid in contact with a surface has the same velocity as that surface.  This is known as the *no-slip condition*.  Therefore, the velocity of the fluid in contact with the bottom plate is zero and the velocity of the fluid in contact with the top plate is $v$.
 
-If the thickness of the fluid is small we assume that the velocity increases from the lower stationary plate to the upper moving plate in a straight-line (linear) fashion.  This rate-of-change in velocity from the bottom plate to the top is known as the *velocity gradient* or *strain rate* and expressed as $\Delta v/\Delta y$ (*i.e.* it's the slope of the velocity profile).  The strain rate is often written as $\dot{\gamma}$ (the Greek letter gamma with a dot--the dot represents a derivative) and has units $1/s$ (*i.e.* reciprocal seconds or inverse seconds).
+If the thickness of the fluid is small we assume that the velocity increases from the lower stationary plate to the upper moving plate in a straight-line (linear) fashion.  This rate-of-change in velocity from the bottom plate to the top is known as the *velocity gradient* or *strain rate* and expressed as $\Delta v/\Delta y$ (*i.e.* it's the slope of the velocity profile).  The strain rate is often written as $\dot{\gamma}$ (the Greek letter gamma with a dot--the dot represents a derivative) and has units $1/s$ (read as reciprocal seconds or inverse seconds).
 
 The amount of applied shear stress that is necessary to generate a certain strain rate is a measure of the fluids viscosity.  For example, the external force required to generate the same upper-plate velocity in honey and water would be much larger for the honey (the honey is more viscous).
 
@@ -498,37 +498,28 @@ $$
 \nu=\frac{\eta}{\rho}=\frac{0.0363\,\Pa \cdot s}{930~\kg/\m^3}=3.9\times 10^{-5}~\frac{\m^2}{s}=39~\rm{cSt}
 $$
 
-It is worth taking a minute to go through the unit cancellation above. First replace $\Pa$ with $\N/\m^2$ and then replace $\N$ with $\kg\m/s^2$.  If you carefully cancel the units you should be left with $\m^2/s$.  Make sure you know how to do this before moving ahead.
+It is worth taking a minute to go through the unit cancellation above. First replace $\Pa$ with $\N/\m^2$ and then replace $\N$ with $\kg~\m/s^2$.  If you carefully cancel the units you should be left with $\m^2/s$.  Make sure you know how to do this before moving ahead.
 
 ### Non-Newtonian fluids
 
-The previous section described a fluid as Newtonian if there was a linear relationship between the shear stress and strain rate.  This is an idealization and while it serves as a reasonable description of many of the fluids we will encounter other fluids are not so simple.  
+The previous section described a fluid as Newtonian if there was a linear relationship between the shear stress and strain rate.  This is an idealization and while it serves as a reasonable description of many of the fluids we will encounter other fluids are not so simple.  We will consider three types of non-Newtonian fluids; Pseudoplastic, Dilatant and Bingham.   The behavior of their shear stress--strain rate relationships are sketched in the left plot below.  
 
-We will consider three types of non-Newtonian fluids; Pseudoplastic, Dilatant and Bingham.   The behavior of their shear stress--strain rate relationships are sketched below.  
-
-<div class="photo" style="width: 500px;">
-  <img src="img\ShearStrainNonNewtonian.png" alt="">
+<div class="photo" style="width: 800px;">
+  <img src="img\ShearStrainNonNewtonian.png" style="width: 400px;">
+  <img src="img\ApparentViscosity.png" style="width: 400px;">
   <p>
-   Sketch of a rheological diagram for various non-Newtonian fluids.
+   Left: Sketch of a rheological diagram for various non-Newtonian fluids.  Right: Apparent viscosity as a function of strain rate for various non-Newtonian fluids.
   </p>
 </div>
 
-The slope of the curve at a given velocity gradient is a measure of the *apparent viscosity* of the fluid and is plotted in the next figure.  Recall that a Newtonian fluid has a linear stress stress--strain rate relationship.  The slope of the curve *at any strain rate* is the same and therefore the apparent viscosity is a constant.
-
-<div class="photo" style="width: 500px;">
-  <img src="img\ApparentViscosity.png" alt="">
-  <p>
-   Apparent viscosity as a function of strain rate for various non-Newtonian fluids.
-  </p>
-</div>
+The slope of the curve at a given velocity gradient is a measure of the *apparent viscosity* of the fluid and is plotted in the figure to the right.  Recall that a Newtonian fluid has a linear stress stress--strain rate relationship.  The slope of the curve *at any strain rate* is the same and therefore the apparent viscosity is a constant.
 
 
+1.  **Pseudoplastic** (also known as a shear-thinning fluids) has an apparent viscosity that decreases with increasing strain rate.  The more you stir or shake it the easier it will flow.  A good example is paint which flows readily when stroked from a brush but thick enough not drip down the wall.  Other common examples include blood, inks, and ketchup.
 
-1.  *Pseudoplastic* or shear-thinning have a negative concavity on their shear stress--strain rate diagrams.  
+2.  **Dilatant fluids** (also known as a shear-thickening fluids) has an apparent viscosity that increases with increasing strain rate.  Dilatant fluids are less common than their pseudoplastic counterparts.  Cornstarch mixed with water is one example that can be prepared at home.   Silica and polyethylene glycol are used in some liquid body armor designs.  
 
-2.  *Dilatant fluids*
-
-3.  **Bingham fluids**
+3.  **Bingham fluids** (also known as a plug-flow fluids) require a finite shearing stress before flow begins.  Once flow begins the behavior is approximately Newtonian.  Toothpaste is one example as it doesn't flow out of the tube until squeezed.  Other examples include mud, asphalt and sewer sludge.
 
 
 
