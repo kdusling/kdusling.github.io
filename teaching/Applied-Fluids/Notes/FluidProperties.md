@@ -505,8 +505,7 @@ It is worth taking a minute to go through the unit cancellation above. First rep
 The previous section described a fluid as Newtonian if there was a linear relationship between the shear stress and strain rate.  This is an idealization and while it serves as a reasonable description of many of the fluids we will encounter other fluids are not so simple.  We will consider three types of non-Newtonian fluids; Pseudoplastic, Dilatant and Bingham.   The behavior of their shear stress--strain rate relationships are sketched in the left plot below.  
 
 <div class="photo" style="width: 840px;">
-  <img src="img\ShearStrainNonNewtonian.png" style="width: 400px;">
-  <img src="img\ApparentViscosity.png" style="width: 400px;">
+  <img src="img\ShearStrainNonNewtonian.png" style="width: 400px;"><img src="img\ApparentViscosity.png" style="width: 400px;">
   <p>
    Left: Sketch of a rheological diagram for various non-Newtonian fluids.  Right: Apparent viscosity as a function of strain rate for various non-Newtonian fluids.
   </p>
@@ -551,15 +550,13 @@ The Society of Automotive Engineers has a classification system for engine oils 
 
 The straight grades include: 20, 30, 40, 50, and 60.  For an oil to be classified as one of these the kinematic viscosity must fall within a certain range at $100\C$ and have a minimum kinematic viscosity at $150\C$ tested at a high shear rate.  Both viscosities are tested using standards set by ASTM international.  For example SAE 20 must have a kinematic viscosity between 5.6 and 9.3 $\mm^2/s$ at $100\C$ and a dynamic viscosity larger than $2.6~\m\Pa\cdot s$ at $150\C$.  The winter grades include:  0W, 5W, 10W, 15W, 20W, 25W.  For the winter grades there is no requirement at $150\C$ and only a minimum kinematic viscosity at $100\C$.  In addition there are maximums set on the dynamic viscosity at low temperatures (below freezing).  For example, a SAE 15W oil must have a dynamic viscosity less than $7000~\m\Pa\cdot s$ at $-20\C$ and less than $60,000~\m\Pa\cdot s$ at $-25\C$ and a kinematic viscosity larger than $5.6~\mm^2/s$ at $100\C$.
 
-Multigrade oils must satisfy both the low and high temperature requirements.  For example, SAE 15W-30 must satisfy the SAE 15W conditions at cold temperatures and the SAE 30 conditions at high temperatures.
-
-This is best summarized by the <a href="http://www.tribology-abc.com/abc/viscosity.htm#SAE">table found here</a>.
+Multigrade oils must satisfy both the low and high temperature requirements.  For example, SAE 15W-30 must satisfy the SAE 15W conditions at cold temperatures and the SAE 30 conditions at high temperatures.  This is best summarized by the <a href="http://www.tribology-abc.com/abc/viscosity.htm#SAE">table found here</a>.
 
 The grades for gear oils include: 70W, 75W, 80W, 85W, 80, 85, 90, 110, 140, 190, 250.  The grades for gear oils have nothing to do with them being heavier or more viscous.  The numbers are simply a classification scheme.  Note that the standard tests for gear oils are different and best summarized by the <a href="http://www.tribology-abc.com/abc/viscosity.htm#SAE306">table found here</a>.
 
 ### ISO Viscosity Grades
 
-For industrial applications it is recommended to use the ISO viscosity classification.  Each ISO viscosity grade requires the oil to have a specified kinematic viscosity at a temperature of $40\C$.  For example an ISO VG 150 must have a kinematic viscosity within 10% of 100 $\mm^2/s$ at $40\C$.  And an ISO VG 10 must have a kinematic viscosity within 10% of 10 $\mm^2/s$ at $40\C$.  The full ISO viscosity grade classification is in the <a href="http://www.tribology-abc.com/abc/viscosity.htm#SI">table found here</a>
+For industrial applications it is recommended to use the ISO viscosity classification.  Each ISO viscosity grade requires the oil to have a specified kinematic viscosity at a temperature of $40\C$.  For example an ISO VG 150 must have a kinematic viscosity within 10% of 100 $\mm^2/s$ at $40\C$.  And an ISO VG 10 must have a kinematic viscosity within 10% of 10 $\mm^2/s$ at $40\C$.  The full ISO viscosity grade classification is in the <a href="http://www.tribology-abc.com/abc/viscosity.htm#SI">table found here</a>.
 
 The viscosity of the oil at different temperatures can be approximated by using its viscosity at $40\C$ (as given by the ISO VG) along with its viscosity index (VI) using a <a href="http://www.tribology-abc.com/calculators/iso_3348.htm">online calculator</a>.
 
@@ -572,8 +569,10 @@ The viscosity of the oil at different temperatures can be approximated by using 
 
 
 
-## References:
+## References
 
 Kestin, J.; Sengers, J.V.; Kamgar-Parsi, B.; Levelt Sengers, J.M.H., <a href="http://webbook.nist.gov/chemistry/fluid/">Thermophysical Properties of Fluid H2O</a>, J. Phys. Chem. Ref. Data, 1984, 13, 1, 175-183. [doi:10.1063/1.555707]
 
-Dixon, John C., <a href="http://dx.doi.org/10.1002/9780470516430.app2">The Shock Absorber Handbook, John Wiley \& Sons, Ltd. (2007)
+Dixon, John C., <a href="http://dx.doi.org/10.1002/9780470516430.app2">The Shock Absorber Handbook, John Wiley &amp;	Sons, Ltd. (2007)
+
+<a href="http://www.tribology-abc.com/">Tribology-ABC</a>
