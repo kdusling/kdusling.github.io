@@ -562,19 +562,20 @@ The viscosity of the oil at different temperatures can be approximated by using 
 
 ### Viscosity Measurement
 
-The equipment available for
+There are numerous devices abailable in order
 There are numerous devices available to measure the viscosity of a fluid but most of these based on similar princ of these operate
 
-+ Rotating-drum viscometer
++ **Rotating-drum viscometer**
+  The rotating-drum viscometer operates on the principle that the torque required to rotate a drum immersed in the fluid is proportional to the viscosity.  Different sized drums are available in order to allow for the measurement over a wide range of viscosities.  
 
- The rotating-drum viscometer operates on the principle that the torque required to rotate a drum immersed in the fluid is proportional to the viscosity.  Different sized drums are available in order to allow for the measurement over a wide range of viscosities.  
-
- <div class="photo" style="width: 300px;">
+  <div class="photo" style="width: 300px;">
   ![][img/fungilab-viscolead-ONE-main-img-prod.jpg]
   <p>
 
   </p>
- </div>
+  </div>
+
+  And a bit more.
 
 + Capillary tube viscometer
 
