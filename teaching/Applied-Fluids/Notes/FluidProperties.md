@@ -504,10 +504,10 @@ It is worth taking a minute to go through the unit cancellation above. First rep
 
 The previous section described a fluid as Newtonian if there was a linear relationship between the shear stress and strain rate.  This is an idealization and while it serves as a reasonable description of many of the fluids we will encounter other fluids are not so simple.  We will consider three types of non-Newtonian fluids; Pseudoplastic, Dilatant and Bingham.   The behavior of their shear stress--strain rate relationships are sketched in the left plot below.  
 
-<div class="photo" style="width: 840px;">
-  <img src="img\ShearStrainNonNewtonian.png" style="width: 400px;"><img src="img\ApparentViscosity.png" style="width: 400px;">
+<div class="photo" style="width: 540px;">
+  <img src="img\ShearStrainNonNewtonian.png" style="width: 500px;"><img src="img\ApparentViscosity.png" style="width: 500px;">
   <p>
-   Left: Sketch of a rheological diagram for various non-Newtonian fluids.  Right: Apparent viscosity as a function of strain rate for various non-Newtonian fluids.
+   Top: Sketch of a rheological diagram for various non-Newtonian fluids.  Bottom: Apparent viscosity as a function of strain rate for various non-Newtonian fluids.
   </p>
 </div>
 
@@ -562,11 +562,24 @@ The viscosity of the oil at different temperatures can be approximated by using 
 
 ### Viscosity Measurement
 
+There are literally hundreds of different devices available to measure the viscosity of a fluid but most of these based on similar princ of these operate
 
+#### Rotating-drum viscometer
 
+#### Capillary tube viscometer
 
+#### Falling-ball viscometer
 
+#### Flow cups
 
+<div class="photo" style="width: 200px;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Kubek-forda.JPG/256px-Kubek-forda.JPG" alt="Ford viscosity cup">
+  <p>
+  Ford viscosity cup: The time taken for the fluid to flow out of the orifice located at the bottom is proportional to the kinematic viscosity.
+  <BR><BR>
+  By Dariusz.Biegacz [GFDL (http://www.gnu.org/copyleft/fdl.html) or CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0)], from Wikimedia Commons
+  </p>
+</div>
 
 
 ## References
