@@ -556,7 +556,7 @@ The grades for gear oils include: 70W, 75W, 80W, 85W, 80, 85, 90, 110, 140, 190,
 
 ### ISO Viscosity Grades
 
-For industrial applications it is recommended to use the ISO viscosity classification.  Each ISO viscosity grade requires the oil to have a specified kinematic viscosity at a temperature of $40\C$.  For example an ISO VG 150 must have a kinematic viscosity within 10% of 100 $\mm^2/s$ at $40\C$.  And an ISO VG 10 must have a kinematic viscosity within 10% of 10 $\mm^2/s$ at $40\C$.  The full ISO viscosity grade classification is in the <a href="http://www.tribology-abc.com/abc/viscosity.htm#SI">table found here</a>.
+For industrial applications it is recommended to use the ISO viscosity classification.  Each ISO viscosity grade requires the oil to have a specified kinematic viscosity at a temperature of $40\C$.  For example an ISO VG 150 must have a kinematic viscosity within 10% of 100 $\mm^2/s$ at $40\C$.  And an ISO VG 10 must have a kinematic viscosity within 10% of 10 $\mm^2/s$ at $40\C$.  The full ISO viscosity grade classification is in the [table found here][tribSI].
 
 The viscosity of the oil at different temperatures can be approximated by using its viscosity at $40\C$ (as given by the ISO VG) along with its viscosity index (VI) using a <a href="http://www.tribology-abc.com/calculators/iso_3348.htm">online calculator</a>.
 
@@ -572,7 +572,7 @@ There are literally hundreds of different devices available to measure the visco
 
 #### Flow cups
 
-<div class="photo" style="width: 200px;">
+<div class="photo" style="width: 400px;">
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Kubek-forda.JPG/256px-Kubek-forda.JPG" alt="Ford viscosity cup">
   <p>
   Ford viscosity cup: The time taken for the fluid to flow out of the orifice located at the bottom is proportional to the kinematic viscosity.
@@ -589,3 +589,7 @@ Kestin, J.; Sengers, J.V.; Kamgar-Parsi, B.; Levelt Sengers, J.M.H., <a href="ht
 Dixon, John C., <a href="http://dx.doi.org/10.1002/9780470516430.app2">The Shock Absorber Handbook, John Wiley &amp;	Sons, Ltd. (2007)
 
 <a href="http://www.tribology-abc.com/">Tribology-ABC</a>
+
+
+
+[tribSI]: http://www.tribology-abc.com/abc/viscosity.htm#SI
