@@ -562,11 +562,11 @@ The viscosity of the oil at different temperatures can be approximated by using 
 
 ### Viscosity Measurement
 
-A device for measuring the viscosity of a liquid is called a *viscometer*.  We will discuss only a few of the most common methods used in viscosity measurement.  Variations of the following designs are numerous.
+A device for measuring the viscosity of a liquid is called a *viscometer*.  We will discuss a few of the most common methods used in viscosity measurement.  Variations of the following designs are numerous.  The material necessary for a full understanding of their principle of operation will be developed throughout this course.  What follows is a brief survey of some of the available techniques.
 
 + **Rotating-drum viscometer**
 
-  The rotating-drum viscometer operates on the principle that the torque required to rotate a drum immersed in the fluid is proportional to the viscosity.  Different sized drums are available in order to allow for the measurement over a wide range of viscosities.  Following proper calibration the torque can be converted directly to viscosity.
+  The rotating-drum viscometer operates on the principle that the torque required to rotate a drum immersed in fluid is proportional to its viscosity.  Different sized drums are available in order to allow for  measurement over a wide range of viscosities.  Following proper calibration the torque can be converted directly to viscosity.
 
   <div class="photo" style="width: 400px;">
   ![](img/fungilab-viscolead-ONE-main-img-prod.jpg)
@@ -577,31 +577,38 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
 
 + **Capillary tube viscometer**
 
-  <div class="photo" style="width: 600px;">
+  A capillary tube viscometer consists of a U-shaped glass tube that is filled with the fluid of interest.  Suction is used to draw the fluid above a timing mark on the tube.  The suction is removed and the fluid is allowed to flow under gravity.  The time it takes for the meniscus of the fluid to travel from the upper timing mark to the lower timing mark is proportional to its kinematic viscosity.  The proportionally constant is determined by the vendor at the time of calibration.
+
+  <div class="photo" style="width: 500px;">
   ![](img/fungilab-capillary-Cannon-Fenske-opaque.jpg)
   ![](img/fungilab-capillary-Ubbelohde.jpg)
   <p>
-  Left to right: Cannon-Fenske Opaque Viscometer,  Cannon-Fenske Routine Viscometer, Ubbelohde Viscometer (*Source:* [Fungilab][], Hauppauge, NY)
+  Top: Cannon-Fenske Opaque Viscometer and Cannon-Fenske Routine Viscometer
+  Bottom: Ubbelohde Viscometer (*Source:* [Fungilab][], Hauppauge, NY)
   </p>
   </div>
 
 + **Falling-ball viscometer**
 
-  <div class="photo" style="width: 300px;">
+  In a falling-ball viscometer the time required for a ball to drop a known distance in the fluid is proportional to its dynamic viscosity.  When the ball reaches its terminal velocity the drag force on the sphere balances the weight of the ball when submerged.  The drag force is proportional to the viscosity and can be determined if the weight and density of the sphere is known.  Some falling-ball viscometers are on an incline and the motion of the ball is a combination of rolling and sliding.  The vendor provides the calibration between the time of travel and viscosity.
+
+  <div class="photo" style="width: 400px;">
   ![](img/fungilab-viscoball-main.jpg)
   <p>
-  Left to right: Cannon-Fenske Opaque Viscometer,  Cannon-Fenske Routine Viscometer, Ubbelohde Viscometer (*Source:* [Fungilab][], Hauppauge, NY)
+  Falling-ball viscometer (*Source:* [Fungilab][], Hauppauge, NY)
   </p>
   </div>
 
 + **Flow cups**
 
- <div class="photo" style="width: 300px;">
+  The ease with which a fluid flows through a small opening is related to its kinematic viscosity.  A flow-cup of known volume is allowed to drain under gravity through a small orifice of known size.  After steady flow, the time it takes for the fluid to drain determines the viscosity given the vendors calibration.  
+
+ <div class="photo" style="width: 250px;">
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Kubek-forda.JPG/256px-Kubek-forda.JPG" alt="Ford viscosity cup">
   <p>
   Ford viscosity cup: The time taken for the fluid to flow out of the orifice located at the bottom is proportional to the kinematic viscosity.
   <BR><BR>
-  By Dariusz.Biegacz [GFDL][http://www.gnu.org/copyleft/fdl.html] or [CC BY-SA 4.0][(https://creativecommons.org/licenses/by-sa/4.0)], from Wikimedia Commons
+  By Dariusz.Biegacz [[GFDL](http://www.gnu.org/copyleft/fdl.html) or [CC BY-SA 4.0(https://creativecommons.org/licenses/by-sa/4.0)], from Wikimedia Commons
   </p>
 </div>
 
