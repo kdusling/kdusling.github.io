@@ -562,26 +562,38 @@ The viscosity of the oil at different temperatures can be approximated by using 
 
 ### Viscosity Measurement
 
-There are numerous devices abailable in order
-There are numerous devices available to measure the viscosity of a fluid but most of these based on similar princ of these operate
+A device for measuring the viscosity of a liquid is called a *viscometer*.  We will discuss only a few of the most common methods used in viscosity measurement.  Variations of the following designs are numerous.
 
 + **Rotating-drum viscometer**
-  The rotating-drum viscometer operates on the principle that the torque required to rotate a drum immersed in the fluid is proportional to the viscosity.  Different sized drums are available in order to allow for the measurement over a wide range of viscosities.  
+
+  The rotating-drum viscometer operates on the principle that the torque required to rotate a drum immersed in the fluid is proportional to the viscosity.  Different sized drums are available in order to allow for the measurement over a wide range of viscosities.  Following proper calibration the torque can be converted directly to viscosity.
 
   <div class="photo" style="width: 300px;">
-  ![][img/fungilab-viscolead-ONE-main-img-prod.jpg]
+  ![](img/fungilab-viscolead-ONE-main-img-prod.jpg)
   <p>
-
+  Rotating-drum viscometer (*Source:* [Fungilab][https://www.fungilab.com], Hauppauge, NY)
   </p>
   </div>
 
-  And a bit more.
++ **Capillary tube viscometer**
 
-+ Capillary tube viscometer
+  <div class="photo" style="width: 300px;">
+  ![](img/fungilab-capillary-Cannon-Fenske-opaque.jpg)  ![](img/fungilab-capillary-Ubbelohde.jpg)
+  <p>
+  Left to right: Cannon-Fenske Opaque Viscometer,  Cannon-Fenske Routine Viscometer, Ubbelohde Viscometer (*Source:* [Fungilab][https://www.fungilab.com], Hauppauge, NY)
+  </p>
+  </div>
 
-+ Falling-ball viscometer
++ **Falling-ball viscometer**
 
-+ Flow cups
+  <div class="photo" style="width: 300px;">
+  ![](img/fungilab-viscoball-main.jpg)
+  <p>
+  Left to right: Cannon-Fenske Opaque Viscometer,  Cannon-Fenske Routine Viscometer, Ubbelohde Viscometer (*Source:*   [Fungilab][https://www.fungilab.com], Hauppauge, NY)
+  </p>
+  </div>
+  
++ **Flow cups**
 
  <div class="photo" style="width: 300px;">
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Kubek-forda.JPG/256px-Kubek-forda.JPG" alt="Ford viscosity cup">
