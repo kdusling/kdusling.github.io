@@ -568,19 +568,20 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
 
   The rotating-drum viscometer operates on the principle that the torque required to rotate a drum immersed in the fluid is proportional to the viscosity.  Different sized drums are available in order to allow for the measurement over a wide range of viscosities.  Following proper calibration the torque can be converted directly to viscosity.
 
-  <div class="photo" style="width: 300px;">
+  <div class="photo" style="width: 400px;">
   ![](img/fungilab-viscolead-ONE-main-img-prod.jpg)
   <p>
-  Rotating-drum viscometer (*Source:* [Fungilab][https://www.fungilab.com], Hauppauge, NY)
+  Rotating-drum viscometer (*Source:* [Fungilab][], Hauppauge, NY)
   </p>
   </div>
 
 + **Capillary tube viscometer**
 
-  <div class="photo" style="width: 300px;">
-  ![](img/fungilab-capillary-Cannon-Fenske-opaque.jpg)  ![](img/fungilab-capillary-Ubbelohde.jpg)
+  <div class="photo" style="width: 600px;">
+  ![](img/fungilab-capillary-Cannon-Fenske-opaque.jpg)
+  ![](img/fungilab-capillary-Ubbelohde.jpg)
   <p>
-  Left to right: Cannon-Fenske Opaque Viscometer,  Cannon-Fenske Routine Viscometer, Ubbelohde Viscometer (*Source:* [Fungilab][https://www.fungilab.com], Hauppauge, NY)
+  Left to right: Cannon-Fenske Opaque Viscometer,  Cannon-Fenske Routine Viscometer, Ubbelohde Viscometer (*Source:* [Fungilab][], Hauppauge, NY)
   </p>
   </div>
 
@@ -589,10 +590,10 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
   <div class="photo" style="width: 300px;">
   ![](img/fungilab-viscoball-main.jpg)
   <p>
-  Left to right: Cannon-Fenske Opaque Viscometer,  Cannon-Fenske Routine Viscometer, Ubbelohde Viscometer (*Source:*   [Fungilab][https://www.fungilab.com], Hauppauge, NY)
+  Left to right: Cannon-Fenske Opaque Viscometer,  Cannon-Fenske Routine Viscometer, Ubbelohde Viscometer (*Source:* [Fungilab][], Hauppauge, NY)
   </p>
   </div>
-  
+
 + **Flow cups**
 
  <div class="photo" style="width: 300px;">
@@ -600,7 +601,7 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
   <p>
   Ford viscosity cup: The time taken for the fluid to flow out of the orifice located at the bottom is proportional to the kinematic viscosity.
   <BR><BR>
-  By Dariusz.Biegacz [GFDL (http://www.gnu.org/copyleft/fdl.html) or CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0)], from Wikimedia Commons
+  By Dariusz.Biegacz [GFDL][http://www.gnu.org/copyleft/fdl.html] or [CC BY-SA 4.0][(https://creativecommons.org/licenses/by-sa/4.0)], from Wikimedia Commons
   </p>
 </div>
 
@@ -618,3 +619,4 @@ Dixon, John C., <a href="http://dx.doi.org/10.1002/9780470516430.app2">The Shock
 [tribSAE306]: http://www.tribology-abc.com/abc/viscosity.htm#SAE306
 [tribSI]: http://www.tribology-abc.com/abc/viscosity.htm#SI
 [tribVIcalc]: http://www.tribology-abc.com/calculators/iso_3348.htm
+[Fungilab]: https://www.fungilab.com
