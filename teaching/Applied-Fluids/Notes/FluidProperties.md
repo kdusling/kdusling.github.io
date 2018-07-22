@@ -550,29 +550,39 @@ The Society of Automotive Engineers has a classification system for engine oils 
 
 The straight grades include: 20, 30, 40, 50, and 60.  For an oil to be classified as one of these the kinematic viscosity must fall within a certain range at $100\C$ and have a minimum kinematic viscosity at $150\C$ tested at a high shear rate.  Both viscosities are tested using standards set by ASTM international.  For example SAE 20 must have a kinematic viscosity between 5.6 and 9.3 $\mm^2/s$ at $100\C$ and a dynamic viscosity larger than $2.6~\m\Pa\cdot s$ at $150\C$.  The winter grades include:  0W, 5W, 10W, 15W, 20W, 25W.  For the winter grades there is no requirement at $150\C$ and only a minimum kinematic viscosity at $100\C$.  In addition there are maximums set on the dynamic viscosity at low temperatures (below freezing).  For example, a SAE 15W oil must have a dynamic viscosity less than $7000~\m\Pa\cdot s$ at $-20\C$ and less than $60,000~\m\Pa\cdot s$ at $-25\C$ and a kinematic viscosity larger than $5.6~\mm^2/s$ at $100\C$.
 
-Multigrade oils must satisfy both the low and high temperature requirements.  For example, SAE 15W-30 must satisfy the SAE 15W conditions at cold temperatures and the SAE 30 conditions at high temperatures.  This is best summarized by the <a href="http://www.tribology-abc.com/abc/viscosity.htm#SAE">table found here</a>.
+Multigrade oils must satisfy both the low and high temperature requirements.  For example, SAE 15W-30 must satisfy the SAE 15W conditions at cold temperatures and the SAE 30 conditions at high temperatures.  This is best summarized by the [table found here][tribSAE].
 
-The grades for gear oils include: 70W, 75W, 80W, 85W, 80, 85, 90, 110, 140, 190, 250.  The grades for gear oils have nothing to do with them being heavier or more viscous.  The numbers are simply a classification scheme.  Note that the standard tests for gear oils are different and best summarized by the <a href="http://www.tribology-abc.com/abc/viscosity.htm#SAE306">table found here</a>.
+The grades for gear oils include: 70W, 75W, 80W, 85W, 80, 85, 90, 110, 140, 190, 250.  The grades for gear oils have nothing to do with them being heavier or more viscous.  The numbers are simply a classification scheme.  Note that the standard tests for gear oils are different and best summarized by the [table found here][tribSAE306].
 
 ### ISO Viscosity Grades
 
 For industrial applications it is recommended to use the ISO viscosity classification.  Each ISO viscosity grade requires the oil to have a specified kinematic viscosity at a temperature of $40\C$.  For example an ISO VG 150 must have a kinematic viscosity within 10% of 100 $\mm^2/s$ at $40\C$.  And an ISO VG 10 must have a kinematic viscosity within 10% of 10 $\mm^2/s$ at $40\C$.  The full ISO viscosity grade classification is in the [table found here][tribSI].
 
-The viscosity of the oil at different temperatures can be approximated by using its viscosity at $40\C$ (as given by the ISO VG) along with its viscosity index (VI) using a <a href="http://www.tribology-abc.com/calculators/iso_3348.htm">online calculator</a>.
+The viscosity of the oil at different temperatures can be approximated by using its viscosity at $40\C$ (as given by the ISO VG) along with its viscosity index (VI) using an [online calculator][tribVIcalc].
 
 ### Viscosity Measurement
 
-There are literally hundreds of different devices available to measure the viscosity of a fluid but most of these based on similar princ of these operate
+The equipment available for
+There are numerous devices available to measure the viscosity of a fluid but most of these based on similar princ of these operate
 
-#### Rotating-drum viscometer
++ Rotating-drum viscometer
 
-#### Capillary tube viscometer
+ The rotating-drum viscometer operates on the principle that the torque required to rotate a drum immersed in the fluid is proportional to the viscosity.  Different sized drums are available in order to allow for the measurement over a wide range of viscosities.  
 
-#### Falling-ball viscometer
+ <div class="photo" style="width: 300px;">
+  ![][img/fungilab-viscolead-ONE-main-img-prod.jpg]
+  <p>
 
-#### Flow cups
+  </p>
+ </div>
 
-<div class="photo" style="width: 400px;">
++ Capillary tube viscometer
+
++ Falling-ball viscometer
+
++ Flow cups
+
+ <div class="photo" style="width: 300px;">
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Kubek-forda.JPG/256px-Kubek-forda.JPG" alt="Ford viscosity cup">
   <p>
   Ford viscosity cup: The time taken for the fluid to flow out of the orifice located at the bottom is proportional to the kinematic viscosity.
@@ -591,5 +601,7 @@ Dixon, John C., <a href="http://dx.doi.org/10.1002/9780470516430.app2">The Shock
 <a href="http://www.tribology-abc.com/">Tribology-ABC</a>
 
 
-
+[tribSAE]: http://www.tribology-abc.com/abc/viscosity.htm#SAE
+[tribSAE306]: http://www.tribology-abc.com/abc/viscosity.htm#SAE306
 [tribSI]: http://www.tribology-abc.com/abc/viscosity.htm#SI
+[tribVIcalc]: http://www.tribology-abc.com/calculators/iso_3348.htm
