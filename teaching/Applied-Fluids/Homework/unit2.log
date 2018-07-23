@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2018.3.26)  19 JUL 2018 08:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2018.3.26)  22 JUL 2018 20:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -842,44 +842,63 @@ Preview: Tightpage -328908 -328908 328908 328908
 Preview: Tightpage -328908 -328908 328908 328908
 [10] Excluding 'solution' comment.
 Preview: Tightpage -328908 -328908 328908 328908
-[11]
-<imgs/CastorOil.png, id=81, 1201.48875pt x 955.57pt>
+[11] Excluding 'solution' comment.
+Preview: Tightpage -328908 -328908 328908 328908
+[12] Excluding 'solution' comment.
+Preview: Tightpage -328908 -328908 328908 328908
+[13]
+<imgs/CastorOil.png, id=89, 1201.48875pt x 955.57pt>
 File: imgs/CastorOil.png Graphic file (type png)
 <use imgs/CastorOil.png>
-Package pdftex.def Info: imgs/CastorOil.png  used on input line 189.
+Package pdftex.def Info: imgs/CastorOil.png  used on input line 216.
 (pdftex.def)             Requested size: 289.07999pt x 229.91014pt.
  Excluding 'solution' comment.
 Preview: Tightpage -328908 -328908 328908 328908
-[12 <./imgs/CastorOil.png>]
-<imgs/FrenchDressing.png, id=87, 1201.48875pt x 985.6825pt>
+[14 <./imgs/CastorOil.png>]
+<imgs/FrenchDressing.png, id=95, 1201.48875pt x 985.6825pt>
 File: imgs/FrenchDressing.png Graphic file (type png)
 <use imgs/FrenchDressing.png>
-Package pdftex.def Info: imgs/FrenchDressing.png  used on input line 200.
+Package pdftex.def Info: imgs/FrenchDressing.png  used on input line 227.
 (pdftex.def)             Requested size: 289.07999pt x 237.1552pt.
  Excluding 'solution' comment.
 Preview: Tightpage -328908 -328908 328908 328908
-[13 <./imgs/FrenchDressing.png>] Excluding 'solution' comment.
+[15 <./imgs/FrenchDressing.png>] Excluding 'solution' comment.
 Preview: Tightpage -328908 -328908 328908 328908
-[14] Excluding 'solution' comment.
+[16] Excluding 'solution' comment.
 Preview: Tightpage -328908 -328908 328908 328908
-[15] (./unit2.aux) ) 
+[17] Excluding 'solution' comment.
+Preview: Tightpage -328908 -328908 328908 328908
+[18] Excluding 'solution' comment.
+Preview: Tightpage -328908 -328908 328908 328908
+[19] Excluding 'solution' comment.
+Preview: Tightpage -328908 -328908 328908 328908
+[20] Excluding 'solution' comment.
+Preview: Tightpage -328908 -328908 328908 328908
+[21] Excluding 'solution' comment.
+Preview: Tightpage -328908 -328908 328908 328908
+[22] Excluding 'solution' comment.
+Preview: Tightpage -328908 -328908 328908 328908
+[23] Excluding 'solution' comment.
+Preview: Tightpage -328908 -328908 328908 328908
+[24] (./unit2.aux) ) 
 Here is how much of TeX's memory you used:
- 26890 strings out of 492982
- 568624 string characters out of 6136225
+ 26889 strings out of 492982
+ 568606 string characters out of 6136225
  622222 words of memory out of 5000000
- 30076 multiletter control sequences out of 15000+600000
- 534893 words of font info for 38 fonts, out of 8000000 for 9000
+ 30075 multiletter control sequences out of 15000+600000
+ 534595 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 70i,6n,103p,10515b,291s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 70i,6n,103p,10515b,289s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmmi12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
-><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texliv
-e/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2017/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on unit2.pdf (15 pages, 170446 bytes).
+cmbx12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pf
+b><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texl
+ive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2017/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2017/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on unit2.pdf (24 pages, 182775 bytes).
 PDF statistics:
- 117 PDF objects out of 1000 (max. 8388607)
- 66 compressed objects within 1 object stream
+ 149 PDF objects out of 1000 (max. 8388607)
+ 88 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  167 words of extra memory for PDF output out of 10000 (max. 10000000)
 
