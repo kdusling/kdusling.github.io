@@ -587,21 +587,21 @@ Left: Cannon-Fenske Routine Viscometer; Right: Ubbelohde Viscometer (*Source:* [
   </div>
 
 
-
-  <div class="photo" style="width: 300px;">
+<div style="width: 650px;>
+  <div class="photo" style="width: 300px; float: left">
   <img src="img/fungilab-Cannon-Fenske-Routine.jpg" style="height:auto; width: auto;">
   <p>
   Cannon-Fenske Routine Viscometer (*Source:* [Fungilab][], Hauppauge, NY)
   </p>
   </div>
 
-  <div class="photo" style="width: 300px;  float: left">
+  <div class="photo" style="width: 300px;  float: right">
   <img src="img/fungilab-Ubbelohde.jpg" style="height:auto; width: auto;">
   <p>
   Ubbelohde Viscometer (*Source:* [Fungilab][], Hauppauge, NY)
   </p>
   </div>
-
+</div>
 + **Falling-ball viscometer**
 
   In a falling-ball viscometer the time required for a ball to drop a known distance in the fluid is proportional to its dynamic viscosity.  When the ball reaches its terminal velocity the drag force on the sphere balances the weight of the ball when submerged.  The drag force is proportional to the viscosity and can be determined if the weight and density of the sphere is known.  Some falling-ball viscometers are on an incline and the motion of the ball is a combination of rolling and sliding.  The vendor provides the calibration between the time of travel and viscosity.
