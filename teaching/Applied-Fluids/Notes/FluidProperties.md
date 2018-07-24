@@ -511,10 +511,9 @@ The previous section described a fluid as Newtonian if there was a linear relati
   </p>
 </div>
 
-The slope of the curve at a given velocity gradient is a measure of the *apparent viscosity* of the fluid and is plotted in the figure to the right.  Recall that a Newtonian fluid has a linear stress stress--strain rate relationship.  The slope of the curve *at any strain rate* is the same and therefore the apparent viscosity is a constant.
+The slope of the curve at a given velocity gradient is a measure of the *apparent viscosity* of the fluid and is plotted in the figure to the right.  Recall that a Newtonian fluid has a linear shear stress--strain rate relationship.  The slope of the curve at any strain rate is the same and therefore the apparent viscosity is a constant.  We now discuss the three non-Newtonian fluids that are represented on the plots.
 
-
-1.  **Pseudoplastic** (also known as a shear-thinning fluids) has an apparent viscosity that decreases with increasing strain rate.  The more you stir or shake it the easier it will flow.  A good example is paint which flows readily when stroked from a brush but thick enough not drip down the wall.  Other common examples include blood, inks, and ketchup.
+1.  **Pseudoplastic** (also known as a shear-thinning fluids) has an apparent viscosity that decreases with increasing strain rate.  The more you stir or shake it the easier it will flow.  A good example is paint which flows readily when stroked from a brush but is thick enough not drip down the wall.  Other common examples include blood, inks, and ketchup.
 
 2.  **Dilatant fluids** (also known as a shear-thickening fluids) has an apparent viscosity that increases with increasing strain rate.  Dilatant fluids are less common than their pseudoplastic counterparts.  Cornstarch mixed with water is one example that can be prepared at home.   Silica and polyethylene glycol are used in some liquid body armor designs.  
 
@@ -523,7 +522,7 @@ The slope of the curve at a given velocity gradient is a measure of the *apparen
 
 ### Temperature Dependence of Viscosity
 
-The viscosity of a fluid can change drastically with temperature.  Almost all liquids have a decrease in viscosity with an increase in temperature.  A typical example is motor oil, which is difficult to pour when cold but flows readily when hot.  Gases follow the opposite trend, their viscosity increases with increasing temperature. The viscosity of gases tend to be less sensitive to temperature changes than liquids.   The figure below shows the temperature dependence of the dynamic viscosity of liquid water (curve below $100\C$) and water-vapor (curve above $100\C$).
+The viscosity of a fluid changes drastically with temperature.  Almost all liquids have a decrease in viscosity with an increase in temperature.  A typical example is motor oil, which is difficult to pour when cold but flows readily when hot.  Gases follow the opposite trend, their viscosity increases with increasing temperature. The viscosity of gases are less sensitive to temperature changes than liquids.   The figure below shows the temperature dependence of the dynamic viscosity of liquid water (curve below $100\C$) and water-vapor (curve above $100\C$).
 
 <div class="photo" style="width: 500px;">
   <img src="img\VisWaterSteam.png" alt="Dynamic viscosity of liquid water and water-vapor.">
@@ -532,12 +531,12 @@ Dynamic viscosity of liquid water and water-vapor on a log-linear plot.
   </p>
 </div>
 
-The *viscosity index* ($VI$) of a liquid is a measure of how greatly the kinematic viscosity varies with temperature.  It is an important property of hydraulic fluids and lubricants that operate at a wide range in temperatures.  A liquid with a low $VI$ exhibits a large relative change in viscosity with temperature.  A liquid with a high $VI$ is less sensitive to temperature variations.  The $VI$ doesn't tell you anything about what the value of the viscosity is, just how sensitive it is to temperature changes.  The viscosity index is a dimensionless quantity that was originally setup to be measured on a scale from 0 to 100.   But since the scale's conception a variety of lubricants have been manufactured that can reach a $VI$ of over 400.
+The *viscosity index* ($VI$) of a liquid is a measure of how greatly the kinematic viscosity varies with temperature.  It is an important property of hydraulic fluids and lubricants that operate at a wide range in temperatures.  A liquid with a low $VI$ exhibits a large relative change in viscosity with temperature.  A liquid with a high $VI$ is less sensitive to temperature variations.  The $VI$ doesn't tell you anything about what the value of the viscosity is, just how sensitive it is to temperature changes.  The viscosity index is a dimensionless quantity that was originally intended to run from 0 to 100.   Since the scale's conception, however, a variety of lubricants have been manufactured that can reach a $VI$ of over 400.
 
 <div class="photo" style="width: 500px;">
   <img src="img\isoVG100.png" alt="Kinematic viscosity for three different viscosity indices.">
   <p>
-Kinematic viscosity for an ISO VG 100 lubricant for a viscosity index of 50 (red), 100 (blue), and 150 (black).  An ISO VG 100 has a kinematic viscosity of 100 cSt at $40\C$.
+Kinematic viscosity for an ISO VG 100 lubricant for a viscosity index of 50 (red), 100 (blue), and 150 (black).  An ISO VG 100 has a kinematic viscosity of 100 cSt at $40\C$ (see the section on <a href="#iso-viscosity-grades" id="markdown-toc-iso-viscosity-grades">ISO Viscosity Grades</a>)
   </p>
 </div>
 
@@ -556,7 +555,7 @@ The grades for gear oils include: 70W, 75W, 80W, 85W, 80, 85, 90, 110, 140, 190,
 
 ### ISO Viscosity Grades
 
-For industrial applications it is recommended to use the ISO viscosity classification.  Each ISO viscosity grade requires the oil to have a specified kinematic viscosity at a temperature of $40\C$.  For example an ISO VG 150 must have a kinematic viscosity within 10% of 100 $\mm^2/s$ at $40\C$.  And an ISO VG 10 must have a kinematic viscosity within 10% of 10 $\mm^2/s$ at $40\C$.  The full ISO viscosity grade classification is in the [table found here][tribSI].
+For industrial applications it is recommended to use the ISO viscosity classification.  Each ISO viscosity grade requires the oil to have a specified kinematic viscosity at a temperature of $40\C$.  For example an ISO VG 100 must have a kinematic viscosity within 10% of 100 $\mm^2/s$ at $40\C$.  And an ISO VG 10 must have a kinematic viscosity within 10% of 10 $\mm^2/s$ at $40\C$.  The full ISO viscosity grade classification is in the [table found here][tribSI].
 
 The viscosity of the oil at different temperatures can be approximated by using its viscosity at $40\C$ (as given by the ISO VG) along with its viscosity index (VI) using an [online calculator][tribVIcalc].
 
@@ -566,7 +565,7 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
 
 + **Rotating-drum viscometer**
 
-  The rotating-drum viscometer operates on the principle that the torque required to rotate a drum immersed in fluid is proportional to its viscosity.  Different sized drums are available in order to allow for  measurement over a wide range of viscosities.  Following proper calibration the torque can be converted directly to viscosity.
+  The rotating-drum viscometer operates on the principle that the torque required to rotate a drum immersed in fluid is proportional to its viscosity.  Different sized drums are available in order to allow for  measurement over a wide range of viscosities.  Following proper calibration the torque can be converted directly to viscosity and displayed on the digital readout.
 
   <div class="photo" style="width: 400px;">
   ![](img/fungilab-viscolead-ONE-main-img-prod.jpg)
@@ -577,11 +576,11 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
 
 + **Capillary tube viscometer**
 
-  A capillary tube viscometer consists of a U-shaped glass tube that is filled with the fluid of interest.  Suction is used to draw the fluid above a timing mark on the tube.  The suction is removed and the fluid is allowed to flow under gravity.  The time it takes for the meniscus of the fluid to travel from the upper timing mark to the lower timing mark is proportional to its kinematic viscosity.  The proportionally constant is determined by the vendor at the time of calibration.
+  A capillary tube viscometer consists of a U-shaped glass tube that is filled with the fluid of interest.  Suction is used to draw the fluid above a timing mark on the tube.  The suction is removed and the fluid is allowed to flow under gravity.  The time it takes for the meniscus of the fluid to travel from the upper timing mark to the lower timing mark is proportional to its kinematic viscosity.  The proportionally constant is determined by the vendor during calibration.
 
   <div class="photo" style="width: 500px;">
-  ![](img/fungilab-capillary-Cannon-Fenske-opaque.jpg)
-  ![](img/fungilab-capillary-Ubbelohde.jpg)
+  ![](img/fungilab-Cannon-Fenske-Routine.jpg)
+  ![](img/fungilab-Ubbelohde.jpg)
   <p>
   Top: Cannon-Fenske Opaque Viscometer and Cannon-Fenske Routine Viscometer
   Bottom: Ubbelohde Viscometer (*Source:* [Fungilab][], Hauppauge, NY)
@@ -592,7 +591,7 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
 
   In a falling-ball viscometer the time required for a ball to drop a known distance in the fluid is proportional to its dynamic viscosity.  When the ball reaches its terminal velocity the drag force on the sphere balances the weight of the ball when submerged.  The drag force is proportional to the viscosity and can be determined if the weight and density of the sphere is known.  Some falling-ball viscometers are on an incline and the motion of the ball is a combination of rolling and sliding.  The vendor provides the calibration between the time of travel and viscosity.
 
-  <div class="photo" style="width: 400px;">
+  <div class="photo" style="width: 550px;">
   ![](img/fungilab-viscoball-main.jpg)
   <p>
   Falling-ball viscometer (*Source:* [Fungilab][], Hauppauge, NY)
@@ -601,14 +600,14 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
 
 + **Flow cups**
 
-  The ease with which a fluid flows through a small opening is related to its kinematic viscosity.  A flow-cup of known volume is allowed to drain under gravity through a small orifice of known size.  After steady flow, the time it takes for the fluid to drain determines the viscosity given the vendors calibration.  
+  The ease with which a fluid flows through a small opening is related to its kinematic viscosity.  A flow-cup of known volume is allowed to drain under gravity through a small orifice of known size.  After steady flow, the time it takes for the fluid to drain can be converted to a viscosity using the calibration provided by the vendor.  
 
  <div class="photo" style="width: 250px;">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Kubek-forda.JPG/256px-Kubek-forda.JPG" alt="Ford viscosity cup">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Kubek-forda.JPG/128px-Kubek-forda.JPG" alt="Ford viscosity cup">
   <p>
   Ford viscosity cup: The time taken for the fluid to flow out of the orifice located at the bottom is proportional to the kinematic viscosity.
   <BR><BR>
-  By Dariusz.Biegacz [[GFDL](http://www.gnu.org/copyleft/fdl.html) or [CC BY-SA 4.0(https://creativecommons.org/licenses/by-sa/4.0)], from Wikimedia Commons
+  By Dariusz.Biegacz [[GFDL](http://www.gnu.org/copyleft/fdl.html) or [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)], from Wikimedia Commons
   </p>
 </div>
 
