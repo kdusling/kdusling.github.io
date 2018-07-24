@@ -464,7 +464,7 @@ The amount of applied shear stress that is necessary to generate a certain strai
 In practice a series of measurements would be performed where the external force (applied shear stress) is varied and the resultant strain rates recorded.  The graph below shows the results of such an experiment using Olive Oil.  Each data point (square) represents one such measurement.  For each applied shear stress (y-axis) there is one corresponding strain rate (x-axis).  
 
 <div class="photo" style="width: 500px;">
-  <img src="img\OliveOil.png" alt="Rheogram for Olive Oil">
+  <img src="img/OliveOil.png" alt="Rheogram for Olive Oil">
   <p>
   Rheogram for Olive Oil -- a Newtonian fluid -- at $40\C$. Data from <a href="https://sites.google.com/site/jfsteffe/">Steffe</a>.
   </p>
@@ -579,8 +579,8 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
   A capillary tube viscometer consists of a U-shaped glass tube that is filled with the fluid of interest.  Suction is used to draw the fluid above a timing mark on the tube.  The suction is removed and the fluid is allowed to flow under gravity.  The time it takes for the meniscus of the fluid to travel from the upper timing mark to the lower timing mark is proportional to its kinematic viscosity.  The proportionally constant is determined by the vendor during calibration.
 
   <div class="photo" style="width: 600px;">
-  <img src="img/fungilab-Cannon-Fenske-Routine.jpg" style="height:500px; width: auto; float: left;">
-  <img src="img/fungilab-Ubbelohde.jpg" style="height:500px; width: auto;">
+  <img src="img/fungilab-Cannon-Fenske-Routine.jpg" style="height:auto; width: auto;"">
+  <img src="img/fungilab-Ubbelohde.jpg" style="height:auto; width: auto;">
   <p>
 Left: Cannon-Fenske Routine Viscometer; Right: Ubbelohde Viscometer (*Source:* [Fungilab][], Hauppauge, NY)
   </p>
@@ -602,7 +602,7 @@ Left: Cannon-Fenske Routine Viscometer; Right: Ubbelohde Viscometer (*Source:* [
   The ease with which a fluid flows through a small opening is related to its kinematic viscosity.  A flow-cup of known volume is allowed to drain under gravity through a small orifice of known size.  After steady flow, the time it takes for the fluid to drain can be converted to a viscosity using the calibration provided by the vendor.  
 
  <div class="photo" style="width: 250px;">
-  <img src="img/ford_cup" alt="Ford viscosity cup">
+  <img src="img/ford_cup.jpg" alt="Ford viscosity cup">
     <img src="img/zahn_cup.jpg" alt="Zahn viscosity cup">
   <p>
   Left: Ford viscosity cup; Right: Zahn viscosity cup
