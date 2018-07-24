@@ -578,7 +578,7 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
 
   A capillary tube viscometer consists of a U-shaped glass tube that is filled with the fluid of interest.  Suction is used to draw the fluid above a timing mark on the tube.  The suction is removed and the fluid is allowed to flow under gravity.  The time it takes for the meniscus of the fluid to travel from the upper timing mark to the lower timing mark is proportional to its kinematic viscosity.  The proportionally constant is determined by the vendor during calibration.
 
-  <div style="align: center; vertical-align: middle;>
+  <div style="align: center; vertical-align: middle;">
 
    <div class="photo" style="width: 350px; display: inline-block; float: left;">
    <img src="img/fungilab-Cannon-Fenske-Routine.jpg" style="width: 300px;">
