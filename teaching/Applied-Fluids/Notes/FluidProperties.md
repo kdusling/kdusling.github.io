@@ -601,9 +601,8 @@ Left: Cannon-Fenske Routine Viscometer; Right: Ubbelohde Viscometer (*Source:* [
 
   The ease with which a fluid flows through a small opening is related to its kinematic viscosity.  A flow-cup of known volume is allowed to drain under gravity through a small orifice of known size.  After steady flow, the time it takes for the fluid to drain can be converted to a viscosity using the calibration provided by the vendor.  
 
- <div class="photo" style="width: 250px;">
-  <p><img src="img/ford_cup.jpg" alt="Ford viscosity cup">
-  <img src="img/zahn_cup.jpg" alt="Zahn viscosity cup"></p>
+ <div class="photo" style="width: 500px;">
+  <img src="img/ford_cup.jpg" alt="Ford viscosity cup" style="width:auto; height:auto;"><img src="img/zahn_cup.jpg" alt="Zahn viscosity cup" style="width:auto; height:auto;">
   <p>
   Left: Ford viscosity cup; Right: Zahn viscosity cup
   </p>
