@@ -580,14 +580,14 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
 
   <div style="text-align: center;">
 
-   <div class="photo" style="width: 350px; display: inline-block; vertical-align: middle;">
+   <div class="photo" style="width: 350px; display: inline-block; vertical-align: middle; margin-right: 10px">
    <img src="img/fungilab-Cannon-Fenske-Routine.jpg" style="width: 300px;">
    <p>
    Cannon-Fenske Routine Viscometer (*Source:* [Fungilab][], Hauppauge, NY)
    </p>
    </div>
 
-   <div class="photo" style="width: 350px; display: inline-block; vertical-align: middle;">
+   <div class="photo" style="width: 350px; display: inline-block; vertical-align: middle; margin-left: 10px">
    <img src="img/fungilab-Ubbelohde.jpg" style="width: 300px;">
    <p>
    Ubbelohde Viscometer (*Source:* [Fungilab][], Hauppauge, NY)
@@ -611,18 +611,22 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
 
   The ease with which a fluid flows through a small opening is related to its kinematic viscosity.  A flow-cup of known volume is allowed to drain under gravity through a small orifice of known size.  After steady flow, the time it takes for the fluid to drain can be converted to a viscosity using the calibration provided by the vendor.  
 
-  <div class="photo" style="width: 350px;">
-  <img src="img/zahn_cup.jpg" style="width: 300px;">
-  <p>
-  Zahn viscosity cup
-  </p>
-  </div>
+  <div style="text-align: center;">
 
-  <div class="photo" style="width: 350px;">
-  <img src="img/ford_cup.jpg" style="width: 300px;">
-  <p>
-  Ford viscosity cup
-  </p>
+   <div class="photo" style="width: 350px; display: inline-block; vertical-align: middle; margin-right: 10px">
+   <img src="img/zahn_cup.jpg" style="width: 300px;">
+   <p>
+   Zahn viscosity cup
+   </p>
+   </div>
+
+   <div class="photo" style="width: 350px; display: inline-block; vertical-align: middle; margin-left: 10px">
+   <img src="img/ford_cup.jpg" style="width: 300px;">
+   <p>
+   Ford viscosity cup
+   </p>
+   </div>
+
   </div>
 
 
