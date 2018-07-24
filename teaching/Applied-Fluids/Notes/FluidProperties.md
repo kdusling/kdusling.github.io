@@ -615,14 +615,14 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
   <table>
   <tr><td>
     <div class="photo" style="width: auto; max-width: auto; height: 300px;">
-    <img src="img/zahn_cup.jpg" alt="Zahn viscosity cup" style="height: 100%; width: auto;">
+    <img src="img/zahn_cup.jpg" alt="Zahn viscosity cup" style="max-height: 100%; max-width: 100%;">
     <p>
     Zahn viscosity cup
     </p>
   </div>
   </td><td>
     <div class="photo" style="width: auto; max-width: auto; height: 300px;">
-    <img src="img/ford_cup.jpg" alt="Ford viscosity cup" style="height: 100%; width: auto;">
+    <img src="img/ford_cup.jpg" alt="Ford viscosity cup" style="max-height: 100%; max-width: 100%;">
     <p>
     Ford viscosity cup
     </p>
