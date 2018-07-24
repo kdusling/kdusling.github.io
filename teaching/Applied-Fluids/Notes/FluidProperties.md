@@ -581,15 +581,15 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
 
   <table>
   <tr><td>
-    <div class="photo" style="height: 400px; width: auto; max-width: auto;">
-    <img src="img/fungilab-Cannon-Fenske-Routine.jpg" style="height: 100%; width: auto;">
+    <div class="photo" style="height: 450px; width: auto; max-width: auto;">
+    <img src="img/fungilab-Cannon-Fenske-Routine.jpg" style="height: 400px; width: auto;">
     <p>
     Cannon-Fenske Routine Viscometer (*Source:* [Fungilab][], Hauppauge, NY)
     </p>
     </div>
   </td><td>
     <div class="photo" style="height: 400px; width: auto; max-width: auto; ">
-    <img src="img/fungilab-Ubbelohde.jpg" style="height: 100%; width: auto;">
+    <img src="img/fungilab-Ubbelohde.jpg" style="height: 400px; width: auto;">
     <p>
     Ubbelohde Viscometer (*Source:* [Fungilab][], Hauppauge, NY)
     </p>
@@ -615,7 +615,7 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
   <table>
   <tr><td>
     <div class="photo" style="width: auto; max-width: auto; height: 300px;">
-    <img src="img/zahn_cup.jpg" alt="Zahn viscosity cup" style="max-height: 100%; max-width: 100%;">
+    <img src="img/zahn_cup.jpg" alt="Zahn viscosity cup" style="max-height: 100%; max-width: 100%; width: auto; height:auto;">
     <p>
     Zahn viscosity cup
     </p>
