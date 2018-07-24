@@ -580,14 +580,14 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
 
   <div style="align: center; vertical-align: middle;">
 
-   <div class="photo" style="width: 350px; display: inline-block; float: left;">
+   <div class="photo" style="width: 350px; display: inline-block;">
    <img src="img/fungilab-Cannon-Fenske-Routine.jpg" style="width: 300px;">
    <p>
    Cannon-Fenske Routine Viscometer (*Source:* [Fungilab][], Hauppauge, NY)
    </p>
    </div>
 
-   <div class="photo" style="width: 350px; display: inline-block; float: right;">
+   <div class="photo" style="width: 350px; display: inline-block;">
    <img src="img/fungilab-Ubbelohde.jpg" style="width: 300px;">
    <p>
    Ubbelohde Viscometer (*Source:* [Fungilab][], Hauppauge, NY)
