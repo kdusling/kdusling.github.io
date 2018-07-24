@@ -579,11 +579,10 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
   A capillary tube viscometer consists of a U-shaped glass tube that is filled with the fluid of interest.  Suction is used to draw the fluid above a timing mark on the tube.  The suction is removed and the fluid is allowed to flow under gravity.  The time it takes for the meniscus of the fluid to travel from the upper timing mark to the lower timing mark is proportional to its kinematic viscosity.  The proportionally constant is determined by the vendor during calibration.
 
   <div class="photo" style="width: 500px;">
-  <img src="img/fungilab-Cannon-Fenske-Routine.jpg" style="height:500px; width: auto;">
-  <img src="img/fungilab-Ubbelohde.jpg" style="height:500px; width: auto;">
+  <img src="img/fungilab-Cannon-Fenske-Routine.jpg" style="height:500px; width: auto; float: left;">
+  <img src="img/fungilab-Ubbelohde.jpg" style="height:500px; width: auto; float: left;">
   <p>
-  Top: Cannon-Fenske Opaque Viscometer and Cannon-Fenske Routine Viscometer
-  Bottom: Ubbelohde Viscometer (*Source:* [Fungilab][], Hauppauge, NY)
+Left: Cannon-Fenske Routine Viscometer; Right: Ubbelohde Viscometer (*Source:* [Fungilab][], Hauppauge, NY)
   </p>
   </div>
 
@@ -592,7 +591,7 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
   In a falling-ball viscometer the time required for a ball to drop a known distance in the fluid is proportional to its dynamic viscosity.  When the ball reaches its terminal velocity the drag force on the sphere balances the weight of the ball when submerged.  The drag force is proportional to the viscosity and can be determined if the weight and density of the sphere is known.  Some falling-ball viscometers are on an incline and the motion of the ball is a combination of rolling and sliding.  The vendor provides the calibration between the time of travel and viscosity.
 
   <div class="photo" style="width: 550px;">
-  ![](img/fungilab-viscoball-main.jpg)
+    <img src="img/fungilab-viscoball-main.jpg" style="width: 450px;">
   <p>
   Falling-ball viscometer (*Source:* [Fungilab][], Hauppauge, NY)
   </p>
