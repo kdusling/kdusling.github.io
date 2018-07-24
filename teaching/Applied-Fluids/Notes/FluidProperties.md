@@ -568,7 +568,7 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
   The rotating-drum viscometer operates on the principle that the torque required to rotate a drum immersed in fluid is proportional to its viscosity.  Different sized drums are available in order to allow for  measurement over a wide range of viscosities.  Following proper calibration the torque can be converted directly to viscosity and displayed on the digital readout.
 
   <div class="photo" style="width: 400px;">
-  ![](img/fungilab-viscolead-ONE-main-img-prod.jpg)
+  <img src="img/fungilab-viscolead-ONE-main-img-prod.jpg" style="width: 350px;">
   <p>
   Rotating-drum viscometer (*Source:* [Fungilab][], Hauppauge, NY)
   </p>
@@ -580,14 +580,14 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
 
   <div style="text-align: center;">
 
-   <div class="photo" style="width: 350px; display: inline-block; vertical-align: middle; margin-right: 10px">
+   <div class="photo" style="width: 350px; display: inline-block; vertical-align: middle; margin-right: 20px">
    <img src="img/fungilab-Cannon-Fenske-Routine.jpg" style="width: 300px;">
    <p>
    Cannon-Fenske Routine Viscometer (*Source:* [Fungilab][], Hauppauge, NY)
    </p>
    </div>
 
-   <div class="photo" style="width: 350px; display: inline-block; vertical-align: middle; margin-left: 10px">
+   <div class="photo" style="width: 350px; display: inline-block; vertical-align: middle; margin-left: 20px">
    <img src="img/fungilab-Ubbelohde.jpg" style="width: 300px;">
    <p>
    Ubbelohde Viscometer (*Source:* [Fungilab][], Hauppauge, NY)
@@ -613,14 +613,14 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
 
   <div style="text-align: center;">
 
-   <div class="photo" style="width: 350px; display: inline-block; vertical-align: middle; margin-right: 10px">
+   <div class="photo" style="width: 350px; display: inline-block; vertical-align: middle; margin-right: 20px">
    <img src="img/zahn_cup.jpg" style="width: 300px;">
    <p>
    Zahn viscosity cup
    </p>
    </div>
 
-   <div class="photo" style="width: 350px; display: inline-block; vertical-align: middle; margin-left: 10px">
+   <div class="photo" style="width: 350px; display: inline-block; vertical-align: middle; margin-left: 20px">
    <img src="img/ford_cup.jpg" style="width: 300px;">
    <p>
    Ford viscosity cup
