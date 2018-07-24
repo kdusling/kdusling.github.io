@@ -579,8 +579,8 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
   A capillary tube viscometer consists of a U-shaped glass tube that is filled with the fluid of interest.  Suction is used to draw the fluid above a timing mark on the tube.  The suction is removed and the fluid is allowed to flow under gravity.  The time it takes for the meniscus of the fluid to travel from the upper timing mark to the lower timing mark is proportional to its kinematic viscosity.  The proportionally constant is determined by the vendor during calibration.
 
   <div class="photo" style="width: 600px;">
-  <img src="img/fungilab-Cannon-Fenske-Routine.jpg" style="height:auto; width: auto;"">
-  <img src="img/fungilab-Ubbelohde.jpg" style="height:auto; width: auto;">
+  <p><img src="img/fungilab-Cannon-Fenske-Routine.jpg" style="height:auto; width: 50%;">
+  <img src="img/fungilab-Ubbelohde.jpg" style="height:auto; width: 50%;"></p>
   <p>
 Left: Cannon-Fenske Routine Viscometer; Right: Ubbelohde Viscometer (*Source:* [Fungilab][], Hauppauge, NY)
   </p>
@@ -591,7 +591,7 @@ Left: Cannon-Fenske Routine Viscometer; Right: Ubbelohde Viscometer (*Source:* [
   In a falling-ball viscometer the time required for a ball to drop a known distance in the fluid is proportional to its dynamic viscosity.  When the ball reaches its terminal velocity the drag force on the sphere balances the weight of the ball when submerged.  The drag force is proportional to the viscosity and can be determined if the weight and density of the sphere is known.  Some falling-ball viscometers are on an incline and the motion of the ball is a combination of rolling and sliding.  The vendor provides the calibration between the time of travel and viscosity.
 
   <div class="photo" style="width: 550px;">
-    <img src="img/fungilab-viscoball-main.jpg" style="width: 450px;">
+    <img src="img/fungilab-viscoball-main.jpg" style="width: 500px;">
   <p>
   Falling-ball viscometer (*Source:* [Fungilab][], Hauppauge, NY)
   </p>
@@ -602,8 +602,8 @@ Left: Cannon-Fenske Routine Viscometer; Right: Ubbelohde Viscometer (*Source:* [
   The ease with which a fluid flows through a small opening is related to its kinematic viscosity.  A flow-cup of known volume is allowed to drain under gravity through a small orifice of known size.  After steady flow, the time it takes for the fluid to drain can be converted to a viscosity using the calibration provided by the vendor.  
 
  <div class="photo" style="width: 250px;">
-  <img src="img/ford_cup.jpg" alt="Ford viscosity cup">
-    <img src="img/zahn_cup.jpg" alt="Zahn viscosity cup">
+  <p><img src="img/ford_cup.jpg" alt="Ford viscosity cup">
+  <img src="img/zahn_cup.jpg" alt="Zahn viscosity cup"></p>
   <p>
   Left: Ford viscosity cup; Right: Zahn viscosity cup
   </p>
