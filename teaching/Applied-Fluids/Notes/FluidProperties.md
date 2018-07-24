@@ -588,7 +588,7 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
     </p>
     </div>
   </td><td>
-    <div class="photo" style="height: 500px; width: auto; max-width: auto; align:center">
+    <div class="photo" style="height: 500px; width: auto; max-width: auto; align: center">
     <img src="img/fungilab-Ubbelohde.jpg" style="height: 400px; width: auto;">
     <p>
     Ubbelohde Viscometer (<em>Source:</em> <a href="https://www.fungilab.com">Fungilab</a>, Hauppauge, NY)
@@ -614,15 +614,15 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
 
   <table>
   <tr><td>
-    <div class="photo" style="height: 300px; width: auto; max-width: auto;">
-    <img src="img/zahn_cup.jpg" alt="Zahn viscosity cup" style="height:280px; width: auto;">
+    <div class="photo" style="height: 400px; width: auto; max-width: auto;">
+    <img src="img/zahn_cup.jpg" alt="Zahn viscosity cup" style="height:300px; width: auto; max-width: auto;">
     <p>
     Zahn viscosity cup
     </p>
   </div>
   </td><td>
-    <div class="photo" style="height: 300px; width: auto; max-width: auto;">
-    <img src="img/ford_cup.jpg" alt="Ford viscosity cup" style="height:280px; width: auto;">
+    <div class="photo" style="height: 400px; width: auto; max-width: auto;">
+    <img src="img/ford_cup.jpg" alt="Ford viscosity cup" style="height:300px; width: auto; max-width: auto;">
     <p>
     Ford viscosity cup
     </p>
