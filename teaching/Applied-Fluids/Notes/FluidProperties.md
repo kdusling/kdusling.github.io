@@ -588,7 +588,7 @@ Left: Cannon-Fenske Routine Viscometer; Right: Ubbelohde Viscometer (*Source:* [
 
 
 
-  <div class="photo" style="width: 300px;">
+  <div class="photo" style="width: 300px; float: left">
   <img src="img/fungilab-Cannon-Fenske-Routine.jpg" style="height:auto; width: auto;">
   <p>
   Cannon-Fenske Routine Viscometer (*Source:* [Fungilab][], Hauppauge, NY)
