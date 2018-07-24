@@ -578,24 +578,19 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
 
   A capillary tube viscometer consists of a U-shaped glass tube that is filled with the fluid of interest.  Suction is used to draw the fluid above a timing mark on the tube.  The suction is removed and the fluid is allowed to flow under gravity.  The time it takes for the meniscus of the fluid to travel from the upper timing mark to the lower timing mark is proportional to its kinematic viscosity.  The proportionally constant is determined by the vendor during calibration.
 
+  <div class="photo" style="width: 350px;">
+  <img src="img/fungilab-Cannon-Fenske-Routine.jpg" style="width: 300px;">
+  <p>
+  Cannon-Fenske Routine Viscometer (*Source:* [Fungilab][], Hauppauge, NY)
+  </p>
+  </div>
 
-  <table>
-  <tr><td>
-    <div class="photo" style="height: 500px; width: auto; max-width: auto; align: center">
-    <img src="img/fungilab-Cannon-Fenske-Routine.jpg" style="height: 400px; width: auto;">
-    <p>
-    Cannon-Fenske Routine Viscometer (<em>Source:</em> <a href="https://www.fungilab.com">Fungilab</a>, Hauppauge, NY)
-    </p>
-    </div>
-  </td><td>
-    <div class="photo" style="height: 500px; width: auto; max-width: auto; align: center">
-    <img src="img/fungilab-Ubbelohde.jpg" style="height: 400px; width: auto;">
-    <p>
-    Ubbelohde Viscometer (<em>Source:</em> <a href="https://www.fungilab.com">Fungilab</a>, Hauppauge, NY)
-    </p>
-    </div>
-  </td></tr>
-  </table>
+  <div class="photo" style="width: 350px;">
+  <img src="img/fungilab-Ubbelohde.jpg" style="width: 300px;">
+  <p>
+  Ubbelohde Viscometer (*Source:* [Fungilab][], Hauppauge, NY)
+  </p>
+  </div>
 
 + **Falling-ball viscometer**
 
@@ -612,23 +607,21 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
 
   The ease with which a fluid flows through a small opening is related to its kinematic viscosity.  A flow-cup of known volume is allowed to drain under gravity through a small orifice of known size.  After steady flow, the time it takes for the fluid to drain can be converted to a viscosity using the calibration provided by the vendor.  
 
-  <table>
-  <tr><td>
-    <div class="photo" style="height: 400px; width: auto; max-width: auto;">
-    <img src="img/zahn_cup.jpg" alt="Zahn viscosity cup" style="height:100%; width: auto; max-width: auto;">
-    <p>
-    Zahn viscosity cup
-    </p>
+  <div class="photo" style="width: 350px;">
+  <img src="img/zahn_cup.jpg" style="width: 300px;">
+  <p>
+  Zahn viscosity cup
+  </p>
   </div>
-  </td><td>
-    <div class="photo" style="height: 400px; width: auto; max-width: auto;">
-    <img src="img/ford_cup.jpg" alt="Ford viscosity cup" style="height:100%; width: auto; max-width: auto;">
-    <p>
-    Ford viscosity cup
-    </p>
+
+  <div class="photo" style="width: 350px;">
+  <img src="img/ford_cup.jpg" style="width: 300px;">
+  <p>
+  Ford viscosity cup
+  </p>
   </div>
-  </td></tr>
-  </table>
+
+
 
 
 ## References
