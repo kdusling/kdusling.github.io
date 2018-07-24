@@ -578,16 +578,8 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
 
   A capillary tube viscometer consists of a U-shaped glass tube that is filled with the fluid of interest.  Suction is used to draw the fluid above a timing mark on the tube.  The suction is removed and the fluid is allowed to flow under gravity.  The time it takes for the meniscus of the fluid to travel from the upper timing mark to the lower timing mark is proportional to its kinematic viscosity.  The proportionally constant is determined by the vendor during calibration.
 
-  <div class="photo" style="width: 600px;">
-  <img src="img/fungilab-Cannon-Fenske-Routine.jpg" style="height:450px; width: auto;">
-  <img src="img/fungilab-Ubbelohde.jpg" style="height: 450px; width: auto;">
-  <p>
-Left: Cannon-Fenske Routine Viscometer; Right: Ubbelohde Viscometer (*Source:* [Fungilab][], Hauppauge, NY)
-  </p>
-  </div>
 
-
-<div style="width: 650px;">
+<div style="width: 600px; margin-left: auto ; margin-right: auto ;">
   <div class="photo" style="width: 300px; float: left">
   <img src="img/fungilab-Cannon-Fenske-Routine.jpg" style="height:auto; width: auto;">
   <p>
@@ -595,7 +587,7 @@ Left: Cannon-Fenske Routine Viscometer; Right: Ubbelohde Viscometer (*Source:* [
   </p>
   </div>
 
-  <div class="photo" style="width: 300px;  float: right">
+  <div class="photo" style="width: 300px;  float: clear">
   <img src="img/fungilab-Ubbelohde.jpg" style="height:auto; width: auto;">
   <p>
   Ubbelohde Viscometer (*Source:* [Fungilab][], Hauppauge, NY)
