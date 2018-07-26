@@ -511,6 +511,26 @@ The previous section described a fluid as Newtonian if there was a linear relati
   </p>
 </div>
 
+
+
+  <div style="text-align: center;">
+
+   <div class="photo" style="width: 350px; display: inline-block; vertical-align: middle; margin-right: 20px">
+   <img src="img\ShearStrainNonNewtonian.png" style="width: 500px;">
+   <p>
+   Sketch of a rheological diagram for various non-Newtonian fluids.
+   </p>
+   </div>
+
+   <div class="photo" style="width: 350px; display: inline-block; vertical-align: middle; margin-left: 20px">
+   <img src="img\ApparentViscosity.png" style="width: 500px;">
+   <p>
+   Apparent viscosity as a function of strain rate for various non-Newtonian fluids.
+   </p>
+   </div>
+
+  </div>
+
 The slope of the curve at a given velocity gradient is a measure of the *apparent viscosity* of the fluid and is plotted in the figure to the right.  Recall that a Newtonian fluid has a linear shear stress--strain rate relationship.  The slope of the curve at any strain rate is the same and therefore the apparent viscosity is a constant.  We now discuss the three non-Newtonian fluids that are represented on the plots.
 
 1.  **Pseudoplastic** (also known as a shear-thinning fluids) has an apparent viscosity that decreases with increasing strain rate.  The more you stir or shake it the easier it will flow.  A good example is paint which flows readily when stroked from a brush but is thick enough not drip down the wall.  Other common examples include blood, inks, and ketchup.
@@ -529,6 +549,25 @@ The viscosity of a fluid changes drastically with temperature.  Almost all liqui
   <p>
 Dynamic viscosity of liquid water and water-vapor on a log-linear plot.
   </p>
+</div>
+
+
+<div style="text-align: center;">
+
+ <div class="photo" style="width: 350px; display: inline-block; vertical-align: middle; margin-right: 20px">
+ <img src="img/VisWater.png" style="width: 500px;">
+ <p>
+ Sketch of a rheological diagram for various non-Newtonian fluids.
+ </p>
+ </div>
+
+ <div class="photo" style="width: 350px; display: inline-block; vertical-align: middle; margin-left: 20px">
+ <img src="img/VisSteam.png" style="width: 500px;">
+ <p>
+ Apparent viscosity as a function of strain rate for various non-Newtonian fluids.
+ </p>
+ </div>
+
 </div>
 
 The *viscosity index* ($VI$) of a liquid is a measure of how greatly the kinematic viscosity varies with temperature.  It is an important property of hydraulic fluids and lubricants that operate at a wide range in temperatures.  A liquid with a low $VI$ exhibits a large relative change in viscosity with temperature.  A liquid with a high $VI$ is less sensitive to temperature variations.  The $VI$ doesn't tell you anything about what the value of the viscosity is, just how sensitive it is to temperature changes.  The viscosity index is a dimensionless quantity that was originally intended to run from 0 to 100.   Since the scale's conception, however, a variety of lubricants have been manufactured that can reach a $VI$ of over 400.
