@@ -538,8 +538,8 @@ If you're interested the data for liquid water and water vapor is shown on a <a 
 
 <div style="text-align: center;">
 
- <div class="photo" style="width: 500px; display: inline-block; vertical-align: middle; margin-right: 20px">
- <img src="img/VisWater.png" style="width: 500px;">
+ <div class="photo" style="width: 450px; display: inline-block; vertical-align: middle; margin-right: 20px">
+ <img src="img/VisWater.png">
  <p>
  Dynamic viscosity of liquid water at atmospheric pressure as a function of temperature.  The data is from
 
@@ -548,8 +548,8 @@ If you're interested the data for liquid water and water vapor is shown on a <a 
  </p>
  </div>
 
- <div class="photo" style="width: 500px; display: inline-block; vertical-align: middle; margin-left: 20px">
- <img src="img/VisSteam.png" style="width: 500px;">
+ <div class="photo" style="width: 450px; display: inline-block; vertical-align: middle; margin-left: 20px">
+ <img src="img/VisSteam.png" style="width: 400px;">
  <p>
   Dynamic viscosity of water vapor (blue) and dry air (red) at atmospheric pressure as a function of temperature.  The data for dry air is from
 
