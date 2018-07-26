@@ -506,15 +506,15 @@ The previous section described a fluid as Newtonian if there was a linear relati
 
   <div style="text-align: center;">
 
-   <div class="photo" style="width: 500px; display: inline-block; vertical-align: middle; margin-right: 20px">
-   <img src="img\ShearStrainNonNewtonian.png" style="width: 500px;">
+   <div class="photo" style="width: 400px; display: inline-block; vertical-align: middle; margin-right: 20px">
+   <img src="img\ShearStrainNonNewtonian.png">
    <p>
    Sketch of a rheological diagram for various non-Newtonian fluids.
    </p>
    </div>
 
-   <div class="photo" style="width: 500px; display: inline-block; vertical-align: middle; margin-left: 20px">
-   <img src="img\ApparentViscosity.png" style="width: 500px;">
+   <div class="photo" style="width: 400px; display: inline-block; vertical-align: middle; margin-left: 20px">
+   <img src="img\ApparentViscosity.png">
    <p>
    Apparent viscosity as a function of strain rate for various non-Newtonian fluids.
    </p>
@@ -533,12 +533,12 @@ The slope of the curve at a given velocity gradient is a measure of the *apparen
 
 ### Temperature Dependence of Viscosity
 
-The viscosity of a fluid changes drastically with temperature.  Almost all liquids have a decrease in viscosity with an increase in temperature.  A typical example is motor oil, which is difficult to pour when cold but flows readily when hot.  Gases follow the opposite trend, their viscosity increases with increasing temperature. The viscosity of gases are less sensitive to temperature changes than liquids.   The two plots below show the temperature dependence of the dynamic viscosity of liquid water, water-vapor and dry air.
-If you're interested the data for liquid water and water vapor is shown on a <a href="https://kdusling.github.io/teaching/Applied-Fluids/Notes/img/VisWaterSteam.png">single plot here</a>.  Note that the y-axis is a log scale.  You can see the sudden jump in viscosity when going from the liquid to gas phase at $100\C$.
+The viscosity of a fluid changes drastically with temperature.  Almost all liquids have a decrease in viscosity with an increase in temperature.  A typical example is motor oil, which is difficult to pour when cold but flows readily when hot.  Gases follow the opposite trend, their viscosity increases with increasing temperature. The viscosity of gases are less sensitive to temperature changes than liquids.   The two plots below show the effect of temperature on the dynamic viscosity of liquid water, water-vapor and dry air.
+If you're interested the data for liquid water and water vapor is shown on a <a href="https://kdusling.github.io/teaching/Applied-Fluids/Notes/img/VisWaterSteam.png">single plot here</a>.  Note that the y-axis is a log scale.  Notice the sudden jump in viscosity when going from the liquid to gas phase at $100\C$.
 
 <div style="text-align: center;">
 
- <div class="photo" style="width: 450px; display: inline-block; vertical-align: middle; margin-right: 20px">
+ <div class="photo" style="width: 400px; display: inline-block; vertical-align: middle; margin-right: 20px">
  <img src="img/VisWater.png">
  <p>
  Dynamic viscosity of liquid water at atmospheric pressure as a function of temperature.  The data is from
@@ -548,8 +548,8 @@ If you're interested the data for liquid water and water vapor is shown on a <a 
  </p>
  </div>
 
- <div class="photo" style="width: 450px; display: inline-block; vertical-align: middle; margin-left: 20px">
- <img src="img/VisSteam.png" style="width: 400px;">
+ <div class="photo" style="width: 400px; display: inline-block; vertical-align: middle; margin-left: 20px">
+ <img src="img/VisSteam.png">
  <p>
   Dynamic viscosity of water vapor (blue) and dry air (red) at atmospheric pressure as a function of temperature.  The data for dry air is from
 
@@ -596,7 +596,7 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
   The rotating-drum viscometer operates on the principle that the torque required to rotate a drum immersed in fluid is proportional to its viscosity.  Different sized drums are available in order to allow for  measurement over a wide range of viscosities.  Following proper calibration the torque can be converted directly to viscosity and displayed on the digital readout.
 
   <div class="photo" style="width: 400px;">
-  <img src="img/fungilab-viscolead-ONE-main-img-prod.jpg" style="width: 350px;">
+  <img src="img/fungilab-viscolead-ONE-main-img-prod.jpg">
   <p>
   Rotating-drum viscometer (*Source:* [Fungilab][], Hauppauge, NY)
   </p>
@@ -609,14 +609,14 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
   <div style="text-align: center;">
 
    <div class="photo" style="width: 350px; display: inline-block; vertical-align: middle; margin-right: 20px">
-   <img src="img/fungilab-Cannon-Fenske-Routine.jpg" style="width: 300px;">
+   <img src="img/fungilab-Cannon-Fenske-Routine.jpg">
    <p>
    Cannon-Fenske Routine Viscometer (*Source:* [Fungilab][], Hauppauge, NY)
    </p>
    </div>
 
    <div class="photo" style="width: 350px; display: inline-block; vertical-align: middle; margin-left: 20px">
-   <img src="img/fungilab-Ubbelohde.jpg" style="width: 300px;">
+   <img src="img/fungilab-Ubbelohde.jpg">
    <p>
    Ubbelohde Viscometer (*Source:* [Fungilab][], Hauppauge, NY)
    </p>
@@ -629,7 +629,7 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
   In a falling-ball viscometer the time required for a ball to drop a known distance in the fluid is proportional to its dynamic viscosity.  When the ball reaches its terminal velocity the drag force on the sphere balances the weight of the ball when submerged.  The drag force is proportional to the viscosity and can be determined if the weight and density of the sphere is known.  Some falling-ball viscometers are on an incline and the motion of the ball is a combination of rolling and sliding.  The vendor provides the calibration between the time of travel and viscosity.
 
   <div class="photo" style="width: 550px;">
-    <img src="img/fungilab-viscoball-main.jpg" style="width: 500px;">
+    <img src="img/fungilab-viscoball-main.jpg">
   <p>
   Falling-ball viscometer (*Source:* [Fungilab][], Hauppauge, NY)
   </p>
@@ -642,14 +642,14 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
   <div style="text-align: center;">
 
    <div class="photo" style="width: 350px; display: inline-block; vertical-align: middle; margin-right: 20px">
-   <img src="img/zahn_cup.jpg" style="width: 300px;">
+   <img src="img/zahn_cup.jpg">
    <p>
    Zahn viscosity cup
    </p>
    </div>
 
    <div class="photo" style="width: 350px; display: inline-block; vertical-align: middle; margin-left: 20px">
-   <img src="img/ford_cup.jpg" style="width: 300px;">
+   <img src="img/ford_cup.jpg">
    <p>
    Ford viscosity cup
    </p>
