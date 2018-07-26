@@ -639,16 +639,18 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
 
   The ease with which a fluid flows through a small opening is related to its kinematic viscosity.  A flow-cup of known volume is allowed to drain under gravity through a small orifice of known size.  After steady flow, the time it takes for the fluid to drain can be converted to a viscosity using the calibration provided by the vendor.  
 
+  Similar in principle is the Saybolt Universal viscometer.  The fluid is placed in a temperature controlled apparatus with a small-diameter orifice at the bottom. After steady flow is established the time taken for 60 ml of the fluid to flow is measured.  The viscosity of the fluid is then reported in Saybolt Universal Seconds (SUS).  While this test is considered obsolete you may find kinematic viscosity quoted in SUS in some technical literature.
+
   <div style="text-align: center;">
 
-   <div class="photo" style="width: 350px; display: inline-block; vertical-align: middle; margin-right: 20px">
+   <div class="photo" style="width: 300px; display: inline-block; vertical-align: middle; margin-right: 20px">
    <img src="img/zahn_cup.jpg">
    <p>
    Zahn viscosity cup
    </p>
    </div>
 
-   <div class="photo" style="width: 350px; display: inline-block; vertical-align: middle; margin-left: 20px">
+   <div class="photo" style="width: 300px; display: inline-block; vertical-align: middle; margin-left: 20px">
    <img src="img/ford_cup.jpg">
    <p>
    Ford viscosity cup
@@ -657,14 +659,6 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
 
   </div>
 
-
-
-
-## References
-
-
-
-<a href="http://www.tribology-abc.com/">Tribology-ABC</a>
 
 
 [tribSAE]: http://www.tribology-abc.com/abc/viscosity.htm#SAE
