@@ -504,25 +504,16 @@ It is worth taking a minute to go through the unit cancellation above. First rep
 
 The previous section described a fluid as Newtonian if there was a linear relationship between the shear stress and strain rate.  This is an idealization and while it serves as a reasonable description of many of the fluids we will encounter other fluids are not so simple.  We will consider three types of non-Newtonian fluids; Pseudoplastic, Dilatant and Bingham.   The behavior of their shear stress--strain rate relationships are sketched in the left plot below.  
 
-<div class="photo" style="width: 540px;">
-  <img src="img\ShearStrainNonNewtonian.png" style="width: 500px;"><img src="img\ApparentViscosity.png" style="width: 500px;">
-  <p>
-   Top: Sketch of a rheological diagram for various non-Newtonian fluids.  Bottom: Apparent viscosity as a function of strain rate for various non-Newtonian fluids.
-  </p>
-</div>
-
-
-
   <div style="text-align: center;">
 
-   <div class="photo" style="width: 350px; display: inline-block; vertical-align: middle; margin-right: 20px">
+   <div class="photo" style="width: 500px; display: inline-block; vertical-align: middle; margin-right: 20px">
    <img src="img\ShearStrainNonNewtonian.png" style="width: 500px;">
    <p>
    Sketch of a rheological diagram for various non-Newtonian fluids.
    </p>
    </div>
 
-   <div class="photo" style="width: 350px; display: inline-block; vertical-align: middle; margin-left: 20px">
+   <div class="photo" style="width: 500px; display: inline-block; vertical-align: middle; margin-left: 20px">
    <img src="img\ApparentViscosity.png" style="width: 500px;">
    <p>
    Apparent viscosity as a function of strain rate for various non-Newtonian fluids.
@@ -542,29 +533,27 @@ The slope of the curve at a given velocity gradient is a measure of the *apparen
 
 ### Temperature Dependence of Viscosity
 
-The viscosity of a fluid changes drastically with temperature.  Almost all liquids have a decrease in viscosity with an increase in temperature.  A typical example is motor oil, which is difficult to pour when cold but flows readily when hot.  Gases follow the opposite trend, their viscosity increases with increasing temperature. The viscosity of gases are less sensitive to temperature changes than liquids.   The figure below shows the temperature dependence of the dynamic viscosity of liquid water (curve below $100\C$) and water-vapor (curve above $100\C$).
-
-<div class="photo" style="width: 500px;">
-  <img src="img\VisWaterSteam.png" alt="Dynamic viscosity of liquid water and water-vapor.">
-  <p>
-Dynamic viscosity of liquid water and water-vapor on a log-linear plot.
-  </p>
-</div>
-
+The viscosity of a fluid changes drastically with temperature.  Almost all liquids have a decrease in viscosity with an increase in temperature.  A typical example is motor oil, which is difficult to pour when cold but flows readily when hot.  Gases follow the opposite trend, their viscosity increases with increasing temperature. The viscosity of gases are less sensitive to temperature changes than liquids.   The two plots below show the temperature dependence of the dynamic viscosity of liquid water, water-vapor and dry air.
+If you're interested the data for liquid water and water vapor is shown on a <a href="https://kdusling.github.io/teaching/Applied-Fluids/Notes/img/VisWaterSteam.png">single plot here</a>.  Note that the y-axis is a log scale.  You can see the sudden jump in viscosity when going from the liquid to gas phase at $100\C$.
 
 <div style="text-align: center;">
 
- <div class="photo" style="width: 350px; display: inline-block; vertical-align: middle; margin-right: 20px">
+ <div class="photo" style="width: 500px; display: inline-block; vertical-align: middle; margin-right: 20px">
  <img src="img/VisWater.png" style="width: 500px;">
  <p>
- Sketch of a rheological diagram for various non-Newtonian fluids.
+ Dynamic viscosity of liquid water at atmospheric pressure as a function of temperature.  The data is from
+
+ Kestin, J.; Sengers, J.V.; Kamgar-Parsi, B.; Levelt Sengers, J.M.H., <a href="http://webbook.nist.gov/chemistry/fluid/">Thermophysical Properties of Fluid H2O</a>, J. Phys. Chem. Ref. Data, 1984, 13, 1, 175-183.
+
  </p>
  </div>
 
- <div class="photo" style="width: 350px; display: inline-block; vertical-align: middle; margin-left: 20px">
+ <div class="photo" style="width: 500px; display: inline-block; vertical-align: middle; margin-left: 20px">
  <img src="img/VisSteam.png" style="width: 500px;">
  <p>
- Apparent viscosity as a function of strain rate for various non-Newtonian fluids.
+  Dynamic viscosity of water vapor (blue) and dry air (red) at atmospheric pressure as a function of temperature.  The data for dry air is from
+
+  Dixon, John C., <a href="http://dx.doi.org/10.1002/9780470516430.app2">The Shock Absorber Handbook, John Wiley &amp;	Sons, Ltd. (2007)
  </p>
  </div>
 
@@ -673,9 +662,7 @@ A device for measuring the viscosity of a liquid is called a *viscometer*.  We w
 
 ## References
 
-Kestin, J.; Sengers, J.V.; Kamgar-Parsi, B.; Levelt Sengers, J.M.H., <a href="http://webbook.nist.gov/chemistry/fluid/">Thermophysical Properties of Fluid H2O</a>, J. Phys. Chem. Ref. Data, 1984, 13, 1, 175-183. [doi:10.1063/1.555707]
 
-Dixon, John C., <a href="http://dx.doi.org/10.1002/9780470516430.app2">The Shock Absorber Handbook, John Wiley &amp;	Sons, Ltd. (2007)
 
 <a href="http://www.tribology-abc.com/">Tribology-ABC</a>
 
