@@ -167,7 +167,7 @@ The relative roughness is the ratio of $\epsilon$, a characteristic scale repres
   Roughness for various pipe materials <a name="PipeRoughness"></a>
 </caption>
 <thead>
-<tr><th>Pipe Material </th><th>    $\epsilon$ [mm]</th></tr> </th><th>  $\epsilon$ [inches]
+<tr><th>Pipe Material </th><th> $\epsilon$ [mm]</th><th>  $\epsilon$ [inches]</th></tr>
 </thead>
 <tbody>
   <tr><td>Commercial or Welded Steel</td><td> 0.0018 </td><td>  0.046</td></tr>
