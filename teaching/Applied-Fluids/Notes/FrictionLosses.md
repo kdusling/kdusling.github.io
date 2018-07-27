@@ -206,9 +206,9 @@ $$
 \eta=1.375\times 10^{-3}~\Pa\cdot\s
 $$
 
-The density of turpentine is lower by about 45\% but the dynamic viscosity decreases by a factor of 700! Let's see how this effects the Reynolds number.
+The density of turpentine is lower by about 30&#37; but the dynamic viscosity decreases by a factor of 700! Let's see how this effects the Reynolds number.
 
-
+$$
 N_R=\frac{v D\rho}{\eta}=\frac{\left(5~\m/\s\right)\left(0.1223~\m\right)\left(870~\kg/\m^3\right)}{1.37\times 10^{-3}~\Pa\cdot\s}=3.87\times 10^5
 $$
 
