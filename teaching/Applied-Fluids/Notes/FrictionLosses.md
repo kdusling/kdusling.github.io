@@ -167,15 +167,15 @@ The relative roughness is the ratio of $\epsilon$, a characteristic scale repres
   Roughness for various pipe materials <a name="PipeRoughness"></a>
 </caption>
 <thead>
-<tr><th>Pipe Material </th><th> $\epsilon$ [mm]</th><th>  $\epsilon$ [inches]</th></tr>
+<tr><th>Pipe Material </th><th> $\epsilon$ [inches]</th><th>  $\epsilon$ [mm]</th></tr>
 </thead>
 <tbody>
   <tr><td>Commercial or Welded Steel</td><td> 0.0018 </td><td>  0.046</td></tr>
   <tr><td>PVC, Glass, Other Drawn Tubing</td><td>0.00006</td><td>0.0015 </td></tr>
   <tr><td>Cast iron </td><td>  0.01 </td><td>  0.26</td></tr>
   <tr><td>Galvanized iron </td><td> 0.006  </td><td> 0.15 </td></tr>
-  <tr><td>Smooth concrete </td><td>  0.3 </td><td> 0.012 </td></tr>
-  <tr><td>Rough concrete </td><td>  3.0 </td><td> 0.12 </td></tr>
+  <tr><td>Smooth concrete </td><td>  0.012 </td><td> 0.3 </td></tr>
+  <tr><td>Rough concrete </td><td>  0.12 </td><td> 3.0 </td></tr>
 </tbody>
 
 </table>
@@ -206,14 +206,14 @@ $$
 \eta=1.375\times 10^{-3}~\Pa\cdot\s
 $$
 
-The density of turpentine is lower by about 30&#37; but the dynamic viscosity decreases by a factor of 700! Let's see how this effects the Reynolds number.
+The density of turpentine is lower by about 30&#37; but the dynamic viscosity decreases by a factor of 700! Let's see how this affects the Reynolds number.
 
 $$
-N_R=\frac{v D\rho}{\eta}=\frac{\left(5~\m/\s\right)\left(0.1223~\m\right)\left(870~\kg/\m^3\right)}{1.37\times 10^{-3}~\Pa\cdot\s}=3.87\times 10^5
+N_R=\frac{v D\rho}{\eta}=\frac{\left(5~\m/\s\right)\left(0.1223~\m\right)\left(870~\kg/\m^3\right)}{1.375\times 10^{-3}~\Pa\cdot\s}=3.87\times 10^5
 $$
 
 The Reynolds number is well above 4000 so we predict the flow to be turbulent.
-The energy loss will still be determined from Darcy's equation but the friction factor must be found from Moody's diagram.  In order to accomplish this we first must estimate the relative roughness of the pipe.  For commercial steel the roughness is 0.046 mm.  Earlier on we found the inside diameter of the pipe was $D=122.3~\mm$.  The relative roughness is therefore
+The energy loss will still be determined from Darcy's equation but the friction factor must be found from Moody's diagram.  In order to accomplish this we first estimate the relative roughness of the pipe.  For commercial steel the roughness is 0.046 mm.  Earlier on we found the inside diameter of the pipe was $D=122.3~\mm$.  The relative roughness is therefore
 
 $$
 \epsilon/D=\frac{0.046~\mm}{122.3~\mm}=0.00038
@@ -221,7 +221,7 @@ $$
 
 and we were careful to make sure that the units canceled leaving us with a dimensionless quantity.  I now go to the Moody diagram and realize that there is no curve for this specific value of $\epsilon/D$.  We're going to have to approximate and use the nearby curve for $\epsilon/D=0.0005$ instead.
 
-Here is how I find the friction factor from the Moody diagram.  First, I identify the curve corresponding to $\epsilon/D=0.0005$ and highlight it as I'm no longer interested in any other information at this point.  I locate the Reynolds number of $N_R=4\times 10^5$ (yes, I it rounded up) on the x-axis (note it's a log scale) and draw a vertical line up.  The intersection with my highlighted curve represents the value of the friction factor at this Reynolds number.  Following my horizontal line to the y-axis (again, note it's a log scale) I read off a friction factor of $f=0.018$.
+Here is how I find the friction factor from the Moody diagram.  First, I identify the curve corresponding to $\epsilon/D=0.0005$ and highlight it as I'm no longer interested in any other information at this point.  I locate the Reynolds number of $N_R=4\times 10^5$ (yes, I rounded up) on the x-axis (note it's a log scale) and draw a vertical line up.  The intersection with my highlighted curve represents the value of the friction factor at this Reynolds number.  Following my horizontal line to the y-axis (again, note it's a log scale) I read off a friction factor of $f=0.018$.
 
 <div class="photo" style="width: 100%;">
   <img src="img/MoodyExWork.jpg" alt="Moody Diagram">
