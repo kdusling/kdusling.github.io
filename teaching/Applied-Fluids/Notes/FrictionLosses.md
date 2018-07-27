@@ -37,24 +37,23 @@ $$
 
 # Energy loss in pipes due to friction
 
-As a fluid flows through a pipe energy will be dissipated due to friction. As we will see the amount of energy lost will depend on the type of fluid, the fluid's velocity and the condition (*i.e.* material, roughness) of the pipe.
+As a fluid flows through a pipe energy will be dissipated due to friction.  The amount of energy dissipated will depend on a number of factors such as the fluid's viscosity, the fluid's velocity, the condition (*i.e.* material, roughness) and dimensions of the pipe.
 
-Losses due to friction will cause the pressure to decrease along the length of the pipe, therefore increasing the amount of power that a pump must deliver to the fluid.  These losses can become significant in systems where long stretches of piping are employed (for example, in heat exchangers, oil pipelines, fire protection systems, etc.).  As a reminder, the general energy equation was written as
+Losses due to friction will cause the pressure to decrease along the length of the pipe, therefore increasing the amount of power that a pump must deliver to maintain the flow.  These losses can become significant in systems where long stretches of piping are employed (for example, in heat exchangers, oil pipelines, fire protection systems, etc.).  
+
+We start off this section with the general the energy equation:
 
 $$
 \frac{p_1}{\gamma}+z_1+\frac{v_1^2}{2g}+h_A-h_R-h_L=\frac{p_2}{\gamma}+z_2+\frac{v_2^2}{2g}\,,
 $$
 
-where the term $h_L$ was the energy loss, one component of which is the energy loss due to friction.  In this section we will learn how to compute the quantity $h_L$ in various circumstances.  For fluid flows in pipes and tubes the energy loss is determined from *Darcy's equation*
+The quantity $h_L$ represents the energy loss of the system.  In this section we will learn how to compute the energy loss due to friction in pipes and minor losses due to valves and fittings.  The energy loss from friction in pipes and tubes is determined from *Darcy's equation*
 
 $$
 h_L=f\times \frac{L}{D}\times \frac{v^2}{2g}\,.
 $$
 
-In the above expression $L$ is the length of pipe, $D$ its diameter, and $v$ the average velocity of flow.  The dimensionless quantity $f$ is called the *friction factor*.  The method of obtaining $f$ will depend on whether the flow is laminar or turbulent.
-
-We all have an intuitive notion of what we mean by laminar or turbulent flow.  Laminar flow has the appearance of smooth and steady stream while turbulent flow appears chaotic and irregular and may contain eddies and swirls of fluid.
-But how can we quantitatively predict how the flow will behave, in particular if the flow is occurring in an opaque pipe where observations of the flow cannot be made.
+In the above expression $L$ is the length of pipe, $D$ its diameter, and $v$ the average velocity of flow.  The dimensionless quantity $f$ is called the *friction factor*.  The method of obtaining $f$ will depend on whether the flow is laminar or turbulent.  We all have an intuitive notion of what we mean by laminar and turbulent flow.  Laminar flow has the appearance of a smooth and steady stream while turbulent flow appears chaotic and irregular and may contain eddies and swirls of fluid.  But how can we predict how the flow will behave, in particular if the flow is occurring in an opaque pipe where observations can't be made.
 
 <div class="photo" style="width: 400px;">
   <img src="img/FL_rapids.jpg">
@@ -64,13 +63,12 @@ But how can we quantitatively predict how the flow will behave, in particular if
   </p>
 </div>
 
-In an 1883 paper Osborne Reynolds showed that a single dimensionless number, now called the Reynolds number ($N_R$), determines whether the flow is laminar or turbulent.  The Reynold's number for round pipes is
+In an 1883 paper Osborne Reynolds showed that a single dimensionless number, now called the *Reynolds number* ($N_R$), determines whether the flow is laminar or turbulent.  The Reynold's number for round pipes is
 $$
 N_R=\frac{v D\rho}{\eta}=\frac{vD}{\nu}
 $$
 
-The quantities entering into the definition of the Reynold's number are summarized in the table below.
-
+The two definitions above are identical and simply result from the relation between dynamic and kinematic viscosity, $\nu=\eta/\rho$.  The quantities entering into the definition of the Reynold's number are summarized in the following table.
 
 <table class="table table-striped">
 <caption>
@@ -113,12 +111,14 @@ $$
 
 Notice that all the units cancel in the above expression resulting in a dimensionless Reynold's number.  Since $N_R=813$ is less than $2000$ the flow is laminar.
 </div>
-
+
+The first step in an energy loss calculation is to determine whether the flow is laminar or turbulent by computing the Reynolds number.  The next step is to compute the friction factor ($f$) that appears in Darcy's equation for the energy loss $h_L$.  The procedure to compute the friction factor is different for laminar and turbulent flow.  The procedure for laminar flow is more straightforward and will be discussed next.  We will then discuss the procedure for turbulent flows.  
+
 ## Friction losses in laminar flows
-
+
 For laminar flows, $N_R < 2000$, the friction factor is
 $$
-f=\frac{64}{N_R}
+f=\frac{64}{N_R}\,.
 $$
 
 The above expression can be derived from first principles but that goes beyond the scope of these notes.  As a side note, if we substitute the above friction factor into Darcy's equation along with the explicit expression for the Reynold's number we obtain what is known as the Hagen-Poiseuille equation
@@ -127,34 +127,65 @@ $$
 h_L=\frac{32\eta L v}{\gamma D^2}
 $$
 
-This equation for $h_L$ is valid only for laminar flows.  Reminder, the Darcy Equation for $h_L$ is valid for *both* laminar and turbulent flows as long as the appropriate friction factor is used.
-
-In practice I never use the Hagen-Poiseuille equation.  Instead I use Darcy's equation along with $f=64/N_R$ for laminar flows.
+This equation for $h_L$ is only valid for laminar flows.  Reminder, the Darcy Equation for $h_L$ is valid for *both* laminar and turbulent flows as long as the appropriate procedure for computing the friction factor is employed.  In practice I never use the Hagen-Poiseuille equation.  Instead I use Darcy's equation along with $f=64/N_R$ for laminar flows.
 
 <div class="example">
 Glycerin at $25\C$ is pumped through $100~\m$ of DN 125 schedule 80 steel pipe at an average velocity of $v=5~\m/\s$.  Determine the energy loss.
 
 <hr>
 
-From the previous example we found $N_R=813$ and therefore expect the flow to be laminar.  The energy loss is determined from Darcy's equation
+From the previous example we found $N_R=813$ and therefore predict laminar flow.  The energy loss is determined from Darcy's equation
+
 $$
 h_L=f\times \frac{L}{D}\times \frac{v^2}{2g}
 $$
-Since the flow is laminar we take
+
+Since the flow is laminar we use
+
 $$
 f=\frac{64}{N_R}=\frac{64}{813}=0.0787
 $$
-and therefore have
+
+Now that we have the friction factor we compute the energy loss,
+
 $$
 h_L=0.0787\times \frac{100~\m}{0.1223~\m}\times \frac{\left(5~\m/\s\right)^2}{2(9.81~\m/s^2)}=82~\m
 $$
-Remember that the quantity $h_L$ is the energy loss per unit weight.  We can write it as $h_L=82~\N\cdot \m/\N=82~{\rm J}/\N$.  This means that for every newton of glycerin that flows through the 100 meters of pipe 82 joules of energy will be dissipated.
+
+Remember that the quantity $h_L$ is the energy loss per unit weight.  We can write it as $h_L=82~\N\cdot \m/\N=82~{\rm J}/\N$.  In practice this means that for every Newton of glycerin that flows through this system 82 joules of energy is dissipated.
 
 </div>
 
 ## Friction losses in turbulent flows
 
-For turbulent flows we again use Darcy's equation, however in this case there is no longer a nice expression for the friction factor.  Instead, the friction factor, $f$ must be found empirically.  The *Moody diagram* is a graphical representation of thousands of pipe flow experiments showing the friction factor, $f$, as a function of the Reynolds number, $N_R$, for various relative roughness, $\epsilon/D$ of the pipe.
+For turbulent flows we again use Darcy's equation, however in this case there is no longer a nice expression for the friction factor. The friction factor, $f$, must be found empirically (*i.e.* from experiment).  It turns out that the friction factor depends on two dimensionless numbers; the Reynolds number and the *relative roughness* ($\epsilon/D$) of the pipe.
+
+picture
+
+The relative roughness is the ratio of $\epsilon$, a characteristic scale representing the roughness of the inside surface, over the pipe's diameter, $D$.
+Approximate values of pipe roughness for various materials are listed in the following table.
+
+<table class="table table-striped">
+<caption>
+  Roughness for various pipe materials <a name="PipeRoughness"></a>
+</caption>
+<thead>
+<tr><th>Pipe Material </th><th>  $\epsilon$ [mm] </th><th>  $\epsilon$ [inches]  </th></tr>
+</thead>
+<tbody>
+  <tr><td>Commercial or Welded Steel</td><td> 0.046 </td><td> 0.0018 </td></tr>
+  <tr><td>PVC, Glass, Other Drawn Tubing </td><td>  0.0015  </td><td> 0.00006 </td></tr>
+  <tr><td>Smooth concrete </td><td>  0.3 </td><td> 0.012 </td></tr>
+  <tr><td>Cast iron </td><td>  0.26 </td><td> 0.010 </td></tr>
+  <tr><td>Galvanized iron </td><td>  0.15 </td><td> 0.006 </td></tr>
+</tbody>
+
+</table>
+
+
+
+
+ The *Moody diagram* is a graphical representation of thousands of pipe flow experiments showing how the friction factor, $f$, depends on the Reynolds number, $N_R$, and the relative roughness, $\epsilon/D$, of the pipe.
 
 <div class="photo" style="width: 100%;">
   <img src="img/Moody.png" alt="Moody Diagram">
