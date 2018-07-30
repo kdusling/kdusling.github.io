@@ -27,6 +27,7 @@ $$
 \renewcommand{\psi}{\mathrm{psi}}
 \newcommand{\C}{^\circ\mathrm{C}}
 \newcommand{\F}{^\circ\mathrm{F}}
+\newcommand{\Re}{\mathrm{Re}}
 $$
 
 # Energy loss due to friction
@@ -37,7 +38,7 @@ $$
 
 # Energy loss in pipes due to friction
 
-As a fluid flows through a pipe energy will be dissipated due to friction.  The amount of energy dissipated will depend on a number of factors such as the fluid's viscosity, the fluid's velocity, the condition (*i.e.* material, roughness) and dimensions of the pipe.
+As a fluid flows through a pipe energy will be dissipated due to friction.  The amount of energy dissipated will depend on a number of factors such as the fluid's speed and viscosity and if the flow is turbulent it will even depend on the material the pipe is made from.
 
 Losses due to friction will cause the pressure to decrease along the length of the pipe, therefore increasing the amount of power that a pump must deliver to maintain the flow.  These losses can become significant in systems where long stretches of piping are employed (for example, in heat exchangers, oil pipelines, fire protection systems, etc.).  
 
@@ -47,13 +48,15 @@ $$
 \frac{p_1}{\gamma}+z_1+\frac{v_1^2}{2g}+h_A-h_R-h_L=\frac{p_2}{\gamma}+z_2+\frac{v_2^2}{2g}\,,
 $$
 
-The quantity $h_L$ represents the energy loss of the system.  In this section we will learn how to compute the energy loss due to friction in pipes and minor losses due to valves and fittings.  The energy loss from friction in pipes and tubes is determined from *Darcy's equation*
+The quantity $h_L$ represents the energy loss of the system.  In this section we will learn how to compute $h_L$, first due to friction in pipes and second from minor losses occurring when fluid travels through valves and fittings.
+
+The energy loss from friction in pipes and tubes is determined from *Darcy's equation*
 
 $$
 h_L=f\times \frac{L}{D}\times \frac{v^2}{2g}\,.
 $$
 
-In the above expression $L$ is the length of pipe, $D$ its diameter, and $v$ the average velocity of flow.  The dimensionless quantity $f$ is called the *friction factor*.  The method of obtaining $f$ will depend on whether the flow is laminar or turbulent.  We all have an intuitive notion of what we mean by laminar and turbulent flow.  Laminar flow has the appearance of a smooth and steady stream while turbulent flow appears chaotic and irregular and may contain eddies and swirls of fluid.  But how can we predict how the flow will behave, in particular if the flow is occurring in an opaque pipe where observations can't be made.
+In the above expression $L$ is the length of pipe, $D$ its diameter, and $v$ the average velocity of flow.  The dimensionless quantity $f$ is called the *friction factor*.  The method of obtaining $f$ will depend on whether the flow is laminar or turbulent.  We all have an intuitive notion of what we mean by laminar and turbulent flow.  Laminar flow has the appearance of a smooth and steady stream while turbulent flow appears chaotic and irregular and may contain eddies and swirls of fluid.  But how can we predict the flow's behavior, in particular if the flow is occurring in an opaque pipe where observations can't be made.
 
 <div class="photo" style="width: 400px;">
   <img src="img/FL_rapids.jpg">
@@ -63,16 +66,16 @@ In the above expression $L$ is the length of pipe, $D$ its diameter, and $v$ the
   </p>
 </div>
 
-In an 1883 paper Osborne Reynolds showed that a single dimensionless number, now called the *Reynolds number* ($N_R$), determines whether the flow is laminar or turbulent.  The Reynold's number for round pipes is
+In an <a href="http://rstl.royalsocietypublishing.org/content/174/935">1883 paper</a> Osborne Reynolds showed that a single dimensionless number, now called the *Reynolds number* ($\Re$), determines whether the flow is laminar or turbulent.  The Reynolds number for round pipes is
 $$
-N_R=\frac{v D\rho}{\eta}=\frac{vD}{\nu}
+\Re=\frac{v D\rho}{\eta}=\frac{vD}{\nu}
 $$
 
-The two definitions above are identical and simply result from the relation between dynamic and kinematic viscosity, $\nu=\eta/\rho$.  The quantities entering into the definition of the Reynold's number are summarized in the following table.
+The two definitions above are identical and simply result from the relation between dynamic and kinematic viscosity, $\nu=\eta/\rho$.  The quantities entering into the definition of the Reynolds number are summarized in the following table.
 
 <table class="table table-striped">
 <caption>
-Quantities that enter into the determination of the Reynold's number for round pipes
+Quantities that enter into the determination of the Reynolds number for round pipes
 </caption>
 <thead>
 <tr><th> Quantity </th><th> Symbol    </th><th>  SI units  </th><th>  US units</th></tr>
@@ -86,7 +89,7 @@ Quantities that enter into the determination of the Reynold's number for round p
 </tbody>
 </table>
 
-For practical purposes, if $N_R < 2000$ the flow is laminar and for $N_R>4000$ the flow is turbulent.  The range of Reynold's numbers between 2000 and 4000 is known as the *transition region* and the behavior of the flow is difficult if not impossible to predict.  The design of most systems will avoid flows in this regime.
+For practical purposes, if $\Re < 2000$ the flow is laminar and for $\Re>4000$ the flow is turbulent.  The range of Reynolds numbers between 2000 and 4000 is known as the *transition region* and the behavior of the flow is difficult if not impossible to predict.  The design of most systems will avoid flows in this regime.
 
 <div class="example">
 
@@ -96,7 +99,7 @@ Glycerin at $25\C$ is pumped through a DN 125 schedule 80 steel pipe at an avera
 
 To determine the nature of the flow we compute the Reynold's number.
 $$
-N_R=\frac{v D\rho}{\eta}
+\Re=\frac{v D\rho}{\eta}
 $$
 
 From <a href="https://kdusling.github.io/teaching/Applied-Fluids/PropertiesOfCommonLiquids.html">this table</a> we find that for glycerin at $25\C$:
@@ -104,37 +107,37 @@ $$
 \rho=1263~\kg/\m^3\,,\quad
 \eta=9.50\times 10^{-1}~\Pa\cdot\s
 $$
-From <a href="https://kdusling.github.io/teaching/Applied-Fluids/SteelPipeTable.html?sch=80&mat=comSteel">this table</a> we find that for DN 125 schedule 80 pipe $D=122.3~\mm$.  We now have everything we need to find the Reynold's number
+From <a href="https://kdusling.github.io/teaching/Applied-Fluids/SteelPipeTable.html?sch=80&mat=comSteel">this table</a> we find that for DN 125 schedule 80 pipe $D=122.3~\mm$.  We now have everything we need to find the Reynolds number
 $$
-N_R=\frac{v D\rho}{\eta}=\frac{\left(5~\m/\s\right)\left(0.1223~\m\right)\left(1263~\kg/\m^3\right)}{9.50\times 10^{-1}~\Pa\cdot\s}=813
+\Re=\frac{v D\rho}{\eta}=\frac{\left(5~\m/\s\right)\left(0.1223~\m\right)\left(1263~\kg/\m^3\right)}{9.50\times 10^{-1}~\Pa\cdot\s}=813
 $$
 
-Notice that all the units cancel in the above expression resulting in a dimensionless Reynold's number.  Since $N_R=813$ is less than $2000$ the flow is laminar.
+Notice that all the units cancel in the above expression resulting in a dimensionless Reynolds number.  Since $\Re=813$ is less than $2000$ the flow is laminar.
 </div>
 
 The first step in an energy loss calculation is to determine whether the flow is laminar or turbulent by computing the Reynolds number.  The next step is to compute the friction factor ($f$) that appears in Darcy's equation for the energy loss $h_L$.  The procedure to compute the friction factor is different for laminar and turbulent flow.  The procedure for laminar flow is more straightforward and will be discussed next.  We will then discuss the procedure for turbulent flows.  
 
 ## Friction losses in laminar flows
 
-For laminar flows, $N_R < 2000$, the friction factor is
+For laminar flows, $\Re < 2000$, the friction factor is
 $$
-f=\frac{64}{N_R}\,.
+f=\frac{64}{\Re}\,.
 $$
 
-The above expression can be derived from first principles but that goes beyond the scope of these notes.  As a side note, if we substitute the above friction factor into Darcy's equation along with the explicit expression for the Reynold's number we obtain what is known as the Hagen-Poiseuille equation
+The above expression can be derived from first principles but that goes beyond the scope of these notes.  As a side note, if we substitute the above friction factor into Darcy's equation along with the explicit expression for the Reynolds number we obtain what is known as the Hagen-Poiseuille equation
 
 $$
 h_L=\frac{32\eta L v}{\gamma D^2}
 $$
 
-This equation for $h_L$ is only valid for laminar flows.  Reminder, the Darcy Equation for $h_L$ is valid for *both* laminar and turbulent flows as long as the appropriate procedure for computing the friction factor is employed.  In practice I never use the Hagen-Poiseuille equation.  Instead I use Darcy's equation along with $f=64/N_R$ for laminar flows.
+This equation for $h_L$ is only valid for laminar flows.  Reminder, the Darcy Equation for $h_L$ is valid for *both* laminar and turbulent flows as long as the appropriate procedure for computing the friction factor is employed.  In practice I never use the Hagen-Poiseuille equation.  Instead I use Darcy's equation along with $f=64/\Re$ for laminar flows.
 
 <div class="example">
 Glycerin at $25\C$ is pumped through $100~\m$ of DN 125 schedule 80 steel pipe at an average velocity of $v=5~\m/\s$.  Determine the energy loss.
 
 <hr>
 
-From the previous example we found $N_R=813$ and therefore predict laminar flow.  The energy loss is determined from Darcy's equation
+From the previous example we found $Re=813$ and therefore predict laminar flow.  The energy loss is determined from Darcy's equation
 
 $$
 h_L=f\times \frac{L}{D}\times \frac{v^2}{2g}
@@ -143,7 +146,7 @@ $$
 Since the flow is laminar we use
 
 $$
-f=\frac{64}{N_R}=\frac{64}{813}=0.0787
+f=\frac{64}{\Re}=\frac{64}{813}=0.0787
 $$
 
 Now that we have the friction factor we compute the energy loss,
@@ -180,7 +183,7 @@ The relative roughness is the ratio of $\epsilon$, a characteristic scale repres
 
 </table>
 
- The *Moody diagram* is a graphical representation of thousands of pipe flow experiments showing how the friction factor, $f$, depends on the Reynolds number, $N_R$, and the relative roughness, $\epsilon/D$, of the pipe.
+ The *Moody diagram* is a graphical representation of thousands of pipe flow experiments showing how the friction factor, $f$, depends on the Reynolds number, $\Re$, and the relative roughness, $\epsilon/D$, of the pipe.
 
 <div class="photo" style="width: 100%;">
   <img src="img/Moody.png" alt="Moody Diagram">
@@ -189,7 +192,7 @@ The relative roughness is the ratio of $\epsilon$, a characteristic scale repres
   </p>
 </div>
 
-There is a lot going on in the above plot.  I recommend making a full page printout of the above.  Let's walk through all the features of the plot.  First, note that this is a double-log plot (*i.e.* both the x and y axis are in log scale).  The left most curve that is labelled *Laminar* corresponds to a friction factor $f=64/N_R$ that we used earlier when the Reynolds number was less than 2000 and the flow was considered to be laminar.  In the region between a Reynolds number of about 2000 to 4000 represented by the grayed area label *Transition Region* is where reliable results for the friction factor are unavailable; avoid working in this region.  Above a Reynolds number of 4000 the flow is considered turbulent.  The friction factor depends not only on the Reynolds number *but also* on the relative roughness of the pipe.  Each blue line shows how the friction factor varies with Reynolds number for a fixed value of relative roughness.  Note that at large enough Reynolds number each blue curve becomes flat (*.i.e.* no longer depends on the Reynolds number).  This flow regime is called the *Zone of complete turbulence*.
+There is a lot going on in the above plot.  I recommend making a full page printout of the above using <a href="img/Moody.pdf">this pdf</a>.  Let's walk through all the features of the plot.  First, note that this is a double-log plot (*i.e.* both the x and y axis are in log scale).  The left most curve that is labelled *Laminar* corresponds to a friction factor $f=64/\Re$ that we used earlier when the Reynolds number was less than 2000 and the flow was considered to be laminar.  In the region between a Reynolds number of about 2000 to 4000 represented by the grayed area label *Transition Region* is where reliable results for the friction factor are unavailable; avoid working in this region.  Above a Reynolds number of 4000 the flow is considered turbulent.  The friction factor depends not only on the Reynolds number *but also* on the relative roughness of the pipe.  Each blue line shows how the friction factor varies with Reynolds number for a fixed value of relative roughness.  Note that at large enough Reynolds number each blue curve becomes flat (*.i.e.* no longer depends on the Reynolds number).  This flow regime is called the *Zone of complete turbulence*.
 
 
 <div class="example">
@@ -209,7 +212,7 @@ $$
 The density of turpentine is lower by about 30&#37; but the dynamic viscosity decreases by a factor of 700! Let's see how this affects the Reynolds number.
 
 $$
-N_R=\frac{v D\rho}{\eta}=\frac{\left(5~\m/\s\right)\left(0.1223~\m\right)\left(870~\kg/\m^3\right)}{1.375\times 10^{-3}~\Pa\cdot\s}=3.87\times 10^5
+\Re=\frac{v D\rho}{\eta}=\frac{\left(5~\m/\s\right)\left(0.1223~\m\right)\left(870~\kg/\m^3\right)}{1.375\times 10^{-3}~\Pa\cdot\s}=3.87\times 10^5
 $$
 
 The Reynolds number is well above 4000 so we predict the flow to be turbulent.
@@ -221,7 +224,7 @@ $$
 
 and we were careful to make sure that the units canceled leaving us with a dimensionless quantity.  I now go to the Moody diagram and realize that there is no curve for this specific value of $\epsilon/D$.  We're going to have to approximate and use the nearby curve for $\epsilon/D=0.0005$ instead.
 
-Here is how I find the friction factor from the Moody diagram.  First, I identify the curve corresponding to $\epsilon/D=0.0005$ and highlight it as I'm no longer interested in any other information at this point.  I locate the Reynolds number of $N_R=4\times 10^5$ (yes, I rounded up) on the x-axis (note it's a log scale) and draw a vertical line up.  The intersection with my highlighted curve represents the value of the friction factor at this Reynolds number.  Following my horizontal line to the y-axis (again, note it's a log scale) I read off a friction factor of $f=0.018$.
+Here is how I find the friction factor from the Moody diagram.  First, I identify the curve corresponding to $\epsilon/D=0.0005$ and highlight it as I'm no longer interested in any other information at this point.  I locate the Reynolds number of $\Re=4\times 10^5$ (yes, I rounded up) on the x-axis (note it's a log scale) and draw a vertical line up.  The intersection with my highlighted curve represents the value of the friction factor at this Reynolds number.  Following my horizontal line to the y-axis (again, note it's a log scale) I read off a friction factor of $f=0.018$.
 
 <div class="photo" style="width: 100%;">
   <img src="img/MoodyExWork.jpg" alt="Moody Diagram">
