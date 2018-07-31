@@ -28,6 +28,7 @@ $$
 \newcommand{\C}{^\circ\mathrm{C}}
 \newcommand{\F}{^\circ\mathrm{F}}
 \newcommand{\Re}{\mathrm{Re}}
+\newcommand{\WP}{\mathrm{WP}}
 $$
 
 # Energy loss due to friction
@@ -124,7 +125,7 @@ The first step in an energy loss calculation is to determine whether the flow is
 If after computing the Reynolds number we find that the flow is laminar (*i.e.* the Reynolds number is less than 2000) the friction factor is given by the formula,
 
 $$
-f=\frac{64}{\Re}\quad\quad\rm{(Laminar flow circular duct)}
+f=\frac{64}{\Re}\quad\quad\rm{(Laminar~flow~circular~duct)}
 $$
 
 The above expression can be derived from first principles but that goes beyond the scope of these notes. Here is an example.
@@ -260,7 +261,27 @@ Alternatively an <a href="https://kdusling.github.io/teaching/Applied-Fluids/Fri
 
 
 # Hydraulic Diameter
-
+
+It turns out that the methods used for the calculation of friction losses in circular pipes can be easily extended to non-circular tubes.  In order to do this we will need to introduce a new variable called the *hydraulic diameter* ($D_H$) that represents the characteristic dimension of the noncircular cross section.  The hydraulic diameter is defined as
+
+$$
+D_H=\frac{4A}{\WP}=\frac{4\times\rm{Area}}{\rm{Wetted~Perimeter}}
+$$
+
+The wetted perimeter $\WP$ is the length of the boundary that is in contact with (wetted by) the fluid.  Once the hydraulic diameter is calculated all the techniques from the previous section can be used by simply replacing the diameter ($D$) by the hydraulic diameter ($D_H$).  For noncircular cross-sections we therefore will need the following three replacements.
+
+1.  $\Re=\frac{v D_H \rho}{\eta}$
+
+2.  $h_L=f\frac{L}{D_H}\frac{v^2}{2g}$
+
+3.  $\epsilon/D \longrightarrow \epsilon/D_H$
+
+<div class="example">
+<img src="img/HeatExchanger.png" alt="Moody Diagram">
+<hr>
+
+</div>
+
 # Minor Losses
 
 Energy losses through valves, bends, expansions, contractions, gauges, flow meters, etc, are generally referred to as *minor losses*. Note that the cumulative effect of a number of *minor losses* can be substantial.
