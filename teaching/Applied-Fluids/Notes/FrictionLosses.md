@@ -268,17 +268,73 @@ $$
 D_H=\frac{4A}{\WP}=\frac{4\times\rm{Area}}{\rm{Wetted~Perimeter}}
 $$
 
-The wetted perimeter $\WP$ is the length of the boundary that is in contact with (wetted by) the fluid.  Once the hydraulic diameter is calculated all the techniques from the previous section can be used by simply replacing the diameter ($D$) by the hydraulic diameter ($D_H$).  For noncircular cross-sections we therefore will need the following three replacements.
+The wetted perimeter ($\WP$) is the length of the boundary that is in contact with (wetted by) the fluid.  The Area ($A$) represents the cross sectional area where flow is occurring.  Once the hydraulic diameter is calculated all the techniques from the previous section can be used by simply replacing the diameter ($D$) by the hydraulic diameter ($D_H$).  For noncircular cross-sections we therefore will need the following three replacements.
 
-1.  $\Re=\frac{v D_H \rho}{\eta}$
-
-2.  $h_L=f\frac{L}{D_H}\frac{v^2}{2g}$
-
-3.  $\epsilon/D \longrightarrow \epsilon/D_H$
+$$
+1.~~\Re=\frac{v D_H \rho}{\eta} \qquad
+2.~~h_L=f\frac{L}{D_H}\frac{v^2}{2g} \qquad
+3.~~\epsilon/D \longrightarrow \epsilon/D_H
+$$
 
 <div class="example">
+
+A shell and tube heat exchanger is a common design of heat exchanger comprising of an outside shell (pressure vessel) and a bundle of tubes inside it. One fluid runs through the tubes and another fluid flows over the tubes (through the shell) in order to exchange heat between the two fluids.
+
+The figure below shows a very simple shell and tube heat exchanger consisting of one circular tube that runs horizontally through the middle of a rectangular shell.  The inside tube carries $4~\L/\min$ of oil at $200\F$.  The shell carries $45~\L/\min$ of sea water at $25\C$ to carry heat away from the oil.  If the length of the shell is $1.8~\m$ estimate the energy loss of the sea water.  What pressure is required at the shell inlet if the sea water exits at atmosphere?
+Assume that the surface roughness is the same as drawn brass or copper tubing ($\epsilon=0.0015~\mm$).
+
 <img src="img/HeatExchanger.png" alt="Moody Diagram">
+
 <hr>
+
+First, note that even though the flow rate and temperature of the oil is provided it is irrelevant to the problem at hand.  We are focusing on the energy dissipated as sea water flows through the outer shell of the heat exchanger.  
+
+The first step in most friction loss problems is to determine whether the flow is laminar or turbulent.  In order to do this we must compute the Reynolds number but that requires the hydraulic diameter.  Here is how to compute the hydraulic diameter for the sea water.  
+
+The hydraulic diameter is defined as,
+
+$$
+D_H=\frac{4A}{\WP}\,.
+$$
+
+The area $A$ is the cross-sectional area where the sea water flows.  Looking at the cross section of the heat exchanger the net flow area is the difference between the area inside the square shell and the outside the tube.
+
+$$
+A = (250~\mm)^2 - \pi\frac{(150~\mm)^2}{4}=44,800~\mm^2
+$$
+
+The wetted perimeter $WP$ is the length of surface touched by the fluid.  The sea water touches the walls of the square shell and the outside surface of the tube.  The total perimeter *wetted* by the fluid is therefore the sum of these two surfaces.
+
+$$
+\WP = 4\times(250~\mm) + \pi(150~\mm)=1470~\mm
+$$
+
+The hydraulic diameter is therefore
+
+$$
+D_H=\frac{4A}{\WP}=\frac{4\times 44,800~\mm^2}{1470~\mm}=122~\mm
+$$
+
+To compute the Reynolds number ($\Re=v D_H \rho/\eta$) we will need the density and viscosity of sea water which I take from href="https://kdusling.github.io/teaching/Applied-Fluids/PropertiesOfCommonLiquids.html">this table</a>:
+
+$$
+\rho=1030~\kg/\m^3\,,\quad
+\eta=1.03\times 10^{-4}~\Pa\cdot\s
+$$
+
+The last quantity we need is the velocity of the sea water.  This we can calculate from the continuity equation since we were given the volume flow rate of $45~\L/\min$.  The continuity equation $Q=vA$ can be solved for the average flow velocity:
+
+$$
+A=44,800~\cancel{\mm^2}\times\left\frac{1~\m}{\cancel{1~\mm}}\right)^2=0.0448~\m^2 \nonumber\\
+Q=45~\L/\min\times(\left( \frac{1~\m^3/s}{60,000~\L/\min}\right)=7.5\times 10^{-4}~\m^3/s\nonumber\\
+v=\frac{Q}{A}=\frac{7.5\times 10^{-4}~\m^3/s}{0.0448~\m^2}=0.0167~\m/s
+$$
+
+They Reynolds number is then
+
+$$
+\Re=\frac{v D_H \rho}{\eta} = \frac{}
+$$
 
 </div>
 
