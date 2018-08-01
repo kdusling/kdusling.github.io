@@ -323,15 +323,16 @@ $$
 \eta=1.03\times 10^{-4}~\Pa\cdot\s\,.
 $$
 
-The last quantity we need is the velocity of the sea water.  This we can calculated from the continuity equation since we were given the volume flow rate of $4500~\L/\min$.  The continuity equation $Q=vA$ can be rearranged to solve for the average flow velocity, $v=Q/A$,
+The last quantity we need is the velocity of the sea water.  This we can calculated from the continuity equation since we were given the volume flow rate of $4500~\L/\min$.  First we convert the area and flow rate into the standard SI units:
+
+
 
 $$
-Q=4500~\L/\min\times\left( \frac{1~\m^3/s}{60,000~\L/\min} \right)=7.5\times 10^{-2}~\m^3/s
+Q=4500~\cancel{\L/\min}\times\left( \frac{1~\m^3/s}{60,000~\cancel{\L/\min}} \right)=7.5\times 10^{-2}~\m^3/s\,, \qquad\qquad
+A=44,800~\cancel{\mm^2}\times\left(\frac{1~\m}{1000~\cancel{\mm}}\right)^2=0.0448~\m^2 \,.
 $$
 
-$$
-A=44,800~\cancel{\mm^2}\times\left(\frac{1~\m}{\cancel{1~\mm}}\right)^2=0.0448~\m^2 \qquad
-$$
+The continuity equation $Q=vA$ can be rearranged to solve for the average flow velocity, $v=Q/A$,
 
 $$
 v=\frac{Q}{A}=\frac{7.5\times 10^{-3}~\m^3/s}{0.0448~\m^2}=1.67~\m/s
@@ -355,12 +356,11 @@ $$
 h_L=f\frac{L}{D_H}\frac{v^2}{2g}=0.011\times \frac{1.8~\m}{0.122~\m}\times \frac{\left(1.67~\m/s\right)^2}{2(9.81~\m/s^2)}=0.023~\m
 $$
 
-If the heat exchanger was horizontal the pressure drop in the shell would be
-$$
-\Delta p=\gamma h_L=10.10~\frac{\kN}{\m^3}\times 0.023~\m = 0.233~\kPa = 233~\Pa
-$$
+Assuming the heat exchanger is horizontal the pressure drop in the shell is
 
-
+$$
+\Delta p=\gamma h_L=10.10~\frac{\kN}{\m^3}\times 0.023~\m = 0.233~\kPa = 233~\Pa\,.
+$$
 
 </div>
 
