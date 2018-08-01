@@ -272,8 +272,8 @@ D_H=\frac{4A}{\WP}=\frac{4\times\rm{Area}}{\rm{Wetted~Perimeter}}
 The wetted perimeter ($\WP$) is the length of the boundary that is in contact with (wetted by) the fluid.  The Area ($A$) represents the cross sectional area where flow is occurring.  Once the hydraulic diameter is calculated all the techniques from the previous section can be used by simply replacing the diameter ($D$) by the hydraulic diameter ($D_H$).  For noncircular cross-sections we therefore will need the following three replacements.
 
 $$
-1.~~\Re=\frac{v D_H \rho}{\eta} \qquad
-2.~~h_L=f\frac{L}{D_H}\frac{v^2}{2g} \qquad
+1.~~\Re=\frac{v D_H \rho}{\eta} \qquad\qquad
+2.~~h_L=f\frac{L}{D_H}\frac{v^2}{2g} \qquad\qquad
 3.~~\epsilon/D \longrightarrow \epsilon/D_H
 $$
 
@@ -281,8 +281,7 @@ $$
 
 A shell and tube heat exchanger is a common design of heat exchanger comprising of an outside shell (pressure vessel) and a bundle of tubes inside it. One fluid runs through the tubes and another fluid flows over the tubes (through the shell) in order to exchange heat between the two fluids.
 
-The figure below shows a very simple shell and tube heat exchanger consisting of one circular tube that runs horizontally through the middle of a rectangular shell.  The inside tube carries $4~\L/\min$ of oil at $200\F$.  The shell carries $45~\L/\min$ of sea water at $25\C$ to carry heat away from the oil.  If the length of the shell is $1.8~\m$ estimate the energy loss of the sea water.  What pressure is required at the shell inlet if the sea water exits at atmosphere?
-Assume that the surface roughness is the same as drawn brass or copper tubing ($\epsilon=0.0015~\mm$).
+The figure below shows a very simple shell and tube heat exchanger consisting of one circular tube that runs horizontally through the middle of a rectangular shell.  The inside tube carries $50~\L/\min$ of oil at $200\F$.  The shell carries $4500~\L/\min$ of sea water at $25\C$ to carry heat away from the oil.  If the length of the shell is $1.8~\m$ estimate the energy loss of the sea water.  Assume that the surface roughness is the same as drawn brass or copper tubing ($\epsilon=0.0015~\mm$).
 
 <img src="img/HeatExchanger.png" alt="Moody Diagram">
 
@@ -323,19 +322,38 @@ $$
 \eta=1.03\times 10^{-4}~\Pa\cdot\s\,.
 $$
 
-The last quantity we need is the velocity of the sea water.  This we can calculated from the continuity equation since we were given the volume flow rate of $45~\L/\min$.  The continuity equation $Q=vA$ can be rearranged to solve for the average flow velocity, $v=Q/A$,
+The last quantity we need is the velocity of the sea water.  This we can calculated from the continuity equation since we were given the volume flow rate of $4500~\L/\min$.  The continuity equation $Q=vA$ can be rearranged to solve for the average flow velocity, $v=Q/A$,
 
 $$
-Q=45~\L/\min\times\left( \frac{1~\m^3/s}{60,000~\L/\min} \right)=7.5\times 10^{-4}~\m^3/s \nonumber\\
-A=44,800~\cancel{\mm^2}\times\left\frac{1~\m}{\cancel{1~\mm}}\right)^2=0.0448~\m^2 \nonumber\\
-v=\frac{Q}{A}=\frac{7.5\times 10^{-4}~\m^3/s}{0.0448~\m^2}=0.0167~\m/s
+Q=4500~\L/\min\times\left( \frac{1~\m^3/s}{60,000~\L/\min} \right)=7.5\times 10^{-2}~\m^3/s \\
+A=44,800~\cancel{\mm^2}\times\left\frac{1~\m}{\cancel{1~\mm}}\right)^2=0.0448~\m^2 \\
+v=\frac{Q}{A}=\frac{7.5\times 10^{-3}~\m^3/s}{0.0448~\m^2}=1.67~\m/s
 $$
 
 They Reynolds number is then
 
 $$
-\Re=\frac{v D_H \rho}{\eta} = \frac{}
+\Re=\frac{v D_H \rho}{\eta} = \frac{1.67~\m/s\times 0.122~\m \times 1030~\kg/\m^3}{1.03\times 10^{-4}~\Pa\cdot\s}=2,037,400
 $$
+
+Since the Reynolds number is greater than 4000 the flow is turbulent. We will therefore need to use the Moody diagram to find the friction factor.  The relative roughness is
+
+$$
+\epsilon/D_H=\frac{0.0015~\mm}{0.122~\mm}=0.000012
+$$
+
+Our version of the Moody diagram has a curve for $\epsilon/D=0.00001$ which is close enough for our purposes.  At a $\Re=2\times 10^6$ the friction factor is $f\approx 0.011$.  Now that we have the friction factor the energy loss is computed with Darcy's equation:
+
+$$
+h_L=f\frac{L}{D_H}\frac{v^2}{2g}=0.011\times \frac{1.8~\m}{0.122~\m}\times \frac{\left(1.67~\m/s\right)^2}{2(9.81~\m/s^2)}=0.023~\m
+$$
+
+If the heat exchanger was horizontal the pressure drop in the shell would be
+$$
+\Delta p=\gamma h_L=10.10~\frac{\kN}{\m^3}\times 0.023~\m = 0.233~\kPa = 233~\Pa
+$$
+
+
 
 </div>
 
