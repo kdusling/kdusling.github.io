@@ -325,7 +325,9 @@ $$
 The last quantity we need is the velocity of the sea water.  This we can calculated from the continuity equation since we were given the volume flow rate of $4500~\L/\min$.  The continuity equation $Q=vA$ can be rearranged to solve for the average flow velocity, $v=Q/A$,
 
 $$
-Q=4500~\L/\min\times\left( \frac{1~\m^3/s}{60,000~\L/\min} \right)=7.5\times 10^{-2}~\m^3/s \\ A=44,800~\cancel{\mm^2}\times\left\frac{1~\m}{\cancel{1~\mm}}\right)^2=0.0448~\m^2 \\ v=\frac{Q}{A}=\frac{7.5\times 10^{-3}~\m^3/s}{0.0448~\m^2}=1.67~\m/s
+Q=4500~\L/\min\times\left( \frac{1~\m^3/s}{60,000~\L/\min} \right)=7.5\times 10^{-2}~\m^3/s \qquad
+A=44,800~\cancel{\mm^2}\times\left\frac{1~\m}{\cancel{1~\mm}}\right)^2=0.0448~\m^2 \qquad
+v=\frac{Q}{A}=\frac{7.5\times 10^{-3}~\m^3/s}{0.0448~\m^2}=1.67~\m/s
 $$
 
 They Reynolds number is then
