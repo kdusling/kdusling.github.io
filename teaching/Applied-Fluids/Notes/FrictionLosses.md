@@ -29,6 +29,7 @@ $$
 \newcommand{\F}{^\circ\mathrm{F}}
 \newcommand{\Re}{\mathrm{Re}}
 \newcommand{\WP}{\mathrm{WP}}
+\newcommand{\L}{\mathrm{L}}
 $$
 
 # Energy loss due to friction
@@ -315,18 +316,18 @@ $$
 D_H=\frac{4A}{\WP}=\frac{4\times 44,800~\mm^2}{1470~\mm}=122~\mm
 $$
 
-To compute the Reynolds number ($\Re=v D_H \rho/\eta$) we will need the density and viscosity of sea water which I take from href="https://kdusling.github.io/teaching/Applied-Fluids/PropertiesOfCommonLiquids.html">this table</a>:
+To compute the Reynolds number ($\Re=v D_H \rho/\eta$) we will need the density and viscosity of sea water which I take from <a href="https://kdusling.github.io/teaching/Applied-Fluids/PropertiesOfCommonLiquids.html">this table</a>:
 
 $$
 \rho=1030~\kg/\m^3\,,\quad
-\eta=1.03\times 10^{-4}~\Pa\cdot\s
+\eta=1.03\times 10^{-4}~\Pa\cdot\s\,.
 $$
 
-The last quantity we need is the velocity of the sea water.  This we can calculate from the continuity equation since we were given the volume flow rate of $45~\L/\min$.  The continuity equation $Q=vA$ can be solved for the average flow velocity:
+The last quantity we need is the velocity of the sea water.  This we can calculated from the continuity equation since we were given the volume flow rate of $45~\L/\min$.  The continuity equation $Q=vA$ can be rearranged to solve for the average flow velocity, $v=Q/A$,
 
 $$
+Q=45~\L/\min\times\left( \frac{1~\m^3/s}{60,000~\L/\min} \right)=7.5\times 10^{-4}~\m^3/s \nonumber\\
 A=44,800~\cancel{\mm^2}\times\left\frac{1~\m}{\cancel{1~\mm}}\right)^2=0.0448~\m^2 \nonumber\\
-Q=45~\L/\min\times(\left( \frac{1~\m^3/s}{60,000~\L/\min}\right)=7.5\times 10^{-4}~\m^3/s\nonumber\\
 v=\frac{Q}{A}=\frac{7.5\times 10^{-4}~\m^3/s}{0.0448~\m^2}=0.0167~\m/s
 $$
 
