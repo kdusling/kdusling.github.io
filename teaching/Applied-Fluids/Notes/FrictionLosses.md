@@ -328,8 +328,8 @@ The last quantity we need is the velocity of the sea water.  This we can calcula
 
 
 $$
-Q=4500~\cancel{\L/\min}\times\left( \frac{1~\m^3/s}{60,000~\cancel{\L/\min}} \right)=7.5\times 10^{-2}~\m^3/s\,, \qquad\qquad
-A=44,800~\cancel{\mm^2}\times\left(\frac{1~\m}{1000~\cancel{\mm}}\right)^2=0.0448~\m^2 \,.
+A=44,800~\cancel{\mm^2}\times\left(\frac{1~\m}{1000~\cancel{\mm}}\right)^2=0.0448~\m^2 \,,\qquad
+Q=4500~\cancel{\L/\min}\times\left( \frac{1~\m^3/s}{60,000~\cancel{\L/\min}} \right)=7.5\times 10^{-2}~\m^3/s\,.
 $$
 
 The continuity equation $Q=vA$ can be rearranged to solve for the average flow velocity, $v=Q/A$,
@@ -338,16 +338,16 @@ $$
 v=\frac{Q}{A}=\frac{7.5\times 10^{-3}~\m^3/s}{0.0448~\m^2}=1.67~\m/s
 $$
 
-They Reynolds number is then
+The Reynolds number is then
 
 $$
-\Re=\frac{v D_H \rho}{\eta} = \frac{1.67~\m/s\times 0.122~\m \times 1030~\kg/\m^3}{1.03\times 10^{-4}~\Pa\cdot\s}=2,037,400
+\Re=\frac{v D_H \rho}{\eta} = \frac{1.67~\m/s\times 0.122~\m \times 1030~\kg/\m^3}{1.03\times 10^{-4}~\Pa\cdot\s}=2\,037\,400
 $$
 
 Since the Reynolds number is greater than 4000 the flow is turbulent. We will therefore need to use the Moody diagram to find the friction factor.  The relative roughness is
 
 $$
-\epsilon/D_H=\frac{0.0015~\mm}{0.122~\mm}=0.000012
+  \epsilon/D_H=\frac{0.0015~\mm}{122~\mm}=0.000012
 $$
 
 Our version of the Moody diagram has a curve for $\epsilon/D=0.00001$ which is close enough for our purposes.  At a $\Re=2\times 10^6$ the friction factor is $f\approx 0.011$.  Now that we have the friction factor the energy loss is computed with Darcy's equation:
@@ -356,7 +356,7 @@ $$
 h_L=f\frac{L}{D_H}\frac{v^2}{2g}=0.011\times \frac{1.8~\m}{0.122~\m}\times \frac{\left(1.67~\m/s\right)^2}{2(9.81~\m/s^2)}=0.023~\m
 $$
 
-Assuming the heat exchanger is horizontal the pressure drop in the shell is
+Assuming the heat exchanger is horizontal the pressure drop across the shell is
 
 $$
 \Delta p=\gamma h_L=10.10~\frac{\kN}{\m^3}\times 0.023~\m = 0.233~\kPa = 233~\Pa\,.
@@ -366,13 +366,11 @@ $$
 
 # Minor Losses
 
-Energy losses through valves, bends, expansions, contractions, gauges, flow meters, etc, are generally referred to as *minor losses*. Note that the cumulative effect of a number of *minor losses* can be substantial.
-
-Energy losses are proportional to the velocity head near the component of interest. The energy loss through a component can be expressed as
+Energy losses through valves, bends, expansions, contractions, gauges, flow meters, etc, are generally referred to as *minor losses*. Note that the cumulative effect of a number of *minor losses* can be substantial.  Energy losses are proportional to the velocity head near the component of interest. The energy loss through a component can be expressed as
 
 $$ h_L=K\left(\frac{v^2}{2g}\right) $$
 
-where $h_L$ is the minor loss, $K$ is the resistance coefficient and $v$ is the average velocity in the pipe in the vicinity of the component. The velocity that is used in the above expression will depend on the specific problem.
+where $h_L$ is the minor loss, $K$ is the resistance coefficient and $v$ is the average flow velocity in the component.   For expansions and contractions the velocity is taken in the smaller section of pipe.
 
 ## Sudden Enlargement
 
@@ -393,7 +391,7 @@ Under some [simplifying assumptions the resistive coefficient can be derived](ht
 
 $$ K\approx \left[1-\frac{A_1}{A_2}\right]^2 $$
 
-The above expression works fairly well for moderate velocities and is a reasonable starting point for estimating losses due to a sudden expansion. If the sudden transition between pipe sizes can be made more gradual the energy loss can be reduced. A *diffuser* converts kinetic energy to pressure energy by a gradual enlargement in pipe size.
+The above expression works fairly well for moderate velocities and is a reasonable starting point for estimating losses due to a sudden expansion. If the sudden transition between pipe sizes can be made more gradual the energy loss can be reduced. A *diffuser* is a device that converts kinetic energy to pressure energy by a gradual enlargement in pipe size. It turns out that a gradual enlargement having a cone angle of about $7^\circ$ minimizes the energy loss.
 
 ### Exit Loss
 
@@ -461,6 +459,13 @@ where the factor $\left(L_e/D\right)$ is called the equivalent length ratio and
 <thead>
 <tr><th> Fitting Type  </th><th> Equivalent Length, $L_e/D$ </th></tr>
 </thead>
+<caption>
+Equivalent length ratios for valves and fittings.  Based on
+
+$$
+h_L=f_T \frac{L_E}{D} \frac{v^2}{2g}
+$$
+<tcaption>
 <tbody>
 <tr><td>Gate valve (fully open)                                 </td><td style="padding-left: 50px;"> 8     </td></tr>
 <tr><td>Globe valve (fully open)                                </td><td style="padding-left: 50px;"> 340   </td></tr>
@@ -477,10 +482,10 @@ where the factor $\left(L_e/D\right)$ is called the equivalent length ratio and
 
 The value of $L_e$ is called the equivalent length of pipe; it is the length of straight pipe that would produce the same loss as the valve.  For example a 2" fully open globe valve $(L_e/D=340)$ has $L_e \approx 57~\ft$. This value of $L_e$ can than be added to the actual length of pipe to determine the total losses. While convenient, this procedure is only accurate when the actual pipe flows are in the zone of complete turbulence.
 
-<div class="photo" style="width: auto;">
-<img style="float: left; height: 200px; width: auto;" src="img/FL_wafer-type-centerline-butterfly-valve.jpg">
-<img style="float: left; height: 200px; width: auto;" src="img/FL_knife-gate-valve.jpg">
-<img style="height: 200px; width: auto;" src="img/FL_din-globe-valve.jpg">
+<div class="photo" style="width: 900px;">
+  <img src="img/FL_wafer-type-centerline-butterfly-valve.jpg"  style="width:auto; height:auto;">
+  <img src="img/FL_knife-gate-valve.jpg"  style="width:200px; height:auto;">
+  <img src="img/FL_din-globe-valve.jpg"  style="width:200px; height:auto;">
   <p>
   Left: Wafer type centerline butterfly valve. Middle: Knife gate valve.  Right: A DIN globe valve. Images from [Metals Valve](http://www.metalsvalve.com).
   </p>
