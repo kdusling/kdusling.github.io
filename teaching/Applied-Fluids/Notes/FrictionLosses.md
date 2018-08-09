@@ -495,7 +495,7 @@ A 2-in schedule 40 steel pipe that is 100 ft long is attached to 60 ft of 3-in s
 
 <hr>
 
-This problem really puts together everything.  We start off with the generalized energy equation:
+This problem requires that we put together everything we learned thus far.  We start off with the generalized energy equation:
 
 $$
 \frac{p_1}{\gamma}+z_1+\frac{v_1^2}{2g}+h_A-h_R-h_L=\frac{p_2}{\gamma}+z_2+\frac{v_2^2}{2g}
@@ -507,47 +507,64 @@ $$
 \frac{p_1}{\gamma}+\frac{v_1^2}{2g}-h_L=\frac{p_2}{\gamma}+\frac{v_2^2}{2g}
 $$
 
-With some algebra we can rearrange the above to solve for the quantity of interest, the pressure drop:
+With some algebra we can rearrange and solve for the quantity of interest, the pressure drop:
 
 $$
 p_1-p_2=\gamma \frac{v_2^2-v_1^2}{2g}+\gamma h_L  
 $$
 
-The first contribution to the pressure drop is due to Bernoulli's principle, a decrease in the speed of a fluid occurs simultaneously with an increase in pressure.  For the problem at hand we know that $v_2$ will be less than $v_1$ by the continuity equation.  The quantity $\left(v_2^2-v_1^2\right)$ will be negative which implies that if there were no losses ($h_l$) the pressure at 2 $p_2$ would be greater than the pressure $p_1$ (*i.e.* the quantity $p_1-p_2$ would be negative.)  In other words, if losses were negligible Bernoulli's equation tells us there would actually be a pressure rise.  This is all due to conservation of energy.  The kinetic energy decreases from pipe 1 to pipe 2 so the pressure energy must therefore increase (Remember that in this problem there is no possible change in potential energy).
+The first contribution to the pressure drop is due to Bernoulli's principle, a decrease in the speed of a fluid occurs simultaneously with an increase in pressure.  For the problem at hand we know that $v_2$ will be less than $v_1$ from the continuity equation.  The quantity $\left(v_2^2-v_1^2\right)$ will be negative which implies that if there were no losses ($h_L=0$) the pressure  $p_2$ would be greater than the pressure $p_1$ (*i.e.* the quantity $p_1-p_2$ would be negative.)  In other words, if losses were negligible Bernoulli's equation tells us there would actually be a pressure rise.  This is all due to conservation of energy.  The kinetic energy decreases from pipe 1 to pipe 2 so the pressure energy must therefore increase.
 
-Let us now compute the pressure rise occurring from the change in velocity.  We need the velocity in each pipe.  This can be found from the continuity equation $Q=vA$ where $A$ is the flow area taken from <a href="https://kdusling.github.io/teaching/Applied-Fluids/SteelPipeTable.html?sch=40&mat=comSteel">this table</a>.  The volume flow rate, Q, is
+Let us now actually calculate this pressure rise.  We need the velocity in each pipe.  This can be found from the continuity equation $Q=vA$ where $A$ is the flow area taken from <a href="https://kdusling.github.io/teaching/Applied-Fluids/SteelPipeTable.html?sch=40&mat=comSteel">this table</a>.  The volume flow rate, Q, is
 
 $$
-Q=75~\gpm \times \left( \frac{1~\ft^3/s}{449~\gpm}\right)=0.167~\ft^3/s
+Q=75~\cancel{\gpm} \times \left( \frac{1~\ft^3/s}{449~\cancel{\gpm}}\right)=0.167~\ft^3/s
 $$
 
 and the velocities in the 2-in and 3-in pipes are,
 
 $$
-v_{\rm{2-in}}=\frac{Q}{A}=\frac{0.167~\ft^3/s}{0.02330~\ft^2}=7.167~\ft/s \\
-v_{\rm{3-in}}=\frac{Q}{A}=\frac{0.167~\ft^3/s}{0.05134~\ft^2}=3.253~\ft/s
+v_{\rm{2-in}}=\frac{Q}{A_\rm{2-in}}=\frac{0.167~\ft^3/s}{0.02330~\ft^2}=7.167~\ft/s \\
+v_{\rm{3-in}}=\frac{Q}{A_\rm{3-in}}=\frac{0.167~\ft^3/s}{0.05134~\ft^2}=3.253~\ft/s
 $$
 
-The velcoity head is then
+The change in velocity head is therefore
 
 $$
 \frac{v_2^2-v_1^2}{2g}=\frac{ (3.253~\ft/s)^2 - (7.167~\ft/s)^2}{2\times 32.2~\ft/s^2}=-0.623~\ft
 $$
 
-From <a href="https://kdusling.github.io/teaching/Applied-Fluids/PropertiesOfCommonLiquids.html">this table</a> the density of hexane is $\rho=41.00~\lb/\ft^3$
+From <a href="https://kdusling.github.io/teaching/Applied-Fluids/PropertiesOfCommonLiquids.html">this table</a> the density of hexane is $\rho=41.00~\lb/\ft^3$ and we find that,
 
 $$
-\left( p_1-p_2 \right)_{\rm{ideal}} = \gamma \frac{v_2^2-v_1^2}{2g}=41 ~\lb/\ft^3\left(-0.623~\ft\right)=-25.537~\frac{\lb}{\ft^2}\times \left(\frac{1~\ft}{12~\in}\right)^2=-0.177~\psi
+\left( p_1-p_2 \right)_ {\rm{ideal}} = \gamma \frac{v_2^2-v_1^2}{2g}=41 ~\lb/\ft^3\left(-0.623~\ft\right)=-25.537~\frac{\lb}{\ft^2}\times \left(\frac{1~\ft}{12~\inch}\right)^2=-0.177~\psi
 $$
 
-But there are losses which we have yet to consider.  In this problem we must consider four different loss terms (the labels should be self-explanatory):
+I put the label *ideal* on the pressure drop (actually a rise) in order to remind us that this would be the change in pressure if there were no losses.   In this problem we must consider four different loss terms (the labels should be self-explanatory):
 
 $$
-h_L=h_L(\rm{gate valve}) + h_L(\rm{exp fitting}) + h_L(\rm{2-in pipe}) + h_L(\rm{3-in pipe})
+h_L= + h_L(\rm{2-in~pipe}) + h_L(\rm{3-in~pipe}) + h_L(\rm{exp~fitting}) + h_L(\rm{gate~valve})
+$$
+
+First we calculate the friction losses in the 2-in and 3-in pipes.  The first step is to compute the Reynolds numbers:
+
+$$
+\Re_{\rm{2-in}}=\frac{\rho v_{\rm{2-in}} D_{\rm{2-in}}}{\eta}=\frac{(1.27)(7.167)(0.1723)}{6.20\times 10^{-6}}=2.53\times 10^5\\
+\Re_{\rm{3-in}}=\frac{\rho v_{\rm{3-in}} D_{\rm{3-in}}}{\eta}=\frac{(1.27)(7.167)(0.1723)}{6.20\times 10^{-6}}=2.53\times 10^5\\
+$$
+
+$$
+\left(\epsilon/D\right)_ {\rm{2-in}}=0.000871
+$$
+
+$$
+f_{\rm{2-in}}= 0.02023
+$$
+
+$$
+h_L(\rm{2-in~pipe})=f\times \frac{v^2}{2g}
 $$
 
 Depending on the magnitude of the loss the pressure $p_2$ might end being larger or small than $p_1$.  If the energy dissipated is larger than the reduction in kinetic energy the pressure will therefore end up decreasing  ($p_1$ will end up being larger than $p_2$ and the quantity $p_1-p_2$ will be positive).  The only way to see if this is the case is to compute $h_L$.
-
-
 
 </div>
