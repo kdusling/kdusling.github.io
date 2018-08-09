@@ -31,6 +31,7 @@ $$
 \newcommand{\Re}{\mathrm{Re}}
 \newcommand{\WP}{\mathrm{WP}}
 \newcommand{\L}{\mathrm{L}}
+\newcommand{\gpm}{\mathrm{gpm}}
 $$
 
 # Energy loss due to friction
@@ -455,10 +456,7 @@ where the factor $\left(L_e/D\right)$ is called the equivalent length ratio and
 <table class="table table-striped">
 <caption>
 Equivalent length ratios for valves and fittings.  Based on
-
-$$
-h_L=f_T \frac{L_E}{D} \frac{v^2}{2g}
-$$
+\(h_L=f_T \frac{L_E}{D} \frac{v^2}{2g}\)
 </caption>
 <thead>
 <tr><th> Fitting Type  </th><th> Equivalent Length, $L_e/D$ </th></tr>
@@ -479,7 +477,7 @@ $$
 
 The value of $L_e$ is called the equivalent length of pipe; it is the length of straight pipe that would produce the same loss as the valve.  For example a 2" fully open globe valve $(L_e/D=340)$ has $L_e \approx 57~\ft$. This value of $L_e$ can than be added to the actual length of pipe to determine the total losses. While convenient, this procedure is only accurate when the actual pipe flows are in the zone of complete turbulence.
 
-<div class="photo" style="width: 900px;">
+<div class="photo" style="width: 500px;">
   <img src="img/FL_wafer-type-centerline-butterfly-valve.jpg"  style="width:auto; height:auto;">
   <img src="img/FL_knife-gate-valve.jpg"  style="width:auto; height:auto;">
   <img src="img/FL_din-globe-valve.jpg"  style="width:auto; height:auto;">
@@ -491,10 +489,54 @@ The value of $L_e$ is called the equivalent length of pipe; it is the length of
 
 <div class="example">
 
-A 2-in schedule 40 steel pipe that is 100~ft long is attached to 80~ft of 3-in schedule 40 steel pipe.  The 2-in pipe contains a gate valve.  For a volume flow rate of 50~gpm of hexane determine the pressure drop $p_1-p_2$.  The fluid flows from left to right.
+A 2-in schedule 40 steel pipe that is 100 ft long is attached to 60 ft of 3-in schedule 40 steel pipe.  The 2-in pipe contains a gate valve.  If 75 gpm of hexane flows from left to right determine the pressure drop $p_1-p_2$.  
 
 <img src="img/SeriesPipeline.png" alt="Series Pipeline">
 
 <hr>
+
+This problem really puts together everything.  We start off with the generalized energy equation:
+
+$$
+\frac{p_1}{\gamma}+z_1+\frac{v_1^2}{2g}+h_A-h_R-h_L=\frac{p_2}{\gamma}+z_2+\frac{v_2^2}{2g}
+$$
+
+Since the pipe is horizontal we can ignore the elevation terms.  There are no devices (pumps or motors) so we can also ignore those two contributions.  We are therefore left with:
+
+$$
+\frac{p_1}{\gamma}+\frac{v_1^2}{2g}-h_L=\frac{p_2}{\gamma}+\frac{v_2^2}{2g}
+$$
+
+With some algebra we can rearrange the above to solve for the quantity of interest, the pressure drop:
+
+$$
+p_1-p_2=\frac{\rho}{2} \left(v_2^2-v_1^2\right)+\gamma h_L  
+$$
+
+The first contribution to the pressure drop is due to Bernoulli's principle, a decrease in the speed of a fluid occurs simultaneously with an increase in pressure.  For the problem at hand we know that $v_2$ will be less than $v_1$ by the continuity equation.  The quantity $\left(v_2^2-v_1^2\right)$ will be negative which implies that if there were no losses ($h_l$) the pressure at 2 $p_2$ would be greater than the pressure $p_1$ (*i.e.* the quantity $p_1-p_2$ would be negative.)  In other words, if losses were negligible Bernoulli's equation tells us there would actually be a pressure rise.  This is all due to conservation of energy.  The kinetic energy decreases from pipe 1 to pipe 2 so the pressure energy must therefore increase (Remember that in this problem there is no possible change in potential energy).
+
+Let us now compute the pressure rise occurring from the change in velocity.  We need the velocity in each pipe.  This can be found from the continuity equation $Q=vA$ where $A$ is the flow area taken from <a href="https://kdusling.github.io/teaching/Applied-Fluids/SteelPipeTable.html?sch=40&mat=comSteel">this table</a>.  The volume flow rate, Q, is
+
+$$
+Q=75~\gpm \times \left( \frac{1~\ft^3/s}{449~\gpm}\right)=0.167~\ft^3/s
+$$
+
+and the velcoties in the 2-in and 3-in pipes area
+
+$$
+v_{\rm{2-in}}=\frac{Q}{A}=\frac{0.167~\ft^3/s}{0.02330~\ft^2}=7.167~\ft/s \\
+v_{\rm{3-in}}=\frac{Q}{A}=\frac{0.167~\ft^3/s}{0.05134~\ft^2}=3.253~\ft/s
+$$
+
+
+But there are losses which we have yet to consider.  In this problem we must consider four different loss terms (the labels should be self-explanatory):
+
+$$
+h_L=h_L(gate valve) + h_L(exp fitting) + h_L(2-in pipe) + h_L(3-in pipe)
+$$
+
+Depending on the magnitude of the loss the pressure $p_2$ might end being larger or small than $p_1$.  If the energy dissipated is larger than the reduction in kinetic energy the pressure will therefore end up decreasing  ($p_1$ will end up being larger than $p_2$ and the quantity $p_1-p_2$ will be positive).  The only way to see if this is the case is to compute $h_L$.
+
+
 
 </div>
