@@ -284,7 +284,7 @@ A shell and tube heat exchanger is a common design of heat exchanger comprising 
 
 The figure below shows a very simple shell and tube heat exchanger consisting of one circular tube that runs horizontally through the middle of a rectangular shell.  The inside tube carries $50~\L/\min$ of oil at $200\F$.  The shell carries $4500~\L/\min$ of sea water at $25\C$ to carry heat away from the oil.  If the length of the shell is $1.8~\m$ estimate the energy loss and pressure drop of the sea water.  Assume that the surface roughness is the same as drawn brass or copper tubing ($\epsilon=0.0015~\mm$).
 
-<img src="img/HeatExchanger.png" alt="Moody Diagram">
+<img src="img/HeatExchanger.png" alt="Heat Exchanger">
 
 <hr>
 
@@ -454,18 +454,15 @@ where the factor $\left(L_e/D\right)$ is called the equivalent length ratio and
 
 <table class="table table-striped">
 <caption>
-
-</caption>
-<thead>
-<tr><th> Fitting Type  </th><th> Equivalent Length, $L_e/D$ </th></tr>
-</thead>
-<caption>
 Equivalent length ratios for valves and fittings.  Based on
 
 $$
 h_L=f_T \frac{L_E}{D} \frac{v^2}{2g}
 $$
-<tcaption>
+</caption>
+<thead>
+<tr><th> Fitting Type  </th><th> Equivalent Length, $L_e/D$ </th></tr>
+</thead>
 <tbody>
 <tr><td>Gate valve (fully open)                                 </td><td style="padding-left: 50px;"> 8     </td></tr>
 <tr><td>Globe valve (fully open)                                </td><td style="padding-left: 50px;"> 340   </td></tr>
@@ -484,9 +481,20 @@ The value of $L_e$ is called the equivalent length of pipe; it is the length of
 
 <div class="photo" style="width: 900px;">
   <img src="img/FL_wafer-type-centerline-butterfly-valve.jpg"  style="width:auto; height:auto;">
-  <img src="img/FL_knife-gate-valve.jpg"  style="width:200px; height:auto;">
-  <img src="img/FL_din-globe-valve.jpg"  style="width:200px; height:auto;">
+  <img src="img/FL_knife-gate-valve.jpg"  style="width:auto; height:auto;">
+  <img src="img/FL_din-globe-valve.jpg"  style="width:auto; height:auto;">
   <p>
   Left: Wafer type centerline butterfly valve. Middle: Knife gate valve.  Right: A DIN globe valve. Images from [Metals Valve](http://www.metalsvalve.com).
   </p>
+</div>
+
+
+<div class="example">
+
+A 2-in schedule 40 steel pipe that is 100~ft long is attached to 80~ft of 3-in schedule 40 steel pipe.  The 2-in pipe contains a gate valve.  For a volume flow rate of 50~gpm of hexane determine the pressure drop $p_1-p_2$.  The fluid flows from left to right.
+
+<img src="img/SeriesPipeline.png" alt="Series Pipeline">
+
+<hr>
+
 </div>
