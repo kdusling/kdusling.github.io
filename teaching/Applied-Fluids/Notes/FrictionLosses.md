@@ -510,7 +510,7 @@ $$
 With some algebra we can rearrange the above to solve for the quantity of interest, the pressure drop:
 
 $$
-p_1-p_2=\frac{\rho}{2} \left(v_2^2-v_1^2\right)+\gamma h_L  
+p_1-p_2=\gamma \frac{v_2^2-v_1^2}{2g}+\gamma h_L  
 $$
 
 The first contribution to the pressure drop is due to Bernoulli's principle, a decrease in the speed of a fluid occurs simultaneously with an increase in pressure.  For the problem at hand we know that $v_2$ will be less than $v_1$ by the continuity equation.  The quantity $\left(v_2^2-v_1^2\right)$ will be negative which implies that if there were no losses ($h_l$) the pressure at 2 $p_2$ would be greater than the pressure $p_1$ (*i.e.* the quantity $p_1-p_2$ would be negative.)  In other words, if losses were negligible Bernoulli's equation tells us there would actually be a pressure rise.  This is all due to conservation of energy.  The kinetic energy decreases from pipe 1 to pipe 2 so the pressure energy must therefore increase (Remember that in this problem there is no possible change in potential energy).
@@ -521,18 +521,29 @@ $$
 Q=75~\gpm \times \left( \frac{1~\ft^3/s}{449~\gpm}\right)=0.167~\ft^3/s
 $$
 
-and the velcoties in the 2-in and 3-in pipes area
+and the velocities in the 2-in and 3-in pipes are,
 
 $$
 v_{\rm{2-in}}=\frac{Q}{A}=\frac{0.167~\ft^3/s}{0.02330~\ft^2}=7.167~\ft/s \\
 v_{\rm{3-in}}=\frac{Q}{A}=\frac{0.167~\ft^3/s}{0.05134~\ft^2}=3.253~\ft/s
 $$
 
+The velcoity head is then
+
+$$
+\frac{v_2^2-v_1^2}{2g}=\frac{ (3.253~\ft/s)^2 - (7.167~\ft/s)^2}{2\times 32.2~\ft/s^2}=-0.623~\ft
+$$
+
+From <a href="https://kdusling.github.io/teaching/Applied-Fluids/PropertiesOfCommonLiquids.html">this table</a> the density of hexane is $\rho=41.00~\lb/\ft^3$
+
+$$
+\left( p_1-p_2 \right)_{\rm{ideal}} = \gamma \frac{v_2^2-v_1^2}{2g}=41 ~\lb/\ft^3\left(-0.623~\ft\right)=-25.537~\frac{\lb}{\ft^2}\times \left(\frac{1~\ft}{12~\in}\right)^2=-0.177~\psi
+$$
 
 But there are losses which we have yet to consider.  In this problem we must consider four different loss terms (the labels should be self-explanatory):
 
 $$
-h_L=h_L(gate valve) + h_L(exp fitting) + h_L(2-in pipe) + h_L(3-in pipe)
+h_L=h_L(\rm{gate valve}) + h_L(\rm{exp fitting}) + h_L(\rm{2-in pipe}) + h_L(\rm{3-in pipe})
 $$
 
 Depending on the magnitude of the loss the pressure $p_2$ might end being larger or small than $p_1$.  If the energy dissipated is larger than the reduction in kinetic energy the pressure will therefore end up decreasing  ($p_1$ will end up being larger than $p_2$ and the quantity $p_1-p_2$ will be positive).  The only way to see if this is the case is to compute $h_L$.
