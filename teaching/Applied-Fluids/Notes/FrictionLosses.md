@@ -543,28 +543,28 @@ $$
 I put the label *ideal* on the pressure drop (actually a rise) in order to remind us that this would be the change in pressure if there were no losses.   In this problem we must consider four different loss terms (the labels should be self-explanatory):
 
 $$
-h_L= + h_L(\rm{2-in~pipe}) + h_L(\rm{3-in~pipe}) + h_L(\rm{expansion~fitting}) + h_L(\rm{gate~valve})
+h_L= + h_L(\rm{2in~pipe}) + h_L(\rm{3in~pipe}) + h_L(\rm{expansion~fitting}) + h_L(\rm{gate~valve})
 $$
 
 First we calculate the friction losses in the 2-in and 3-in pipes.  The first step is to compute the Reynolds numbers:
 
 $$
-\Re_{\rm{2-in}}=\frac{\rho v_1} D_{\rm{2-in}}}{\eta}=\frac{(1.27)(7.167)(0.1723)}{6.20\times 10^{-6}}=2.53\times 10^5\\
-\Re_{\rm{3-in}}=\frac{\rho v_{\rm{3-in}} D_{\rm{3-in}}}{\eta}=\frac{(1.27)(3.253)(0.2557)}{6.20\times 10^{-6}}=1.70\times 10^5\\
+\Re_{\text{2-in}}=\frac{\rho v_1 D_{\rm{2in}}}{\eta}=\frac{(1.27)(7.167)(0.1723)}{6.20\times 10^{-6}}=2.53\times 10^5\\
+\Re_{\rm{3-in}}=\frac{\rho v_2 D_{\rm{3in}}}{\eta}=\frac{(1.27)(3.253)(0.2557)}{6.20\times 10^{-6}}=1.70\times 10^5\\
 $$
 
 $$
-\left(\epsilon/D\right)_ {\rm{2-in}}=0.000871 \\
-\left(\epsilon/D\right)_ {\rm{3-in}}=0.000587
+\left(\epsilon/D\right)_ {\rm{2in}}=0.000871 \\
+\left(\epsilon/D\right)_ {\rm{3in}}=0.000587
 $$
 
 $$
-f_{\rm{2-in}}= 0.0202 \\
-f_{\rm{3-in}}= 0.0195
+f_{\rm{2in}}= 0.0202 \\
+f_{\rm{3in}}= 0.0195
 $$
 
 $$
-h_L(\rm{2-in~pipe})=f_{\rm{2-in}} \times \frac{L_\rm{2-in~pipe}}{D_\rm{2-in~pipe}} \frac{v_1^2}{2g}=(0.0202)\frac{100}{0.1723}\frac{(7.167)^2}{2\times 32.2}=9.35~\ft\\
+h_L(\rm{2in~pipe})=f_{\rm{2in}} \times \frac{L_\rm{2in}}{D_\rm{2in}} \frac{v_1^2}{2g}=(0.0202)\frac{100}{0.1723}\frac{(7.167)^2}{2\times 32.2}=9.35~\ft\\
 h_L(\rm{3-in~pipe})=f_{\rm{3-in}} \times (0.0195)\frac{60}{0.2557}\frac{(3.253)^2}{2\times 32.2}=0.75~\ft
 $$
 
