@@ -524,8 +524,8 @@ $$
 and the velocities in the 2-in pipe (labeled $v_1$) and 3-in pipe (labeled $v_2$) are,
 
 $$
-v_1=\frac{Q}{A_{\text{2-in}}=\frac{0.167~\ft^3/s}{0.02330~\ft^2}=7.167~\ft/s \\
-v_2=\frac{Q}{A_{\text{3-in}}=\frac{0.167~\ft^3/s}{0.05134~\ft^2}=3.253~\ft/s
+v_1=\frac{Q}{A_{\text{2-in}}}=\frac{0.167~\ft^3/s}{0.02330~\ft^2}=7.167~\ft/s \\
+v_2=\frac{Q}{A_{\text{3-in}}}=\frac{0.167~\ft^3/s}{0.05134~\ft^2}=3.253~\ft/s
 $$
 
 The change in velocity head is therefore
