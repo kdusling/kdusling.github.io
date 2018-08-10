@@ -571,7 +571,7 @@ Now that we have the friction factors it is straightforward to find the head los
 
 $$
 h_L(\text{2-in pipe})=f_{\text{2-in}} \times \frac{L_{\text{2-in}}}{D_{\text{2-in}}} \times \frac{v_1^2}{2g}=(0.0202)\frac{100}{0.1723}\frac{(7.167)^2}{2\times 32.2}=9.35~\ft\\
-h_L(\text{3-in pipe})=f_{\text{3-in}} \times \frac{L_{\text{3-in}}}{D_{\text{3-in}}} \times \frac{v_12^2}{2g}=(0.0195)\frac{60}{0.2557}\frac{(3.253)^2}{2\times 32.2}=0.75~\ft
+h_L(\text{3-in pipe})=f_{\text{3-in}} \times \frac{L_{\text{3-in}}}{D_{\text{3-in}}} \times \frac{v_2^2}{2g}=(0.0195)\frac{60}{0.2557}\frac{(3.253)^2}{2\times 32.2}=0.75~\ft
 $$
 
 Next we compute the losses at the expansion fitting.  We assume a sudden expansion
@@ -614,7 +614,7 @@ $$
 $$
 p_1-p_2=\gamma \frac{v_2^2-v_1^2}{2g}+\gamma \left[h_L(\text{2-in pipe}) + h_L(\text{3-in pipe}) + h_L(\text{expansion}) + h_L(\text{gate~valve})\right]\\
 p_1-p_2= -0.180~\psi + 41~\lb/\ft^3\left[9.35~\ft+0.75~\ft+0.238~\ft+0.102~\ft\right]\times \left(\frac{1~\ft}{12~\inch}\right)^2 \\
-p_1-p_2= -0.180~\psi + \left[2.662~\psi + 0.214~\psi+0.068~\psi+0.029~\psi]\\
+p_1-p_2= -0.180~\psi + \left[2.662~\psi + 0.214~\psi+0.068~\psi+0.029~\psi\right]\\
 p_1-p_2=-0.180~\psi+2.973~\psi=2.793~\psi
 $$
 
