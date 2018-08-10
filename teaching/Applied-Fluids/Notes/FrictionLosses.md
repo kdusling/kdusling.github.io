@@ -456,7 +456,9 @@ where the factor $\left(L_e/D\right)$ is called the equivalent length ratio and
 <table class="table table-striped">
 <caption>
 Equivalent length ratios for valves and fittings.  Based on
-\(h_L=f_T \frac{L_E}{D} \frac{v^2}{2g}\)
+<script type="math/tex; mode=display">
+h_L=f_T \frac{L_E}{D} \frac{v^2}{2g}
+</script>
 </caption>
 <thead>
 <tr><th> Fitting Type  </th><th> Equivalent Length, $L_e/D$ </th></tr>
@@ -477,7 +479,7 @@ Equivalent length ratios for valves and fittings.  Based on
 
 The value of $L_e$ is called the equivalent length of pipe; it is the length of straight pipe that would produce the same loss as the valve.  For example a 2" fully open globe valve $(L_e/D=340)$ has $L_e \approx 57~\ft$. This value of $L_e$ can than be added to the actual length of pipe to determine the total losses. While convenient, this procedure is only accurate when the actual pipe flows are in the zone of complete turbulence.
 
-<div class="photo" style="width: 500px;">
+<div class="photo" style="width: 600px;">
   <img src="img/FL_wafer-type-centerline-butterfly-valve.jpg"  style="width:auto; height:auto;">
   <img src="img/FL_knife-gate-valve.jpg"  style="width:auto; height:auto;">
   <img src="img/FL_din-globe-valve.jpg"  style="width:auto; height:auto;">
@@ -513,7 +515,7 @@ $$
 p_1-p_2=\gamma \frac{v_2^2-v_1^2}{2g}+\gamma h_L  
 $$
 
-The first contribution to the pressure drop is due to Bernoulli's principle, a decrease in the speed of a fluid occurs simultaneously with an increase in pressure.  For the problem at hand we know that $v_2$ will be less than $v_1$ from the continuity equation.  The quantity $\left(v_2^2-v_1^2\right)$ will be negative which implies that if there were no losses ($h_L=0$) the pressure  $p_2$ would be greater than the pressure $p_1$ (*i.e.* the quantity $p_1-p_2$ would be negative.)  In other words, if losses were negligible Bernoulli's equation tells us there would actually be a pressure rise.  This is all due to conservation of energy.  The kinetic energy decreases from pipe 1 to pipe 2 so the pressure energy must therefore increase.
+The first contribution to the pressure drop is due to Bernoulli's principle, a decrease in the speed of a fluid occurs simultaneously with an increase in pressure.  For the problem at hand we know that $v_2$ will be less than $v_1$ from the continuity equation.  The quantity $\left(v_2^2-v_1^2\right)$ will be negative which implies that if there were no losses ($h_L=0$) the quantity $p_1-p_2$ would be negative (*i.e.* $p_2$ would be greater than $p_1$).  In other words, if losses were negligible Bernoulli's equation tells us there would actually be a pressure rise.  This is all due to conservation of energy.  The kinetic energy decreases from pipe 1 to pipe 2 so the pressure energy must therefore increase.
 
 Let us now actually calculate this pressure rise.  We need the velocity in each pipe.  This can be found from the continuity equation $Q=vA$ where $A$ is the flow area taken from <a href="https://kdusling.github.io/teaching/Applied-Fluids/SteelPipeTable.html?sch=40&mat=comSteel">this table</a>.  The volume flow rate, Q, is
 
@@ -521,51 +523,51 @@ $$
 Q=75~\cancel{\gpm} \times \left( \frac{1~\ft^3/s}{449~\cancel{\gpm}}\right)=0.167~\ft^3/s
 $$
 
-and the velocities in the 2-in (labeled $v_1$) and 3-in (labeled $v_2$) pipes are,
+and the velocities in the 2-in pipe (labeled $v_1$) and 3-in pipe (labeled $v_2$) are,
 
 $$
-v_1=\frac{Q}{A_\rm{2-in}}=\frac{0.167~\ft^3/s}{0.02330~\ft^2}=7.167~\ft/s \\
-v_2=\frac{Q}{A_\rm{3-in}}=\frac{0.167~\ft^3/s}{0.05134~\ft^2}=3.253~\ft/s
+v_1=\frac{Q}{A_{\text{2-in}}=\frac{0.167~\ft^3/s}{0.02330~\ft^2}=7.167~\ft/s \\
+v_2=\frac{Q}{A_{\text{3-in}}=\frac{0.167~\ft^3/s}{0.05134~\ft^2}=3.253~\ft/s
 $$
 
 The change in velocity head is therefore
 
 $$
-\frac{v_2^2-v_1^2}{2g}=\frac{ (3.253~\ft/s)^2 - (7.167~\ft/s)^2}{2\times 32.2~\ft/s^2}=-0.623~\ft
+\frac{v_2^2-v_1^2}{2g}=\frac{ (3.253~\ft/s)^2 - (7.167~\ft/s)^2}{2\times 32.2~\ft/s^2}=-0.633~\ft
 $$
 
 From <a href="https://kdusling.github.io/teaching/Applied-Fluids/PropertiesOfCommonLiquids.html">this table</a> the density of hexane is $\rho=41.00~\lb/\ft^3$ and we find that,
 
 $$
-\left( p_1-p_2 \right)_ {\rm{ideal}} = \gamma \frac{v_2^2-v_1^2}{2g}=41 ~\lb/\ft^3\left(-0.623~\ft\right)=-25.537~\frac{\lb}{\ft^2}\times \left(\frac{1~\ft}{12~\inch}\right)^2=-0.177~\psi
+\left( p_1-p_2 \right)_ {\rm{ideal}} = \gamma \frac{v_2^2-v_1^2}{2g}=41 ~\lb/\ft^3\left(-0.633~\ft\right)=-25.953~\frac{\lb}{\ft^2}\times \left(\frac{1~\ft}{12~\inch}\right)^2=-0.180~\psi
 $$
 
 I put the label *ideal* on the pressure drop (actually a rise) in order to remind us that this would be the change in pressure if there were no losses.   In this problem we must consider four different loss terms (the labels should be self-explanatory):
 
 $$
-h_L= + h_L(\rm{2in~pipe}) + h_L(\rm{3in~pipe}) + h_L(\rm{expansion}) + h_L(\rm{gate~valve})
+h_L= h_L(\text{2-in pipe}) + h_L(\text{3-in pipe}) + h_L(\text{expansion}) + h_L(\text{gate~valve})
 $$
 
 First we calculate the friction losses in the 2-in and 3-in pipes.  The first step is to compute the Reynolds numbers:
 
 $$
-\Re_{\text{2-in}}=\frac{\rho v_1 D_{\rm{2in}}}{\eta}=\frac{(1.27)(7.167)(0.1723)}{6.20\times 10^{-6}}=2.53\times 10^5\\
-\Re_{\rm{3-in}}=\frac{\rho v_2 D_{\rm{3in}}}{\eta}=\frac{(1.27)(3.253)(0.2557)}{6.20\times 10^{-6}}=1.70\times 10^5\\
+\Re_{\text{2-in}}=\frac{\rho v_1 D_{\text{2-in}}}{\eta}=\frac{(1.27)(7.167)(0.1723)}{6.20\times 10^{-6}}=2.53\times 10^5\\
+\Re_{\text{3-in}}=\frac{\rho v_2 D_{\text{3-in}}}{\eta}=\frac{(1.27)(3.253)(0.2557)}{6.20\times 10^{-6}}=1.70\times 10^5\\
 $$
 
 $$
-\left(\epsilon/D\right)_ {\rm{2in}}=0.000871 \\
-\left(\epsilon/D\right)_ {\rm{3in}}=0.000587
+\left(\epsilon/D\right)_ {\text{2-in}}=0.000871 \\
+\left(\epsilon/D\right)_ {\text{3-in}}=0.000587
 $$
 
 $$
-f_{\rm{2in}}= 0.0202 \\
-f_{\rm{3in}}= 0.0195
+f_{\text{2-in}}= 0.0202 \\
+f_{\text{3-in}}= 0.0195
 $$
 
 $$
-h_L(\rm{2in~pipe})=f_{\rm{2in}} \times \frac{L_\rm{2in}}{D_\rm{2in}} \frac{v_1^2}{2g}=(0.0202)\frac{100}{0.1723}\frac{(7.167)^2}{2\times 32.2}=9.35~\ft\\
-h_L(\rm{3-in~pipe})=f_{\rm{3-in}} \times (0.0195)\frac{60}{0.2557}\frac{(3.253)^2}{2\times 32.2}=0.75~\ft
+h_L(\text{2-in pipe})=f_{\text{2-in}} \times \frac{L_{\text{2-in}}}{D_{\text{2-in}}} \times \frac{v_1^2}{2g}=(0.0202)\frac{100}{0.1723}\frac{(7.167)^2}{2\times 32.2}=9.35~\ft\\
+h_L(\text{3-in pipe})=f_{\text{3-in}} \times \frac{L_{\text{3-in}}}{D_{\text{3-in}}} \times (0.0195)\frac{60}{0.2557}\frac{(3.253)^2}{2\times 32.2}=0.75~\ft
 $$
 
 Next we compute the losses at the expansion fitting.  We assume a sudden expansion
