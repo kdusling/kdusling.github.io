@@ -543,7 +543,7 @@ $$
 I put the label *ideal* on the pressure drop (actually a rise) in order to remind us that this would be the change in pressure if there were no losses.   In this problem we must consider four different loss terms (the labels should be self-explanatory):
 
 $$
-h_L= + h_L(\rm{2in~pipe}) + h_L(\rm{3in~pipe}) + h_L(\rm{expansion~fitting}) + h_L(\rm{gate~valve})
+h_L= + h_L(\rm{2in~pipe}) + h_L(\rm{3in~pipe}) + h_L(\rm{expansion}) + h_L(\rm{gate~valve})
 $$
 
 First we calculate the friction losses in the 2-in and 3-in pipes.  The first step is to compute the Reynolds numbers:
@@ -566,6 +566,36 @@ $$
 $$
 h_L(\rm{2in~pipe})=f_{\rm{2in}} \times \frac{L_\rm{2in}}{D_\rm{2in}} \frac{v_1^2}{2g}=(0.0202)\frac{100}{0.1723}\frac{(7.167)^2}{2\times 32.2}=9.35~\ft\\
 h_L(\rm{3-in~pipe})=f_{\rm{3-in}} \times (0.0195)\frac{60}{0.2557}\frac{(3.253)^2}{2\times 32.2}=0.75~\ft
+$$
+
+Next we compute the losses at the expansion fitting.  We assume a sudden expansion
+
+$$
+h_L(\rm{expansion})=K\frac{v_1^2}{2g}
+$$
+
+$$
+K= \left[1-\frac{A_1}{A_2}\right]^2 = \left[1-\frac{0.02330}{0.05134}\right]^2=0.298
+$$
+
+$$
+h_L(\rm{expansion})=K\frac{v_1^2}{2g}=(0.298)\frac{(7.167)^2}{2\times 32.2}=0.238~\ft
+$$
+
+Finally for the loss in the gate valves
+
+$$
+h_L(\rm{gate~valve})=K\left(\frac{v^2}{2g}\right) $$
+
+where $v$ is the velocity
+ at the valve. The resistance coefficient is typically expressed as
+
+$$
+K=\left(L_e/D\right)f_T = 8\times (0.019)=0.128
+$$
+
+$$
+h_L(\rm{gate~valve})=K\frac{v_1^2}{2g}=(0.128)\frac{(7.167)^2}{2\times 32.2}=0.102~\ft
 $$
 
 Depending on the magnitude of the loss the pressure $p_2$ might end being larger or small than $p_1$.  If the energy dissipated is larger than the reduction in kinetic energy the pressure will therefore end up decreasing  ($p_1$ will end up being larger than $p_2$ and the quantity $p_1-p_2$ will be positive).  The only way to see if this is the case is to compute $h_L$.
