@@ -456,9 +456,7 @@ where the factor $\left(L_e/D\right)$ is called the equivalent length ratio and
 <table class="table table-striped">
 <caption>
 Equivalent length ratios for valves and fittings.  Based on
-<script type="math/tex; mode=display">
-h_L=f_T \frac{L_E}{D} \frac{v^2}{2g}
-</script>
+$h_L=f_T \frac{L_e}{D} \frac{v^2}{2g}$.
 </caption>
 <thead>
 <tr><th> Fitting Type  </th><th> Equivalent Length, $L_e/D$ </th></tr>
@@ -555,49 +553,69 @@ $$
 \Re_{\text{3-in}}=\frac{\rho v_2 D_{\text{3-in}}}{\eta}=\frac{(1.27)(3.253)(0.2557)}{6.20\times 10^{-6}}=1.70\times 10^5\\
 $$
 
+In both pipes the Reynolds number is larger than 4000 so the flow is turbulent.  We therefore need the relative roughness of each pipe:
+
 $$
 \left(\epsilon/D\right)_ {\text{2-in}}=0.000871 \\
 \left(\epsilon/D\right)_ {\text{3-in}}=0.000587
 $$
+
+With the Reynolds number and relative roughness we can find the friction factors from the Moody diagram.  Alternatively, I used <a href="https://kdusling.github.io/teaching/Applied-Fluids/FrictionFactor.html"> this online tool</a> and find
 
 $$
 f_{\text{2-in}}= 0.0202 \\
 f_{\text{3-in}}= 0.0195
 $$
 
+Now that we have the friction factors it is straightforward to find the head loss in each pipe:
+
 $$
 h_L(\text{2-in pipe})=f_{\text{2-in}} \times \frac{L_{\text{2-in}}}{D_{\text{2-in}}} \times \frac{v_1^2}{2g}=(0.0202)\frac{100}{0.1723}\frac{(7.167)^2}{2\times 32.2}=9.35~\ft\\
-h_L(\text{3-in pipe})=f_{\text{3-in}} \times \frac{L_{\text{3-in}}}{D_{\text{3-in}}} \times (0.0195)\frac{60}{0.2557}\frac{(3.253)^2}{2\times 32.2}=0.75~\ft
+h_L(\text{3-in pipe})=f_{\text{3-in}} \times \frac{L_{\text{3-in}}}{D_{\text{3-in}}} \times \frac{v_12^2}{2g}=(0.0195)\frac{60}{0.2557}\frac{(3.253)^2}{2\times 32.2}=0.75~\ft
 $$
 
 Next we compute the losses at the expansion fitting.  We assume a sudden expansion
 
 $$
-h_L(\rm{expansion})=K\frac{v_1^2}{2g}
+h_L(\text{expansion})=K\frac{v_1^2}{2g}
 $$
+
+where $v_1$ has been correctly chosen to be the velocity of the entrance flow.  
+The resistance coefficient, $K$, is estimated from,
 
 $$
 K= \left[1-\frac{A_1}{A_2}\right]^2 = \left[1-\frac{0.02330}{0.05134}\right]^2=0.298
 $$
 
-$$
-h_L(\rm{expansion})=K\frac{v_1^2}{2g}=(0.298)\frac{(7.167)^2}{2\times 32.2}=0.238~\ft
-$$
-
-Finally for the loss in the gate valves
+Putting in the numbers we find,
 
 $$
-h_L(\rm{gate~valve})=K\left(\frac{v^2}{2g}\right) $$
+h_L(\text{expansion})=K\frac{v_1^2}{2g}=(0.298)\frac{(7.167)^2}{2\times 32.2}=0.238~\ft
+$$
 
-where $v$ is the velocity
- at the valve. The resistance coefficient is typically expressed as
+Finally for the loss in the gate valve
+
+$$
+h_L(\text{gate valve})=K\left(\frac{v_1^2}{2g}\right)
+$$
+
+where $v_1$ is the velocity at the valve. The resistance coefficient is  expressed as
 
 $$
 K=\left(L_e/D\right)f_T = 8\times (0.019)=0.128
 $$
 
+where the equivalent length ratio of 8 was taken from the above table.  Putting in the numbers we find,
+
 $$
-h_L(\rm{gate~valve})=K\frac{v_1^2}{2g}=(0.128)\frac{(7.167)^2}{2\times 32.2}=0.102~\ft
+h_L(\text{gate valve})=K\frac{v_1^2}{2g}=(0.128)\frac{(7.167)^2}{2\times 32.2}=0.102~\ft
+$$
+
+$$
+p_1-p_2=\gamma \frac{v_2^2-v_1^2}{2g}+\gamma \left[h_L(\text{2-in pipe}) + h_L(\text{3-in pipe}) + h_L(\text{expansion}) + h_L(\text{gate~valve})\right]\\
+p_1-p_2= -0.180~\psi + 41~\lb/\ft^3\left[9.35~\ft+0.75~\ft+0.238~\ft+0.102~\ft\right]\times \left(\frac{1~\ft}{12~\inch}\right)^2 \\
+p_1-p_2= -0.180~\psi + \left[2.662~\psi + 0.214~\psi+0.068~\psi+0.029~\psi]\\
+p_1-p_2=-0.180~\psi+2.973~\psi=2.793~\psi
 $$
 
 Depending on the magnitude of the loss the pressure $p_2$ might end being larger or small than $p_1$.  If the energy dissipated is larger than the reduction in kinetic energy the pressure will therefore end up decreasing  ($p_1$ will end up being larger than $p_2$ and the quantity $p_1-p_2$ will be positive).  The only way to see if this is the case is to compute $h_L$.
