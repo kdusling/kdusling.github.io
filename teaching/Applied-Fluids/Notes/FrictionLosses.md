@@ -521,11 +521,11 @@ $$
 Q=75~\cancel{\gpm} \times \left( \frac{1~\ft^3/s}{449~\cancel{\gpm}}\right)=0.167~\ft^3/s
 $$
 
-and the velocities in the 2-in and 3-in pipes are,
+and the velocities in the 2-in (labeled $v_1$) and 3-in (labeled $v_2$) pipes are,
 
 $$
-v_{\rm{2-in}}=\frac{Q}{A_\rm{2-in}}=\frac{0.167~\ft^3/s}{0.02330~\ft^2}=7.167~\ft/s \\
-v_{\rm{3-in}}=\frac{Q}{A_\rm{3-in}}=\frac{0.167~\ft^3/s}{0.05134~\ft^2}=3.253~\ft/s
+v_1=\frac{Q}{A_\rm{2-in}}=\frac{0.167~\ft^3/s}{0.02330~\ft^2}=7.167~\ft/s \\
+v_2=\frac{Q}{A_\rm{3-in}}=\frac{0.167~\ft^3/s}{0.05134~\ft^2}=3.253~\ft/s
 $$
 
 The change in velocity head is therefore
@@ -543,26 +543,29 @@ $$
 I put the label *ideal* on the pressure drop (actually a rise) in order to remind us that this would be the change in pressure if there were no losses.   In this problem we must consider four different loss terms (the labels should be self-explanatory):
 
 $$
-h_L= + h_L(\rm{2-in~pipe}) + h_L(\rm{3-in~pipe}) + h_L(\rm{exp~fitting}) + h_L(\rm{gate~valve})
+h_L= + h_L(\rm{2-in~pipe}) + h_L(\rm{3-in~pipe}) + h_L(\rm{expansion~fitting}) + h_L(\rm{gate~valve})
 $$
 
 First we calculate the friction losses in the 2-in and 3-in pipes.  The first step is to compute the Reynolds numbers:
 
 $$
-\Re_{\rm{2-in}}=\frac{\rho v_{\rm{2-in}} D_{\rm{2-in}}}{\eta}=\frac{(1.27)(7.167)(0.1723)}{6.20\times 10^{-6}}=2.53\times 10^5\\
-\Re_{\rm{3-in}}=\frac{\rho v_{\rm{3-in}} D_{\rm{3-in}}}{\eta}=\frac{(1.27)(7.167)(0.1723)}{6.20\times 10^{-6}}=2.53\times 10^5\\
+\Re_{\rm{2-in}}=\frac{\rho v_1} D_{\rm{2-in}}}{\eta}=\frac{(1.27)(7.167)(0.1723)}{6.20\times 10^{-6}}=2.53\times 10^5\\
+\Re_{\rm{3-in}}=\frac{\rho v_{\rm{3-in}} D_{\rm{3-in}}}{\eta}=\frac{(1.27)(3.253)(0.2557)}{6.20\times 10^{-6}}=1.70\times 10^5\\
 $$
 
 $$
-\left(\epsilon/D\right)_ {\rm{2-in}}=0.000871
+\left(\epsilon/D\right)_ {\rm{2-in}}=0.000871 \\
+\left(\epsilon/D\right)_ {\rm{3-in}}=0.000587
 $$
 
 $$
-f_{\rm{2-in}}= 0.02023
+f_{\rm{2-in}}= 0.0202 \\
+f_{\rm{3-in}}= 0.0195
 $$
 
 $$
-h_L(\rm{2-in~pipe})=f\times \frac{v^2}{2g}
+h_L(\rm{2-in~pipe})=f_{\rm{2-in}} \times \frac{L_\rm{2-in~pipe}}{D_\rm{2-in~pipe}} \frac{v_1^2}{2g}=(0.0202)\frac{100}{0.1723}\frac{(7.167)^2}{2\times 32.2}=9.35~\ft\\
+h_L(\rm{3-in~pipe})=f_{\rm{3-in}} \times (0.0195)\frac{60}{0.2557}\frac{(3.253)^2}{2\times 32.2}=0.75~\ft
 $$
 
 Depending on the magnitude of the loss the pressure $p_2$ might end being larger or small than $p_1$.  If the energy dissipated is larger than the reduction in kinetic energy the pressure will therefore end up decreasing  ($p_1$ will end up being larger than $p_2$ and the quantity $p_1-p_2$ will be positive).  The only way to see if this is the case is to compute $h_L$.
