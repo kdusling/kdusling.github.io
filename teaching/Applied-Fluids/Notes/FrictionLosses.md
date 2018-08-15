@@ -455,7 +455,7 @@ The factor $\left(L_e/D\right)$ is known as the *equivalent length ratio* and i
 
 <table class="table table-striped">
 <caption>
-<a name="LeOverD">
+<a name="LeOverD"></a>
 Equivalent length ratios for valves and fittings.  Based on
 $h_L=f_T \frac{L_e}{D} \frac{v^2}{2g}$.
 </caption>
