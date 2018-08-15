@@ -441,11 +441,15 @@ The losses that occur when a fluid flows from a larger reservoir or tank into a
 
 For valves and fittings we use the same formula,
 
-$$ h_L=K\left(\frac{v^2}{2g}\right)\, $$
+$$
+h_L=K\left(\frac{v^2}{2g}\right)\,
+$$
 
 where the resistance coefficient is typically expressed as
 
-$$ K=\left(L_e/D\right)f_T \,.$$
+$$
+K=\left(L_e/D\right)f_T \,.
+$$
 
 The factor $\left(L_e/D\right)$ is known as the *equivalent length ratio* and is taken as a constant for a given type of valve or fitting.  The [table below](#LeOverD) provides equivalent length ratios for some common styles of valves and fittings. $f_T$ is the friction factor in the zone of complete turbulence.  Remember, in the zone of complete turbulence the friction factor is independent of Reynolds number and is a function of relative roughness.  We use the relative roughness of the pipe connected to our fitting. The tables for [Schedule 40](../SteelPipeTable.html?sch=40&mat=comSteel) and [Schedule 80](../SteelPipeTable.html?sch=40&mat=comSteel) list the values of $f_T$ for commercial steel pipes.
 
@@ -546,10 +550,11 @@ First we calculate the friction losses in the 2-in and 3-in pipes.  Since the pr
 
 $$
 \Re_{\text{2-in}}=\frac{\rho v_1 D_{\text{2-in}}}{\eta}=\frac{(1.27)(7.167)(0.1723)}{6.20\times 10^{-6}}=2.53\times 10^5\\
-\Re_{\text{3-in}}=\frac{\rho v_2 D_{\text{3-in}}}{\eta}=\frac{(1.27)(3.253)(0.2557)}{6.20\times 10^{-6}}=1.70\times 10^5\\
+\Re_{\text{3-in}}=\frac{\rho v_2 D_{\text{3-in}}}{\eta}=\frac{(1.27)(3.253)(0.2557)}{6.20\times 10^{-6}}=1.70\times 10^5
 $$
 
 In both pipes the Reynolds number is larger than 4000 so the flow is turbulent.  We therefore need the relative roughness of each pipe.  Given an absolute roughness of $\epsilon=0.0018$ inches for commercial steel we find
+
 $$
 \left(\epsilon/D\right)_ {\text{2-in}}=0.000871 \\
 \left(\epsilon/D\right)_ {\text{3-in}}=0.000587
