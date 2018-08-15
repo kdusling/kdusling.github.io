@@ -495,52 +495,54 @@ A 2-in schedule 40 steel pipe that is 100 ft long is attached to 60 ft of 3-in s
 
 <hr>
 
-This problem requires that we put together everything we learned thus far.  We start off with the generalized energy equation:
 
-$$
-\frac{p_1}{\gamma}+z_1+\frac{v_1^2}{2g}+h_A-h_R-h_L=\frac{p_2}{\gamma}+z_2+\frac{v_2^2}{2g}
-$$
-
-Since the pipe is horizontal we can ignore the elevation terms.  There are no devices (pumps or motors) so we can also ignore those two contributions.  We are therefore left with:
-
-$$
-\frac{p_1}{\gamma}+\frac{v_1^2}{2g}-h_L=\frac{p_2}{\gamma}+\frac{v_2^2}{2g}
-$$
-
-With some algebra we can rearrange and solve for the quantity of interest, the pressure drop:
-
-$$
-p_1-p_2=\gamma \frac{v_2^2-v_1^2}{2g}+\gamma h_L  
-$$
-
-The first contribution represents Bernoulli's principle; a decrease in the speed of a fluid occurs simultaneously with an increase in pressure.  The continuity equation tells us that $v_2$ will be less than $v_1$.  Therefore the quantity $\left(v_2^2-v_1^2\right)$ will be negative and if there were no losses ($h_L=0$) the quantity $p_1-p_2$ would be negative (*i.e.* $p_2$ would be greater than $p_1$).  In other words, if losses were negligible Bernoulli's equation tells us there would actually be a pressure rise.  This is a consequence of conservation of energy; the kinetic energy decreases from pipe 1 to pipe 2 so the pressure energy must increase accordingly.
-
-Let us now actually calculate this.  First, we need the velocity in each pipe.  This can be found from the continuity equation $Q=vA$ where $A$ is the flow area taken from <a href="https://kdusling.github.io/teaching/Applied-Fluids/SteelPipeTable.html?sch=40&mat=comSteel">this table</a>.  The volume flow rate, Q, is
-
-$$
-Q=75~\cancel{\gpm} \times \left( \frac{1~\ft^3/s}{449~\cancel{\gpm}}\right)=0.167~\ft^3/s
-$$
-
-and the velocities in the 2-in pipe (labeled $v_1$) and 3-in pipe (labeled $v_2$) are,
-
-$$
-v_1=\frac{Q}{A_{\text{2-in}}}=\frac{0.167~\ft^3/s}{0.02330~\ft^2}=7.167~\ft/s \\
-v_2=\frac{Q}{A_{\text{3-in}}}=\frac{0.167~\ft^3/s}{0.05134~\ft^2}=3.253~\ft/s
-$$
-
-The change in velocity head is therefore
-
-$$
-\frac{v_2^2-v_1^2}{2g}=\frac{ (3.253~\ft/s)^2 - (7.167~\ft/s)^2}{2\times 32.2~\ft/s^2}=-0.633~\ft
-$$
-
-From <a href="https://kdusling.github.io/teaching/Applied-Fluids/PropertiesOfCommonLiquids.html">this table</a> we the density of hexane is $\rho=41.00~\lb/\ft^3$ and we find that,
-
-$$
-\left( p_1-p_2 \right)_ {\rm{ideal}} = \gamma \frac{v_2^2-v_1^2}{2g}=41 ~\lb/\ft^3\left(-0.633~\ft\right)=-25.953~\frac{\lb}{\cancel{\ft^2}}\times \left(\frac{1~\cancel{\ft}}{12~\inch}\right)^2=-0.180~\psi
-$$
 
 I put the label *ideal* on the pressure drop (actually a rise) in order to remind us that this would be the change in pressure without losses.   In this problem we must consider four different sources of losses (the labels should be self-explanatory):
+
+
+$$
+h_L(\text{total})= h_L(\text{2-in pipe}) + h_L(\text{3-in pipe}) + h_L(\text{expansion}) + h_L(\text{gate valve})
+$$
+
+First we calculate the friction losses in the 2-in and 3-in pipes.  Since the procedure is identical for the two pipes we will do these calculations simultaneously.  The first step is to compute the Reynolds number for each pipe:
+
+$$
+\Re_{\text{2-in}}=\frac{\rho v_1 D_{\text{2-in}}}{\eta}=\frac{(1.27)(7.167)(0.1723)}{6.20\times 10^{-6}}=2.53\times 10^5\\
+\Re_{\text{3-in}}=\frac{\rho v_2 D_{\text{3-in}}}{\eta}=\frac{(1.27)(3.253)(0.2557)}{6.20\times 10^{-6}}=1.70\times 10^5
+$$
+
+In both pipes the Reynolds number is larger than 4000 so the flow is turbulent.  We therefore need the relative roughness of each pipe.  Given an absolute roughness of $\epsilon=0.0018$ inches for commercial steel we find
+
+$$
+\left(\epsilon/D\right)_ {\text{2-in}}=0.000871 \\
+\left(\epsilon/D\right)_ {\text{3-in}}=0.000587
+$$
+
+With the Reynolds number and relative roughness we can find the friction factors from the Moody diagram.  From <a href="https://kdusling.github.io/teaching/Applied-Fluids/FrictionFactor.html"> this online tool</a> I find:
+
+$$
+f_{\text{2-in}}= 0.0202 \\
+f_{\text{3-in}}= 0.0195
+$$
+
+Now that we have the friction factors it is straightforward to find the head loss in each pipe:
+
+$$
+h_L(\text{2-in pipe})=f_{\text{2-in}} \times \frac{L_{\text{2-in}}}{D_{\text{2-in}}} \times \frac{v_1^2}{2g}=(0.0202)\frac{100}{0.1723}\frac{(7.167)^2}{2\times 32.2}=9.35~\ft\\
+h_L(\text{3-in pipe})=f_{\text{3-in}} \times \frac{L_{\text{3-in}}}{D_{\text{3-in}}} \times \frac{v_2^2}{2g}=(0.0195)\frac{60}{0.2557}\frac{(3.253)^2}{2\times 32.2}=0.75~\ft
+$$
+
+Next we compute the losses at the expansion fitting.  We assume a sudden expansion
+
+$$
+h_L(\text{expansion})=K\frac{v_1^2}{2g}
+$$
+
+where $v_1$ has been correctly chosen to be the velocity of the entrance flow (the smaller pipe).  The resistance coefficient, $K$, is estimated from,
+
+$$
+K= \left[1-\frac{A_1}{A_2}\right]^2 = \left[1-\frac{0.02330}{0.05134}\right]^2=0.298
+$$
 
 
 
