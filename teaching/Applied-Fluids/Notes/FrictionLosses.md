@@ -542,48 +542,52 @@ $$
 
 I put the label *ideal* on the pressure drop (actually a rise) in order to remind us that this would be the change in pressure without losses.   In this problem we must consider four different sources of losses (the labels should be self-explanatory):
 
-$$
-h_L(\text{total})= h_L(\text{2-in pipe}) + h_L(\text{3-in pipe}) + h_L(\text{expansion}) + h_L(\text{gate valve})
-$$
 
-First we calculate the friction losses in the 2-in and 3-in pipes.  Since the procedure is identical for the two pipes we will do these calculations simultaneously.  The first step is to compute the Reynolds number for each pipe:
+
+Putting in the numbers we find,
 
 $$
-\Re_{\text{2-in}}=\frac{\rho v_1 D_{\text{2-in}}}{\eta}=\frac{(1.27)(7.167)(0.1723)}{6.20\times 10^{-6}}=2.53\times 10^5\\
-\Re_{\text{3-in}}=\frac{\rho v_2 D_{\text{3-in}}}{\eta}=\frac{(1.27)(3.253)(0.2557)}{6.20\times 10^{-6}}=1.70\times 10^5
+h_L(\text{expansion})=K\frac{v_1^2}{2g}=(0.298)\frac{(7.167)^2}{2\times 32.2}=0.238~\ft\,.
 $$
 
-In both pipes the Reynolds number is larger than 4000 so the flow is turbulent.  We therefore need the relative roughness of each pipe.  Given an absolute roughness of $\epsilon=0.0018$ inches for commercial steel we find
+The last loss we compute is that in the gate valve.
+The loss is expressed as,
 
 $$
-\left(\epsilon/D\right)_ {\text{2-in}}=0.000871 \\
-\left(\epsilon/D\right)_ {\text{3-in}}=0.000587
+h_L(\text{gate valve})=K\left(\frac{v_1^2}{2g}\right)
 $$
 
-With the Reynolds number and relative roughness we can find the friction factors from the Moody diagram.  From <a href="https://kdusling.github.io/teaching/Applied-Fluids/FrictionFactor.html"> this online tool</a> I find:
+where $v_1$ is the velocity at the valve. The resistance coefficient, $K$, is the equivalent length ratio times the friction factor in the zone of complete turbulence.  The equivalent length ratio for a fully open gate vale is 8.  The friction factor in the zone of complete turbulence for a 2-in schedule 40 pipe is $f_T=0.019$.  The resistance coefficient is therefore:
 
 $$
-f_{\text{2-in}}= 0.0202 \\
-f_{\text{3-in}}= 0.0195
+K=\left(L_e/D\right)f_T = 8\times (0.019)=0.128\,.
 $$
 
-Now that we have the friction factors it is straightforward to find the head loss in each pipe:
+The energy loss at the gate valve is:
 
 $$
-h_L(\text{2-in pipe})=f_{\text{2-in}} \times \frac{L_{\text{2-in}}}{D_{\text{2-in}}} \times \frac{v_1^2}{2g}=(0.0202)\frac{100}{0.1723}\frac{(7.167)^2}{2\times 32.2}=9.35~\ft\\
-h_L(\text{3-in pipe})=f_{\text{3-in}} \times \frac{L_{\text{3-in}}}{D_{\text{3-in}}} \times \frac{v_2^2}{2g}=(0.0195)\frac{60}{0.2557}\frac{(3.253)^2}{2\times 32.2}=0.75~\ft
+h_L(\text{gate valve})=K\frac{v_1^2}{2g}=(0.128)\frac{(7.167)^2}{2\times 32.2}=0.102~\ft\,.
 $$
 
-Next we compute the losses at the expansion fitting.  We assume a sudden expansion
+We now return to our original expression for the pressure drop:
 
 $$
-h_L(\text{expansion})=K\frac{v_1^2}{2g}
+p_1-p_2=\gamma \frac{v_2^2-v_1^2}{2g}+\gamma \left[h_L(\text{2-in pipe}) + h_L(\text{3-in pipe}) + h_L(\text{expansion}) + h_L(\text{gate valve})\right]
 $$
 
-where $v_1$ has been correctly chosen to be the velocity of the entrance flow (the smaller pipe).  The resistance coefficient, $K$, is estimated from,
+We already found the pressure drop (actually rise) from the first term to be -0.180 psi.  Adding in the pressure drops due to the four sources of frictional losses results in
 
 $$
-K= \left[1-\frac{A_1}{A_2}\right]^2 = \left[1-\frac{0.02330}{0.05134}\right]^2=0.298
+p_1-p_2= -0.180~\psi + 41~\lb/\ft^3\left[9.35~\ft+0.75~\ft+0.238~\ft+0.102~\ft\right]\times \left(\frac{1~\ft}{12~\inch}\right)^2 \\
+p_1-p_2= -0.180~\psi + \left[2.662~\psi + 0.214~\psi+0.068~\psi+0.029~\psi\right]
 $$
+
+You could just compute the answer in one shot.  I think it is good practice to write it like I did above in order to see the magnitude of each loss.  In this problem, the biggest loss occurs from the pressure drop in the 2-in pipe. The final answer is
+
+$$
+p_1-p_2=-0.180~\psi+2.973~\psi=2.793~\psi
+$$
+
+Depending on the magnitude of the losses the pressure $p_2$ might end being larger or small than $p_1$.  If the energy dissipated is larger than the reduction in kinetic energy the pressure will end up decreasing  ($p_1$ will end up being larger than $p_2$ and the quantity $p_1-p_2$ will be positive).  The only way to see if this is the case is to compute $h_L$.
 
 </div>
