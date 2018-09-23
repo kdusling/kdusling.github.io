@@ -73,7 +73,7 @@
     Select Course:
     <select name="course" id="course">
     <option id="MET212FALL2018" value="1764LTy1c0CIBQoTKmcik0c3GyMt9XyG0uJLULEJ9JkY">MET 212 Fall 2018</option>
-    <option id="MET201FALL2018" value="115IzRzDr3e-jGvXeVrCskZe2EFNnHsVIOCTBOqiVYnU">MET 201 Spring 2018</option>
+    <option id="MET201FALL2018" value="115IzRzDr3e-jGvXeVrCskZe2EFNnHsVIOCTBOqiVYnU">MET 201 Fall 2018</option>
     </select>
     <BR><BR>
     Student ID: <input type="search" placeholder="R00000000" id="rid" />
@@ -111,7 +111,7 @@ function search_navigate() {
           "https://docs.google.com/spreadsheets/d/" + course + "/edit?usp=sharing"
       );
 
-      query.setQuery("select * where C = '" + rid + "'");
+      query.setQuery("select * where D = '" + rid + "'");
       query.send(handleQueryResponse);
 
 
@@ -133,7 +133,7 @@ function search_navigate() {
       } else {
 
         var myHTML = "<table class='TFtableCol'><tr>"
-        for(i=2; i < nc; i++){
+        for(i=3; i < nc; i++){
              myHTML += "<th>";
              myHTML +=  data.getColumnLabel(i);
              myHTML += "</th>";
