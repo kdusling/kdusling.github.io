@@ -119,7 +119,7 @@ function search_navigate() {
 
     function handleQueryResponse(response) {
 		if (response.isError()) {
-        alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+        //alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
           var dis = document.getElementById("display");
           dis.innerHTML = "Error in query ... please try again.";
         return;
@@ -139,7 +139,7 @@ function search_navigate() {
              myHTML += "</th>";
             }
         myHTML += "</tr><tr>"
-        for(i=2; i < nc; i++){
+        for(i=3; i < nc; i++){
              myHTML += "<td align='center'>" + data.getValue(0,i) + "</td>";
             }
         myHTML += "</tr></table>"
@@ -156,8 +156,7 @@ function search_navigate() {
 <div>
 <a href="https://github.com/"><img style="vertical-align:middle" src="/images/Octocat.png" height="20"></a>
 <span style=""><a href="http://kdusling.github.io/">Kevin Dusling</a> &nbsp;&nbsp; |
-    &nbsp;&nbsp; <a href="/sitenav.html">site map</a> &nbsp;&nbsp; |
-    &nbsp; &nbsp; last modified: 18-Apr-2018</span>
+    &nbsp;&nbsp; <a href="/sitenav.html">site map</a> &nbsp;&nbsp; </span>
 </div>
 
 </body>
