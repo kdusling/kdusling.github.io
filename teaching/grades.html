@@ -119,7 +119,7 @@ function search_navigate() {
 
     function handleQueryResponse(response) {
 		if (response.isError()) {
-        //alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+        alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
           var dis = document.getElementById("display");
           dis.innerHTML = "Error in query ... please try again.";
         return;
