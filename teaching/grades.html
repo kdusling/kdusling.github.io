@@ -9,24 +9,12 @@
       <meta name="description" content="">
       <title>Course Grades</title>
       <link rel='stylesheet' href='/styles/mystyle.css' />
+
       <!--Load the AJAX API-->
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<script type="text/javascript">
-
-  // Load the Visualization API and the piechart package.
-  google.load('visualization', '1.0', {'packages':['corechart']});
-
-  // Set a callback to run when the Google Visualization API is loaded.
-//  google.setOnLoadCallback(drawChart);
-
-  // Callback that creates and populates a data table,
-  // instantiates the pie chart, passes in the data and
-  // draws it.
-  function drawChart() {
-    // !!! Use Google Visualization API here !!!
-  }
-</script>
-
+      <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+      <script type="text/javascript">
+        google.load('visualization', '1.0', {'packages':['corechart']});
+      </script>
 
    </head>
 
@@ -107,11 +95,10 @@ function getQueryVariable(variable)
 function search_navigate() {
       var course = document.getElementById("course").value;
       var rid = document.getElementById("rid").value;
-alert("1");
+
       var query = new google.visualization.Query(
           "https://docs.google.com/spreadsheets/d/" + course + "/edit?usp=sharing"
       );
-      alert("2");
 
       query.setQuery("select * where D = '" + rid + "'");
       query.send(handleQueryResponse);
@@ -121,7 +108,7 @@ alert("1");
 
     function handleQueryResponse(response) {
 		if (response.isError()) {
-        //alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+        alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
           var dis = document.getElementById("display");
           dis.innerHTML = "Error in query ... please try again.";
         return;
@@ -131,7 +118,7 @@ alert("1");
       var nc = data.getNumberOfColumns();
 
       if ( data.getNumberOfRows() == 0 ){
-        document.getElementById("display").innerHTML = "Error ... please try again.";
+        document.getElementById("display").innerHTML = "Error ... Ram ID not found.";
       } else {
 
         var myHTML = "<table class='TFtableCol'><tr>"
