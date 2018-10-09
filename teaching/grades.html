@@ -62,7 +62,7 @@
     Select Course:
     <select name="course" id="course">
     <option id="MET212FALL2018" value="1764LTy1c0CIBQoTKmcik0c3GyMt9XyG0uJLULEJ9JkY">MET 212 Fall 2018</option>
-    <option id="MET201FALL2018" value="115IzRzDr3e-jGvXeVrCskZe2EFNnHsVIOCTBOqiVYnU">MET 201 Fall 2018</option>
+    <option id="MET201FALL2018" value="1psKXmtRRxQGF-hgRSyzEpurLPd2NHxsjTenNhbOQ2C0">MET 201 Fall 2018</option>
     </select>
     <BR><BR>
     Student ID: <input type="search" placeholder="R00000000" id="rid" />
@@ -107,7 +107,6 @@ function search_navigate() {
     }
 
     function handleQueryResponse(response) {
-      alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
 
 		if (response.isError()) {
           //alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
@@ -118,9 +117,6 @@ function search_navigate() {
 
       var data = response.getDataTable();
       var nc = data.getNumberOfColumns();
-
-      alert(data);
-      alert(nc);
 
       if ( data.getNumberOfRows() == 0 ){
         document.getElementById("display").innerHTML = "Error ... Ram ID not found.";
