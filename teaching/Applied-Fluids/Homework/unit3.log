@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2018.3.26)  20 SEP 2018 22:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2018.3.26)  2 OCT 2018 08:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -858,7 +858,7 @@ Preview: Tightpage -328908 -328908 328908 328908
 <imgs/mono4.pdf, id=96, 394.9124pt x 622.1343pt>
 File: imgs/mono4.pdf Graphic file (type pdf)
 <use imgs/mono4.pdf>
-Package pdftex.def Info: imgs/mono4.pdf  used on input line 108.
+Package pdftex.def Info: imgs/mono4.pdf  used on input line 109.
 (pdftex.def)             Requested size: 216.81pt x 341.55788pt.
  Excluding 'solution' comment.
 Preview: Tightpage -328908 -328908 328908 328908
@@ -866,7 +866,7 @@ Preview: Tightpage -328908 -328908 328908 328908
 <imgs/SlurryWall.png, id=110, 716.6775pt x 303.1325pt>
 File: imgs/SlurryWall.png Graphic file (type png)
 <use imgs/SlurryWall.png>
-Package pdftex.def Info: imgs/SlurryWall.png  used on input line 124.
+Package pdftex.def Info: imgs/SlurryWall.png  used on input line 125.
 (pdftex.def)             Requested size: 325.215pt x 137.55547pt.
 
 Preview: Tightpage -328908 -328908 328908 328908
@@ -884,7 +884,7 @@ Preview: Tightpage -328908 -328908 328908 328908
 Here is how much of TeX's memory you used:
  26903 strings out of 492982
  568899 string characters out of 6136225
- 621222 words of memory out of 5000000
+ 621221 words of memory out of 5000000
  30086 multiletter control sequences out of 15000+600000
  534288 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -895,7 +895,7 @@ cmmi12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
 ve/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2017/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2017/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on unit3.pdf (15 pages, 100529 bytes).
+Output written on unit3.pdf (15 pages, 100599 bytes).
 PDF statistics:
  150 PDF objects out of 1000 (max. 8388607)
  91 compressed objects within 1 object stream

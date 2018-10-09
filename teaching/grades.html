@@ -9,6 +9,7 @@
       <meta name="description" content="">
       <title>Course Grades</title>
       <link rel='stylesheet' href='/styles/mystyle.css' />
+      <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 
    </head>
 
@@ -16,7 +17,7 @@
 <body>
 
 
-  
+
 
 
 <style type="text/css">
@@ -128,7 +129,11 @@ function search_navigate() {
         myHTML += "</tr></table>"
         document.getElementById("display").innerHTML = myHTML;
       }
-        return;
+
+      var dis = document.getElementById("display");
+      dis.innerHTML = "Error in query ... please try again.";
+
+    return;
     }
 </script>
 
