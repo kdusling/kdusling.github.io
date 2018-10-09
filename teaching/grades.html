@@ -119,6 +119,9 @@ function search_navigate() {
       var data = response.getDataTable();
       var nc = data.getNumberOfColumns();
 
+      alert(data);
+      alert(nc);
+
       if ( data.getNumberOfRows() == 0 ){
         document.getElementById("display").innerHTML = "Error ... Ram ID not found.";
       } else {
