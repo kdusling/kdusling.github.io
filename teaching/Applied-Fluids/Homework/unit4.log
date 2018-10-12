@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2018.3.26)  11 OCT 2018 08:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2018.3.26)  12 OCT 2018 07:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./unit3.tex
-(./unit3.tex
+**./unit4.tex
+(./unit4.tex
 LaTeX2e <2017-04-15>
 Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
 (c:/texlive/2017/texmf-dist/tex/latex/standalone/standalone.cls
@@ -747,8 +747,8 @@ Package: cancel 2013/04/12 v2.2 Cancel math terms
 Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
 \@enLab=\toks38
 ))
-Excluding comment 'solution' (./unit3.aux)
-\openout1 = `unit3.aux'.
+Excluding comment 'solution' (./unit4.aux)
+\openout1 = `unit4.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
@@ -819,6 +819,16 @@ Package: inputenc 2015/03/17 v1.2c Input encoding file
 \inpenc@prehook=\toks41
 \inpenc@posthook=\toks42
 )
+Underfull \hbox (badness 2452) in paragraph at lines 20--21
+[]\OT1/cmr/m/n/12 A bowl-ing al-ley owns a col-lec-tion of bowl-ing balls hav-i
+ng a
+ []
+
+
+Underfull \hbox (badness 3088) in paragraph at lines 20--21
+\OT1/cmr/m/n/12 cir-cum-fer-ence of 27 inches and com-posed of a graphite core
+ []
+
 Excluding 'solution' comment.
 Preview: Tightpage -328908 -328908 328908 328908
 [1{c:/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
@@ -830,75 +840,29 @@ Preview: Tightpage -328908 -328908 328908 328908
 Preview: Tightpage -328908 -328908 328908 328908
 [4] Excluding 'solution' comment.
 Preview: Tightpage -328908 -328908 328908 328908
-[5]
-<imgs/mono1.pdf, id=59, 533.93074pt x 528.23949pt>
-File: imgs/mono1.pdf Graphic file (type pdf)
-<use imgs/mono1.pdf>
-Package pdftex.def Info: imgs/mono1.pdf  used on input line 73.
-(pdftex.def)             Requested size: 289.07999pt x 286.01079pt.
- Excluding 'solution' comment.
+[5] Excluding 'solution' comment.
 Preview: Tightpage -328908 -328908 328908 328908
-[6 <./imgs/mono1.pdf>]
-<imgs/mono2.pdf, id=76, 533.93074pt x 732.69933pt>
-File: imgs/mono2.pdf Graphic file (type pdf)
-<use imgs/mono2.pdf>
-Package pdftex.def Info: imgs/mono2.pdf  used on input line 84.
-(pdftex.def)             Requested size: 289.07999pt x 396.71385pt.
- Excluding 'solution' comment.
+[6] Excluding 'solution' comment.
 Preview: Tightpage -328908 -328908 328908 328908
-[7 <./imgs/mono2.pdf>]
-<imgs/mono3.pdf, id=86, 273.58813pt x 622.1343pt>
-File: imgs/mono3.pdf Graphic file (type pdf)
-<use imgs/mono3.pdf>
-Package pdftex.def Info: imgs/mono3.pdf  used on input line 95.
-(pdftex.def)             Requested size: 144.54pt x 328.68538pt.
- Excluding 'solution' comment.
+[7] Excluding 'solution' comment.
 Preview: Tightpage -328908 -328908 328908 328908
-[8 <./imgs/mono3.pdf>]
-<imgs/mono4.pdf, id=96, 394.9124pt x 622.1343pt>
-File: imgs/mono4.pdf Graphic file (type pdf)
-<use imgs/mono4.pdf>
-Package pdftex.def Info: imgs/mono4.pdf  used on input line 109.
-(pdftex.def)             Requested size: 216.81pt x 341.55788pt.
- Excluding 'solution' comment.
-Preview: Tightpage -328908 -328908 328908 328908
-[9 <./imgs/mono4.pdf>]
-<imgs/SlurryWall.png, id=110, 716.6775pt x 303.1325pt>
-File: imgs/SlurryWall.png Graphic file (type png)
-<use imgs/SlurryWall.png>
-Package pdftex.def Info: imgs/SlurryWall.png  used on input line 125.
-(pdftex.def)             Requested size: 325.215pt x 137.55547pt.
-
-Preview: Tightpage -328908 -328908 328908 328908
-[10 <./imgs/SlurryWall.png>]
-Preview: Tightpage -328908 -328908 328908 328908
-[11]
-Preview: Tightpage -328908 -328908 328908 328908
-[12]
-Preview: Tightpage -328908 -328908 328908 328908
-[13] Excluding 'solution' comment.
-Preview: Tightpage -328908 -328908 328908 328908
-[14] Excluding 'solution' comment.
-Preview: Tightpage -328908 -328908 328908 328908
-[15] (./unit3.aux) ) 
+[8] (./unit4.aux) ) 
 Here is how much of TeX's memory you used:
- 26903 strings out of 492982
- 568899 string characters out of 6136225
- 621221 words of memory out of 5000000
- 30086 multiletter control sequences out of 15000+600000
+ 26876 strings out of 492982
+ 568349 string characters out of 6136225
+ 622221 words of memory out of 5000000
+ 30066 multiletter control sequences out of 15000+600000
  534288 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 70i,6n,103p,10515b,289s stack positions out of 5000i,500n,10000p,200000b,80000s
-<c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmmi12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
-><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texli
-ve/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2017/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2017/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on unit3.pdf (15 pages, 100599 bytes).
+ 70i,6n,103p,10515b,275s stack positions out of 5000i,500n,10000p,200000b,80000s
+<c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mmi12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb>
+<c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive
+/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on unit4.pdf (8 pages, 50584 bytes).
 PDF statistics:
- 150 PDF objects out of 1000 (max. 8388607)
- 91 compressed objects within 1 object stream
+ 86 PDF objects out of 1000 (max. 8388607)
+ 47 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 182 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 157 words of extra memory for PDF output out of 10000 (max. 10000000)
 
