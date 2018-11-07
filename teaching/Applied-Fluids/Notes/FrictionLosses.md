@@ -46,7 +46,7 @@ When a fluid travels in a pipe energy is dissipated by friction.  The amount of 
 
 Losses due to friction will cause the pressure to decrease along the length of the pipe, therefore increasing the amount of power that a pump must deliver to maintain the flow.  These losses can become significant in systems where long stretches of piping are employed (for example, in heat exchangers, oil pipelines, fire protection systems, etc.).  
 
-We start off this section with the general the energy equation:
+We start off this section with the <a href="GeneralEnergyEquation">general energy equation</a>:
 
 $$
 \frac{p_1}{\gamma}+z_1+\frac{v_1^2}{2g}+h_A-h_R-h_L=\frac{p_2}{\gamma}+z_2+\frac{v_2^2}{2g}\,,
