@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2018.3.26)  9 NOV 2018 10:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2018.3.26)  9 NOV 2018 16:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./unit5.tex
-(./unit5.tex
+**./unit6.tex
+(./unit6.tex
 LaTeX2e <2017-04-15>
 Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
 (c:/texlive/2017/texmf-dist/tex/latex/standalone/standalone.cls
@@ -747,8 +747,8 @@ Package: cancel 2013/04/12 v2.2 Cancel math terms
 Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
 \@enLab=\toks38
 ))
-Excluding comment 'solution' (./unit5.aux)
-\openout1 = `unit5.aux'.
+Excluding comment 'solution' (./unit6.aux)
+\openout1 = `unit6.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
@@ -822,39 +822,66 @@ Package: inputenc 2015/03/17 v1.2c Input encoding file
 Excluding 'solution' comment.
 Preview: Tightpage -328908 -328908 328908 328908
 [1{c:/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Excluding 'solution' comment.
-Preview: Tightpage -328908 -328908 328908 328908
-[2] Excluding 'solution' comment.
-Preview: Tightpage -328908 -328908 328908 328908
-[3] Excluding 'solution' comment.
-Preview: Tightpage -328908 -328908 328908 328908
-[4]
-<imgs/PipeExp1.pdf, id=57, 378.9628pt x 466.04414pt>
+<imgs/PipeExp1.pdf, id=46, 378.9628pt x 466.04414pt>
 File: imgs/PipeExp1.pdf Graphic file (type pdf)
 <use imgs/PipeExp1.pdf>
-Package pdftex.def Info: imgs/PipeExp1.pdf  used on input line 77.
+Package pdftex.def Info: imgs/PipeExp1.pdf  used on input line 32.
 (pdftex.def)             Requested size: 216.81pt x 266.63638pt.
- Excluding 'solution' comment.
+
+Excluding 'solution' comment.
 Preview: Tightpage -328908 -328908 328908 328908
-[5 <./imgs/PipeExp1.pdf>] Excluding 'solution' comment.
+[2 <./imgs/PipeExp1.pdf>]
+
+pdfTeX warning: pdflatex.exe (file ./imgs/TankGateElbows.pdf): PDF inclusion: f
+ound PDF version <1.7>, but at most version <1.5> allowed
+<imgs/TankGateElbows.pdf, id=61, 454.46289pt x 232.33098pt>
+File: imgs/TankGateElbows.pdf Graphic file (type pdf)
+<use imgs/TankGateElbows.pdf>
+Package pdftex.def Info: imgs/TankGateElbows.pdf  used on input line 76.
+(pdftex.def)             Requested size: 361.34999pt x 184.73769pt.
+
+Overfull \hbox (0.72469pt too wide) in paragraph at lines 76--77
+[][] 
+ []
+
+Excluding 'solution' comment.
 Preview: Tightpage -328908 -328908 328908 328908
-[6] (./unit5.aux) ) 
+[3 <./imgs/TankGateElbows.pdf>]
+Preview: Tightpage -328908 -328908 328908 328908
+[4]
+
+pdfTeX warning: pdflatex.exe (file ./imgs/PumpTransfer.pdf): PDF inclusion: fou
+nd PDF version <1.7>, but at most version <1.5> allowed
+<imgs/PumpTransfer.pdf, id=74, 283.54633pt x 68.90744pt>
+File: imgs/PumpTransfer.pdf Graphic file (type pdf)
+<use imgs/PumpTransfer.pdf>
+Package pdftex.def Info: imgs/PumpTransfer.pdf  used on input line 101.
+(pdftex.def)             Requested size: 361.34999pt x 87.81952pt.
+
+Overfull \hbox (0.72469pt too wide) in paragraph at lines 101--102
+[][] 
+ []
+
+Preview: Tightpage -328908 -328908 328908 328908
+[5 <./imgs/PumpTransfer.pdf>] (./unit6.aux) ) 
 Here is how much of TeX's memory you used:
- 26882 strings out of 492982
- 568477 string characters out of 6136225
- 622222 words of memory out of 5000000
- 30070 multiletter control sequences out of 15000+600000
+ 26892 strings out of 492982
+ 568773 string characters out of 6136225
+ 621222 words of memory out of 5000000
+ 30078 multiletter control sequences out of 15000+600000
  534288 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  70i,6n,103p,10515b,287s stack positions out of 5000i,500n,10000p,200000b,80000s
-<c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mmi12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-<c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texliv
-e/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb>
-Output written on unit5.pdf (6 pages, 53149 bytes).
+<c:/texlive/2017/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr17.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5
+.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/te
+xlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on unit6.pdf (5 pages, 75772 bytes).
 PDF statistics:
- 84 PDF objects out of 1000 (max. 8388607)
- 45 compressed objects within 1 object stream
+ 101 PDF objects out of 1000 (max. 8388607)
+ 58 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 162 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 172 words of extra memory for PDF output out of 10000 (max. 10000000)
 
