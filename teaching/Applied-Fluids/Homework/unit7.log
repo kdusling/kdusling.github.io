@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2018.3.26)  11 NOV 2018 13:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2018.3.26)  30 NOV 2018 09:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -844,10 +844,10 @@ ound PDF version <1.7>, but at most version <1.5> allowed
 <imgs/TankGateElbows.pdf, id=64, 454.46289pt x 232.33098pt>
 File: imgs/TankGateElbows.pdf Graphic file (type pdf)
 <use imgs/TankGateElbows.pdf>
-Package pdftex.def Info: imgs/TankGateElbows.pdf  used on input line 176.
+Package pdftex.def Info: imgs/TankGateElbows.pdf  used on input line 178.
 (pdftex.def)             Requested size: 361.34999pt x 184.73769pt.
 
-Overfull \hbox (0.72469pt too wide) in paragraph at lines 176--177
+Overfull \hbox (0.72469pt too wide) in paragraph at lines 178--179
 [][] 
  []
 
@@ -867,7 +867,7 @@ s/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmr12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmr8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cms
 y10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on unit7.pdf (6 pages, 62302 bytes).
+Output written on unit7.pdf (6 pages, 62723 bytes).
 PDF statistics:
  90 PDF objects out of 1000 (max. 8388607)
  50 compressed objects within 1 object stream
