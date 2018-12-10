@@ -16,5 +16,8 @@ REM "C:\Program Files\gs\gs9.23\bin\gswin64c.exe" -sDEVICE=png16m -r1200 -dDownS
 REM pdflatex unit6.tex
 REM "C:\Program Files\gs\gs9.23\bin\gswin64c.exe" -sDEVICE=png16m -r1200 -dDownScaleFactor=4  -o png/unit6-%%03d.png  unit6.pdf
 
-pdflatex unit7.tex
-"C:\Program Files\gs\gs9.23\bin\gswin64c.exe" -sDEVICE=png16m -r1200 -dDownScaleFactor=4  -o png/unit7-%%03d.png  unit7.pdf
+REM pdflatex unit7.tex
+REM "C:\Program Files\gs\gs9.23\bin\gswin64c.exe" -sDEVICE=png16m -r1200 -dDownScaleFactor=4  -o png/unit7-%%03d.png  unit7.pdf
+
+ pdflatex unit8.tex
+REM "C:\Program Files\gs\gs9.23\bin\gswin64c.exe" -sDEVICE=png16m -r1200 -dDownScaleFactor=4  -o png/unit8-%%03d.png  unit8.pdf
