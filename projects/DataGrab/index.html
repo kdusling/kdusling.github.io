@@ -279,8 +279,8 @@ function DrawCoord()
    var logy = document.getElementById("logY").checked ;
 
    if (logx) {
-      var bx = Math.log(x1/x2)/(pt1y-pt2y);
-      var ax = x1/Math.exp(bx*pt1y);
+      var bx = Math.log(x1/x2)/(pt1x-pt2x);
+      var ax = x1/Math.exp(bx*pt1x);
       realX = ax*Math.exp(bx*myX);
    } else {
       realX = (x2-x1)/(pt2x-pt1x)*(myX-pt1x)+x1;
