@@ -16,19 +16,32 @@ $$
 \newcommand{\Pa}{\mathrm{Pa}}
 $$
 
-# Buoyancy
+# Buoyancy and stability
 {:.no_toc}
 
 * A markdown unordered list for the toc
 {:toc}
 
-# The nature of buoyancy
+## The nature of buoyancy
+
+An object submerged in a fluid experiences an upward buoyant force.  
+The buoyant force is a direct consequence of the pressure elevation relation.
+ In order to see how this works let us examine the pressure distribution from a fluid acting on a fully submerged cube.  In the figure below the cube is shown head-on (so the front and back faces are not shown but they have the same behavior as the sides).  
+
+ Let us assume that the top of the cube is located at a distance $h$ from the water's surface.  The pressure on the top surface of the cube will be $p_0=\gamma_w h$.  The pressure acting on the top surface results in a net downward force of magnitude $F_{\rm top}=\gamma_w h d^2$.  The bottom of the cube is located at a depth $d+h$.  The pressure on the bottom surface is therefore $\gamma_w (d+h)$ and results in an upward force $F_{\rm bottom}=\gamma_w (h+d) d^2$.  The net vertical force on the cube is therefore
+
+ $$
+ F_{\rm net}=F_{\rm bottom}-F_{\rm top}=\gamma_w (h+d) d^2-\gamma_w h d^2=\gamma_w d^3
+ $$
 
 
+<div class="photo" style="width: 500px;">
+  <img src="img\buoyancy0.png" alt="">
+  <p>  </p>
+</div>
 
 
-
-# Buoyant force
+## Buoyant force
 
 Buoyancy is a force that opposes the weight of a submerged or partially submerged object. The buoyancy force acts vertically upward at the *centroid* of the displaced volume. It will be important later to differentiate between centroid and center of gravity. The centroid is the geometric center of the object. The center of gravity is the average location of the weight of an object. For objects of uniform density the centroid and center of gravity coincide. The magnitude of the buoyant force is given as;
 
