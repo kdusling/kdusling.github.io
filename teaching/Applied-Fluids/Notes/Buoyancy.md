@@ -36,8 +36,10 @@ Any object submerged in a fluid experiences an upward buoyant force.  The buoyan
  The bottom of the cube is located at a depth $d+h$.  The pressure on the bottom surface is therefore $\gamma_w (d+h)$ and produces an upward force $F_{\rm bottom}=\gamma_w (h+d) d^2$.  The net vertical force on the cube is therefore
 
  $$
+ \begin{align}
  F_{\rm net}&=F_{\rm bottom}-F_{\rm top}=\gamma_w (h+d) d^2-\gamma_w h d^2\nonumber\\
  &=\gamma_w d^3
+ \end{align}
  $$
 
 Since the pressure distribution on the left and right side of the cube are the same there is no net horizontal force.  The same is true for the front and back faces which aren't shown.  So the only remaining force is the vertical one.  
