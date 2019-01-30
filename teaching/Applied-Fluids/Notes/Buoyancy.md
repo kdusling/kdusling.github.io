@@ -24,21 +24,27 @@ $$
 
 ## The nature of buoyancy
 
-An object submerged in a fluid experiences an upward buoyant force.  
-The buoyant force is a direct consequence of the pressure elevation relation.
- In order to see how this works let us examine the pressure distribution from a fluid acting on a fully submerged cube.  In the figure below the cube is shown head-on (so the front and back faces are not shown but they have the same behavior as the sides).  
-
- Let us assume that the top of the cube is located at a distance $h$ from the water's surface.  The pressure on the top surface of the cube will be $p_0=\gamma_w h$.  The pressure acting on the top surface results in a net downward force of magnitude $F_{\rm top}=\gamma_w h d^2$.  The bottom of the cube is located at a depth $d+h$.  The pressure on the bottom surface is therefore $\gamma_w (d+h)$ and results in an upward force $F_{\rm bottom}=\gamma_w (h+d) d^2$.  The net vertical force on the cube is therefore
-
- $$
- F_{\rm net}=F_{\rm bottom}-F_{\rm top}=\gamma_w (h+d) d^2-\gamma_w h d^2=\gamma_w d^3
- $$
-
+Any object submerged in a fluid experiences an upward buoyant force.  The buoyant force is a direct consequence of the pressure-elevation relation that was developed earlier.  To see how this comes about let us consider a cube with side length $d$ submerged in water to a depth $h$.  In the figure below the cube is shown head-on (so the front and back faces are not shown but they have the same pressure distribution as the left and right sides).  
 
 <div class="photo" style="width: 500px;">
   <img src="img\buoyancy0.png" alt="">
   <p>  </p>
 </div>
+
+ We now calculate the pressure distribution and corresponding force acting on each side of the cube.  On the top surface the pressure is $p_0=\gamma_w h$ and produces a downward force of magnitude $F_{\rm top}=\gamma_w h d^2$ on the top face ($d^2$ is the area of the top of the cube).
+
+ The bottom of the cube is located at a depth $d+h$.  The pressure on the bottom surface is therefore $\gamma_w (d+h)$ and produces an upward force $F_{\rm bottom}=\gamma_w (h+d) d^2$.  The net vertical force on the cube is therefore
+
+ $$
+ F_{\rm net}&=F_{\rm bottom}-F_{\rm top}=\gamma_w (h+d) d^2-\gamma_w h d^2\nonumber\\
+ &=\gamma_w d^3
+ $$
+
+Since the pressure distribution on the left and right side of the cube are the same there is no net horizontal force.  The same is true for the front and back faces which aren't shown.  So the only remaining force is the vertical one.  
+
+So for the case of the cube submerged in water the buoyance force is equal to the product of the specific weight of water, $\gamma_w$, times the volume of the cube, $d^3$.
+
+Using calculus one can generalize this to any submerged object of arbitrary shape.  It turns out that the buoyant force is always vertically upward and proportional to the volume of the object ($i.e.$ the displaced volume of water).  
 
 
 ## Buoyant force
@@ -49,6 +55,7 @@ $$
 \begin{align}
 \textrm{Buoyant force}&=\textrm{Specific weight of fluid}\times\textrm{Displaced volume of fluid}\nonumber\\
 F_b&=\gamma_f\,\times\, V_d
+\label{eq:buoyancy}
 \end{align}
 $$
 
@@ -104,7 +111,7 @@ The weight of the Styrofoam cube is $$ w=\gamma_{\rm Styrofoam}\,\times\, V = 0.
 
 
 
-The buoyancy force is the same for Styrofoam and steel! The buoyancy force depends on the specific weight of the fluid (in this case water) and the volume displaced by the object (see eq.~\ref{eq:buoyancy}. It doesn\'t matter what the object is made of!
+The buoyancy force is the same for Styrofoam and steel! The buoyancy force depends on the specific weight of the fluid (in this case water) and the volume displaced by the object (see eq.~\ref{eq:buoyancy}). It doesn\'t matter what the object is made of!
 
 
 
