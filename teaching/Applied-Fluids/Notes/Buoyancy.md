@@ -26,10 +26,10 @@ $$
 
 
 <div class="photo" style="width: 900px;">
-  <img src="img\zeppelin-282606_640.jpg"  style="width:auto; height:auto;">
-  <img src="img\submarine-1107176_640.jpg"  style="width:auto; height:auto;">
-  <img src="img\hot-air-ballooning-3907153_640.jpg"  style="width:auto; height:auto;">
-  <img src="img\diver-752667_640.jpg"  style="width:auto; height:auto;">
+  <img src="img\zeppelin-282606_640.jpg"  style="width:400px; height:auto;">
+  <img src="img\submarine-1107176_640.jpg"  style="width:400px; height:auto;">
+  <img src="img\hot-air-ballooning-3907153_640.jpg"  style="width:400px; height:auto;">
+  <img src="img\diver-752667_640.jpg"  style="width:400px; height:auto;">
   <p>
   Boats, submarines, air ships and scuba diving all rely on the principles of buoyancy and stability.
   </p>
@@ -131,3 +131,9 @@ The buoyancy force is the same for Styrofoam and steel! The buoyancy force depen
 We can now evaluate the external force and find $$ F_{ext}=w-F_b=0.05~\kN - 1.23~\kN = -1.18~\kN $$ The negative value of the external force resulted from the incorrect assumption about its direction. In order to keep the Styrofoam cube submerged we must supply a $1.18~\kN$ force *downward*.
 
 </div>
+
+## Stability of Submarines
+
+https://maritime.org/doc/fleetsub/chap5.htm
+
+https://maritime.org/doc/fleetsub/index.htm
