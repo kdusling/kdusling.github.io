@@ -526,7 +526,7 @@ The slope of the curve at a given velocity gradient is a measure of the *apparen
 
 1.  **Pseudoplastic** (also known as a shear-thinning fluids) has an apparent viscosity that decreases with increasing strain rate.  The more you stir or shake it the easier it will flow.  A good example is paint which flows readily when stroked from a brush but is thick enough not drip down the wall.  Other common examples include blood, inks, and ketchup.
 
-2.  **Dilatant fluids** (also known as a shear-thickening fluids) has an apparent viscosity that increases with increasing strain rate.  Dilatant fluids are less common than their pseudoplastic counterparts.  Cornstarch mixed with water is one example that can be prepared at home.   Silica and polyethylene glycol are used in some liquid body armor designs.  
+2.  **Dilatant fluids** (also known as a shear-thickening fluids) has an apparent viscosity that increases with increasing strain rate.  Dilatant fluids are less common than their pseudoplastic counterparts.  Cornstarch mixed with water is one example that can be prepared at home (<a href="https://youtu.be/RUMX_b_m3Js">Youtube: Walking on Water - The Ellen Show</a>).   Silica and polyethylene glycol are used in some liquid body armor designs.  
 
 3.  **Bingham fluids** (also known as a plug-flow fluids) require a finite shearing stress before flow begins.  Once flow begins the behavior is approximately Newtonian.  Toothpaste is one example as it doesn't flow out of the tube until squeezed.  Other examples include mud, asphalt and sewer sludge.
 
