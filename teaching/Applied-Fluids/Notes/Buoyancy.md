@@ -25,13 +25,13 @@ $$
 ## The nature of buoyancy
 
 
-<div class="photo" style="width: 900px;">
-  <img src="img\zeppelin-282606_640.jpg"  style="width:400px; height:auto;">
-  <img src="img\submarine-1107176_640.jpg"  style="width:400px; height:auto;">
-  <img src="img\hot-air-ballooning-3907153_640.jpg"  style="width:400px; height:auto;">
-  <img src="img\diver-752667_640.jpg"  style="width:400px; height:auto;">
+<div class="photo" style="width: 900px; align:center;">
+  <img src="img\zeppelin-282606_640.jpg"  style="width:350px; height:auto;">
+  <img src="img\hot-air-ballooning-3907153_640.jpg"  style="width:350px; height:auto;">
+  <img src="img\submarine-1107176_640.jpg"  style="width:350px; height:auto;">
+  <img src="img\diver-752667_640.jpg"  style="width:350px; height:auto;">
   <p>
-  Boats, submarines, air ships and scuba diving all rely on the principles of buoyancy and stability.
+  Airships, hot air balloons, boats, submarines, and scuba diving all rely on the principles of buoyancy and stability covered in these notes.
   </p>
 </div>
 
