@@ -26,16 +26,17 @@ $$
 
 
 <div class="photo" style="width: 900px; align:center;">
-  <img src="img\zeppelin-282606_640.jpg"  style="width:350px; height:auto;">
+  <img src="img\diver-752667_640.jpg"  style="width:350px; height:auto;">
+
   <img src="img\hot-air-ballooning-3907153_640.jpg"  style="width:350px; height:auto;">
   <img src="img\submarine-1107176_640.jpg"  style="width:350px; height:auto;">
-  <img src="img\diver-752667_640.jpg"  style="width:350px; height:auto;">
+<img src="img\zeppelin-282606_640.jpg"  style="width:350px; height:auto;">
   <p>
   Airships, hot air balloons, boats, submarines, and scuba diving all rely on the principles of buoyancy and stability covered in these notes.
   </p>
 </div>
 
-Any object submerged in a fluid experiences an upward buoyant force.  The buoyant force is a direct consequence of the pressure-elevation relation that was developed earlier.  To see how this comes about let us consider a cube with side length $d$ submerged in water to a depth $h$.  In the figure below the cube is shown head-on (so the front and back faces are not shown but they have the same pressure distribution as the left and right sides).  
+Any object submerged in a fluid experiences an upward buoyant force.  The buoyant force is a direct consequence of the pressure-elevation relation that was discussed earlier.  To see how this comes about let us consider a cube with side length $d$ submerged in water to a depth $h$.  In the figure below the cube is shown head-on (so the front and back faces are not shown but they have the same pressure distribution as the left and right sides).  
 
 <div class="photo" style="width: 500px;">
   <img src="img\buoyancy0.png" alt="">
