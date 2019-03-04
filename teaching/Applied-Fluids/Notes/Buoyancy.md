@@ -25,7 +25,7 @@ $$
 ## The nature of buoyancy
 
 
-<div class="photo" style="width: 700px; align:center;">
+<div class="photo" style="width: 720px; align:center;">
   <img src="img\submarine-1107176_640.jpg"  style="width:350px; height:auto;">
   <img src="img\diver-752667_640.jpg"  style="width:350px; height:auto;">
   <BR>
