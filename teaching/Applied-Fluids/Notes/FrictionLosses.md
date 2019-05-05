@@ -466,12 +466,12 @@ $h_L=f_T \frac{L_e}{D} \frac{v^2}{2g}$.
 <tr><td>Gate valve (fully open)                                 </td><td style="padding-left: 50px;"> 8     </td></tr>
 <tr><td>Globe valve (fully open)                                </td><td style="padding-left: 50px;"> 340   </td></tr>
 <tr><td>Angle valve (fully open)                                </td><td style="padding-left: 50px;"> 150   </td></tr>
-<tr><td>Check valve (swing type)                                </td><td style="padding-left: 50px;"> 135   </td></tr>
-<tr><td>Check valve (in-line ball type)                                </td><td style="padding-left: 50px;"> 150   </td></tr>
 <tr><td>Butterfly valve (fully open):                           </td><td>&nbsp;                         </td></tr>
 <tr><td style="padding-left: 50px;">50 mm (2") - 200 mm (8")    </td><td style="padding-left: 50px;"> 45    </td></tr>
 <tr><td style="padding-left: 50px;">250 mm (10") - 350 mm (14") </td><td style="padding-left: 50px;"> 35    </td></tr>
 <tr><td style="padding-left: 50px;">400 mm (16")- 600 mm (24")  </td><td style="padding-left: 50px;"> 25    </td></tr>
+<tr><td>Check valve (swing type)                                </td><td style="padding-left: 50px;"> 135   </td></tr>
+<tr><td>Check valve (in-line ball type)                                </td><td style="padding-left: 50px;"> 150   </td></tr>
 <tr><td>90° standard elbow                                      </td><td style="padding-left: 50px;"> 30    </td></tr>
 <tr><td>45° standard elbow                                      </td><td style="padding-left: 50px;"> 16    </td></tr>
 <tr><td>Close pattern return bend                               </td><td style="padding-left: 50px;"> 50    </td></tr>
