@@ -22,19 +22,17 @@ $$
 * A markdown unordered list for the toc
 {:toc}
 
-Fluid statics concerns fluids that are at rest.
-
-We gave the basic definition of pressure in the <a href="https://kdusling.github.io/teaching/Applied-Fluids/Notes/FluidProperties#pressure">previous section</a>.  *Pressure* is the force applied perpendicular to a surface per unit area.
+We gave the basic definition of pressure in the <a href="https://kdusling.github.io/teaching/Applied-Fluids/Notes/FluidProperties#pressure">previous section</a>.  *Pressure* is the force applied perpendicular to a surface per unit area.  When we speak of pressure we are typically dealing with a gas or a liquid that is confined to a container.  
 
 $$
 \mathrm{Pressure}=\frac{\mathrm{Force}}{\mathrm{Area}}\, \qquad\qquad p=\frac{F}{A}
 $$
 
-This section will discuss how pressure varies with both depth of the fluid and altitude in the atmosphere and how pressure measurements are made.
-
-## Microscopic basis for pressure
+In the SI system a force per unit area has units of newtons per square meter $\N/\m^2$, which is called the pascal (Pa).  In the USCS a force per unit area has units of pound per square inch $lb/\in^2$ (psi). 
 
 ## Absolute and gauge pressure
+
+
 
 ## Pressure vs depth at constant density
 
