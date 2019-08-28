@@ -82,15 +82,17 @@ Compute the change in pressure as you descend to the bottom of an 8 foot deep po
 We use the formula $\Delta p = -\gamma \Delta z$ but I will compute it without the minus sign (take the absolute value).
 
 $$
-\vert \Delta p\vert = \left(62.4~\lb/\ft^3\right) \times\left(8 ~\ft\right)=499.2~\lb/\ft^2=499.2~{\rm psf}
+\Delta p = \left(62.4~\frac{\lb}{\ft^3}\right) \times\left(8 ~\ft\right)=499.2~\frac{\lb}{\ft^2}=499.2~{\rm psf}
 $$
+
 Now convert to the customary psi
+
 $$
 499.2~\frac{\lb}{\ft^2}\times\left(\frac{1~\ft}{12\inch}\right)^2=3.47~\psi
 $$
 
 So as one descends to the bottom the pressure increases by about 3.5 psi.
-This is an increase above atmospheric pressure by about 20\%. (Atmospheric pressure is 14.7 psi.)
+This is an increase above atmospheric pressure by about 20%. (Atmospheric pressure is 14.7 psi.)
 
 </div>
 
@@ -104,10 +106,12 @@ A hiker's barometer reads 950 mbars at the beginning of her trip and 850 mbars a
 Let's first determine whether the hiker was climbing or descending.  The pressure was larger at the start of the trip.  In order for the pressure to decrease the hiker must have been ascending.  As the hiker increases her altitude there is less air above her, compared to when she started.  This results in a decrease in pressure.
 
 The net change in pressure is 100 mbar.  This is equivalent to $10,000~\Pa$. Check this.  The specific weight of air can be found from the density
+
 $$
 \gamma=g\rho=(9.81~\m/s^2)\left(1.22~\kg/\m^3\right)=11.97~\N/m^3
 $$
-We can rearrange the pressure elevation relationship to solve for $\Delta z$.
+
+We can rearrange the pressure elevation relationship to solve for $\Delta z$. (again, I dropped the minus sign since we already know the hiker is climbing.)
 
 $$
 \Delta z = \frac{\Delta p}{\gamma}=\frac{10,000~\Pa}{11.97~\N/\m^3}=836~\m
