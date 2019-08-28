@@ -109,7 +109,7 @@
 
       //Vapor Pressure
       cell = row.insertCell(-1);
-      num = (myliquid.vp).toFixed(2);
+      num = (myliquid.vp).toPrecision(2);
       cell.innerHTML =  ((num == 0) ? ("--") : num);
 
       i++;
