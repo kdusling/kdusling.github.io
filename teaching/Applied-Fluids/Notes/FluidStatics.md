@@ -28,11 +28,19 @@ $$
 \mathrm{Pressure}=\frac{\mathrm{Force}}{\mathrm{Area}}\, \qquad\qquad p=\frac{F}{A}
 $$
 
-In the SI system a force per unit area has units of newtons per square meter $\N/\m^2$, which is called the pascal (Pa).  In the USCS a force per unit area has units of pound per square inch $lb/\in^2$ (psi). 
+In the SI system a force per unit area has units of newtons per square meter $\N/\m^2$, which is called the pascal (Pa).  In the USCS a force per unit area has units of pound per square inch $lb/\in^2$ (psi).
 
 ## Absolute and gauge pressure
 
+The pressure when measured relative to an absolute vacuum is called the *absolute pressure*.  However a near absolute vacuum is difficult to obtain in practice and most pressure-measuring devices measure pressure relative to the local atmospheric pressure.  In this design the pressure gauge is calibrated to read zero when it is at atmospheric pressure and the pressure indicated is actually the difference between the absolute pressure and local atmospheric pressure.  This difference is called the gauge pressure and can be expressed as
 
+$$
+p_{\rm absolute}=p_{\rm gauge}+p_{\rm atm}
+$$
+
+The figure below summarizes the relationship between gauge and absolute pressure measurements.
+
+<img src="img\abs_press_scale.svg"  style="width:500px; height:auto; display: inline-block; padding: 10px;">
 
 ## Pressure vs depth at constant density
 
