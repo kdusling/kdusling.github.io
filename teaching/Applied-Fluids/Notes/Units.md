@@ -317,7 +317,7 @@ Table 4: A comparison among temperature scales.  $^\dagger$Melting and boiling p
 </thead>
 <tbody>
 <tr><td>Absolute zero                          </td><td> -273.15    </td><td>  -459.67    </td><td>      0    </td><td>     0   </td></tr>
-<tr><td>Ice melts$^\dagger$                    </td><td>       0    </td><td>      32     </td><td>   273.15  </td><td>  459.67 </td></tr>
+<tr><td>Ice melts$^\dagger$                    </td><td>       0    </td><td>      32     </td><td>   273.15  </td><td>  491.67 </td></tr>
 <tr><td>Average surface temperature on Earth   </td><td>      15    </td><td>      59     </td><td>      288  </td><td>     519 </td></tr>
 <tr><td>Average body temperature               </td><td>      37    </td><td>      98     </td><td>      310  </td><td>     558 </td></tr>
 <tr><td>Water boils$^\dagger$                  </td><td>     100    </td><td>     212     </td><td>      373  </td><td>     671 </td></tr>

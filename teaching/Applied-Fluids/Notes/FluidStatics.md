@@ -23,17 +23,17 @@ $$
 * A markdown unordered list for the toc
 {:toc}
 
-We gave the basic definition of pressure in the <a href="https://kdusling.github.io/teaching/Applied-Fluids/Notes/FluidProperties#pressure">previous section</a>.  *Pressure* is the force applied perpendicular to a surface per unit area.  When we speak of pressure we are typically dealing with a gas or a liquid that is confined to a container.  
+Our discussion of pressure began in the <a href="https://kdusling.github.io/teaching/Applied-Fluids/Notes/FluidProperties#pressure">previous section</a>.  *Pressure* is the force applied perpendicular to a surface per unit area.  When we speak of pressure we are typically dealing with a gas or a liquid that is confined to a container.  
 
 $$
 \mathrm{Pressure}=\frac{\mathrm{Force}}{\mathrm{Area}}\, \qquad\qquad p=\frac{F}{A}
 $$
 
-In the SI system a force per unit area has units of newtons per square meter $\N/\m^2$, which is called the pascal (Pa).  In the USCS a force per unit area has units of pound per square inch $lb/\inch^2$ (psi).
+In the SI system a force per unit area has units of newtons per square meter $\N/\m^2$, which is called the pascal ($\Pa$).  In the USCS a force per unit area has units of pound per square inch $\lb/\inch^2$ ($\psi$).
 
 ## Absolute and gauge pressure
 
-The pressure when measured relative to an absolute vacuum is called the *absolute pressure*.  However a near absolute vacuum is difficult to obtain in practice and most pressure-measuring devices measure pressure relative to the local atmospheric pressure.  In this design the pressure gauge is calibrated to read zero when it is at atmospheric pressure and the pressure indicated is actually the difference between the absolute pressure and local atmospheric pressure.  This difference is called the gauge pressure and can be expressed as
+The pressure when measured relative to an absolute vacuum is called the *absolute pressure*.  In practice a near absolute vacuum is difficult to obtain.  Therefore most pressure-measuring devices record pressure relative to the local atmospheric pressure.  In this design the pressure gauge is calibrated to read zero when it is at atmospheric pressure and the pressure indicated is actually the difference between the absolute pressure and local atmospheric pressure.  This difference is called the gauge pressure and can be expressed as
 
 $$
 p_{\rm absolute}=p_{\rm gauge}+p_{\rm atm}
@@ -41,7 +41,7 @@ $$
 
 The figure below summarizes the relationship between gauge and absolute pressure measurements.
 
-<img src="img\abs_press_scale.svg"  style="width:500px; height:auto; display: inline-block; padding: 10px; border: 1px;">
+<img src="img\abs_press_scale.svg"  style="width:800px; height:auto; display: inline-block; padding: 10px;">
 
 
 <div class="example">
@@ -71,7 +71,7 @@ $$
 \Delta p = -\gamma \Delta z
 $$
 
-where $\Delta p$ is the change in pressure that occurs across an elevation change of $\Delta z$.  $\gamma$ is the specific weight of the fluid.  The minus sign indicates that a decrease in elevation causes an increase in pressure.  In practice I just calculate the magnitude of the change in pressure (ignore the minus sign) and afterwards determine whether the pressure decreased (going up) or the pressure increased (going down).  More fluid above you results in a larger pressure.
+where $\Delta p$ is the change in pressure that occurs across an elevation change of $\Delta z$.  $\gamma$ is the specific weight of the fluid.  The minus sign indicates that a decrease in elevation causes an increase in pressure.  In practice I just calculate the magnitude of the change in pressure (ignore the minus sign) and afterwards determine whether the pressure decreased (increase in elevation) or the pressure increased (decrease in elevation).  Just remember that additional fluid above you results in a larger pressure.
 
 
 <div class="example">
@@ -88,30 +88,29 @@ $$
 Now convert to the customary psi
 
 $$
-499.2~\frac{\lb}{\ft^2}\times\left(\frac{1~\ft}{12\inch}\right)^2=3.47~\psi
+499.2~\frac{\lb}{\ft^2}\times\left(\frac{1~\ft}{12~\inch}\right)^2=3.47~\psi
 $$
 
-So as one descends to the bottom the pressure increases by about 3.5 psi.
-This is an increase above atmospheric pressure by about 20%. (Atmospheric pressure is 14.7 psi.)
+As one descends to the bottom of the pool the pressure increases by about 3.5 psi.  This is an increase above atmospheric pressure by about 20%. (Atmospheric pressure is 14.7 psi.)
 
 </div>
 
 Here is another example.
 
 <div class="example">
-A hiker's barometer reads 950 mbars at the beginning of her trip and 850 mbars at the end.  Assuming an air density of $1.22~\kg/\m^3$ compute the vertical distance traversed by the hiker.  Was the hiker climbing or descending?
+A hiker's barometer reads 950 mbars at the beginning of her trip and 850 mbars at the end.  Assuming a constant air density of $1.22~\kg/\m^3$ estimate the vertical distance traversed by the hiker.  Was the hiker climbing or descending?
 
 <hr>
 
 Let's first determine whether the hiker was climbing or descending.  The pressure was larger at the start of the trip.  In order for the pressure to decrease the hiker must have been ascending.  As the hiker increases her altitude there is less air above her, compared to when she started.  This results in a decrease in pressure.
 
-The net change in pressure is 100 mbar.  This is equivalent to $10,000~\Pa$. Check this.  The specific weight of air can be found from the density
+The net change in pressure is 100 mbar.  This is equivalent to 10,000 Pa. Check this.  The specific weight of air can be computed from the density
 
 $$
-\gamma=g\rho=(9.81~\m/s^2)\left(1.22~\kg/\m^3\right)=11.97~\N/m^3
+\gamma=g\rho=(9.81~\m/s^2)\left(1.22~\kg/\m^3\right)=11.97~\N/\m^3
 $$
 
-We can rearrange the pressure elevation relationship to solve for $\Delta z$. (again, I dropped the minus sign since we already know the hiker is climbing.)
+We can rearrange the pressure elevation relationship to solve for $\Delta z$. (Again, I dropped the minus sign since we already know the hiker is climbing.)
 
 $$
 \Delta z = \frac{\Delta p}{\gamma}=\frac{10,000~\Pa}{11.97~\N/\m^3}=836~\m
