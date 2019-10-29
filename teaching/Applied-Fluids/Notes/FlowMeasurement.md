@@ -51,7 +51,7 @@ In a venturi tube the fluid in the main pipe section, labeled as 1, is accelerat
   </p>
 </div>
 
-The volume flow rate is related to the pressure difference betweent points 1 and two through the relation:
+The volume flow rate is related to the pressure difference between points 1 and 2 through the relation:
 
 $$
 Q=A_1\sqrt{\frac{2g\left(p_1-p_2\right)/\gamma}{\left(A_1/A_2\right)^2-1}}
@@ -67,7 +67,7 @@ $$
 
 ## Pitot tubes
 
-For a pitot tube, the flow velocity is related to the difference between the static pressure in the main fluid stream, $p_1$ and the stagnation pressure, $p_s$:
+For a pitot tube, the flow velocity is related to the difference between the static pressure in the main fluid stream, $p_1$, and the stagnation pressure, $p_s$:
 
 $$
 v_1=\sqrt{2g\left(p_s-p_1\right)/\gamma}
