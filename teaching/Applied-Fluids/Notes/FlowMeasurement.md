@@ -42,8 +42,36 @@ $$
 
 ## Venturi Meter
 
+In a venturi tube the fluid in the main pipe section, labeled as 1, is accelerated into the throat section, labeled 2, where the pressure decreases.  The flow than expands through a diverging portion in order to return to the same diameter pipe.
+
+<div class="photo" style="width: 400px;">
+  <img src="img/venturi.svg" alt="Venturi meter">
+  <p>
+  Schematic of a venturi meter
+  </p>
+</div>
+
+The volume flow rate is related to the pressure difference betweent points 1 and two through the relation:
+
+$$
+Q=A_1\sqrt{\frac{2g\left(p_1-p_2\right)/\gamma}{\left(A_1/A_2\right)^2-1}}
+$$
+
+<div class="photo" style="width: 400px;">
+  <img src="img/venturi-flow-meters.jpg" alt="Venturi meter">
+  <p>
+  Photograph of an installed HVT-FV Halmi Fabricated Venturi meter.
+  </p>
+</div>
+
 
 ## Pitot tubes
+
+For a pitot tube, the flow velocity is related to the difference between the static pressure in the main fluid stream, $p_1$ and the stagnation pressure, $p_s$:
+
+$$
+v_1=\sqrt{2g\left(p_s-p_1\right)/\gamma}
+$$
 
 
 <div class="photo" style="width: 400px;">
