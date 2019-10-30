@@ -34,7 +34,7 @@ $$
 \newcommand{\sg}{\mathrm{sg}}
 $$
 
-# Flow Measurement
+# Flow Measurement Devices
 {:.no_toc}
 
 * A markdown unordered list for the toc
@@ -42,9 +42,11 @@ $$
 
 ## Venturi Meter
 
-In a venturi tube the fluid in the main pipe section, labeled as 1, is accelerated into the throat section, labeled 2, where the pressure decreases.  The flow than expands through a diverging portion in order to return to the same diameter pipe.
+In a venturi tube the fluid in the main pipe section, labeled as point 1 in the figure below, is accelerated into the throat section, labeled as point 2.  The fluid pressure decreases in going from point 1 to 2 and that drop in pressure can be measured using a differential pressure gauge.  The venturi tube shown below uses a manometer to measure the pressure, but any pressure measurement device will do.  Using the continuity equation and Bernoulli's equation we will show that by measuring this pressure drop we can determine the volume flow rate of the fluid.   
 
-<div class="photo" style="width: 400px;">
+After the throat section, the flow than expands through a diverging portion in order to return to the main pipe section, labeled as point 3 below.  Without any losses the flow conditions at point 1 and point 3 should be identical.  Of course in any real device there is friction and there would be a (hopefully small) pressure drop between points 1 and 3.  The venturi tube is designed with a smooth and gradual contraction and a long enlargement following the throat in order to minimize these energy losses.
+
+<div class="photo" style="width: 600px;">
   <img src="img/venturi.svg" alt="Venturi meter">
   <p>
   Schematic of a venturi meter
