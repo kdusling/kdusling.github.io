@@ -43,7 +43,7 @@ $$
 * A markdown unordered list for the toc
 {:toc}
 
-# Flow of air in ducts 
+# Flow of air in ducts
 
 For this topic we will stay within the inch-pound system.
 
@@ -97,7 +97,7 @@ Alternatively we can use the ASHRAE friction chart.
   <a href="img/DuctFrictionExample.png" target="_blank"><img src="img/DuctFrictionExample.png" alt="ASHRAE friction example"></a>
 
   <p>
-  For a volume flow rate of $Q=6000~\cfm$ and duct diameter $D=28~\inch$ we find the air velcoity is $v=1400~\fpm$ and the pressure drop per 100 feet of duct is 0.08~\inwg.
+  For a volume flow rate of $Q=6000~\cfm$ and duct diameter $D=28~\inch$ we find the air velcoity is $v=1400~\fpm$ and the pressure drop per 100 feet of duct is $0.08~\inwg$.
   </p>
 </div>
 
