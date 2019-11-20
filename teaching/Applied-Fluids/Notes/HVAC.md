@@ -108,6 +108,9 @@ $$
 \Delta p_f=0.08\frac{\inwg}{100~\ft}\times 80~\ft=0.064~\inwg
 $$
 
+</div>
+
+
 For ducts of non-circular cross section we define the equivalent diameter as
 
 $$
