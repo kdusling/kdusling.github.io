@@ -114,7 +114,7 @@ $$
 For ducts of non-circular cross section we define the equivalent diameter as
 
 $$
-d_e=1.55\frac{{\rm A}}^{0.625}{{\rm WP}}^0.25}}
+d_e=1.55\frac{{\rm A}^{0.625}}{{\rm WP}^0.25}}
 $$
 
 where A is the area of the duct and WP is the wetted perimeter.  Ducts that have the same $d_e$ have the same friction loss.  The table <a href="../DuctEquivDiameter.html">Equivalent diameter of rectangular and flat oval ducts</a> computes the equivalent diameter of rectangular ducts and flat oval ducts using the formula given above.
