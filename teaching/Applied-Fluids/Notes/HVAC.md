@@ -94,7 +94,7 @@ $$
 Alternatively we can use the ASHRAE friction chart.
 
 <div class="photo" style="width: 100%;">
-  <a href="img/DuctFrictionExample.png" target="_blank"><img src="img/DuctFrictionExample.png" alt="ASHRAE friction example"></a>
+  <a href="img/DuctFrictionExample.png" target="blank"><img src="img/DuctFrictionExample.png" alt="ASHRAE friction example"></a>
 
   <p>
   For a volume flow rate of $Q=6000~\cfm$ and duct diameter $D=28~\inch$ we find the air velcoity is $v=1400~\fpm$ and the pressure drop per 100 feet of duct is $0.08~\inwg$.
@@ -107,5 +107,23 @@ Alternatively we can use the ASHRAE friction chart.
 $$
 \Delta p_f=0.08\frac{\inwg}{100~\ft}\times 80~\ft=0.064~\inwg
 $$
+
+For ducts of non-circular cross section we define the equivalent diameter as
+
+$$
+d_e=1.55\frac{{\rm A}^{0.625}{{\rm WP}^0.25}}
+$$
+
+where A is the area of the duct and WP is the wetted perimeter.  Ducts that have the same $d_e$ have the same friction loss.  The table <a href="DuctEquivDiameter">Equivalent diameter of rectangular and flat oval ducts</a> computes the equivalent diameter of rectangular ducts and flat oval ducts using the formula given above.
+
+<div class="example">
+Find a rectangular duct and a flat oval duct that would have approximately the same friction as a circular duct of diameter 28 inches.
+
+<hr>
+
+From the <a href="DuctEquivDiameter">table of equivalent diameters of rectangular and flat oval ducts</a> we find that a $22\times 30$~in. rectangular duct has an equivalent diameter of 28.1 inches, close enough to our circular duct of diameter 28 inches.  
+
+From the same set of tables we see that a flat oval duct with a major axis of 30 inches and a minor axis 24 inches has an equivalent diameter of 27.5 inches,  close to our circular duct of diameter 28 inches.  A duct having  a minor axis of 26 inches would also be an acceptable choice as this has an equivalent diameter of 28.4 inches.
+
 
 </div>
