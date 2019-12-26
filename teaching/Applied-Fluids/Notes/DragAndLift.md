@@ -37,30 +37,28 @@ $$
 \newcommand{\inwg}{\mathrm{inH}_2\mathrm{O}}
 $$
 
-# HVAC Systems
+# Drag and Lift
 {:.no_toc}
 
 * A markdown unordered list for the toc
 {:toc}
 
-# Flow of air in ducts
+# Spheres
 
-For this topic we will stay within the inch-pound system.
+<div class="photo" style="width: 600px;">
+  <img src="img/DragSphere.png" alt="Drag coefficient for a smooth sphere as a function of Reynolds number.">
+  <p>
+  Drag coefficient for a smooth sphere as a function of Reynolds number.
+  </p>
+</div>
 
-<table class="table table-striped">
-<caption>
-<a name="units"></a>
-HVAC variables in the inch-pound system
-</caption>
-<thead>
-<tr><th> Variable  </th><th> Name </th><th>units</th></tr>
-</thead>
-<tbody>
-<tr><td>Q</td><td>Volume flow rate</td><td>$\ft^3/\min\equiv\cfm$</td></tr>
-<tr><td>v</td><td>Velocity</td><td>$\ft/\min\equiv\fpm$</td></tr>
-<tr><td>p</td><td>Pressure</td><td>$\inwg$</td></tr>
-</tbody>
-</table>
+
+<div class="photo" style="width: 600px;">
+  <img src="img/DragCylinder.png" alt="Drag coefficient for a smooth sphere as a function of Reynolds number.">
+  <p>
+  Drag coefficient for a smooth circular cylinder as a function of Reynolds number.
+  </p>
+</div>
 
 # Friction losses in straight runs
 

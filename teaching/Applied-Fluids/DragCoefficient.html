@@ -13,15 +13,10 @@
 
 
      <script type="text/x-mathjax-config">
-
        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-
      </script>
 
-
-
      <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
-
      </script>
 
 
@@ -30,72 +25,49 @@
 
   <script type="text/javascript">
 
-    var bases = [0,11,20,32,47,51,71,84.852];
-    var dTdh = [-6.5, 0.0, 1.0, 2.8, 0.0, -2.8, -2.0];
+    function DragSphere(Re){
 
-    var Tb = [288.150]; //temperature at sea level in Kelvin
-    var Pb = [101325]; //pressure at sea level in Pa
-    var Erad = 6356.766; // Earth radius in km
-    var M = 28.9644; // mean molecular weight of air (grams/mole)
-    var R = 8.31432; // joules / (K mole)
-    var GMR = 34.1631947; //hydrostatic constant (K/km)
-    var G = GMR*R/M; //gravity at sea level
-
-    for(var i = 1; i <= 7; i++) {
-		   Tb [i] = Tb[i-1] + dTdh[i-1]*(bases[i] - bases[i-1]);
-       if (dTdh[i-1] == 0.0){
-         Pb [i] = Pb[i-1]*Math.exp(-GMR*(bases[i] - bases[i-1])/Tb[i-1]);
-       } else {
-         Pb [i] = Pb[i-1]*Math.pow(1 + dTdh[i-1]*(bases[i] - bases[i-1])/Tb[i-1],-GMR/dTdh[i-1]);
-       }
-	  }
-
-    function atmprop(z){
-
-      //z is the geometric altitude and h is the geopotential altitude
-      var h = Erad*z/(Erad+z);
-      var gratio = Math.pow(Erad/(z+Erad),2);
-
-      var baseindex = bases.findIndex(function(element, index, array){return element > h})-1;
-      T =  Tb[baseindex] + dTdh[baseindex]*(h-bases[baseindex]);
-      if (dTdh[baseindex] == 0.0){
-        P = Pb[baseindex]*Math.exp(-GMR*(h- bases[baseindex])/Tb[baseindex]);
-      } else {
-        P = Pb[baseindex]*Math.pow(1 + dTdh[baseindex]*(h- bases[baseindex])/Tb[baseindex],-GMR/dTdh[baseindex]);
+      w = Math.log10(Re);
+      if (Re < 0.1) {
+        return 3./16. + 24./Re;
+      }
+      if (Re < 20) {
+        return 24./Re*(1.0 + 0.1315*Math.pow(Re,0.82-0.05*w) );
+      }
+      if (Re < 260) {
+        return 24./Re*(1.0 + 0.1935*Math.pow(Re,0.6305) );
+      }
+      if (Re < 1500) {
+        return Math.pow(10.,(1.6435 - 1.1242*w + 0.1558*Math.pow(w,2.)));
+      }
+      if (Re < 12000) {
+        return Math.pow(10.,(-2.4571 + 2.5558*w - 0.9295*Math.pow(w,2.) + 0.1049*Math.pow(w,3.)));
+      }
+      if (Re < 44000) {
+        return Math.pow(10.,(-1.9181 + 0.6370*w - 0.0636*Math.pow(w,2.)));
+      }
+      if (Re < 400000) {
+        return Math.pow(10, -0.39*(Math.tanh(12.*((w-5.447158)))+1)+Math.log10(0.4660776));
+      }
+      if (Re > 400000) {
+        return 0.1*w - 0.560205991+0.0807153;
       }
 
-      //mass density from ideal gas law
-      N = M*P/(1000.*R*T);
-
-      //sound speed using ratio of specific heats of air to be 1.40
-      C=Math.pow(1000*1.40*R*T/M,0.5);
-
-      //dynamic viscosity using Sutherland formula
-      eta=0.000001458*Math.pow(T,1.5)/(T+110.4);
-
-	    return {z: z, h: h, t: T, g: G*gratio, p: P, n:N, c:C, eta:eta};
+	    return 0.;
     }
 
 
 function update(){
+
   var Restr =document.getElementById("Re").value;
   var Re = parseFloat( Restr.replace(/[^\d\.]/g,'') );
   var units = document.getElementById("units").value;
-
-  var unitflag;
-  var altkm;
-
-  if (units == "kilometers")
-  {
-    unitflag = "SI";
-    altkm = alt;
-  }
 
 
   var table = document.getElementById("myTable");
   myTable.innerHTML = "";
 
-  if (altkm < 0 || altkm > 84.852 )
+  if (Re < 0  )
   {
     var row = table.insertRow(-1);
     cell = row.insertCell(-1);
@@ -103,7 +75,7 @@ function update(){
   return;
   }
 
-  if ( isNaN(altkm) )
+  if ( isNaN(Re) )
   {
     var row = table.insertRow(-1);
     cell = row.insertCell(-1);
@@ -113,10 +85,13 @@ function update(){
 
   var row = table.insertRow(-1);
   var cell = row.insertCell(-1);
-  cell.innerHTML =  "Re";
-  cell = row.insertCell(-1);
-  cell.innerHTML =  Re;
-
+  //cell.innerHTML =  "Re";
+  //cell = row.insertCell(-1);
+  var i;
+  for (i = -1; i < 6; i+=.1) {
+  Re = Math.pow(10,i);
+  cell.innerHTML +=  Re + ", " + DragSphere(Re) + "<BR>";
+}
 
 
 
