@@ -2,12 +2,12 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>Atmospheric Properties</title>
+      <title>Drag Coefficient Calculator</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta charset="utf-8">
       <meta name="author" content="Kevin Dusling" />
       <meta NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
-      <meta name="description" content="The 1976 U.S. Standard Atmosphere">
+      <meta name="description" content="Drag Coefficient Calculator">
 
       <link rel="stylesheet" type="text/css" href="style.css">
 
@@ -56,12 +56,28 @@
 	    return 0.;
     }
 
+    function DragCylinder(Re){
+
+      w = Math.log10(Re);
+      if (Re <= 200000) {
+        return 11.*Math.pow(Re,-0.75) + 0.9*(1.0-Math.exp(-1000./Re))+1.2*(1.0-Math.exp(-Math.pow(Re/4500.,0.7)));
+      }
+      if (Re <= 500000) {
+        return Math.pow(10, -0.32*(Math.tanh(8.*(w-5.5563))+1.0)+0.081206842);
+      }
+      if (Re > 500000) {
+        return 0.1*w - 0.2533429;
+      }
+
+      return 0.;
+    }
+
 
 function update(){
 
   var Restr =document.getElementById("Re").value;
   var Re = parseFloat( Restr.replace(/[^\d\.]/g,'') );
-  var units = document.getElementById("units").value;
+  var shape = document.getElementById("shape").value;
 
 
   var table = document.getElementById("myTable");
@@ -83,15 +99,23 @@ function update(){
   return;
   }
 
+  var Cd=0;
+
+  if (shape == "Smooth Sphere")
+  {
+    Cd=DragSphere(Re);
+  }
+
+  if (shape == "Long Smooth Cylinder")
+  {
+    Cd=DragCylinder(Re);
+  }
+
   var row = table.insertRow(-1);
   var cell = row.insertCell(-1);
   //cell.innerHTML =  "Re";
   //cell = row.insertCell(-1);
-  var i;
-  for (i = -1; i < 6; i+=.1) {
-  Re = Math.pow(10,i);
-  cell.innerHTML +=  Re + ", " + DragSphere(Re) + "<BR>";
-}
+  cell.innerHTML = Cd + "<BR>";
 
 
 
@@ -105,16 +129,15 @@ function update(){
 
 <body>
 
-  <h1 style="color: #2980b9; font-weight: 900;" id=title>The 1976 U.S. Standard Atmosphere</h1>
+  <h1 style="color: #2980b9; font-weight: 900;" id=title>Drag Coefficient Calculator</h1>
 
 <div style="display: inline-block; vertical-align: top; font-size: 18px">
-  Reynolds number: <input name="Re" type="text" id="Re">
-  <select id="units">
-     <option id="km">kilometers</option>
-     <option id="ft">feet</option>
-     <option id="ft">meters</option>
-     <option id="ft">miles</option>
+  <select id="shape">
+     <option id="sph">Smooth Sphere</option>
+     <option id="cyl">Long Smooth Cylinder</option>
   </select>
+  Reynolds number: <input name="Re" type="text" id="Re">
+
   <button type="button" onclick="update()">Compute</button>
 
 

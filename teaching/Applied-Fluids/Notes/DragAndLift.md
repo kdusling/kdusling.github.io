@@ -1,6 +1,6 @@
 ---
 layout: course
-title: HVAC systems
+title: Drag and Lift
 ---
 
 $$
@@ -43,12 +43,28 @@ $$
 * A markdown unordered list for the toc
 {:toc}
 
+If an object is moving with respect to a fluid
+
+# Drag Force
+
+The drag force on an object is
+
+$$
+F_D=C_D \left(\frac{\rho}{v^2}{2}\right) A
+$$
+
+In the above expression, $C_D$ is a dimensionless number known as the drag coefficient.  It depends on the shape and orientation of the body.  $rho$ is the density of the fluid.  $v$ is the velocity of the stream of fluid relative to the body. The stream could be moving with velocity $v$ while the body is at rest, of the fluid could be at rest and with the body moving with velocity $v$.
+
 # Spheres
 
 <div class="photo" style="width: 600px;">
   <img src="img/DragSphere.png" alt="Drag coefficient for a smooth sphere as a function of Reynolds number.">
   <p>
   Drag coefficient for a smooth sphere as a function of Reynolds number.
+  Open triangles are data from <a href="https://doi.org/10.1017/S002211206500143X">Maxworthy, 1965</a>.
+  Open squares are data from <a href="https://doi.org/10.2514/3.6164">Roos and Willmarth, 1971</a>.  
+  The remaining data points are from earlier experiments,
+  https://doi.org/10.1007/978-3-662-52919-5>Schlichting, 1979</a>
   </p>
 </div>
 
@@ -56,7 +72,7 @@ $$
 <div class="photo" style="width: 600px;">
   <img src="img/DragCylinder.png" alt="Drag coefficient for a smooth sphere as a function of Reynolds number.">
   <p>
-  Drag coefficient for a smooth circular cylinder as a function of Reynolds number.
+  Drag coefficient for a long smooth circular cylinder as a function of Reynolds number.  The circles with plus, ⊕,  are data from <a href="https://doi.org/10.1017/S002211206500109X">Jayaweera and Mason</a>.  The open circles are data from <a href="https://doi.org/10.1017/S0022112059000829">Tritton, 1959</a>.    The remaining data is from <a ref=https://ntrs.nasa.gov/search.jsp?R=19930080855">Wieselsberger, 1922</a> and has legend entries corresponding to the various cylinder diameters employed in that work.
   </p>
 </div>
 
