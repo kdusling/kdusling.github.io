@@ -1,6 +1,6 @@
 ---
 layout: course
-title: HVAC systems
+title: Flow of air in ducts
 ---
 
 $$
