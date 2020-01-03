@@ -87,7 +87,7 @@ function update(){
   {
     var row = table.insertRow(-1);
     cell = row.insertCell(-1);
-    cell.innerHTML = "<font style='color: red'>Sorry, this program only computes up to altitudes of 84 km.</font>";
+    cell.innerHTML = "<font style='color: red'>Error, please insert a number greater than zero.</font>";
   return;
   }
 
@@ -95,7 +95,7 @@ function update(){
   {
     var row = table.insertRow(-1);
     cell = row.insertCell(-1);
-    cell.innerHTML = "<font style='color: red'>Please insert an altitude between 0 and 84 km.</font>";
+    cell.innerHTML = "<font style='color: red'>Error, please insert a number greater than zero.</font>";
   return;
   }
 
@@ -113,9 +113,8 @@ function update(){
 
   var row = table.insertRow(-1);
   var cell = row.insertCell(-1);
-  //cell.innerHTML =  "Re";
-  //cell = row.insertCell(-1);
-  cell.innerHTML = Cd + "<BR>";
+
+  cell.innerHTML = "C<sub>D</sub>=" + Cd.toPrecision(3) + "<BR>";
 
 
 
@@ -131,30 +130,33 @@ function update(){
 
   <h1 style="color: #2980b9; font-weight: 900;" id=title>Drag Coefficient Calculator</h1>
 
-<div style="display: inline-block; vertical-align: top; font-size: 18px">
-  <select id="shape">
-     <option id="sph">Smooth Sphere</option>
-     <option id="cyl">Long Smooth Cylinder</option>
-  </select>
+<div style="display: inline-block; vertical-align: top; font-size: 16px">
+  <select id="shape" style="width: 300px;">
+    <option id="sph">Smooth Sphere</option>
+    <option id="cyl">Long Smooth Cylinder</option>
+
+  </select><BR><BR>
   Reynolds number: <input name="Re" type="text" id="Re">
+  <BR><BR>
 
   <button type="button" onclick="update()">Compute</button>
 
 
-    <table id="myTable" style="margin: 15px;">
+    <table id="myTable" style="margin-top: 15px; margin-bottom: 15px; width: 400px">
     <tbody>
 
     </tbody>
 
-    <caption style="caption-side: bottom; text-align: left;">
-    </caption>
+    <caption style="caption-side: bottom; text-align: left;"></caption>
     </table>
 
 
   <div id="results" style="font-size: 18px; background-color: #FAFAFA;
-  padding: 5px 5px; border-radius: 5px; border: 1px solid #CCC;">
-  Computes the 1976 U.S. standard atmosphere.  <BR>For more information see
-  <a href="http://www.pdas.com/atmos.html">PDAS</a> and <a href="https://en.wikipedia.org/wiki/U.S._Standard_Atmosphere">Wikipedia</a>.
+  padding: 5px 5px; border-radius: 5px; border: 1px solid #CCC; width: 400px">
+  Calculates the drag coefficient using the curves fitted to the data for
+  <a href="Notes/img/DragSphere.png">smooth spheres as plotted here</a>
+   and for <a href="Notes/img/DragCylinder.png">long smooth cylinders as plotted here</a>.
+  Note that the precision given above goes well beyond the precision of the experimental data.
   </div>
 
 </div>
