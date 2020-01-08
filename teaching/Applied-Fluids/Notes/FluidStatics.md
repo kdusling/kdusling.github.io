@@ -5,16 +5,29 @@ title: Fluid Statics
 
 $$
 \require{cancel}
+\newcommand{\s}{\mathrm{s}}
+\newcommand{\min}{\mathrm{min}}
+\newcommand{\hr}{\mathrm{hr}}
 \newcommand{\kg}{\mathrm{kg}}
 \newcommand{\kN}{\mathrm{kN}}
 \newcommand{\inch}{\mathrm{in}}
 \newcommand{\ft}{\mathrm{ft}}
 \newcommand{\m}{\mathrm{m}}
+\newcommand{\km}{\mathrm{km}}
+\newcommand{\mi}{\mathrm{mi}}
 \newcommand{\cm}{\mathrm{cm}}
 \newcommand{\lb}{\mathrm{lb}}
+\newcommand{\lbm}{\mathrm{lbm}}
+\newcommand{\lbf}{\mathrm{lbf}}
 \newcommand{\N}{\mathrm{N}}
+\newcommand{\slug}{\mathrm{slugs}}
 \newcommand{\Pa}{\mathrm{Pa}}
+\newcommand{\mph}{\mathrm{mph}}
 \renewcommand{\psi}{\mathrm{psi}}
+\newcommand{\C}{^\circ\mathrm{C}}
+\newcommand{\F}{^\circ\mathrm{F}}
+\newcommand{\R}{~\mathrm{R}}
+\newcommand{\K}{~\mathrm{K}}
 $$
 
 # Fluid Statics
@@ -41,8 +54,9 @@ $$
 
 The figure below summarizes the relationship between gauge and absolute pressure measurements.
 
-<img src="img\abs_press_scale.svg"  style="width:800px; height:auto; display: inline-block; padding: 10px;">
-
+<div class="photo" style="width: 800px;  text-align:center">
+<img src="img\abs_press_scale.svg">
+</div>
 
 <div class="example">
 An automobile tire is inflated to a pressure of 30 psi (gauge).  Determine the absolute pressure in the tire.
@@ -121,6 +135,26 @@ So the hiker made a net vertical ascent of 836 meters.
 </div>
 
 ## Pressure in the atmosphere
+
+The previous exercise incorporated an important assumption, that the air density remains constant throughout the 800 meter ascent.  This is not entirely realistic.  The temperature of the air changes with altitude and therefore so must the density (think ideal gas law).  In order to simplify our discussions we will make use of the 1976 U.S. Standard Atmosphere.  In this model the atmosphere is broken up into seven layers with each layer having a prescribed linear temperature profile.
+
+Starting from the sea level properties of air (see table below) one can compute other relevant properties, but the procedure goes beyond the scope of this course. Instead, the properties of air at various altitudes should be found by using the
+<a href="https://kdusling.github.io/teaching/Applied-Fluids/AtmosphereProperties.html">The 1976 U.S. Standard Atmosphere Calculator</a>.
+
+<table class="table table-striped">
+<caption>
+Sea level properties of air in the 1976 U.S. Standard Atmosphere
+</caption>
+<thead>
+<tr><th> Property </th><th> Symbol </th><th>  SI  </th><th>  USCS </th></tr>
+</thead>
+<tbody>
+<tr><td>Temperature </td><td> $T$ </td><td> $15\C$ </td><td>  $59\F$ </td></tr>
+<tr><td>Pressure </td><td> $p$ </td><td> 101.3 kPa </td><td>  14.7 psi </td></tr>
+<tr><td>dynamic viscosity </td><td> $\eta$ </td><td> $1.789\times 10^{-5}~\Pa\cdot s$  </td><td>  $3.737\times 10^{-7}~\lb\cdot s/\ft^2$ </td></tr>
+
+</tbody>
+</table>
 
 ## Measuring Pressure
 
