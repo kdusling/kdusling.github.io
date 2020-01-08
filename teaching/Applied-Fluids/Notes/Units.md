@@ -294,18 +294,18 @@ $$
 
 ### Absolute temperature
 
-The reference points in the above temperature scales of Celsius and Fahrenheit are somewhat arbitrary.  An *absolute temperature* is defined such that its zero point corresponds to the condition where all molecular motion stops, so called *absolute zero*.
+The reference point in the Celsius and Fahrenheit temperature scales depends on the properties of a particular fluid, in this case water.  It is desirable to have a temperature scale that is independent of any substance.  An *absolute temperature* or *thermodynamic temperature scale* has a zero point corresponding to the state of zero thermal energy, so called *absolute zero*.
 
-In the SI unit system, the standard unit of absolute temperature is kelvin (K). The spacing between points on the kelvin scale is the same as the Celsius scale.  As the freezing point of water is measured to be $273.15~$K we can convert from a temperature in Celsius to a temperature $T(K)$ in kelvin by
+In the SI unit system, the standard unit of absolute temperature is kelvin (K). The spacing between points on the kelvin scale is the same as the Celsius scale (*i.e.* a change in temperature of $1\C$ is the same as a change in temperature of 1~K).  As the freezing point of water is measured to be $273.15~$K we can convert from a temperature in Celsius to a temperature $T(K)$ in kelvin by
 
 $$
 T(K)=T(\C) + 273.15
 $$
 
-Another absolute temperature scale, the Rankine scale ($^\circ R$), has spacing between degrees that is the same as the Fahrenheit scale.  Absolute zero, corresponding to $0^\circ R,$ is at $-459.67\F$.  A measurement in Fahrenheit can be converted to a temperature in Rankine, $T(^\circ R)$ by
+Another absolute temperature scale, the Rankine scale (R), has spacing between degrees that is the same as the Fahrenheit scale.  Absolute zero, corresponding to 0~R, is at $-459.67\F$.  A measurement in Fahrenheit can be converted to a temperature in Rankine, $T$(R) by
 
 $$
-T(^\circ R)=T(\F)+459.67
+T(R)=T(\F) + 459.67
 $$
 
 <table class="table table-striped">
@@ -313,7 +313,7 @@ $$
 Table 4: A comparison among temperature scales.  $^\dagger$Melting and boiling points are at standard pressure.
 </caption>
 <thead>
-<tr><th> &nbsp; </th><th> Celsius    </th><th>  Fahrenheit  </th><th>  Kelvin   </th><th> Rankine </th></tr>
+<tr><th> &nbsp; </th><th> Celsius ($\C$)    </th><th>  Fahrenheit ($\F$)  </th><th>  Kelvin (K)   </th><th> Rankine (R)</th></tr>
 </thead>
 <tbody>
 <tr><td>Absolute zero                          </td><td> -273.15    </td><td>  -459.67    </td><td>      0    </td><td>     0   </td></tr>
@@ -323,6 +323,46 @@ Table 4: A comparison among temperature scales.  $^\dagger$Melting and boiling p
 <tr><td>Water boils$^\dagger$                  </td><td>     100    </td><td>     212     </td><td>      373  </td><td>     671 </td></tr>
 </tbody>
 </table>
+
+Note that both Celsius and Fahrenheit are always reported in degrees.  Kelvin, being an absolute temperature scale, never has a degree symbol.  For consistency I therefore avoid including a degree symbol with the absolute temperature scale of Rankine.  However, you will more often than not see Rankine reported in degrees.
+
+So why degrees?  A degree represents a change in temperature with respect to some scale.  If you double the temperature in an absolute scale you double the thermal energy ($e.g.$ a gas at 800 K has twice the thermal energy as a gas at 400 K.)  This is not true in the Celsius and Fahrenheit scales (*e.g.* a gas at 500$\C$ does *not* have twice the thermal energy as the same gas at 250$\C$.)
+
+<div class="example">
+From your own experience you are probably most comfortable when the surrounding air has a temperature between $68\F$ and $77\F$.   
+
+We will look at this temperature range in the various temperature scales above.
+
+<hr>
+
+The temperature range is reported in degree Fahrenheit which is a US system of units.  If we wanted to stay within the US system but instead use an absolute temperature scale we would convert this to Rankine using the formula, $T(R)=T(\F) + 460$.
+
+The temperature range of $68\F$ and $77\F$ corresponds to
+528 R to 537 R.  Note therefore that in this example the temperature difference of $9\F$ corresponds to a difference of 9 R.
+
+We may wish to use the SI scale.  In this case we want to convert from $\F$ to $\C$ using the formula, $T(\C)=\frac{5}{9}\left[T(\F)-32\right]$.  
+
+The lower temperature of $68\F$ is,
+$$
+ T_1=\frac{5}{9}\left[68-32\right]=\frac{5}{9}\left[36]=20\C
+$$
+
+The higher temperature of $77\F$ is,
+$$
+ T_2=\frac{5}{9}\left[77-32\right]=\frac{5}{9}\left[45]=25\C
+$$
+
+The temperature range of $68\F$ to $77\F$ corresponds to
+$20\C$ to $25\C$. In this case the temperature difference of $9\F$ corresponds to a change in temperature of $5\C$.
+
+Finally, we may wish to convert to the absolute temperature scale in the SI system, the kelvin.  In this case I use the formula $T(K)=T(\C) + 273$.
+
+The temperature range of $20\C$ to $25\C$ corresponds to the range $293~$K to $298~$K. We notice that a temperature difference of $5\C$ is the same as a change in temperature of $5~$K.
+
+</div>
+
+The above exercise demonstrates that a *change* in temperature of 1 K is the same as a *change* in temperature of $1\C$, or *change* of $1.8\F$ or *change* of $1.8~$R.  Note the repeated emphasis on the change or difference in temperature.  This works about because when taking the difference between two temperatures the zero point cancels out.
+
 
 
 
