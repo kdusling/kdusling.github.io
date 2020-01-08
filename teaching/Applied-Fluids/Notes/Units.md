@@ -26,8 +26,8 @@ $$
 \renewcommand{\psi}{\mathrm{psi}}
 \newcommand{\C}{^\circ\mathrm{C}}
 \newcommand{\F}{^\circ\mathrm{F}}
-\newcommand{\R}{\mathrm{R}}
-\newcommand{\K}{\mathrm{K}}
+\newcommand{\R}{~\mathrm{R}}
+\newcommand{\K}{~\mathrm{K}}
 $$
 
 # Dimensions & Units
@@ -344,12 +344,12 @@ We may wish to use the SI scale.  In this case we want to convert from $\F$ to $
 
 The lower temperature of $68\F$ is,
 $$
- T_1=\frac{5}{9}\left[68-32\right]=\frac{5}{9}\left[36]=20\C
+T_1=\frac{5}{9}\left[68-32\right]=\frac{5}{9}36=20\C
 $$
 
 The higher temperature of $77\F$ is,
 $$
- T_2=\frac{5}{9}\left[77-32\right]=\frac{5}{9}\left[45]=25\C
+ T_2=\frac{5}{9}\left[77-32\right]=\frac{5}{9}45=25\C
 $$
 
 The temperature range of $68\F$ to $77\F$ corresponds to
