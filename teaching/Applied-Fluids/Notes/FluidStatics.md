@@ -151,7 +151,7 @@ Sea level properties of air in the 1976 U.S. Standard Atmospheric model
 <tbody>
 <tr><td>Temperature </td><td> $T$ </td><td> $15\C$ </td><td>  $59\F$ </td></tr>
 <tr><td>Pressure </td><td> $p$ </td><td> 101.3 kPa (abs) </td><td>  14.7 psia </td></tr>
-<tr><td>Density </td><td> $\rho$ </td><td> $1.22 \kg/\m^3$  </td><td>  2.377\times 10^{-3}~\slug/\ft^3$ </td></tr>
+<tr><td>Density </td><td> $\rho$ </td><td> $1.22 \kg/\m^3$  </td><td>  $2.377\times 10^{-3}~\slug/\ft^3$ </td></tr>
 <tr><td>Dynamic viscosity </td><td> $\eta$ </td><td> $1.789\times 10^{-5}~\Pa\cdot s$  </td><td>  $3.737\times 10^{-7}~\lb\cdot s/\ft^2$ </td></tr>
 
 </tbody>
