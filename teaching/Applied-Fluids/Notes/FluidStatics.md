@@ -36,13 +36,13 @@ $$
 * A markdown unordered list for the toc
 {:toc}
 
-Our discussion of pressure began in the <a href="https://kdusling.github.io/teaching/Applied-Fluids/Notes/FluidProperties#pressure">previous section</a>.  *Pressure* is the force applied perpendicular to a surface per unit area.  When we speak of pressure we are typically dealing with a gas or a liquid that is confined to a container.  
+Our discussion of fluid pressure began in the <a href="https://kdusling.github.io/teaching/Applied-Fluids/Notes/FluidProperties#pressure">previous chapter</a>.  As a reminder, *Pressure* is the force applied perpendicular to a surface per unit area.  When we speak of pressure we are typically dealing with a gas or a liquid that is confined to a container.  
 
 $$
-\mathrm{Pressure}=\frac{\mathrm{Force}}{\mathrm{Area}}\, \qquad\qquad p=\frac{F}{A}
+\mathrm{Pressure}=\frac{\mathrm{Force}}{\mathrm{Area}}\,, \qquad\qquad p=\frac{F}{A}
 $$
 
-In the SI system a force per unit area has units of newtons per square meter $\N/\m^2$, which is called the pascal ($\Pa$).  In the USCS a force per unit area has units of pound per square inch $\lb/\inch^2$ ($\psi$).
+In the SI system a force per unit area has units of newtons per square meter $\N/\m^2$, which is called the pascal ($\Pa$).  In the USCS a force per unit area has units of pound per square foot, $\lb/\ft^2$, abbreviated as psf.   For fluids, it is more convenient and customary to express pressure in units of pounds per square inch, $\lb/\inch^2$, abbreviated as psi.  For the remainder of this course we will use psi as the standard unit of pressure when working in the USCS of units.
 
 ## Absolute and gauge pressure
 
@@ -79,13 +79,13 @@ $$
 
 ## Pressure vs depth at constant density
 
-The pressure in a fluid increases with depth simply because more fluid sits above the deeper layers.  In order for the deeper layers of fluid to support  the increasing weight above it the pressure must increase accordingly.  For a static, homogenous, incompressible fluid the relationship between pressure and depth is
+The pressure in a fluid increases with depth simply because more fluid sits above the deeper layers of fluid.  In order for the deeper layers of fluid to support the increasing weight resting above it, the pressure of the fluid must increase accordingly.  For a static, homogenous, incompressible fluid the relationship between pressure and depth is
 
 $$
 \Delta p = -\gamma \Delta z
 $$
 
-where $\Delta p$ is the change in pressure that occurs across an elevation change of $\Delta z$.  $\gamma$ is the specific weight of the fluid.  The minus sign indicates that a decrease in elevation causes an increase in pressure.  In practice I just calculate the magnitude of the change in pressure (ignore the minus sign) and afterwards determine whether the pressure decreased (increase in elevation) or the pressure increased (decrease in elevation).  Just remember that additional fluid above you results in a larger pressure.
+where $\Delta p$ is the change in pressure that occurs across an elevation change of $\Delta z$.  $\gamma$ is the specific weight of the fluid.  The minus sign indicates that a decrease in elevation causes an increase in pressure.  In practice I just calculate the magnitude of the change in pressure (ignore the minus sign) and afterwards determine whether the pressure decreased (increase in elevation) or the pressure increased (decrease in elevation).  Just remember that as you increase the amount of fluid above you, the fluid pressure will also increase.
 
 
 <div class="example">
@@ -112,13 +112,13 @@ As one descends to the bottom of the pool the pressure increases by about 3.5 ps
 Here is another example.
 
 <div class="example">
-A hiker's barometer reads 950 mbars at the beginning of her trip and 850 mbars at the end.  Assuming a constant air density of $1.22~\kg/\m^3$ estimate the vertical distance traversed by the hiker.  Was the hiker climbing or descending?
+A hiker's barometer reads 95 kPa at the beginning of her trip and 85 kPa at the end.  Assuming a constant air density of $1.22~\kg/\m^3$ estimate the vertical distance traversed by the hiker.  Was the hiker climbing or descending?
 
 <hr>
 
 Let's first determine whether the hiker was climbing or descending.  The pressure was larger at the start of the trip.  In order for the pressure to decrease the hiker must have been ascending.  As the hiker increases her altitude there is less air above her, compared to when she started.  This results in a decrease in pressure.
 
-The net change in pressure is 100 mbar.  This is equivalent to 10,000 Pa. Check this.  The specific weight of air can be computed from the density
+The net change in pressure is 10 kPa which is 10,000 Pa. The specific weight of air can be computed from the density
 
 $$
 \gamma=g\rho=(9.81~\m/s^2)\left(1.22~\kg/\m^3\right)=11.97~\N/\m^3
@@ -151,7 +151,7 @@ Sea level properties of air in the 1976 U.S. Standard Atmospheric model
 <tbody>
 <tr><td>Temperature </td><td> $T$ </td><td> $15\C$ </td><td>  $59\F$ </td></tr>
 <tr><td>Pressure </td><td> $p$ </td><td> 101.3 kPa (abs) </td><td>  14.7 psia </td></tr>
-<tr><td>Density </td><td> $\rho$ </td><td> $1.22 \kg/\m^3$  </td><td>  $2.377\times 10^{-3}~\slug/\ft^3$ </td></tr>
+<tr><td>Density </td><td> $\rho$ </td><td> $1.22~\kg/\m^3$  </td><td>  $2.377\times 10^{-3}~\slug/\ft^3$ </td></tr>
 <tr><td>Dynamic viscosity </td><td> $\eta$ </td><td> $1.789\times 10^{-5}~\Pa\cdot s$  </td><td>  $3.737\times 10^{-7}~\lb\cdot s/\ft^2$ </td></tr>
 
 </tbody>
