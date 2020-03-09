@@ -161,6 +161,14 @@ Sea level properties of air in the 1976 U.S. Standard Atmospheric model
 
 ### Manometers
 
+
+<div class="photo" style="width: 600px;  text-align:center">
+<img src="img\Dwyer_Mark_II.jpg">
+<p>
+My Dwyer Mark II inclined manometer measuring slightly less than 0.4 inWC.    
+</p>
+</div>
+
 ### Barometers
 
 ### Pressure expressed as a height of liquid
