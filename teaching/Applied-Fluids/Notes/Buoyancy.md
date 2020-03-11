@@ -133,8 +133,23 @@ We can now evaluate the external force and find $$ F_{ext}=w-F_b=0.05~\kN - 1.23
 
 </div>
 
-## Stability of Submarines
+## Stability of completely submerged bodies
 
+<div class="photo" style="width: 800px;  text-align:center">
+<img src="img\submarine_stability.svg">
+</div>
+
+<div class="callout">
+The stability condition for a completely submerged body is that the center of gravity $(cg)$ must be below the center of buoyancy $(cb)$.
+</div>
+
+## Stability of completely floating bodies
+
+<div class="photo" style="width: 800px;  text-align:center">
+<img src="img\boat_stability.svg">
+</div>
+
+## References
 https://maritime.org/doc/fleetsub/chap5.htm
 
 https://maritime.org/doc/fleetsub/index.htm
