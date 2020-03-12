@@ -135,12 +135,12 @@ We can now evaluate the external force and find $$ F_{ext}=w-F_b=0.05~\kN - 1.23
 
 ## Stability of completely submerged bodies
 
-<div class="photo" style="width: 800px;  text-align:center">
+<div class="photo" style="width: 600px;  text-align:center">
 <img src="img\submarine_stability.svg">
 </div>
 
 <div class="callout">
-The stability condition for a completely submerged body is that the center of gravity $(cg)$ must be below the center of buoyancy $(cb)$.
+A completely submerged body is stable if the center of gravity $(cg)$ is below the center of buoyancy $(cb)$.
 </div>
 
 ## Stability of completely floating bodies
@@ -148,6 +148,26 @@ The stability condition for a completely submerged body is that the center of gr
 <div class="photo" style="width: 800px;  text-align:center">
 <img src="img\boat_stability.svg">
 </div>
+
+<div class="callout">
+A partially submerged body is stable if the center of gravity $(cg)$ is below the metacenter $(mc)$.
+</div>
+
+<table class="table table-striped">
+<caption>
+Table 1: Summary of notation
+</caption>
+  <thead>
+    <tr><th>Symbol</th><th>name</th><th>description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>cg</td><td>center of gravity</td><td>located at the center of mass of the entire volume</td></tr>
+    <tr><td>cb</td><td>center of buoyancy</td><td>located at the centroid of the displaced volume</td></tr>
+    <tr><td>mc</td><td>metacenter</td><td>see figure </td></tr>
+    <tr><td>MB</td><td>metacentric radius</td><td>distance between cg and mc</td></tr>
+  </tbody>
+
+</table>
 
 ## References
 https://maritime.org/doc/fleetsub/chap5.htm
