@@ -117,14 +117,10 @@ img{
 }​
 
 .callout {
-
-  border: 4px solid  #00e6ac;
-
+  border: 4px solid #00e6ac;
   border-radius: 25px;
   padding: 20px;
-
   max-width: 80%;
-
   margin-top: 40px;
   margin-bottom: 40px;
   margin-left: auto ;
