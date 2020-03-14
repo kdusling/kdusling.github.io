@@ -81,6 +81,14 @@ $$
 Next, convert this result into $\m^3/\s$,
 
 $$
-1,892.5~\cancel{\text{L/min}}\times\left(\frac{{\m^3/\s}\text{60,000 \cancel{L/min}}})=0.03155~\m^3/\s
+1,892.5~\cancel{\text{L/min}}\times\left(\frac{\m^3/\s}{\text{60,000 \cancel{L/min}}})=0.03155~\m^3/\s
 $$
 </div>
+
+## Continuity equation
+
+## Commercially available piping
+
+First, the difference between pipe and tubing.  Tubing is generally used for structural purposes and therefore tends to be more expensive.  The sizing is typically specified by the tube's outer diameter and wall thickness.
+
+This class will be concerned with piping used to transports fluids (gases or liquids).  Sizing for pipes is based on a nominal diameter and schedule number.
