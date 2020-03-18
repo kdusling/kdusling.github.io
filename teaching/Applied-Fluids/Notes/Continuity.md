@@ -53,7 +53,7 @@ Summary of flow rates
 </tbody>
 </table>
 
-The standard flow rates of $\m^3/\s$ and $\ft^3\min$ are very large flow rates and we will therefore more frequently use liters per minute (L/min) and gallons per minute (gpm).  Some useful conversion factors that are available on our<a href="https://kdusling.github.io/teaching/Applied-Fluids/ConversionFactors.html">table of conversion factors</a> include the following:
+The standard flow rates of $\m^3/\s$ and $\ft^3/\s$ are very large flow rates and we will therefore more frequently use liters per minute (L/min) and gallons per minute (gpm).  Some useful conversion factors that are available on our <a href="https://kdusling.github.io/teaching/Applied-Fluids/ConversionFactors.html">table of conversion factors</a> include the following:
 
 $$
 \frac{\text{449 gal/min}}{\text{ft}^3/\text{s}}\qquad
@@ -81,7 +81,7 @@ $$
 Next, convert this result into $\m^3/\s$,
 
 $$
-1,892.5~\cancel{\text{L/min}}\times\left(\frac{\m^3/\s}{\text{60,000 \cancel{L/min}}})=0.03155~\m^3/\s
+1,892.5~\cancel{\text{L/min}}\times\left(\frac{\m^3/\s}{\text{60,000 \cancel{L/min}}}\right)=0.03155~\m^3/\s
 $$
 </div>
 
@@ -89,6 +89,14 @@ $$
 
 ## Commercially available piping
 
-First, the difference between pipe and tubing.  Tubing is generally used for structural purposes and therefore tends to be more expensive.  The sizing is typically specified by the tube's outer diameter and wall thickness.
+First, the difference between pipe and tubes.  Tubing is generally used for structural purposes and therefore tends to be more expensive.  The sizing is typically specified by the tube's outer diameter and wall thickness.  Piping is used to transports fluids (gases or liquids).  Sizing for pipes is based on a nominal diameter and schedule number.  In many instances the terms piping and tubing are used interchangeably.  This class will be interested in piping.
 
-This class will be concerned with piping used to transports fluids (gases or liquids).  Sizing for pipes is based on a nominal diameter and schedule number.
+### ASTM A53 standard
+
+The ASTM A53 standard is the most common standard for carbon steel pipes.
+<a href="https://kdusling.github.io/teaching/Applied-Fluids/SteelPipeTable.html?sch=40&mat=comSteel">Schedule 40 Steel Pipe Data Table</a>
+<a href="https://kdusling.github.io/teaching/Applied-Fluids/SteelPipeTable.html?sch=80&mat=comSteel">Schedule 80 Steel Pipe Data Table</a>
+
+<a href=" https://www.engineeringtoolbox.com/pvc-cpvc-pipes-dimensions-d_795.html">PVC and CPVC Pipes Schedule 40 & 80</a>
+
+http://www.gizmology.net/pipe.htm
