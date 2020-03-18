@@ -59,7 +59,7 @@ $$
 \frac{\text{449 gal/min}}{\text{ft}^3/\text{s}}\qquad
 \frac{\text{60,000 L/min}}{\text{m}^3/\text{s}}\qquad
 \frac{\text{3.785 L/min}}{\text{gal/min}}\qquad
-\frac{\text{2119 ft$^3$/min}}{\text{m}^3/\text{s}\qquad
+\frac{\text{2119 ft$^3$/min}}{\text{m}^3/\text{s}}\qquad
 \frac{\text{CFM}}{\text{ft}^3/\text{min}}\qquad
 \frac{\text{60 CFM}}{\text{ft}^3/\text{s}}
 $$
@@ -81,7 +81,7 @@ $$
 Next, convert this result into $\m^3/\s$,
 
 $$
-1,892.5~\cancel{\text{L/min}}\times\left(\frac{\m^3/\s}{\text{60,000 \cancel{L/min}}}\right)=0.03155~\m^3/\s
+1,892.5~\cancel{\text{L/min}}\times\left(\frac{\m^3/\s}{60,000~\cancel{\text{L/min}}}\right)=0.03155~\m^3/\s
 $$
 </div>
 
@@ -94,7 +94,9 @@ First, the difference between pipe and tubes.  Tubing is generally used for stru
 ### ASTM A53 standard
 
 The ASTM A53 standard is the most common standard for carbon steel pipes.
+
 <a href="https://kdusling.github.io/teaching/Applied-Fluids/SteelPipeTable.html?sch=40&mat=comSteel">Schedule 40 Steel Pipe Data Table</a>
+
 <a href="https://kdusling.github.io/teaching/Applied-Fluids/SteelPipeTable.html?sch=80&mat=comSteel">Schedule 80 Steel Pipe Data Table</a>
 
 <a href=" https://www.engineeringtoolbox.com/pvc-cpvc-pipes-dimensions-d_795.html">PVC and CPVC Pipes Schedule 40 & 80</a>
