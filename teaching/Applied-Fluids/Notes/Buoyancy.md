@@ -143,7 +143,7 @@ We can now evaluate the external force and find $$ F_{ext}=w-F_b=0.05~\kN - 1.23
 A completely submerged body is stable if the center of gravity $(cg)$ is below the center of buoyancy $(cb)$.
 </div>
 
-## Stability of completely floating bodies
+## Stability of floating bodies
 
 <div class="photo" style="width: 800px;  text-align:center">
 <img src="img\boat_stability.svg">

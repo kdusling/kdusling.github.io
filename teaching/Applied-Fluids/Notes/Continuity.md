@@ -81,11 +81,23 @@ $$
 Next, convert this result into $\m^3/\s$,
 
 $$
-1,892.5~\cancel{\text{L/min}}\times\left(\frac{\m^3/\s}{60,000~\cancel{\text{L/min}}}\right)=0.03155~\m^3/\s
+1,892.5~\cancel{\text{L/min}}\times\left(\frac{\text{m}^3/\s}{60,000~\cancel{\text{L/min}}}\right)=0.03155~\m^3/\s
 $$
+
 </div>
 
 ## Continuity equation
+
+The continuity equation is a consequence of the conservation of mass, which simply says that mass cannot be created or destroyed.  Consider the pipe system shown below.
+
+<div class="photo" style="width: 600px;  text-align:center">
+<img src="img\continuity.svg">
+</div>
+
+
+
+<a href="https://youtu.be/G4CgOF4ccXk">Volume flow rate and equation of continuity | Fluids | Physics | Khan Academy</a>
+
 
 ## Commercially available piping
 
@@ -93,12 +105,14 @@ First, the difference between pipe and tubes.  Tubing is generally used for stru
 
 ### ASTM A53 standard
 
-The ASTM A53 standard is the most common standard for carbon steel pipes.
+The ASTM A53 standard is the most common standard for carbon steel pipes.  It will also be the standard that we use most frequently, if not exclusively, in this class.  Here are two steel pipe data tables that we will use very often and therefore worth bookmarking:
 
 <a href="https://kdusling.github.io/teaching/Applied-Fluids/SteelPipeTable.html?sch=40&mat=comSteel">Schedule 40 Steel Pipe Data Table</a>
 
 <a href="https://kdusling.github.io/teaching/Applied-Fluids/SteelPipeTable.html?sch=80&mat=comSteel">Schedule 80 Steel Pipe Data Table</a>
 
+Here are some additional references in case you come across other types of commercially available pipes:
+
 <a href=" https://www.engineeringtoolbox.com/pvc-cpvc-pipes-dimensions-d_795.html">PVC and CPVC Pipes Schedule 40 & 80</a>
 
-http://www.gizmology.net/pipe.htm
+<a href="http://www.gizmology.net/pipe.htm">Copper, Wrought iron, Cast iron</a>
