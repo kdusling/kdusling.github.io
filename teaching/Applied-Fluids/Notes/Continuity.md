@@ -43,13 +43,13 @@ $$
 <caption>
 Summary of flow rates
 </caption>
-<thead class="thead-dark">
+<thead class="thead-dark" style="cellpadding: 10px;">
 <tr><th> Symbol </th><th> Name </th><th>  Definition</th><th> SI  </th><th>  USCS </th></tr>
 </thead>
 <tbody>
-<tr><td>$Q$ </td><td> Volume flow rate </td><td> $Q=Av$  </td><td>  $m^3/s$</td><td>$\ft^3/s$ </td></tr>
-<tr><td>$W$ </td><td> Weight flow rate </td><td>$W=\gamma Q$ <BR> $W=\gamma A Q$  </td><td>  $\N/s$</td><td>$\lb/s$ </td></tr>
-<tr><td>$M$ </td><td> Mass flow rate </td><td>$M=\rho Q$ <BR> $M=\rho A V$  </td><td>  $\kg/s$</td><td>$\slug/s$ </td></tr>
+<tr><td>$Q$ </td><td> Volume flow rate </td><td> $Q=Av$  </td><td>  $\m^3/\s$</td><td>$\ft^3/\s$ </td></tr>
+<tr><td>$W$ </td><td> Weight flow rate </td><td>$W=\gamma Q$ <BR> $W=\gamma A Q$  </td><td>  $\N/\s$</td><td>$\lb/\s$ </td></tr>
+<tr><td>$M$ </td><td> Mass flow rate </td><td>$M=\rho Q$ <BR> $M=\rho A V$  </td><td>  $\kg/\s$</td><td>$\slug/\s$ </td></tr>
 </tbody>
 </table>
 
@@ -68,7 +68,7 @@ $$
 
 
 <div class="example">
-A 2&frac12;-inch discharge outlet on a fire hydrant has a flow rate of 500 gpm.  Convert this flow rate to L/min and to $m^3/s$
+A 2&frac12;-inch discharge outlet on a fire hydrant has a flow rate of 500 gpm.  Convert this flow rate to L/min and to $\m^3/\s$.  Then estimate the average flow velocity in units of $\ft/\s$.
 
 <hr>
 
@@ -84,11 +84,35 @@ $$
 1,892.5~\cancel{\text{L/min}}\times\left(\frac{\text{m}^3/\s}{60,000~\cancel{\text{L/min}}}\right)=0.03155~\m^3/\s
 $$
 
+In order to find the average flow velocity we make use of the definintion of the volume flow rate, $Q=Av$, and solve this for the flow velocity
+
+$$
+v=\frac{Q}{A}
+$$
+
+Since we want the flow velocity in $\m/s$ first convert the volume flow rate to $\ft^3/s$
+
+$$
+500~\cancel{\text{gal/min}}\times \frac{\ft^3/\s}{449~\cancel{\text{gal/min}}}=1.14~\ft^3/s
+$$
+
+The cross sectional area of the  2&frac12;-inch pipe is
+
+$$
+A=\frac{pi}{4}\left(0.208~\ft\right)^2 =0.0341~\ft^2
+$$
+
+The average flow velocity is therefore
+
+$$
+v=\frac{Q}{A}=\frac{1.14~\ft^3/s}{0.0341~\ft^2}=33.4~\ft/\s
+$$
+
 </div>
 
 ## Continuity equation
 
-The continuity equation is a consequence of the conservation of mass, which simply says that mass cannot be created or destroyed.  Consider the pipe system shown below.
+The continuity equation is a consequence of the conservation of mass, which  says that mass cannot be created or destroyed.  Consider the pipe system shown below.
 
 <div class="photo" style="width: 600px;  text-align:center">
 <img src="img\continuity.svg">
