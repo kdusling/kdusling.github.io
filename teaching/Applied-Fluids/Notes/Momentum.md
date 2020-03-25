@@ -14,6 +14,7 @@ $$
 \newcommand{\lb}{\mathrm{lb}}
 \newcommand{\N}{\mathrm{N}}
 \newcommand{\Pa}{\mathrm{Pa}}
+\newcommand{\L}{\mathrm{L}}
 $$
 
 # Momentum and forces in fluid flow
@@ -70,9 +71,9 @@ $$
 The momentum equation in the *x*-direction is:
 
 $$
-F_x= \rho Q \Delta v_x = \left(1000~\kg/\m^3\right) \left( 2~\L/s\right)\left(-8~m/s\right)=-16~\N
+F_x= \rho Q \Delta v_x = \left(1000~\kg/\m^3\right) \left( 2~\L/s\right)\left(-8~\m/s\right)=-16~\N
 $$
 
-The minus sign tells us that the force is in the minus *x*-direction, *i.e.* to the left.  Remember, the force we solved for is the force on the fluid.  It takes a force of 16 Newtons acting to the left to bring the fluid to rest in the *x*-direction.  The reaction force on the wall will therefore be equal in magnitude but opposite in direction.  The fluid exerts a force of 16 Newtons on the wall acting to the right.
+The minus sign tells us that the force is in the minus *x*-direction, *i.e.* to the left.  Remember, the force we solved for, $F_x$, is the force acting *on* the fluid.  In this problem the wall exerts a force of 16 N in the minus *x*-direction on the fluid.  Newton's third law then tells us that the fluid exerts a force of 16 N in the positive *x*-direction on the wall.
 
 </div>
