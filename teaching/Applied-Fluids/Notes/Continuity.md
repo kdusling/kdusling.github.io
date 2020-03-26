@@ -81,7 +81,7 @@ $$
 Next, convert this result into $\m^3/\s$,
 
 $$
-1,892.5~\cancel{\text{L/min}}\times\left(\frac{\text{m}^3/\s}{60,000~\cancel{\text{L/min}}}\right)=0.03155~\m^3/\s
+1,892.5~\cancel{\text{L/min}}\times\left(\frac{\text{m}^3/\s}{60,000~\cancel{\text{L/min}}}\right)=0.0315~\m^3/\s
 $$
 
 In order to find the average flow velocity we make use of the definintion of the volume flow rate, $Q=Av$, and solve this for the flow velocity
@@ -90,22 +90,22 @@ $$
 v=\frac{Q}{A}
 $$
 
-Since we want the flow velocity in $\m/s$ first convert the volume flow rate to $\ft^3/s$
+Since we want the flow velocity in units of $\ft/\s$ first convert the volume flow rate to $\ft^3/\s$:
 
 $$
-500~\cancel{\text{gal/min}}\times \frac{\ft^3/\s}{449~\cancel{\text{gal/min}}}=1.14~\ft^3/s
+500~\cancel{\text{gal/min}}\times \frac{\ft^3/\s}{449~\cancel{\text{gal/min}}}=1.14~\ft^3/\s
 $$
 
-The cross sectional area of the  2&frac12;-inch pipe is
+The cross sectional area of the 2&frac12;-inch pipe is
 
 $$
-A=\frac{pi}{4}\left(0.208~\ft\right)^2 =0.0341~\ft^2
+A=\frac{\pi}{4}\left(0.208~\ft\right)^2 =0.0341~\ft^2
 $$
 
 The average flow velocity is therefore
 
 $$
-v=\frac{Q}{A}=\frac{1.14~\ft^3/s}{0.0341~\ft^2}=33.4~\ft/\s
+v=\frac{Q}{A}=\frac{1.14~\ft^3/s}{0.0341~\ft^2}=33~\ft/\s
 $$
 
 </div>
