@@ -39,11 +39,11 @@ $$
 ## Flow rates
 
 
-<table class="table table-lg">
+<table class="table table-lg" style="cellpadding: 10px;">
 <caption>
 Summary of flow rates
 </caption>
-<thead class="thead-dark" style="cellpadding: 10px;">
+<thead class="thead-dark">
 <tr><th> Symbol </th><th> Name </th><th>  Definition</th><th> SI  </th><th>  USCS </th></tr>
 </thead>
 <tbody>
@@ -56,12 +56,12 @@ Summary of flow rates
 The standard flow rates of $\m^3/\s$ and $\ft^3/\s$ are very large flow rates and we will therefore more frequently use liters per minute (L/min) and gallons per minute (gpm).  Some useful conversion factors that are available on our <a href="https://kdusling.github.io/teaching/Applied-Fluids/ConversionFactors.html">table of conversion factors</a> include the following:
 
 $$
-\frac{\text{449 gal/min}}{\text{ft}^3/\text{s}}\qquad
-\frac{\text{60,000 L/min}}{\text{m}^3/\text{s}}\qquad
+\frac{\text{449 gal/min}}{\ft^3/\s}\qquad
+\frac{\text{60,000 L/min}}{\m^3/\text{s}}\qquad
 \frac{\text{3.785 L/min}}{\text{gal/min}}\qquad
-\frac{\text{2119 ft$^3$/min}}{\text{m}^3/\text{s}}\qquad
-\frac{\text{CFM}}{\text{ft}^3/\text{min}}\qquad
-\frac{\text{60 CFM}}{\text{ft}^3/\text{s}}
+\frac{\text{2119 ft$^3$/min}}{\m^3/\s}\qquad
+\frac{\text{CFM}}{\ft^3/\text{min}}\qquad
+\frac{\text{60 CFM}}{\ft^3/\s}
 $$
 
 
