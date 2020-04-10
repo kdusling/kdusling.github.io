@@ -36,4 +36,15 @@ $$
 * A markdown unordered list for the toc
 {:toc}
 
-Bernoulli's equation is the statement of conservation of energy applied to a fluid in motion.  
+Bernoulli's equation is the statement of conservation of energy applied to a fluid in motion.  The assumptions include
+
++ The flow is steady
++ The fluid is incompressible
++ No friction
++ No heat addition or removal
++ No pumps or motors that add or remove energy from the system  
+
+$$
+\frac{p_1}{\gamma}+z_1+\frac{v_1^2}{2g}+h_A-h_R-h_L=\frac{p_2}{\gamma}+z_2+\frac{v_2^2}{2g} \qquad\qquad ({\rm Flow}: 1 \rightarrow 2)
+\,,
+$$
