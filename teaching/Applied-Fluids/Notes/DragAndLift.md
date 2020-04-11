@@ -79,4 +79,105 @@ The drag coefficient, $C_D$, depends on the shape and orientation of the body.  
   Drag coefficient of a long smooth circular cylinder as a function of Reynolds number.  The circles with plus, ⊕,  are data from <a href="https://doi.org/10.1017/S002211206500109X">Jayaweera and Mason</a>.  The open circles are data from <a href="https://doi.org/10.1017/S0022112059000829">Tritton, 1959</a>.    The remaining data is from <a href="https://ntrs.nasa.gov/search.jsp?R=19930080855">Wieselsberger, 1922</a> and has legend entries corresponding to the various cylinder diameters employed in that work.
   </p>
 </div>
-
+
+## Cylindrical shapes
+
+<table class="table table-striped">
+<caption>
+<a name="Cd3D"></a>
+Drag coefficient for various 3D shapes
+</caption>
+<thead>
+<tr><th> Shape  </th><th> $C_D$ </th> <th>Reynolds number</th> <th>Reference</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>Circular cylinder</td>
+<td></td>
+<td>$1.2$</td>
+<td>$10^{4}$ to $5\times10^{4}$</td>
+<td><a href="https://ntrs.nasa.gov/search.jsp?R=19930091694">NACA-TR-619</a>
+</td></tr>
+
+<td>Semitubular cylinder with open front end</td>
+<td></td>
+<td>$2.4$</td>
+<td></td>
+<td></a>
+</td></tr>
+
+
+<td>Semitubular cylinder with open rear end</td>
+<td></td>
+<td>$1.1$</td>
+<td></td>
+<td></a>
+</td></tr>
+
+<td>Square cylinder with face towards flow</td>
+<td></td>
+<td>$2$</td>
+<td></td>
+<td></a>
+</td></tr>
+
+<td>Square cylinder with edge towards flow</td>
+<td></td>
+<td>$1.6$</td>
+<td></td>
+<td></a>
+</td></tr>
+
+<td>Elipse 2:1</td>
+<td>&#8594;<div style="height:50px; width: 100px; background-color: #555;  border-radius: 50%;"></div></td>
+<td>$0.45$</td>
+<td></td>
+<td>$10^5$</a>
+</td></tr>
+
+<td>Elipse 4:1</td>
+<td></td>
+<td>$0.3$</td>
+<td></td>
+<td></a>
+</td></tr>
+
+<td>Elipse 4:1</td>
+<td></td>
+<td>$0.22$</td>
+<td></td>
+<td></a>
+</td></tr>
+
+</tbody>
+</table>
+
+## 3D shapes
+
+
+<table class="table table-striped">
+<caption>
+<a name="Cd3D"></a>
+Drag coefficient for various 3D shapes
+</caption>
+<thead>
+<tr><th> Shape  </th><th> $C_D$ </th> <th>Reynolds number</th> <th>Reference</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>Hemispherical cup with open front</td>
+<td></td>
+<td>$1.4$</td>
+<td>$10^{4}$ to $10^{5}$</td>
+<td><a href="https://ntrs.nasa.gov/search.jsp?R=19930091586">NACA-TR-513</a>
+</td></tr>
+
+<td>Hemispherical cup with open back</td>
+<td></td>
+<td>$0.4$</td>
+<td></td>
+<td>
+</td></tr>
+
+</tbody>
+</table>
