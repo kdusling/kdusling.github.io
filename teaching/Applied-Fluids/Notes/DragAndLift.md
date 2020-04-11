@@ -85,10 +85,10 @@ The drag coefficient, $C_D$, depends on the shape and orientation of the body.  
 <table class="table table-striped">
 <caption>
 <a name="Cd3D"></a>
-Drag coefficient for various 3D shapes
+Drag coefficient for various cylindrical shapes
 </caption>
 <thead>
-<tr><th> Shape  </th><th> $C_D$ </th> <th>Reynolds number</th> <th>Reference</th></tr>
+<tr><th> Shape  </th><th>Flow orientation</th><th> $C_D$ </th> <th>Reynolds number</th> <th>Reference</th></tr>
 </thead>
 <tbody>
 <tr>
@@ -129,21 +129,21 @@ Drag coefficient for various 3D shapes
 </td></tr>
 
 <td>Elipse 2:1</td>
-<td>&#8594;<div style="height:50px; width: 100px; background-color: #555;  border-radius: 50%;"></div></td>
+<td><p style="font-size:20px">&#8594;</p><div style="height:60px; width: 120px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div></td>
 <td>$0.45$</td>
 <td></td>
 <td>$10^5$</a>
 </td></tr>
 
 <td>Elipse 4:1</td>
-<td></td>
+<td><p style="font-size:20px">&#8594;</p><div style="height:30px; width: 120px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div></td>
 <td>$0.3$</td>
 <td></td>
 <td></a>
 </td></tr>
 
 <td>Elipse 4:1</td>
-<td></td>
+<td><p style="font-size:20px">&#8594;</p><div style="height:15px; width: 120px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div></td>
 <td>$0.22$</td>
 <td></td>
 <td></a>
@@ -161,7 +161,7 @@ Drag coefficient for various 3D shapes
 Drag coefficient for various 3D shapes
 </caption>
 <thead>
-<tr><th> Shape  </th><th> $C_D$ </th> <th>Reynolds number</th> <th>Reference</th></tr>
+<tr><th> Shape  </th><th>Flow orientation</th><th> $C_D$ </th> <th>Reynolds number</th> <th>Reference</th></tr>
 </thead>
 <tbody>
 <tr>
