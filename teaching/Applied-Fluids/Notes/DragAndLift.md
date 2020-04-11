@@ -84,10 +84,11 @@ The drag coefficient, $C_D$, depends on the shape and orientation of the body.  
 
 <table class="table table-striped">
 <caption>
-Drag coefficient for various cylindrical shapes
+Rough estimate of the drag coefficient for various cylindrical shapes from <a href="https://ntrs.nasa.gov/search.jsp?R=19930091694">NACA-TR-619</a>.  The three elliptical struts were taken at a Reynolds number of $10^5$.  The remaining shapes are valid for a Reynolds number between $10^{4}$ and $5\times10^{4}$.
+<BR><BR>The length scale used in the calculation of the Reynolds number is the length of the object in the direction parallel to the flow. An exception is the two semitubular cylinders which use their diameter.
 </caption>
 <thead>
-<tr><th> Shape  </th><th>Flow orientation</th><th> $C_D$ </th> <th>Reynolds number</th> <th>Reference</th></tr>
+<tr><th> Shape  </th><th>Flow orientation</th><th> $C_D$ </th>
 </thead>
 <tbody>
 
@@ -95,64 +96,48 @@ Drag coefficient for various cylindrical shapes
 <td>Circular cylinder</td>
 <td style="text-align:center"><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:60px; width: 60px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div></td>
 <td style="text-align:center">$1.2$</td>
-<td style="text-align:center">$10^{4}$ to $5\times10^{4}$</td>
-<td><a href="https://ntrs.nasa.gov/search.jsp?R=19930091694">NACA-TR-619</a></td>
 </tr>
 
 <tr>
-<td>Semitubular cylinder with open front end</td>
+<td>Semitubular cylinder<BR>with open front</td>
 <td style="text-align:center"><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:60px; width: 30px; border: 8px solid #555; background-color: transparent;  border-radius: 0 60px 60px 0; border-left: transparent; display: inline-block; vertical-align: middle;"></div></td>
 <td style="text-align:center">$2.4$</td>
-<td></td>
-<td></td>
 </tr>
 
 <tr>
-<td>Semitubular cylinder with open rear end</td>
+<td>Semitubular cylinder<BR>with open rear</td>
 <td style="text-align:center"><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:60px; width: 30px; border: 8px solid #555; background-color: transparent;  border-radius: 60px 0 0 60px; border-right: transparent; display: inline-block; vertical-align: middle;"></div></td>
 <td style="text-align:center">$1.1$</td>
-<td></td>
-<td></td>
 </tr>
 
 <tr>
-<td>Square cylinder with face towards flow</td>
-<td style="text-align:center"><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:60px; width: 60px; background-color: #555; display: inline-block; vertical-align: middle;"></div></td>
+<td>Square cylinder<BR>with face towards flow</td>
+<td style="text-align:center"><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:40px; width: 40px; background-color: #555; display: inline-block; vertical-align: middle;"></div></td>
 <td style="text-align:center">$2$</td>
-<td></td>
-<td></td>
 </tr>
 
 <tr>
-<td>Square cylinder with edge towards flow</td>
-<td style="text-align:center"><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:60px; width: 60px; background-color: #555; transform: rotate(45deg); display: inline-block; vertical-align: middle;"></div></td>
+<td>Square cylinder<BR>with edge towards flow</td>
+<td style="text-align:center"><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:40px; width: 40px; background-color: #555; transform: rotate(45deg); display: inline-block; vertical-align: middle;"></div></td>
 <td style="text-align:center">$1.6$</td>
-<td></td>
-<td></td>
 </tr>
 
 <tr>
 <td>Elipse 2:1</td>
 <td><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:60px; width: 120px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div></td>
-<td>$0.45$</td>
-<td>$10^5$</td>
-<td></td>
+<td style="text-align:center">$0.45$</td>
 </tr>
 
 <tr>
 <td>Elipse 4:1</td>
 <td style="text-align:center"><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:30px; width: 120px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div></td>
 <td style="text-align:center">$0.3$</td>
-<td></td>
-<td></td>
 </tr>
 
 <tr>
 <td>Elipse 8:1</td>
 <td style="text-align:center"><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:15px; width: 120px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div></td>
 <td style="text-align:center">$0.22$</td>
-<td></td>
-<td></td>
 </tr>
 
 </tbody>
