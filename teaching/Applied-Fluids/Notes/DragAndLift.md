@@ -93,40 +93,40 @@ Drag coefficient for various cylindrical shapes
 
 <tr>
 <td>Circular cylinder</td>
-<td><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:60px; width: 60px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div></td>
-<td>$1.2$</td>
-<td>$10^{4}$ to $5\times10^{4}$</td>
+<td style="text-align:center"><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:60px; width: 60px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div></td>
+<td style="text-align:center">$1.2$</td>
+<td style="text-align:center">$10^{4}$ to $5\times10^{4}$</td>
 <td><a href="https://ntrs.nasa.gov/search.jsp?R=19930091694">NACA-TR-619</a></td>
 </tr>
 
 <tr>
 <td>Semitubular cylinder with open front end</td>
-<td></td>
-<td>$2.4$</td>
+<td style="text-align:center"><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:60px; width: 60px; border: 4px solid #555; background-color: transparent;  border-radius: 0 90px 90px 0; display: inline-block; vertical-align: middle;"></div></td>
+<td style="text-align:center">$2.4$</td>
 <td></td>
 <td></td>
 </tr>
 
 <tr>
 <td>Semitubular cylinder with open rear end</td>
-<td></td>
-<td>$1.1$</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">$1.1$</td>
 <td></td>
 <td></td>
 </tr>
 
 <tr>
 <td>Square cylinder with face towards flow</td>
-<td><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:60px; width: 60px; background-color: #555; display: inline-block; vertical-align: middle;"></div></td>
-<td>$2$</td>
+<td style="text-align:center"><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:60px; width: 60px; background-color: #555; display: inline-block; vertical-align: middle;"></div></td>
+<td style="text-align:center">$2$</td>
 <td></td>
 <td></td>
 </tr>
 
 <tr>
 <td>Square cylinder with edge towards flow</td>
-<td><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:60px; width: 60px; background-color: #555; transform: rotate(45deg); display: inline-block; vertical-align: middle;"></div></td>
-<td>$1.6$</td>
+<td style="text-align:center"><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:60px; width: 60px; background-color: #555; transform: rotate(45deg); display: inline-block; vertical-align: middle;"></div></td>
+<td style="text-align:center">$1.6$</td>
 <td></td>
 <td></td>
 </tr>
@@ -141,16 +141,16 @@ Drag coefficient for various cylindrical shapes
 
 <tr>
 <td>Elipse 4:1</td>
-<td><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:30px; width: 120px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div></td>
-<td>$0.3$</td>
+<td style="text-align:center"><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:30px; width: 120px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div></td>
+<td style="text-align:center">$0.3$</td>
 <td></td>
 <td></td>
 </tr>
 
 <tr>
-<td>Elipse 4:1</td>
-<td><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:15px; width: 120px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div></td>
-<td>$0.22$</td>
+<td>Elipse 8:1</td>
+<td style="text-align:center"><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:15px; width: 120px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div></td>
+<td style="text-align:center">$0.22$</td>
 <td></td>
 <td></td>
 </tr>
