@@ -91,63 +91,64 @@ Drag coefficient for various cylindrical shapes
 <tr><th> Shape  </th><th>Flow orientation</th><th> $C_D$ </th> <th>Reynolds number</th> <th>Reference</th></tr>
 </thead>
 <tbody>
+
 <tr>
 <td>Circular cylinder</td>
-<td><p style="font-size:20px">&#8594;</p><div style="height:120px; width: 120px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div></td>
+<td><span style="font-size:20px">&#8594;</span><div style="height:60px; width: 60px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div></td>
 <td>$1.2$</td>
 <td>$10^{4}$ to $5\times10^{4}$</td>
-<td><a href="https://ntrs.nasa.gov/search.jsp?R=19930091694">NACA-TR-619</a>
-</td></tr>
+<td><a href="https://ntrs.nasa.gov/search.jsp?R=19930091694">NACA-TR-619</a></td>
+</tr>
 
 <td>Semitubular cylinder with open front end</td>
 <td></td>
 <td>$2.4$</td>
 <td></td>
-<td></a>
-</td></tr>
+<td></td>
+</tr>
 
 
 <td>Semitubular cylinder with open rear end</td>
 <td></td>
 <td>$1.1$</td>
 <td></td>
-<td></a>
-</td></tr>
+<td></td>
+</tr>
 
 <td>Square cylinder with face towards flow</td>
 <td></td>
 <td>$2$</td>
 <td></td>
-<td></a>
-</td></tr>
+<td></td>
+</tr>
 
 <td>Square cylinder with edge towards flow</td>
 <td></td>
 <td>$1.6$</td>
 <td></td>
-<td></a>
-</td></tr>
+<td></td>
+</tr>
 
 <td>Elipse 2:1</td>
 <td><p style="font-size:20px">&#8594;</p><div style="height:60px; width: 120px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div></td>
 <td>$0.45$</td>
 <td></td>
-<td>$10^5$</a>
-</td></tr>
+<td>$10^5$</td>
+</tr>
 
 <td>Elipse 4:1</td>
 <td><p style="font-size:20px">&#8594;</p><div style="height:30px; width: 120px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div></td>
 <td>$0.3$</td>
 <td></td>
-<td></a>
-</td></tr>
+<td></td>
+</tr>
 
 <td>Elipse 4:1</td>
 <td><p style="font-size:20px">&#8594;</p><div style="height:15px; width: 120px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div></td>
 <td>$0.22$</td>
 <td></td>
-<td></a>
-</td></tr>
+<td></td>
+</tr>
 
 </tbody>
 </table>
