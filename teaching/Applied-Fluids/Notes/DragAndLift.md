@@ -93,7 +93,7 @@ Drag coefficient for various cylindrical shapes
 <tbody>
 <tr>
 <td>Circular cylinder</td>
-<td></td>
+<td><p style="font-size:20px">&#8594;</p><div style="height:120px; width: 120px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div></td>
 <td>$1.2$</td>
 <td>$10^{4}$ to $5\times10^{4}$</td>
 <td><a href="https://ntrs.nasa.gov/search.jsp?R=19930091694">NACA-TR-619</a>
