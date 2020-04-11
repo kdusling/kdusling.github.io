@@ -101,7 +101,7 @@ Drag coefficient for various cylindrical shapes
 
 <tr>
 <td>Semitubular cylinder with open front end</td>
-<td style="text-align:center"><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:60px; width: 60px; border: 4px solid #555; background-color: transparent;  border-radius: 0 90px 90px 0; display: inline-block; vertical-align: middle;"></div></td>
+<td style="text-align:center"><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:60px; width: 30px; border: 8px solid #555; background-color: transparent;  border-radius: 0 60px 60px 0; border-left: transparent; display: inline-block; vertical-align: middle;"></div></td>
 <td style="text-align:center">$2.4$</td>
 <td></td>
 <td></td>
@@ -109,7 +109,7 @@ Drag coefficient for various cylindrical shapes
 
 <tr>
 <td>Semitubular cylinder with open rear end</td>
-<td style="text-align:center"></td>
+<td style="text-align:center"><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:60px; width: 30px; border: 8px solid #555; background-color: transparent;  border-radius: 60px 0 0 60px; border-right: transparent; display: inline-block; vertical-align: middle;"></div></td>
 <td style="text-align:center">$1.1$</td>
 <td></td>
 <td></td>
