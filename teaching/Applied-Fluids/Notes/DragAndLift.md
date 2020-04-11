@@ -93,7 +93,7 @@ Drag coefficient for various cylindrical shapes
 
 <tr>
 <td>Circular cylinder</td>
-<td><span style="font-size:28px">&#8594;&nbsp;&bnsp;</span><div style="height:60px; width: 60px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div></td>
+<td><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:60px; width: 60px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div></td>
 <td>$1.2$</td>
 <td>$10^{4}$ to $5\times10^{4}$</td>
 <td><a href="https://ntrs.nasa.gov/search.jsp?R=19930091694">NACA-TR-619</a></td>
@@ -117,7 +117,7 @@ Drag coefficient for various cylindrical shapes
 
 <tr>
 <td>Square cylinder with face towards flow</td>
-<td></td>
+<td><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:60px; width: 60px; background-color: #555; display: inline-block; vertical-align: middle;"></div></td>
 <td>$2$</td>
 <td></td>
 <td></td>
@@ -125,7 +125,7 @@ Drag coefficient for various cylindrical shapes
 
 <tr>
 <td>Square cylinder with edge towards flow</td>
-<td></td>
+<td><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:60px; width: 60px; background-color: #555; transform: rotate(45deg); display: inline-block; vertical-align: middle;"></div></td>
 <td>$1.6$</td>
 <td></td>
 <td></td>
@@ -133,15 +133,15 @@ Drag coefficient for various cylindrical shapes
 
 <tr>
 <td>Elipse 2:1</td>
-<td><p style="font-size:20px">&#8594;</p><div style="height:60px; width: 120px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div></td>
+<td><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:60px; width: 120px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div></td>
 <td>$0.45$</td>
-<td></td>
 <td>$10^5$</td>
+<td></td>
 </tr>
 
 <tr>
 <td>Elipse 4:1</td>
-<td><p style="font-size:20px">&#8594;</p><div style="height:30px; width: 120px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div></td>
+<td><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:30px; width: 120px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div></td>
 <td>$0.3$</td>
 <td></td>
 <td></td>
@@ -149,7 +149,7 @@ Drag coefficient for various cylindrical shapes
 
 <tr>
 <td>Elipse 4:1</td>
-<td><p style="font-size:20px">&#8594;</p><div style="height:15px; width: 120px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div></td>
+<td><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:15px; width: 120px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div></td>
 <td>$0.22$</td>
 <td></td>
 <td></td>
