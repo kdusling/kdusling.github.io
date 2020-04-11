@@ -84,7 +84,6 @@ The drag coefficient, $C_D$, depends on the shape and orientation of the body.  
 
 <table class="table table-striped">
 <caption>
-<a name="Cd3D"></a>
 Drag coefficient for various cylindrical shapes
 </caption>
 <thead>
@@ -94,12 +93,13 @@ Drag coefficient for various cylindrical shapes
 
 <tr>
 <td>Circular cylinder</td>
-<td><span style="font-size:20px">&#8594;</span><div style="height:60px; width: 60px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div></td>
+<td><span style="font-size:28px">&#8594;&nbsp;&bnsp;</span><div style="height:60px; width: 60px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div></td>
 <td>$1.2$</td>
 <td>$10^{4}$ to $5\times10^{4}$</td>
 <td><a href="https://ntrs.nasa.gov/search.jsp?R=19930091694">NACA-TR-619</a></td>
 </tr>
 
+<tr>
 <td>Semitubular cylinder with open front end</td>
 <td></td>
 <td>$2.4$</td>
@@ -107,7 +107,7 @@ Drag coefficient for various cylindrical shapes
 <td></td>
 </tr>
 
-
+<tr>
 <td>Semitubular cylinder with open rear end</td>
 <td></td>
 <td>$1.1$</td>
@@ -115,6 +115,7 @@ Drag coefficient for various cylindrical shapes
 <td></td>
 </tr>
 
+<tr>
 <td>Square cylinder with face towards flow</td>
 <td></td>
 <td>$2$</td>
@@ -122,6 +123,7 @@ Drag coefficient for various cylindrical shapes
 <td></td>
 </tr>
 
+<tr>
 <td>Square cylinder with edge towards flow</td>
 <td></td>
 <td>$1.6$</td>
@@ -129,6 +131,7 @@ Drag coefficient for various cylindrical shapes
 <td></td>
 </tr>
 
+<tr>
 <td>Elipse 2:1</td>
 <td><p style="font-size:20px">&#8594;</p><div style="height:60px; width: 120px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div></td>
 <td>$0.45$</td>
@@ -136,6 +139,7 @@ Drag coefficient for various cylindrical shapes
 <td>$10^5$</td>
 </tr>
 
+<tr>
 <td>Elipse 4:1</td>
 <td><p style="font-size:20px">&#8594;</p><div style="height:30px; width: 120px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div></td>
 <td>$0.3$</td>
@@ -143,6 +147,7 @@ Drag coefficient for various cylindrical shapes
 <td></td>
 </tr>
 
+<tr>
 <td>Elipse 4:1</td>
 <td><p style="font-size:20px">&#8594;</p><div style="height:15px; width: 120px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div></td>
 <td>$0.22$</td>
@@ -158,7 +163,6 @@ Drag coefficient for various cylindrical shapes
 
 <table class="table table-striped">
 <caption>
-<a name="Cd3D"></a>
 Drag coefficient for various 3D shapes
 </caption>
 <thead>
@@ -170,15 +174,16 @@ Drag coefficient for various 3D shapes
 <td></td>
 <td>$1.4$</td>
 <td>$10^{4}$ to $10^{5}$</td>
-<td><a href="https://ntrs.nasa.gov/search.jsp?R=19930091586">NACA-TR-513</a>
-</td></tr>
+<td><a href="https://ntrs.nasa.gov/search.jsp?R=19930091586">NACA-TR-513</a></td>
+</tr>
 
+<tr>
 <td>Hemispherical cup with open back</td>
 <td></td>
 <td>$0.4$</td>
 <td></td>
-<td>
-</td></tr>
+<td></td>
+</tr>
 
 </tbody>
 </table>
