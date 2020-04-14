@@ -50,13 +50,13 @@ An object moving through a fluid will experience a force on it.  The force that 
 The drag force on an object is
 
 $$
-F_D=C_D \left(\frac{\rho}{v^2}{2}\right) A
+F_D=C_D \left(\frac{\rho}{2}v^2\right) A
 $$
 
 In the above expression, $C_D$ is a dimensionless number known as the drag coefficient.  $rho$ is the density of the fluid.  $v$ is the velocity of the stream of fluid relative to the body. The stream could be moving with velocity $v$ while the body is at rest, of the fluid could be at rest and with the body moving with velocity $v$.
 $A$ is a <em >characteristic area</a> of the body and will be defined carefully for each object in the subsequent sections.  It is usually taken as the largest cross-sectional area of the body, also known as the projected area.
 
-The drag coefficient, $C_D$, depends on the shape and orientation of the body.  It also depends on the Reynolds number and the roughness of the object's surface.  It can also be influenced by other bodies in the vicinity of the object in question.
+The drag coefficient, $C_D$, depends on the shape and orientation of the body.  It also depends on the Reynolds number and the roughness of the object's surface.  It can also be influenced by other bodies in the vicinity of the object in question.  Ultimately the drag coefficient will be taken from experiments.  
 
 ## Spheres
 
@@ -85,10 +85,11 @@ The drag coefficient, $C_D$, depends on the shape and orientation of the body.  
 <table class="table table-striped">
 <caption>
 Rough estimate of the drag coefficient for various cylindrical shapes from <a href="https://ntrs.nasa.gov/search.jsp?R=19930091694">NACA-TR-619</a>.  The three elliptical struts were taken at a Reynolds number of $10^5$.  The remaining shapes are valid for a Reynolds number between $10^{4}$ and $5\times10^{4}$.
-<BR><BR>The length scale used in the calculation of the Reynolds number is the length of the object in the direction parallel to the flow. An exception is the two semitubular cylinders which use their diameter.
+<BR><BR>
+The length scale used in the calculation of the Reynolds number is the length of the object in the direction parallel to the flow. An exception is the two semitubular cylinders which use their diameter.
 </caption>
 <thead>
-<tr><th> Shape  </th><th>Flow orientation</th><th> $C_D$ </th>
+<tr><th> Shape  </th><th>Flow orientation</th><th> $C_D$ </th></tr>
 </thead>
 <tbody>
 
