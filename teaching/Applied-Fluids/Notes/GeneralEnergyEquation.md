@@ -58,3 +58,35 @@ h_R&= \text{energy removed from the fluid by a motor} \\
 h_L&= \text{energy lost in the system due to friction}
 \end{align*}
 $$
+
+## Power requirements and efficiency of pumps
+
+The power transferred to the fluid by a pump is
+
+$$
+P_A=h_A \gamma Q
+$$
+
+The mechanical efficiency $e_M$ for a pump is
+
+$$
+e_M=\frac{P_A}{P_I}
+$$
+
+where $P_I$ is the input power to (*.i.e.* power consumed by) the pump.
+
+## Power requirements and efficiency of motors
+
+The power removed from the fluid by a motor is
+
+$$
+P_R=h_R \gamma Q
+$$
+
+The mechanical efficiency $e_M$ for a motor is
+
+$$
+e_M=\frac{P_O}{P_R}
+$$
+
+where $P_O$ is the power output of the motor.
