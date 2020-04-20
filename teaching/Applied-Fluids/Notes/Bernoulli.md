@@ -45,6 +45,5 @@ Bernoulli's equation is the statement of conservation of energy applied to a flu
 + No pumps or motors that add or remove energy from the system  
 
 $$
-\frac{p_1}{\gamma}+z_1+\frac{v_1^2}{2g}+h_A-h_R-h_L=\frac{p_2}{\gamma}+z_2+\frac{v_2^2}{2g} \qquad\qquad ({\rm Flow}: 1 \rightarrow 2)
-\,,
+\frac{p_1}{\gamma}+z_1+\frac{v_1^2}{2g}=\frac{p_2}{\gamma}+z_2+\frac{v_2^2}{2g}
 $$
