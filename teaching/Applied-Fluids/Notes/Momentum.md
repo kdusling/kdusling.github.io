@@ -54,7 +54,7 @@ A hose sprays a jet of water directly at a wall at a rate of 2 liters per second
 
 <hr>
 
-In this problem I will assume that the water does not reflect from the wall but simply comes to rest.  More realistically the fluid will be deflected from the wall in a direction perpendicular to the wall.  In either case the problem is solved by focusing on the change in momentum in one dimension, which we will call the $x$-direction.     
+In this problem I will assume that the water does not reflect from the wall but simply comes to rest.  More realistically the fluid will be deflected from the wall in a direction along to the wall.  In either case the problem is solved by focusing on the change in momentum in one dimension, which we will call the $x$-direction.     
 
 The momentum equation in the *x*-direction is:
 

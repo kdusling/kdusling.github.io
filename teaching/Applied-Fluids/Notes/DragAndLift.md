@@ -54,7 +54,7 @@ F_D=C_D \left(\frac{\rho}{2}v^2\right) A
 $$
 
 In the above expression, $C_D$ is a dimensionless number known as the drag coefficient.  $rho$ is the density of the fluid.  $v$ is the velocity of the stream of fluid relative to the body. The stream could be moving with velocity $v$ while the body is at rest, of the fluid could be at rest and with the body moving with velocity $v$.
-$A$ is a <em >characteristic area</a> of the body and will be defined carefully for each object in the subsequent sections.  It is usually taken as the largest cross-sectional area of the body, also known as the projected area.
+$A$ is a *characteristic area* of the body and will be defined carefully for each object in the subsequent sections.  It is usually taken as the largest cross-sectional area of the body perpendicular to the flow, also known as the projected area.
 
 The drag coefficient, $C_D$, depends on the shape and orientation of the body.  It also depends on the Reynolds number and the roughness of the object's surface.  It can also be influenced by other bodies in the vicinity of the object in question.  Ultimately the drag coefficient will be taken from experiments.  
 
@@ -89,7 +89,7 @@ Rough estimate of the drag coefficient for various cylindrical shapes from <a hr
 The length scale used in the calculation of the Reynolds number is the length of the object in the direction parallel to the flow. An exception is the two semitubular cylinders which use their diameter.
 </caption>
 <thead>
-<tr><th> Shape  </th><th>Flow orientation</th><th> $C_D$ </th></tr>
+<tr><th> Shape  </th><th>Flow orientation</th><th style="padding:10px"> $C_D$ </th></tr>
 </thead>
 <tbody>
 
@@ -150,9 +150,11 @@ The length scale used in the calculation of the Reynolds number is the length of
 <table class="table table-striped">
 <caption>
 Drag coefficient for various 3D shapes
+
+<a href="https://ntrs.nasa.gov/search.jsp?R=19930091586">NACA-TR-513</a>
 </caption>
 <thead>
-<tr><th> Shape  </th><th>Flow orientation</th><th> $C_D$ </th> <th>Reynolds number</th> <th>Reference</th></tr>
+<tr><th> Shape  </th><th>Flow orientation</th><th style="padding:10px"> $C_D$ </th></tr>
 </thead>
 <tbody>
 <tr>
@@ -160,7 +162,7 @@ Drag coefficient for various 3D shapes
 <td></td>
 <td>$1.4$</td>
 <td>$10^{4}$ to $10^{5}$</td>
-<td><a href="https://ntrs.nasa.gov/search.jsp?R=19930091586">NACA-TR-513</a></td>
+<td></td>
 </tr>
 
 <tr>

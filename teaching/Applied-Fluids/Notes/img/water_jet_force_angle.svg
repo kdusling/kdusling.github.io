@@ -14,7 +14,7 @@
    viewBox="0 0 92.845108 47.145453"
    version="1.1"
    id="svg3565"
-   sodipodi:docname="water_jet_force.svg"
+   sodipodi:docname="water_jet_force_angle.svg"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
   <defs
      id="defs3559">
@@ -77,9 +77,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.8101934"
-     inkscape:cx="143.2604"
-     inkscape:cy="34.788191"
+     inkscape:zoom="1.7772324"
+     inkscape:cx="172.56772"
+     inkscape:cy="116.73539"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -93,10 +93,7 @@
      fit-margin-right="5"
      fit-margin-bottom="5"
      fit-margin-top="5"
-     showborder="false"
-     inkscape:pagecheckerboard="false"
-     borderlayer="false"
-     inkscape:showpageshadow="true" />
+     showborder="false" />
   <metadata
      id="metadata3562">
     <rdf:RDF>
