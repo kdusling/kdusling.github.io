@@ -157,9 +157,19 @@ Drag coefficient for various 3D shapes
 <tr><th> Shape  </th><th>Flow orientation</th><th style="padding:10px"> $C_D$ </th></tr>
 </thead>
 <tbody>
+
+<tr>
+<td>Square plate perpendicular to flow</td>
+<td style="text-align:center"><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:40px; width: 5px; background-color: #555; display: inline-block; vertical-align: middle;"></div></td>
+<td>$1.16$</td>
+<td>$10^{4}$ to $10^{5}$</td>
+<td></td>
+</tr>
+
+
 <tr>
 <td>Hemispherical cup with open front</td>
-<td><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:40px; width: 40px; display: inline-block; vertical-align: middle;"><img src="img/cup.gif" style="transform: rotate(180deg)"></div></td>
+<td><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><img src="img/cup.gif" style="transform: rotate(180deg); width: 40px;"></td>
 <td>$1.4$</td>
 <td>$10^{4}$ to $10^{5}$</td>
 <td></td>
@@ -167,7 +177,7 @@ Drag coefficient for various 3D shapes
 
 <tr>
 <td>Hemispherical cup with open back</td>
-<td><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:40px; width: 40px; display: inline-block; vertical-align: middle;"><img src="img/cup.gif"></div></td>
+<td><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><img src="img/cup.gif" width: 40px;"></td>
 <td>$0.4$</td>
 <td></td>
 <td></td>
