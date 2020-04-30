@@ -177,7 +177,7 @@ Drag coefficient for various 3D shapes
 
 <tr>
 <td>Hemispherical cup with open back</td>
-<td><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><img src="img/cup.gif" width: 40px;"></td>
+<td><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><img src="img/cup.gif" stle="width: 40px;"></td>
 <td>$0.4$</td>
 <td></td>
 <td></td>
