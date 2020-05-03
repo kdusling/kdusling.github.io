@@ -160,7 +160,7 @@ Drag coefficient for various 3D shapes
 
 <tr>
 <td>Square plate perpendicular to flow</td>
-<td style="text-align:center"><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><div style="height:40px; width: 5px; background-color: #555; display: inline-block; vertical-align: middle;"></div></td>
+<td><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><img src="img/flat_plate.gif" style="transform: rotate(180deg); width: 40px;"></td>
 <td>$1.16$</td>
 </tr>
 
@@ -179,3 +179,17 @@ Drag coefficient for various 3D shapes
 
 </tbody>
 </table>
+
+# Lift and drag on airfoils
+
+The lift force on an airfoil is given as
+
+$$
+F_L=C_L \left(\rho v^2/2\right) A
+$$
+
+where $C_L$ is a dimensionless lift coefficient that primarily dependent on the shape of the airfoil and its angle of attack.  Keep in mind that it can also depend on the Reynolds number, Mach number, surface roughness, and the aspect ratio.  The area, $A$, is taken as the span of the airfoil multiplied by the chord.
+
+$$
+F_D=C_D \left(\rho v^2/2\right) A
+$$
