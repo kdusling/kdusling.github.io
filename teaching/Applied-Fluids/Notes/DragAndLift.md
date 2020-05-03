@@ -160,7 +160,7 @@ Drag coefficient for various 3D shapes
 
 <tr>
 <td>Square plate perpendicular to flow</td>
-<td><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><img src="img/flat_plate.gif" style="transform: rotate(180deg); width: 40px;"></td>
+<td><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><img src="img/flat_plate.gif" style="width: 40px;"></td>
 <td>$1.16$</td>
 </tr>
 
