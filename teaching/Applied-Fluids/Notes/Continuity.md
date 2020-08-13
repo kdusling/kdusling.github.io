@@ -38,8 +38,17 @@ $$
 
 ## Flow rates
 
+There are three closely related ways to express the amount of fluid flowing in a system per unit time.  The most basic one is the *volume flow rate* ($Q$) having dimensions of volume divided by time.  For example, a household faucet has a volume flow rate of about 2 gallons per minute.  If you close the drain in your sink and leave your faucet open for one minute your sink will contain about 2 gallons of water.
 
-<table class="table table-lg" style="cellpadding: 10px;">
+The volume flow rate through a section of pipe can be related to the pipe's cross-sectional area ($A$) and the average flow velocity ($v$) by the relation
+
+$$Q=A\times v$$
+
+Two quantities closely related to the volume flow rate are the *weight flow rate* ($W$) and the *mass flow rate* ($M$) which represent the weight or mass of the fluid flowing in the system per unit time.
+
+
+<div class="table-responsive-lg">
+<table class="table">
 <caption>
 Summary of flow rates
 </caption>
@@ -52,6 +61,7 @@ Summary of flow rates
 <tr><td>$M$ </td><td> Mass flow rate </td><td>$M=\rho Q$ <BR> $M=\rho A V$  </td><td>  $\kg/\s$</td><td>$\slug/\s$ </td></tr>
 </tbody>
 </table>
+</div>
 
 The standard flow rates of $\m^3/\s$ and $\ft^3/\s$ are very large flow rates and we will therefore more frequently use liters per minute (L/min) and gallons per minute (gpm).  Some useful conversion factors that are available on our <a href="https://kdusling.github.io/teaching/Applied-Fluids/ConversionFactors.html">table of conversion factors</a> include the following:
 
