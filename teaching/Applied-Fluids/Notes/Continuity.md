@@ -47,8 +47,7 @@ $$Q=A\times v$$
 Two quantities closely related to the volume flow rate are the *weight flow rate* ($W$) and the *mass flow rate* ($M$) which represent the weight or mass of the fluid flowing in the system per unit time.
 
 
-<div class="table-responsive-lg">
-<table class="table">
+<table class="table table-striped">
 <caption>
 Summary of flow rates
 </caption>
@@ -61,9 +60,9 @@ Summary of flow rates
 <tr><td>$M$ </td><td> Mass flow rate </td><td>$M=\rho Q$ <BR> $M=\rho A V$  </td><td>  $\kg/\s$</td><td>$\slug/\s$ </td></tr>
 </tbody>
 </table>
-</div>
 
-The standard flow rates of $\m^3/\s$ and $\ft^3/\s$ are very large flow rates and we will therefore more frequently use liters per minute (L/min) and gallons per minute (gpm).  Some useful conversion factors that are available on our <a href="https://kdusling.github.io/teaching/Applied-Fluids/ConversionFactors.html">table of conversion factors</a> include the following:
+
+The standard units for volume flow rates are $\m^3/\s$ and $\ft^3/\s$ but are quite large. We will therefore more frequently use liters per minute (L/min) and gallons per minute (gpm).  Some useful conversion factors that are available on our <a href="https://kdusling.github.io/teaching/Applied-Fluids/ConversionFactors.html">table of conversion factors</a> include the following:
 
 $$
 \frac{\text{449 gal/min}}{\ft^3/\s}\qquad
@@ -122,15 +121,30 @@ $$
 
 ## Continuity equation
 
-The continuity equation is a consequence of the conservation of mass, which  says that mass cannot be created or destroyed.  Consider the pipe system shown below.
+The continuity equation is a consequence of the conservation of mass.  Consider the pipe system shown below.  If the flow is stead (doesn't change with time) the mass of fluid that enters the pipe from the left must equal the mass of fluid that exits from the right.  
 
 <div class="photo" style="width: 600px;  text-align:center">
 <img src="img\continuity.svg">
 </div>
 
+We therefore must have that
+
+$$
+M_1=M_2
+$$
+
+using the definition that $M=\rho A v$ we have that
+
+$$\rho_1 A_1 v_1=\rho_2 A_2 v_2$$
+
+If the fluid is incompressible then $\rho_1 = \rho_2$ and the density cancels from each side of the above expression.  We are therefore left with the
+
+<div class="callout">
+ continuity equation for incompressible fluids
+ $$A_1 v_1=A_2 v_2$$
+</div>
 
 
-<a href="https://youtu.be/G4CgOF4ccXk">Volume flow rate and equation of continuity | Fluids | Physics | Khan Academy</a>
 
 
 ## Commercially available piping
