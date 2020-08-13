@@ -141,7 +141,11 @@ If the fluid is incompressible then $\rho_1 = \rho_2$ and the density cancels fr
 
 <div class="callout">
  continuity equation for incompressible fluids
- $$A_1 v_1=A_2 v_2$$
+
+ $$
+ A_1 v_1=A_2 v_2
+ $$
+
 </div>
 
 
