@@ -4,18 +4,7 @@ title: Dimensions & Units
 ---
 
 $$
-\newcommand{\lb}{\mathrm{lb}}
-\newcommand{\lbm}{\mathrm{lbm}}
-\newcommand{\lbf}{\mathrm{lbf}}
-\newcommand{\N}{\mathrm{N}}
-\newcommand{\slug}{\mathrm{slugs}}
-\newcommand{\Pa}{\mathrm{Pa}}
-\newcommand{\mph}{\mathrm{mph}}
-\renewcommand{\psi}{\mathrm{psi}}
-\newcommand{\C}{^\circ\mathrm{C}}
-\newcommand{\F}{^\circ\mathrm{F}}
-\newcommand{\R}{~\mathrm{R}}
-\newcommand{\K}{~\mathrm{K}}
+\require{cancel}
 $$
 
 # Dimensions & Units
