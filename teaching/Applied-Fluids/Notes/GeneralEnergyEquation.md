@@ -3,36 +3,6 @@ layout: course
 title: General Energy Equation
 ---
 
-$$
-\require{cancel}
-\newcommand{\s}{\mathrm{s}}
-\newcommand{\min}{\mathrm{min}}
-\newcommand{\hr}{\mathrm{hr}}
-\newcommand{\kg}{\mathrm{kg}}
-\newcommand{\kN}{\mathrm{kN}}
-\newcommand{\inch}{\mathrm{in}}
-\newcommand{\ft}{\mathrm{ft}}
-\newcommand{\m}{\mathrm{m}}
-\newcommand{\mm}{\mathrm{mm}}
-\newcommand{\km}{\mathrm{km}}
-\newcommand{\mi}{\mathrm{mi}}
-\newcommand{\cm}{\mathrm{cm}}
-\newcommand{\lb}{\mathrm{lb}}
-\newcommand{\lbm}{\mathrm{lbm}}
-\newcommand{\lbf}{\mathrm{lbf}}
-\newcommand{\N}{\mathrm{N}}
-\newcommand{\slug}{\mathrm{slug}}
-\newcommand{\Pa}{\mathrm{Pa}}
-\newcommand{\kPa}{\mathrm{kPa}}
-\newcommand{\mph}{\mathrm{mph}}
-\renewcommand{\psi}{\mathrm{psi}}
-\newcommand{\C}{^\circ\mathrm{C}}
-\newcommand{\F}{^\circ\mathrm{F}}
-\newcommand{\Re}{\mathrm{Re}}
-\newcommand{\WP}{\mathrm{WP}}
-\newcommand{\L}{\mathrm{L}}
-\newcommand{\gpm}{\mathrm{gpm}}
-$$
 
 # General Energy Equation
 {:.no_toc}

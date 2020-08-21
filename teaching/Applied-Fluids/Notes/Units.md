@@ -3,9 +3,6 @@ layout: course
 title: Dimensions & Units
 ---
 
-$$
-$$
-
 # Dimensions & Units
 {:.no_toc}
 

@@ -3,19 +3,6 @@ layout: course
 title: Buoyancy
 ---
 
-$$
-\require{cancel}
-\newcommand{\kg}{\mathrm{kg}}
-\newcommand{\kN}{\mathrm{kN}}
-\newcommand{\inch}{\mathrm{in}}
-\newcommand{\ft}{\mathrm{ft}}
-\newcommand{\m}{\mathrm{m}}
-\newcommand{\cm}{\mathrm{cm}}
-\newcommand{\lb}{\mathrm{lb}}
-\newcommand{\N}{\mathrm{N}}
-\newcommand{\Pa}{\mathrm{Pa}}
-$$
-
 # Buoyancy and stability
 {:.no_toc}
 

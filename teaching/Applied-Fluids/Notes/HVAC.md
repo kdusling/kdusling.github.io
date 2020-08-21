@@ -3,40 +3,6 @@ layout: course
 title: Flow of air in ducts
 ---
 
-$$
-\require{cancel}
-\newcommand{\s}{\mathrm{s}}
-\newcommand{\min}{\mathrm{min}}
-\newcommand{\hr}{\mathrm{hr}}
-\newcommand{\kg}{\mathrm{kg}}
-\newcommand{\kN}{\mathrm{kN}}
-\newcommand{\inch}{\mathrm{in}}
-\newcommand{\ft}{\mathrm{ft}}
-\newcommand{\m}{\mathrm{m}}
-\newcommand{\mm}{\mathrm{mm}}
-\newcommand{\km}{\mathrm{km}}
-\newcommand{\mi}{\mathrm{mi}}
-\newcommand{\cm}{\mathrm{cm}}
-\newcommand{\lb}{\mathrm{lb}}
-\newcommand{\lbm}{\mathrm{lbm}}
-\newcommand{\lbf}{\mathrm{lbf}}
-\newcommand{\N}{\mathrm{N}}
-\newcommand{\slug}{\mathrm{slug}}
-\newcommand{\Pa}{\mathrm{Pa}}
-\newcommand{\kPa}{\mathrm{kPa}}
-\newcommand{\mph}{\mathrm{mph}}
-\renewcommand{\psi}{\mathrm{psi}}
-\newcommand{\C}{^\circ\mathrm{C}}
-\newcommand{\F}{^\circ\mathrm{F}}
-\newcommand{\Re}{\mathrm{Re}}
-\newcommand{\WP}{\mathrm{WP}}
-\newcommand{\L}{\mathrm{L}}
-\newcommand{\gpm}{\mathrm{gpm}}
-\newcommand{\cfm}{\mathrm{cfm}}
-\newcommand{\fpm}{\mathrm{fpm}}
-\newcommand{\inwg}{\mathrm{inH}_2\mathrm{O}}
-$$
-
 # HVAC Systems
 {:.no_toc}
 
@@ -58,7 +24,7 @@ HVAC variables in the inch-pound system
 <tbody>
 <tr><td>Q</td><td>Volume flow rate</td><td>$\ft^3/\min\equiv\cfm$</td></tr>
 <tr><td>v</td><td>Velocity</td><td>$\ft/\min\equiv\fpm$</td></tr>
-<tr><td>p</td><td>Pressure</td><td>$\inwg$</td></tr>
+<tr><td>p</td><td>Pressure</td><td>$\inWC$</td></tr>
 </tbody>
 </table>
 
@@ -88,7 +54,7 @@ and the friction factor $f=0.01545$ is obtained from <a href="https://kdusling.g
 The pressure drop is then:
 
 $$
-\Delta p_f=12 f \frac{L}{D}p_v=12(0.01545)\frac{80}{28}\left(\frac{1400}{4005}\right)=0.064~\inwg
+\Delta p_f=12 f \frac{L}{D}p_v=12(0.01545)\frac{80}{28}\left(\frac{1400}{4005}\right)=0.064~\inWC
 $$
 
 Alternatively we can use the ASHRAE friction chart.
@@ -97,7 +63,7 @@ Alternatively we can use the ASHRAE friction chart.
   <a href="img/DuctFrictionExample.png" target="blank"><img src="img/DuctFrictionExample.png" alt="ASHRAE friction example"></a>
 
   <p>
-  For a volume flow rate of $Q=6000~\cfm$ and duct diameter $D=28~\inch$ we find the air velcoity is $v=1400~\fpm$ and the pressure drop per 100 feet of duct is $0.08~\inwg$.
+  For a volume flow rate of $Q=6000~\cfm$ and duct diameter $D=28~\inch$ we find the air velcoity is $v=1400~\fpm$ and the pressure drop per 100 feet of duct is $0.08~\inWC$.
   </p>
 </div>
 
@@ -105,7 +71,7 @@ Alternatively we can use the ASHRAE friction chart.
   This allows us to find the friction in 100 feet of duct.  In our case we have 80 feet of duct.  The pressure drop is therefore
 
 $$
-\Delta p_f=0.08\frac{\inwg}{100~\ft}\times 80~\ft=0.064~\inwg
+\Delta p_f=0.08\frac{\inWC}{100~\ft}\times 80~\ft=0.064~\inWC
 $$
 
 </div>
