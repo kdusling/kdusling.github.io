@@ -14,7 +14,7 @@
 
     MathJax.Hub.Config({
       TeX: {
-        
+        extensions: ["cancel.js"]
         },
 	     tex2jax: {
 		       inlineMath: [['$','$']],
@@ -34,17 +34,7 @@
 		        mtextFontInherit: true,
             linebreaks: { automatic: true }
 	      },
-        "fast-preview": {
-            Chunks: {EqnChunk: 10000, EqnChunkFactor: 1, EqnChunkDelay: 0},
-            color: "inherit!important",
-            updateTime: 30, updateDelay: 6,
-            messageStyle: "none",
-            disabled: true
-          },
-          Macros: {
-            s: '{\\mathrm{s}}',
-            min: '{\\mathrm{min}}'
-          }
+
 }
       });
      </script>
