@@ -4,15 +4,6 @@ title: Dimensions & Units
 ---
 
 $$
-\newcommand{\hr}{\mathrm{hr}}
-\newcommand{\kg}{\mathrm{kg}}
-\newcommand{\kN}{\mathrm{kN}}
-\newcommand{\inch}{\mathrm{in}}
-\newcommand{\ft}{\mathrm{ft}}
-\newcommand{\m}{\mathrm{m}}
-\newcommand{\km}{\mathrm{km}}
-\newcommand{\mi}{\mathrm{mi}}
-\newcommand{\cm}{\mathrm{cm}}
 \newcommand{\lb}{\mathrm{lb}}
 \newcommand{\lbm}{\mathrm{lbm}}
 \newcommand{\lbf}{\mathrm{lbf}}
