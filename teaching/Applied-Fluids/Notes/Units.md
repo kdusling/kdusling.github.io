@@ -4,7 +4,6 @@ title: Dimensions & Units
 ---
 
 $$
-\require{cancel}
 $$
 
 # Dimensions & Units
