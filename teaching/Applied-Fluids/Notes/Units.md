@@ -4,9 +4,6 @@ title: Dimensions & Units
 ---
 
 $$
-\require{cancel}
-\newcommand{\s}{\mathrm{s}}
-\newcommand{\min}{\mathrm{min}}
 \newcommand{\hr}{\mathrm{hr}}
 \newcommand{\kg}{\mathrm{kg}}
 \newcommand{\kN}{\mathrm{kN}}
