@@ -13,6 +13,20 @@
     var font = "Latin-Modern";
 
     MathJax.Hub.Config({
+       TeX: {
+           extensions: ["cancel.js"],
+           Macros: {
+               s: '{\\mathrm{s}}',
+               min: '{\\mathrm{min}}',
+               hr: '{\\mathrm{hr}}',
+               kg: '{\\mathrm{kg}}',
+               kN: '{\\mathrm{kN}}',
+               inch: '{\\mathrm{in}}',
+               ft: '{\\mathrm{ft}}',
+               m: '{\\mathrm{m}}',
+               km: '{\\mathrm{km}}',
+             },
+         },
 	     tex2jax: {
 		       inlineMath: [['$','$']],
 		       displayMath: [['\\[','\\]']],
@@ -27,7 +41,7 @@
 		        imageFont: font,
 		        preferredFont: font,
 		        availableFonts: [],
-		        scale: 95,
+		        scale: 100,
 		        mtextFontInherit: true,
             linebreaks: { automatic: true }
 	      },
@@ -48,34 +62,7 @@
   </head>
   <body>
 
-    $$
-    \require{cancel}
-    \newcommand{\s}{\mathrm{s}}
-    \newcommand{\min}{\mathrm{min}}
-    \newcommand{\hr}{\mathrm{hr}}
-    \newcommand{\kg}{\mathrm{kg}}
-    \newcommand{\kN}{\mathrm{kN}}
-    \newcommand{\inch}{\mathrm{in}}
-    \newcommand{\ft}{\mathrm{ft}}
-    \newcommand{\m}{\mathrm{m}}
-    \newcommand{\km}{\mathrm{km}}
-    \newcommand{\mi}{\mathrm{mi}}
-    \newcommand{\cm}{\mathrm{cm}}
-    \newcommand{\lb}{\mathrm{lb}}
-    \newcommand{\lbm}{\mathrm{lbm}}
-    \newcommand{\lbf}{\mathrm{lbf}}
-    \newcommand{\N}{\mathrm{N}}
-    \newcommand{\slug}{\mathrm{slugs}}
-    \newcommand{\Pa}{\mathrm{Pa}}
-    \newcommand{\mph}{\mathrm{mph}}
-    \renewcommand{\psi}{\mathrm{psi}}
-    \newcommand{\C}{^\circ\mathrm{C}}
-    \newcommand{\F}{^\circ\mathrm{F}}
-    \newcommand{\R}{~\mathrm{R}}
-    \newcommand{\K}{~\mathrm{K}}
-    $$
-
-    <div class="container">
+      <div class="container">
         {{ content }}
 
       <hr>

@@ -3,7 +3,9 @@ layout: course
 title: The Bernoulli equation
 ---
 
-
+$$
+\require{cancel}
+$$
 
 # The Bernoulli equation
 {:.no_toc}
