@@ -32,25 +32,30 @@ $$
 E=\underbrace{\frac{wp}{\gamma}}_\textrm{pressure energy}+\underbrace{wz}_\textrm{potential energy}+\underbrace{\frac{w v^2}{2g}}_\textrm{kinetic energy}
 $$
 
-
 Now imagine this fluid element moving through a system.  As it travels from point 1 to 2 the total energy of the fluid element is conserved.
 
 <div class="photo" style="width: 800px;  text-align:center">
 <img src="img\bernoulli2.svg">
 </div>
 
-Let us express the total energy in fluid element one as
+Let us express the total energy in fluid element 1 as
+
 $$
 E_1=\frac{wp_1}{\gamma}+w z_1 + \frac{w v_1^2}{2g}
 $$
+
 and the total energy in fluid element 2 as
+
 $$
 E_2=\frac{wp_2}{\gamma}+w z_2 + \frac{w v_2^2}{2g}
 $$
-Equation $E_1=E_2$ we have
+
+The conservation of energy requires that $E_1=E_2$, so that
+
 $$
 \frac{wp_1}{\gamma}+w z_1 + \frac{w v_1^2}{2g}=\frac{wp_2}{\gamma}+w z_2 + \frac{w v_2^2}{2g}
 $$
+
 Finally, we divide through by the common factor of $w$ and arrive at
 
 <div class="callout">
