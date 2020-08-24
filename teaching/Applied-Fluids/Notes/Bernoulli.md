@@ -9,19 +9,32 @@ title: The Bernoulli equation
 * A markdown unordered list for the toc
 {:toc}
 
-In this section we will apply the conservation of energy principle to a moving fluid.  Imagine an element of fluid, as shown below, moving in a pipe with a velocity $v$.  The fluid element has a pressure $p$, and is located at a distance $z$ above some reference elevation.
+Imagine an element of fluid, as shown below, moving in a pipe with a velocity $v$.  The fluid element has a pressure $p$, and is located at a distance $z$ above some reference elevation.
 
-<div class="photo" style="width: 800px;  text-align:center">
+<div class="photo" style="width: 500px;  text-align:center">
 <img src="img\bernoulli1.svg">
 </div>
 
-The fluid element has these three forms of energy:
+We will consider three forms of energy possessed by the fluid element:
 
-1. kinetic energy $\frac{1}{2}w v^2/g$$
+1. kinetic energy
 
-2. potential energy $=wz$
+The kinetic energy of the fluid element is the same as that as a projectile from physics 101. If the fluid element has a mass $m=w/g$ where $w$ is the weight of the fluid element its kinetic energy is $\frac{1}{2}w v^2/g$
 
-3.  pressure energy = $wp/\gamma$
+2. potential energy
+
+Again, just as in physics 101, the potential energy of the fluid element is $wz$
+
+3.  pressure energy
+
+Pressure energy is the energy stored by the fluid due to a force per unit area (a pressure) applied to it. Imagine a balloon at rest filled with air.  It's potential energy is negligible.  Now you untie the balloon and as the air escapes the balloon flies away.  The pressure energy stored in the balloon was converted to kinetic energy.  The pressure energy is $wp/\gamma$.
+
+The total energy in the fluid element is then:
+
+$$
+E=\underbrace{\frac{1}{2}w v^2/g}_\textrm{kinetic energy}
+$$
+
 
 Now imagine this fluid element moving through a system.  As it travels from point 1 to 2 the total energy of the fluid element must remain unchanged. However, one
 
