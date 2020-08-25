@@ -19,35 +19,36 @@ We will consider three forms of energy possessed by the fluid element:
 
 1. kinetic energy
 
-    The kinetic energy of the fluid element is the same as that as a projectile from physics 101. If the fluid element has a mass $m=w/g$ where $w$ is the weight of the fluid element its kinetic energy is $\frac{1}{2}w v^2/g$
+    The kinetic energy of the fluid element is the same as that as a projectile in physics 101, $KE= \textonehalf m v^2$. If express the mass of the fluid element in terms of its weight, $m=w/g$, where $w$ is the weight of the fluid element and $g$ is the acceleration due to gravity the kinetic energy of the fluid element is $\textonehalf w v^2/g$.
 
 2. potential energy
-    Again, just as in physics 101, the potential energy of the fluid element is $wz$
+
+    Again, just as in physics 101, the potential energy of the fluid element is $mgz=wz$, where $z$ is the vertical distance from some reference elevation.
 
 3.  pressure energy
 
-    Pressure energy is the energy stored by the fluid due to a force per unit area (a pressure) applied to it. Imagine a balloon at rest filled with air.  It's potential energy is negligible.  Now you untie the balloon and as the air escapes the balloon flies away.  The pressure energy stored in the balloon was converted to kinetic energy.  The pressure energy is $wp/\gamma$.
+    Pressure energy is the energy stored by the fluid due to a force per unit area (a pressure) applied to it. Imagine a balloon at rest filled with air.  It's potential energy is negligible.  Now you untie the balloon and as the air escapes the balloon flies away.  The kinetic energy of the balloon came from the pressure energy previously stored within it.  The pressure energy is expressed as $wp/\gamma$.
 
-The total energy in the fluid element is then:
+In summary, the total energy of this fluid element is:
 
 $$
 E=\underbrace{\frac{wp}{\gamma}}_\textrm{pressure energy}+\underbrace{wz}_\textrm{potential energy}+\underbrace{\frac{w v^2}{2g}}_\textrm{kinetic energy}
 $$
 
-Now imagine this fluid element moving through a system as shown below.  The fluid element starts with velocity $v_1$, a pressure $p_1$, and an elevation $z_1$.  It travels through the system to point 2 where it has a velocity $v_2$, a pressure $p_2$, and an elevation $z_2$.
+Now imagine this fluid element moving through the system shown below.  The fluid element starts at point 1 with velocity $v_1$, a pressure $p_1$, and an elevation $z_1$.  It flows through the system to point 2 where it has a velocity $v_2$, a pressure $p_2$, and an elevation $z_2$.
 
 
-<div class="photo" style="width: 800px;  text-align:center">
+<div class="photo" style="width: 500px;  text-align:center">
 <img src="img\bernoulli2.svg">
 </div>
 
-Let us express the total energy in fluid element 1 as
+At point 1 the total energy of fluid element is
 
 $$
 E_1=\frac{wp_1}{\gamma}+w z_1 + \frac{w v_1^2}{2g}
 $$
 
-and the total energy in fluid element 2 as
+and at point 2 the total energy in fluid element is
 
 $$
 E_2=\frac{wp_2}{\gamma}+w z_2 + \frac{w v_2^2}{2g}
@@ -62,11 +63,12 @@ $$
 Finally, we divide through by the common factor of $w$ and arrive at
 
 <div class="callout">
-Bernoulli's equation:
+**Bernoulli's equation:**
 
 $$
 \frac{p_1}{\gamma}+z_1+\frac{v_1^2}{2g}=\frac{p_2}{\gamma}+z_2+\frac{v_2^2}{2g}
 $$
+
 </div>
 
 The assumptions include
