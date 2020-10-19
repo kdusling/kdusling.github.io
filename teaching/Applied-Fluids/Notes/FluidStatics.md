@@ -152,3 +152,7 @@ My Dwyer Mark II inclined manometer measuring slightly less than 0.4 inWC.
 ## Hydraulic systems
 
 ## Hydrostatic forces on submerged surfaces
+
+<div class="photo" style="width: 800px;  text-align:center">
+<img src="img\VerticalWallPressure.svg">
+</div>

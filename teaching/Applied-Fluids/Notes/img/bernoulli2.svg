@@ -95,6 +95,21 @@
        y2="-0.51202315"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(0.22913589,-0.13229166,0.13229166,0.22913589,60.41513,111.49886)" />
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path878"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#d40000;fill-opacity:1;fill-rule:evenodd;stroke:#d40000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -103,8 +118,8 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.982849"
-     inkscape:cx="206.68262"
+     inkscape:zoom="1.6265558"
+     inkscape:cx="180.47694"
      inkscape:cy="159.78225"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -385,5 +400,22 @@
    id="tspan12038">2</tspan>, v<tspan
    style="font-size:64.99999762%;baseline-shift:sub"
    id="tspan12036">2</tspan></tspan></text>
+    <path
+       style="fill:#d40000;stroke:#d40000;stroke-width:0.26499999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="M 123.99429,91.574779 144.046,79.997919"
+       id="path1473"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;line-height:1.25;font-family:Calibri;-inkscape-font-specification:'Calibri, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#d40000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="68.833038"
+       y="140.70004"
+       id="text1501"
+       transform="rotate(-30)"><tspan
+         sodipodi:role="line"
+         id="tspan1499"
+         x="68.833038"
+         y="140.70004"
+         style="fill:#d40000;stroke-width:0.26458332">Flow</tspan></text>
   </g>
 </svg>
