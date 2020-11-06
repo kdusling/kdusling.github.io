@@ -62,12 +62,13 @@ $$
   </p>
 </div>
 
-<div class="photo" style="width: 400px;">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/2020_Formula_One_tests_Barcelona%2C_Williams_FW43%2C_Russell%2C_pitot_tubes_%28cropped%29.jpg" alt="Pitot tube">
+<div class="photo" style="width: 600px;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/2020_Formula_One_tests_Barcelona%2C_Williams_FW43%2C_Russell%2C_pitot_tubes_%28cropped%29.jpg">
   <p>
-  Formula 1 Pre-Season Testing 2020 / Circuit de Barcelona<BR><BR>
+  Formula 1 Pre-Season Testing 2020 / Circuit de Barcelona<BR>
+  The pitot tube is in white at the front of the chassis.  The aero rake is a grid of kiel probes, a variation of the pitot probe.  <BR><BR>
 
-  Original:  Artes Max from SpainDerivative work:  Adriel 00, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons
+  Original:  Artes Max from SpainDerivative work:  Adriel 00, [CC BY-SA 2.0 (https://creativecommons.org/licenses/by-sa/2.0), via Wikimedia Commons
   </p>
 </div>
 
