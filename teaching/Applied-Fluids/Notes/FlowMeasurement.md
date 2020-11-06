@@ -30,24 +30,21 @@ $$
 Q=A_1\sqrt{\frac{2g\left(p_1-p_2\right)/\gamma}{\left(A_1/A_2\right)^2-1}}
 $$
 
-<div class="photo" style="width: 400px;">
-  <img src="img/venturi-flow-meters.jpg" alt="Venturi meter">
-  <p>
-  </p>
-</div>
-
 <div class="photo" style="width: 800px;  text-align:center">
-  <img src="img/Venturi-PFS.jpg"  style="width:350px; height:auto; display: inline-block; padding: 10px;">
-  <img src="img/Venturi-TriFlow.jpg"  style="width:350px; height:auto; display: inline-block; padding: 10px;">
-  <img src="img/Venturi-Hyspan.jpg"  style="width:350px; height:auto; display: inline-block; padding: 10px;">
+  <img src="img/Venturi-PFS.jpg"  style="width:250px; height:auto; display: inline-block; padding: 10px;">
+  <img src="img/Venturi-TriFlow.jpg"  style="width:250px; height:auto; display: inline-block; padding: 10px;">
+  <img src="img/Venturi-Hyspan.jpg"  style="width:250px; height:auto; display: inline-block; padding: 10px;">
   <p>
   A few commercially available venturi meters<BR>
-  Left to Right: <a href="https://www.primaryflowsignal.com/products/venturi-flow-meters/">Primary Flow Signal</a>, <a href="https://www.triflotech.com/">Tri Flow Tech LLC</a>, <a href=https://www.hyspan.com/Venturi5000.html>Hyspan Precision Products, Inc.</a>
+  Left to Right: <a href="https://www.primaryflowsignal.com/products/venturi-flow-meters/">Primary Flow Signal</a>, <a href="https://www.triflotech.com/">Tri Flow Tech LLC</a>, <a href="https://www.hyspan.com/Venturi5000.html">Hyspan Precision Products, Inc.</a>
   </p>
 </div>
 
 
 ## Pitot tubes
+
+
+
 
 For a pitot tube, the flow velocity is related to the difference between the static pressure in the main fluid stream, $p_1$, and the stagnation pressure, $p_s$:
 
@@ -62,6 +59,15 @@ $$
   Cessna 172 Skyhawk II - Pitot tube<BR><BR>
 
   By Cjp24 (Own work) [CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0)], via Wikimedia Commons
+  </p>
+</div>
+
+<div class="photo" style="width: 400px;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/2020_Formula_One_tests_Barcelona%2C_Williams_FW43%2C_Russell%2C_pitot_tubes_%28cropped%29.jpg" alt="Pitot tube">
+  <p>
+  Formula 1 Pre-Season Testing 2020 / Circuit de Barcelona<BR><BR>
+
+  Original:  Artes Max from SpainDerivative work:  Adriel 00, CC BY-SA 2.0 <https://creativecommons.org/licenses/by-sa/2.0>, via Wikimedia Commons
   </p>
 </div>
 
