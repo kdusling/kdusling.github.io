@@ -22,6 +22,8 @@ After the throat section, the flow than expands through a diverging portion in o
   </p>
 </div>
 
+
+
 The volume flow rate is related to the pressure difference between points 1 and 2 through the relation:
 
 $$
@@ -31,7 +33,16 @@ $$
 <div class="photo" style="width: 400px;">
   <img src="img/venturi-flow-meters.jpg" alt="Venturi meter">
   <p>
-  Photograph of an installed HVT-FV Halmi Fabricated Venturi meter.
+  </p>
+</div>
+
+<div class="photo" style="width: 800px;  text-align:center">
+  <img src="img/Venturi-PFS.jpg"  style="width:350px; height:auto; display: inline-block; padding: 10px;">
+  <img src="img/Venturi-TriFlow.jpg"  style="width:350px; height:auto; display: inline-block; padding: 10px;">
+  <img src="img/Venturi-Hyspan.jpg"  style="width:350px; height:auto; display: inline-block; padding: 10px;">
+  <p>
+  A few commercially available venturi meters<BR>
+  Left to Right: <a href="https://www.primaryflowsignal.com/products/venturi-flow-meters/">Primary Flow Signal</a>, <a href="https://www.triflotech.com/">Tri Flow Tech LLC</a>, <a href=https://www.hyspan.com/Venturi5000.html>Hyspan Precision Products, Inc.</a>
   </p>
 </div>
 

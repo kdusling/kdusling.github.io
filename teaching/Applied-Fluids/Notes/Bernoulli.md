@@ -19,7 +19,7 @@ We will consider three forms of energy possessed by the fluid element:
 
 1. kinetic energy
 
-    The kinetic energy of the fluid element is the same as that as a projectile in physics 101, $KE= \sfrac{1}{2} m v^2$. Replacing the mass of the fluid element with its weight, $m=w/g$, where $g$ is the acceleration due to gravity the kinetic energy of the fluid element becomes $\sfrac{1}{2} w v^2/g$.
+    The kinetic energy of the fluid element is the same as that as a projectile in physics 101, $KE= 1/2 m v^2$. Replacing the mass of the fluid element with its weight, $m=w/g$, where $g$ is the acceleration due to gravity the kinetic energy of the fluid element becomes $1/2 w v^2/g$.
 
 2. potential energy
 
@@ -69,7 +69,7 @@ $$
 \frac{p_1}{\gamma}+z_1+\frac{v_1^2}{2g}=\frac{p_2}{\gamma}+z_2+\frac{v_2^2}{2g}
 $$
 
-Each term in the above equation has units of length.  Please check that this is indeed the case.  This might seem strange since Bernoulli's equation is a statement regarding conservation of energy.  What happened is that energy turned into length when we divided through by the weight, $w$, of the fluid element.  We can therefore interpret each term as an "energy put unit weight of fluid" with units of $\frac{\N\cdot \m}{N}$ (SI) or $\frac{$\lb \cdot \ft}{\lb}$. 
+Each term in the above equation has units of length.  Please check that this is indeed the case.  This might seem strange since Bernoulli's equation is a statement regarding conservation of energy.  What happened is that energy turned into length when we divided through by the weight, $w$, of the fluid element.  We can therefore interpret each term as an "energy put unit weight of fluid" with units of $\frac{\N\cdot \m}{N}$ (SI) or $\frac{$\lb \cdot \ft}{\lb}$.
 
 </div>
 
