@@ -8,7 +8,7 @@ var liquids=[
 {id:"Mercury", display:"Mercury",        sg:13.54, vis:1.53,  st:485,   K:28.5, vp:0.00023},
 {id:"Octane", display:"Octane",          sg:0.701, vis:0.51,  st:21.14, K:0,    vp:1.9},
 {id:"Propane", display:"Propane",        sg:0.495, vis:0.11,  st:6.6,   K:0,    vp:0},
-{id:"SeaWater", display:"Sea Water",     sg:1.030, vis:0.103, st:0,     K:2.34, vp:2.4},
+{id:"SeaWater", display:"Sea Water",     sg:1.030, vis:1.030, st:0,     K:2.34, vp:2.4},
 {id:"Turpentine", display:"Turpentine",  sg:0.870, vis:1.375, st:0,     K:0,    vp:0},
 {id:"Water", display:"Water",            sg:0.997, vis:0.891, st:71.97, K:2.15, vp:2.4},
 ];

@@ -11,6 +11,9 @@ title: Flow Measurement
 
 ## Venturi Meter
 
+A venturi tube is a device for measuring the volume flow rate.  It operates on the principle that when a fluid stream is restricted, its pressure decrease by an amount that is dependent on the volume flow rate.  The measurement of this pressure drop can be converted to a flow rate. 
+
+
 In a venturi tube the fluid in the main pipe section, labeled as point 1 in the figure below, is accelerated into the throat section, labeled as point 2.  The fluid pressure decreases in going from point 1 to 2 and that drop in pressure can be measured using a differential pressure gauge.  The venturi tube shown below uses a manometer to measure the pressure, but any pressure measurement device will do.  Using the continuity equation and Bernoulli's equation we will show that by measuring this pressure drop we can determine the volume flow rate of the fluid.   
 
 After the throat section, the flow than expands through a diverging portion in order to return to the main pipe section, labeled as point 3 below.  Without any losses the flow conditions at point 1 and point 3 should be identical.  Of course in any real device there is friction and there would be a (hopefully small) pressure drop between points 1 and 3.  The venturi tube is designed with a smooth and gradual contraction and a long enlargement following the throat in order to minimize these energy losses.
