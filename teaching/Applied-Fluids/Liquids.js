@@ -2,6 +2,7 @@
 var liquids=[
 {id:"Acetone", display:"Acetone",        sg:0.787, vis:0.316, st:23.1,  K:0.92, vp:30},
 {id:"Benzene", display:"Benzene",        sg:0.876, vis:0.601, st:28.2,  K:1.05, vp:14},
+{id:"EthGly", display:"Ethylene glycol", sg:1.100, vis:16.2,   st:0,  K:0, vp:0},
 {id:"Glycerine", display:"Glycerine",    sg:1.263, vis:950,   st:63.0,  K:4.35, vp:0},
 {id:"Hexane", display:"Hexane",          sg:0.657, vis:0.297, st:18.0,  K:0.60, vp:17.6},
 {id:"Kerosene", display:"Kerosene",      sg:0.823, vis:1.64,  st:0,     K:1.3,  vp:0.7},
