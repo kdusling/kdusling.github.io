@@ -135,8 +135,16 @@ Sea level properties of air in the 1976 U.S. Standard Atmospheric model
 
 ### Manometers
 
+One of the most basic pressure measurement devices is the manometer.  A simple U-tube monometer is shown in the figure below.  One end of the manometer is connected to the fluid whos pressure we which to determine.  In the example below we want to find the pressure of the water.  The other end of the U-tube manometer is open to atmospheric pressure.  A gauge fluid, that does not mix with the fluid to be measured, sits between the two.  Typical gauge fluids include Mercury (as used in this example), colored light oils, or water.
 
-<div class="photo" style="width: 600px;  text-align:center">
+
+<div class="photo" style="width: 800px;  text-align:center">
+<img src="img\Utube1.svg">
+</div>
+
+
+
+<div class="photo" style="width: 400px;  text-align:center">
 <img src="img\Dwyer_Mark_II.jpg">
 <p>
 My Dwyer Mark II inclined manometer measuring slightly less than 0.4 inWC.    
@@ -147,7 +155,15 @@ My Dwyer Mark II inclined manometer measuring slightly less than 0.4 inWC.
 
 ### Pressure expressed as a height of liquid
 
-### Pressure sensors
+### Pressure gauges
+
+#### Bourdon tube
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/f9MJAXhLSv0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+#### Diaphragm element
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/JnPSeEW-EeA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Hydraulic systems
 
