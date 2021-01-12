@@ -9,9 +9,21 @@ title: Flow Measurement
 * A markdown unordered list for the toc
 {:toc}
 
-## Venturi Meter
+## Variable Head Meters
 
-A venturi tube is a device for measuring the volume flow rate.  It operates on the principle that when a fluid stream is restricted, its pressure decrease by an amount that is dependent on the volume flow rate.  The measurement of this pressure drop can be converted to a flow rate. 
+<div class="photo" style="width: 800px;  text-align:center">
+  <img src="img\venturi.jpg"  style="width:250px; height:auto; display: inline-block; padding: 10px;">
+  <img src="img\FlowNozzle.jpg"  style="width:250px; height:auto; display: inline-block; padding: 10px;">
+  <img src="img\OrificePlate.jpg"  style="width:250px; height:auto; display: inline-block; padding: 10px;">
+  <p>
+  Three common types of variable head meters.  From left to right: Venturi Tube, Flow Nozzle, and Orifice Plate. From: <a href="https://control.com/textbook/continuous-fluid-flow-measurement/pressure-based-flowmeters/">Lessons In Industrial Instrumentation</a>
+  </p>
+</div>
+
+
+### Venturi Meter
+
+A venturi tube is a device for measuring the volume flow rate.  It operates on the principle that when a fluid stream is restricted, its pressure decrease by an amount that is dependent on the volume flow rate.  The measurement of this pressure drop can be converted to a flow rate.
 
 
 In a venturi tube the fluid in the main pipe section, labeled as point 1 in the figure below, is accelerated into the throat section, labeled as point 2.  The fluid pressure decreases in going from point 1 to 2 and that drop in pressure can be measured using a differential pressure gauge.  The venturi tube shown below uses a manometer to measure the pressure, but any pressure measurement device will do.  Using the continuity equation and Bernoulli's equation we will show that by measuring this pressure drop we can determine the volume flow rate of the fluid.   
@@ -43,8 +55,9 @@ $$
   </p>
 </div>
 
+## Velocity probes
 
-## Pitot tubes
+### Pitot tubes
 
 
 

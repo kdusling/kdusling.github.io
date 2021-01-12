@@ -176,8 +176,6 @@ Video: How a Bourdon tube works
 </p>
 </div>
 
-
-
 #### Diaphragm element
 
 <div class="photo" style="width: 600px;">
