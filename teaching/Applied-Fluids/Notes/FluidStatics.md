@@ -142,6 +142,14 @@ One of the most basic pressure measurement devices is the manometer.  A simple U
 <img src="img\Utube1.svg">
 </div>
 
+<div class="example">
+Compute the pressure at point A using the manometer shown above.
+
+<hr>
+
+
+
+</div>
 
 
 <div class="photo" style="width: 400px;  text-align:center">
