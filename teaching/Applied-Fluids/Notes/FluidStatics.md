@@ -159,11 +159,29 @@ My Dwyer Mark II inclined manometer measuring slightly less than 0.4 inWC.
 
 #### Bourdon tube
 
+<div class="photo" style="width: 600px;">
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/f9MJAXhLSv0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>
+Video: How a Bourdon tube works
+</p>
+</div>
+
+
 
 #### Diaphragm element
 
+<div class="photo" style="width: 600px;">
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/JnPSeEW-EeA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>
+Video: Diaphragm element compared to Bourdon tube
+</p>
+</div>
+
+
 
 ## Hydraulic systems
 
