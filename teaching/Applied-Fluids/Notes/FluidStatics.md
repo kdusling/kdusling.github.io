@@ -152,7 +152,7 @@ Using the
 <a href="https://kdusling.github.io/teaching/Applied-Fluids/AtmosphereProperties.html">1976 U.S. Standard Atmosphere Calculator</a> we find that the atmospheric pressure has now dropped to 11.7 psi.  When making a measurement of the gauge pressure we find
 
 $$
-p_{\rm gauge}=p_{\rm absolute}-p_{\rm atm} = 43.9~psi - 11.7~psi = 32.2~psi.
+p_{\rm gauge}=p_{\rm absolute}-p_{\rm atm} = 43.9~\psi - 11.7~\psi = 32.2~\psi.
 $$
 
 So the tire pressure increases by 2.2 psi. This is the pressure that dictates how the tires will handle.  
@@ -199,7 +199,7 @@ $$
 Using
 
 $$
-\gamma_w=9.81~\kN/\m^3\,\quad\quad \gamma_w=(13.54)(9.81~\kN/\m^3)=132.8~\kN/\m^3
+\gamma_w=9.81~\kN/\m^3\,,\quad\quad \gamma_w=(13.54)(9.81~\kN/\m^3)=132.8~\kN/\m^3
 $$
 
 $$
