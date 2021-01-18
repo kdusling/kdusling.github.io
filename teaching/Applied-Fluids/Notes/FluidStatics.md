@@ -140,10 +140,10 @@ A drive to the top of Mt. Washington begins at an elevation of 1600 ft.  The tir
 The important thing to note is that a standard tire pressure gauge is measuring a gauge pressure.  So the pressure measurement of 30 psi means that the tire is 30 psi above the ambient pressure.
 
 Our trip starts at an elevation of 1600 ft.  Using the
-<a href="https://kdusling.github.io/teaching/Applied-Fluids/AtmosphereProperties.html">1976 U.S. Standard Atmosphere Calculator</a> the ambient aire pressure is 13.9 psi.  The absolute pressure in the tire is therefore
+<a href="https://kdusling.github.io/teaching/Applied-Fluids/AtmosphereProperties.html">1976 U.S. Standard Atmosphere Calculator</a> the ambient air pressure is 13.9 psi.  The absolute pressure in the tire is therefore
 
 $$
-p_{\rm absolute}=p_{\rm gauge}+p_{\rm atm}= 30~psi + 13.9~psi = 43.9~psi
+p_{\rm absolute}=p_{\rm gauge}+p_{\rm atm}= 30~\psi + 13.9~\psi = 43.9~\psi
 $$
 
 Arriving at the top of Mt. Washington the absolute pressure in the tire remains 43.9 psi.  
@@ -155,7 +155,9 @@ $$
 p_{\rm gauge}=p_{\rm absolute}-p_{\rm atm} = 43.9~psi - 11.7~psi = 32.2~psi.
 $$
 
-So the tire pressure increases by 2.2 psi. This is the pressure that dictates how the tires will handle.  Note the huge assumption that the temperature of the air remains unchanged.  This is unlikely to be the case.  One rule of thumb is that for every $10\degF$ increase in temperature the pressure increases by 1 psi.  So if the temperature dropped by $20\deg F$ throughout the course of the trip it would compensate for the increase due to the change in atmospheric pressure.
+So the tire pressure increases by 2.2 psi. This is the pressure that dictates how the tires will handle.  
+
+Note the huge assumption that the temperature of the air remains unchanged.  This is unlikely to be the case.  One rule of thumb is that for every $10\F$ increase in temperature the pressure increases by 1 psi.  So if the temperature dropped by $20\F$ throughout the course of the trip it would compensate for the increase from change in atmospheric pressure.
 
 </div>
 
@@ -163,7 +165,7 @@ So the tire pressure increases by 2.2 psi. This is the pressure that dictates ho
 
 ### Manometers
 
-One of the most basic pressure measurement devices is the manometer.  A simple U-tube monometer is shown in the figure below.  One end of the manometer is connected to the fluid whos pressure we which to determine.  In the example below we want to find the pressure of the water.  The other end of the U-tube manometer is open to atmospheric pressure.  A gauge fluid, that does not mix with the fluid to be measured, sits between the two.  Typical gauge fluids include Mercury (as used in this example), colored light oils, or water.
+One of the most basic pressure measurement devices is the manometer.  A simple U-tube monometer is shown in the figure below.  One end of the manometer is connected to a fluid of unknown pressure.  In the example below we want to find the pressure of the water at point $A$.  The other end of the U-tube manometer is open to atmospheric pressure.  A gauge fluid, that does not mix with the fluid to be measured, sits between the two.  Typical gauge fluids include Mercury (as used in this example), colored light oils, or water.
 
 
 <div class="photo" style="width: 800px;  text-align:center">
@@ -172,10 +174,36 @@ One of the most basic pressure measurement devices is the manometer.  A simple U
 
 <div class="example">
 Compute the pressure at point A using the manometer shown above.
-
 <hr>
 
+Start at the point labeled $1$ where the pressure is the atmospheric pressure,
 
+$$
+p_1=p_{\mathrm{atm}}=0 \kPa\mathrm{(gauge)}
+$$  
+
+We now move to point $2$.  The pressure there is higher than that of point $1$ due to the gauge fluid sitting above it.  Using the pressure-elevation relationship we see that the pressure at 2 is larger by \gamma_m (40 \mm), where $\gamma_m$ is the specific weight of the mercury.
+
+$$
+p_2=p_1+\gamma_m (40 \mm)=\gamma_m (40 \mm)
+$$
+
+Because points $2$ and $3$ are at the same height, at rest, and with the same fluid the pressures are equal, $p_2=p_3$.  Next we go to point $4$.  The pressure at $4$ is lower than the pressure at 3 by an mount $\gamma_w (30\mm)$ where $\gamma_w$ is the specific weight of water.
+
+Finally, because point $A$ and $4$ are at the same level their pressures are the same.
+
+$$
+p_A=p_1+\gamma_m (40\mm)-\gamma_w(30mm)
+$$
+
+Using
+$$
+\gamma_w=9.81~\kN/\m^3\,\quad\quad \gamma_w=(13.54)(9.81~\kN/\m^3)=132.8~\kN/\m^3
+$$
+
+$$
+p_A=0 \kPa\mathrm{(gauge)} + 132.8~\kN/\m^3 (0.04~\m) - 9.81~\kN/\m^3 (0.07~\m)=4.63 \kPa\mathrm{(gauge)}
+$$
 
 </div>
 
