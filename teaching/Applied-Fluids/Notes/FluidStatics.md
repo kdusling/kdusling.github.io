@@ -113,7 +113,7 @@ So the hiker made a net vertical ascent of 836 meters.
 The previous exercise incorporated an important assumption, that the air density remains constant throughout the 800 meter ascent.  This is not entirely realistic.  The temperature of the air changes with altitude and therefore so must the density (think ideal gas law).  In order to simplify our discussions we will make use of the 1976 U.S. Standard Atmosphere.  In this model the atmosphere is broken up into seven layers with each layer having a prescribed linear temperature profile.
 
 Starting from the sea level properties of air (see table below) one can compute other relevant properties, but the procedure goes beyond the scope of this course. Instead, the properties of air at various altitudes should be found by using the
-<a href="https://kdusling.github.io/teaching/Applied-Fluids/AtmosphereProperties.html">The 1976 U.S. Standard Atmosphere Calculator</a>.
+<a href="https://kdusling.github.io/teaching/Applied-Fluids/AtmosphereProperties.html">1976 U.S. Standard Atmosphere Calculator</a>.
 
 <table class="table table-striped">
 <caption>
@@ -130,6 +130,34 @@ Sea level properties of air in the 1976 U.S. Standard Atmospheric model
 
 </tbody>
 </table>
+
+<div class="example">
+
+A drive to the top of Mt. Washington begins at an elevation of 1600 ft.  The tire pressure, as measured with a standard tire pressure gauge, is 30 psi at the start of the trip.  What will the tire pressure gauge read at the end of the trip at an elevation of 6200 ft.  Work under the assumption that the air in the tires remain at the same temperature.
+
+<hr>
+
+The important thing to note is that a standard tire pressure gauge is measuring a gauge pressure.  So the pressure measurement of 30 psi means that the tire is 30 psi above the ambient pressure.
+
+Our trip starts at an elevation of 1600 ft.  Using the
+<a href="https://kdusling.github.io/teaching/Applied-Fluids/AtmosphereProperties.html">1976 U.S. Standard Atmosphere Calculator</a> the ambient aire pressure is 13.9 psi.  The absolute pressure in the tire is therefore
+
+$$
+p_{\rm absolute}=p_{\rm gauge}+p_{\rm atm}= 30~psi + 13.9~psi = 43.9~psi
+$$
+
+Arriving at the top of Mt. Washington the absolute pressure in the tire remains 43.9 psi.  
+
+Using the
+<a href="https://kdusling.github.io/teaching/Applied-Fluids/AtmosphereProperties.html">1976 U.S. Standard Atmosphere Calculator</a> we find that the atmospheric pressure has now dropped to 11.7 psi.  When making a measurement of the gauge pressure we find
+
+$$
+p_{\rm gauge}=p_{\rm absolute}-p_{\rm atm} = 43.9~psi - 11.7~psi = 32.2~psi.
+$$
+
+So the tire pressure increases by 2.2 psi. This is the pressure that dictates how the tires will handle.  Note the huge assumption that the temperature of the air remains unchanged.  This is unlikely to be the case.  One rule of thumb is that for every $10\degF$ increase in temperature the pressure increases by 1 psi.  So if the temperature dropped by $20\deg F$ throughout the course of the trip it would compensate for the increase due to the change in atmospheric pressure.
+
+</div>
 
 ## Measuring Pressure
 
