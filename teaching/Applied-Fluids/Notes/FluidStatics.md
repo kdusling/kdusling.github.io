@@ -168,7 +168,7 @@ Note the huge assumption that the temperature of the air remains unchanged.  Thi
 One of the most basic pressure measurement devices is the manometer.  A simple U-tube monometer is shown in the figure below.  One end of the manometer is connected to a fluid of unknown pressure.  In the example below we want to find the pressure of the water at point $A$.  The other end of the U-tube manometer is open to atmospheric pressure.  A gauge fluid, that does not mix with the fluid to be measured, sits between the two.  Typical gauge fluids include Mercury (as used in this example), colored light oils, or water.
 
 
-<div class="photo" style="width: 800px;  text-align:center">
+<div class="photo" style="width: 600px;  text-align:center">
 <img src="img\Utube1.svg">
 </div>
 
@@ -202,6 +202,8 @@ $$
 \gamma_w=9.81~\kN/\m^3\,,\quad\quad \gamma_w=(13.54)(9.81~\kN/\m^3)=132.8~\kN/\m^3
 $$
 
+we can solve for the pressure at point $A$:
+
 $$
 p_A=0~\kPa\mathrm{(gauge)} + 132.8~\kN/\m^3 (0.04~\m) - 9.81~\kN/\m^3 (0.07~\m)=4.63~\kPa\mathrm{(gauge)}
 $$
@@ -209,10 +211,10 @@ $$
 </div>
 
 
-<div class="photo" style="width: 400px;  text-align:center">
+<div class="photo" style="width: 500px;  text-align:center">
 <img src="img\Dwyer_Mark_II.jpg">
 <p>
-My Dwyer Mark II inclined manometer measuring slightly less than 0.4 inWC.    
+My Dwyer Mark II inclined manometer measuring slightly less than 0.4 inWC.  The manometer measures the pressure drop across the air filter.  As the air filter accumulates dust over time the pressure drop across it increases.
 </p>
 </div>
 
@@ -221,6 +223,15 @@ My Dwyer Mark II inclined manometer measuring slightly less than 0.4 inWC.
 ### Pressure expressed as a height of liquid
 
 ### Pressure gauges
+
+## Variable Head Meters
+
+<div class="photo" style="width: 800px;  text-align:center">
+  <img src="img\pressure_gauge_schematic.webp"  style="width:250px; height:auto; display: inline-block; padding: 10px;">
+  <p>
+  From: <a href="https://control.com/textbook/continuous-pressure-measurement/mechanical-pressure-elements/">Mechanical Pressure Elements</a> licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+  </p>
+</div>
 
 #### Bourdon tube
 
@@ -247,6 +258,10 @@ Video: Diaphragm element compared to Bourdon tube
 
 
 ## Hydraulic systems
+
+<div class="photo" style="width: 800px;  text-align:center">
+<img src="img\hydraulic_lift.svg">
+</div>
 
 ## Hydrostatic forces on submerged surfaces
 
