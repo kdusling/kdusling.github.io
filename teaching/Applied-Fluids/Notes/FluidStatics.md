@@ -281,13 +281,13 @@ A car weighing 2000 pounds is supported on the hydraulic lift shown below.  What
 The ratio of the areas of the two pistons is the mechanical advantage.  The force required to the support the car is a factor of 10 less.
 
 $$
-F_1=\frac{A_2}{A_1}F_2=\frac{10~\ft^2}{100~\ft^2}2000~\lb=200~\lb
+F_1=\frac{A_1}{A_2}F_2=\frac{10~\ft^2}{100~\ft^2}2000~\lb=200~\lb
 $$
 
-The pressure in the hydaulic fluid can be found by
+The pressure in the hydraulic fluid is
 
 $$
-p=\frac{F}{A}=\frac{2000~\lb}{100~\ft^2}\times\left(\frac{1~\ft}{12~\inch})^2=1.4~\psi
+p=\frac{F_2}{A_2}=\frac{2000~\lb}{100~\ft^2}\times\left(\frac{1~\ft}{12~\inch}\right)^2=0.14~\psi
 $$
 
 </div>
