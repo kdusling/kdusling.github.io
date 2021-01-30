@@ -224,16 +224,23 @@ My Dwyer Mark II inclined manometer measuring slightly less than 0.4 inWC.  The 
 
 ### Pressure gauges
 
-## Variable Head Meters
+A mechanical pressure sensor coverts fluid pressure into a force that displaces a flexible element.  The movement in the element moves a dial which reflects  moves a dial.  Common styles of mechanical pressure sensors are discussed below.   
 
-<div class="photo" style="width: 800px;  text-align:center">
-  <img src="img\pressure_gauge_schematic.webp"  style="width:250px; height:auto; display: inline-block; padding: 10px;">
+<div class="photo" style="width: 600px;  text-align:center">
+  <img src="img\pressure_gauge_schematic.webp"  style="height:auto; display: inline-block; padding: 10px;">
   <p>
-  From: <a href="https://control.com/textbook/continuous-pressure-measurement/mechanical-pressure-elements/">Mechanical Pressure Elements</a> licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+  The bellows, the diaphragm, and the bourdon tube.  From: <a href="https://control.com/textbook/continuous-pressure-measurement/mechanical-pressure-elements/">Mechanical Pressure Elements</a> licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
   </p>
 </div>
 
-#### Bourdon tube
+<div class="photo" style="width: 600px;">
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mF1pW-xL3vI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>
+Video: Bellows For Pressure Sensing
+</p>
+</div>
 
 <div class="photo" style="width: 600px;">
 
@@ -243,8 +250,6 @@ My Dwyer Mark II inclined manometer measuring slightly less than 0.4 inWC.  The 
 Video: How a Bourdon tube works
 </p>
 </div>
-
-#### Diaphragm element
 
 <div class="photo" style="width: 600px;">
 
@@ -261,6 +266,30 @@ Video: Diaphragm element compared to Bourdon tube
 
 <div class="photo" style="width: 800px;  text-align:center">
 <img src="img\hydraulic_lift.svg">
+</div>
+
+<div class="example">
+
+A car weighing 2000 pounds is supported on the hydraulic lift shown below.  What weight, $w$, is needed to support the car?  What is the pressure, in psi, of the hydraulic fluid?
+
+<div class="photo" style="width: 800px;  text-align:center">
+<img src="img\hydraulic_lift_car_exercise.svg">
+</div>
+
+<hr>
+
+The ratio of the areas of the two pistons is the mechanical advantage.  The force required to the support the car is a factor of 10 less.
+
+$$
+F_1=\frac{A_2}{A_1}F_2=\frac{10~\ft^2}{100~\ft^2}2000~\lb=200~\lb
+$$
+
+The pressure in the hydaulic fluid can be found by
+
+$$
+p=\frac{F}{A}=\frac{2000~\lb}{100~\ft^2}\times\left(\frac{1~\ft}{12~\inch})^2=1.4~\psi
+$$
+
 </div>
 
 ## Hydrostatic forces on submerged surfaces
