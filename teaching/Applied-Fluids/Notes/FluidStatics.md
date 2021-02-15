@@ -215,12 +215,46 @@ $$
 <img src="img\Dwyer_Mark_II.jpg">
 <p>
 My Dwyer Mark II inclined manometer measuring slightly less than 0.4 inWC.  The manometer measures the pressure drop across the air filter.  As the air filter accumulates dust over time the pressure drop across it increases.
-</p>
+</p>  56tsqwz8uiqwaujiswakoswl;sewss.s/
 </div>
 
 ### Barometers
 
+A barometer is used for measuring the atmospheric pressure. In its simplest form it is a long tube that is submerged in mercury with the other end exposed to a near perfect vacuum.
+
+<div class="photo" style="width: 800px;  text-align:center">
+<img src="img\barometer.svg">
+<p>A barometer</p>
+</div>
+
+If we analyze the above barometer in the same manner as a manometer we can derive the relationship
+
+$$
+p_{atm}=\gamma_m h
+$$
+
+For example, let's say that a mercury barometer measured a height of 760 mm.  This would correspond to an atomospheric pressure of
+
+$$
+p_{atm}=\frac{133.3 \kN}{\m^3}\times 0.760~\m=101~\kPa
+$$
+
+
 ### Pressure expressed as a height of liquid
+
+In some contexts it will be convenient to express the pressure in a fluid as a height of water column.  For example, in the previous section on barometers, instead of stating the atmospheric pressure as 101 kPa we could have said the pressure is 760 mm of mercury.  Of course, "mm of mercury" is not a unit of pressure, but when stated as such we should know to interpret this as the pressure that would cause a rise of 760 mm of mercury in a manometer.
+
+To convert we can there use that
+
+$$
+\text{1.0 mmHg}=\text{1.0 mm of mercury}=133.3 Pa
+$$
+
+For smaller pressure inches of water (inH$_2$O or inWC), the WC stands for water column, is used instead of psi.
+
+$$
+\text{1.0 inH}_2\text{O}=0.01934~\psi
+$$
 
 ### Pressure gauges
 
