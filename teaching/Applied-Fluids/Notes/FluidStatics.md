@@ -222,7 +222,7 @@ My Dwyer Mark II inclined manometer measuring slightly less than 0.4 inWC.  The 
 
 A barometer is used for measuring the atmospheric pressure. In its simplest form it is a long tube that is submerged in mercury with the other end exposed to a near perfect vacuum.
 
-<div class="photo" style="width: 800px;  text-align:center">
+<div class="photo" style="width: 500px;  text-align:center">
 <img src="img\barometer.svg">
 <p>A barometer</p>
 </div>
@@ -247,7 +247,7 @@ In some contexts it will be convenient to express the pressure in a fluid as a h
 To convert we can there use that
 
 $$
-\text{1.0 mmHg}=\text{1.0 mm of mercury}=133.3 Pa
+\text{1.0 mmHg}=\text{1.0 mm of mercury}=133.3~\Pa
 $$
 
 For smaller pressure inches of water (inH$_2$O or inWC), the WC stands for water column, is used instead of psi.
