@@ -253,7 +253,7 @@ $$
 For smaller pressure inches of water (inH$_2$O or inWC), the WC stands for water column, is used instead of psi.
 
 $$
-\text{1.0 inH}_2\text{O}=0.01934~\psi
+\text{1.0 inH}_2\text{O}=0.0361~\psi
 $$
 
 ### Pressure gauges
