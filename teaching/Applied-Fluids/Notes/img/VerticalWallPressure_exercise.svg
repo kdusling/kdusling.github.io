@@ -15,7 +15,7 @@
    version="1.1"
    id="svg8"
    inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
-   sodipodi:docname="VerticalWallPressureProblem.svg">
+   sodipodi:docname="VerticalWallPressure_exercise.svg">
   <defs
      id="defs2">
     <pattern
@@ -1063,35 +1063,6 @@
        x2="166.37042"
        y2="237.06969"
        gradientUnits="userSpaceOnUse" />
-    <meshgradient
-       inkscape:collect="always"
-       id="meshgradient4591"
-       gradientUnits="userSpaceOnUse"
-       x="46.481606"
-       y="196.74992">
-      <meshrow
-         id="meshrow4593">
-        <meshpatch
-           id="meshpatch4595">
-          <stop
-             path="c 33.8167,0  67.6334,0  101.45,0"
-             style="stop-color:#ffffff;stop-opacity:1"
-             id="stop4597" />
-          <stop
-             path="c 0,0.333333  0,0.666667  0,1"
-             style="stop-color:#483737;stop-opacity:1"
-             id="stop4599" />
-          <stop
-             path="c -33.8167,0  -67.6334,0  -101.45,0"
-             style="stop-color:#ffffff;stop-opacity:1"
-             id="stop4601" />
-          <stop
-             path="c 0,-0.333333  0,-0.666667  0,-1"
-             style="stop-color:#483737;stop-opacity:1"
-             id="stop4603" />
-        </meshpatch>
-      </meshrow>
-    </meshgradient>
     <marker
        style="overflow:visible"
        id="marker4648-6"
@@ -1146,7 +1117,7 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4495902"
+     inkscape:zoom="1.5455896"
      inkscape:cx="230.47637"
      inkscape:cy="216.9213"
      inkscape:document-units="mm"
@@ -1160,10 +1131,10 @@
      inkscape:object-paths="true"
      inkscape:snap-center="true"
      showguides="true"
-     inkscape:window-width="1574"
-     inkscape:window-height="868"
-     inkscape:window-x="100"
-     inkscape:window-y="59"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
      fit-margin-top="5"
      fit-margin-left="5"
@@ -1180,7 +1151,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -1258,7 +1229,7 @@
          d="M 166.23813,296.94794 H 32.428524 V 177.19141 H 46.481605 V 282.89487 H 166.23813 Z"
          id="path3470" />
       <path
-         style="fill:#483737;stroke:url(#meshgradient4591);stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="fill:#483737;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          d="M 147.93164,197.24992 H 46.481605"
          id="path4543" />
       <path
