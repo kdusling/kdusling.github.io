@@ -335,13 +335,22 @@ Even though the force is distributed along the entire wall it will be necessary 
 First note that the average pressure is $p_{avg}=\gamma h/2$.  The magnitude of resultant force is therefore
 
 $$
-F_R= p_{avg}\times A=\gamma \frac{h}{2}{A}
+F_R= p_{avg}\times A=\gamma \left(\frac{h}{2}\right) A
 $$
 
 where $A$ is the surface area of the wall that is in contact with the fluid.  The location of the resultant force is located at the <i>center of pressure</i> a distance $h/3$ from the bottom of the wall.
 
-
-
 <div class="photo" style="width: 800px;  text-align:center">
 <img src="img\VerticalWallPressure.svg">
 </div>
+
+
+<div class="example">
+
+A 1000 pound gate is supported by a horizontal cable as shown in the figure below.  Water acts against the gate which is hinged at its bottom. What is the tension in the cable.  You can neglect any friction in the hinge.
+
+<div class="photo" style="width: 800px;  text-align:center">
+<img src="img\VerticalWallPressure_exercise.svg">
+</div>
+
+<hr>
