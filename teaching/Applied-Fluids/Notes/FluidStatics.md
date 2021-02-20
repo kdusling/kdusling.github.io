@@ -328,6 +328,20 @@ $$
 
 ## Hydrostatic forces on submerged surfaces
 
+Consider the retaining wall shown below.  The pressure varies along the surface stating from zero at the surface of the fluid and increasing (linearly) to the maximum pressure at the bottom of the wall.
+
+Even though the force is distributed along the entire wall it will be necessary to find the resultant force on the wall.  This problem is identical to finding the resultant force for a linearly increasing load on a beam as you did in <i>statics</i> and </i> strength of materials</i>.
+
+First note that the average pressure is $p_{avg}=\gamma h/2$.  The magnitude of resultant force is therefore
+
+$$
+F_R= p_{avg}\times A=\gamma \frac{h}{2}{A}
+$$
+
+where $A$ is the surface area of the wall that is in contact with the fluid.  The location of the resultant force is located at the <i>center of pressure</i> a distance $h/3$ from the bottom of the wall.
+
+
+
 <div class="photo" style="width: 800px;  text-align:center">
 <img src="img\VerticalWallPressure.svg">
 </div>

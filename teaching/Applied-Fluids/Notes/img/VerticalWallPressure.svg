@@ -18,6 +18,20 @@
   <defs
      id="defs2">
     <marker
+       style="overflow:visible"
+       id="marker4648"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lstart"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8) translate(12.5,0)"
+         style="fill-rule:evenodd;stroke:#ff6600;stroke-width:1pt;stroke-opacity:1;fill:#ff6600;fill-opacity:1"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path4385" />
+    </marker>
+    <marker
        inkscape:stockid="Arrow1Mend"
        orient="auto"
        refY="0"
@@ -1012,8 +1026,8 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.73357638"
-     inkscape:cx="326.31211"
+     inkscape:zoom="1.2747711"
+     inkscape:cx="378.82374"
      inkscape:cy="199.17046"
      inkscape:document-units="mm"
      inkscape:current-layer="g939"
@@ -1028,8 +1042,8 @@
      showguides="true"
      inkscape:window-width="1574"
      inkscape:window-height="868"
-     inkscape:window-x="178"
-     inkscape:window-y="63"
+     inkscape:window-x="100"
+     inkscape:window-y="59"
      inkscape:window-maximized="0"
      fit-margin-top="5"
      fit-margin-left="5"
@@ -1222,6 +1236,28 @@
            x="98.326859"
            y="224.44824"
            style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:Cambria;-inkscape-font-specification:'Cambria Italic';stroke-width:0.264583">h/2</tspan></text>
+      <path
+         style="fill:none;stroke:#ff6600;stroke-width:0.223;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#marker4648)"
+         d="m 135.70203,256.45098 c 1.30504,-2.4413 2.81663,-3.89675 4.45058,-4.76814 4.25928,-2.27147 8.6653,-2.12323 13.7814,-2.02429"
+         id="path2881"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="csc" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1;font-family:Corbel;-inkscape-font-specification:Corbel;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="154.73454"
+         y="249.08386"
+         id="text7107"><tspan
+           sodipodi:role="line"
+           x="154.73454"
+           y="249.08386"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:Calibri;-inkscape-font-specification:Calibri;fill:#ff6600;stroke-width:0.264583"
+           id="tspan4283">Center of</tspan><tspan
+           sodipodi:role="line"
+           x="154.73454"
+           y="253.34407"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:Calibri;-inkscape-font-specification:Calibri;fill:#ff6600;stroke-width:0.264583"
+           id="tspan4287">pressure</tspan></text>
     </g>
   </g>
 </svg>
