@@ -347,10 +347,16 @@ where $A$ is the surface area of the wall that is in contact with the fluid.  Th
 
 <div class="example">
 
-A 1000 pound gate is supported by a horizontal cable as shown in the figure below.  Water acts against the gate which is hinged at its bottom. What is the tension in the cable.  You can neglect any friction in the hinge.
+A 10 foot wide gate is supported by a horizontal cable as shown in the figure.  Water acts against the gate which is hinged at its bottom. What is the tension in the cable.  You can neglect any friction in the hinge.
 
-<div class="photo" style="width: 800px;  text-align:center">
+<div class="photo" style="width: 600px;  text-align:center">
 <img src="img\VerticalWallPressure_exercise.svg">
 </div>
 
 <hr>
+
+<div class="photo" style="width: 600px;  text-align:center">
+<img src="img\VerticalWallPressure_exercise_a.svg">
+</div>
+
+</div>
