@@ -360,16 +360,16 @@ A 10 foot wide gate is supported by a horizontal cable as shown in the figure.  
 <p>
 Left: Free body diagram of the gate.  The tension force from the cable is $T$.  The force distribution from the water is shown in red.  
 
-Right: Equivalent free body diagram of the gate.  The force distribution from the water is replaced by the single resultant force $F_R$.
+Right: Equivalent free body diagram of the gate.  The force distribution from the water is replaced by the single resultant force $F_R$ located a distance of 5 feet from the bottom.
 </p>
 </div>
 
 $$
-F_R= \gamma \left(\frac{h}{2}\right) A=62.4~\frac{\lb}{\ft^3} \left(\frac{15}{2}\right) \left(15\times 10)=70,200~\lb = 70.2~\text{kip}
+F_R= \gamma \left(\frac{h}{2}\right) A=62.4~\frac{\lb}{\ft^3} \left(\frac{15}{2}\right) \left(15\times 10\right)=70,200~\lb = 70.2~\text{kip}
 $$
 
 $$
-\Sum M_O=F_R\times 5~\ft-T\times 18~\ft=0
+\sum M_O=F_R\times 5~\ft-T\times 18~\ft=0
 $$
 
 $$
