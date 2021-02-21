@@ -365,7 +365,7 @@ Right: Equivalent free body diagram of the gate.  The force distribution from th
 </div>
 
 $$
-F_R= \gamma \left(\frac{h}{2}\right) A=62.4~\frac{\lb}{\ft^3} \left(\frac{15}{2}\right) \left(15\times 10\right)=70,200~\lb = 70.2~\text{kip}
+F_R= \gamma \left(\frac{h}{2}\right) A=62.4~\frac{\lb}{\ft^3} \left(\frac{15~\ft}{2}\right) 150~\ft^2=70,200~\lb = 70.2~\textrm{kip}
 $$
 
 $$
@@ -373,6 +373,7 @@ $$
 $$
 
 $$
-T=\frac{5~\ft}{18~\ft}\times F_R = 19.5~\text{kip}
+T=\frac{5~\ft}{18~\ft} \times F_R = 19.5~\textrm{kip}
 $$
+
 </div>
