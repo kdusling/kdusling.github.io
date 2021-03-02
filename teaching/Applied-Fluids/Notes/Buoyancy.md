@@ -86,35 +86,40 @@ solving for $F_{ext}$
 $$ F_{ext}=w-F_b $$
 
 In evaluating the weight we will need the volume of the cube:
+
 $$
 V=(0.5~\m)^3 = 0.125~\m^3
 $$
 
 The weight of the cube is therefore
+
 $$
 w=\gamma_{\rm steel}\,\times\, V = 76.5~\frac{\kN}{\m^3}\times 0.125~\m^3 = 9.56~\kN\,.
 $$
 
 Since the cube is fully submerged the volume of water displaced by the cube is the same as the volume of the cube. The buoyancy force is therefore,
+
 $$
 F_b=\gamma_f\,\times\, V_d = 9.81~\frac{\kN}{\m^3}\times 0.125~\m^3 =1.23~\kN\,.
 $$
 
 We therefore evaluation $F_{ext}$ to be
+
 $$
 F_{ext}=w-F_b=9.56~\kN - 1.23~\kN = 8.33~\kN
 $$
+
 Since the external force evaluated to a positive value we chose the correct direction. That is, we correctly assumed that we would need to apply an upward force on the cube to prevent it from sinking. In this case the buoyancy force was not able to overcome the force of gravity.
 
 We now consider the case when the cube is made of Styrofoam. Since the average specific weight of a Styrofoam cube is less than that of the surrounding water the cube will tend to float. However, let us wrongly assume that our external force is acting upwards so we can make use of the same free-body diagram and equations as before.
 
-The weight of the Styrofoam cube is $$ w=\gamma_{\rm Styrofoam}\,\times\, V = 0.4~\frac{\kN}{\m^3}\times 0.125~\m^3 = 0.05~\kN\,. $$
+The weight of the Styrofoam cube is
+
+$$ w=\gamma_{\rm Styrofoam}\,\times\, V = 0.4~\frac{\kN}{\m^3}\times 0.125~\m^3 = 0.05~\kN\,. $$
 
 
 
 The buoyancy force is the same for Styrofoam and steel! The buoyancy force depends on the specific weight of the fluid (in this case water) and the volume displaced by the object (see eq.~\ref{eq:buoyancy}). It doesn\'t matter what the object is made of!
-
-
 
 We can now evaluate the external force and find $$ F_{ext}=w-F_b=0.05~\kN - 1.23~\kN = -1.18~\kN $$ The negative value of the external force resulted from the incorrect assumption about its direction. In order to keep the Styrofoam cube submerged we must supply a $1.18~\kN$ force *downward*.
 
