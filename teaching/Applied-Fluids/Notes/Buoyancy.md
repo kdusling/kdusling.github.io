@@ -117,11 +117,9 @@ The weight of the Styrofoam cube is
 
 $$ w=\gamma_{\rm Styrofoam}\,\times\, V = 0.4~\frac{\kN}{\m^3}\times 0.125~\m^3 = 0.05~\kN\,. $$
 
+The buoyancy force is the same for Styrofoam and steel! The buoyancy force depends on the specific weight of the fluid (in this case water) and the volume displaced by the object. It doesn\'t matter what the object is made of!
 
-
-The buoyancy force is the same for Styrofoam and steel! The buoyancy force depends on the specific weight of the fluid (in this case water) and the volume displaced by the object (see eq.~\ref{eq:buoyancy}). It doesn\'t matter what the object is made of!
-
-We can now evaluate the external force and find $$ F_{ext}=w-F_b=0.05~\kN - 1.23~\kN = -1.18~\kN $$ The negative value of the external force resulted from the incorrect assumption about its direction. In order to keep the Styrofoam cube submerged we must supply a $1.18~\kN$ force *downward*.
+We can now evaluate the external force and find $ F_{ext}=w-F_b=0.05~\kN - 1.23~\kN = -1.18~\kN $ The negative value of the external force resulted from the incorrect assumption about its direction. In order to keep the Styrofoam cube submerged we must supply a $1.18~\kN$ force *downward*.
 
 </div>
 
