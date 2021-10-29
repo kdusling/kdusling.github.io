@@ -11,7 +11,7 @@ title: Fluid flow and the continuity equation
 
 ## Flow rates
 
-There are three closely related ways to express the amount of fluid flowing in a system per unit time.  The most basic one is the *volume flow rate* ($Q$) having dimensions of volume divided by time.  For example, a household faucet has a volume flow rate of about 2 gallons per minute.  If you close the drain in your sink and leave your faucet open for one minute your sink will contain about 2 gallons of water.
+There are three closely related ways to express the amount of fluid flowing in a system per unit time.  The first one is the *volume flow rate* ($Q$) which expresses the volume of fluid flowing through a system in given amount of time. For example, a household faucet has a volume flow rate of about 2 gallons per minute.  If you close the drain in your sink and leave your faucet open for one minute your sink will contain about 2 gallons of water.
 
 The volume flow rate through a section of pipe can be related to the pipe's cross-sectional area ($A$) and the average flow velocity ($v$) by the relation
 

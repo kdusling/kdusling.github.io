@@ -1,67 +1,68 @@
-body {
-  font-size: 10pt;
-  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-  color: #373D3F;
-  line-height: 14pt;
-  padding-left: 5pt;
-  padding-right: 5pt;
-  padding-top: 5pt;
-  background-color: #FFFFFF;
-}
-
-h1 {
-  font: 2.0em Verdana, Geneva, Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  line-height: 20pt;
-}
-
-h2 {
-  font: 1.5em Verdana, Geneva, Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  line-height: 20pt;
-}
-
-h3 {
-  font: 1.2em Verdana, Geneva, Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  line-height: 20pt;
-}
-
-a {
-  text-decoration: none;
-}
-
-a:link, a:visited {
-  color: #107896;
-}
-
-a:hover, a:active {
-  color: #F26D21;
-}
-
-div {
-  page-break-inside: avoid;
-}
-
-table {
-  margin: 0 0 0 0;
-  page-break-inside: avoid;
+body {
+  font-size: 10pt;
+  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+  color: #373D3F;
+  line-height: 14pt;
+  padding-left: 5pt;
+  padding-right: 5pt;
+  padding-top: 5pt;
+  background-color: #FFFFFF;
+}
+
+h1 {
+  font: 2.0em Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  line-height: 20pt;
+}
+
+h2 {
+  font: 1.5em Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  line-height: 20pt;
+}
+
+h3 {
+  font: 1.2em Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  line-height: 20pt;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link, a:visited {
+  color: #107896;
+}
+
+a:hover, a:active {
+  color: #F26D21;
+}
+
+div {
+  page-break-inside: avoid;
+}
+
+table {
+  margin: 0 0 0 0;
+  page-break-inside: avoid;
+  padding: 10px;                          
   margin-left: auto ;
   margin-right: auto ;
   width: auto !important;
-}
-
-caption {
-    caption-side: bottom;
-    font-size: 80%;
-}
+}
+
+caption {
+    caption-side: bottom;
+    font-size: 80%;
+}
 
 img{
   max-width: 100%;
   width: 100%;
 }
-
-/* ---- Images ---- */
+
+/* ---- Images ---- */
 .photo {
     width: 600px;
     border: 1px solid #ccc;
@@ -107,22 +108,23 @@ img{
   margin-right: auto ;
 }
 
-.example {
-  border: 2px solid #2980b9;
+.example {
+  border: 2px solid #2980b9;
   border-radius: 25px;
-  padding: 20px;
-  max-width: 80%;
+  padding: 20px;
+  max-width: 80%;
   margin-top: 40px;
   margin-bottom: 40px;
   margin-left: auto ;
   margin-right: auto ;
-}
-
-.example hr{
-  border:none;
+}
+
+.example hr{
+  border:none;
   border-bottom: 1px solid #2980b9;
-}
-
-.lefttable td:first-child {
-    text-align: left;
-}​
+}
+
+
+.lefttable td:first-child {
+    text-align: left;
+}​
