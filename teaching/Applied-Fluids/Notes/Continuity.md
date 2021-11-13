@@ -94,7 +94,7 @@ $$
 
 ## Continuity equation
 
-The continuity equation is a consequence of the conservation of mass.  Consider the pipe system shown below.  If the flow is stead (doesn't change with time) the mass of fluid that enters the pipe from the left must equal the mass of fluid that exits from the right.  
+The continuity equation is a consequence of the conservation of mass.  Consider the pipe system shown below.  If the flow is steady (velocity, pressure and density do not change with time) the mass of fluid that enters the pipe from the left must equal the mass of fluid that exits from the right.  
 
 <div class="photo" style="width: 600px;  text-align:center">
 <img src="img\continuity.svg">
@@ -113,7 +113,7 @@ $$\rho_1 A_1 v_1=\rho_2 A_2 v_2$$
 If the fluid is incompressible then $\rho_1 = \rho_2$ and the density cancels from each side of the above expression.  We are therefore left with the
 
 <div class="callout">
- continuity equation for incompressible fluids
+ Continuity equation for steady incompressible flow
 
  $$
  A_1 v_1=A_2 v_2
@@ -121,8 +121,18 @@ If the fluid is incompressible then $\rho_1 = \rho_2$ and the density cancels fr
 
 </div>
 
+<div class="example">
+In the system shown below the inside diameter of the pipe at section 1 is 50 mm and 100 mm at section 2.  Water at room temperature is flowing with an average velocity of 5 m/s at section 1.  What is the velocity at section 2?
+
+<div class="photo" style="width: 600px;  text-align:center">
+<img src="img\continuity_example.svg">
+</div>
+ 
+<hr>
 
 
+
+</div>
 
 ## Commercially available piping
 

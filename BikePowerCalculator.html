@@ -1,0 +1,516 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <title>Bike Calculator</title>
+      <meta name="description" content="Bike Calculator">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta charset="utf-8">
+      <meta name="author" content="Kevin Dusling" />
+      <meta NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+
+
+
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+     <script type="text/x-mathjax-config">
+       MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+     </script>
+
+     <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+
+     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+
+
+
+
+
+  <script type="text/javascript">
+
+  var units = "imperial";
+
+window.onload = function() {
+
+  const params = new URLSearchParams(window.location.search);
+
+  if ( params.has('units') )
+  {
+    var units = params.get('units');
+    document.getElementById(units).checked = true;
+    ChangeUnits(  document.getElementById(units) );
+  }
+
+  if ( params.has('CdA') )
+  {
+    document.getElementById("CdA").value =  params.get('CdA');
+  }
+
+};
+
+
+google.charts.load('current', {'packages':['corechart', 'line']});
+
+
+function makePlot() {
+
+     var data = new google.visualization.DataTable();
+     data.addColumn('number', 'speed');
+     data.addColumn('number', 'slope');
+     data.addColumn('number', '+rr');
+     data.addColumn('number', '+wind');
+
+     var pts = 201;
+
+     data.addRows(pts);
+
+     var CdA = document.getElementById("CdA").value;
+     var Crr = document.getElementById("Crr").value;
+     var eta = document.getElementById("eta").value/100.0;
+     var Wt = parseFloat(document.getElementById("bike_weight").value) + parseFloat(document.getElementById("rider_weight").value);
+     var angle = Math.atan(parseFloat(document.getElementById("grade").value)/100.);
+     var wind = parseFloat(document.getElementById("wind").value);
+     var rho = parseFloat(document.getElementById("density").value);
+     var pmax = 400;
+
+ if (units === "metric"){
+     var g = 9.81;
+     var xaxis_label = "km/hr";
+
+     for(var i = 0; i < pts ; i++) {
+       var sp = i*0.25;
+       var Pincline = Wt*g*Math.sin(angle)*(sp/3.6);
+       var Prr = Crr*Wt*g*Math.cos(angle)*(sp/3.6);
+       var Pwind = Math.sign(sp+wind)*0.5*rho*CdA*Math.pow((sp+wind)/3.6,2.)*(sp/3.6);
+       if ( (Pincline+Prr+Pwind)/eta > pmax) {break;}
+       data.setCell(i, 0, sp);
+       data.setCell(i, 1, Pincline/eta);
+       data.setCell(i, 2, (Pincline+Prr)/eta );
+       data.setCell(i, 3, (Pincline+Prr+Pwind)/eta );
+
+     }
+   }
+
+  if (units === "imperial"){
+    var g = 32.17;
+    var xaxis_label = "mph";
+
+
+    for(var i = 0; i < pts ; i++) {
+      var sp = i*0.25;
+      var Pincline = Wt*Math.sin(angle)*(sp*1.467)*745.7/550.;
+      var Prr = Crr*Wt*Math.cos(angle)*(sp*1.467)*745.7/550.;
+      var Pwind = Math.sign(sp+wind)*0.5*rho/g*CdA*Math.pow((sp+wind)*1.467,2.)*(sp*1.467)*745.7/550.;
+      if ( (Pincline+Prr+Pwind)/eta > pmax) {break;}
+      data.setCell(i, 0, sp);
+      data.setCell(i, 1, Pincline/eta);
+      data.setCell(i, 2, (Pincline+Prr)/eta );
+      data.setCell(i, 3, (Pincline+Prr+Pwind)/eta );
+    }
+  }
+
+
+     var plotOptions = {
+       title: "",
+       legend: '',
+       width: 600,
+       height: 400,
+        hAxis: {
+         title: xaxis_label,
+         scaleType: 'linear',
+       },
+       vAxis: {
+         title: 'Power (Watts)',
+         scaleType: 'linear'
+       }
+     };
+
+     var Chart = new google.visualization.LineChart(document.getElementById('power_plot_div'));
+     //logChart.draw(joinedData, moodyOptions);
+     Chart.draw(data, plotOptions);
+}
+
+function ChangeUnits(myRadio){
+   units = myRadio.value;
+
+   if (units === "metric"){
+     document.getElementById("weight_unit").textContent="kg";
+     document.getElementById("rider_weight").value = ((document.getElementById("rider_weight").value)/2.205).toFixed(0);
+
+     document.getElementById("weight_unit2").textContent="kg";
+     document.getElementById("bike_weight").value = ((document.getElementById("bike_weight").value)/2.205).toFixed(0);
+
+     document.getElementById("CdA_unit").textContent="m$^2$";
+     MathJax.Hub.Queue(["Typeset",MathJax.Hub,"CdA_unit"]);
+     document.getElementById("CdA").value = ((document.getElementById("CdA").value)/3.28084/3.28084).toPrecision(3);
+
+     document.getElementById("wind_unit").textContent="kph";
+     document.getElementById("wind").value = ((document.getElementById("wind").value)*1.609).toFixed(0);
+
+     document.getElementById("density_unit").textContent="kg/m$^3$ ";
+     MathJax.Hub.Queue(["Typeset",MathJax.Hub,"density_unit"]);
+     document.getElementById("density").value = ((document.getElementById("density").value)*16.0185).toFixed(3);
+
+
+   }
+
+   if (units === "imperial"){
+     document.getElementById("weight_unit").textContent="lb";
+     document.getElementById("rider_weight").value = ((document.getElementById("rider_weight").value)*2.205).toFixed(0);
+
+     document.getElementById("weight_unit2").textContent="lb";
+     document.getElementById("bike_weight").value = ((document.getElementById("bike_weight").value)*2.205).toFixed(0);
+
+     document.getElementById("CdA_unit").textContent="ft$^2$";
+     MathJax.Hub.Queue(["Typeset",MathJax.Hub,"CdA_unit"]);
+     document.getElementById("CdA").value = ((document.getElementById("CdA").value)*3.28084*3.28084).toPrecision(3);
+
+     document.getElementById("wind_unit").textContent="mph";
+     document.getElementById("wind").value = ((document.getElementById("wind").value)/1.609).toFixed(0);
+
+     document.getElementById("density_unit").textContent="lb/ft$^3$ ";
+     MathJax.Hub.Queue(["Typeset",MathJax.Hub,"density_unit"]);
+     document.getElementById("density").value = ((document.getElementById("density").value)/16.0185).toFixed(4);
+
+   }
+
+}
+
+function getWeather(){
+  if (navigator.geolocation) {
+      // Request the current position
+      // If successful, call getPosSuccess; On error, call getPosErr
+      navigator.geolocation.getCurrentPosition(getPosSuccess, getPosErr);
+  } else {
+      alert('Geolocation not available.');
+  }
+}
+
+// getCurrentPosition: Successful return
+function getPosSuccess(pos) {
+    // Get the coordinates and accuracy properties from the returned object
+    var geoLat = pos.coords.latitude.toFixed(5);
+    var geoLng = pos.coords.longitude.toFixed(5);
+    var geoAcc = pos.coords.accuracy.toFixed(1);
+    var URLRequest = "https://api.weather.gov/points/" +  String(geoLat) + "," + String(geoLng);
+    $.getJSON( URLRequest )
+    .done(function( data ) {
+         URLRequest = data.properties.observationStations;
+         $.getJSON( URLRequest )
+         .done(function( data ) {
+
+           var nstat = 5;
+           var AJAX = [];
+           var names = [];
+
+           for (var i=0; i < nstat; i++){
+             var stationURL = data.features[i].id + "/observations/latest/";
+             names.push(data.features[i].properties.name);
+             AJAX.push($.getJSON(stationURL) );
+           }
+
+           $.when.apply($, AJAX).done(function(){
+             // one for each AJAX call
+             // Each argument is an array with the following structure: [data, statusText, jqXHR]
+             var div = document.getElementById("weather_div");
+             for(var i = 0; i < nstat; i++){
+
+                 var datastat = arguments[i][0];
+                 var Temp = datastat.properties.temperature.value;
+                 var windSpeed = datastat.properties.windSpeed.value;
+                 var Press = datastat.properties.barometricPressure.value;
+
+
+                 if(!Temp || !windSpeed || !Press ){
+                   continue;
+                 }
+                 else {
+
+                   if (units === "metric"){
+                     Tunit = "°C";
+                     windSpeedUnit = "kph";
+                     density = Press/(287.05*(Temp+273.15));
+                   }
+                   if (units === "imperial"){
+                     //using SI units for density (Temp in C) and then convert
+                     density = 1.0/16.0185*Press/(287.05*(Temp+273.15));
+                     Temp = (9./5.*(Temp)+32.0);
+                     Tunit = "°F";
+                     windSpeed =  (windSpeed/1.609);
+                     windSpeedUnit = "mph";
+                   }
+                   wdir = datastat.properties.windDirection.value;
+
+
+                   div.innerHTML = names[i] + "<BR>";
+                   const event = new Date(datastat.properties.timestamp);
+                   div.innerHTML += event.toLocaleTimeString('en-US') + "&nbsp;&nbsp;&nbsp;" + event.toLocaleDateString('en-US') + "<BR>";
+                   div.innerHTML += "Temperature: " + Temp.toFixed(1) + Tunit + "<BR>" ;
+                   div.innerHTML += "Wind speed: " + windSpeed.toFixed(1) + "&nbsp;" + windSpeedUnit + "<BR>" ;
+                   document.getElementById("wind").value = windSpeed.toFixed(1);
+
+                   const compass = ["N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW","N"];
+                   var index = Math.round((wdir%360)/22.5);
+                   div.innerHTML += "Wind direction: " + wdir + "&#176&nbsp;/&nbspFrom the&nbsp;" + compass[index] + "<BR>";
+
+                   document.getElementById("density").value = density.toFixed(3);
+
+                   div.innerHTML += "<img src='" + datastat.properties.icon + "'></img><BR><BR>"
+
+                   div.innerHTML += "<table class='table' id='wcTable'><thead><tr><td>Speed</td><td>Windchill</td></tr></thead>";
+                   div.innerHTML += "</table>";
+
+                   var table = document.getElementById("wcTable");
+                   for(var i = 0; i <= 4 ; i++) {
+                     var row = table.insertRow();
+                     var cell1 = row.insertCell(0);
+                     var cell2 = row.insertCell(1);
+                     var sp = i*5.0;
+                     var wc;
+                         if (units === "metric"){
+                            wch = (13.12+0.6215*Temp-11.37*Math.pow(windSpeed+sp,0.16)+0.3965*Temp*Math.pow(windSpeed+sp,0.16));
+                         }
+                         if (units === "imperial"){
+                            wch = (35.74+0.6215*Temp-35.75*Math.pow(windSpeed+sp,0.16)+0.4275*Temp*Math.pow(windSpeed+sp,0.16));
+                         }
+                         cell1.innerHTML = sp + "&nbsp;" + windSpeedUnit;
+                         cell2.innerHTML = wch.toFixed(1) + Tunit ;
+                  }
+
+
+                   break;
+                 }
+              }
+           });
+       })
+     })
+   }
+
+
+// getCurrentPosition: Error returned
+function getPosErr(err) {
+    switch (err.code) {
+      case err.PERMISSION_DENIED:
+        alert("User denied the request for Geolocation.");
+        break;
+      case err.POSITION_UNAVAILABLE:
+        alert("Location information is unavailable.");
+        break;
+      case err.TIMEOUT:
+        alert("The request to get user location timed out.");
+        break;
+      default:
+        alert("An unknown error occurred.");
+    }
+}
+
+
+
+function getWeathe2r(){
+
+  var station = document.getElementById("station");
+  var url = station.options[station.selectedIndex].value;
+  var name = station.options[station.selectedIndex].text;
+  var div = document.getElementById("weather_div");
+  div.innerHTML = "<h3>" + name + "</h3><BR>";
+    $.getJSON( url )
+    .done(function( data ) {
+
+
+      var Temp, Tunit, windSpeed, windSpeedUnit, wdir, wcpts, density;
+      if (units === "metric"){
+        Temp = data.properties.temperature.value;
+        Tunit = "°C";
+        windSpeed = data.properties.windSpeed.value;
+        windSpeedUnit = "kph";
+        wcpts = 45;
+        density = data.properties.barometricPressure.value/(287.05*(data.properties.temperature.value+273.15));
+      }
+      if (units === "imperial"){
+        Temp = (9./5.*(data.properties.temperature.value)+32.0);
+        Tunit = "°F";
+        windSpeed =  (data.properties.windSpeed.value/1.609);
+        windSpeedUnit = "mph";
+        wcpts = 30;
+        density = 1.0/16.0185*data.properties.barometricPressure.value/(287.05*(data.properties.temperature.value+273.15));
+      }
+      wdir = data.properties.windDirection.value;
+
+
+      const event = new Date(data.properties.timestamp);
+      div.innerHTML += event.toLocaleTimeString('en-US') + "&nbsp;&nbsp;&nbsp;" + event.toLocaleDateString('en-US') + "<BR>";
+      div.innerHTML += "Temperature: " + Temp.toFixed(1) + Tunit + "<BR>" ;
+      div.innerHTML += "Wind speed: " + windSpeed.toFixed(1) + "&nbsp;" + windSpeedUnit + "<BR>" ;
+
+
+      const compass = ["N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW","N"];
+      var index = Math.round((wdir%360)/22.5);
+      div.innerHTML += "Wind direction: " + wdir + "&#176&nbsp;/&nbsp From the" + compass[index] + "<BR>";
+
+      div.innerHTML += "density: " + density;
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'speed');
+      data.addColumn('number', 'Wind Chill');
+
+      data.addRows(wcpts+1);
+
+      for(var i = 0; i <= wcpts ; i++) {
+            var sp = i;
+            var wchill;
+            if (units === "metric"){
+               wchill = (13.12+0.6215*Temp-11.37*Math.pow(windSpeed+sp,0.16)+0.3965*Temp*Math.pow(windSpeed+sp,0.16));
+            }
+            if (units === "imperial"){
+               wchill = (35.74+0.6215*Temp-35.75*Math.pow(windSpeed+sp,0.16)+0.4275*Temp*Math.pow(windSpeed+sp,0.16));
+            }
+            data.setCell(i, 0, sp);
+            data.setCell(i, 1, wchill);
+      }
+
+      var plotOptions = {title: "", legend: '', width: 600, height: 400,
+             hAxis: {
+              title: windSpeedUnit,
+              scaleType: 'linear',
+            },
+            vAxis: {
+              title: 'Wind Chill (' + Tunit + ')',
+              scaleType: 'linear'
+            }
+          };
+
+          var Chart = new google.visualization.LineChart(document.getElementById('windchillplot_div'));
+          Chart.draw(data, plotOptions);
+
+       })
+
+} //end getWeather
+
+
+</script>
+
+
+<body>
+  <div class="container-fluid" style="border: 1px">
+
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+
+      <div class="row">
+        <legend class="col-form-label col-sm-2 ">Units</legend>
+        <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="units" id="imperial" onchange="ChangeUnits(this);" value="imperial" checked>
+        <label class="form-check-label" for="imperial">imperial</label>
+        </div>
+        <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="units" id="metric" onchange="ChangeUnits(this);" value="metric">
+        <label class="form-check-label" for="metric">metric</label>
+        </div>
+      </div>
+
+      <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text">Rider Weight</span>
+      </div>
+      <input type="text" class="form-control" id="rider_weight" aria-label="Rider Weight" value="170">
+      <div class="input-group-append">
+      <span class="input-group-text" id="weight_unit">lb</span>
+      </div>
+      </div>
+
+      <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text">Bike Weight</span>
+      </div>
+      <input type="text" class="form-control" id="bike_weight" aria-label="Bike Weight" value="30">
+      <div class="input-group-append">
+      <span class="input-group-text" id="weight_unit2">lb</span>
+      </div>
+      </div>
+
+      <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text" style="width: 120px;">Drag Area</span>
+      </div>
+      <input type="text" class="form-control" id="CdA" aria-label="CdA" value="3.50" >
+      <div class="input-group-append">
+      <span class="input-group-text" id="CdA_unit" style="width: 50px;">ft$^2$</span>
+      </div>
+      </div>
+
+      <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text" style="width: 120px;">$C_{rr}$</span>
+      </div>
+      <input type="text" class="form-control" id="Crr" aria-label="Crr" value="0.00869" >
+      </div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" >Drivetrain Efficiency</span>
+  </div>
+  <input type="text" class="form-control" id="eta" aria-label="eta" value="97" >
+  <div class="input-group-append">
+    <span class="input-group-text" id="" style="width: 50px;">%</span>
+  </div>
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text">Grade</span>
+  </div>
+  <input type="text" class="form-control" id="grade" aria-label="grade" value="0" >
+  <div class="input-group-append">
+    <span class="input-group-text" id="" style="width: 50px;">%</span>
+  </div>
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" style="width: 120px;">Headwind</span>
+  </div>
+  <input type="text" class="form-control" id="wind" aria-label="headwind" value="0" >
+  <div class="input-group-append">
+    <span class="input-group-text" id="wind_unit" style="width: 50px;">mph</span>
+  </div>
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" style="width: 120px;">Air density</span>
+  </div>
+  <input type="text" class="form-control" id="density" aria-label="density" value="0.0765" >
+  <div class="input-group-append">
+    <span class="input-group-text" id="density_unit" style="width: 65px;">lb/ft$^3$&nbsp;</span>
+  </div>
+</div>
+
+
+
+
+<button type="button" class="btn btn-primary" onclick="makePlot();">Generate Graph</button>
+
+<div id="power_plot_div"></div>
+
+</div>
+
+<div class="col-xs-6 col-md-6">
+
+  <div id="upper_weather_div">
+    <button class="btn btn-outline-secondary" type="button"  onclick="getWeather();">Get Weather</button>
+    <div id="weather_div"></div>
+  </div>
+
+</div>
+</div>
+</div>
+
+
+</body>
+</html>
