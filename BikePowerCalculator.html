@@ -4,7 +4,7 @@
 
    <head>
       <title>Bike Calculator</title>
-      <meta name="description" content="Bike Calculator">
+      <meta name="description" content="Bike Calculator: Computes power requirement for cycling at constant speed.  Includes incline, rolling resistance and drag.">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta charset="utf-8">
       <meta name="author" content="Kevin Dusling" />
@@ -59,6 +59,15 @@ window.onload = function() {
     ChangeUnits(  document.getElementById(units) );
   }
 
+  if ( params.has('RiderWeight') )
+  {
+    document.getElementById("rider_weight").value =  params.get('RiderWeight');
+  }
+  if ( params.has('BikeWeight') )
+  {
+    document.getElementById("bike_weight").value =  params.get('BikeWeight');
+  }
+
   if ( params.has('CdA') )
   {
     document.getElementById("CdA").value =  params.get('CdA');
@@ -69,6 +78,56 @@ window.onload = function() {
 
 google.charts.load('current', {'packages':['corechart', 'line']});
 
+function Speed(pow)
+{
+ var a = 1;
+ var b = 2;
+ var err = 1.e-10;
+
+ var c;
+
+ do {
+        c=(a*(Power(b)-pow)-b*(Power(a)-pow))/(Power(b)-Power(a));
+        a=b;
+        b=c;
+
+    } while( Math.abs(Power(c)-pow)>err );
+
+return c;
+} //function Speed
+
+function Power(sp) {
+
+  sp = parseFloat(sp);
+  var CdA = document.getElementById("CdA").value;
+  var Crr = document.getElementById("Crr").value;
+  var eta = document.getElementById("eta").value/100.0;
+  var Wt = parseFloat(document.getElementById("bike_weight").value) + parseFloat(document.getElementById("rider_weight").value);
+  var angle = Math.atan(parseFloat(document.getElementById("grade").value)/100.);
+  var wind = parseFloat(document.getElementById("wind").value);
+  var rho = parseFloat(document.getElementById("density").value);
+
+if (units === "metric"){
+  var g = 9.81;
+  var Pincline = Wt*g*Math.sin(angle)*(sp/3.6);
+  var Prr = Crr*Wt*g*Math.cos(angle)*(sp/3.6);
+  var Pwind = Math.sign(sp+wind)*0.5*rho*CdA*Math.pow((sp+wind)/3.6,2.)*(sp/3.6);
+  return (Pincline + Prr + Pwind)/eta;
+  }
+
+if (units === "imperial"){
+  var g = 32.17;
+  var Pincline = Wt*Math.sin(angle)*(sp*1.467)*745.7/550.;
+  var Prr = Crr*Wt*Math.cos(angle)*(sp*1.467)*745.7/550.;
+  var Pwind = Math.sign(sp+wind)*0.5*rho/g*CdA*Math.pow((sp+wind)*1.467,2.)*(sp*1.467)*745.7/550.;
+  return (Pincline + Prr + Pwind)/eta;
+  }
+} // function Power
+
+function Compute() {
+  //document.getElementById("Power").value = Power(document.getElementById("speed").value).toFixed(2)  ;
+  document.getElementById("speed").value = Speed(parseFloat(document.getElementById("Power").value));
+}
 
 
 function makePlot() {
@@ -177,6 +236,9 @@ function ChangeUnits(myRadio){
      document.getElementById("wind_unit").textContent="kph";
      document.getElementById("wind").value = ((document.getElementById("wind").value)*1.609).toFixed(0);
 
+     document.getElementById("speed_unit").textContent="kph";
+     document.getElementById("speed").value = ((document.getElementById("speed").value)*1.609).toFixed(0);
+
      document.getElementById("density_unit").textContent="kg/m$^3$ ";
      MathJax.Hub.Queue(["Typeset",MathJax.Hub,"density_unit"]);
      document.getElementById("density").value = ((document.getElementById("density").value)*16.0185).toFixed(3);
@@ -197,6 +259,9 @@ function ChangeUnits(myRadio){
 
      document.getElementById("wind_unit").textContent="mph";
      document.getElementById("wind").value = ((document.getElementById("wind").value)/1.609).toFixed(0);
+
+     document.getElementById("speed_unit").textContent="mph";
+     document.getElementById("speed").value = ((document.getElementById("speed").value)/1.609).toFixed(0);
 
      document.getElementById("density_unit").textContent="lb/ft$^3$ ";
      MathJax.Hub.Queue(["Typeset",MathJax.Hub,"density_unit"]);
@@ -347,15 +412,17 @@ function getPosErr(err) {
       <div class="col-xs-12 col-md-8">
 
       <div class="row">
-        <legend class="col-form-label col-sm-2 ">Units</legend>
-        <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="units" id="imperial" onchange="ChangeUnits(this);" value="imperial" checked>
-        <label class="form-check-label" for="imperial">imperial</label>
-        </div>
-        <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="units" id="metric" onchange="ChangeUnits(this);" value="metric">
-        <label class="form-check-label" for="metric">metric</label>
-        </div>
+      <legend class="col-form-label col-sm-2  pt-0">Units</legend>
+       <div class="col-sm-10">
+         <div class="form-check form-check-inline">
+         <input class="form-check-input" type="radio" name="units" id="imperial" onchange="ChangeUnits(this);" value="imperial" checked>
+         <label class="form-check-label" for="imperial">imperial</label>
+         </div>
+         <div class="form-check form-check-inline">
+         <input class="form-check-input" type="radio" name="units" id="metric" onchange="ChangeUnits(this);" value="metric">
+         <label class="form-check-label" for="metric">metric</label>
+         </div>
+       </div>
       </div>
 
       <div class="input-group mb-3">
@@ -434,6 +501,38 @@ function getPosErr(err) {
       <span class="input-group-text" id="density_unit" style="width: 65px;">lb/ft$^3$&nbsp;</span>
       </div>
       </div>
+
+      <hr>
+
+
+      <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text" style="width: 100px;">Speed</span>
+      </div>
+      <input type="text" class="form-control" id="speed" aria-label="speed" value="0" onchange="document.getElementById('Power').value = Power(this.value).toFixed(1);" >
+      <div class="input-group-append">
+      <span class="input-group-text" id="speed_unit" style="width: 65px;">mph</span>
+      </div>
+
+      <span class="input-group-addon">&nbsp;
+        <button type="button" class="btn btn-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-right" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/>
+        </svg>
+        </button>&nbsp;&nbsp;
+     </span>
+
+      <div class="input-group-prepend">
+      <span class="input-group-text" style="width: 100px;">Power</span>
+      </div>
+      <input type="text" class="form-control" id="Power" aria-label="Power" value="0" onchange="document.getElementById('speed').value = Speed(this.value).toFixed(1);">
+      <div class="input-group-append">
+      <span class="input-group-text" id="power_unit" style="width: 65px;">Watts</span>
+      </div>
+
+    </div>
+
+
 
 
 <button type="button" class="btn btn-primary" onclick="makePlot();">Generate Graph</button>
