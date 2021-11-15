@@ -26,6 +26,18 @@
      <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
 
      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+     <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-79202801-1', 'auto');
+       ga('send', 'pageview');
+
+     </script>
+
 </head>
 
 
@@ -218,7 +230,6 @@ function getPosSuccess(pos) {
            $.when.apply($, AJAX).done(function(){
              // one for each AJAX call
              // Each argument is an array with the following structure: [data, statusText, jqXHR]
-             var div = document.getElementById("weather_div");
              for(var i = 0; i < nstat; i++){
 
                  var datastat = arguments[i][0];
@@ -247,8 +258,10 @@ function getPosSuccess(pos) {
                    }
                    wdir = datastat.properties.windDirection.value;
 
+                   var div = document.getElementById("weather_div");
 
-                   div.innerHTML = names[i] + "<BR>";
+                   div.innerHTML = "";
+                   div.innerHTML += "<strong>" + names[i] + "</strong><BR>";
                    const event = new Date(datastat.properties.timestamp);
                    div.innerHTML += event.toLocaleTimeString('en-US') + "&nbsp;&nbsp;&nbsp;" + event.toLocaleDateString('en-US') + "<BR>";
                    div.innerHTML += "Temperature: " + Temp.toFixed(1) + Tunit + "<BR>" ;
@@ -261,10 +274,12 @@ function getPosSuccess(pos) {
 
                    document.getElementById("density").value = density.toFixed(3);
 
-                   div.innerHTML += "<img src='" + datastat.properties.icon + "'></img><BR><BR>"
+                   document.getElementById("weather_div_img").innerHTML = "<img class='m-4' src='" + datastat.properties.icon + "'></img>"
 
-                   div.innerHTML += "<table class='table' id='wcTable'><thead><tr><td>Speed</td><td>Windchill</td></tr></thead>";
-                   div.innerHTML += "</table>";
+                   div = document.getElementById("weather_div_lower");
+
+                   div.innerHTML = "<table class='table w-auto' id='wcTable'><thead><tr><td>Speed</td><td>Windchill<sup>&#8224;</sup></td></tr></thead>";
+                   div.innerHTML += "<caption><sup>&#8224;</sup>Windchill temperatures riding into headwind.<BR>Valid for temperatures at or below 50°F and wind speeds above 3 mph.<BR><a href='https://www.weather.gov/safety/cold-wind-chill-chart'>More info.</a></caption></table>";
 
                    var table = document.getElementById("wcTable");
                    for(var i = 0; i <= 4 ; i++) {
@@ -309,89 +324,6 @@ function getPosErr(err) {
         alert("An unknown error occurred.");
     }
 }
-
-
-
-function getWeathe2r(){
-
-  var station = document.getElementById("station");
-  var url = station.options[station.selectedIndex].value;
-  var name = station.options[station.selectedIndex].text;
-  var div = document.getElementById("weather_div");
-  div.innerHTML = "<h3>" + name + "</h3><BR>";
-    $.getJSON( url )
-    .done(function( data ) {
-
-
-      var Temp, Tunit, windSpeed, windSpeedUnit, wdir, wcpts, density;
-      if (units === "metric"){
-        Temp = data.properties.temperature.value;
-        Tunit = "°C";
-        windSpeed = data.properties.windSpeed.value;
-        windSpeedUnit = "kph";
-        wcpts = 45;
-        density = data.properties.barometricPressure.value/(287.05*(data.properties.temperature.value+273.15));
-      }
-      if (units === "imperial"){
-        Temp = (9./5.*(data.properties.temperature.value)+32.0);
-        Tunit = "°F";
-        windSpeed =  (data.properties.windSpeed.value/1.609);
-        windSpeedUnit = "mph";
-        wcpts = 30;
-        density = 1.0/16.0185*data.properties.barometricPressure.value/(287.05*(data.properties.temperature.value+273.15));
-      }
-      wdir = data.properties.windDirection.value;
-
-
-      const event = new Date(data.properties.timestamp);
-      div.innerHTML += event.toLocaleTimeString('en-US') + "&nbsp;&nbsp;&nbsp;" + event.toLocaleDateString('en-US') + "<BR>";
-      div.innerHTML += "Temperature: " + Temp.toFixed(1) + Tunit + "<BR>" ;
-      div.innerHTML += "Wind speed: " + windSpeed.toFixed(1) + "&nbsp;" + windSpeedUnit + "<BR>" ;
-
-
-      const compass = ["N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW","N"];
-      var index = Math.round((wdir%360)/22.5);
-      div.innerHTML += "Wind direction: " + wdir + "&#176&nbsp;/&nbsp From the" + compass[index] + "<BR>";
-
-      div.innerHTML += "density: " + density;
-
-      var data = new google.visualization.DataTable();
-      data.addColumn('number', 'speed');
-      data.addColumn('number', 'Wind Chill');
-
-      data.addRows(wcpts+1);
-
-      for(var i = 0; i <= wcpts ; i++) {
-            var sp = i;
-            var wchill;
-            if (units === "metric"){
-               wchill = (13.12+0.6215*Temp-11.37*Math.pow(windSpeed+sp,0.16)+0.3965*Temp*Math.pow(windSpeed+sp,0.16));
-            }
-            if (units === "imperial"){
-               wchill = (35.74+0.6215*Temp-35.75*Math.pow(windSpeed+sp,0.16)+0.4275*Temp*Math.pow(windSpeed+sp,0.16));
-            }
-            data.setCell(i, 0, sp);
-            data.setCell(i, 1, wchill);
-      }
-
-      var plotOptions = {title: "", legend: '', width: 600, height: 400,
-             hAxis: {
-              title: windSpeedUnit,
-              scaleType: 'linear',
-            },
-            vAxis: {
-              title: 'Wind Chill (' + Tunit + ')',
-              scaleType: 'linear'
-            }
-          };
-
-          var Chart = new google.visualization.LineChart(document.getElementById('windchillplot_div'));
-          Chart.draw(data, plotOptions);
-
-       })
-
-} //end getWeather
-
 
 </script>
 
@@ -451,47 +383,45 @@ function getWeathe2r(){
       <input type="text" class="form-control" id="Crr" aria-label="Crr" value="0.00869" >
       </div>
 
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text" >Drivetrain Efficiency</span>
-  </div>
-  <input type="text" class="form-control" id="eta" aria-label="eta" value="97" >
-  <div class="input-group-append">
-    <span class="input-group-text" id="" style="width: 50px;">%</span>
-  </div>
-</div>
+      <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text" >Drivetrain Efficiency</span>
+      </div>
+      <input type="text" class="form-control" id="eta" aria-label="eta" value="97" >
+      <div class="input-group-append">
+      <span class="input-group-text" id="" style="width: 50px;">%</span>
+      </div>
+      </div>
 
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text">Grade</span>
-  </div>
-  <input type="text" class="form-control" id="grade" aria-label="grade" value="0" >
-  <div class="input-group-append">
-    <span class="input-group-text" id="" style="width: 50px;">%</span>
-  </div>
-</div>
+      <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text">Grade</span>
+      </div>
+      <input type="text" class="form-control" id="grade" aria-label="grade" value="0" >
+      <div class="input-group-append">
+      <span class="input-group-text" id="" style="width: 50px;">%</span>
+      </div>
+      </div>
 
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text" style="width: 120px;">Headwind</span>
-  </div>
-  <input type="text" class="form-control" id="wind" aria-label="headwind" value="0" >
-  <div class="input-group-append">
-    <span class="input-group-text" id="wind_unit" style="width: 50px;">mph</span>
-  </div>
-</div>
+      <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text" style="width: 120px;">Headwind</span>
+      </div>
+      <input type="text" class="form-control" id="wind" aria-label="headwind" value="0" >
+      <div class="input-group-append">
+      <span class="input-group-text" id="wind_unit" style="width: 50px;">mph</span>
+      </div>
+      </div>
 
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text" style="width: 120px;">Air density</span>
-  </div>
-  <input type="text" class="form-control" id="density" aria-label="density" value="0.0765" >
-  <div class="input-group-append">
-    <span class="input-group-text" id="density_unit" style="width: 65px;">lb/ft$^3$&nbsp;</span>
-  </div>
-</div>
-
-
+      <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text" style="width: 120px;">Air density</span>
+      </div>
+      <input type="text" class="form-control" id="density" aria-label="density" value="0.0765" >
+      <div class="input-group-append">
+      <span class="input-group-text" id="density_unit" style="width: 65px;">lb/ft$^3$&nbsp;</span>
+      </div>
+      </div>
 
 
 <button type="button" class="btn btn-primary" onclick="makePlot();">Generate Graph</button>
@@ -499,12 +429,27 @@ function getWeathe2r(){
 <div id="power_plot_div"></div>
 
 </div>
-
 <div class="col-xs-6 col-md-6">
 
-  <div id="upper_weather_div">
-    <button class="btn btn-outline-secondary" type="button"  onclick="getWeather();">Get Weather</button>
-    <div id="weather_div"></div>
+
+    <div class='container'>
+
+      <div class='row'>
+        <div class='col-xs-12 mx.auto m-2'>
+          <button class="btn btn-primary active" type="button" onclick="getWeather();">Retrieve Local Weather</button>
+        </div>
+      </div>
+
+      <div class='row'>
+        <div class='col-xs-6' id='weather_div'></div>
+        <div class="col-xs-6" style="display: flex; justify-content: center; align-items: center" id="weather_div_img"></div>
+      </div>
+      <div class='row'>
+        <div class='col-12' id='weather_div_lower'>Retrieving weather will update the headwind and air density values.</div>
+      </div>
+
+    </div>
+
   </div>
 
 </div>
