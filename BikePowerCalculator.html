@@ -70,13 +70,14 @@ window.onload = function() {
 google.charts.load('current', {'packages':['corechart', 'line']});
 
 
+
 function makePlot() {
 
      var data = new google.visualization.DataTable();
      data.addColumn('number', 'speed');
-     data.addColumn('number', 'slope');
-     data.addColumn('number', '+rr');
-     data.addColumn('number', '+wind');
+     data.addColumn('number', 'Incline');
+     data.addColumn('number', 'Incline + Rolling');
+     data.addColumn('number', 'Incline + Rolling + Drag');
 
      var pts = 201;
 
@@ -100,11 +101,15 @@ function makePlot() {
        var Pincline = Wt*g*Math.sin(angle)*(sp/3.6);
        var Prr = Crr*Wt*g*Math.cos(angle)*(sp/3.6);
        var Pwind = Math.sign(sp+wind)*0.5*rho*CdA*Math.pow((sp+wind)/3.6,2.)*(sp/3.6);
-       if ( (Pincline+Prr+Pwind)/eta > pmax) {break;}
-       data.setCell(i, 0, sp);
-       data.setCell(i, 1, Pincline/eta);
-       data.setCell(i, 2, (Pincline+Prr)/eta );
-       data.setCell(i, 3, (Pincline+Prr+Pwind)/eta );
+
+       var y1 = Pincline/eta;
+       var y2 = y1 + Prr/eta;
+       var y3 = y2 + Pwind/eta;
+       if ( y3 > pmax) {break;}
+       data.setCell(i, 0, sp, sp + " kph");
+       data.setCell(i, 1, y1, Math.round(y1) + ' Watts');
+       data.setCell(i, 2, y2, Math.round(y2) + ' Watts');
+       data.setCell(i, 3, y3, Math.round(y3) + ' Watts');
 
      }
    }
@@ -119,18 +124,21 @@ function makePlot() {
       var Pincline = Wt*Math.sin(angle)*(sp*1.467)*745.7/550.;
       var Prr = Crr*Wt*Math.cos(angle)*(sp*1.467)*745.7/550.;
       var Pwind = Math.sign(sp+wind)*0.5*rho/g*CdA*Math.pow((sp+wind)*1.467,2.)*(sp*1.467)*745.7/550.;
-      if ( (Pincline+Prr+Pwind)/eta > pmax) {break;}
-      data.setCell(i, 0, sp);
-      data.setCell(i, 1, Pincline/eta);
-      data.setCell(i, 2, (Pincline+Prr)/eta );
-      data.setCell(i, 3, (Pincline+Prr+Pwind)/eta );
+
+      var y1 = Pincline/eta;
+      var y2 = y1 + Prr/eta;
+      var y3 = y2 + Pwind/eta;
+      if ( y3 > pmax) {break;}
+      data.setCell(i, 0, sp, sp + " mph");
+      data.setCell(i, 1, y1, Math.round(y1) + ' Watts');
+      data.setCell(i, 2, y2, Math.round(y2) + ' Watts');
+      data.setCell(i, 3, y3, Math.round(y3) + ' Watts');
     }
   }
 
 
      var plotOptions = {
        title: "",
-       legend: '',
        width: 600,
        height: 400,
         hAxis: {
@@ -140,12 +148,16 @@ function makePlot() {
        vAxis: {
          title: 'Power (Watts)',
          scaleType: 'linear'
+       },
+       theme: 'material',
+       legend: {
+         position : 'bottom'
        }
      };
 
-     var Chart = new google.visualization.LineChart(document.getElementById('power_plot_div'));
-     //logChart.draw(joinedData, moodyOptions);
+     var Chart =new google.visualization.LineChart(document.getElementById('power_plot_div'));
      Chart.draw(data, plotOptions);
+
 }
 
 function ChangeUnits(myRadio){
@@ -332,7 +344,7 @@ function getPosErr(err) {
   <div class="container-fluid" style="border: 1px">
 
     <div class="row">
-      <div class="col-xs-12 col-md-6">
+      <div class="col-xs-12 col-md-8">
 
       <div class="row">
         <legend class="col-form-label col-sm-2 ">Units</legend>
@@ -429,7 +441,7 @@ function getPosErr(err) {
 <div id="power_plot_div"></div>
 
 </div>
-<div class="col-xs-6 col-md-6">
+<div class="col-xs-6 col-md-4">
 
 
     <div class='container'>
