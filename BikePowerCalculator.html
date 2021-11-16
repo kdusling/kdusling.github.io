@@ -38,34 +38,7 @@
 
      </script>
 
-     <style type="text/css">
 
-     .chart {
-       align-content: center;
-       display: flex;
-       justify-content: center;
-     }
-
-     .modal {
-       text-align: center;
-     }
-
-     @media screen and (min-width: 768px) {
-       .modal:before {
-         content: " ";
-         display: inline-block;
-         height: 100%;
-         vertical-align: middle;
-       }
-     }
-
-     .modal-dialog {
-       display: inline-block;
-       text-align: center;
-       vertical-align: middle;
-     }
-
-   </style>
 
 </head>
 
@@ -458,7 +431,7 @@ function getPosErr(err) {
           <div class='col-xs-6 mx.auto m-2'>
           <button class="btn btn-primary active" type="button" data-toggle="tooltip" title="Retrieving weather will update the headwind and air density values." onclick="getWeather();">Retrieve Local Weather</button>
           </div>
-      </div>
+        </div>
 
       <div class="input-group mb-3">
       <div class="input-group-prepend">
@@ -539,69 +512,47 @@ function getPosErr(err) {
 
       <hr>
 
+      <div class="row">
 
-      <div class="input-group mb-3">
-      <div class="input-group-prepend">
-      <span class="input-group-text">Speed</span>
-      </div>
-      <input type="text" class="form-control" id="speed" aria-label="speed" value="0" onchange="document.getElementById('Power').value = Power(this.value).toFixed(1);" >
-      <div class="input-group-append">
-      <span class="input-group-text" id="speed_unit">mph</span>
-      </div>
+      <div class="col-xs-6 col-md-7">
 
-      <span class="input-group-addon">&nbsp;
+        <label for="speed">Speed</label>
+        <div class="input-group mb-3">
+        <input type="text" class="form-control" id="speed" aria-label="speed" value="0" onchange="document.getElementById('Power').value = Power(this.value).toFixed(1);" >
+        <div class="input-group-prepend">
+        <span class="input-group-text" id="speed_unit">mph</span>
+        </div>
+
+        <span class="input-group-addon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button type="button" class="btn btn-secondary">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-right" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/>
-        </svg>
-        </button>&nbsp;&nbsp;
-     </span>
-
-      <div class="input-group-prepend">
-      <span class="input-group-text">Power</span>
-      </div>
-      <input type="text" class="form-control" id="Power" aria-label="Power" value="0" onchange="document.getElementById('speed').value = Speed(this.value).toFixed(1);">
-      <div class="input-group-append">
-      <span class="input-group-text" id="power_unit">Watts</span>
-      </div>
-      </div>
-
-      <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="makePlot();">Generate Graph</button>
-
-      <!-- Modal -->
-      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-      <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">Power vs. Speed</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/></svg>
         </button>
+        </span>
+        </div>
+
+      </div>
+      <div class="col-xs-6 col-md-5">
+
+        <label for="power">Power</label>
+        <div class="input-group mb-3">
+        <input type="text" class="form-control" id="Power" aria-label="Power" value="0" onchange="document.getElementById('speed').value = Speed(this.value).toFixed(1);" >
+        <div class="input-group-prepend">
+        <span class="input-group-text" id="power_unit">Watts</span>
+        </div>
+        </div>
+
       </div>
 
-      <div class="modal-body">
-        <div class="chart" id="power_plot_div">
       </div>
 
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
+
+      <button type="button" class="btn btn-primary" onclick="makePlot();">Generate Graph</button>
+
+      <div class="chart" id="power_plot_div"></div>
+
 </div>
 
-
-
-
-
-
-
-
-</div>
 <div class="col-xs-6 col-md-4">
-
 
     <div class='container'>
 
@@ -618,12 +569,10 @@ function getPosErr(err) {
 
     </div>
 
-  </div>
-
-</div>
-</div>
 </div>
 
+</div>
+</div>
 
 </body>
 </html>
