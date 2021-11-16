@@ -38,6 +38,35 @@
 
      </script>
 
+     <style type="text/css">
+
+     .chart {
+       align-content: center;
+       display: flex;
+       justify-content: center;
+     }
+
+     .modal {
+       text-align: center;
+     }
+
+     @media screen and (min-width: 768px) {
+       .modal:before {
+         content: " ";
+         display: inline-block;
+         height: 100%;
+         vertical-align: middle;
+       }
+     }
+
+     .modal-dialog {
+       display: inline-block;
+       text-align: center;
+       vertical-align: middle;
+     }
+
+   </style>
+
 </head>
 
 
@@ -77,6 +106,8 @@ window.onload = function() {
 
 
 google.charts.load('current', {'packages':['corechart', 'line']});
+google.charts.setOnLoadCallback(drawChart);
+
 
 function Speed(pow)
 {
@@ -210,7 +241,7 @@ function makePlot() {
        },
        theme: 'material',
        legend: {
-         position : 'bottom'
+         position : 'top'
        }
      };
 
@@ -411,18 +442,22 @@ function getPosErr(err) {
     <div class="row">
       <div class="col-xs-12 col-md-8">
 
-      <div class="row">
-      <legend class="col-form-label col-sm-2  pt-0">Units</legend>
-       <div class="col-sm-10">
-         <div class="form-check form-check-inline">
-         <input class="form-check-input" type="radio" name="units" id="imperial" onchange="ChangeUnits(this);" value="imperial" checked>
-         <label class="form-check-label" for="imperial">imperial</label>
-         </div>
-         <div class="form-check form-check-inline">
-         <input class="form-check-input" type="radio" name="units" id="metric" onchange="ChangeUnits(this);" value="metric">
-         <label class="form-check-label" for="metric">metric</label>
-         </div>
-       </div>
+        <div class="form-row align-items-center">
+          <legend class="col-form-label col-sm-2 pt-0">Units</legend>
+          <div class="col-sm-4">
+          <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="units" id="imperial" onchange="ChangeUnits(this);" value="imperial" checked>
+          <label class="form-check-label" for="imperial">imperial</label>
+          </div>
+          <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="units" id="metric" onchange="ChangeUnits(this);" value="metric">
+          <label class="form-check-label" for="metric">metric</label>
+          </div>
+          </div>
+
+          <div class='col-xs-6 mx.auto m-2'>
+          <button class="btn btn-primary active" type="button" data-toggle="tooltip" title="Retrieving weather will update the headwind and air density values." onclick="getWeather();">Retrieve Local Weather</button>
+          </div>
       </div>
 
       <div class="input-group mb-3">
@@ -447,17 +482,17 @@ function getPosErr(err) {
 
       <div class="input-group mb-3">
       <div class="input-group-prepend">
-      <span class="input-group-text" style="width: 120px;">Drag Area</span>
+      <span class="input-group-text">Drag Area</span>
       </div>
       <input type="text" class="form-control" id="CdA" aria-label="CdA" value="3.50" >
       <div class="input-group-append">
-      <span class="input-group-text" id="CdA_unit" style="width: 50px;">ft$^2$</span>
+      <span class="input-group-text" id="CdA_unit">ft$^2$</span>
       </div>
       </div>
 
       <div class="input-group mb-3">
       <div class="input-group-prepend">
-      <span class="input-group-text" style="width: 120px;">$C_{rr}$</span>
+      <span class="input-group-text">$C_{rr}$</span>
       </div>
       <input type="text" class="form-control" id="Crr" aria-label="Crr" value="0.00869" >
       </div>
@@ -468,7 +503,7 @@ function getPosErr(err) {
       </div>
       <input type="text" class="form-control" id="eta" aria-label="eta" value="97" >
       <div class="input-group-append">
-      <span class="input-group-text" id="" style="width: 50px;">%</span>
+      <span class="input-group-text" id="">%</span>
       </div>
       </div>
 
@@ -478,27 +513,27 @@ function getPosErr(err) {
       </div>
       <input type="text" class="form-control" id="grade" aria-label="grade" value="0" >
       <div class="input-group-append">
-      <span class="input-group-text" id="" style="width: 50px;">%</span>
+      <span class="input-group-text" id="">%</span>
       </div>
       </div>
 
       <div class="input-group mb-3">
       <div class="input-group-prepend">
-      <span class="input-group-text" style="width: 120px;">Headwind</span>
+      <span class="input-group-text">Headwind</span>
       </div>
       <input type="text" class="form-control" id="wind" aria-label="headwind" value="0" >
       <div class="input-group-append">
-      <span class="input-group-text" id="wind_unit" style="width: 50px;">mph</span>
+      <span class="input-group-text" id="wind_unit">mph</span>
       </div>
       </div>
 
       <div class="input-group mb-3">
       <div class="input-group-prepend">
-      <span class="input-group-text" style="width: 120px;">Air density</span>
+      <span class="input-group-text">Air density</span>
       </div>
       <input type="text" class="form-control" id="density" aria-label="density" value="0.0765" >
       <div class="input-group-append">
-      <span class="input-group-text" id="density_unit" style="width: 65px;">lb/ft$^3$&nbsp;</span>
+      <span class="input-group-text" id="density_unit">lb/ft$^3$&nbsp;</span>
       </div>
       </div>
 
@@ -507,11 +542,11 @@ function getPosErr(err) {
 
       <div class="input-group mb-3">
       <div class="input-group-prepend">
-      <span class="input-group-text" style="width: 100px;">Speed</span>
+      <span class="input-group-text">Speed</span>
       </div>
       <input type="text" class="form-control" id="speed" aria-label="speed" value="0" onchange="document.getElementById('Power').value = Power(this.value).toFixed(1);" >
       <div class="input-group-append">
-      <span class="input-group-text" id="speed_unit" style="width: 65px;">mph</span>
+      <span class="input-group-text" id="speed_unit">mph</span>
       </div>
 
       <span class="input-group-addon">&nbsp;
@@ -523,21 +558,46 @@ function getPosErr(err) {
      </span>
 
       <div class="input-group-prepend">
-      <span class="input-group-text" style="width: 100px;">Power</span>
+      <span class="input-group-text">Power</span>
       </div>
       <input type="text" class="form-control" id="Power" aria-label="Power" value="0" onchange="document.getElementById('speed').value = Speed(this.value).toFixed(1);">
       <div class="input-group-append">
-      <span class="input-group-text" id="power_unit" style="width: 65px;">Watts</span>
+      <span class="input-group-text" id="power_unit">Watts</span>
+      </div>
       </div>
 
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="makePlot();">Generate Graph</button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+      <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Power vs. Speed</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="chart" id="power_plot_div">
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
     </div>
+  </div>
+</div>
 
 
 
 
-<button type="button" class="btn btn-primary" onclick="makePlot();">Generate Graph</button>
 
-<div id="power_plot_div"></div>
+
+
 
 </div>
 <div class="col-xs-6 col-md-4">
@@ -546,9 +606,6 @@ function getPosErr(err) {
     <div class='container'>
 
       <div class='row'>
-        <div class='col-xs-12 mx.auto m-2'>
-          <button class="btn btn-primary active" type="button" onclick="getWeather();">Retrieve Local Weather</button>
-        </div>
       </div>
 
       <div class='row'>
@@ -556,7 +613,7 @@ function getPosErr(err) {
         <div class="col-xs-6" style="display: flex; justify-content: center; align-items: center" id="weather_div_img"></div>
       </div>
       <div class='row'>
-        <div class='col-12' id='weather_div_lower'>Retrieving weather will update the headwind and air density values.</div>
+        <div class='col-12' id='weather_div_lower'></div>
       </div>
 
     </div>
