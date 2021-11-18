@@ -74,7 +74,7 @@ $$
 and
 
 $$
-Q=10~\cancel{\text{gpm}}\left(1~\frac{\ft^3/\s}{449~\cancel{\text{gpm}}}\right)=0.0223~\ft^3/\s\,.
+Q=10~\cancel{\text{gpm}}\left(\frac{1~\ft^3/\s}{449~\cancel{\text{gpm}}}\right)=0.0223~\ft^3/\s\,.
 $$
 
 Putting this together we find that the power delivered to the fluid is
@@ -83,7 +83,8 @@ $$
 P_A=h_A \gamma Q = \left(400~\ft\right) \left(56.2~\lb/\ft^3\right) \left(0.0223 ~\ft^3/\s\right)=501~\lbftovs
 $$
 
-and converting back to hp:
+and converting back to horsepower:
+
 $$
 P_A=501~\cancel{\lbftovs} \times\left(\frac{1~\text{hp}}{550~\cancel{\lbftovs}}\right)=0.91~\hp
 $$
