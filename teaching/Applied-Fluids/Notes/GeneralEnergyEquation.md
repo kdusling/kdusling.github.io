@@ -68,7 +68,7 @@ $$
 The power delivered to the fluid will be calculated from $P_A=h_A \gamma Q$ where $h_A$ is the total head on the pump,
 
 $$
-\gamma = 0.9\times 9.81~\kN/\m^3=8.83~\kN/\m^3\,,
+\gamma = 0.9\times 62.4~\lb/\ft^3=56.2~\lb/\ft^3\,,
 $$
 
 and
@@ -76,9 +76,11 @@ and
 $$
 Q=10~\cancel{\text{gpm}}\left(1~\frac{\ft^3/\s}{449~\cancel{\text{gpm}}}\right)=0.0223~\ft^3/\s\,.
 $$
+
 Putting this together we find that the power delivered to the fluid is
+
 $$
-P_A=h_A \gamma Q = \left(400~\ft\right) \left(0.9\times 62.4 \lb/\ft^3\right) \left(0.0223 ~\ft^3/\s\right)=501~\lbftovs
+P_A=h_A \gamma Q = \left(400~\ft\right) \left(56.2~\lb/\ft^3\right) \left(0.0223 ~\ft^3/\s\right)=501~\lbftovs
 $$
 
 and converting back to hp:
