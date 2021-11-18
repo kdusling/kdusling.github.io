@@ -34,17 +34,17 @@ $$
 The power transferred to the fluid by a pump is
 
 $$
-P_A=h_A W
+P_A=h_A W\,,
 $$
 
-where $W$ is the weight flow rate (having units of $N/s$ or $\lb/s$).  Since $W=\gamma Q$ we can also express this as
+where $W$ is the weight flow rate (having units of $\N/\s$ or $\lb/\s$).  Since $W=\gamma Q$ we can also express this as
 
 $$
-P_A=h_A \gamma Q
+P_A=h_A \gamma Q\,.
 $$
 
 Not all of the input power to the pump is delivered to the fluid.
-The mechanical efficiency $e_M$ for a pump is
+The mechanical efficiency $e_M$ of a pump is defined as
 
 $$
 e_M=\frac{\text{Power delivered to fluid}}{\text{Power input to pump}}=\frac{P_A}{P_I}
@@ -55,42 +55,41 @@ The mechanical efficiency will always be less than 1.0.
 
 <div class="example">
 
-A manufacturer of a gear pump reports that 1.2 hp is required to pump 10 gpm of oil (sg=0.90) at a total head of 300 ft.  What is the efficiency (in percent) of this pump under these operating conditions?
+A manufacturer of a gear pump reports that 1.2 hp is required to pump 10 gpm of oil (sg=0.90) at a total head of 400 ft.  What is the efficiency (in percent) of this pump under these operating conditions?
 
 <hr>
 
-In this example the power input to the pump is 1.2 hp.  We first convert this
-into $\lb-\ft/s$.
+In this example the power input to the pump is 1.2 hp.  We first convert this into $\lbftovs$.
 
 $$
-P_I=1.2 ~\text{hp} \times\left(\frac{550~\lbftovs}{1~\cancel{\text{hp}}}\right)=660~\lbftovs
+P_I=1.2 ~\cancel{\text{hp}} \times\left(\frac{550~\lbftovs}{1~\cancel{\text{hp}}}\right)=660~\lbftovs
 $$
 
 The power delivered to the fluid will be calculated from $P_A=h_A \gamma Q$ where $h_A$ is the total head on the pump,
 
 $$
-\gamma = 0.9\times 9.81~\kN/\m^3=8.83~\kN/\m^3
+\gamma = 0.9\times 9.81~\kN/\m^3=8.83~\kN/\m^3\,,
 $$
 
 and
 
 $$
-Q=10~\cancel{\text{gpm}}\left(\frac{\ft^3/\s}{449~\cancel{\text{gpm}}}\right)=0.0223~\ft^3/\s
+Q=10~\cancel{\text{gpm}}\left(1~\frac{\ft^3/\s}{449~\cancel{\text{gpm}}}\right)=0.0223~\ft^3/\s\,.
 $$
-
+Putting this together we find that the power delivered to the fluid is
 $$
-P_A=h_A \gamma Q = \left(300~\ft\right) \left(0.9\times 62.4 \lb/\ft^3\right) \left(0.0223 ~\ft^3/\s\right)=375.7~\lbftovs
+P_A=h_A \gamma Q = \left(400~\ft\right) \left(0.9\times 62.4 \lb/\ft^3\right) \left(0.0223 ~\ft^3/\s\right)=501~\lbftovs
 $$
 
 and converting back to hp:
 $$
-P_A=375.7~\cancel{\lbftovs} \times\left(\frac{1~\text{hp}}{550~\cancel{\lbftovs}}\right)=0.68~\hp
+P_A=501~\cancel{\lbftovs} \times\left(\frac{1~\text{hp}}{550~\cancel{\lbftovs}}\right)=0.91~\hp
 $$
 
 The mechanical efficiency of the pump is
 
 $$
-e_M=\frac{P_A}{P_I}=\frac{0.68~\hp}{1.2~\hp}=0.57=57\%
+e_M=\frac{P_A}{P_I}=\frac{0.91~\hp}{1.2~\hp}=0.76=76\%
 $$
 
 </div>
