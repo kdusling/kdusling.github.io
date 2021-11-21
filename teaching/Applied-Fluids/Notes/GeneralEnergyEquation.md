@@ -40,7 +40,7 @@ The next chapter will discuss methods for determining $K$.  In most circumstance
 
 <div class="example">
 
-A 2-in schedule 40 steel pipe contains a gate valve as shown in the figure below. As 75 gpm of hexane flows from left to right a pressure drop of 0.04 psi is recorded.  Calculate the energy loss in the valve.  Then calculate the resistance coefficient $K$ of the gate valve if the energy loss is expressed as $K\left(v^2/2g\right)$.
+A 2-in schedule 40 steel pipe contains a gate valve as shown in the figure below. As 75 gpm of hexane flows from left to right a pressure drop of 0.03 psi is recorded.  Calculate the energy loss in the valve.  Then calculate the resistance coefficient $K$ of the gate valve if the energy loss is expressed as $K\left(v^2/2g\right)$.
 
 
 <div class="photo" style="width: 100%;">
@@ -53,15 +53,50 @@ We start with the general energy equation and cancel terms that don't contribute
 
 <table>
 <tr><td>$z_1=z_2$</td><td>The pipe is horizonal.</td></tr>
+<tr><td>$v_1^2/2g=v_2^2/2g$</td><td>Continuity equation sets $v_1=v_2$</td></tr>
+<tr><td>$h_A=0$</td><td>No pumps in system.</td></tr>
+<tr><td>$h_R=0$</td><td>No motors in system.</td></tr>
 </table>
 
-
-</ul>
-
-The general energy equation is
+The general energy equation simplifies to
 
 $$
 \frac{p_1}{\gamma}-h_L=\frac{p_2}{\gamma}
+$$
+and we can rearrange this to solve for $h_L$:
+$$
+h_L=\frac{p_1-p_2}{\gamma}
+$$
+
+The pressure drop is
+$$
+p_1-p_2=0.03~\mathrm{psi} = 4.32~\lb/\ft^2
+$$
+
+The specific weight of hexane is taken from <a href="https://kdusling.github.io/teaching/Applied-Fluids/PropertiesOfCommonLiquids.html">here</a>.
+
+$$
+\gamma=41~\lb/\ft^3
+$$
+
+$$
+h_L=\frac{p_1-p_2}{\gamma}=\frac{4.32~\lb}{\ft^2}\times\frac{\ft^3}{41~\lb}=0.105~\ft
+$$
+
+We can find the resistance coefficient, $K$, from the expression
+$$
+h_L=K\left(\frac{v^2}{2g}\right)\longrightarrow K=\frac{h_L}{v^2/2g}
+$$
+
+First we compute the velocity head:
+$$
+Q=75~\gpm\times\left(\frac{1~\ft^3/s}{449~\gpm}\right)=0.167~\ft^3/s\nonumber\\
+v=\frac{Q}{A}=\frac{0.167~\ft^3/s}{0.02330~\ft^2}=7.17~\ft/s \nonumber\\
+\frac{v^2}{2g}=0.8~\ft
+$$
+
+$$
+K=\frac{h_L}{v^2/2g} =\frac{0.105~\ft}{0.8~\ft}=0.13
 $$
 
 </div>
