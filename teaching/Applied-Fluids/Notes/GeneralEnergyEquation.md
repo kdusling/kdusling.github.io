@@ -10,7 +10,7 @@ title: General Energy Equation
 * A markdown unordered list for the toc
 {:toc}
 
-# The General Energy Equation
+## The General Energy Equation
 
 The general energy equation is an extension of Bernoulli's equation to account for energy additions, removals and losses from pumps, motors and friction respectively.  We will continue to work in terms of *head* or the energy per unit weight of the fluid in the system.  
 
@@ -70,6 +70,7 @@ h_L=\frac{p_1-p_2}{\gamma}
 $$
 
 The pressure drop is
+
 $$
 p_1-p_2=0.03~\mathrm{psi} = 4.32~\lb/\ft^2
 $$
@@ -97,6 +98,8 @@ Q=75~\gpm\times\left(\frac{1~\ft^3/s}{449~\gpm}\right)=0.167~\ft^3/s\nonumber\\
 v=\frac{Q}{A}=\frac{0.167~\ft^3/s}{0.02330~\ft^2}=7.17~\ft/s \nonumber\\
 \frac{v^2}{2g}=0.8~\ft
 $$
+
+and then compute the resistance coefficient:
 
 $$
 K=\frac{h_L}{v^2/2g} =\frac{0.105~\ft}{0.8~\ft}=0.13
