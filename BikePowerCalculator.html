@@ -75,11 +75,50 @@ window.onload = function() {
     document.getElementById("CdA").value =  params.get('CdA');
   }
 
-};
+  if ( params.has('Crr') )
+  {
+    document.getElementById("Crr").value =  params.get('Crr');
+  }
 
+  if ( params.has('eff') )
+  {
+    document.getElementById("eta").value =  params.get('eff');
+  }
+
+  if ( params.has('grade') )
+  {
+    document.getElementById("grade").value =  params.get('grade');
+  }
+
+  if ( params.has('wind') )
+  {
+    document.getElementById("wind").value =  params.get('wind');
+  }
+
+  if ( params.has('density') )
+  {
+    document.getElementById("density").value =  params.get('density');
+  }
+
+}; //end window.onload
+
+function createURL()
+{
+var url = "https://kdusling.github.io/BikePowerCalculator.html?units=" + units;
+     url += "&RiderWeight=" + document.getElementById("rider_weight").value;
+     url += "&BikeWeight=" + document.getElementById("bike_weight").value;
+     url += "&CdA=" + document.getElementById("CdA").value;
+     url += "&Crr=" + document.getElementById("Crr").value;
+     url += "&eff=" + document.getElementById("eta").value;
+     url += "&grade=" + document.getElementById("grade").value;
+     url += "&wind=" + document.getElementById("wind").value;
+     url += "&density=" + document.getElementById("density").value;
+
+navigator.clipboard.writeText(url);
+}
 
 google.charts.load('current', {'packages':['corechart', 'line']});
-google.charts.setOnLoadCallback(drawChart);
+google.charts.setOnLoadCallback(makePlot);
 
 
 function Speed(pow)
@@ -524,9 +563,14 @@ function getPosErr(err) {
         </div>
 
         <span class="input-group-addon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button type="button" class="btn btn-secondary">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/></svg>
-        </button>
+          <div class="btn-group-vertical py-0" role="group" aria-label="...">
+            <button type="button" class="btn btn-primary btn-sm py-0 my-0" style="font-size: 0.5em;" onclick="document.getElementById('Power').value = Power(document.getElementById('speed').value).toFixed(1);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 3 16 10"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/></svg>
+            </button>
+            <button type="button" class="btn btn-primary btn-sm py-0 my-0" style="font-size: 0.5em;" onclick="document.getElementById('speed').value = Speed(document.getElementById('Power').value).toFixed(1);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 5 16 10"><path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/></svg>
+          </button>
+          </div>
         </span>
         </div>
 
@@ -547,6 +591,10 @@ function getPosErr(err) {
 
 
       <button type="button" class="btn btn-primary" onclick="makePlot();">Generate Graph</button>
+
+      <button type="button" class="btn btn-outline-primary" data-toggle="tooltip" data-placement="bottom" title="Copy to clipboard" onclick="createURL();">
+     <svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M17,9H7V7H17M17,13H7V11H17M14,17H7V15H14M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3Z" /></svg>
+     </button>
 
       <div class="chart" id="power_plot_div"></div>
 
