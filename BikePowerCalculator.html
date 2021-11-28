@@ -494,7 +494,43 @@ function getPosErr(err) {
 
       <div class="input-group mb-3">
       <div class="input-group-prepend">
-      <span class="input-group-text">Drag Area</span>
+      <span class="input-group-text">Drag Area
+        <button type="button" class="btn btn-link btn-sm py-0 my-0" data-toggle="modal" data-target="#CdAModal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+        <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+        </svg>
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="CdAModal" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Drag area</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="align:left; word-break: normal; white-space: normal;">
+
+        <p class="text-left">The drag area or effective frontal area is the product of a dimensionless drag coefficient with the frontal area of the bike/rider system.</p>
+
+          <table class='table w-auto table-bordered' >
+          <thead><tr><td>Position</td><td>C<sub>d</sub>A [m<sup>2</sup>]</td><td>C<sub>d</sub>A [ft<sup>2</sup>]</td></tr></thead>
+          <caption>Wind tunnel tests by Defraeye et al. (2010).  Taken from table 3 of the review <a href=" https://www.sciencedirect.com/science/article/pii/S0167610521001574" target="_blank">Cyclist aerodynamics through time: Better, faster, stronger</a></caption>
+          <tr><td>upright</td><td>0.270</td><td>2.91</td></tr>
+          <tr><td>dropped</td><td>0.243</td><td>2.62</td></tr>
+          <tr><td>time-trail</td><td>0.211</td><td>2.27</td></tr>
+          </table>
+
+
+        </div>
+        </div>
+        </div>
+        </div>
+      </span><!-- End Drag label -->
+
+      </span>
       </div>
       <input type="text" class="form-control" id="CdA" aria-label="CdA" value="3.50" >
       <div class="input-group-append">
@@ -504,7 +540,42 @@ function getPosErr(err) {
 
       <div class="input-group mb-3">
       <div class="input-group-prepend">
-      <span class="input-group-text">$C_{rr}$</span>
+      <span class="input-group-text">$C_{rr}$ &nbsp;&nbsp;
+
+      <button type="button" class="btn btn-link btn-sm py-0 my-0" data-toggle="modal" data-target="#CrrModal">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+      <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+      </svg>
+      </button>
+      <!-- Modal -->
+      <div class="modal fade" id="CrrModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Coefficient of rolling resistance</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="align:left; word-break: normal; white-space: normal;">
+
+      <p class="text-left"></p>
+
+        <table class='table w-auto table-bordered' >
+        <thead><tr><td>Tire</td><td>size</td><td>pressure</td><td>C<sub>rr</sub></td></tr></thead>
+        <caption></caption>
+        <tr><td><a href="https://www.bicyclerollingresistance.com/tour-reviews/vittoria-randonneur-2015" target="_blank">Vittoria Randonneur</a><td>37-622</td><td>75 psi</td><td>0.00869</td></tr>
+        <tr><td><a href="https://www.bicyclerollingresistance.com/road-bike-reviews/continental-grand-prix-4-season-2015" target="_blank">Continental Grand Prix 4 Season</a><td>700x25C</td></td><td>100 psi</td><td>0.00543</td></tr>
+        <tr><td><a href="https://www.bicyclerollingresistance.com/mtb-reviews/maxxis-ardent-race-exo-2016" target="_blank">Maxxis Ardent Race 3C EXO TR</a><td>29x2.20</td></td><td>25 psi</td><td>0.01052</td></tr>
+        </table>
+
+      </div>
+      </div>
+      </div>
+      </div>
+    </span><!-- End Crr input -->
+
       </div>
       <input type="text" class="form-control" id="Crr" aria-label="Crr" value="0.00869" >
       </div>
