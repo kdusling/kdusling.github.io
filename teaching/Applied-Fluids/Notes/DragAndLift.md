@@ -13,7 +13,9 @@ An object moving through a fluid will experience a complicated set of forces act
 
 The drag force acts parallel to the motion of the object while the lift force acts in a direction perpendicular to the motion.
 
-<img src="img/draglift.png" width="300px">
+<div class="photo" style="width: 400px;">
+<img src="img/draglift.png">
+</div>
 
 # Drag Force
 
