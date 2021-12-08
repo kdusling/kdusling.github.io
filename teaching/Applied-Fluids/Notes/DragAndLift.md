@@ -9,14 +9,18 @@ title: Drag and Lift
 * A markdown unordered list for the toc
 {:toc}
 
-An object moving through a fluid will experience a force on it.  The force that acts opposite to the direction of motion we refer to as drag.  The force that acts perpendicular to the direction of motion we refer to as lift.
+An object moving through a fluid will experience a complicated set of forces acting on it.  In order to understand the behavior of the object as it moves through the fluid, we will focus on two resultant forces--drag and lift.
+
+The drag force acts parallel to the motion of the object while the lift force acts in a direction perpendicular to the motion.
+
+<img src="img/draglift.svg" width="400px">
 
 # Drag Force
 
 The drag force on an object is
 
 $$
-F_D=C_D \left(\frac{\rho}{2}v^2\right) A
+F_D=C_D \left(\frac{\rho v^2}{2}\right) A
 $$
 
 In the above expression, $C_D$ is a dimensionless number known as the drag coefficient.  $rho$ is the density of the fluid.  $v$ is the velocity of the stream of fluid relative to the body. The stream could be moving with velocity $v$ while the body is at rest, of the fluid could be at rest and with the body moving with velocity $v$.
