@@ -66,8 +66,8 @@
      inkscape:pagecheckerboard="0"
      showgrid="false"
      inkscape:zoom="3.8961584"
-     inkscape:cx="51.075953"
-     inkscape:cy="21.559699"
+     inkscape:cx="51.075952"
+     inkscape:cy="21.559698"
      inkscape:window-width="1729"
      inkscape:window-height="966"
      inkscape:window-x="178"
@@ -84,11 +84,11 @@
      id="polyline937"
      transform="matrix(1,0,0,-1,0.46407585,0.17359242)" />
   <path
-     style="fill:none;stroke:#ff0000;stroke-width:0.00306;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+     style="fill:#ff0000;stroke:#ff0000;stroke-width:0.00306;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
      d="M 0.83502305,0.1548331 V -0.05198602"
      id="path1039" />
   <path
-     style="fill:none;stroke:#ff0000;stroke-width:0.00214058;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+     style="fill:#ff0000;stroke:#ff0000;stroke-width:0.00214058;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
      d="m 0.83502305,0.1548331 h 0.1012072"
      id="path1422" />
   <text
