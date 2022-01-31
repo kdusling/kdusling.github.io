@@ -267,27 +267,27 @@ A mechanical pressure sensor coverts fluid pressure into a force that displaces 
   </p>
 </div>
 
-<div class="photo" style="width: 220px;">
+<div class="photo" style="width: 600px;">
 
-<iframe width="200" src="https://www.youtube.com/embed/mF1pW-xL3vI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mF1pW-xL3vI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <p>
 Video: Bellows For Pressure Sensing
 </p>
 </div>
 
-<div class="photo" style="width: 220px;">
+<div class="photo" style="width: 600px;">
 
-<iframe width="200" src="https://www.youtube.com/embed/f9MJAXhLSv0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/f9MJAXhLSv0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <p>
 Video: How a Bourdon tube works
 </p>
 </div>
 
-<div class="photo" style="width: 220px;">
+<div class="photo" style="width: 600px;">
 
-<iframe width="200" src="https://www.youtube.com/embed/JnPSeEW-EeA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/JnPSeEW-EeA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <p>
 Video: Diaphragm element compared to Bourdon tube
@@ -304,14 +304,16 @@ Pascal's law states that if there is a pressure change at some point in a confin
 <img src="img\hydraulic_lift.svg">
 </div>
 
-In the above figure a force $F_1$ is applied to the left piston which has an area $A_1$ in contact with the fluid.  This produces a pressure $p=F_1/A_1$ in the fluid.  Pascal's law states that this fluid is transmitted everywhere else in the fluid, for example to a point just under the large piston on the right.  In other words, the pressure everywhere in the fluid is the same.   
+In the above figure a force $F_1$ is applied to the left piston which has an area $A_1$ in contact with the fluid.  This produces a pressure $p=F_1/A_1$ in the fluid.  Pascal's law states that this pressure is transmitted everywhere else in the fluid, for example to a point just under the large piston on the right.  In other words, the pressure everywhere in the fluid is the same.   
 
-Therefore, if we are in static equilibrium (the pistons aren't moving), the force applied to the right piston, $F_2$, must produce the same pressure in the fluid, $F_2/A_2=p$.  We therefore have that
+Therefore, if we are in static equilibrium (the pistons aren't moving), the force applied to the right piston, $F_2$, must produce the same pressure in the fluid, $p=F_2/A_2$.  We therefore have that
 
 $$
 \frac{F_1}{A_1}=\frac{F_2}{A_2}
 $$
+
 or  
+
 $$
 \frac{F_2} = \frac{A_2}{A_1} F_1
 $$
@@ -320,7 +322,7 @@ The quantity $A_2/A_1$ is called the <em>mechanical advantage</em>.
 
 <div class="example">
 
-A car weighing 2000 pounds is supported on the hydraulic lift shown below.  What weight, $w$, is needed to support the car?  What is the pressure, in psi, of the hydraulic fluid?
+A car weighing 2000 pounds is supported on the hydraulic lift shown below.  What weight, $w$, is needed on the piston on the left in order to support the car?  What is the pressure, in psi, of the hydraulic fluid?
 
 <div class="photo" style="width: 800px;  text-align:center">
 <img src="img\hydraulic_lift_car_exercise.svg">
@@ -331,7 +333,7 @@ A car weighing 2000 pounds is supported on the hydraulic lift shown below.  What
 The ratio of the areas of the two pistons is the mechanical advantage.  The force required to the support the car is a factor of 10 less.
 
 $$
-F_1=\frac{A_1}{A_2}F_2=\frac{10~\ft^2}{100~\ft^2}2000~\lb=200~\lb
+F_1=\frac{A_1}{A_2}F_2=\frac{10~\ft^2}{100~\ft^2}\times 2000~\lb=200~\lb
 $$
 
 The pressure in the hydraulic fluid is
@@ -340,21 +342,21 @@ $$
 p=\frac{F_2}{A_2}=\frac{2000~\lb}{100~\ft^2}\times\left(\frac{1~\ft}{12~\inch}\right)^2=0.14~\psi
 $$
 
+Note that we could have computed the pressure using $p=F_1/A_1$ and obtained the same result.
+
 </div>
 
 ## Hydrostatic forces on submerged surfaces
 
-Consider the retaining wall shown below.  The pressure varies along the surface stating from zero at the surface of the fluid and increasing (linearly) to the maximum pressure at the bottom of the wall.
+Consider the retaining wall shown below.  The fluid pressure on the wall increases from zero at the surface of the fluid to a maximum pressure at the bottom.  The pressure elevation relationship, $p=\gamma h$, tells us that the pressure increases <em>linearly</em> with depth.
 
-Even though the force is distributed along the entire wall it will be necessary to find the resultant force on the wall.  This problem is identical to finding the resultant force for a linearly increasing load on a beam as you did in <i>statics</i> and </i> strength of materials</i>.
-
-First note that the average pressure is $p_{avg}=\gamma h/2$.  The magnitude of resultant force is therefore
+The resultant force on the load is equal to the area under the pressure distribution times the area of the wall.  The average pressure on the wall is  $p_{avg}=\gamma h/2$ and the magnitude of resultant force is
 
 $$
 F_R= p_{avg}\times A=\gamma \left(\frac{h}{2}\right) A
 $$
 
-where $A$ is the surface area of the wall that is in contact with the fluid.  The location of the resultant force is located at the <i>center of pressure</i> a distance $h/3$ from the bottom of the wall.
+where $A$ is the surface area of the wall that is in contact with the fluid.  The location of the resultant force is located at the <em>center of pressure</em> a distance $h/3$ from the bottom of the wall.
 
 <div class="photo" style="width: 800px;  text-align:center">
 <img src="img\VerticalWallPressure.svg">
@@ -369,20 +371,25 @@ A 10 foot wide gate is supported by a horizontal cable as shown in the figure.  
 <img src="img\VerticalWallPressure_exercise.svg">
 </div>
 
+We start by drawing a free body diagram of the gate.  The forces on the gate include the fluid pressure, the reaction forces from the hinge acting on the gate, and the tension from the cable.
+
 <hr>
 
 <div class="photo" style="width: 600px;  text-align:center">
 <img src="img\VerticalWallPressure_exercise_a.svg">
-<p>
-Left: Free body diagram of the gate.  The tension force from the cable is $T$.  The force distribution from the water is shown in red.  
-
-Right: Equivalent free body diagram of the gate.  The force distribution from the water is replaced by the single resultant force $F_R$ located a distance of 5 feet from the bottom.
+<p style="text-align:left;">
+<b>Left:</b> Free body diagram of the gate.  The tension force from the cable is $T$.  The force distribution from the water is shown in red.  
+<b>Right:</b> Equivalent free body diagram of the gate.  The force distribution from the water is replaced by the single resultant force $F_R$ located a distance of 5 feet from the bottom.
 </p>
 </div>
+
+The resultant force on the gate is the average pressure, $p_{avg}=\gamma h/2$ times the area of the gate in contact with the fluid.  In this example that area is $A=15~\ft \times 10~\ft = 150~\ft^2$.
 
 $$
 F_R= \gamma \left(\frac{h}{2}\right) A=62.4~\frac{\lb}{\ft^3} \left(\frac{15~\ft}{2}\right) 150~\ft^2=70,200~\lb = 70.2~\textrm{kip}
 $$
+
+To find the tension in the cable we set the sum of the moments about the hinge to zero.  I'm using the convention that a counter-clockwise moment is positive.
 
 $$
 \sum M_O=F_R\times 5~\ft-T\times 18~\ft=0
