@@ -179,33 +179,33 @@ Compute the pressure at point A using the manometer shown above.
 Start at the point labeled $1$ where the pressure is the atmospheric pressure,
 
 $$
-p_1=p_{\mathrm{atm}}=0~\kPa\mathrm{(gauge)}
+p_1=p_{\mathrm{atm}}=0~\kPa~\mathrm{(gauge)}
 $$  
 
-We now move to point $2$.  The pressure there is higher than that of point $1$ due to the gauge fluid sitting above it.  Using the pressure-elevation relationship we see that the pressure at 2 is larger by $\gamma_m (40~\mm)$, where $\gamma_m$ is the specific weight of mercury.
+We now move to point $2$.  The pressure there is higher than that of point $1$ due to the gauge fluid sitting above it.  Using the pressure-elevation relationship we see that the pressure at 2 is larger by $\gamma_{Hg} (40~\mm)$, where $\gamma_{Hg}$ is the specific weight of mercury.
 
 $$
-p_2=p_1+\gamma_m (40~\mm)
+p_2=p_1+\gamma_{Hg} (40~\mm)
 $$
 
-Because points $2$ and $3$ are at the same height, at rest, and with the same fluid the pressures are equal, $p_3=p_2$.  Next we go to point $4$.  The pressure at $4$ is lower than the pressure at $3$ by an amount $\gamma_w (70\mm)$ where $\gamma_w$ is the specific weight of water.
+Because points $2$ and $3$ are at the same height, at rest, and within the same fluid the pressures are equal, $p_3=p_2$.  Next we go to point $4$.  The pressure at $4$ is lower than the pressure at $3$ by an amount $\gamma_w (70\mm)$ where $\gamma_w$ is the specific weight of water.
 
-Finally, because point $A$ and $4$ are at the same level their pressures are the same.
+Finally, because point $A$ and $4$ are at the same elevation their pressures are the same.
 
 $$
-p_A=p_1+\gamma_m (40~\mm)-\gamma_w(70~\mm)
+p_4=p_A=p_1+\gamma_{Hg} (40~\mm)-\gamma_w(70~\mm)
 $$
 
 Using
 
 $$
-\gamma_w=9.81~\kN/\m^3\,,\quad\quad \gamma_w=(13.54)(9.81~\kN/\m^3)=132.8~\kN/\m^3
+\gamma_w=9.81~\kN/\m^3\,,\quad\quad \gamma_{Hg}=(13.54)(9.81~\kN/\m^3)=132.8~\kN/\m^3
 $$
 
 we can solve for the pressure at point $A$:
 
 $$
-p_A=0~\kPa\mathrm{(gauge)} + 132.8~\kN/\m^3 (0.04~\m) - 9.81~\kN/\m^3 (0.07~\m)=4.63~\kPa\mathrm{(gauge)}
+p_A=0~\kPa~\mathrm{(gauge)} + 132.8~\kN/\m^3 (0.04~\m) - 9.81~\kN/\m^3 (0.07~\m)=4.63~\kPa~\mathrm{(gauge)}
 $$
 
 </div>
@@ -214,8 +214,8 @@ $$
 <div class="photo" style="width: 500px;  text-align:center">
 <img src="img\Dwyer_Mark_II.jpg">
 <p>
-My Dwyer Mark II inclined manometer measuring slightly less than 0.4 inWC.  The manometer measures the pressure drop across the air filter.  As the air filter accumulates dust over time the pressure drop across it increases.
-</p>  56tsqwz8uiqwaujiswakoswl;sewss.s/
+Dwyer Mark II inclined manometer measuring slightly less than 0.4 inWC.  The manometer measures the pressure drop across an air filter.  As the air filter accumulates dust over time the pressure drop across it increases.
+</p>
 </div>
 
 ### Barometers
@@ -230,7 +230,7 @@ A barometer is used for measuring the atmospheric pressure. In its simplest form
 If we analyze the above barometer in the same manner as a manometer we can derive the relationship
 
 $$
-p_{atm}=\gamma_m h
+p_{atm}=\gamma_{Hg} h
 $$
 
 For example, let's say that a mercury barometer measured a height of 760 mm.  This would correspond to an atomospheric pressure of
