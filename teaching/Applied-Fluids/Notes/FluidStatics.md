@@ -267,27 +267,27 @@ A mechanical pressure sensor coverts fluid pressure into a force that displaces 
   </p>
 </div>
 
-<div class="photo" style="width: 200px;">
+<div class="photo" style="width: 220px;">
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/mF1pW-xL3vI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="200" src="https://www.youtube.com/embed/mF1pW-xL3vI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <p>
 Video: Bellows For Pressure Sensing
 </p>
 </div>
 
-<div class="photo" style="width: 200px;">
+<div class="photo" style="width: 220px;">
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/f9MJAXhLSv0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="200" src="https://www.youtube.com/embed/f9MJAXhLSv0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <p>
 Video: How a Bourdon tube works
 </p>
 </div>
 
-<div class="photo" style="width: 200px;">
+<div class="photo" style="width: 220px;">
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/JnPSeEW-EeA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="200" src="https://www.youtube.com/embed/JnPSeEW-EeA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <p>
 Video: Diaphragm element compared to Bourdon tube
@@ -296,11 +296,27 @@ Video: Diaphragm element compared to Bourdon tube
 
 
 
-## Hydraulic systems
+## Pascal's law & Hydraulic systems
+
+Pascal's law states that if there is a pressure change at some point in a confined incompressible fluid, there is an equal change everywhere else in the fluid.  In the following example we will make use of Pascal's law to show how a hydraulic lift can be used to magnify forces.  
 
 <div class="photo" style="width: 800px;  text-align:center">
 <img src="img\hydraulic_lift.svg">
 </div>
+
+In the above figure a force $F_1$ is applied to the left piston which has an area $A_1$ in contact with the fluid.  This produces a pressure $p=F_1/A_1$ in the fluid.  Pascal's law states that this fluid is transmitted everywhere else in the fluid, for example to a point just under the large piston on the right.  In other words, the pressure everywhere in the fluid is the same.   
+
+Therefore, if we are in static equilibrium (the pistons aren't moving), the force applied to the right piston, $F_2$, must produce the same pressure in the fluid, $F_2/A_2=p$.  We therefore have that
+
+$$
+\frac{F_1}{A_1}=\frac{F_2}{A_2}
+$$
+or  
+$$
+\frac{F_2} = \frac{A_2}{A_1} F_1
+$$
+
+The quantity $A_2/A_1$ is called the <em>mechanical advantage</em>.
 
 <div class="example">
 
