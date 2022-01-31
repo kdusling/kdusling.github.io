@@ -214,17 +214,16 @@ $$
 <div class="photo" style="width: 500px;  text-align:center">
 <img src="img\Dwyer_Mark_II.jpg">
 <p>
-Dwyer Mark II inclined manometer measuring slightly less than 0.4 inWC.  The manometer measures the pressure drop across an air filter.  As the air filter accumulates dust over time the pressure drop across it increases.
+Dwyer Mark II inclined manometer measuring slightly less than 0.4 inWC.  The manometer measures the pressure drop across an air filter.  As the air filter accumulates dust over time the pressure drop across it increases.  The inclination of the tube allows for a more sensitivity at lower pressures.
 </p>
 </div>
 
 ### Barometers
 
-A barometer is used for measuring the atmospheric pressure. In its simplest form it is a long tube that is submerged in mercury with the other end exposed to a near perfect vacuum.
+A barometer is used for measuring the atmospheric pressure. In its simplest form it consists of a long tube closed at one end that is filled with mercury.   When the open end of the tube is submerged into a container of mercury a near perfect vacuum is produced at the closed end.
 
-<div class="photo" style="width: 500px;  text-align:center">
+<div class="photo" style="width: 400px;  text-align:center">
 <img src="img\barometer.svg">
-<p>A barometer</p>
 </div>
 
 If we analyze the above barometer in the same manner as a manometer we can derive the relationship
@@ -233,21 +232,21 @@ $$
 p_{atm}=\gamma_{Hg} h
 $$
 
-For example, let's say that a mercury barometer measured a height of 760 mm.  This would correspond to an atomospheric pressure of
+For example, let's say that a mercury barometer measured a height of $h=760~\mm$.  This would correspond to an atmospheric pressure of
 
 $$
-p_{atm}=\frac{133.3 \kN}{\m^3}\times 0.760~\m=101~\kPa
+p_{atm}=\frac{133.3~\kN}{\m^3}\times 0.760~\m=101~\kPa
 $$
 
 
 ### Pressure expressed as a height of liquid
 
-In some contexts it will be convenient to express the pressure in a fluid as a height of water column.  For example, in the previous section on barometers, instead of stating the atmospheric pressure as 101 kPa we could have said the pressure is 760 mm of mercury.  Of course, "mm of mercury" is not a unit of pressure, but when stated as such we should know to interpret this as the pressure that would cause a rise of 760 mm of mercury in a manometer.
+It is sometimes convenient to express pressure as a height of a column of fluid.  For example, instead of stating the atmospheric pressure as 101 kPa we could have said the pressure is 760 mm of mercury.  Of course, "mm of mercury" is not a unit of pressure, but when stated as such we should know to interpret this as the pressure that would cause a rise of 760 mm of mercury in a barometer.
 
-To convert we can there use that
+For example, a pressure of 1.0 mm of mercury (mmHg) corresponds to a pressure $p=\gamma h$
 
 $$
-\text{1.0 mmHg}=\text{1.0 mm of mercury}=133.3~\Pa
+\text{1.0 mmHg}=\gamma_{Hg}h=\frac{133.3~\kN}{\m^3}\times 0.001~\m = 0.1333 kPa = 133.3 Pa
 $$
 
 For smaller pressure inches of water (inH$_2$O or inWC), the WC stands for water column, is used instead of psi.
@@ -256,9 +255,10 @@ $$
 \text{1.0 inH}_2\text{O}=0.0361~\psi
 $$
 
+
 ### Pressure gauges
 
-A mechanical pressure sensor coverts fluid pressure into a force that displaces a flexible element.  The movement in the element moves a dial which reflects  moves a dial.  Common styles of mechanical pressure sensors are discussed below.   
+A mechanical pressure sensor coverts fluid pressure into a force that displaces a flexible element.  The movement in the element moves a dial which, after calibration, serves as a visual indication of the pressure.  Three common styles of mechanical pressure sensors are sketched below.   
 
 <div class="photo" style="width: 600px;  text-align:center">
   <img src="img\pressure_gauge_schematic.webp"  style="height:auto; display: inline-block; padding: 10px;">
@@ -267,7 +267,7 @@ A mechanical pressure sensor coverts fluid pressure into a force that displaces 
   </p>
 </div>
 
-<div class="photo" style="width: 600px;">
+<div class="photo" style="width: 200px;">
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/mF1pW-xL3vI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -276,7 +276,7 @@ Video: Bellows For Pressure Sensing
 </p>
 </div>
 
-<div class="photo" style="width: 600px;">
+<div class="photo" style="width: 200px;">
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/f9MJAXhLSv0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -285,7 +285,7 @@ Video: How a Bourdon tube works
 </p>
 </div>
 
-<div class="photo" style="width: 600px;">
+<div class="photo" style="width: 200px;">
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/JnPSeEW-EeA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
