@@ -182,10 +182,10 @@ $$
 p_1=p_{\mathrm{atm}}=0~\kPa~\mathrm{(gauge)}
 $$  
 
-We now move to point $2$.  The pressure there is higher than that of point $1$ due to the gauge fluid sitting above it.  Using the pressure-elevation relationship we see that the pressure at 2 is larger by $\gamma_{Hg} (40~\mm)$, where $\gamma_{Hg}$ is the specific weight of mercury.
+We now move to point $2$.  The pressure there is higher than that of point $1$ due to the gauge fluid sitting above it.  Using the pressure-elevation relationship we see that the pressure at 2 is larger by $\gamma_{m} (40~\mm)$, where $\gamma_{m}$ is the specific weight of mercury.
 
 $$
-p_2=p_1+\gamma_{Hg} (40~\mm)
+p_2=p_1+\gamma_{m} (40~\mm)
 $$
 
 Because points $2$ and $3$ are at the same height, at rest, and within the same fluid the pressures are equal, $p_3=p_2$.  Next we go to point $4$.  The pressure at $4$ is lower than the pressure at $3$ by an amount $\gamma_w (70\mm)$ where $\gamma_w$ is the specific weight of water.
@@ -193,13 +193,13 @@ Because points $2$ and $3$ are at the same height, at rest, and within the same 
 Finally, because point $A$ and $4$ are at the same elevation their pressures are the same.
 
 $$
-p_4=p_A=p_1+\gamma_{Hg} (40~\mm)-\gamma_w(70~\mm)
+p_4=p_A=p_1+\gamma_{m} (40~\mm)-\gamma_w(70~\mm)
 $$
 
 Using
 
 $$
-\gamma_w=9.81~\kN/\m^3\,,\quad\quad \gamma_{Hg}=(13.54)(9.81~\kN/\m^3)=132.8~\kN/\m^3
+\gamma_w=9.81~\kN/\m^3\,,\quad\quad \gamma_{m}=(13.54)(9.81~\kN/\m^3)=132.8~\kN/\m^3
 $$
 
 we can solve for the pressure at point $A$:
@@ -229,7 +229,7 @@ A barometer is used for measuring the atmospheric pressure. In its simplest form
 If we analyze the above barometer in the same manner as a manometer we can derive the relationship
 
 $$
-p_{atm}=\gamma_{Hg} h
+p_{atm}=\gamma_{m} h
 $$
 
 For example, let's say that a mercury barometer measured a height of $h=760~\mm$.  This would correspond to an atmospheric pressure of
@@ -246,7 +246,7 @@ It is sometimes convenient to express pressure as a height of a column of fluid.
 For example, a pressure of 1.0 mm of mercury (mmHg) corresponds to a pressure $p=\gamma h$
 
 $$
-\text{1.0 mmHg}=\gamma_{Hg}h=\frac{133.3~\kN}{\m^3}\times 0.001~\m = 0.1333 kPa = 133.3 Pa
+\text{1.0 mmHg}=\gamma_{m}h=\frac{133.3~\kN}{\m^3}\times 0.001~\m = 0.1333~\kPa = 133.3~\Pa
 $$
 
 For smaller pressure inches of water (inH$_2$O or inWC), the WC stands for water column, is used instead of psi.
@@ -315,7 +315,7 @@ $$
 or  
 
 $$
-\frac{F_2} = \frac{A_2}{A_1} F_1
+F_2= \frac{A_2}{A_1} F_1
 $$
 
 The quantity $A_2/A_1$ is called the <em>mechanical advantage</em>.
