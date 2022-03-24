@@ -20,7 +20,7 @@ $$Q=A\times v$$
 Two quantities closely related to the volume flow rate are the *weight flow rate* ($W$) and the *mass flow rate* ($M$) which represent the weight or mass of the fluid flowing in the system per unit time.
 
 
-<table class="table table-striped table-lg">
+<table class="table table-striped table-xl">
 <caption>
 Summary of flow rates
 </caption>
@@ -28,7 +28,7 @@ Summary of flow rates
 <tr><th> Symbol </th><th> Name </th><th>Definition</th><th> SI  </th><th>  USCS </th></tr>
 </thead>
 <tbody>
-<tr><td>$Q$ </td><td> Volume flow rate </td><td> $Q=Av$  </td><td>  $\m^3/\s$</td><td>$\ft^3/\s$ </td></tr>
+<tr><td>$Q$ </td><td> Volume flow rate &nbsp;&nbsp;&nbsp; </td><td> $Q=Av$  </td><td>  $\m^3/\s$</td><td>$\ft^3/\s$ </td></tr>
 <tr><td>$W$ </td><td> Weight flow rate </td><td>$W=\gamma Q$ <BR> $W=\gamma A Q$  </td><td>  $\N/\s$</td><td>$\lb/\s$ </td></tr>
 <tr><td>$M$ </td><td> Mass flow rate </td><td>$M=\rho Q$ <BR> $M=\rho A V$  </td><td>  $\kg/\s$</td><td>$\slug/\s$ </td></tr>
 </tbody>
@@ -143,7 +143,8 @@ $$
 \frac{A_1}{A_2}=\frac{\cancel{\frac{\pi}{4}}(50~\mm)^2}{\cancel{\frac{\pi}{4}}(100~\mm)^2}=\frac{1}{4}=0.25
 $$
 
-We therefore have
+Notice that the factor of $\pi/4$ cancels out in the numerator and denominator.  We therefore have
+
 $$
 v_2=0.25 v_1=0.25\times(8~\m/\s)=2~\m/\s
 $$
@@ -156,7 +157,7 @@ First, the difference between pipe and tubes.  Tubing is generally used for stru
 
 ### ASTM A53 standard
 
-The ASTM A53 standard is the most common standard for carbon steel pipes.  It will also be the standard that we use most frequently, if not exclusively, in this class.  Here are two steel pipe data tables that we will use very often and therefore worth bookmarking:
+The <a href="https://www.abtersteel.com/news/products-news/astm-a53-standards-specification-for-pipe/">ASTM A53 standard</a> is the most common standard for carbon steel pipes.  It will also be the standard that we use most frequently, if not exclusively, in this class.  Here are two steel pipe data tables that we will use very often and therefore worth bookmarking:
 
 <a href="https://kdusling.github.io/teaching/Applied-Fluids/SteelPipeTable.html?sch=40&mat=comSteel">Schedule 40 Steel Pipe Data Table</a>
 
