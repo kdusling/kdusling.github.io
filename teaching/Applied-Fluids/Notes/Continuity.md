@@ -20,12 +20,12 @@ $$Q=A\times v$$
 Two quantities closely related to the volume flow rate are the *weight flow rate* ($W$) and the *mass flow rate* ($M$) which represent the weight or mass of the fluid flowing in the system per unit time.
 
 
-<table class="table table-striped">
+<table class="table table-striped table-lg">
 <caption>
 Summary of flow rates
 </caption>
 <thead class="thead-dark">
-<tr><th> Symbol </th><th> Name </th><th>  Definition</th><th> SI  </th><th>  USCS </th></tr>
+<tr><th> Symbol </th><th> Name </th><th>Definition</th><th> SI  </th><th>  USCS </th></tr>
 </thead>
 <tbody>
 <tr><td>$Q$ </td><td> Volume flow rate </td><td> $Q=Av$  </td><td>  $\m^3/\s$</td><td>$\ft^3/\s$ </td></tr>
@@ -41,12 +41,7 @@ $$
 \frac{\text{449 gal/min}}{\ft^3/\s}\qquad
 \frac{\text{60,000 L/min}}{\m^3/\text{s}}\qquad
 \frac{\text{3.785 L/min}}{\text{gal/min}}\qquad
-\frac{\text{2119 ft$^3$/min}}{\m^3/\s}\qquad
-\frac{\text{CFM}}{\ft^3/\text{min}}\qquad
-\frac{\text{60 CFM}}{\ft^3/\s}
 $$
-
-
 
 
 <div class="example">
@@ -75,10 +70,10 @@ $$
 Since we want the flow velocity in units of $\ft/\s$ first convert the volume flow rate to $\ft^3/\s$:
 
 $$
-500~\cancel{\text{gal/min}}\times \frac{\ft^3/\s}{449~\cancel{\text{gal/min}}}=1.14~\ft^3/\s
+500~\cancel{\text{gal/min}}\times \frac{\ft^3/\s}{449~\cancel{\text{gal/min}}}=1.114~\ft^3/\s
 $$
 
-The cross sectional area of the 2&frac12;-inch pipe is
+The cross sectional area of the 2&frac12;-inch outlet is
 
 $$
 A=\frac{\pi}{4}\left(0.208~\ft\right)^2 =0.0341~\ft^2
@@ -87,7 +82,7 @@ $$
 The average flow velocity is therefore
 
 $$
-v=\frac{Q}{A}=\frac{1.14~\ft^3/s}{0.0341~\ft^2}=33~\ft/\s
+v=\frac{Q}{A}=\frac{1.114~\ft^3/s}{0.0341~\ft^2}=33~\ft/\s
 $$
 
 </div>
@@ -122,15 +117,36 @@ If the fluid is incompressible then $\rho_1 = \rho_2$ and the density cancels fr
 </div>
 
 <div class="example">
-In the system shown below the inside diameter of the pipe at section 1 is 50 mm and 100 mm at section 2.  Water at room temperature is flowing with an average velocity of 5 m/s at section 1.  What is the velocity at section 2?
+In the system shown below the inside diameter of the pipe at section 1 is 50 mm and 100 mm at section 2.  Water at room temperature is flowing with an average velocity of 8 m/s at section 1.  What is the velocity at section 2?
 
 <div class="photo" style="width: 600px;  text-align:center">
 <img src="img\continuity_example.svg">
 </div>
- 
+
 <hr>
 
+To solve this problem we first need to recognize that the volume flow rate is constant throughout the pipe and can therefore use the continuity equation for steady incompressible flow
 
+$$
+A_1 v_1=A_2 v_2
+$$
+
+Dividing both sides for $v_2$ we find
+
+$$
+v_2=\frac{A_1}{A_2} v_1
+$$
+
+The ratio of areas in the above expression is
+
+$$
+\frac{A_1}{A_2}=\frac{\cancel{\frac{\pi}{4}}(50~\mm)^2}{\cancel{\frac{\pi}{4}}(100~\mm)^2}=\frac{1}{4}=0.25
+$$
+
+We therefore have
+$$
+v_2=0.25 v_1=0.25\times(8~\m/\s)=2~\m/\s
+$$
 
 </div>
 
