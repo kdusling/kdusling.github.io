@@ -26,27 +26,20 @@ $$
 
 ## Force directed normal to cylinder
 
-The normal force is computed using the standard expression[^wiki1] for the pressure drag acting on a cylinder with its axis oriented perpendicular to the direction of flow
-
-[^wiki1]: https://en.wikipedia.org/wiki/Drag_(physics)#The_drag_equation
-
+The normal force is computed using the standard expression (equation 9.30 of [^Fox]) for the pressure drag acting on a cylinder with its axis oriented perpendicular to the direction of flow
 $$
 F_N=C_{DN} \left(\frac{\rho v_N^2}{2}\right) A \tag{1}
 $$
 
+where $C_{DN}$ is the drag coefficient, $A=d L$ is the *projected area* of the cylinder, and $\rho$ is the fluid density.  The drag coefficient is a function of Reynolds number
 
-where $C_{DN}$ is the drag coefficient, $A=d L$ is the *projected area* of the cylinder, and $\rho$ is the fluid density.  For air at standard temperature[^stpwiki] and pressure $\rho=1.22~\kg/\m^3$.
+$$
+Re=\frac{vd}{\nu} \tag{2}
+$$
+
+For air at standard temperature[^stpwiki] and pressure the density is taken as $\rho=1.22~\kg/\m^3$ and the kinematic viscosity as $\nu=1.461×10^{-5} \m^2/\s$.
 
 [^stpwiki]: https://en.wikipedia.org/wiki/U.S._Standard_Atmosphere
-
-The drag coefficient is a function of Reynolds number
-
-$$
-Re=\frac{vD}{\nu} \tag{2}
-$$
-
-where $\nu$ is the kinematic viscosity.  For air at standard[^stpwiki] temperature and pressure $\nu=1.461×10^{-5} \m^2/\s$.
-
 
 <div class="photo" style="width: 600px;">
   <a href="img/DragCylinder.png"><img src="img/DragCylinder.png" alt="Drag coefficient of a long smooth circular cylinder as a function of Reynolds number."></a>
@@ -58,7 +51,6 @@ where $\nu$ is the kinematic viscosity.  For air at standard[^stpwiki] temperatu
 Experimental data for the drag coefficient of a smooth cylinder is shown above.  The red curve is the fit function shown below.  Other functional forms are also available. [^Cheng] [^White]
 
 [^White]: White, F.M. (2006) Viscous Fluid Flow. 3rd Edition, McGraw-Hill, Boston.
-
 
 [^Cheng]: Nian-Sheng Cheng, *Calculation of Drag Coefficient for Arrays of Emergent Circular Cylinders with Pseudofluid Model.* J. Hydraul. Eng. 2013.139:602-611.
 
@@ -85,13 +77,13 @@ function DragCylinder(Re) {
 
 ## Force directed parallel to cylinder
 
-The axial force is dominated by friction drag[^Fox](equation 9.30)
+The axial force is dominated by friction drag (equation 9.32 of [^Fox])
 
 $$
 F_A=C_{Df} \left(\frac{\rho v_A^2}{2}\right) A_w \tag{3}
 $$
 
-where $A_w=\pi d L$ is the wetted area of the cylinder.  The drag coefficient for friction drag is taken from [^Fox](equation 9.34)
+where $A_w=\pi d L$ is the wetted area of the cylinder.  The drag coefficient for friction drag is taken from (equation 9.34 of [^Fox])
 
 $$
 C_{Df} = \frac{0.455}{\left(\log Re_L\right)^{2.58}} \tag{4}
