@@ -49,7 +49,7 @@ For air at standard temperature[^stpwiki] and pressure the density is taken as $
   </p>
 </div>
 
-Experimental data for the drag coefficient of a smooth cylinder is shown above.  Fit functions can be found in references[^Cheng] [^White].  Here we make use of the fit function shown here:
+Experimental data for the drag coefficient of a smooth cylinder is shown above.  Fit functions can be found in references[^Cheng] [^White].  Here we make use of the fit function shown below.
 
 [^White]: White, F.M. (2006) Viscous Fluid Flow. 3rd Edition, McGraw-Hill, Boston.
 
