@@ -27,6 +27,7 @@ $$
 ## Force directed normal to cylinder
 
 The normal force is computed using the standard expression (equation 9.30 of [^Fox]) for the pressure drag acting on a cylinder with its axis oriented perpendicular to the direction of flow
+
 $$
 F_N=C_{DN} \left(\frac{\rho v_N^2}{2}\right) A \tag{1}
 $$
