@@ -55,6 +55,20 @@ Experimental data for the drag coefficient of a smooth cylinder is shown above. 
 
 [^Cheng]: Nian-Sheng Cheng, *Calculation of Drag Coefficient for Arrays of Emergent Circular Cylinders with Pseudofluid Model.* J. Hydraul. Eng. 2013.139:602-611.
 
+$Re < 2\times 10^5$:
+$$
+11~{Re}^{-0.75}+0.9\left(1-e^{-1000/Re}\right)+1.2\left(1-e^{-\left(Re/4500\right)^{0.7}}\right)
+$$
+
+$2\times 10^5 \leq  Re \leq 5\times 10^5$:
+$$
+10^{0.32\tanh\left(44.4504-8\log Re\right)-0.238793158}
+$$
+
+$Re > 5\times 10^5$:
+$$
+0.1\log Re - 0.2533429
+$$
 
 ```JavaScript
 function DragCylinder(Re) {
