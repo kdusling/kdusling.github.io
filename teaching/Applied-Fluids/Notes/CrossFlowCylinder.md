@@ -36,6 +36,7 @@ $$
 
 
 where $C_{DN}$ is the drag coefficient, $A=d L$ is the *projected area* of the cylinder, and $\rho$ is the fluid density.  For air at standard temperature[^stpwiki] and pressure $\rho=1.22~\kg/\m^3$.
+
 [^stpwiki]: https://en.wikipedia.org/wiki/U.S._Standard_Atmosphere
 
 The drag coefficient is a function of Reynolds number
