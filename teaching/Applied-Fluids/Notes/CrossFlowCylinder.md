@@ -32,7 +32,7 @@ $$
 F_N=C_{DN} \left(\frac{\rho v_N^2}{2}\right) A \tag{1}
 $$
 
-where $C_{DN}$ is the drag coefficient, $A=d l$ is the *projected area* of the cylinder, and $\rho$ is the fluid density.  The drag coefficient is a function of Reynolds number
+$C_{DN}$ is the drag coefficient, $A=d l$ is the *projected area* of the cylinder.  The drag coefficient is a function of Reynolds number
 
 $$
 Re=\frac{vd}{\nu} \tag{2}
@@ -49,7 +49,7 @@ For air at standard temperature[^stpwiki] and pressure the density is taken as $
   </p>
 </div>
 
-Experimental data for the drag coefficient of a smooth cylinder is shown above.  The red curve is the fit function shown below.  Other functional forms are also available. [^Cheng] [^White]
+Experimental data for the drag coefficient of a smooth cylinder is shown above.  Fit functions can be found in references[^Cheng] [^White].  Here we make use of the fit function shown here:
 
 [^White]: White, F.M. (2006) Viscous Fluid Flow. 3rd Edition, McGraw-Hill, Boston.
 
