@@ -26,11 +26,14 @@ $$
 
 ## Force directed normal to cylinder
 
-The normal force is computed using the standard expression for the pressure drag acting on a cylinder with its axis oriented perpendicular to the direction of flow
+The normal force is computed using the standard expression[^wiki1] for the pressure drag acting on a cylinder with its axis oriented perpendicular to the direction of flow
+
+[^wiki1]: https://en.wikipedia.org/wiki/Drag_(physics)#The_drag_equation
 
 $$
-F_N=C_{DN} \left(\frac{\rho v_N^2}{2}\right) A
+F_N=C_{DN} \left(\frac{\rho v_N^2}{2}\right) A \label{eq:drag}
 $$
+
 
 where $C_{DN}$ is the drag coefficient, $A=d L$ is the *projected area* of the cylinder, and $\rho$ is the fluid density.  For air at standard temperature and pressure $\rho=1.22~\kg/\m^3$.
 
@@ -50,7 +53,13 @@ where $\nu$ is the kinematic viscosity.  For air at standard temperature and pre
   </p>
 </div>
 
-The drag coefficient for a smooth cylinder is shown above.  The red curve is the fit function shown below.
+Experimental data for the drag coefficient of a smooth cylinder is shown above.  The red curve is the fit function shown below.  Other functional forms are also available. [^Cheng] [^White]
+
+[^White]: White, F.M. (2006) Viscous Fluid Flow. 3rd Edition, McGraw-Hill, Boston.
+
+
+[^Cheng]: Nian-Sheng Cheng, *Calculation of Drag Coefficient for Arrays of Emergent Circular Cylinders with Pseudofluid Model.* J. Hydraul. Eng. 2013.139:602-611.
+
 
 ```JavaScript
 function DragCylinder(Re) {
@@ -74,13 +83,13 @@ function DragCylinder(Re) {
 
 ## Force directed parallel to cylinder
 
-The axial force is dominated by friction drag
+The axial force is dominated by friction drag[^Fox](equation 9.30)
 
 $$
 F_A=C_{Df} \left(\frac{\rho v_A^2}{2}\right) A_w
 $$
 
-where $A_w=\pi d L$ is the wetted area of the cylinder.  The drag coefficient for friction drag is taken from [^Fox] (equation 9.34)
+where $A_w=\pi d L$ is the wetted area of the cylinder.  The drag coefficient for friction drag is taken from [^Fox](equation 9.34)
 
 $$
 C_{Df} = \frac{0.455}{\left(\log Re_L\right)^{2.58}}
