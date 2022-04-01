@@ -20,7 +20,7 @@ To compute the force acting on a cylinder we will use the cross-flow principle [
 In terms of the free stream velocity $v$ the components of the velocities normal to the axis of the cylinder, $v_N$ and parallel to the axis, $v_A$ are given as
 
 $$
-v_N=v\sin\alpha  \nonumber\\
+v_N=v\sin\alpha   \\
 v_A=v\cos\alpha
 $$
 
@@ -31,19 +31,20 @@ The normal force is computed using the standard expression[^wiki1] for the press
 [^wiki1]: https://en.wikipedia.org/wiki/Drag_(physics)#The_drag_equation
 
 $$
-F_N=C_{DN} \left(\frac{\rho v_N^2}{2}\right) A \label{eq:drag}
+F_N=C_{DN} \left(\frac{\rho v_N^2}{2}\right) A \tag{1}
 $$
 
 
-where $C_{DN}$ is the drag coefficient, $A=d L$ is the *projected area* of the cylinder, and $\rho$ is the fluid density.  For air at standard temperature and pressure $\rho=1.22~\kg/\m^3$.
+where $C_{DN}$ is the drag coefficient, $A=d L$ is the *projected area* of the cylinder, and $\rho$ is the fluid density.  For air at standard temperature[^stpwiki] and pressure $\rho=1.22~\kg/\m^3$.
+[^stpwiki]: https://en.wikipedia.org/wiki/U.S._Standard_Atmosphere
 
 The drag coefficient is a function of Reynolds number
 
 $$
-Re=\frac{vD}{\nu}
+Re=\frac{vD}{\nu} \tag{2}
 $$
 
-where $\nu$ is the kinematic viscosity.  For air at standard temperature and pressure $\nu=1.461×10^{-5} \m^2/\s$.
+where $\nu$ is the kinematic viscosity.  For air at standard[^stpwiki] temperature and pressure $\nu=1.461×10^{-5} \m^2/\s$.
 
 
 <div class="photo" style="width: 600px;">
@@ -86,19 +87,19 @@ function DragCylinder(Re) {
 The axial force is dominated by friction drag[^Fox](equation 9.30)
 
 $$
-F_A=C_{Df} \left(\frac{\rho v_A^2}{2}\right) A_w
+F_A=C_{Df} \left(\frac{\rho v_A^2}{2}\right) A_w \tag{3}
 $$
 
 where $A_w=\pi d L$ is the wetted area of the cylinder.  The drag coefficient for friction drag is taken from [^Fox](equation 9.34)
 
 $$
-C_{Df} = \frac{0.455}{\left(\log Re_L\right)^{2.58}}
+C_{Df} = \frac{0.455}{\left(\log Re_L\right)^{2.58}} \tag{4}
 $$
 
 and is an empirical relation valid for $Re_L < 10^{9}$.  In this case the Reynolds is:
 
 $$
-Re_L=\frac{vL}{\nu}
+Re_L=\frac{vL}{\nu}  \tag{5}
 $$
 
 [^Fox]: Fox, Robert W., Alan T. McDonald, and Philip J. Pritchard. 2008. *Introduction to fluid mechanics.* Hoboken, N.J.: Wiley.
@@ -106,7 +107,7 @@ $$
 
 ## Lift and drag forces
 
-The normal and axial forces can be expressed as lift and drag forces on the cylidner through the relations
+The normal and axial forces can be expressed as lift and drag forces on the cylinder through the relations
 
 $$
 F_D=F_N \sin\alpha + F_A \cos\alpha
