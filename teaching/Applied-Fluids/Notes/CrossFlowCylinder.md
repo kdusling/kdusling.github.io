@@ -9,7 +9,7 @@ title: Drag and Lift
 * A markdown unordered list for the toc
 {:toc}
 
-To compute the force acting on a cylinder we will use the cross-flow principle [^Hoerner].
+To compute the force acting on a cylinder we will use the cross-flow principle[^Hoerner].  This principle decomposes the fluid velocity into components normal and parallel to the axis of the cylinder.  The drag forces are then computed as though the object was oriented normal to each of these components.
 
 [^Hoerner]: Hoerner, Sighard F.. *Fluid-dynamic Drag: Practical Information on Aerodynamic Drag and Hydrodynamic Resistance.* United Kingdom: Hoerner Fluid Dynamics, 1965.
 
@@ -26,13 +26,13 @@ $$
 
 ## Force directed normal to cylinder
 
-The normal force is computed using the standard expression (equation 9.30 of [^Fox]) for the pressure drag acting on a cylinder with its axis oriented perpendicular to the direction of flow
+The normal force is computed using the standard expression (equation 9.30 of [Fox]) for the pressure drag acting on a cylinder with its axis oriented perpendicular to the direction of flow
 
 $$
 F_N=C_{DN} \left(\frac{\rho v_N^2}{2}\right) A \tag{1}
 $$
 
-where $C_{DN}$ is the drag coefficient, $A=d L$ is the *projected area* of the cylinder, and $\rho$ is the fluid density.  The drag coefficient is a function of Reynolds number
+where $C_{DN}$ is the drag coefficient, $A=d l$ is the *projected area* of the cylinder, and $\rho$ is the fluid density.  The drag coefficient is a function of Reynolds number
 
 $$
 Re=\frac{vd}{\nu} \tag{2}
@@ -101,16 +101,16 @@ $$
 F_A=C_{Df} \left(\frac{\rho v_A^2}{2}\right) A_w \tag{3}
 $$
 
-where $A_w=\pi d L$ is the wetted area of the cylinder.  The drag coefficient for friction drag is taken from (equation 9.34 of [^Fox])
+where $A_w=\pi d l$ is the wetted area of the cylinder.  The drag coefficient for friction drag is taken from (equation 9.34 of [^Fox])
 
 $$
-C_{Df} = \frac{0.455}{\left(\log Re_L\right)^{2.58}} \tag{4}
+C_{Df} = \frac{0.455}{\left(\log Re_l\right)^{2.58}} \tag{4}
 $$
 
-and is an empirical relation valid for $Re_L < 10^{9}$.  In this case the Reynolds is:
+and is an empirical relation valid for $Re_l < 10^{9}$.  In this case the Reynolds is:
 
 $$
-Re_L=\frac{vL}{\nu}  \tag{5}
+Re_l=\frac{vl}{\nu}  \tag{5}
 $$
 
 [^Fox]: Fox, Robert W., Alan T. McDonald, and Philip J. Pritchard. 2008. *Introduction to fluid mechanics.* Hoboken, N.J.: Wiley.
