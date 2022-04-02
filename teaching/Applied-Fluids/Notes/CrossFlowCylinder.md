@@ -58,19 +58,19 @@ Experimental data for the drag coefficient of a smooth cylinder is shown above. 
 $Re < 2\times 10^5$:
 
 $$
-11~{Re}^{-0.75}+0.9\left(1-e^{-1000/Re}\right)+1.2\left(1-e^{-\left(Re/4500\right)^{0.7}}\right)
+11~{Re}^{-0.75}+0.9\left(1-e^{-1000/Re}\right)+1.2\left(1-e^{-\left(Re/4500\right)^{0.7}}\right) \tag{3a}
 $$
 
 $2\times 10^5 \leq  Re \leq 5\times 10^5$:
 
 $$
-10^{0.32\tanh\left(44.4504-8\log Re\right)-0.238793158}
+10^{0.32\tanh\left(44.4504-8\log Re\right)-0.238793158} \tag{3b}
 $$
 
 $Re > 5\times 10^5$:
 
 $$
-0.1\log Re - 0.2533429
+0.1\log Re - 0.2533429 \tag{3c}
 $$
 
 ```JavaScript
@@ -98,19 +98,19 @@ function DragCylinder(Re) {
 The axial force is dominated by friction drag (equation 9.32 of [^Fox])
 
 $$
-F_A=C_{Df} \left(\frac{\rho v_A^2}{2}\right) A_w \tag{3}
+F_A=C_{Df} \left(\frac{\rho v_A^2}{2}\right) A_w \tag{4}
 $$
 
 where $A_w=\pi d l$ is the wetted area of the cylinder.  The drag coefficient for friction drag is taken from (equation 9.34 of [^Fox])
 
 $$
-C_{Df} = \frac{0.455}{\left(\log Re_l\right)^{2.58}} \tag{4}
+C_{Df} = \frac{0.455}{\left(\log Re_l\right)^{2.58}} \tag{5}
 $$
 
 and is an empirical relation valid for $Re_l < 10^{9}$.  In this case the Reynolds is:
 
 $$
-Re_l=\frac{vl}{\nu}  \tag{5}
+Re_l=\frac{vl}{\nu}  \tag{6}
 $$
 
 [^Fox]: Fox, Robert W., Alan T. McDonald, and Philip J. Pritchard. 2008. *Introduction to fluid mechanics.* Hoboken, N.J.: Wiley.
