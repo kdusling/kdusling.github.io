@@ -10,14 +10,17 @@ title: Drag and Lift
 {:toc}
 
 An object moving through a fluid will experience a complicated set of forces acting on it.  In order to understand the behavior of the object as it moves through the fluid, we will focus on two resultant forces--drag and lift.
+The drag force acts parallel to the motion of the object while the lift force acts in a direction perpendicular to the motion.  
 
-The drag force acts parallel to the motion of the object while the lift force acts in a direction perpendicular to the motion.
+Instead of considering an object moving through a fluid at rest, we can consider the same object at rest in a fluid stream of the same velocity.  The object will experience the same set of forces as illustrated in the picture below.  In this case the drag and lift forces will act parallel and perpendicular to the velocity of the fluid.  
 
-<div class="photo" style="width: 400px;">
-<img src="img/draglift.png">
+<div class="photo" style="width: 800px;">
+<img src="img/draglift2.svg" style="width: 500px;">
+<img src="img/draglift.svg" style="width: 500px;">
+<p>The upper figure shows an airfoil moving to the left with velocity $v$ in a fluid at rest.  The lower figure shows the same airfoil at rest in a fluid stream moving to the right with velocity $v$.  Both airfoils will experience the same set of forces.
 </div>
 
-# Drag Force
+## Drag Force equation
 
 The drag force on an object is
 
@@ -27,9 +30,14 @@ $$
 
 In the above expression, $C_D$ is a dimensionless number known as the drag coefficient.  $\rho$ is the density of the fluid.  $v$ is the free stream velocity of the fluid relative to the body.  $A$ is a *characteristic area* of the body and will be defined carefully for each object in the subsequent sections.  It is usually taken as the largest cross-sectional area of the body perpendicular to the flow, also known as the projected area.
 
+The combined term $\rho v^2/2$ is called the *dynamic pressure*.  Note that the drag force is proportional to the dynamic pressure and therefore the velocity squared.  If the velocity increases by a factor of two the drag force will increase by a factor of four.
+
 The drag coefficient, $C_D$, depends on the shape and orientation of the body.  It also depends on the Reynolds number and the roughness of the object's surface.  It can also be influenced by other bodies in the vicinity of the object in question.  Ultimately the drag coefficient will be taken from experimental data.  
 
-## Spheres
+## Friction vs pressure drag
+The drag force on an object is usually divided into two components; *friction drag* and *pressure drag* (also called *form drag*).  The friction drag is due to the friction between the fluid and the surface of the object.  The pressure drag is sensitive to the shape of the object and how the fluid separates from the boundary of the object.  The total drag is the sum of these two contributions.  
+
+### Spheres
 
 <div class="photo" style="width: 600px;">
   <a href="img/DragSphere.png"><img src="img/DragSphere.png" alt="Drag coefficient of a smooth sphere as a function of Reynolds number."></a>
@@ -42,7 +50,7 @@ The drag coefficient, $C_D$, depends on the shape and orientation of the body.  
   </p>
 </div>
 
-## Cylinders
+### Cylinders
 
 <div class="photo" style="width: 600px;">
   <a href="img/DragCylinder.png"><img src="img/DragCylinder.png" alt="Drag coefficient of a long smooth circular cylinder as a function of Reynolds number."></a>
@@ -51,7 +59,7 @@ The drag coefficient, $C_D$, depends on the shape and orientation of the body.  
   </p>
 </div>
 
-## Cylindrical shapes
+### Cylindrical shapes
 
 <table class="table table-striped">
 <caption>
@@ -115,8 +123,7 @@ The length scale used in the calculation of the Reynolds number is the length of
 </tbody>
 </table>
 
-## 3D shapes
-
+### 3D shapes
 
 <table class="table table-striped">
 <caption>
@@ -151,7 +158,7 @@ Drag coefficient for various 3D shapes
 </tbody>
 </table>
 
-# Lift and drag on airfoils
+## Lift and drag on airfoils
 
 The lift force on an airfoil is given as
 
