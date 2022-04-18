@@ -178,6 +178,7 @@ $$
 $$
 
 The kinetic energy of the car is
+
 $$
 \textrm{KE}=\frac{1}{2}mv^2\,.
 $$
