@@ -17,7 +17,7 @@ Instead of considering an object moving through a fluid at rest, we can consider
 <div class="photo" style="width: 800px;">
 <img src="img/draglift2.svg" style="width: 500px;">
 <img src="img/draglift.svg" style="width: 500px;">
-<p>The upper figure shows an airfoil moving to the left with velocity $v$ in a fluid at rest.  The lower figure shows the same airfoil at rest in a fluid stream moving to the right with velocity $v$.  Both airfoils will experience the same set of forces.
+<p>The upper figure shows an airfoil moving to the left with velocity $v$ in a fluid at rest.  The lower figure shows the same airfoil at rest in a fluid stream moving to the right with velocity $v$.  Both airfoils will experience the same set of forces.</p>
 </div>
 
 ## Drag Force equation
