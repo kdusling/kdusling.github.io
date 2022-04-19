@@ -32,10 +32,17 @@ In the above expression, $C_D$ is a dimensionless number known as the drag coeff
 
 The combined term $\rho v^2/2$ is called the *dynamic pressure*.  Note that the drag force is proportional to the dynamic pressure and therefore the velocity squared.  If the velocity increases by a factor of two the drag force will increase by a factor of four.
 
-The drag coefficient, $C_D$, depends on the shape and orientation of the body.  It also depends on the Reynolds number and the roughness of the object's surface.  It can also be influenced by other bodies in the vicinity of the object in question.  Ultimately the drag coefficient will be taken from experimental data.  
+The drag coefficient, $C_D$, depends on the shape and orientation of the body.  It also depends on the Reynolds number and the roughness of the object's surface.  It can also be influenced by other bodies in the vicinity of the object.  Ultimately the drag coefficient will be taken from experimental data.  
 
 ## Friction vs pressure drag
+
 The drag force on an object is usually divided into two components; *friction drag* and *pressure drag* (also called *form drag*).  The friction drag is due to the friction between the fluid and the surface of the object.  The pressure drag is sensitive to the shape of the object and how the fluid separates from the boundary of the object.  The total drag is the sum of these two contributions.  
+
+<div class="photo" style="width: 600px;">
+  <a href="img/VanDyke/FlatPlate29.jpg"><img src="img/VanDyke/FlatPlate37.jpg" alt=""></a>
+  <p>Visualization using air bubbles in water over a beveled flat plate at a Reynolds number of 10,000.  When he plate is parallel to the flow the drag is due entirely to friction drag.  As the angle of incidence increases to 20&deg; the flow completely separates from the upper edge of the plate.  The drag is now dominated by pressure drag.  <BR><BR> <small>Images from Van Dyke, Milton, and Milton Van Dyke. <em>An album of fluid motion.</em> Vol. 176. Stanford: Parabolic Press, 1982.</small>
+  </p>
+</div>
 
 ### Spheres
 
