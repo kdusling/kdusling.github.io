@@ -38,8 +38,8 @@ The drag coefficient, $C_D$, depends on the shape and orientation of the body.  
 
 The drag force on an object is usually divided into two components; *friction drag* and *pressure drag* (also called *form drag*).  The friction drag is due to the friction between the fluid and the surface of the object.  The pressure drag is sensitive to the shape of the object and how the fluid separates from the boundary of the object.  The total drag is the sum of these two contributions.  
 
-<div class="photo" style="width: 600px;">
-  <img src="img/VanDyke/FlatPlate29.jpg" style="width: 290px"><img src="img/VanDyke/FlatPlate37.jpg" style="width: 290px"></a>
+<div class="photo" style="width: 800px;">
+  <img src="img/VanDyke/FlatPlate29.jpg" style="width: 350px"><img src="img/VanDyke/FlatPlate37.jpg" style="width: 350px">
   <p>Visualization using air bubbles in water over a beveled flat plate at a Reynolds number of 10,000.  When the plate is parallel to the flow the drag is due entirely to friction drag.  As the angle of incidence increases to 20&deg; the flow completely separates from the upper edge of the plate.  The drag is now dominated by pressure drag.  <BR><BR> <small>Images from Van Dyke, Milton, and Milton Van Dyke. <em>An album of fluid motion.</em> Vol. 176. Stanford: Parabolic Press, 1982.</small>
   </p>
 </div>
