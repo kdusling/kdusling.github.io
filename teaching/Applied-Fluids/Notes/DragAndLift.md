@@ -85,13 +85,13 @@ $$
 Re=\frac{vD}{\nu}=\frac{125~\ft/s \times 0.213~\ft}{1.572\times 10^{-4}~\ft^2/s}=1.7\times 10^5
 $$
 
-The kinematic viscosity of air was taken from <a href="https://kdusling.github.io/teaching/Applied-Fluids/AtmosphereProperties.html">the same link as above</a>.  For a smooth sphere I find $C_D=0.46$. You can estimate this from the graph above or by using an online calculator. The drag force is then
+The kinematic viscosity of air was taken from <a href="https://kdusling.github.io/teaching/Applied-Fluids/AtmosphereProperties.html">the same link as above</a>.  For a smooth sphere I find $C_D=0.46$. You can estimate this from the graph above or by using an <a href="https://kdusling.github.io/teaching/Applied-Fluids/DragCoefficient.html">online calculator</a>. Putting everything together the drag force is
 
 $$
-F_D=C_D \left(\frac{\rho v^2}{2}\right) A = 0.46\left(\frac{2.377\times 10^{-3} (125)^2}{2}\right) 0.0357 = 0.3~\lb
+F_D=C_D \left(\frac{\rho v^2}{2}\right) A = 0.46\left(\frac{0.002377 (125)^2}{2}\right) 0.0357 = 0.3~\lb
 $$
 
-According to [Mehta, R., Alam, F. and Subic, A. (2008), <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/jst.11">Review of tennis ball aerodynamics.</a> Sports Technol., 1: 7-16. https://doi.org/10.1002/jst.11] the drag coefficient for a tennis ball is closer to 0.6 or 30&percnt; larger than the smooth sphere which will result in a drag force about 30&percnt; larger.
+According to [Mehta, R., Alam, F. and Subic, A. (2008), <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/jst.11">Review of tennis ball aerodynamics.</a> Sports Technol., 1: 7-16. https://doi.org/10.1002/jst.11] the drag coefficient for a tennis ball is closer to 0.6 or 30&percnt; larger than the smooth sphere. This will result in a drag force about 30&percnt; larger.
 
 </div>
 
