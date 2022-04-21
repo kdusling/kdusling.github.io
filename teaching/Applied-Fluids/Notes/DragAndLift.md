@@ -59,6 +59,43 @@ The drag force on an object is usually divided into two components; *friction dr
   </p>
 </div>
 
+<div class="example">
+
+A tennis player serves a tennis ball without spin at a velocity of 85 mph.  If the ball has a diameter of 2.56 inches, estimate the drag force on the ball.  For this exercise you may treat the tennis ball as a smooth sphere.
+
+<hr>
+
+The drag force is calculated using
+
+$$
+F_D=C_D \left(\frac{\rho v^2}{2}\right) A
+$$
+
+In the above expression $\rho=2.377\times 10^{-3}~\slug/\ft^3$ is the density of air at STP. (I got this number from <a href="https://kdusling.github.io/teaching/Applied-Fluids/AtmosphereProperties.html">here</a>).  The velocity is  $v=85~\textrm{mph} =  125~\textrm{fps}$.
+
+The area $A$ is the *projected area* of the sphere.
+
+$$
+A=\pi D^2/4=\pi/4\left(2.56~\in\right)^2=5.147~\in^2 = 0.0357~\ft^2
+$$
+
+The last step is to find the drag coefficient. In order to do this first compute the Reynolds number
+
+$$
+Re=\frac{vD}{\nu}=\frac{125~\ft/s \times 0.213~\ft}{1.572\times 10^{-4}~\ft^2/s}=1.7\times 10^5
+$$
+
+For a smooth sphere I find $C_D=0.46$.  The drag force is then
+
+$$
+F_D=C_D \left(\frac{\rho v^2}{2}\right) A = 0.46\left(\frac{\rho=2.377\times 10^{-3}~\slug/\ft^3 (125~\ft/s)^2}{2}\right) 0.0357~\ft^2 = 0.3~\lb
+$$
+
+According to [Mehta, R., Alam, F. and Subic, A. (2008), Review of tennis ball aerodynamics. Sports Technol., 1: 7-16. https://doi.org/10.1002/jst.11] the drag coefficient for a tennis ball is closer to 0.6 or 30\% larger than the smooth sphere. 
+
+</div>
+
+
 ### Cylinders
 
 <div class="photo" style="width: 600px;">
