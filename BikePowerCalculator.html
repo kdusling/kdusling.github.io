@@ -117,7 +117,7 @@ var url = "https://kdusling.github.io/BikePowerCalculator.html?units=" + units;
 navigator.clipboard.writeText(url);
 }
 
-google.charts.load('current', {'packages':['corechart', 'line']});
+google.charts.load('45', {'packages':['corechart', 'line']});
 google.charts.setOnLoadCallback(makePlot);
 
 
@@ -240,6 +240,7 @@ function makePlot() {
 
 
      var plotOptions = {
+       theme: 'material',
        title: "",
        width: 760,
        height: 500,
@@ -249,9 +250,9 @@ function makePlot() {
        },
        vAxis: {
          title: 'Power (Watts)',
-         scaleType: 'linear'
+         scaleType: 'linear',
+         ticks: [100,200,300,400]
        },
-       theme: 'material',
        legend: {
          position : 'right'
        }
@@ -263,7 +264,8 @@ function makePlot() {
       google.visualization.events.addListener(Chart, 'ready', function () {
         var image = new Image();
         image.src =  Chart.getImageURI();
-        pc_footer.innerHTML =  '<button type="button" class="btn btn-primary" onclick="var w = window.open(\'about:blank\'); w.document.write(image.outerHTML); w.document.close();">Save as png</button>';
+        pc_footer.innerHTML =  '<a href="' + Chart.getImageURI() + '" download=""><button type="button" class="btn btn-primary">Save Image As PNG</button></a>';
+
       });
 
       Chart.draw(data, plotOptions);
