@@ -25,8 +25,6 @@
 
      <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
 
-     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
      <script>
        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -37,6 +35,8 @@
        ga('send', 'pageview');
 
      </script>
+
+     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 
 
@@ -178,8 +178,8 @@ function makePlot() {
      var data = new google.visualization.DataTable();
      data.addColumn('number', 'speed');
      data.addColumn('number', 'Incline');
-     data.addColumn('number', 'Incline + Rolling');
-     data.addColumn('number', 'Incline + Rolling + Drag');
+     data.addColumn('number', 'Incline \n + Rolling');
+     data.addColumn('number', 'Incline \n + Rolling \n + Drag');
 
      var pts = 201;
 
@@ -241,8 +241,8 @@ function makePlot() {
 
      var plotOptions = {
        title: "",
-       width: 600,
-       height: 400,
+       width: 760,
+       height: 500,
         hAxis: {
          title: xaxis_label,
          scaleType: 'linear',
@@ -253,12 +253,20 @@ function makePlot() {
        },
        theme: 'material',
        legend: {
-         position : 'top'
+         position : 'right'
        }
      };
 
      var Chart =new google.visualization.LineChart(document.getElementById('power_plot_div'));
-     Chart.draw(data, plotOptions);
+
+     // Wait for the chart to finish drawing before calling the getImageURI() method.
+      google.visualization.events.addListener(Chart, 'ready', function () {
+        var image = new Image();
+        image.src =  Chart.getImageURI();
+        pc_footer.innerHTML =  '<button type="button" class="btn btn-primary" onclick="var w = window.open(\'about:blank\'); w.document.write(image.outerHTML); w.document.close();">Save as png</button>';
+      });
+
+      Chart.draw(data, plotOptions);
 
 }
 
@@ -660,14 +668,13 @@ function getPosErr(err) {
 
       </div>
 
-
-      <button type="button" class="btn btn-primary" onclick="makePlot();">Generate Graph</button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#PowerCurveModal" onclick="makePlot();">Show power curve</button>
 
       <button type="button" class="btn btn-outline-primary" data-toggle="tooltip" data-placement="bottom" title="Copy to clipboard" onclick="createURL();">
      <svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M17,9H7V7H17M17,13H7V11H17M14,17H7V15H14M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3Z" /></svg>
      </button>
 
-      <div class="chart" id="power_plot_div"></div>
+
 
 </div>
 
@@ -692,6 +699,28 @@ function getPosErr(err) {
 
 </div>
 </div>
+
+
+<!-- Power Curve Modal -->
+<div class="modal fade" id="PowerCurveModal" tabindex="-1" role="dialog" aria-labelledby="PowerCurveModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Power Curve</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="chart" id="power_plot_div"></div>
+      </div>
+      <div class="modal-footer" id="pc_footer">
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 </body>
 </html>
