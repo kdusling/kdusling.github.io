@@ -172,6 +172,32 @@ function Compute() {
   document.getElementById("speed").value = Speed(parseFloat(document.getElementById("Power").value));
 }
 
+function PWR(pow) {
+  var Wt = parseFloat(document.getElementById("rider_weight").value);
+
+  if (units === "metric"){
+    return pow/Wt;
+    }
+
+  if (units === "imperial"){
+    Wt = Wt*0.453592;
+    return pow/Wt;
+    }
+}
+
+//returns kcal/hr
+function cal(pow) {
+
+  var rpm = 80;
+  var meta = 39.7 + 2.84*rpm + 3.73*pow;
+  var eff = pow/meta*100;
+
+  const span = document.getElementById('bodyeff');
+  span.textContent = eff.toFixed(0);
+
+  return meta*3600.*0.23890/1000;
+}
+
 
 function makePlot() {
 
@@ -575,9 +601,9 @@ function getPosErr(err) {
         <table class='table w-auto table-bordered' >
         <thead><tr><td>Tire</td><td>size</td><td>pressure</td><td>C<sub>rr</sub></td></tr></thead>
         <caption></caption>
-        <tr><td><a href="https://www.bicyclerollingresistance.com/tour-reviews/vittoria-randonneur-2015" target="_blank">Vittoria Randonneur</a><td>37-622</td><td>75 psi</td><td>0.00869</td></tr>
-        <tr><td><a href="https://www.bicyclerollingresistance.com/road-bike-reviews/continental-grand-prix-4-season-2015" target="_blank">Continental Grand Prix 4 Season</a><td>700x25C</td></td><td>100 psi</td><td>0.00543</td></tr>
-        <tr><td><a href="https://www.bicyclerollingresistance.com/mtb-reviews/maxxis-ardent-race-exo-2016" target="_blank">Maxxis Ardent Race 3C EXO TR</a><td>29x2.20</td></td><td>25 psi</td><td>0.01052</td></tr>
+        <tr><td><a href="https://www.bicyclerollingresistance.com/tour-reviews/vittoria-randonneur-2015" target="_blank">Vittoria Randonneur</a> &nbsp; (<a href="https://amzn.to/3vnqBgk" target="_blank">Amazon</a>)<td>37-622</td><td>75 psi</td><td>0.00869</td></tr>
+        <tr><td><a href="https://www.bicyclerollingresistance.com/road-bike-reviews/continental-grand-prix-4-season-2015" target="_blank">Continental Grand Prix 4 Season</a> &nbsp; (<a href="https://amzn.to/3km0Oig" target="_blank">Amazon</a>)<td>700x25C</td></td><td>100 psi</td><td>0.00543</td></tr>
+        <tr><td><a href="https://www.bicyclerollingresistance.com/mtb-reviews/maxxis-ardent-race-exo-2016" target="_blank">Maxxis Ardent Race 3C EXO TR</a> &nbsp; (<a href="https://amzn.to/3Lkm2sN" target="_blank">Amazon</a>)<td>29x2.20</td></td><td>25 psi</td><td>0.01052</td></tr>
         </table>
 
       </div>
@@ -638,17 +664,17 @@ function getPosErr(err) {
 
         <label for="speed">Speed</label>
         <div class="input-group mb-3">
-        <input type="text" class="form-control" id="speed" aria-label="speed" value="0" onchange="document.getElementById('Power').value = Power(this.value).toFixed(1);" >
+        <input type="text" class="form-control" id="speed" aria-label="speed" value="0" onchange="var mypow = Power(this.value); document.getElementById('Power').value = mypow.toFixed(1); document.getElementById('PWR').value = PWR(mypow).toFixed(2); document.getElementById('kcal').value = cal(mypow).toFixed(0);" >
         <div class="input-group-prepend">
         <span class="input-group-text" id="speed_unit">mph</span>
         </div>
 
         <span class="input-group-addon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <div class="btn-group-vertical py-0" role="group" aria-label="...">
-            <button type="button" class="btn btn-primary btn-sm py-0 my-0" style="font-size: 0.5em;" onclick="document.getElementById('Power').value = Power(document.getElementById('speed').value).toFixed(1);">
+            <button type="button" class="btn btn-primary btn-sm py-0 my-0" style="font-size: 0.5em;" onclick="var mypow = Power(document.getElementById('speed').value); document.getElementById('Power').value = mypow.toFixed(1); document.getElementById('PWR').value = PWR(mypow).toFixed(2); document.getElementById('kcal').value = cal(mypow).toFixed(0);">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 3 16 10"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/></svg>
             </button>
-            <button type="button" class="btn btn-primary btn-sm py-0 my-0" style="font-size: 0.5em;" onclick="document.getElementById('speed').value = Speed(document.getElementById('Power').value).toFixed(1);">
+            <button type="button" class="btn btn-primary btn-sm py-0 my-0" style="font-size: 0.5em;" onclick="var mypow = document.getElementById('Power').value; document.getElementById('speed').value = Speed(mypow).toFixed(1); document.getElementById('PWR').value = PWR(mypow).toFixed(2); document.getElementById('kcal').value = cal(mypow).toFixed(0);">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 5 16 10"><path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/></svg>
           </button>
           </div>
@@ -665,6 +691,94 @@ function getPosErr(err) {
         <span class="input-group-text" id="power_unit">Watts</span>
         </div>
         </div>
+
+        <div class="input-group mb-3">
+        <div class="input-group-prepend">
+        <span class="input-group-text">PWR
+          &nbsp;&nbsp;
+
+         <button type="button" class="btn btn-link btn-sm py-0 my-0" data-toggle="modal" data-target="#PWRModal">
+         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+         <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+         </svg>
+         </button>
+         <!-- Modal -->
+         <div class="modal fade" id="PWRModal" tabindex="-1" role="dialog">
+           <div class="modal-dialog" role="document">
+             <div class="modal-content">
+               <div class="modal-header">
+                 <h5 class="modal-title">PWR</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+           </button>
+         </div>
+         <div class="modal-body" style="align:left; word-break: normal; white-space: normal;">
+
+         <p class="text-left"></p>
+         The Power to Weight Ratio (PWR) is simply the power divided by the rider weight in kilograms.
+         A recreational cyclist might have a PWR of 2.5, 2.1, 1.8 for 5, 20, and 60 minutes of sustained activity respectively.
+
+         </div>
+         </div>
+         </div>
+         </div>
+       </span><!-- End PWR input -->
+
+        </div>
+        <input type="text" class="form-control" id="PWR" aria-label="PWR" value="" >
+        <div class="input-group-append">
+        <span class="input-group-text" id="">W/kg</span>
+        </div>
+        </div>
+
+        <div class="input-group mb-3">
+        <div class="input-group-prepend">
+        <span class="input-group-text">Energy
+          &nbsp;&nbsp;
+
+         <button type="button" class="btn btn-link btn-sm py-0 my-0" data-toggle="modal" data-target="#CalModal">
+         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+         <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+         </svg>
+         </button>
+         <!-- Modal -->
+         <div class="modal fade" id="CalModal" tabindex="-1" role="dialog">
+           <div class="modal-dialog" role="document">
+             <div class="modal-content">
+               <div class="modal-header">
+                 <h5 class="modal-title">Energy Expenditure</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+           </button>
+         </div>
+         <div class="modal-body" style="align:left; word-break: normal; white-space: normal;">
+
+         <p class="text-left">
+
+           The energy expenditure was calculated using an efficiency <span id="bodyeff">0</span>%.
+           It uses the formula taken from:<BR><BR>
+           Ettema, G., & Lorås, H. W. (2009). Efficiency in cycling: a review. European Journal of Applied Physiology, 106(1), 1–14. doi:10.1007/s00421-009-1008-7
+           <BR><BR>
+           The efficiency is a function of both cadence (here taken to be 80 rpm) and external power.
+        </p>
+
+         </div>
+         </div>
+         </div>
+         </div>
+       </span><!-- End Energy input -->
+
+        </div>
+        <input type="text" class="form-control" id="kcal" aria-label="kcal" value="" >
+        <div class="input-group-append">
+        <span class="input-group-text" id="">kcal/hr</span>
+        </div>
+        </div>
+
+
+
 
       </div>
 
