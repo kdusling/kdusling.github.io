@@ -66,7 +66,7 @@ The minus sign tells us that the force is in the minus *x*-direction, *i.e.* to 
 
 <div class="example">
 
-Compute the horizontal and vertical forces on the block shown below.  The fluid stream is water with a velocity of 25 fps and a diameter of 1.75 inches.
+Compute the horizontal and vertical forces on the block shown below.  The fluid is water with a velocity of 25 fps and a stream diameter of 1.75 inches.
 
 
 <div class="photo" style="width: 600px;  text-align:center">
@@ -75,7 +75,7 @@ Compute the horizontal and vertical forces on the block shown below.  The fluid 
 
 <hr>
 
-In this example we will need to use the momentum equations in both the $x$ and $y$ directions.  Before we get started let's get the calculation of the volume flow rate, $Q$, out of the way:
+In this example we will need to use the momentum equations in both the $x$ and $y$ directions.  Before we get started let's find the volume flow rate:
 
 $$
 Q=vA=25~\frac{\ft}{\s}\times \frac{\pi}{4}\left(\frac{1.75~\inch}{12~\inch/\ft}\right)^2=0.418~\ft^3/\s
@@ -92,7 +92,7 @@ The initial *x*-component of the velocity is $v_{ix}=25$ fps.  The final compone
 The change in velocity (final minus initial) is therefore:
 
 $$
-\Delta v_x = v_{fx}-v_{ix}=-21.65-25~\fps = -46.65~\fps.
+\Delta v_x = v_{fx}-v_{ix}=-21.65~\fps-25~\fps = -46.65~\fps.
 $$
 
 The momentum equation in the *x*-direction is:
@@ -101,7 +101,7 @@ $$
 F_x= \rho Q \Delta v_x = \left(1.94~\slug/\ft^3\right) \left(0.418~\ft^3/\s\right)\left(-46.65~\fps \right)=-37.38~\lb
 $$
 
-The minus sign tells us that the force *on the fluid* is to the left.  The force on the block is $37.38~\lb$ to the right.
+The minus sign tells us that the force *on the fluid* is to the left.  The force on the block is therefor 37.38 lb to the right.
 
 Now the *y*-direction:
 
@@ -109,23 +109,19 @@ $$
 F_y= \rho Q \Delta v_y
 $$
 
-The initial *y*-component of the velocity is zero.  The final component is $v_{fy} = +25\sin(30) = 12.5~fps.  Note the plus sign since the final *y*-component of the velocity is up.
-
-The change in velocity (final minus initial) is therefore:
+The initial *y*-component of the velocity is zero.  The final component is $v_{fy} = +25\sin(30) = 12.5~\fps$.  Note the plus sign since the final *y*-component of the velocity is up. The change in velocity (final minus initial) is:
 
 $$
-\Delta v_y = v_{fy}-v_{iy}=0-12.5~\fps = -12.5~\fps.
+\Delta v_y = v_{fy}-v_{iy}=12.5~\fps - 0~\fps = 12.5~\fps.
 $$
 
 The force on the fluid in the *y*-direction is:
 
 $$
-F_y= \rho Q \Delta v_y = \left(1.94~\slug/\ft^3\right) \left(0.418~\ft^3/\s\right)\left(-12.5~\fps \right)=-10.14~\lb
+F_y= \rho Q \Delta v_y = \left(1.94~\slug/\ft^3\right) \left(0.418~\ft^3/\s\right)\left(12.5~\fps \right)=10.14~\lb
 $$
 
-So the block experiences a force of $10.14~\lb$ upward.
-
-The figure below shows both the *x* and *y* force on the block as well as the resultant force.
+So the block experiences a force of $10.14~\lb$ downward. The figure below shows both the *x* and *y* force on the block as well as the resultant force.
 
 <div class="photo" style="width: 600px;  text-align:center">
 <img src="img\water_jet_force_angle_block.svg">

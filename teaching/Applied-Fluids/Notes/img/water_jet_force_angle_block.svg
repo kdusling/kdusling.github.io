@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="94.574654mm"
-   height="35.376163mm"
-   viewBox="0 0 94.574654 35.376161"
+   width="98.381889mm"
+   height="39.068317mm"
+   viewBox="0 0 98.38189 39.068315"
    version="1.1"
    id="svg3565"
    sodipodi:docname="water_jet_force_angle_block.svg"
@@ -96,15 +96,15 @@
      inkscape:pageshadow="2"
      inkscape:zoom="2.9187906"
      inkscape:cx="192.3742"
-     inkscape:cy="86.85104"
+     inkscape:cy="75.887595"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:snap-midpoints="true"
      inkscape:window-width="1904"
      inkscape:window-height="1001"
-     inkscape:window-x="26"
-     inkscape:window-y="29"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="0"
      fit-margin-left="5"
      fit-margin-right="5"
@@ -130,7 +130,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-37.515396,-23.302874)">
+     transform="translate(-37.515396,-26.187774)">
     <g
        id="g4205"
        transform="translate(0,-0.49341033)" />
@@ -213,59 +213,59 @@
          style="font-size:2.82222px;stroke-width:0.264583">+y direction</tspan></text>
     <path
        style="fill:#afff00;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker4838-9)"
-       d="M 86.372794,44.309686 V 32.08129"
+       d="M 86.681412,44.225952 V 56.454348"
        id="path1995-7" />
     <text
        xml:space="preserve"
        style="font-size:3.52778px;line-height:1.25;font-family:Cambria;-inkscape-font-specification:Cambria;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
-       x="81.122963"
-       y="30.767841"
+       x="80.760368"
+       y="60.228531"
        id="text6896"><tspan
          sodipodi:role="line"
          id="tspan6894"
          style="font-size:3.52778px;stroke-width:0.264583"
-         x="81.122963"
-         y="30.767841">10.14 lb</tspan></text>
+         x="80.760368"
+         y="60.228531">10.14 lb</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.52778px;line-height:1.25;font-family:Cambria;-inkscape-font-specification:Cambria;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
-       x="111.78519"
-       y="47.896736"
+       x="117.04279"
+       y="43.273674"
        id="text6896-3"><tspan
          sodipodi:role="line"
          id="tspan6894-4"
          style="font-size:3.52778px;stroke-width:0.264583"
-         x="111.78519"
-         y="47.896736">37.38 lb</tspan></text>
+         x="117.04279"
+         y="43.273674">37.38 lb</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.52778px;line-height:1.25;font-family:Cambria;-inkscape-font-specification:Cambria;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
-       x="115.06666"
-       y="33.058155"
+       x="117.15157"
+       y="57.633091"
        id="text6896-3-0"><tspan
          sodipodi:role="line"
          id="tspan6894-4-3"
          style="font-size:3.52778px;stroke-width:0.264583"
-         x="115.06666"
-         y="33.058155">38.73 lb</tspan></text>
+         x="117.15157"
+         y="57.633091">38.73 lb</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:2.86977px;line-height:1.25;font-family:Cambria;-inkscape-font-specification:Cambria;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.215233"
        x="98.52327"
-       y="43.30788"
+       y="46.843163"
        id="text3365"><tspan
          sodipodi:role="line"
          id="tspan3363"
          style="font-size:2.86977px;stroke-width:0.215233"
          x="98.52327"
-         y="43.30788">15.18°</tspan></text>
+         y="46.843163">15.18°</tspan></text>
     <path
        style="fill:#afff00;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker4838-9)"
        d="M 86.395513,44.225952 H 123.08069"
        id="path11922" />
     <path
        style="fill:#afff00;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker4838-9)"
-       d="M 86.372794,44.309686 114.307,36.730601 123.0575,34.356423"
+       d="m 86.681412,44.225952 27.934208,7.579087 8.7505,2.374179"
        id="path12004"
        sodipodi:nodetypes="ccc" />
   </g>
