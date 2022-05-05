@@ -78,7 +78,7 @@ Compute the horizontal and vertical forces on the block shown below.  The fluid 
 In this example we will need to use the momentum equations in both the $x$ and $y$ directions.  Before we get started let's get the calculation of the volume flow rate, $Q$, out of the way:
 
 $$
-Q=vA=25~\frac{\ft}{\s}\times \frac{\pi}{4}\left(\frac{1.75~\in}{12~\in/\ft})^2=0.418~\ft^3/s
+Q=vA=25~\frac{\ft}{\s}\times \frac{\pi}{4}\left(\frac{1.75~\in}{12~\in/\ft}\right)^2=0.418~\ft^3/\s
 $$
 
 Now let's start with the *x*-direction:
@@ -87,7 +87,7 @@ $$
 F_x= \rho Q \Delta v_x
 $$
 
-The initial *x*-component of the velocity is $v_{ix}=25$~fps.  The final component is $v_{fx} = -25\cos(30)=-21.65$~fps.  Note the minus sign since the final *x*-component of the velocity is to the left.
+The initial *x*-component of the velocity is $v_{ix}=25$ fps.  The final component is $v_{fx} = -25\cos(30)=-21.65$ fps.  Note the minus sign since the final *x*-component of the velocity is to the left.
 
 The change in velocity (final minus initial) is therefore:
 
@@ -98,7 +98,7 @@ $$
 The momentum equation in the *x*-direction is:
 
 $$
-F_x= \rho Q \Delta v_x = \left(1.94~\slug/\ft^3\right) \left(0.418~\ft^3/\s)\left(-46.65~\fps \right)=-37.38~\lb
+F_x= \rho Q \Delta v_x = \left(1.94~\slug/\ft^3\right) \left(0.418~\ft^3/\s\right)\left(-46.65~\fps \right)=-37.38~\lb
 $$
 
 The minus sign tells us that the force *on the fluid* is to the left.  The force on the block is $37.38~\lb$ to the right.
@@ -120,10 +120,10 @@ $$
 The force on the fluid in the *y*-direction is:
 
 $$
-F_y= \rho Q \Delta v_y = \left(1.94~\slug/\ft^3\right) \left(0.418~\ft^3/\s)\left(-12.5~\fps \right)=-10.14~\lb
+F_y= \rho Q \Delta v_y = \left(1.94~\slug/\ft^3\right) \left(0.418~\ft^3/\s\right)\left(-12.5~\fps \right)=-10.14~\lb
 $$
 
-So the block experiences a force of $10.14\lb$ upward.
+So the block experiences a force of $10.14~\lb$ upward.
 
 The figure below shows both the *x* and *y* force on the block as well as the resultant force.
 
