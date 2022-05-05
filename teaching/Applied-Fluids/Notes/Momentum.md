@@ -78,7 +78,7 @@ Compute the horizontal and vertical forces on the block shown below.  The fluid 
 In this example we will need to use the momentum equations in both the $x$ and $y$ directions.  Before we get started let's get the calculation of the volume flow rate, $Q$, out of the way:
 
 $$
-Q=vA=25~\frac{\ft}{\s}\times \frac{\pi}{4}\left(\frac{1.75~\in}{12~\in/\ft}\right)^2=0.418~\ft^3/\s
+Q=vA=25~\frac{\ft}{\s}\times \frac{\pi}{4}\left(\frac{1.75~\inch}{12~\inch/\ft}\right)^2=0.418~\ft^3/\s
 $$
 
 Now let's start with the *x*-direction:
