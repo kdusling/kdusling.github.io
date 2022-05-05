@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="92.845108mm"
-   height="47.145454mm"
-   viewBox="0 0 92.845108 47.145453"
+   width="94.574654mm"
+   height="35.376163mm"
+   viewBox="0 0 94.574654 35.376161"
    version="1.1"
    id="svg3565"
    sodipodi:docname="water_jet_force_angle_block.svg"
@@ -27,27 +27,8 @@
        weight="33.333333"
        is_visible="true"
        id="path-effect1537"
-       effect="bspline" />
-    <inkscape:path-effect
-       only_selected="false"
-       apply_with_weight="true"
-       apply_no_weight="true"
-       helper_size="0"
-       steps="2"
-       weight="33.333333"
-       is_visible="true"
-       id="path-effect1451"
-       effect="bspline" />
-    <inkscape:path-effect
-       only_selected="false"
-       apply_with_weight="true"
-       apply_no_weight="true"
-       helper_size="0"
-       steps="2"
-       weight="33.333333"
-       is_visible="true"
-       id="path-effect2228"
-       effect="bspline" />
+       effect="bspline"
+       lpeversion="0" />
     <inkscape:path-effect
        only_selected="false"
        apply_with_weight="true"
@@ -57,17 +38,8 @@
        weight="33.333333"
        is_visible="true"
        id="path-effect2222"
-       effect="bspline" />
-    <inkscape:path-effect
-       only_selected="false"
-       apply_with_weight="true"
-       apply_no_weight="true"
-       helper_size="0"
-       steps="2"
-       weight="33.333333"
-       is_visible="true"
-       id="path-effect1642"
-       effect="bspline" />
+       effect="bspline"
+       lpeversion="0" />
     <marker
        inkscape:isstock="true"
        style="overflow:visible"
@@ -99,46 +71,6 @@
          transform="scale(-0.6)"
          inkscape:connector-curvature="0" />
     </marker>
-    <inkscape:path-effect
-       only_selected="false"
-       apply_with_weight="true"
-       apply_no_weight="true"
-       helper_size="0"
-       steps="2"
-       weight="33.333333"
-       is_visible="true"
-       id="path-effect4198"
-       effect="bspline" />
-    <inkscape:path-effect
-       only_selected="false"
-       apply_with_weight="true"
-       apply_no_weight="true"
-       helper_size="0"
-       steps="2"
-       weight="33.333333"
-       is_visible="true"
-       id="path-effect4194"
-       effect="bspline" />
-    <inkscape:path-effect
-       only_selected="false"
-       apply_with_weight="true"
-       apply_no_weight="true"
-       helper_size="0"
-       steps="2"
-       weight="33.333333"
-       is_visible="true"
-       id="path-effect4194-6"
-       effect="bspline" />
-    <inkscape:path-effect
-       only_selected="false"
-       apply_with_weight="true"
-       apply_no_weight="true"
-       helper_size="0"
-       steps="2"
-       weight="33.333333"
-       is_visible="true"
-       id="path-effect4198-6"
-       effect="bspline" />
     <marker
        inkscape:isstock="true"
        style="overflow:visible"
@@ -162,9 +94,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.0638966"
-     inkscape:cx="345.7053"
-     inkscape:cy="120.88784"
+     inkscape:zoom="2.9187906"
+     inkscape:cx="192.3742"
+     inkscape:cy="86.85104"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -178,8 +110,8 @@
      fit-margin-right="5"
      fit-margin-bottom="5"
      fit-margin-top="5"
-     showborder="false"
-     inkscape:pagecheckerboard="0"
+     showborder="true"
+     inkscape:pagecheckerboard="false"
      inkscape:snap-intersection-paths="true"
      inkscape:snap-smooth-nodes="true"
      inkscape:object-paths="true" />
@@ -198,7 +130,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(3.1477619,-25.045061)">
+     transform="translate(-37.515396,-23.302874)">
     <g
        id="g4205"
        transform="translate(0,-0.49341033)" />
