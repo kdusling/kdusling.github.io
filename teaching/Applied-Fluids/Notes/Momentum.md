@@ -40,7 +40,7 @@ A hose sprays a jet of water directly at a wall at a rate of 2 liters per second
 
 <hr>
 
-In this problem I will assume that the water does not reflect from the wall but simply comes to rest.  More realistically the fluid will be deflected from the wall in a direction along to the wall.  In either case the problem is solved by focusing on the change in momentum in one dimension, which we will call the $x$-direction.     
+In this problem I will assume that the water does not reflect from the wall but simply comes to rest.  More realistically the fluid will be deflected from the wall in a direction along the wall.  In either case the problem is solved by focusing on the change in momentum in one dimension, which we will call the $x$-direction.     
 
 The momentum equation in the *x*-direction is:
 
@@ -61,5 +61,74 @@ F_x= \rho Q \Delta v_x = \left(1000~\kg/\m^3\right) \left( 2~\L/s\right)\left(-8
 $$
 
 The minus sign tells us that the force is in the minus *x*-direction, *i.e.* to the left.  Remember, the force we solved for, $F_x$, is the force acting *on* the fluid.  In this problem the wall exerts a force of 16 N in the minus *x*-direction on the fluid.  Newton's third law then tells us that the fluid exerts a force of 16 N in the positive *x*-direction on the wall.
+
+</div>
+
+<div class="example">
+
+Compute the horizontal and vertical forces on the block shown below.  The fluid stream is water with a velocity of 25 fps and a diameter of 1.75 inches.
+
+
+<div class="photo" style="width: 600px;  text-align:center">
+<img src="img\water_jet_force_angle.svg">
+</div>
+
+<hr>
+
+In this example we will need to use the momentum equations in both the $x$ and $y$ directions.  Before we get started let's get the calculation of the volume flow rate, $Q$, out of the way:
+
+$$
+Q=vA=25~\frac{\ft}{\s}\times \frac{\pi}{4}\left(\frac{1.75~\in}{12~\in/\ft})^2=0.418~\ft^3/s
+$$
+
+Now let's start with the *x*-direction:
+
+$$
+F_x= \rho Q \Delta v_x
+$$
+
+The initial *x*-component of the velocity is $v_{ix}=25$~fps.  The final component is $v_{fx} = -25\cos(30)=-21.65$~fps.  Note the minus sign since the final *x*-component of the velocity is to the left.
+
+The change in velocity (final minus initial) is therefore:
+
+$$
+\Delta v_x = v_{fx}-v_{ix}=-21.65-25~\fps = -46.65~\fps.
+$$
+
+The momentum equation in the *x*-direction is:
+
+$$
+F_x= \rho Q \Delta v_x = \left(1.94~\slug/\ft^3\right) \left(0.418~\ft^3/\s)\left(-46.65~\fps \right)=-37.38~\lb
+$$
+
+The minus sign tells us that the force *on the fluid* is to the left.  The force on the block is $37.38~\lb$ to the right.
+
+Now the *y*-direction:
+
+$$
+F_y= \rho Q \Delta v_y
+$$
+
+The initial *y*-component of the velocity is zero.  The final component is $v_{fy} = +25\sin(30) = 12.5~fps.  Note the plus sign since the final *y*-component of the velocity is up.
+
+The change in velocity (final minus initial) is therefore:
+
+$$
+\Delta v_y = v_{fy}-v_{iy}=0-12.5~\fps = -12.5~\fps.
+$$
+
+The force on the fluid in the *y*-direction is:
+
+$$
+F_y= \rho Q \Delta v_y = \left(1.94~\slug/\ft^3\right) \left(0.418~\ft^3/\s)\left(-12.5~\fps \right)=-10.14~\lb
+$$
+
+So the block experiences a force of $10.14\lb$ upward.
+
+The figure below shows both the *x* and *y* force on the block as well as the resultant force.
+
+<div class="photo" style="width: 600px;  text-align:center">
+<img src="img\water_jet_force_angle_block.svg">
+</div>
 
 </div>
