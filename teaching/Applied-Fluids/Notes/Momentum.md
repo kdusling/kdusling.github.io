@@ -98,7 +98,7 @@ $$
 The momentum equation in the *x*-direction is:
 
 $$
-F_x= \rho Q \Delta v_x = \left(1.94~\slug/\ft^3\right) \left(0.418~\ft^3/\s\right)\left(-46.65~\fps \right)=-37.38~\lb
+F_x= \rho Q \Delta v_x = \left(1.94~\slug/\ft^3\right) \left(0.418~\ft^3/\s\right)\left(-46.65~\fps \right)=-37.83~\lb
 $$
 
 The minus sign tells us that the force *on the fluid* is to the left.  The force on the block is therefor 37.38 lb to the right.

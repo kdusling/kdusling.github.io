@@ -380,6 +380,7 @@ function getPosSuccess(pos) {
            for (var i=0; i < nstat; i++){
              var stationURL = data.features[i].id + "/observations/latest/";
              names.push(data.features[i].properties.name);
+             //alert(stationURL);
              AJAX.push($.getJSON(stationURL) );
            }
 
@@ -392,6 +393,8 @@ function getPosSuccess(pos) {
                  var Temp = datastat.properties.temperature.value;
                  var windSpeed = datastat.properties.windSpeed.value;
                  var Press = datastat.properties.barometricPressure.value;
+                 var relHum = datastat.properties.relativeHumidity.value;
+                 var heatIndex = datastat.properties.heatIndex.value;
 
 
                  if(!Temp || !windSpeed || !Press ){
@@ -408,6 +411,7 @@ function getPosSuccess(pos) {
                      //using SI units for density (Temp in C) and then convert
                      density = 1.0/16.0185*Press/(287.05*(Temp+273.15));
                      Temp = (9./5.*(Temp)+32.0);
+                     heatIndex = (9./5.*(heatIndex)+32.0);
                      Tunit = "°F";
                      windSpeed =  (windSpeed/1.609);
                      windSpeedUnit = "mph";
@@ -421,12 +425,15 @@ function getPosSuccess(pos) {
                    const event = new Date(datastat.properties.timestamp);
                    div.innerHTML += event.toLocaleTimeString('en-US') + "&nbsp;&nbsp;&nbsp;" + event.toLocaleDateString('en-US') + "<BR>";
                    div.innerHTML += "Temperature: " + Temp.toFixed(1) + Tunit + "<BR>" ;
+                   div.innerHTML += "Relative Humidity: " + relHum.toFixed(1) + "%<BR>" ;
+                   div.innerHTML += "Heat Index: " + heatIndex.toFixed(1) + Tunit + "<BR>" ;
                    div.innerHTML += "Wind speed: " + windSpeed.toFixed(1) + "&nbsp;" + windSpeedUnit + "<BR>" ;
                    document.getElementById("wind").value = windSpeed.toFixed(1);
 
                    const compass = ["N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW","N"];
                    var index = Math.round((wdir%360)/22.5);
                    div.innerHTML += "Wind direction: " + wdir + "&#176&nbsp;/&nbspFrom the&nbsp;" + compass[index] + "<BR>";
+
 
                    document.getElementById("density").value = density.toFixed(3);
 
@@ -435,7 +442,7 @@ function getPosSuccess(pos) {
                    div = document.getElementById("weather_div_lower");
 
                    div.innerHTML = "<table class='table w-auto' id='wcTable'><thead><tr><td>Speed</td><td>Windchill<sup>&#8224;</sup></td></tr></thead>";
-                   div.innerHTML += "<caption><sup>&#8224;</sup>Windchill temperatures riding into headwind.<BR>Valid for temperatures at or below 50°F and wind speeds above 3 mph.<BR><a href='https://www.weather.gov/safety/cold-wind-chill-chart'>More info.</a></caption></table>";
+                   div.innerHTML += "<caption><sup>&#8224;</sup>Windchill temperatures riding into headwind. Valid for temperatures at or below 50°F and wind speeds above 3 mph. <a href='https://www.weather.gov/safety/cold-wind-chill-chart'>More info.</a></caption></table>";
 
                    var table = document.getElementById("wcTable");
                    for(var i = 0; i <= 4 ; i++) {
@@ -716,7 +723,7 @@ function getPosErr(err) {
          <div class="modal-body" style="align:left; word-break: normal; white-space: normal;">
 
          <p class="text-left"></p>
-         The Power to Weight Ratio (PWR) is simply the power divided by the rider weight in kilograms.
+         The Power to Weight Ratio (PWR) is your power output divided by the rider weight in kilograms.
          A recreational cyclist might have a PWR of 2.5, 2.1, 1.8 for 5, 20, and 60 minutes of sustained activity respectively.
 
          </div>
