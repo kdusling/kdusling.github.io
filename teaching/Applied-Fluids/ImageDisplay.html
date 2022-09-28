@@ -38,11 +38,13 @@
               var title = document.getElementById("title");
               var mainimg = document.getElementById("mainimg");
               var caption = document.getElementById("caption");
+              var dlink = document.getElementById("directlink");
 
                if (myimg == "DragSphere")
                {
                 title.innerHTML="Drag coefficient of a smooth sphere";
                 mainimg.src = "Notes/img/DragSphere.png";
+                dlink.href = "Notes/img/DragSphere.png";
                 caption.innerHTML="";
 
                }
@@ -51,6 +53,7 @@
                {
                 title.innerHTML="Drag coefficient of a long smooth circular cylinder";
                 mainimg.src = "Notes/img/DragCylinder.png";
+                dlink.href = "Notes/img/DragCylinder.png";
                 caption.innerHTML="";
                }
 
@@ -69,7 +72,7 @@
 
   <div class="photo" style="width: 800px;">
     <h2 style="color: #2980b9; font-weight: 900;" id="title"></h2>
-    <img  id="mainimg" src=""></a>
+    <a id="directlink" href=""><img  id="mainimg" src=""></a>
     <p id="caption"></p>
   </div>
 
