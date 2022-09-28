@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <title></title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta charset="utf-8">
+      <meta name="author" content="Kevin Dusling" />
+      <meta NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+
+
+      <link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+     <script type="text/x-mathjax-config">
+       MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+     </script>
+
+     <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+     </script>
+
+
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7080617284731198"
+          crossorigin="anonymous"></script>
+
+
+
+
+            <script type="text/javascript">
+
+            function getQueryVariable(variable)
+            {
+                 var query = window.location.search.substring(1);
+                 var vars = query.split("&");
+                 for (var i=0;i<vars.length;i++) {
+                         var pair = vars[i].split("=");
+                         if(pair[0] == variable){return pair[1];}
+                 }
+                 return(false);
+            }
+
+            window.onload = function () {
+              var myimg = getQueryVariable("src");
+              var title = document.getElementById("title");
+              var mainimg = document.getElementById("mainimg");
+              var caption = document.getElementById("caption");
+
+               if (myimg == "DragSphere")
+               {
+                title.innerHTML="Drag coefficient of a smooth sphere";
+                mainimg.src = "Notes/img/DragSphere.png";
+                caption.innerHTML="test";
+
+               }
+
+               if (myimg == "DragCylinder")
+               {
+                title.innerHTML="Drag coefficient of a long smooth circular cylinder";
+                mainimg.src = "Notes/img/DragCylinder.png";
+                caption.innerHTML="test";                       
+               }
+
+
+
+            }
+
+            </script>
+
+</head>
+
+<body>
+
+  <h1 style="color: #2980b9; font-weight: 900;" id="title"></h1>
+
+  <div class="photo" style="width: 600px;">
+    <img  id="mainimg" src=""></a>
+    <p id="caption"></p>
+  </div>
+
+
+
+<script async src="//static.getclicky.com/101381658.js"></script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101381658ns.gif" /></p></noscript>
+</body>
+</html>
