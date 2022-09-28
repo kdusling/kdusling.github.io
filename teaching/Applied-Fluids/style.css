@@ -36,6 +36,11 @@ button {
     height: 34px;
 }
 
+div {
+  margin: 1rem 0;
+  padding: 1rem;
+}
+
 table {
     color: #333; /* Lighten up font color */
     font-family: Helvetica, Arial, sans-serif; /* Nicer font */
