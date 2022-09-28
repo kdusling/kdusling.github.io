@@ -92,3 +92,27 @@ td {
   font-weight: bold;
   font-style: italic;
 }
+
+/* ---- Images ---- */
+.photo {
+    width: 600px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    padding-bottom: 0px;
+    max-width: 80%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: auto ;
+    margin-right: auto ;
+}
+
+.photo img{
+  max-width: 100%;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.photo p{
+  font-size: 80%;
+}
