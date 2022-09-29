@@ -184,26 +184,46 @@ Drag coefficient for various 3D shapes
 
 <tr>
 <td>Square plate perpendicular to flow</td>
-<td><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><img src="img/flat_plate.gif" style="width: 40px;"></td>
+<td>
+  <div>
+    <span style="font-size:28px">&#8594;&nbsp;&nbsp;</span>
+    <img style="vertical-align:middle; width: 40px;" src="img/flat_plate.gif">
+  </div>
+</td>
 <td>$1.16$</td>
 </tr>
 
 <tr>
 <td>Circular disk perpendicular to flow</td>
-<td><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><img src="img/disk.gif" style="height: 80px;">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+  <div>
+   <span style="font-size:28px">&#8594;&nbsp;&nbsp;</span>
+   <img style="vertical-align:middle; height: 80px; border: 1px;" src="img/disk.gif">
+   </div>
+</td>
 <td>$1.17$</td>
 </tr>
 
 
 <tr>
 <td>Hemispherical cup with open front</td>
-<td><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><img src="img/cup.gif" style="transform: rotate(180deg); width: 40px;"></td>
+<td>
+<div>
+ <span style="font-size:28px">&#8594;&nbsp;&nbsp;</span>
+ <img style="vertical-align:middle; transform: rotate(180deg); width: 40px;"" src="img/cup.gif">
+ </div>
+</td>
 <td>$1.4$</td>
 </tr>
 
 <tr>
 <td>Hemispherical cup with open back</td>
-<td><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><img src="img/cup.gif" style="width: 40px;"></td>
+<td>
+<div>
+ <span style="font-size:28px">&#8594;&nbsp;&nbsp;</span>
+ <img style="vertical-align:middle; width: 40px;"" src="img/cup.gif">
+ </div>
+</td>
 <td>$0.4$</td>
 </tr>
 
