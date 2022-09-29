@@ -198,7 +198,7 @@ Drag coefficient for various 3D shapes
 <td>
   <div>
    <span style="font-size:28px">&#8594;&nbsp;&nbsp;</span>
-   <img style="vertical-align:middle; height: 80px; border: 1px;" src="img/disk.gif">
+   <img style="vertical-align:middle; height: 90px; border: 1px;" src="img/disk.gif">
    </div>
 </td>
 <td>$1.17$</td>
