@@ -184,14 +184,14 @@ Drag coefficient for various 3D shapes
 
 <tr>
 <td>Square plate perpendicular to flow</td>
-<td><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><img src="img/flat_plate.gif" style="height: 80px;"></td>
+<td><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><img src="img/flat_plate.gif" style="width: 40px;"></td>
 <td>$1.16$</td>
 </tr>
 
 <tr>
 <td>Circular disk perpendicular to flow</td>
-<td><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><img src="img/disk.gif" style="height: 100px;"></td>
-<td>$1.16$</td>
+<td><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><img src="img/disk.gif" style="width: 90px;"></td>
+<td>$1.11$</td>
 </tr>
 
 
