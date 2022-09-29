@@ -190,7 +190,7 @@ Drag coefficient for various 3D shapes
 
 <tr>
 <td>Circular disk perpendicular to flow</td>
-<td><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><img src="img/disk.gif" style="height: 70px;">&nbsp;&nbsp;&nbsp;</td>
+<td><span style="font-size:28px">&#8594;&nbsp;&nbsp;</span><img src="img/disk.gif" style="width: 80px;">&nbsp;&nbsp;&nbsp;</td>
 <td>$1.11$</td>
 </tr>
 
