@@ -198,7 +198,7 @@ Drag coefficient for various 3D shapes
 <td>
   <div>
    <span style="font-size:28px">&#8594;&nbsp;&nbsp;</span>
-   <img style="vertical-align:middle; height: 90px; border: 1px;" src="img/disk.gif">
+   <img style="vertical-align:middle; height: 90px;" src="img/disk.gif">
    </div>
 </td>
 <td>$1.17$</td>
@@ -210,7 +210,7 @@ Drag coefficient for various 3D shapes
 <td>
 <div>
  <span style="font-size:28px">&#8594;&nbsp;&nbsp;</span>
- <img style="vertical-align:middle; transform: rotate(180deg); width: 40px;"" src="img/cup.gif">
+ <img style="vertical-align:middle; transform: rotate(180deg); width: 40px;" src="img/cup.gif">
  </div>
 </td>
 <td>$1.4$</td>
@@ -221,7 +221,7 @@ Drag coefficient for various 3D shapes
 <td>
 <div>
  <span style="font-size:28px">&#8594;&nbsp;&nbsp;</span>
- <img style="vertical-align:middle; width: 40px;"" src="img/cup.gif">
+ <img style="vertical-align:middle; width: 40px;" src="img/cup.gif">
  </div>
 </td>
 <td>$0.4$</td>
