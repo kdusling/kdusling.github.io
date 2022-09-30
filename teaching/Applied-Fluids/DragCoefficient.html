@@ -7,9 +7,13 @@
       <meta charset="utf-8">
       <meta name="author" content="Kevin Dusling" />
       <meta NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
-      <meta name="description" content="Drag Coefficient Calculator">
+      <meta name="description" content="Drag Coefficient Calculator: Computes the drag coefficient for a number of common shapes as a function of Reynolds number.">
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-      <link rel="stylesheet" type="text/css" href="style.css">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 
 
@@ -17,14 +21,12 @@
        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
      </script>
 
-     <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
-     </script>
+     <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
 
 
      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7080617284731198"
           crossorigin="anonymous"></script>
-
-</head>
 
 
   <script type="text/javascript">
@@ -76,32 +78,50 @@
       return 0.;
     }
 
+    function DragDisk(Re){
+
+      if (Re <= 2.0) {
+        return 64/3.14159/Re;
+      }
+      if (Re <= 30.) {
+        return 15.7*Math.pow(Re,-0.59);
+      }
+      if (Re <= 200.) {
+        return 7.45*Math.pow(Re,-0.379);
+      }
+      if (Re < 2000.) {
+        return 1.07;
+      }
+      if (Re >= 2000.) {
+        return 1.17;
+      }
+
+      return 0.;
+    }
+
 
 function update(){
 
-  var Restr =document.getElementById("Re").value;
-  var Re = parseFloat( Restr.replace(/[^\d\.]/g,'') );
+
+
+
   var shape = document.getElementById("shape").value;
-
-
-  var table = document.getElementById("myTable");
-  myTable.innerHTML = "";
-
-  if (Re < 0  )
-  {
-    var row = table.insertRow(-1);
-    cell = row.insertCell(-1);
-    cell.innerHTML = "<font style='color: red'>Error, please insert a number greater than zero.</font>";
-  return;
-  }
+  var Re = parseFloat( document.getElementById("Re").value );
+  document.getElementById("Re").className = "form-control";
 
   if ( isNaN(Re) )
   {
-    var row = table.insertRow(-1);
-    cell = row.insertCell(-1);
-    cell.innerHTML = "<font style='color: red'>Error, please insert a number greater than zero.</font>";
-  return;
+    document.getElementById("Re").className = "form-control is-invalid";
+    return;
   }
+
+  if ( Re <= 0 )
+  {
+    document.getElementById("Re").className = "form-control is-invalid";
+    return;
+  }
+
+
 
   var Cd=0;
 
@@ -115,64 +135,119 @@ function update(){
     Cd=DragCylinder(Re);
   }
 
-  var row = table.insertRow(-1);
-  var cell = row.insertCell(-1);
+  if (shape == "Circular Disk")
+  {
+    Cd=DragDisk(Re);
+  }
 
-  cell.innerHTML = "C<sub>D</sub>=" + Cd.toPrecision(3) + "<BR>";
-
-
+  document.getElementById("Result").value = Cd.toPrecision(3) ;
 
   MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
-
 
 }
 
 </script>
 
+</head>
 
-<body style="margin: 0rem 0;  padding: 3rem;">
+<body>
+
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12 col-md-6">
+
+    <h2 class="h2 m0" id="title">Drag Coefficient Calculator</h2>
+
+  <div class="form-row align-items-center">
+
+    <div class="input-group mb-3">
+    <div class="input-group-prepend">
+    <span class="input-group-text" >Select Shape</span>
+    </div>
+      <select class="form-control" id="shape">
+      <option id="sph">Smooth Sphere</option>
+      <option id="cyl">Long Smooth Cylinder</option>
+      <option id="disc">Circular Disk</option>
+      </select>
+    </div>
+
+    <div class="input-group mb-3">
+    <div class="input-group-prepend">
+    <span class="input-group-text" >Reynolds number
+      <button type="button" class="btn btn-link btn-sm py-0 my-0" data-toggle="modal" data-target="#ReModal">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+      <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+      </svg>
+      </button>
+    </span>
+    </div>
+      <input type="text" class="form-control" name="Re" id="Re" required>
+      <div class="invalid-feedback">
+      Please enter a Reynolds number larger than zero.
+      </div>
+    </div>
+
+    <div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ResultModal" onclick="update();">Compute</button>
+    </div>
+      <input type="text" class="form-control " name="Result" id="Result" readonly >
+    </div>
 
 
-<h1 style="color: #2980b9; font-weight: 900;" id=title>Drag Coefficient Calculator</h1>
-
-<div style="display: inline-block;">
-  <select id="shape" style="width: 300px;">
-    <option id="sph">Smooth Sphere</option>
-    <option id="cyl">Long Smooth Cylinder</option>
-  </select>
-  <BR><BR>
-  Reynolds number: <input name="Re" type="text" id="Re">
-  <BR><BR>
-
-  <button type="button" onclick="update()">Compute</button>
-
-
-    <table id="myTable" style="margin-top: 15px; margin-bottom: 15px; width: 400px">
-    <tbody>
-
-    </tbody>
-
-    <caption style="caption-side: bottom; text-align: left;"></caption>
-    </table>
-
-
-  <div id="results" style="font-size: 18px; background-color: #FAFAFA;
-  padding: 5px 5px; border-radius: 5px; border: 1px solid #CCC; width: 400px">
-  Calculates the drag coefficient using the curves fitted to the data for
-  <a href="https://kdusling.github.io/teaching/Applied-Fluids/ImageDisplay.html?src=DragSphere">smooth spheres as plotted here</a>
-   and for <a href="https://kdusling.github.io/teaching/Applied-Fluids/ImageDisplay.html?src=DragCylinder">long smooth cylinders as plotted here</a>.
-   <BR><BR>
-  Note that the precision given above goes well beyond the precision of the experimental data.
-  <BR><BR>
-  Usage examples can be found <a href="https://kdusling.github.io/teaching/Applied-Fluids/Notes/DragAndLift">here</a>.
   </div>
 
+
+  <div class="bd-callout bd-callout-info border border-info rounded">
+    <h4>Information</h4>
+      <p>
+        The above program computes the drag coefficient from a set of functions that were fitted to experimental data.
+        The precision given above goes well beyond the precision of the experimental data. To get a sense of the quality of the fits
+        the data has been plotted here for:<BR>
+
+        &nbsp;&nbsp;&nbsp;<a href="https://kdusling.github.io/teaching/Applied-Fluids/ImageDisplay.html?src=DragSphere">Smooth spheres</a><BR>
+        &nbsp;&nbsp;&nbsp;<a href="https://kdusling.github.io/teaching/Applied-Fluids/ImageDisplay.html?src=DragCylinder">Long smooth cylinders</a><BR>
+        &nbsp;&nbsp;&nbsp;<a href="https://kdusling.github.io/teaching/Applied-Fluids/ImageDisplay.html?src=DragDisk">Circular disks</a><BR>
+
+        <BR>
+        Usage examples can be found <a href="https://kdusling.github.io/teaching/Applied-Fluids/Notes/DragAndLift">here</a>.
+      </p>
+    </div>
+
 </div>
-
-
+</div>
+</div>
 
 
 <script async src="//static.getclicky.com/101381658.js"></script>
 <noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101381658ns.gif" /></p></noscript>
+
+
+<!-- Modal -->
+<div class="modal fade" id="ReModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Reynolds number information</h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body" style="align:left; word-break: normal; white-space: normal;">
+
+<p class="text-left">
+  The Reynolds number is defined as
+
+  $$Re=\frac{VD}{\nu}$$
+
+  where $V$ is the velocity of the object, $\nu$ is the kinematic viscosity of the fluid and $D$ is the diameter of the body itself.
+
+</div>
+</div>
+</div>
+</div>
+
+
 </body>
 </html>
