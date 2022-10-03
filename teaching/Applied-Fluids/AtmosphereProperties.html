@@ -7,7 +7,7 @@
       <meta charset="utf-8">
       <meta name="author" content="Kevin Dusling" />
       <meta NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
-      <meta name="description" content="The 1976 U.S. Standard Atmosphere">
+      <meta name="description" content="The 1976 U.S. Standard Atmosphere.  Program returns the temperature, pressure density, speed of sound, gravitational acceleration, and kinematic and dynamic viscosities for a given altitude. ">
 
       <link rel="stylesheet" type="text/css" href="style.css">
 
@@ -19,6 +19,8 @@
      <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
      </script>
 
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7080617284731198"
+          crossorigin="anonymous"></script>
 
 </head>
 
@@ -110,7 +112,9 @@ function update(){
   {
     var row = table.insertRow(-1);
     cell = row.insertCell(-1);
-    cell.innerHTML = "<font style='color: red'>Sorry, this program only computes up to altitudes of 84 km.</font>";
+    cell.innerHTML = ( unitflag=="SI" ? "<font style='color: red'>Sorry, this program only computes up to altitudes of 84 km.</font>" :
+                                        "<font style='color: red'>Sorry, this program only computes up to altitudes of 52 miles.</font>"
+                                      );
   return;
   }
 
@@ -118,7 +122,12 @@ function update(){
   {
     var row = table.insertRow(-1);
     cell = row.insertCell(-1);
-    cell.innerHTML = "<font style='color: red'>Please insert an altitude between 0 and 84 km.</font>";
+    cell.innerHTML = ( unitflag=="SI" ? "<font style='color: red'>Please insert an altitude between 0 and 84 km.</font>"; :
+                                        "<font style='color: red'>Please insert an altitude between 0 and 52 miles.</font>";
+                                      );
+
+
+
   return;
   }
 
@@ -239,7 +248,7 @@ function update(){
 
   <div id="results" style="font-size: 18px; background-color: #FAFAFA;
   padding: 5px 5px; border-radius: 5px; border: 1px solid #CCC;">
-  Computes the 1976 U.S. standard atmosphere.  <BR>For more information see
+  Computes atmospheric properties using the standards described in <a href="https://ntrs.nasa.gov/citations/19770009539"> 1976 U.S. standard atmosphere</a>. <BR>More information can be found at
   <a href="http://www.pdas.com/atmos.html">PDAS</a> and <a href="https://en.wikipedia.org/wiki/U.S._Standard_Atmosphere">Wikipedia</a>.
   </div>
 
