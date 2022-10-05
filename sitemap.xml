@@ -3,23 +3,53 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
    <url>
-
       <loc>https://kdusling.github.io/</loc>
-
       <lastmod>2017-01-01</lastmod>
+      <changefreq>yearly</changefreq>
+   </url>
 
+   <url>
+      <loc>https://kdusling.github.io/teaching/Applied-Fluids/</loc>
+      <lastmod>2017-01-01</lastmod>
       <changefreq>monthly</changefreq>
+   </url>
 
-      <priority>1.0</priority>
+   <url>
+      <loc>https://kdusling.github.io/projects/DataGrab/</loc>
+      <lastmod>2022-10-05</lastmod>
+      <changefreq>yearly</changefreq>
+   </url>
 
+   <url>
+      <loc>https://kdusling.github.io/teaching/Applied-Fluids/FrictionFactor.html</loc>
+      <lastmod>2022-10-05</lastmod>
+      <changefreq>yearly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://kdusling.github.io/teaching/Applied-Fluids/PipeData.html</loc>
+      <lastmod>2022-10-05</lastmod>
+      <changefreq>yearly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://kdusling.github.io/teaching/Applied-Fluids/AtmosphereProperties.html</loc>
+      <lastmod>2022-10-05</lastmod>
+      <changefreq>yearly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://kdusling.github.io/teaching/Applied-Fluids/DragCoefficient.html</loc>
+      <lastmod>2022-10-05</lastmod>
+      <changefreq>monthly</changefreq>
    </url>
 
    <url>
       <loc>https://kdusling.github.io/BikePowerCalculator.html</loc>
-      <loc>https://kdusling.github.io/teaching/Applied-Fluids/PipeFlow.html</loc>
-
+      <lastmod>2022-10-05</lastmod>
       <changefreq>yearly</changefreq>
-
    </url>
+
+
 
 </urlset>
