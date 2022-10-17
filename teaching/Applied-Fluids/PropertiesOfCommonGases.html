@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Properties of common liquids</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta charset="utf-8">
+      <meta name="author" content="Kevin Dusling" />
+      <meta NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+
+      <meta name="description" content="Properties of common liquids">
+
+      <script type="text/javascript" src="Liquids.js"></script>
+
+
+     <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+      <style>
+     body {
+       font-family: "Helvetica Neue", Helvetica, Arial;
+       font-size: 11px;
+       line-height: 14px;
+       font-weight: 400;
+       color: #373D3F;
+       -webkit-font-smoothing: antialiased;
+       font-smoothing: antialiased;
+       background: #FFFFFF;
+     }
+
+     table {
+       margin: 0 0 0 0;
+     }
+
+
+     tr {
+       background: #f6f6f6;
+     }
+
+     tr:nth-of-type(odd) {
+       background: #f6f6f6;
+     }
+     tr:hover {
+              background: #e9e9e9;
+     }
+     td {
+       padding: 2px 16px;
+       text-align: center;
+     }
+
+     </style>
+
+
+</head>
+
+
+  <script type="text/javascript">
+
+  window.onload = function () {
+
+    var i=2;
+    for(var j = 0; j < liquids.length; j++) {
+      var table = document.getElementById("myTable");
+
+      var myliquid=liquids[j];
+
+      var row = table.insertRow(i);
+
+      var cell = row.insertCell(-1);
+      cell.innerHTML =  myliquid.display;
+      cell = row.insertCell(-1);
+      cell.innerHTML =  myliquid.sg;
+      cell = row.insertCell(-1);
+      cell.innerHTML =  (9.81*myliquid.sg).toFixed(2);
+      cell = row.insertCell(-1);
+      cell.innerHTML =  (62.4*myliquid.sg).toFixed(2);
+      cell = row.insertCell(-1);
+      cell.innerHTML =  (1000*myliquid.sg).toFixed(0);
+      cell = row.insertCell(-1);
+      cell.innerHTML =  (1.94*myliquid.sg).toFixed(2);
+
+      cell = row.insertCell(-1);
+      num =  ((myliquid.vis/1000).toExponential(2)).split('e');
+      cell.innerHTML =  '$' + num[0] + '\\times 10^{' + num[1] + '}$';
+      cell = row.insertCell(-1);
+      num =  ((0.02088543*myliquid.vis/1000).toExponential(2)).split('e');
+      cell.innerHTML =  '$' + num[0] + '\\times 10^{' + num[1] + '}$';
+
+      cell = row.insertCell(-1);
+      num =  ((myliquid.vis/1000/(1000*myliquid.sg)).toExponential(2)).split('e');
+      cell.innerHTML =  '$' + num[0] + '\\times 10^{' + num[1] + '}$';
+      cell = row.insertCell(-1);
+      num =  ((0.02088543*myliquid.vis/1000/(1.94*myliquid.sg)).toExponential(2)).split('e');
+      cell.innerHTML =  '$' + num[0] + '\\times 10^{' + num[1] + '}$';
+
+      //Bulk Modulus
+      cell = row.insertCell(-1);
+      num = (myliquid.K).toFixed(2);
+      cell.innerHTML =  ((num == 0) ? ("--") : num);
+
+      cell = row.insertCell(-1);
+      num =  (1.45038*myliquid.K).toFixed(2);
+      cell.innerHTML =  ((num == 0) ? ("--") : num);
+
+      //Vapor Pressure
+      cell = row.insertCell(-1);
+      num = (myliquid.vp).toPrecision(2);
+      cell.innerHTML =  ((num == 0) ? ("--") : num);
+
+      i++;
+    }
+  }
+
+
+</script>
+
+
+<body>
+<h1 style="color: #2980b9; font-weight: 900;" id=title>Properties of common liquids at room temperature and pressure</h1>
+
+<table id="myTable">
+<tbody>
+    <tr style="color: #ffffff; background: #2980b9;">
+    <td rowspan=2></td><td rowspan=2>Specific Gravity (sg)</td>
+    <td colspan=2>Specific Weight $(\gamma)$</td>
+    <td colspan=2>Density $(\rho)$</td>
+    <td colspan=2>Dynamic Viscosity $(\eta)$</td>
+    <td colspan=2>Kinematic Viscosity $(\nu)$</td>
+    <td colspan=2>Bulk Modulus $K$</td>
+    <td >Vapor Pressure</td>
+    </tr>
+
+    <tr style="color: #ffffff; background: #2980b9;">
+    <td>$\textrm{kN}/\textrm{m}^3$</td><td>$\textrm{lb}/\textrm{ft}^3$</td>
+    <td>$\textrm{kg}/\textrm{m}^3$</td><td>$\textrm{slugs}/\textrm{ft}^3$</td>
+    <td>$\textrm{Pa}\cdot s$</td><td>$\textrm{lb}\cdot s/\textrm{ft}^2$</td>
+    <td>$\textrm{m}^2/s$</td><td>$\textrm{ft}^2/s$</td>
+    <td>GPa</td><td>$10^5~$psi</td>
+    <td>kPa</td>
+    </tr>
+</tbody>
+
+<caption style="caption-side: bottom; text-align: left;">
+  <!--For SI units: T=25&deg;C, P=101 kPa (abs)<BR>
+  For U.S. Customary System units: T=77&deg;F, P=14.7 psia
+<BR><BR>-->
+  Densities and specific weights in the above table are calculated directly from
+  the specific gravity of water at $4^\circ\text{C}$:<BR>
+  $
+  \rho=1000~\text{kg}/\text{m}^3=1.94~\text{slugs}/\text{ft}^3\,,
+  \gamma=9.81~\text{kN}/\text{m}^3=62.4~\text{lb}/\text{ft}^3 \,.
+  $
+
+  <BR><BR>
+  References:<BR>
+  Bolz, R. E., and Tuve, G. L. (1973). <em>CRC handbook of tables for applied engineering science.</em> Cleveland, Ohio, CRC Press [1973].<BR>
+  Engineering ToolBox, (2004). Bulk Modulus and Fluid Elasticity. [online] Available at: <a href="https://www.engineeringtoolbox.com/bulk-modulus-elasticity-d_585.html">https://www.engineeringtoolbox.com/bulk-modulus-elasticity-d_585.html</a> [Accessed 22Jun2018].<BR>
+  Engineering ToolBox, (2006). Vapor Pressure common Liquids. [online] Available at: <a href="https://www.engineeringtoolbox.com/vapor-pressure-d_312.html">https://www.engineeringtoolbox.com/vapor-pressure-d_312.html</a> [Accessed 22Jun2018].<BR>
+</caption>
+</table>
+
+
+<script async src="//static.getclicky.com/101381658.js"></script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101381658ns.gif" /></p></noscript>
+</body>
+</html>
