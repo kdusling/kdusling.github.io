@@ -31,9 +31,6 @@
 </head>
 
 
-
-
-
   <script type="text/javascript">
 
   var units = "imperial";
@@ -399,8 +396,8 @@ function getPosSuccess(pos) {
                      //using SI units for density (Temp in C) and then convert
                      density = 1.0/16.0185*Press/(287.05*(Temp+273.15));
                      Temp = (9./5.*(Temp)+32.0);
-                     if(!heatIndex) {} else{
-                       heatIndex = (9./5.*(heatIndex)+32.0);
+                     if ( !heatindex ){
+                      heatIndex = (9./5.*(heatIndex)+32.0);
                      }
                      Tunit = "°F";
                      windSpeed =  (windSpeed/1.609);
@@ -416,8 +413,8 @@ function getPosSuccess(pos) {
                    div.innerHTML += event.toLocaleTimeString('en-US') + "&nbsp;&nbsp;&nbsp;" + event.toLocaleDateString('en-US') + "<BR>";
                    div.innerHTML += "Temperature: " + Temp.toFixed(1) + Tunit + "<BR>" ;
                    div.innerHTML += "Relative Humidity: " + relHum.toFixed(1) + "%<BR>" ;
-                    if(!heatIndex) {} else{
-                     div.innerHTML += "Heat Index: " + heatIndex.toFixed(1) + Tunit + "<BR>" ;
+                   if ( !heatindex ){
+                    div.innerHTML += "Heat Index: " + heatIndex.toFixed(1) + Tunit + "<BR>" ;
                    }
                    div.innerHTML += "Wind speed: " + windSpeed.toFixed(1) + "&nbsp;" + windSpeedUnit + "<BR>" ;
                    document.getElementById("wind").value = windSpeed.toFixed(1);
@@ -567,7 +564,7 @@ function getPosErr(err) {
 
       </span>
       </div>
-      <input type="text" class="form-control" id="CdA" aria-label="CdA" value="2.91" >
+      <input type="text" class="form-control" id="CdA" aria-label="CdA" value="3.50" >
       <div class="input-group-append">
       <span class="input-group-text" id="CdA_unit">ft$^2$</span>
       </div>
