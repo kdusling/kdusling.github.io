@@ -97,11 +97,11 @@
       //Bulk Modulus
       cell = row.insertCell(-1);
       num = (0.0101325353/myliquid.K).toFixed(2);
-      cell.innerHTML =  ((num == 0) ? ("--") : num);
+      cell.innerHTML =  ((myliquid.K == 0) ? ("--") : num);
 
       cell = row.insertCell(-1);
       num =  (1.45038*0.0101325353/myliquid.K).toFixed(2);
-      cell.innerHTML =  ((num == 0) ? ("--") : num);
+      cell.innerHTML =  ((myliquid.K == 0) ? ("--") : num);
 
       //Vapor Pressure
       cell = row.insertCell(-1);
