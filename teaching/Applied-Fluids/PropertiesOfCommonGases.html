@@ -107,12 +107,12 @@
       cell.innerHTML =  (mygas.R/1000).toFixed(3);
 
       cell = row.insertCell(-1);
-      cell.innerHTML = (mygas.R/4.1868/1000).toFixed(3);
+      cell.innerHTML = (mygas.R/4.1868/1000).toFixed(5);
 
       //Vapor Pressure
       cell = row.insertCell(-1);
-      num = (mygas.k).toPrecision(2);
-      cell.innerHTML =  ((num == 0) ? ("--") : num);
+      cell.innerHTML = (mygas.k).toPrecision(3);
+
 
       i++;
     }
@@ -145,8 +145,8 @@
     <td>$\textrm{kg}/\textrm{m}^3$</td><td>$\textrm{slugs}/\textrm{ft}^3$</td>
     <td>$\textrm{Pa}\cdot s$</td><td>$\textrm{lb}\cdot s/\textrm{ft}^2$</td>
     <td>$\textrm{m}^2/s$</td><td>$\textrm{ft}^2/s$</td>
-    <td>kJ/(kg K)</td><td>Btu /(lbm R)</td>
-    <td>kJ/(kg K)</td><td>Btu /(lbm R)</td>
+    <td><span style="white-space: nowrap;">kJ/(kg K)</span></td><td><span style="white-space: nowrap;">Btu/(lbm R)</span></td>
+    <td><span style="white-space: nowrap;">kJ/(kg K)</span></td><td><span style="white-space: nowrap;">Btu/(lbm R)</span></td>
     <td></td>
     </tr>
 </tbody>
