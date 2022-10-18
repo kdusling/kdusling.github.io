@@ -72,13 +72,13 @@
       cell = row.insertCell(-1);
       cell.innerHTML =  mygas.sg;
       cell = row.insertCell(-1);
-      cell.innerHTML =  (11.65*mygas.sg).toFixed(2);
+      cell.innerHTML =  (11.65*mygas.sg).toFixed(5);
       cell = row.insertCell(-1);
-      cell.innerHTML =  (0.0741*mygas.sg).toFixed(2);
+      cell.innerHTML =  (0.0741*mygas.sg).toFixed(5);
       cell = row.insertCell(-1);
-      cell.innerHTML =  (1.18765*mygas.sg).toFixed(0);
+      cell.innerHTML =  (1.18765*mygas.sg).toFixed(5);
       cell = row.insertCell(-1);
-      cell.innerHTML =  (0.0023*mygas.sg).toFixed(2);
+      cell.innerHTML =  (0.0023*mygas.sg).toFixed(5);
 
       cell = row.insertCell(-1);
       num =  ((mygas.vis/1000).toExponential(2)).split('e');
@@ -126,8 +126,8 @@
     <td colspan=2>Density $(\rho)$</td>
     <td colspan=2>Dynamic Viscosity $(\eta)$</td>
     <td colspan=2>Kinematic Viscosity $(\nu)$</td>
-    <td colspan=2>Specfic Heat $C_p$</td>
-    <td colspan=2>Gas Constant $R$</td>
+    <td colspan=2>Specific Heat ($C_p$)</td>
+    <td colspan=2>Gas Constant ($R$)</td>
     <td >index $\gamma=C_p/C_v$</td>
     </tr>
 
