@@ -10,7 +10,7 @@
 
       <meta name="description" content="Properties of common liquids">
 
-      <script type="text/javascript" src="Liquids.js"></script>
+      <script type="text/javascript" src="Gases.js"></script>
 
 
      <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
@@ -96,16 +96,16 @@
 
       //Bulk Modulus
       cell = row.insertCell(-1);
-      num = (myliquid.K).toFixed(2);
+      num = (myliquid.Cp).toFixed(2);
       cell.innerHTML =  ((num == 0) ? ("--") : num);
 
       cell = row.insertCell(-1);
-      num =  (1.45038*myliquid.K).toFixed(2);
+      num =  (myliquid.R).toFixed(2);
       cell.innerHTML =  ((num == 0) ? ("--") : num);
 
       //Vapor Pressure
       cell = row.insertCell(-1);
-      num = (myliquid.vp).toPrecision(2);
+      num = (myliquid.k).toPrecision(2);
       cell.innerHTML =  ((num == 0) ? ("--") : num);
 
       i++;
@@ -130,8 +130,11 @@
     <td colspan=2>Bulk Modulus $K$</td>
     <td >Vapor Pressure</td>
     </tr>
-
-    <tr style="coor: #ffffff; background: #2980b9;">
+
+
+
+    <tr style="color: #ffffff; background: #2980b9;">
+
     <td>$\textrm{kN}/\textrm{m}^3$</td><td>$\textrm{lb}/\textrm{ft}^3$</td>
     <td>$\textrm{kg}/\textrm{m}^3$</td><td>$\textrm{slugs}/\textrm{ft}^3$</td>
     <td>$\textrm{Pa}\cdot s$</td><td>$\textrm{lb}\cdot s/\textrm{ft}^2$</td>
