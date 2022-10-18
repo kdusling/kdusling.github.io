@@ -95,14 +95,19 @@
       num =  ((0.02088543*mygas.vis/1000/(0.0023*mygas.sg)).toExponential(2)).split('e');
       cell.innerHTML =  '$' + num[0] + '\\times 10^{' + num[1] + '}$';
 
-      //Bulk Modulus
+      //specific heat
       cell = row.insertCell(-1);
-      num = (mygas.Cp).toFixed(2);
-      cell.innerHTML =  ((num == 0) ? ("--") : num);
+      cell.innerHTML = (mygas.Cp).toFixed(3);
 
       cell = row.insertCell(-1);
-      num =  (mygas.R).toFixed(2);
-      cell.innerHTML =  ((num == 0) ? ("--") : num);
+      cell.innerHTML = (mygas.Cp/4.1868*).toFixed(3);
+
+
+      cell = row.insertCell(-1);
+      cell.innerHTML =  (mygas.R).toFixed(3);
+
+      cell = row.insertCell(-1);
+      cell.innerHTML = (mygas.R/4.1868*).toFixed(3);
 
       //Vapor Pressure
       cell = row.insertCell(-1);
@@ -129,7 +134,7 @@
     <td colspan=2>Kinematic Viscosity $(\nu)$</td>
     <td colspan=2>Specific Heat ($C_p$)</td>
     <td colspan=2>Gas Constant ($R$)</td>
-    <td >index $\gamma=C_p/C_v$</td>
+    <td >index $k=C_p/C_v$</td>
     </tr>
 
 
@@ -141,7 +146,7 @@
     <td>$\textrm{Pa}\cdot s$</td><td>$\textrm{lb}\cdot s/\textrm{ft}^2$</td>
     <td>$\textrm{m}^2/s$</td><td>$\textrm{ft}^2/s$</td>
     <td>J/(kg K)</td><td>ft lbf/(lbm R)</td>
-    <td>J/(kg C)</td><td>ft lbf/(lbm R)</td>
+    <td>J/(kg K)</td><td>ft lbf/(lbm R)</td>
     <td></td>
     </tr>
 </tbody>
