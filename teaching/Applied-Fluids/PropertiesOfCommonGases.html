@@ -97,17 +97,17 @@
 
       //specific heat
       cell = row.insertCell(-1);
-      cell.innerHTML = (mygas.Cp).toFixed(3);
+      cell.innerHTML = (mygas.Cp/1000).toFixed(3);
 
       cell = row.insertCell(-1);
-      cell.innerHTML = (mygas.Cp/4.1868).toFixed(3);
+      cell.innerHTML = (mygas.Cp/4.1868/1000).toFixed(3);
 
 
       cell = row.insertCell(-1);
-      cell.innerHTML =  (mygas.R).toFixed(3);
+      cell.innerHTML =  (mygas.R/1000).toFixed(3);
 
       cell = row.insertCell(-1);
-      cell.innerHTML = (mygas.R/4.1868).toFixed(3);
+      cell.innerHTML = (mygas.R/4.1868/1000).toFixed(3);
 
       //Vapor Pressure
       cell = row.insertCell(-1);
@@ -145,8 +145,8 @@
     <td>$\textrm{kg}/\textrm{m}^3$</td><td>$\textrm{slugs}/\textrm{ft}^3$</td>
     <td>$\textrm{Pa}\cdot s$</td><td>$\textrm{lb}\cdot s/\textrm{ft}^2$</td>
     <td>$\textrm{m}^2/s$</td><td>$\textrm{ft}^2/s$</td>
-    <td>J/(kg K)</td><td>ft lbf/(lbm R)</td>
-    <td>J/(kg K)</td><td>ft lbf/(lbm R)</td>
+    <td>kJ/(kg K)</td><td>Btu /(lbm R)</td>
+    <td>kJ/(kg K)</td><td>Btu /(lbm R)</td>
     <td></td>
     </tr>
 </tbody>
