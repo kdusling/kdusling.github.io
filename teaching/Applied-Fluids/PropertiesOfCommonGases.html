@@ -72,13 +72,14 @@
       cell = row.insertCell(-1);
       cell.innerHTML =  mygas.sg;
       cell = row.insertCell(-1);
-      cell.innerHTML =  (11.65*mygas.sg).toFixed(5);
+      cell.innerHTML =  (11.65*mygas.sg).toFixed(2);
       cell = row.insertCell(-1);
-      cell.innerHTML =  (0.0741*mygas.sg).toFixed(5);
+      cell.innerHTML =  (0.0741*mygas.sg).toFixed(4);
       cell = row.insertCell(-1);
-      cell.innerHTML =  (1.18765*mygas.sg).toFixed(5);
+      cell.innerHTML =  (1.18765*mygas.sg).toFixed(3);
       cell = row.insertCell(-1);
-      cell.innerHTML =  (0.0023*mygas.sg).toFixed(5);
+      num =  ((0.0023*mygas.sg).toExponential(2)).split('e');
+      cell.innerHTML =  '$' + num[0] + '\\times 10^{' + num[1] + '}$';
 
       cell = row.insertCell(-1);
       num =  ((mygas.vis/1000).toExponential(2)).split('e');
