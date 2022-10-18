@@ -1,6 +1,5 @@
 
 var liquids=[
-
 {id:"Acetone", display:"Acetone",           T:25, sg:0.785, vis:0.316, st:23.1,  src:1, K:0.92, vp:30},
 {id:"ethylAL", display:"Alcohol, ethyl",    T:25, sg:0.785, vis:1.095, st:0,     src:1, K:0,    vp:0},
 {id:"methylAL", display:"Alcohol, methyl",  T:25, sg:0.787, vis:0.560, st:0,     src:1, K:0,    vp:0},
