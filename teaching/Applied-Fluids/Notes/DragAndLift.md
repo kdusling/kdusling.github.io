@@ -114,12 +114,12 @@ $$
 F_D=C_D \left(\frac{\rho v^2}{2}\right) A
 $$
 
-Let us assume the air is at 25&deg;C and standard pressure.  From <a href="https://kdusling.github.io/teaching/Applied-Fluids/PropertiesOfCommonGases.html">here</a>) I find the density is $\rho=1.188 ~\kg/\m^3$.  The velocity is  $v=126~\textrm{kph} =  35~\m/\s$.
+Let us assume the air is at 25&deg;C and standard pressure.  From <a href="https://kdusling.github.io/teaching/Applied-Fluids/PropertiesOfCommonGases.html">here</a> I find the density is $\rho=1.188 ~\kg/\m^3$.  The velocity is  $v=126~\textrm{kph} =  35~\m/\s$.
 
 The dynamic pressure is
 
 $$
-\left(\frac{\rho v^2}{2}\right) = 0.5\times 1.188~\frac{kg}{m^3}\times \left(25 \frac{\m}{\s}\right)^2=371.25~\Pa
+\left(\frac{\rho v^2}{2}\right) = 0.5\times 1.188~\frac{\kg}{\m^3}\times \left(25 \frac{\m}{\s}\right)^2=371.25~\Pa
 $$
 
 The projected or frontal area of the cylinder is a rectangle of width 15 cm and height 1.2 m.
@@ -140,10 +140,10 @@ $$
 F_D=C_D \left(\frac{\rho v^2}{2}\right) A = 0.64\left(371.25~\Pa\right) 0.18~\m^2 = 42.8~\N
 $$
 
-To calculate the bending moment at the base we first assume that the pressure acts uniformly over the chimney.  The center or pressure will be halfway up the chimney at a distance 0.6~\m from it's base.  The bending moment will be
+To calculate the bending moment at the base we first assume that the pressure acts uniformly over the chimney.  The center or pressure will be halfway up the chimney at a distance 0.6 m from it's base.  The bending moment will be
 
 $$
-M_{\textrm{bottom}}=F\times d = 42.8~\N \times 0.5~\m = 21.4~\N\m
+M_{\textrm{bottom}}=F\times d = 42.8~\N \times 0.6~\m = 25.7~\N\m
 $$
 
 My biggest concern with the above estimate is the drag coefficient.  At a Reynolds number of $3\times 10^5$ we see that the drag coefficient drops suddenly.  This phenomenon is referred to as the *drag crisis* and it occurs because of a sudden change in the flow pattern of the fluid.   The Reynolds number at which this occurs is very sensitive to the roughness of the object.  To be safe I would instead use a drag coefficient of $1.2$ corresponding to a Reynolds number between $10^4$ and $10^5$. This would double the above estimate of the force and moment on the cylinder.
