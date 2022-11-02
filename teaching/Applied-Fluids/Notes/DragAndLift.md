@@ -104,7 +104,7 @@ According to [Mehta, R., Alam, F. and Subic, A. (2008), <a href="https://onlinel
 
 <div class="example">
 
-Estimate the force produced by a 126 kph gust of wind on a 1.2 meter tall chimney.  Treat the chimney as a smooth cylinder having a 15 cm outside diameter.   Compute the bending moment at the bottom of the chimney where it is attached to the roof.
+Estimate the force produced by a 126 kph gust of wind on a 1.2 meter tall chimney. Treat the chimney as a smooth cylinder having an outside diameter of 15 cm. Compute the bending moment at the bottom of the chimney.
 
 <hr>
 
@@ -114,18 +114,18 @@ $$
 F_D=C_D \left(\frac{\rho v^2}{2}\right) A
 $$
 
-Since we are asked to estimate the force we can take the air to be at 25&deg;C and standard pressure, $\rho=1.188 ~\kg/\m^3$ (I got this number from <a href="https://kdusling.github.io/teaching/Applied-Fluids/PropertiesOfCommonGases.html">here</a>).  The velocity is  $v=126~\textrm{kph} =  35~\m/\s$.
+Let us assume the air is at 25&deg;C and standard pressure.  From <a href="https://kdusling.github.io/teaching/Applied-Fluids/PropertiesOfCommonGases.html">here</a>) I find the density is $\rho=1.188 ~\kg/\m^3$.  The velocity is  $v=126~\textrm{kph} =  35~\m/\s$.
 
 The dynamic pressure is
 
 $$
-\left(\frac{\rho v^2}{2}\right) = 0.5\times 1.188~\frac{kg}{m^3}\left(25 \frac{\m}{\s^2})=727.65~\frac{\Pa}
+\left(\frac{\rho v^2}{2}\right) = 0.5\times 1.188~\frac{kg}{m^3}\left(25 \frac{\m}{\s^2}\right)=727.65~\frac{\Pa}
 $$
 
-The area $A$ is the *projected area* of the cylinder which is a rectangle of width 15 cm and height 1.2 m.
+The projected or frontal area of the cylinder is a rectangle of width 15 cm and height 1.2 m.
 
 $$
-A=0.15~\m\times 1.2\m= 0.18~\m^2
+A=0.15~\m\times 1.2~\m= 0.18~\m^2
 $$
 
 The last step is to find the drag coefficient. In order to do this first compute the Reynolds number
@@ -137,16 +137,16 @@ $$
 I took the kinematic viscosity of air from <a href="https://kdusling.github.io/teaching/Applied-Fluids/PropertiesOfCommonGases.html">the same link as above</a>.  For a smooth cylinder I find $C_D=0.64$. You can estimate this from the graph above or by using an <a href="https://kdusling.github.io/teaching/Applied-Fluids/DragCoefficient.html">online calculator</a>. Putting everything together the drag force is
 
 $$
-F_D=C_D \left(\frac{\rho v^2}{2}\right) A = 0.64\left(727.65~\frac{\Pa}\right) 0.18~\m^2 = 84~\N
+F_D=C_D \left(\frac{\rho v^2}{2}\right) A = 0.64\left(727.65~\Pa\right) 0.18~\m^2 = 84~\N
 $$
 
 To calculate the bending moment at the base we first assume that the pressure acts uniformly over the chimney.  The center or pressure will be halfway up the chimney at a distance 0.6~\m from it's base.  The bending moment will be
 
 $$
-M_{\textrm{bottom}}=Fd = 84~\N \times 0.5~\m = 42~\N\m
+M_{\textrm{bottom}}=F\times d = 84~\N \times 0.5~\m = 42~\N\m
 $$
 
-My biggest concern with the above estimate is the drag coefficient.  At a Reynolds number of $3\times 10^5$ we see <a href="https://kdusling.github.io/teaching/Applied-Fluids/ImageDisplay.html?src=DragCylinder">here</a> that the drag coefficient drops suddenly.  This phenomenon is referred to as the *drag crisis* and it occurs because of a sudden change in the flow pattern of the fluid.   The Reynolds number at which this occurs is very sensitive to the roughness of the object.  To be safe I would instead probably use a drag coefficient of $1.2$ corresponding to a Reynolds number between $10^4$ and $10^5$. This would double the above estimate of the force and moment on the cylinder.
+My biggest concern with the above estimate is the drag coefficient.  At a Reynolds number of $3\times 10^5$ we see that the drag coefficient drops suddenly.  This phenomenon is referred to as the *drag crisis* and it occurs because of a sudden change in the flow pattern of the fluid.   The Reynolds number at which this occurs is very sensitive to the roughness of the object.  To be safe I would instead use a drag coefficient of $1.2$ corresponding to a Reynolds number between $10^4$ and $10^5$. This would double the above estimate of the force and moment on the cylinder.
 
 </div>
 
