@@ -397,7 +397,8 @@ More accurate resistive coefficients should be taken from other resources such
 
 ### Entrance Loss
 
-The losses that occur when a fluid flows from a larger reservoir or tank into a pipe are called *entrance losses*. For a square-edged inlet as shown in the cartoon below the resistive coefficient is $K\approx0.5$. This is the limiting case of $A_1\to \infty$ in the equation for $K$ above. Chamfered and rounded inlets have smaller resistance coefficients. For a chamfered inlet $K\approx 0.25$ and for a well-rounded inlet $K\approx 0.04$.
+The losses that occur when a fluid flows from a larger reservoir or tank into a pipe are called *entrance losses*. For a square-edged inlet as shown in the cartoon below the resistive coefficient is $K\approx0.5$. This is the limiting case of $A_1\to \infty$ in the equation for $K$ above. Chamfered and rounded inlets have smaller resistance coefficients. For a chamfered inlet $K\approx 0.25$ and for a well-rounded inlet $K\approx 0.04$.  For inward projecting or Re-entrant flow $K=0.78$.
+
 
 <div class="photo" style="width: 500px;">
   <img src="img\entranceloss.png" alt="Entrance loss">
@@ -439,8 +440,10 @@ $h_L=f_T \frac{L_e}{D} \frac{v^2}{2g}$.
 <tr><td style="padding-left: 50px;">50 mm (2") - 200 mm (8")    </td><td style="padding-left: 50px;"> 45    </td></tr>
 <tr><td style="padding-left: 50px;">250 mm (10") - 350 mm (14") </td><td style="padding-left: 50px;"> 35    </td></tr>
 <tr><td style="padding-left: 50px;">400 mm (16")- 600 mm (24")  </td><td style="padding-left: 50px;"> 25    </td></tr>
-<tr><td>Check valve (swing type)                                </td><td style="padding-left: 50px;"> 135   </td></tr>
-<tr><td>Check valve (in-line ball type)                                </td><td style="padding-left: 50px;"> 150   </td></tr>
+<tr><td>Lift check valve (globe lift)                                </td><td style="padding-left: 50px;"> 600   </td></tr>
+<tr><td>Lift check valve (angle lift)                                </td><td style="padding-left: 50px;"> 55   </td></tr>
+<tr><td>Foot valve w/ strainer (poppet disk)                                </td><td style="padding-left: 50px;"> 420   </td></tr>
+<tr><td>Foot valve w/ strainer (hinged disk)                                </td><td style="padding-left: 50px;"> 75   </td></tr>
 <tr><td>90° standard elbow                                      </td><td style="padding-left: 50px;"> 30    </td></tr>
 <tr><td>45° standard elbow                                      </td><td style="padding-left: 50px;"> 16    </td></tr>
 <tr><td>Close pattern return bend                               </td><td style="padding-left: 50px;"> 50    </td></tr>
