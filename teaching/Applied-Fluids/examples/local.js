@@ -34,6 +34,7 @@ window.MathJax = {
       fps: '{\\mathrm{fps}}',
       fpm: '{\\mathrm{fpm}}',
       gpm: '{\\mathrm{gpm}}',
+      lpm: '{\\mathrm{L}/\\mathrm{min}}',
       sg: '{\\mathrm{sg}}',
       Re: '{\\mathrm{Re}}',
       WP: '{\\mathrm{WP}}',
