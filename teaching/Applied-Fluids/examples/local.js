@@ -47,26 +47,6 @@ MathJax.Hub.Config({
        displayMath: [['\\[','\\]']],
        processEscapes: true,
     },
-    "SVG":{
-        font:font,
-        linebreaks: { automatic: true }
-    },
-    "HTML-CSS": {
-        webFont: font,
-        imageFont: font,
-        preferredFont: font,
-        availableFonts: [],
-        scale: 100,
-        mtextFontInherit: true,
-        linebreaks: { automatic: true }
-    },
-    "fast-preview": {
-        Chunks: {EqnChunk: 10000, EqnChunkFactor: 1, EqnChunkDelay: 0},
-        color: "inherit!important",
-        updateTime: 30, updateDelay: 6,
-        messageStyle: "none",
-        disabled: true
-      }
   });
 
 MathJax.Ajax.loadComplete("https://kdusling.github.io/teaching/Applied-Fluids/examples/local.js");
