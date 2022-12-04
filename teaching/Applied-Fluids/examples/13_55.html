@@ -53,29 +53,135 @@ Determine the available NPSH for the system shown below. The fluid is water at 8
   $$
 
 
-    In the above expression $p_1=0$ (gauge) since the tank is open to atmosphere. The velocity $v_1=0$ at the surface of a tank or reservoir. If we set our reference elevation to be at the fluid surface then $z_1=0$ and $z_2=2~\m$. Both $h_A$ and $h_R$ are zero since there are no pumps (there is a pump in the problem but no pump between points 1 and 2 that we chose) or motors.
+    In the above expression $p_1=0$ (gauge) since the tank is open to atmosphere. The velocity $v_1=0$ at the surface of a tank or reservoir. If we set our reference elevation to be at the fluid surface then $z_1=0$ and $z_2=2~\m$. Both $h_A$ and $h_R$ are zero since there are no pumps (there is a pump in the system but not between the chosen points) or motors.
 
     $$
   -h_L=\frac{p_2}{\gamma}+ 2~\m +\frac{v_2^2}{2g}
     $$
 
-    The pressure head at the pump inlet is therefore
+    Rearranging terms, the pressure head at the pump inlet is
 
     $$
-  \frac{p_2}{\gamma} = h_L - 2~\m - \frac{v_2^2}{2g}
+  \frac{p_2}{\gamma} = -h_L - 2~\m - \frac{v_2^2}{2g} \label{GEE}\tag{1}
     $$
 
-    We now need to find the losses in the system between points 1 and 2.  The losses include the following: Entrance loss, friction in the 2 m of vertical pipe, minor loss in the foot valve and elbow, friction in the 1.5 m of horizontal pipe.
+    <p>We will return to this equation after we find the losses in the system between points 1 and 2.  The losses include the following: Entrance loss, friction in the 2 m of vertical pipe, minor loss in the foot valve and elbow, friction in the 1.5 m of horizontal pipe.  We now compute each of these contributions.</p>
 
-    The vertical pipe is DN 80 Schedule 40 and has an inside diameter $D=77.9~\mm$ and flow area $A=4769~\mm^2$.
 
-    The velocity and velocity head are
+      <p class="lead">Friction losses in the vertical pipe</p>
+
+      <p>The vertical pipe is DN 80 Schedule 40 and has an inside diameter $D=77.9~\mm$ and flow area $A=4769~\mm^2$. The velocity and velocity head are</p>
 
     $$
-    v=\frac{Q}{A}=\frac{300~LPM}{60,000~\LPM/(m^3/s)}{A}=0.1~\m/\s.
+    v=\frac{Q}{A}=\frac{300~\lpm}{0.004769~\m^2}\frac{\m^3/\s}{60,000~\lpm}=1.05~\m/\s \qquad\longrightarrow\qquad \frac{v^2}{2g}=0.056~\m
     $$
 
+    The Reynolds number and friction factor are
 
+    $$
+    N_R=\frac{vD}{\nu}=\frac{1.05~\m/\s \times 0.0779~\m}{3.6\times 10^{-7}\m^2/\s}=2.27\times 10^{5} \qquad\longrightarrow\qquad f=0.019
+    $$
+
+    From Darcy's equation we find
+
+    $$
+    h_L^{\rm DN80} = f\frac{L}{D}\left(\frac{v^2}{2g}\right)=0.019~\frac{2~\m}{0.0779~\m}(0.056~\m)=0.027~\m
+    $$
+
+    <p class="lead">Entrance loss</p>
+
+    <p>We treat the entrance flow as an inward projecting pipe with resistance coefficient $K=0.78$.  The entrance loss is therefore</p>
+
+      $$
+      h_L^{\rm entrance}=K\left(\frac{v^2}{2g}\right)=0.78(0.056~\m)=0.044~\m
+      $$
+
+      <p class="lead">Foot valve and elbow</p>
+
+      <p>The equivalent length in pipe diameters of the hinged disc type foot value is $(L_e/D)=75$ and that of the 90° long radius elbow is $(L_e/D)=20$. Since these two fittings are in the same pipe we can add their contributions and use a total $(L_e/D)=95$.  The friction factor, $f_T$, is taken in the zone of complete turbulence and can be found on the schedule 40 steel pipe data table.
+
+      $$
+      h_L^{\rm fittings}=f_T \left(\frac{L_e}{D}\right)\left(\frac{v^2}{2g}\right)=0.017(95)(0.056~\m)=0.091~\m
+      $$
+
+      <p class="lead">Friction losses in the horizontal pipe</p>
+
+      <p>The horizontal pipe is DN 50 Schedule 40 and has an inside diameter $D=52.5~\mm$ and flow area $A=2165~\mm^2$. The velocity and velocity head are</p>
+
+      $$
+      v=\frac{Q}{A}=\frac{300~\lpm}{0.002165~\m^2}\frac{\m^3/\s}{60,000~\lpm}=2.31~\m/\s \qquad\longrightarrow\qquad \frac{v^2}{2g}=0.272~\m
+      $$
+
+      The Reynolds number and friction factor are
+
+      $$
+      N_R=\frac{vD}{\nu}=\frac{2.31~\m/\s \times 0.0525~\m}{3.6\times 10^{-7}\m^2/\s}=3.4\times 10^{5} \qquad\longrightarrow\qquad f=0.020
+      $$
+
+      From Darcy's equation we find
+
+      $$
+      h_L^{\rm DN50} = f\frac{L}{D}\left(\frac{v^2}{2g}\right)=0.020~\frac{1.5~\m}{0.0525~\m}(0.271~\m)=0.155~\m
+      $$
+
+      <p class="lead">Total losses and inlet pressure</p>
+
+      <p>Combining all the losses </p>
+
+      $$
+      \begin{align*}
+      h_L &= h_L^{\rm DN80} ~+~ h_L^{\rm entrance} ~+~ h_L^{\rm fittings} ~+~ h_L^{\rm DN50} \\
+      h_L &= 0.027~\m + 0.044~\m + 0.091~\m + 0.155~\m = 0.317~\m
+      \end{align*}
+      $$
+
+      We now return to our earlier derivation of the inlet pressure from the general energy equation.  This was given in equation $\eqref{GEE}$ rewritten below:
+
+      $$
+    \begin{align*}
+    \frac{p_2}{\gamma} &= -h_L - 2~\m - \frac{v_2^2}{2g} \\
+    \frac{p_2}{\gamma} &= -0.317~\m - 2~\m - 0.272~\m\\
+    \frac{p_2}{\gamma} &= -2.59~\m~({\rm gauge})
+    \end{align*}
+      $$
+
+      <p class="lead">NPSH</p>
+
+      The Net Positive Suction Head or NPSH is the margin of pressure over the liquid's vapor pressure at the pump inlet. It is defined as the difference of the stagnation pressure, $p_s$, at the pump inlet and the vapor pressure, $p_{vp}$, of the liquid.
+
+      $$
+      NPSH = \frac{p_s}{\gamma} - \frac{p_{vp}}{\gamma}
+      $$
+
+      Note that we working in terms of pressure heads which is why each pressure in the above expression is divided by the specific weight of the fluid. Later on we will need the atmospheric pressure head and the vapor pressure head of water. The problem stated that that atmospheric pressure is 101.8 kPa so the atmospheric pressure head is:
+
+      $$
+      \frac{p_{\rm atm}}{\gamma}=\frac{101.8~\kPa}{9.53~\kN/\m^2}=10.682~\m
+      $$
+
+      I found the <a href="https://en.wikipedia.org/wiki/Vapour_pressure_of_water">vapor pressure of water</a> at 80°C to be 47.34 kPa. The vapor pressure head is therefore:
+
+      $$
+      \frac{p_{vp}}{\gamma}= \frac{47.34~\kPa}{9.53~\kN/\m^2}=4.967~\m
+      $$
+
+      In order to find the available NPSH we first solve for the stagnation pressure at the inlet.  The stagnation pressure head is a sum of the static pressure head and velocity head
+
+      $$
+      \frac{p_s}{\gamma}=\frac{p_2}{\gamma} + \frac{v_2^2}{2g} =  -2.59~\m + 0.272 = -2.317~\m~({\rm gauge})
+      $$
+
+      Since the vapor pressure that appears in the formula for NPSH is expressed as an absolute pressure we must express the stagnation pressure at the inlet as an absolute pressure as well:
+
+      $$
+      \frac{p_s}{\gamma} ({\rm abs.}) = \frac{p_s}{\gamma} ({\rm gauge})  +\frac{p_{\rm atm}}{\gamma} = -2.317~\m + 10.682~\m = 8.365~\m
+      $$
+
+      Now we can compute the NPSH:
+
+      $$
+      NPSH=\frac{p_s}{\gamma} ({\rm abs.}) - \frac{p_{vp}}{\gamma}=8.365~\m - 4.967~\m=3.397~\m
+      $$
 </div>
 
 </div>
