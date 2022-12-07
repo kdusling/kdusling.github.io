@@ -1,0 +1,334 @@
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Properties of water</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta charset="utf-8">
+      <meta name="author" content="Kevin Dusling" />
+      <meta NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+      <meta name="description" content="Properties of water: ">
+
+      <link rel="stylesheet" type="text/css" href="style.css">
+
+
+     <script type="text/x-mathjax-config">
+       MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+     </script>
+
+     <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+     </script>
+
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7080617284731198"
+          crossorigin="anonymous"></script>
+
+</head>
+
+
+  <script type="text/javascript">
+
+    function density(T){
+
+      // kg/m^3
+
+      var A = 999.83952;
+      var B = 16.945176;
+      var C = -7.9870401E-3;
+      var D = -46.170461E-6;
+      var E = 105.56302E-9;
+      var F = -280.54253E-12;
+      var G = 16.879850E-3;
+
+      var TC = T - 273.15;
+      var rho = (A + B*TC + C*Math.pow(TC,2.) + D*Math.pow(TC,3.) + E*Math.pow(TC,4.) + F*Math.pow(TC,5.) )/(1. + G*TC);
+
+      return rho;
+    }
+
+    function ThermExp(T){
+      // 1/Kelvin
+
+      var A = 999.83952;
+      var B = 16.945176;
+      var C = -7.9870401E-3;
+      var D = -46.170461E-6;
+      var E = 105.56302E-9;
+      var F = -280.54253E-12;
+      var G = 16.879850E-3;
+
+      var TC = T - 273.15;
+      var alpha = -1.0*(A + B*TC + C*Math.pow(TC,2.) + D*Math.pow(TC,3.) + E*Math.pow(TC,4.) + F*Math.pow(TC,5.) )/Math.pow(1. + G*TC,2.0)*G;
+      alpha = alpha + (B + 2.*C*Math.pow(TC,1.) + 3.*D*Math.pow(TC,2.) + 4.*E*Math.pow(TC,3.) + 5.*F*Math.pow(TC,4.) )/(1. + G*TC);
+
+      return -1.0*alpha/density(T);
+    }
+
+    function KappaT(T){
+      // 1/GPa
+
+      var TC = T - 273.15;
+      var A = 50.88496;
+      var B = 0.6163813;
+      var C = 1.459187E-3;
+      var D = 20.08438E-6;
+      var E = -58.47727E-9;
+      var F = 410.4110E-12;
+      var G = 19.67348E-3;
+
+      var kappa = (A + B*TC + C*Math.pow(TC,2.) + D*Math.pow(TC,3.) + E*Math.pow(TC,4.) + F*Math.pow(TC,5.) )/(1. + G*TC);
+
+      return kappa*Math.pow(10.,-2);
+    }
+
+    function specHeatConstP(T){
+      // kJ/kg K
+
+      var TC = T - 273.15;
+      var Cp = 4.1855*(0.996185 + 0.0002874*Math.pow( (TC + 100)/100, 5.26) + 0.011160*Math.pow(10.,-0.036*TC) );
+
+      return Cp;
+    }
+
+    function KappaS(T){
+      // 1/Pa
+
+      return KappaT(T) - Math.pow(10,9.)*T*Math.pow(ThermExp(T),2.0)/(density(T)*specHeatConstP(T)*1000.);
+    }
+
+    function soundSpeed(T){
+
+      return Math.pow(density(T)*KappaS(T)*Math.pow(10,-9),-0.5);
+    }
+
+    function VaporPressure(T){
+
+      var A = 5.40221;
+      var B = 1838.675;
+      var C = -31.737;
+      var logP = A - (B/(T+C));
+
+	    return Math.pow(10.,logP);
+    }
+
+    function AbsViscosity(T){
+
+      var A = 0.00002414;
+      var B = 247.8;
+      var C = 140;
+      var eta = A*Math.pow(10.,B/(T-C));
+
+      return eta;
+    }
+
+
+  function update(){
+    var Tstr =document.getElementById("T").value;
+    var T = parseFloat( Tstr.replace(/[^\d\.]/g,'') );
+    var units = document.getElementById("units").value;
+
+    var unitflag;
+    var TK;
+
+    if (units == "Celsius")
+    {
+      unitflag = "SI";
+      TK = T + 273.15;
+    }
+
+    if (units == "Fahrenheit")
+    {
+      unitflag = "US";
+      TK = (T - 32.0) * 5./9. + 273.15;
+    }
+
+    var table = document.getElementById("myTable");
+    myTable.innerHTML = "";
+
+    if (TK < 273.15 || TK > 373.15 )
+    {
+      var row = table.insertRow(-1);
+      cell = row.insertCell(-1);
+      cell.innerHTML = ( unitflag=="SI" ? "<font style='color: red'>Sorry, this program only computes between temperatures of 0°C and 100°C.</font>" :
+                                        "<font style='color: red'>Sorry, this program only computes between temperatures of 32°F and 212°F.</font>"
+                                      );
+      return;
+    }
+
+    if ( isNaN(T) )
+    {
+      var row = table.insertRow(-1);
+      cell = row.insertCell(-1);
+      cell.innerHTML = ( unitflag=="SI" ? "<font style='color: red'>Please insert a temperature between 0°C and 100°C.</font>" :
+                                        "<font style='color: red'>Please insert a temperature between 32°F and 212°F.</font>"
+                                    );
+      return;
+    }
+
+
+
+    var row = table.insertRow(-1);
+    cell = row.insertCell(-1);
+    cell.innerHTML =  "Temperature";
+    cell = row.insertCell(-1);
+    cell.innerHTML =  ( unitflag=="SI" ?
+                        '$' + T + '^{\\circ}{\\rm C}$' :
+                        '$' + T + '^{\\circ}{\\rm F}$'
+                    );
+
+    var rho = density(TK);
+    var row = table.insertRow(-1);
+    cell = row.insertCell(-1);
+    cell.innerHTML =  "density";
+    cell = row.insertCell(-1);
+    cell.innerHTML =  ( unitflag=="SI" ?
+                        '$' + (rho).toPrecision(4) + '~{\\rm kg/m^3}$' :
+                        '$' + (rho/515.379).toPrecision(4) + '~{\\rm slug}/{\\rm ft}^3$'
+                    );
+
+    var rho = density(TK);
+    var row = table.insertRow(-1);
+    cell = row.insertCell(-1);
+    cell.innerHTML =  "Specific Weight";
+    cell = row.insertCell(-1);
+    cell.innerHTML =  ( unitflag=="SI" ?
+                        '$' + (9.807*rho/1000).toPrecision(4) + '~{\\rm kN/m^3}$' :
+                        '$' + (32.175*rho/515.379).toPrecision(4) + '~{\\rm lb}/{\\rm ft}^3$'
+                    );
+
+    var eta = AbsViscosity(TK);
+    var row = table.insertRow(-1);
+    cell = row.insertCell(-1);
+    cell.innerHTML =  "Absolute Viscosity, $\\eta$";
+    cell = row.insertCell(-1);
+    cell.innerHTML =  ( unitflag=="SI" ?
+                        '$' + eta.toPrecision(4) + '~{\\rm Pa} \\cdot {\\rm s}$' :
+                        '$' + (eta/47.8803).toPrecision(4) + '~{\\rm lb} \\cdot {\\rm s}/{\\rm ft}^2$'
+                    );
+
+    var nu = AbsViscosity(TK)/density(TK);
+    var row = table.insertRow(-1);
+    cell = row.insertCell(-1);
+    cell.innerHTML =  "Kinematic Viscosity, $\\nu$";
+    cell = row.insertCell(-1);
+    cell.innerHTML =  ( unitflag=="SI" ?
+                        '$' + nu.toPrecision(4) + '~{\\rm m}^2 / {\\rm s}$' :
+                        '$' + (nu*10.7639).toPrecision(4) + '~{\\rm ft}^2 / {\\rm s}$'
+                    );
+
+    var vp = VaporPressure(TK);
+    var row = table.insertRow(-1);
+    cell = row.insertCell(-1);
+    cell.innerHTML =  "Vapor Pressure";
+    cell = row.insertCell(-1);
+    cell.innerHTML =  ( unitflag=="SI" ?
+                        '$' + (vp*100).toPrecision(4) + '~{\\rm kPa~(abs)}$' :
+                        '$' + (vp*14.5038).toPrecision(4) + '~{\\rm psia}$'
+                    );
+
+    var Cp = specHeatConstP(TK);
+    var row = table.insertRow(-1);
+    cell = row.insertCell(-1);
+    cell.innerHTML =  "Isobaric Specific Heat, $C_p$";
+    cell = row.insertCell(-1);
+    cell.innerHTML =  ( unitflag=="SI" ?
+                        '$' + Cp.toPrecision(4) + '~{\\rm kJ} / ({\\rm kg~K})$' :
+                        '$' + (Cp/4.1868).toPrecision(4) + '~{\\rm Btu/(lbm~R)}$'
+                    );
+
+    var Cv = KappaS(TK)/KappaT(TK)*specHeatConstP(TK);
+    var row = table.insertRow(-1);
+    cell = row.insertCell(-1);
+    cell.innerHTML =  "Isochoric Specific Heat, $C_v$";
+    cell = row.insertCell(-1);
+    cell.innerHTML =  ( unitflag=="SI" ?
+                        '$' + Cv.toPrecision(4) + '~{\\rm kJ} / ({\\rm kg~K})$' :
+                        '$' + (Cv/4.1868).toPrecision(4) + '~{\\rm Btu/(lbm~R)}$'
+                    );
+
+    var ss = soundSpeed(TK);
+    var row = table.insertRow(-1);
+    cell = row.insertCell(-1);
+    cell.innerHTML =  "Speed of sound";
+    cell = row.insertCell(-1);
+    cell.innerHTML =  ( unitflag=="SI" ?
+                        '$' + ss.toPrecision(4) + '~{\\rm m}/{\\rm s}$' :
+                        '$' + (ss*3.28084).toPrecision(4) + '~{\\rm ft}/{\\rm s}$'
+                    );
+
+    var kapT = KappaT(TK);
+    var row = table.insertRow(-1);
+    cell = row.insertCell(-1);
+    cell.innerHTML =  "Isothermal Compressibility, $\\kappa_T$";
+    cell = row.insertCell(-1);
+    cell.innerHTML =  ( unitflag=="SI" ?
+                        '$' + kapT.toPrecision(4) + '~{\\rm GPa}^{-1}$' :
+                        '$' + (kapT/145038).toPrecision(4) + '~{\\rm psi}$'
+                    );
+
+    var kapS = KappaS(TK);
+    var row = table.insertRow(-1);
+    cell = row.insertCell(-1);
+    cell.innerHTML =  "Isentropic Compressibility, $\\kappa_S$";
+    cell = row.insertCell(-1);
+    cell.innerHTML =  ( unitflag=="SI" ?
+                        '$' + kapS.toPrecision(4) + '~{\\rm GPa}^{-1}$' :
+                        '$' + (kapS/145038).toPrecision(4) + '~{\\rm psi}$'
+                    );
+
+    var alpha = ThermExp(TK);
+    var row = table.insertRow(-1);
+    cell = row.insertCell(-1);
+    cell.innerHTML =  "Coefficient of Thermal Expansion, $\\alpha_T$";
+    cell = row.insertCell(-1);
+    cell.innerHTML =  ( unitflag=="SI" ?
+                        '$' + alpha.toPrecision(4) + '~{\\rm K}^{-1}$' :
+                        '$' + (alpha/1.8).toPrecision(4) + '~{\\rm R}^{-1}$'
+                    );
+
+
+
+
+    MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+
+  }//end update
+
+</script>
+
+
+<body>
+
+  <h1 style="color: #2980b9; font-weight: 900;" id=title>Properties of water at standard atmospheric pressure</h1>
+
+<div style="display: inline-block; vertical-align: top; font-size: 18px">
+  Temperature: <input name="T" type="text" id="T">
+  <select id="units">
+     <option id="C">Celsius</option>
+     <option id="F">Fahrenheit</option>
+  </select>
+  <button type="button" onclick="update()">Compute</button>
+
+
+    <table id="myTable" style="margin: 15px;">
+    <tbody>
+
+    </tbody>
+
+    <caption style="caption-side: bottom; text-align: left;">
+    </caption>
+    </table>
+
+
+  <div id="results" style="font-size: 18px; background-color: #FAFAFA;
+  padding: 5px 5px; border-radius: 5px; border: 1px solid #CCC;">
+
+  </div>
+
+</div>
+
+
+
+
+<script async src="//static.getclicky.com/101381658.js"></script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101381658ns.gif" /></p></noscript>
+</body>
+</html>
