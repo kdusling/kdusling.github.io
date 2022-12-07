@@ -2,12 +2,12 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>Properties of water</title>
+      <title>Properties of water at standard atmospheric pressure</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta charset="utf-8">
       <meta name="author" content="Kevin Dusling" />
       <meta NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
-      <meta name="description" content="Properties of water: ">
+      <meta name="description" content="Properties of water at standard atmospheric pressure. Returns density, specific weight, absolute & kinematic viscosity, vapor pressure, specific heats, sound speed, compressibilities, and thermal expansion.  All as a function of temperature. US an SI units.  ">
 
       <link rel="stylesheet" type="text/css" href="style.css">
 
@@ -211,8 +211,8 @@
     cell.innerHTML =  "Kinematic Viscosity, $\\nu$";
     cell = row.insertCell(-1);
     cell.innerHTML =  ( unitflag=="SI" ?
-                        '$' + nu.toPrecision(4) + '~{\\rm m}^2 / {\\rm s}$' :
-                        '$' + (nu*10.7639).toPrecision(4) + '~{\\rm ft}^2 / {\\rm s}$'
+                        '$' + Number(nu.toPrecision(4)).toFixed(10).replace(/\.?0+$/,"") + '~{\\rm m}^2 / {\\rm s}$' :
+                        '$' + Number((nu*10.7639).toPrecision(4)).toFixed(10).replace(/\.?0+$/,"") + '~{\\rm ft}^2 / {\\rm s}$'
                     );
 
     var vp = VaporPressure(TK);
@@ -281,8 +281,8 @@
     cell.innerHTML =  "Coefficient of Thermal Expansion, $\\alpha_T$";
     cell = row.insertCell(-1);
     cell.innerHTML =  ( unitflag=="SI" ?
-                        '$' + alpha.toPrecision(4) + '~{\\rm K}^{-1}$' :
-                        '$' + (alpha/1.8).toPrecision(4) + '~{\\rm R}^{-1}$'
+                        '$' + Number(alpha.toPrecision(4)).toFixed(10).replace(/\.?0+$/,"") + '~{\\rm K}^{-1}$' :
+                        '$' + Number((alpha/1.8).toPrecision(4)).toFixed(10).replace(/\.?0+$/,"") + '~{\\rm R}^{-1}$'
                     );
 
 
@@ -299,7 +299,7 @@
 
   <h1 style="color: #2980b9; font-weight: 900;" id=title>Properties of water at standard atmospheric pressure</h1>
 
-<div style="display: inline-block; vertical-align: top; font-size: 18px">
+<div style="display: inline-block; vertical-align: top;">
   Temperature: <input name="T" type="text" id="T">
   <select id="units">
      <option id="C">Celsius</option>
@@ -318,8 +318,10 @@
     </table>
 
 
-  <div id="results" style="font-size: 18px; background-color: #FAFAFA;
-  padding: 5px 5px; border-radius: 5px; border: 1px solid #CCC;">
+  <div id="" style="background-color: #FAFAFA;
+  padding: 5px; border-radius: 5px; border: 1px solid #CCC; max-width: 600px; margin: auto;">
+  <h4 style="color: #2980b9; font-weight: 900;">References:</h4>
+  Kell, George S. "Density, thermal expansivity, and compressibility of liquid water from 0. deg. to 150. deg.. Correlations and tables for atmospheric pressure and saturation reviewed and expressed on 1968 temperature scale." <em>Journal of Chemical and Engineering data</em> 20.1 (1975): 97-105.
 
   </div>
 
