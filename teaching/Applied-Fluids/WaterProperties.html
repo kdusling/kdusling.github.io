@@ -26,6 +26,28 @@
 
 
   <script type="text/javascript">
+  
+  window.onload = function() {
+		const params = new URLSearchParams(window.location.search);
+
+		if ( params.has('T') )
+		{
+		var myTemp = params.get('T');
+		var T = myTemp.match(/\d+/g);
+		var Unit = myTemp.match(/[a-zA-Z]+/g);
+		
+		document.getElementById("T").value = T;
+		if( Unit == "C") {
+			document.getElementById("units").value = "Celsius";
+			}
+		if( Unit == "F") {
+			document.getElementById("units").value = "Fahrenheit";
+		}
+		
+		update();
+		
+		}
+  }
 
     function density(T){
 

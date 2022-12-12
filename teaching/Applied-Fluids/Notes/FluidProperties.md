@@ -362,7 +362,7 @@ As the above example demonstrates, the large bulk modulus of most liquids result
 
 Imagine you have a sealed container half filled with water.  Some of the water molecules will have sufficient kinetic energy to escape from the surface (evaporate) and other molecules following their escape will re-enter the liquid (condense).  Over time the system will reach a steady-state where the rates of evaporation and condensation are the same.  In equilibrium, the pressure exerted by the vapor on the liquid is called the *vapor pressure*.  It is a property of the fluid depends on the fluid's temperature.  
 
-For example, at room temperature the vapor pressure of water is about 2.4 kPa (atmospheric pressure is about 101 kPa).  If the ambient pressure is brought below this value water will boil at room temperature as seen in the following movie.
+For example, at room temperature the <a href="https://kdusling.github.io/teaching/Applied-Fluids/WaterProperties?T=20C">vapor pressure of water</a> is about 2.3 kPa (atmospheric pressure is about 101 kPa).  If the ambient pressure is brought below this value water will boil at room temperature as seen in the following movie.
 
 <div class="photo" style="width: 600px;">
 

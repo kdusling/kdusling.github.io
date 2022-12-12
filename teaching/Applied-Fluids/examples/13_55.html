@@ -65,7 +65,8 @@ Determine the available NPSH for the system shown below. The fluid is water at 8
   \frac{p_2}{\gamma} = -h_L - 2~\m - \frac{v_2^2}{2g} \label{GEE}\tag{1}
     $$
 
-    <p>We will return to this equation after we find the losses in the system between points 1 and 2.  The losses include the following: Entrance loss, friction in the 2 m of vertical pipe, minor loss in the foot valve and elbow, friction in the 1.5 m of horizontal pipe.  We now compute each of these contributions.</p>
+    <p>We will return to this equation after we find the losses in the system between points 1 and 2.  The losses include the following: Entrance loss, friction in the 2 m of vertical pipe, minor loss in the foot valve and elbow, friction in the 1.5 m of horizontal pipe.  We now compute each of these contributions. In what follows we will use <a href="https://kdusling.github.io/teaching/Applied-Fluids/WaterProperties.html"> the properties of liquid water at standard pressure</a>. 
+    </p>
 
 
       <p class="lead">Friction losses in the vertical pipe</p>
@@ -153,16 +154,16 @@ Determine the available NPSH for the system shown below. The fluid is water at 8
       NPSH = \frac{p_s}{\gamma} - \frac{p_{vp}}{\gamma}
       $$
 
-      Note that we working in terms of pressure heads which is why each pressure in the above expression is divided by the specific weight of the fluid. Later on we will need the atmospheric pressure head and the vapor pressure head of water. The problem stated that that atmospheric pressure is 101.8 kPa so the atmospheric pressure head is:
+      Note that we working in terms of pressure heads which is why each pressure in the above expression is divided by the specific weight of the fluid. The problem stated that that atmospheric pressure is 101.8 kPa so the atmospheric pressure head is:
 
       $$
       \frac{p_{\rm atm}}{\gamma}=\frac{101.8~\kPa}{9.53~\kN/\m^2}=10.682~\m
       $$
 
-      I found the <a href="https://en.wikipedia.org/wiki/Vapour_pressure_of_water">vapor pressure of water</a> at 80°C to be 47.34 kPa. The vapor pressure head is therefore:
+      I found the <a href="https://kdusling.github.io/teaching/Applied-Fluids/WaterProperties.html">vapor pressure of water</a> at 80°C to be 48.04 kPa. The vapor pressure head is therefore:
 
       $$
-      \frac{p_{vp}}{\gamma}= \frac{47.34~\kPa}{9.53~\kN/\m^2}=4.967~\m
+      \frac{p_{vp}}{\gamma}= \frac{48.04~\kPa}{9.53~\kN/\m^2}=5.041~\m
       $$
 
       In order to find the available NPSH we first solve for the stagnation pressure at the inlet.  The stagnation pressure head is a sum of the static pressure head and velocity head
@@ -180,7 +181,7 @@ Determine the available NPSH for the system shown below. The fluid is water at 8
       Now we can compute the NPSH:
 
       $$
-      NPSH=\frac{p_s}{\gamma} ({\rm abs.}) - \frac{p_{vp}}{\gamma}=8.365~\m - 4.967~\m=3.397~\m
+      NPSH=\frac{p_s}{\gamma} ({\rm abs.}) - \frac{p_{vp}}{\gamma}=8.365~\m - 5.041~\m=3.324~\m
       $$
 </div>
 
