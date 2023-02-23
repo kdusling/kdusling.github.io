@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Drag Coefficient Calculator</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta charset="utf-8">
+      <meta name="author" content="Kevin Dusling" />
+      <meta NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+      <meta name="description" content="Drag Coefficient Calculator: Computes the drag coefficient for a number of common shapes as a function of Reynolds number.">
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+
+     <script type="text/x-mathjax-config">
+       MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+     </script>
+
+     <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	
+	 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	 
+	 <script type="text/javascript" src="DragCoeffs.js"></script>
+
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7080617284731198"
+          crossorigin="anonymous"></script>
+
+
+
+ 
+
+</head>
+
+<body>
+<div id="myPlot" style="width:100%;max-width:700px"></div>
+
+<script>
+
+
+var x1Values = [];
+var x2Values = [];
+var x3Values = [];
+var x4Values = [];
+var y1Values = [];
+var y2Values = [];
+var y3Values = [];
+var y4Values = [];
+
+for (var x = -1; x <= 7; x += 0.05) {
+  var Re = Math.pow(10.,x);
+  x1Values.push(Re);
+  x2Values.push(Re);
+  x3Values.push(Re);
+  x4Values.push(Re);
+  y1Values.push(DragSphere(Re));
+  y2Values.push(DragCylinder(Re));
+  y3Values.push(DragDisk(Re));
+  y4Values.push(DragEllipse(Re));
+}
+
+// Define Data
+var data = [
+  {x: x1Values, y: y1Values, mode:"lines"},
+  {x: x2Values, y: y2Values, mode:"lines"},
+  {x: x3Values, y: y3Values, mode:"lines"},
+  {x: x4Values, y: y4Values, mode:"lines"}
+];
+
+//Define Layout
+var layout = {
+  xaxis: {
+    type: 'log',
+    autorange: true
+  },
+  yaxis: {
+    type: 'log',
+    autorange: true
+  }
+};
+
+// Display using Plotly
+Plotly.newPlot("myPlot", data, layout);
+</script>
+
+<script async src="//static.getclicky.com/101381658.js"></script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101381658ns.gif" /></p></noscript>
+</body>
+
+</html>
