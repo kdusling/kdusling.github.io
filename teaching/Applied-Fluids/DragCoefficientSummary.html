@@ -37,7 +37,7 @@
 </head>
 
 <body>
-<div id="myPlot" style="width:100%;max-width:700px"></div>
+<div id="myPlot" style="width:100%;max-width:1000px"></div>
 
 <script>
 
@@ -51,24 +51,43 @@ var y2Values = [];
 var y3Values = [];
 var y4Values = [];
 
-for (var x = -1; x <= 7; x += 0.05) {
+var Cd = 0.;
+
+for (var x = -1; x <= 7; x += 0.01) {
   var Re = Math.pow(10.,x);
-  x1Values.push(Re);
-  x2Values.push(Re);
-  x3Values.push(Re);
-  x4Values.push(Re);
-  y1Values.push(DragSphere(Re));
-  y2Values.push(DragCylinder(Re));
-  y3Values.push(DragDisk(Re));
-  y4Values.push(DragEllipse(Re));
+	Cd = DragSphere(Re);
+	if (Cd > 0){
+		x1Values.push(Re);
+		y1Values.push(Cd);
+	}
+	
+	Cd = DragCylinder(Re);
+	if (Cd > 0){
+		x2Values.push(Re);
+		y2Values.push(Cd);
+	}
+	
+	Cd = DragDisk(Re);
+	if (Cd > 0){
+		x3Values.push(Re);
+		y3Values.push(Cd);
+	}
+	
+		
+	Cd = DragEllipse(Re);
+	if (Cd > 0){
+		x4Values.push(Re);
+		y4Values.push(Cd);
+	}
+  
 }
 
 // Define Data
 var data = [
-  {x: x1Values, y: y1Values, mode:"lines"},
-  {x: x2Values, y: y2Values, mode:"lines"},
-  {x: x3Values, y: y3Values, mode:"lines"},
-  {x: x4Values, y: y4Values, mode:"lines"}
+  {x: x1Values, y: y1Values, mode:"lines", name: 'Smooth Sphere'},
+  {x: x2Values, y: y2Values, mode:"lines", name: 'Smooth Cylidner'},
+  {x: x3Values, y: y3Values, mode:"lines", name: '2D Disk'},
+  {x: x4Values, y: y4Values, mode:"lines", name: 'Ellipse 2:1'}
 ];
 
 //Define Layout
