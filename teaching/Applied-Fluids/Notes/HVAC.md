@@ -38,23 +38,27 @@ Air flows at 6000 cfm through 80 ft of circular duct having a diameter of 28 inc
 The air velocity is found from the continuity equation:
 
 $$
-v=\frac{Q}{A}=144 \frac{6000}{\pi/4(28)^2}=~1400 \fpm
+v=\frac{Q}{A}=\frac{6000}{\frac{\pi}{4}(28)^2}\times 144 =~1400 ~\fpm
 $$
 
 The Reynolds number of the flow is
+
 $$
 \Re=8.6 v D=8.6(1400)(28)=337,000
 $$
+
 and therefore turbulent.  The relative roughness is
+
 $$
 \epsilon/D=0.0036/28=0.00013
 $$
-and the friction factor $f=0.01545$ is obtained from <a href="https://kdusling.github.io/teaching/Applied-Fluids/FrictionFactor.html">our online calculator</a>.
+
+and the friction factor $f=0.0155$ is obtained from <a href="https://kdusling.github.io/teaching/Applied-Fluids/FrictionFactor.html">our online calculator</a>.
 
 The pressure drop is then:
 
 $$
-\Delta p_f=12 f \frac{L}{D}p_v=12(0.01545)\frac{80}{28}\left(\frac{1400}{4005}\right)=0.064~\inWC
+\Delta p_f=12 f \frac{L}{D}p_v=12(0.0155)\frac{80}{28}\left(\frac{1400}{4005}\right)=0.064~\inWC
 $$
 
 Alternatively we can use the ASHRAE friction chart.
