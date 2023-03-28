@@ -7,6 +7,7 @@ var liquids=[
 {id:"Benzene", display:"Benzene",           T:25, sg:0.874, vis:0.601, st:28.18, src:1, K:0.0095, vp:12.7},
 {id:"EthGly", display:"Ethylene glycol",    T:25, sg:1.097, vis:16.2,  st:48.2,  src:1, K:0,    vp:0},
 {id:"Glycerine", display:"Glycerine",       T:25, sg:1.259, vis:950,   st:63.0,  src:1, K:0.0025, vp:0},
+{id:"Heptane", display:"Heptane",           T:25, sg:0.680, vis:0.376, st:19.9,  src:1, K:0.014, vp:6.09},
 {id:"Hexane", display:"Hexane",             T:25, sg:0.655, vis:0.297, st:18.0,  src:1, K:0.016, vp:20.2},
 {id:"Kerosene", display:"Kerosene",         T:25, sg:0.821, vis:1.64,  st:0,     src:1, K:0,  vp:0},
 {id:"Linseed", display:"Linseed Oil",       T:25, sg:0.927, vis:33.1,  st:0,     src:1, K:0,  vp:0},
