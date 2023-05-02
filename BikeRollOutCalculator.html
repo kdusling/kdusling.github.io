@@ -335,147 +335,7 @@ function ChangeUnits(myRadio){
 
 }
 
-function getWeather(){
-  if (navigator.geolocation) {
-      // Request the current position
-      // If successful, call getPosSuccess; On error, call getPosErr
-      navigator.geolocation.getCurrentPosition(getPosSuccess, getPosErr);
-  } else {
-      alert('Geolocation not available.');
-  }
-}
 
-// getCurrentPosition: Successful return
-function getPosSuccess(pos) {
-    // Get the coordinates and accuracy properties from the returned object
-    var geoLat = pos.coords.latitude.toFixed(5);
-    var geoLng = pos.coords.longitude.toFixed(5);
-    var geoAcc = pos.coords.accuracy.toFixed(1);
-    var URLRequest = "https://api.weather.gov/points/" +  String(geoLat) + "," + String(geoLng);
-    $.getJSON( URLRequest )
-    .done(function( data ) {
-         URLRequest = data.properties.observationStations;
-         $.getJSON( URLRequest )
-         .done(function( data ) {
-
-           var nstat = 5;
-           var AJAX = [];
-           var names = [];
-
-           for (var i=0; i < nstat; i++){
-             var stationURL = data.features[i].id + "/observations/latest/";
-             names.push(data.features[i].properties.name);
-             //alert(stationURL);
-             AJAX.push($.getJSON(stationURL) );
-           }
-
-           $.when.apply($, AJAX).done(function(){
-             // one for each AJAX call
-             // Each argument is an array with the following structure: [data, statusText, jqXHR]
-             for(var i = 0; i < nstat; i++){
-
-                 var datastat = arguments[i][0];
-                 var Temp = datastat.properties.temperature.value;
-                 var windSpeed = datastat.properties.windSpeed.value;
-                 var Press = datastat.properties.barometricPressure.value;
-                 var relHum = datastat.properties.relativeHumidity.value;
-                 var heatIndex = datastat.properties.heatIndex.value;
-
-
-                 if(!Temp || !windSpeed || !Press ){
-                   continue;
-                 }
-                 else {
-
-                   if (units === "metric"){
-                     Tunit = "°C";
-                     windSpeedUnit = "kph";
-                     density = Press/(287.05*(Temp+273.15));
-                   }
-                   if (units === "imperial"){
-                     //using SI units for density (Temp in C) and then convert
-                     density = 1.0/16.0185*Press/(287.05*(Temp+273.15));
-                     Temp = (9./5.*(Temp)+32.0);
-                     if ( !heatindex ){
-                      heatIndex = (9./5.*(heatIndex)+32.0);
-                     }
-                     Tunit = "°F";
-                     windSpeed =  (windSpeed/1.609);
-                     windSpeedUnit = "mph";
-                   }
-                   wdir = datastat.properties.windDirection.value;
-
-                   var div = document.getElementById("weather_div");
-
-                   div.innerHTML = "";
-                   div.innerHTML += "<strong>" + names[i] + "</strong><BR>";
-                   const event = new Date(datastat.properties.timestamp);
-                   div.innerHTML += event.toLocaleTimeString('en-US') + "&nbsp;&nbsp;&nbsp;" + event.toLocaleDateString('en-US') + "<BR>";
-                   div.innerHTML += "Temperature: " + Temp.toFixed(1) + Tunit + "<BR>" ;
-                   div.innerHTML += "Relative Humidity: " + relHum.toFixed(1) + "%<BR>" ;
-                   if ( !heatindex ){
-                    div.innerHTML += "Heat Index: " + heatIndex.toFixed(1) + Tunit + "<BR>" ;
-                   }
-                   div.innerHTML += "Wind speed: " + windSpeed.toFixed(1) + "&nbsp;" + windSpeedUnit + "<BR>" ;
-                   document.getElementById("wind").value = windSpeed.toFixed(1);
-
-                   const compass = ["N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW","N"];
-                   var index = Math.round((wdir%360)/22.5);
-                   div.innerHTML += "Wind direction: " + wdir + "&#176&nbsp;/&nbspFrom the&nbsp;" + compass[index] + "<BR>";
-
-
-                   document.getElementById("density").value = density.toFixed(3);
-
-                   document.getElementById("weather_div_img").innerHTML = "<img class='m-4' src='" + datastat.properties.icon + "'></img>"
-
-                   div = document.getElementById("weather_div_lower");
-
-                   div.innerHTML = "<table class='table w-auto' id='wcTable'><thead><tr><td>Speed</td><td>Windchill<sup>&#8224;</sup></td></tr></thead>";
-                   div.innerHTML += "<caption><sup>&#8224;</sup>Windchill temperatures riding into headwind. Valid for temperatures at or below 50°F and wind speeds above 3 mph. <a href='https://www.weather.gov/safety/cold-wind-chill-chart'>More info.</a></caption></table>";
-
-                   var table = document.getElementById("wcTable");
-                   for(var i = 0; i <= 4 ; i++) {
-                     var row = table.insertRow();
-                     var cell1 = row.insertCell(0);
-                     var cell2 = row.insertCell(1);
-                     var sp = i*5.0;
-                     var wc;
-                         if (units === "metric"){
-                            wch = (13.12+0.6215*Temp-11.37*Math.pow(windSpeed+sp,0.16)+0.3965*Temp*Math.pow(windSpeed+sp,0.16));
-                         }
-                         if (units === "imperial"){
-                            wch = (35.74+0.6215*Temp-35.75*Math.pow(windSpeed+sp,0.16)+0.4275*Temp*Math.pow(windSpeed+sp,0.16));
-                         }
-                         cell1.innerHTML = sp + "&nbsp;" + windSpeedUnit;
-                         cell2.innerHTML = wch.toFixed(1) + Tunit ;
-                  }
-
-
-                   break;
-                 }
-              }
-           });
-       })
-     })
-   }
-
-
-// getCurrentPosition: Error returned
-function getPosErr(err) {
-    switch (err.code) {
-      case err.PERMISSION_DENIED:
-        alert("User denied the request for Geolocation.");
-        break;
-      case err.POSITION_UNAVAILABLE:
-        alert("Location information is unavailable.");
-        break;
-      case err.TIMEOUT:
-        alert("The request to get user location timed out.");
-        break;
-      default:
-        alert("An unknown error occurred.");
-    }
-}
 
 </script>
 
@@ -499,9 +359,7 @@ function getPosErr(err) {
           </div>
           </div>
 
-          <div class='col-xs-6 mx.auto m-2'>
-          <button class="btn btn-primary active" type="button" data-toggle="tooltip" title="Retrieving weather will update the headwind and air density values." onclick="getWeather();">Retrieve Local Weather</button>
-          </div>
+          
         </div>
 
       <div class="input-group mb-3">
