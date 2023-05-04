@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Darcy Equation Calculator</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta charset="utf-8">
+      <meta name="author" content="Kevin Dusling" />
+      <meta NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+      <meta name="description" content="Darcy friction factor calculator">
+
+      <link rel="stylesheet" type="text/css" href="style.css">
+      <script type="text/javascript" src="pipes.js"></script>
+	  <script type="text/javascript" src="Liquids.js"></script>
+	  <script type="text/javascript" src="Gases.js"></script>
+      <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+      </script>
+      <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+      </script>
+
+
+</head>
+
+
+  <script type="text/javascript">
+
+  window.onload = function () {
+  
+    for(var i = 0; i < pipes.length; i++) {
+      var optG = document.getElementById(pipes[i].sch + pipes[i].mat);
+      var opt = document.createElement("option");
+      opt.textContent = pipes[i].display ;
+      opt.innerHTML = pipes[i].display;
+      opt.value = pipes[i].id;
+      optG.appendChild(opt);
+    }
+	
+    for(var i = 0; i < liquids.length; i++) {
+      var optG = document.getElementById("LiquidDropDown");
+      var opt = document.createElement("option");
+      opt.textContent = liquids[i].display ;
+      opt.innerHTML = liquids[i].display;
+      opt.value = liquids[i].id;
+      optG.appendChild(opt);
+    }
+	for(var i = 0; i < liquids.length; i++) {
+      var optG = document.getElementById("GasDropDown");
+      var opt = document.createElement("option");
+      opt.textContent = gases[i].display ;
+      opt.innerHTML = gases[i].display;
+      opt.value = gases[i].id;
+      optG.appendChild(opt);
+    }
+	
+	
+  }
+
+function update(){
+  var Q = parseFloat(document.getElementById("Q").value);
+  var L = parseFloat(document.getElementById("L").value);
+
+  var fluid = document.getElementById("fluidDropDown").value;
+  
+  var myfluid = liquids.find(x => x.id === fluid);
+ 
+   if (myfluid === undefined){
+     myfluid = gases.find(x => x.id === fluid);
+	 }
+	 
+	//kinematic viscosity in ft²/s 
+	var nu = 0.02088543*myfluid.vis/1000/(1.94*myfluid.sg);
+
+   
+  var res = document.getElementById("results");
+   res.innerHTML = "Working fluid:" + myfluid.display + "<BR>";
+   res.innerHTML += "sg:" + myfluid.sg + "<BR>";
+
+  var ddlpipe = document.getElementById("pipeDropDown").value;
+  var mypipe = pipes.find(x => x.id === ddlpipe);
+  //inside diameter in ft
+  var D = innerD(mypipe)/12.;
+  //area in ft²
+  var A = area(mypipe)/144.;
+  
+  var rr = (roughness(mypipe)/innerD(mypipe)).toFixed(6);
+  res.innerHTML += "$\\epsilon/D$=$" + rr + "$<BR>";
+  
+	//velocity in ft/s
+	var v = Q/449./A;
+	
+	var Nr = v*D/nu;
+  
+  res.innerHTML += "$v=" + v + "$ fps<BR>";
+  res.innerHTML += "$nu=" + nu + "$ fps<BR>";
+  res.innerHTML += "NR= " + Nr + "<BR>";
+  
+  res.innerHTML += "<hr>";
+  
+  var f;
+
+  if ( Nr > 0. && Nr <= 2000) {
+	f = (64./Nr);
+    res.innerHTML += "Flow is laminar:<BR>";
+    res.innerHTML += "$f=$" + f.toPrecision(4);
+  }
+
+  if ( Nr > 2000 && Nr < 4000) {
+	f = FrictionFactor(Nr,rr);
+    res.innerHTML += "<font color=red>Flow is in the critical zone and therefore unreliable.</font><BR>";
+    res.innerHTML += "$f_{max}=$" + (f).toPrecision(4) + "<BR>";
+    res.innerHTML += "$f_{min}=$" + (64./Nr).toPrecision(4);
+  }
+
+  if ( Nr >= 4000) {
+	f = FrictionFactor(Nr,rr);
+    res.innerHTML += "Flow is turbulent:<BR>";
+    res.innerHTML += "$f=$" + (f).toPrecision(4);
+  }
+
+  res.innerHTML += "<hr>";
+  
+  var hl = f * (L/D) * v*v/(2*32.2);
+
+  res.innerHTML += "$h_L= " + hl + "$<BR>";
+  
+  var dp = myfluid.sg*62.4*hl/144.*27.68;
+  
+   res.innerHTML += dp;
+
+  MathJax.Hub.Queue(["Typeset",MathJax.Hub,"results"]);
+
+}
+
+
+
+</script>
+
+<style type="text/css">
+         td {
+             padding: 10px;
+         }
+     </style>
+<body>
+
+
+  <h1 style="color: #2980b9; font-weight: 900;" id=title>Darcy friction factor calculator</h1>
+
+  <div style="display: inline-block; vertical-align: top; font-size: 18px">
+
+  <table style="border=0; background: transparent; width: 500px;">
+  <tr style="padding:50px;"><td>Volume Flow Rate: </td><td><input name="Q" type="text" id="Q"></td></tr>
+  <tr style="padding:50px;"><td>Length of pipe: </td><td><input name="L" type="text" id="L"></td></tr>
+  
+    <tr><td>Fluid:</td><td>
+    <div class="styled-select slate" style="display: inline-block; vertical-align: top;">
+    <select id="fluidDropDown" onchange="">
+       <option id="seltitle">Fluid</option>
+       <optgroup id="LiquidDropDown" label="Liquids"></optgroup>
+       <optgroup id="GasDropDown" label="Gases"></optgroup>
+    </select>
+    </div>
+  </td></tr>
+  
+  <tr><td>Pipe size:</td><td>
+    <div class="styled-select slate" style="display: inline-block; vertical-align: top;">
+    <select id="pipeDropDown" onchange="">
+       <option id="seltitle">NPS in &nbsp;&mdash;&nbsp; DN mm </option>
+       <optgroup id="40comSteel" label="Schedule 40 Steel"></optgroup>
+       <optgroup id="80comSteel" label="Schedule 80 Steel"></optgroup>
+    </select>
+    </div>
+  </td></tr>
+
+</table>
+<BR>
+  <button type="button" onclick="update()">Compute</button>
+
+<BR><BR>
+  <div id="results" style="font-size: 18px; background-color: #FAFAFA;
+  padding: 5px 5px; border-radius: 5px; border: 1px solid #CCC;">  Friction factor is calculated from numerical solution of Colebrook-White equation.
+
+</div>
+ </div>
+
+
+
+
+
+
+ <!--<script async src="//static.getclicky.com/101381658.js"></script>
+ <noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101381658ns.gif" /></p></noscript>-->
+</body>
+</html>

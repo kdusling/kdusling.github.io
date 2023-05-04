@@ -397,14 +397,26 @@ More accurate resistive coefficients should be taken from other resources such
 
 ### Entrance Loss
 
-The losses that occur when a fluid flows from a larger reservoir or tank into a pipe are called *entrance losses*. For a square-edged inlet as shown in the cartoon below the resistive coefficient is $K\approx0.5$. This is the limiting case of $A_1\to \infty$ in the equation for $K$ above. Chamfered and rounded inlets have smaller resistance coefficients. For a chamfered inlet $K\approx 0.25$ and for a well-rounded inlet $K\approx 0.04$.  For inward projecting or Re-entrant flow $K=0.78$.
+The losses that occur when a fluid flows from a larger reservoir or tank into a pipe are called *entrance losses*. For a square-edged inlet as shown in the cartoon below the resistive coefficient is $K\approx0.5$. This is the limiting case of $A_1\to \infty$ in the equation for $K$ above. 
 
 
 <div class="photo" style="width: 500px;">
   <img src="img\entranceloss.png" alt="Entrance loss">
   <p>
-  *Entrance loss* results from a fluid flowing from a large tank or reservoir into a pipe.
+  *Entrance loss* results from a fluid flowing from a large tank or reservoir into a pipe. For a square-edged inlet as depicted above use $K=0.5$.
   </p>
+</div>
+
+Chamfered and rounded inlets have smaller
+ resistance coefficients. For a chamfered inlet $K\approx 0.25$.  
+The table below from Crane Technical Paper No. 410 shows the resistance coefficient for a rounded inlet.  For a well-rounded inlet $K\approx 0.04$. For inward projecting or Re-entrant flow $K=0.78$. 
+
+<div class="photo" style="width: 500px;">
+  <img src="img\Crane-Pipe-Entrance.png" alt="Entrance loss">
+  <p>
+  *Entrance loss* from Crane Technical Paper No. 410.
+  </p>
+  
 </div>
 
 ## Valves and Fittings
