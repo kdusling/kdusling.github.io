@@ -6,7 +6,7 @@
     <meta name="author" content="Kevin Dusling" />
     <meta NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
-     <meta name="description" content="The maximum pressure that can be developed for a certain fluid power cylinder is 15.0 MPa. Compute the required diameter for the piston if the cylinder must exert a force of 30 kN.">
+     <meta name="description" content="Determine the energy loss that will occur if water flows from a reservoir into a pipe with a velocity of $3~\m/\s$ if the configuration at the entrance is (a) an inward-projecting pipe, (b) a square-edged inlet, (c) a chamfered inlet, or (d) a well-rounded inlet.">
 
      <title>Applied Fluid Mechanics Worked Problems</title>
 
@@ -33,34 +33,35 @@
 <div class="col">
 
 <div class="p-3 border bg-light">
-The maximum pressure that can be developed for a certain fluid power cylinder is 15.0 MPa. Compute the required diameter for the piston if the cylinder must exert a force of 30 kN.
+Determine the energy loss that will occur if water flows from a reservoir into a pipe with a velocity of $3~\m/\s$ if the configuration at the entrance is (a) an inward-projecting pipe, (b) a square-edged inlet, (c) a chamfered inlet, or (d) a well-rounded inlet.
 </div>
 
 <hr>
 
 <div class="p-3">
 
- The pressure in the piston is defined as 
- $$
- p=\frac{F}{A}
- $$
- 
- We can rearrange this to solve for the area of the piston
- $$
- A=\frac{F}{p}=\frac{30,000~\N}{15\times 10^6~\Pa}=0.002~\m^2
- $$
- 
- The area of the piston is related to its diameter through
- $$
- A=\frac{\pi}{4}D^2
- $$
- 
-We can rearrange this to solve for the diameter of the piston
- $$
- D=\sqrt{\frac{4}{\pi}A} = \sqrt{\frac{4}{\pi} 0.002~\m^2}= 0.0505~\m = 50.5~\mm
- $$
- 
- 
+The loss that occurs is given as
+
+$$ 
+h_L=K\left(\frac{v^2}{2g}\right) 
+$$
+
+The velocity head in this example is
+
+$$
+\left(\frac{v^2}{2g}\right)  = \left(\frac{3~\m/\s}{2(9.81~\m/\s^2}\right)=0.456~\m 
+$$
+
+$$ 
+h_L=K\times 0.456~\m 
+$$
+
+The resistance coefficients are given in the section on <a href="https://kdusling.github.io/teaching/Applied-Fluids/Notes/FrictionLosses#entrance-loss">entrance losses</a>.
+
+For (a) an inward-projecting pipe we have $K=0.78$
+$$ 
+h_L=0.78\times 0.456~\m = 0.358~\m 
+$$
   
 </div>
 
