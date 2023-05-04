@@ -408,10 +408,9 @@ The losses that occur when a fluid flows from a larger reservoir or tank into a
 </div>
 
 Chamfered and rounded inlets have smaller
- resistance coefficients. For a chamfered inlet $K\approx 0.25$.  
-The table below from Crane Technical Paper No. 410 shows the resistance coefficient for a rounded inlet.  For a well-rounded inlet $K\approx 0.04$. For inward projecting or Re-entrant flow $K=0.78$. 
+ resistance coefficients. For a chamfered inlet $K\approx 0.25$. The table below from Crane Technical Paper No. 410 shows the resistance coefficient for a rounded inlet.  For a well-rounded inlet $K\approx 0.04$. For inward projecting or re-entrant flow $K=0.78$. 
 
-<div class="photo" style="width: 500px;">
+<div class="photo" style="width: 350px;">
   <img src="img\Crane-Pipe-Entrance.png" alt="Entrance loss">
   <p>
   *Entrance loss* from Crane Technical Paper No. 410.
