@@ -150,6 +150,7 @@ return c;
 }
 
 google.charts.load('current', {'packages':['corechart', 'line']});
+google.charts.setOnLoadCallback( drawChart );
 
 function drawChart(pipe) {
 
@@ -190,16 +191,47 @@ function drawChart(pipe) {
        legend: 'none',
        width: 600,
        height: 400,
+	   
         hAxis: {
          title: 'Reynolds number',
          scaleType: 'log',
-         format: 'scientific'
-       },
-       vAxis: {
+		 textStyle: {
+			 fontSize: 12,
+		 },
+         format: 'scientific',
+		 viewWindow: {
+			min: 1000,
+			max: 10000000
+		},		 
+		 minorGridlines: {
+            color: '#f3f3f3',
+            count: 4
+        },
+		ticks: [{v:1000, f:'10³'},{v:10000, f:'10⁴'},{v:100000, f:'10⁵'},{v:1000000, f:'10⁶'},{v:10000000, f:'10⁷'}],
+ minorGridlines: {
+            color: '#f3f3f3',
+            count: 4
+        },
+		},
+       
+	    vAxis: {
          title: 'Friction Factor',
-         scaleType: 'log'
-       }
-     };
+         scaleType: 'log',
+		 textStyle: {
+			 fontSize: 12,
+		 },
+		 format: 'scientific',
+		 viewWindow: {
+			min: 0.01,
+			max: 0.07
+		 },
+		 ticks: [{v:0.01, f:'0.01'},{v:0.02, f:'0.02'},{v:0.03, f:'0.03'},{v:0.04, f:'0.04'},{v:0.05, f:'0.05'},{v:0.06, f:'0.06'},{v:0.07, f:'0.07'}],
+		  Gridlines : {
+			interval : 0.001
+		 }
+        }
+     
+	 };
 
      var logChart = new google.visualization.LineChart(document.getElementById('moody_div'));
      logChart.draw(joinedData, moodyOptions);
