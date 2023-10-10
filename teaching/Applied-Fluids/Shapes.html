@@ -1,0 +1,196 @@
+
+
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>CSS Shapes</title>
+
+
+
+</head>
+
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7080617284731198"
+          crossorigin="anonymous"></script>
+
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+    
+	<script type="text/javascript">
+
+            function downloadimage(myid) {
+                var container = document.getElementById(myid);
+                
+                html2canvas(container, {scale:8 }).then(function (canvas) {
+
+                    var link = document.createElement("a");
+                    document.body.appendChild(link);
+                    link.download = myid + ".png";
+                    link.href = canvas.toDataURL();
+                    link.target = '_blank';
+                    link.click();
+                });
+            }
+
+    </script>
+
+
+
+<style>
+
+table {
+
+    color: #333; /* Lighten up font color */
+
+    font-family: Helvetica, Arial, sans-serif; /* Nicer font */
+
+    border-width: thin;
+
+    padding: 0px;
+
+}
+
+
+
+td, th { padding: 15px; border-width: thin; } /* Make cells a bit taller */
+
+
+
+td {
+
+    background: #FFFFFF; /* Lighter grey background */
+
+    text-align: center; /* Center our text */
+
+}
+
+</style>
+
+
+
+<table>
+
+<tr>
+<td>Circle</td>
+<td>
+<div id="circle" style="height:60px; width: 60px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div>
+</td>
+
+</tr>
+
+<tr>
+<td>Half circle</td>
+<td>
+
+<div style="height:60px; width: 30px; border: 8px solid #555; background-color: transparent;  border-radius: 0 60px 60px 0; border-left: transparent; display: inline-block; vertical-align: middle;"></div></td>
+</tr>
+
+<tr>
+<td>Half circle</td>
+<td>
+
+<div style="height:60px; width: 30px; border: 8px solid #555; background-color: transparent;  border-radius: 60px 0 0 60px; border-right: transparent; display: inline-block; vertical-align: middle;"></div>
+
+</td>
+</tr>
+
+<tr>
+<td>Square</td>
+<td>
+
+<div style="height:40px; width: 40px; background-color: #555; display: inline-block; vertical-align: middle;"></div>
+
+</td>
+</tr>
+
+<tr>
+<td>Diamond</td>
+<td>
+
+<div style="height:40px; width: 40px; background-color: #555; transform: rotate(45deg); display: inline-block; vertical-align: middle;"></div>
+
+</td>
+</tr>
+
+<tr>
+<td>Elipse 2:1</td>
+<td>
+
+<div style="height:60px; width: 120px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div>
+
+</td>
+</tr>
+
+<tr>
+<td>Elipse 4:1</td>
+<td>
+
+<div style="height:30px; width: 120px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div>
+
+</td>
+</tr>
+
+<tr>
+<td>Elipse 8:1</td>
+<td><div style="height:15px; width: 120px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;"></div></td>
+</tr>
+
+<tr>
+<td>Sphere</td>
+
+<td>
+<div id="sphere" style="height:60px; width: 60px; background-color: #555;  border-radius: 50%; display: inline-block; vertical-align: middle;
+background: radial-gradient(circle at 30% 30%,#ffffff,#555);
+"></div>
+</td>
+
+
+</tr>
+
+<tr>
+<td>Cylinder</td>
+
+<td>
+<div id="cylinder" style="width: 50px;
+  height: 120px; --r: 8px; display: inline-block; vertical-align: middle;
+  background: 
+    radial-gradient(50% var(--r) at 50% var(--r), #0003 99.99%, #0000 0),
+    radial-gradient(50% var(--r) at 50% calc(100% - var(--r)), #fff3 99.99%, #0000 0),
+    #555;  border-radius: 100% / calc(var(--r) * 2);"></div>
+</td>
+
+
+</tr>
+
+<td>Elliptical cylinder</td>
+
+<td>
+<div id="cylinder" style="width: 50px;
+  height: 120px; --r: 8px; display: inline-block; vertical-align: middle;
+  background: 
+    radial-gradient(50% var(--r) at 50% var(--r), #0003 99.99%, #0000 0),
+    radial-gradient(50% var(--r) at 50% calc(100% - var(--r)), #fff3 99.99%, #0000 0),
+    #555;  border-radius: 100% / calc(var(--r) * 2);"></div>
+</td>
+
+
+</tr>
+
+</table>
+
+</body>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TSB5RJ1T0J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TSB5RJ1T0J');
+</script>
+
+</html>
+

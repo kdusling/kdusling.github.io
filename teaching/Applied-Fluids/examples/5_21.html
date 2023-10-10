@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="author" content="Kevin Dusling" />
+    <meta NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+
+     <meta name="description" content="A cylindrical log has a diameter of 450 mm and a length of 6.75 m. When the log is floating in fresh water with its long axis horizontal, 110 mm of its diameter is above the surface. What is the specific weight of the wood in the log?">
+
+     <title>Applied Fluid Mechanics Worked Problems</title>
+
+
+
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+
+     <script src="https://kdusling.github.io/teaching/Applied-Fluids/examples/local.js" defer></script>
+     <script type="text/javascript" id="MathJax-script" defer
+       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+     </script>
+
+
+  </head>
+
+<body>
+
+
+<div class="container p-4">
+<div class="row">
+
+<div class="col">
+
+<div class="p-3 border bg-light">
+A cylindrical log has a diameter of 450 mm and a length of 6.75 m. When the log is floating in fresh water with its long axis horizontal, 110 mm of its diameter is above the surface. What is the specific weight of the wood in the log?
+</div>
+
+<hr>
+
+<div class="p-3">
+
+Since the log is floating unsupported in the water the buoyant force equals the weight of the log.
+
+The weight of the log is
+
+$$
+W=\gamma_{\rm log} V_{\rm T}
+$$
+where $V_{\rm T}$ is the total volume of the log.  
+
+The buoyant force is
+
+$$
+F_b=\gamma_{\rm water} V_d
+$$
+where $V_d$ is the displaced volume and corresponds to the volume of log that is submerged.
+
+Setting the buoyant force equal to the weight we find
+$$
+\gamma_{\rm log} V_{\rm T}=\gamma_{\rm water} V_d
+$$
+
+
+
+Solving for our unknown
+$$
+\gamma_{\rm log} = \frac{V_d}{V_{\rm T}}\gamma_{\rm water} \label{eqa}\tag{1}
+$$
+
+The next step is to solve for the two volumes.  The total volume is straightforward, it is the volume of a cylinder with diameter of 450 mm.
+
+$$
+V_{\rm T}=\frac{\pi}{4}\left(0.45~\m\right)^2\times 6.75~\m=1.074~\m^2
+$$
+
+The displaced volume is much more complicated.  The figure below shows the cross-section of the log.  The displaced volume is the length of the log times the area of part of the circle below the waterline.
+
+<div class="d-flex justify-content-center" >
+  <div class="p-5" style="max-width: 600px;">
+  <img src="5_21.png" class="img-fluid">
+  </div>
+</div>
+
+To find the area we separate the region up into two triangles and a circular segment. All of the relevant dimensions are labeled in mm. The area of the shaded-pink triangle is
+
+$$
+A_{⊿} = \frac{1}{2}(0.1934~\m)(0.115~\m) = 0.011~\m^2
+$$
+
+The area of the shaded-gray circular segment is
+$$
+A_{◕}=\frac{241.4}{360}*\pi(0.225~\m)^2 = 0.107~\m^2
+$$
+
+The total displaced volume is
+$$
+V_d=\left[ 2\times A_{⊿} + A_{◕}\right]\times 6.75~\m=\left[2\times (0.011~\m^2) + 0.107~\m^2\right]\times 6.75~\m=0.871~\m^3
+$$
+
+
+We now return to equation $\eqref{eqa}$ which we rewrite here:
+
+$$
+\gamma_{\rm log} = \frac{V_d}{V_{\rm T}}\gamma_{\rm water} = \frac{0.871}{1.074}\left(9.81~\kN/\m^3\right)=7.95~\kN/\m^3
+$$
+
+
+
+</div>
+
+</div>
+</div>
+</div>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TSB5RJ1T0J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TSB5RJ1T0J');
+</script>
+</body>

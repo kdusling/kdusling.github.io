@@ -2,12 +2,12 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>Darcy Equation Calculator</title>
+      <title>Pipeline pressure drop calculator</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta charset="utf-8">
       <meta name="author" content="Kevin Dusling" />
       <meta NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
-      <meta name="description" content="Darcy equation calculator">
+      <meta name="description" content="Calculator to compute the pressure drop in a straight pipe.">
 
       <link rel="stylesheet" type="text/css" href="style.css">
       <script type="text/javascript" src="pipes.js"></script>
@@ -74,8 +74,8 @@ function update(){
 
    
   var res = document.getElementById("results");
-   res.innerHTML = "Working fluid:" + myfluid.display + "<BR>";
-   res.innerHTML += "sg:" + myfluid.sg + "<BR>";
+   res.innerHTML = "<b>Working fluid: " + myfluid.display + "</b><BR>";
+   res.innerHTML += "sg: " + myfluid.sg + "<BR>";
 
   var ddlpipe = document.getElementById("pipeDropDown").value;
   var mypipe = pipes.find(x => x.id === ddlpipe);
@@ -145,7 +145,7 @@ function update(){
 <body>
 
 
-  <h1 style="color: #2980b9; font-weight: 900;" id=title>Darcy friction factor calculator</h1>
+  <h1 style="color: #2980b9; font-weight: 900;" id=title>Pipeline pressure drop calculator</h1>
 
   <div style="display: inline-block; vertical-align: top; font-size: 18px">
 
