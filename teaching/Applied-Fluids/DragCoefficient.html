@@ -26,6 +26,9 @@
 	 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 	 
 	 <script type="text/javascript" src="DragCoeffs.js"></script>
+	 <script type="text/javascript" src="Liquids.js"></script>
+	 <script type="text/javascript" src="Gases.js"></script>
+
 
      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7080617284731198"
           crossorigin="anonymous"></script>
@@ -33,6 +36,114 @@
 
 
   <script type="text/javascript">
+  
+window.onload = function () {
+
+ units="uscs";
+
+ select=document.getElementById("FluidDropDown");
+
+ optGroup = document.createElement("optGroup")
+ optGroup.label = "Liquids";
+ select.appendChild(optGroup);
+ //populate liquid choices
+  for(var i = 0; i < liquids.length; i++) {
+        var opt = document.createElement("option");
+        opt.textContent = liquids[i].display ;
+        opt.innerHTML = liquids[i].display;
+        opt.value = 0.001*liquids[i].vis/(1000.*liquids[i].sg);
+        optGroup.appendChild(opt); 
+  }
+  
+ optGroup = document.createElement("optGroup")
+ optGroup.label = "Gases";
+ select.appendChild(optGroup);
+   //populate gas choices
+  for(var i = 0; i < gases.length; i++) {
+        var opt = document.createElement("option");
+        opt.textContent = gases[i].display ;
+        opt.innerHTML = gases[i].display;
+        opt.value = 0.001*gases[i].vis/(1.18765*gases[i].sg);
+		if (opt.textContent == "Air"){
+			opt.selected = true;
+		}
+		optGroup.appendChild(opt);
+  }
+  
+} //end onload
+
+function UpdateShape(){
+var shape = document.getElementById("shape").value;
+
+  if (shape == "Smooth Sphere")
+  {
+    mainimg.src = "imgs/sphere3d.png";
+	document.getElementById("dimlabel").textContent="Diameter";
+	
+  }
+
+  if (shape == "Long Smooth Cylinder")
+  {
+    mainimg.src = "imgs/cylinder3d.png";
+	document.getElementById("dimlabel").textContent="Diameter";
+  }
+  
+  if (shape == "Elliptical Cylidner 2:1")
+  {
+    mainimg.src = "imgs/ellipse3d.png";
+	document.getElementById("dimlabel").textContent="Major axis";
+  }
+
+  if (shape == "Circular Disk")
+  {
+    mainimg.src = "imgs/disc3d.png";
+	document.getElementById("dimlabel").textContent="Diameter";
+  }
+  
+  
+
+}
+
+function ChangeUnits(myRadio){
+	units = myRadio.value;
+	
+	if (units === "metric"){
+		document.getElementById("velocity_unit").textContent="m/s";
+		document.getElementById("Velocity").value = ((document.getElementById("Velocity").value)/3.28084).toFixed(3);
+		document.getElementById("length_unit").textContent="cm";
+		document.getElementById("Diameter").value = ((document.getElementById("Diameter").value)*2.54).toFixed(3);
+		Reynolds();
+	}
+	
+	if (units === "uscs"){
+		document.getElementById("velocity_unit").textContent="ft/s";
+		document.getElementById("Velocity").value = ((document.getElementById("Velocity").value)*3.28084).toFixed(3);
+		document.getElementById("length_unit").textContent="in";
+		document.getElementById("Diameter").value = ((document.getElementById("Diameter").value)/2.54).toFixed(3);
+		Reynolds();
+	}
+
+}
+
+//updates the reynolds number field
+function Reynolds(){
+	ReField = document.getElementById("Re");
+	v = document.getElementById("Velocity").value;
+	D = document.getElementById("Diameter").value;
+	//vis is in m^2/s
+	vis = document.getElementById("FluidDropDown").value;
+	
+	
+	if (units === "metric"){
+		Re = v*(D/100)/vis;
+	}
+	if (units === "uscs"){
+		Re = (v/3.28084)*(D*2.54/100)/vis;
+	}
+	
+	ReField.value = Re.toFixed(0);
+	return;
+}
 
 function update(){
 
@@ -89,56 +200,129 @@ function update(){
 </head>
 
 <body>
+ 
+<main role="main" class="container">
+ 
+  <div class="row p-4">
+     <h2 class="h2 m0" id="title">Drag Coefficient Calculator</h2>
+  </div>
 
-<div class="container-fluid">
-<div class="row">
-<div class="col-xs-12 col-md-6">
-
-    <h2 class="h2 m0" id="title">Drag Coefficient Calculator</h2>
-
-  <div class="form-row align-items-center">
-
-    <div class="input-group mb-3">
-    <div class="input-group-prepend">
-    <span class="input-group-text" >Select Shape</span>
+  <div class="row  p-4">
+    <div class="col-8 my-auto" >
+        <div class="input-group mb-3">
+		<div class="input-group-prepend"><span class="input-group-text" >Select Shape</span></div>
+		<select class="form-control" id="shape" onchange="UpdateShape()">
+		<option id="sph">Smooth Sphere</option>
+		<option id="cyl">Long Smooth Cylinder</option>
+		<option id="ell21">Elliptical Cylidner 2:1</option>
+		<option id="disc">Circular Disk</option>
+		</select>
+		</div>
     </div>
-      <select class="form-control" id="shape">
-      <option id="sph">Smooth Sphere</option>
-      <option id="cyl">Long Smooth Cylinder</option>
-	  <option id="ell21">Elliptical Cylidner 2:1</option>
-      <option id="disc">Circular Disk</option>
-      </select>
+    <div class="col my-auto">
+        <div class="col-md-4">
+		<img  id="mainimg" src="imgs/sphere3d.png" class="img-responsive" style="max-width: 300px">
+		</div>
     </div>
-
-    <div class="input-group mb-3">
-    <div class="input-group-prepend">
-    <span class="input-group-text" >Reynolds number
-      <button type="button" class="btn btn-link btn-sm py-0 my-0" data-toggle="modal" data-target="#ReModal">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+  </div>
+  
+    <div class="row p-4">
+    <div class="col-8 my-auto">
+		<div class="input-group mb-3">
+		<div class="input-group-prepend">
+		<span class="input-group-text" >Reynolds number
+		<button type="button" class="btn btn-link btn-sm py-0 my-0" data-toggle="modal" data-target="#ReModal">
+		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
       <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
       <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
-      </svg>
-      </button>
-    </span>
-    </div>
+      </svg></button></span></div>
       <input type="text" class="form-control" name="Re" id="Re" required>
       <div class="invalid-feedback">
       Please enter a Reynolds number larger than zero.
       </div>
     </div>
-
-    <div class="input-group mb-3">
-    <div class="input-group-prepend">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ResultModal" onclick="update();">Compute</button>
     </div>
-      <input type="text" class="form-control " name="Result" id="Result" readonly >
+    <div class="col my-auto">
+	
+	  <div class="container-fluid p-3" style="border:1px solid #cecece;">
+	  
+		  <div class="form-row align-items-center">
+          <legend class="col-form-label col-sm-2 pt-0">Units</legend>
+          
+		  
+          <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="units" id="uscs" onchange="ChangeUnits(this);" value="uscs" checked>
+          <label class="form-check-label" for="uscs">USCS</label>
+          </div>
+          <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="units" id="metric" onchange="ChangeUnits(this);" value="metric">
+          <label class="form-check-label" for="metric">metric</label>
+          </div>
+          </div>
+		  
+		  <div class="form-row align-items-center">
+		  <div class="input-group mb-3">
+		  <div class="input-group-prepend">
+		  <span class="input-group-text">Velocity</span>
+		  </div>
+		  <input type="text" class="form-control" id="Velocity" aria-label="Velocity" value="200">
+		  <div class="input-group-append">
+		  <span class="input-group-text" id="velocity_unit">ft/s</span>
+		  </div>
+		  </div>
+		  </div>
+		  
+		  <div class="form-row align-items-center">
+		  <div class="input-group mb-3">
+		  <div class="input-group-prepend">
+		  <span class="input-group-text" id="dimlabel">Diameter</span>
+		  </div>
+		  <input type="text" class="form-control" id="Diameter" aria-label="Diameter" value="5">
+		  <div class="input-group-append">
+		  <span class="input-group-text" id="length_unit">in</span>
+		  </div>
+		  </div>
+		  </div>
+		  
+		  <div class="form-row align-items-center">
+		  <div class="input-group mb-3">
+		  <div class="input-group-prepend"><span class="input-group-text">Fluid</span></div>
+		  <select class="FluidDropDown" id="FluidDropDown" onchange="Reynolds(this)">
+		  </select>
+		  </div>
+		  
+		  <div class="form-row align-items-center">
+		  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ResultModal" onclick="Reynolds();">Update Reynolds number</button>
+		  </div>
+          </div>	
+
+		  <div class="form-row align-items-center">
+		  
+		  </div>
+	  
+	  </div><!--Reynolds number form-->
+
+      
+	  
     </div>
+  </div> <!--ends second row-->
 
-
-  </div>
-
-
-  <div class="bd-callout bd-callout-info border border-info rounded">
+	<div class="row p-4">
+    <div class="col-8">
+	   <div class="input-group mb-3">
+		<div class="input-group-prepend">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ResultModal" onclick="update();">Compute $C_d$</button>
+		</div>
+		<input type="text" class="form-control " name="Result" id="Result" readonly >
+		</div>
+	</div>
+	<div class="col">
+	</div>
+	</div>
+	
+	<div class="row p-4">
+    <div class="col-12">
+	  <div class="bd-callout bd-callout-info border border-info rounded p-4">
     <h4>Information</h4>
       <p>
         The above program computes the drag coefficient from a set of functions that were fitted to experimental data.
@@ -156,10 +340,15 @@ function update(){
 		<a href="https://kdusling.github.io/teaching/Applied-Fluids/DragCoefficientSummary.html">Interactive summary plot</a>
       </p>
     </div>
+	
+	</div>
+	</div>
 
-</div>
-</div>
-</div>
+</main><!-- /.container -->
+
+
+
+
 
 
 <!-- Google tag (gtag.js) -->
@@ -185,17 +374,20 @@ function update(){
 <div class="modal-body" style="align:left; word-break: normal; white-space: normal;">
 
 <p class="text-left">
-  The Reynolds number is defined as
+  The Reynolds number is defined as<BR>
 
-  $$Re=\frac{VD}{\nu}$$
+  $$Re=\frac{VD}{\nu}$$<BR>
 
-  where $V$ is the velocity of the object, $\nu$ is the kinematic viscosity of the fluid and $D$ is the diameter of the body itself.
-
+  $V$ is the relative velocity between the object and the fluid<BR>
+  $\nu$ is the kinematic viscosity of the fluid<BR>
+  $D$ is the nominal dimension of the object, e.g., the diameter for a sphere or cylinder.<BR>
+  
+</p>
 </div>
 </div>
 </div>
 </div>
-
+<!-- End Modal -->
 
 </body>
 </html>

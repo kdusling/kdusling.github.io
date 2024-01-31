@@ -1,0 +1,851 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <title>Bike Calculator</title>
+      <meta name="description" content="Bike Calculator: Computes power requirement for cycling at constant speed.  Includes incline, rolling resistance and drag.">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta charset="utf-8">
+      <meta name="author" content="Kevin Dusling" />
+      <meta NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+     <script type="text/x-mathjax-config">
+       MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+     </script>
+
+     <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+
+
+     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+
+</head>
+
+
+
+
+
+  <script type="text/javascript">
+
+  var units = "imperial";
+
+window.onload = function() {
+
+  const params = new URLSearchParams(window.location.search);
+
+  if ( params.has('units') )
+  {
+    var units = params.get('units');
+    document.getElementById(units).checked = true;
+    ChangeUnits(  document.getElementById(units) );
+  }
+
+  if ( params.has('RiderWeight') )
+  {
+    document.getElementById("rider_weight").value =  params.get('RiderWeight');
+  }
+  if ( params.has('BikeWeight') )
+  {
+    document.getElementById("bike_weight").value =  params.get('BikeWeight');
+  }
+
+  if ( params.has('CdA') )
+  {
+    document.getElementById("CdA").value =  params.get('CdA');
+  }
+
+  if ( params.has('Crr') )
+  {
+    document.getElementById("Crr").value =  params.get('Crr');
+  }
+
+  if ( params.has('eff') )
+  {
+    document.getElementById("eta").value =  params.get('eff');
+  }
+
+  if ( params.has('grade') )
+  {
+    document.getElementById("grade").value =  params.get('grade');
+  }
+
+  if ( params.has('wind') )
+  {
+    document.getElementById("wind").value =  params.get('wind');
+  }
+
+  if ( params.has('density') )
+  {
+    document.getElementById("density").value =  params.get('density');
+  }
+
+}; //end window.onload
+
+function createURL()
+{
+var url = "https://kdusling.github.io/BikePowerCalculator.html?units=" + units;
+     url += "&RiderWeight=" + document.getElementById("rider_weight").value;
+     url += "&BikeWeight=" + document.getElementById("bike_weight").value;
+     url += "&CdA=" + document.getElementById("CdA").value;
+     url += "&Crr=" + document.getElementById("Crr").value;
+     url += "&eff=" + document.getElementById("eta").value;
+     url += "&grade=" + document.getElementById("grade").value;
+     url += "&wind=" + document.getElementById("wind").value;
+     url += "&density=" + document.getElementById("density").value;
+
+navigator.clipboard.writeText(url);
+}
+
+google.charts.load('45', {'packages':['corechart', 'line']});
+google.charts.setOnLoadCallback(makePlot);
+
+
+function Speed(pow)
+{
+ var a = 1;
+ var b = 2;
+ var err = 1.e-10;
+
+ var c;
+
+ do {
+        c=(a*(Power(b)-pow)-b*(Power(a)-pow))/(Power(b)-Power(a));
+        a=b;
+        b=c;
+
+    } while( Math.abs(Power(c)-pow)>err );
+
+return c;
+} //function Speed
+
+function Power(sp) {
+
+  sp = parseFloat(sp);
+  var CdA = document.getElementById("CdA").value;
+  var Crr = document.getElementById("Crr").value;
+  var eta = document.getElementById("eta").value/100.0;
+  var Wt = parseFloat(document.getElementById("bike_weight").value) + parseFloat(document.getElementById("rider_weight").value);
+  var angle = Math.atan(parseFloat(document.getElementById("grade").value)/100.);
+  var wind = parseFloat(document.getElementById("wind").value);
+  var rho = parseFloat(document.getElementById("density").value);
+
+if (units === "metric"){
+  var g = 9.81;
+  var Pincline = Wt*g*Math.sin(angle)*(sp/3.6);
+  var Prr = Crr*Wt*g*Math.cos(angle)*(sp/3.6);
+  var Pwind = Math.sign(sp+wind)*0.5*rho*CdA*Math.pow((sp+wind)/3.6,2.)*(sp/3.6);
+  return (Pincline + Prr + Pwind)/eta;
+  }
+
+if (units === "imperial"){
+  var g = 32.17;
+  var Pincline = Wt*Math.sin(angle)*(sp*1.467)*745.7/550.;
+  var Prr = Crr*Wt*Math.cos(angle)*(sp*1.467)*745.7/550.;
+  var Pwind = Math.sign(sp+wind)*0.5*rho/g*CdA*Math.pow((sp+wind)*1.467,2.)*(sp*1.467)*745.7/550.;
+  return (Pincline + Prr + Pwind)/eta;
+  }
+} // function Power
+
+function Compute() {
+  //document.getElementById("Power").value = Power(document.getElementById("speed").value).toFixed(2)  ;
+  document.getElementById("speed").value = Speed(parseFloat(document.getElementById("Power").value));
+}
+
+function PWR(pow) {
+  var Wt = parseFloat(document.getElementById("rider_weight").value);
+
+  if (units === "metric"){
+    return pow/Wt;
+    }
+
+  if (units === "imperial"){
+    Wt = Wt*0.453592;
+    return pow/Wt;
+    }
+}
+
+//returns kcal/hr
+function cal(pow) {
+
+  var rpm = 80;
+  var meta = 39.7 + 2.84*rpm + 3.73*pow;
+  var eff = pow/meta*100;
+
+  const span = document.getElementById('bodyeff');
+  span.textContent = eff.toFixed(0);
+
+  return meta*3600.*0.23890/1000;
+}
+
+
+function makePlot() {
+
+     var data = new google.visualization.DataTable();
+     data.addColumn('number', 'speed');
+     data.addColumn('number', 'Incline');
+     data.addColumn('number', 'Incline \n + Rolling');
+     data.addColumn('number', 'Incline \n + Rolling \n + Drag');
+
+     var pts = 201;
+
+     data.addRows(pts);
+
+     var CdA = document.getElementById("CdA").value;
+     var Crr = document.getElementById("Crr").value;
+     var eta = document.getElementById("eta").value/100.0;
+     var Wt = parseFloat(document.getElementById("bike_weight").value) + parseFloat(document.getElementById("rider_weight").value);
+     var angle = Math.atan(parseFloat(document.getElementById("grade").value)/100.);
+     var wind = parseFloat(document.getElementById("wind").value);
+     var rho = parseFloat(document.getElementById("density").value);
+     var pmax = 400;
+
+ if (units === "metric"){
+     var g = 9.81;
+     var xaxis_label = "km/hr";
+
+     for(var i = 0; i < pts ; i++) {
+       var sp = i*0.25;
+       var Pincline = Wt*g*Math.sin(angle)*(sp/3.6);
+       var Prr = Crr*Wt*g*Math.cos(angle)*(sp/3.6);
+       var Pwind = Math.sign(sp+wind)*0.5*rho*CdA*Math.pow((sp+wind)/3.6,2.)*(sp/3.6);
+
+       var y1 = Pincline/eta;
+       var y2 = y1 + Prr/eta;
+       var y3 = y2 + Pwind/eta;
+       if ( y3 > pmax) {break;}
+       data.setCell(i, 0, sp, sp + " kph");
+       data.setCell(i, 1, y1, Math.round(y1) + ' Watts');
+       data.setCell(i, 2, y2, Math.round(y2) + ' Watts');
+       data.setCell(i, 3, y3, Math.round(y3) + ' Watts');
+
+     }
+   }
+
+  if (units === "imperial"){
+    var g = 32.17;
+    var xaxis_label = "mph";
+
+
+    for(var i = 0; i < pts ; i++) {
+      var sp = i*0.25;
+      var Pincline = Wt*Math.sin(angle)*(sp*1.467)*745.7/550.;
+      var Prr = Crr*Wt*Math.cos(angle)*(sp*1.467)*745.7/550.;
+      var Pwind = Math.sign(sp+wind)*0.5*rho/g*CdA*Math.pow((sp+wind)*1.467,2.)*(sp*1.467)*745.7/550.;
+
+      var y1 = Pincline/eta;
+      var y2 = y1 + Prr/eta;
+      var y3 = y2 + Pwind/eta;
+      if ( y3 > pmax) {break;}
+      data.setCell(i, 0, sp, sp + " mph");
+      data.setCell(i, 1, y1, Math.round(y1) + ' Watts');
+      data.setCell(i, 2, y2, Math.round(y2) + ' Watts');
+      data.setCell(i, 3, y3, Math.round(y3) + ' Watts');
+    }
+  }
+
+
+     var plotOptions = {
+       theme: 'material',
+       title: "",
+       width: 760,
+       height: 500,
+        hAxis: {
+         title: xaxis_label,
+         scaleType: 'linear',
+       },
+       vAxis: {
+         title: 'Power (Watts)',
+         scaleType: 'linear',
+         ticks: [100,200,300,400]
+       },
+       legend: {
+         position : 'right'
+       }
+     };
+
+     var Chart =new google.visualization.LineChart(document.getElementById('power_plot_div'));
+
+     // Wait for the chart to finish drawing before calling the getImageURI() method.
+      google.visualization.events.addListener(Chart, 'ready', function () {
+        var image = new Image();
+        image.src =  Chart.getImageURI();
+        pc_footer.innerHTML =  '<a href="' + Chart.getImageURI() + '" download=""><button type="button" class="btn btn-primary">Save Image As PNG</button></a>';
+
+      });
+
+      Chart.draw(data, plotOptions);
+
+}
+
+function ChangeUnits(myRadio){
+   units = myRadio.value;
+
+   if (units === "metric"){
+     document.getElementById("weight_unit").textContent="kg";
+     document.getElementById("rider_weight").value = ((document.getElementById("rider_weight").value)/2.205).toFixed(0);
+
+     document.getElementById("weight_unit2").textContent="kg";
+     document.getElementById("bike_weight").value = ((document.getElementById("bike_weight").value)/2.205).toFixed(0);
+
+     document.getElementById("CdA_unit").textContent="m$^2$";
+     MathJax.Hub.Queue(["Typeset",MathJax.Hub,"CdA_unit"]);
+     document.getElementById("CdA").value = ((document.getElementById("CdA").value)/3.28084/3.28084).toPrecision(3);
+
+     document.getElementById("wind_unit").textContent="kph";
+     document.getElementById("wind").value = ((document.getElementById("wind").value)*1.609).toFixed(0);
+
+     document.getElementById("speed_unit").textContent="kph";
+     document.getElementById("speed").value = ((document.getElementById("speed").value)*1.609).toFixed(0);
+
+     document.getElementById("density_unit").textContent="kg/m$^3$ ";
+     MathJax.Hub.Queue(["Typeset",MathJax.Hub,"density_unit"]);
+     document.getElementById("density").value = ((document.getElementById("density").value)*16.0185).toFixed(3);
+
+
+   }
+
+   if (units === "imperial"){
+     document.getElementById("weight_unit").textContent="lb";
+     document.getElementById("rider_weight").value = ((document.getElementById("rider_weight").value)*2.205).toFixed(0);
+
+     document.getElementById("weight_unit2").textContent="lb";
+     document.getElementById("bike_weight").value = ((document.getElementById("bike_weight").value)*2.205).toFixed(0);
+
+     document.getElementById("CdA_unit").textContent="ft$^2$";
+     MathJax.Hub.Queue(["Typeset",MathJax.Hub,"CdA_unit"]);
+     document.getElementById("CdA").value = ((document.getElementById("CdA").value)*3.28084*3.28084).toPrecision(3);
+
+     document.getElementById("wind_unit").textContent="mph";
+     document.getElementById("wind").value = ((document.getElementById("wind").value)/1.609).toFixed(0);
+
+     document.getElementById("speed_unit").textContent="mph";
+     document.getElementById("speed").value = ((document.getElementById("speed").value)/1.609).toFixed(0);
+
+     document.getElementById("density_unit").textContent="lb/ft$^3$ ";
+     MathJax.Hub.Queue(["Typeset",MathJax.Hub,"density_unit"]);
+     document.getElementById("density").value = ((document.getElementById("density").value)/16.0185).toFixed(4);
+
+   }
+
+}
+
+function getWeather(){
+  if (navigator.geolocation) {
+      // Request the current position
+      // If successful, call getPosSuccess; On error, call getPosErr
+      navigator.geolocation.getCurrentPosition(getPosSuccess, getPosErr);
+  } else {
+      alert('Geolocation not available.');
+  }
+}
+
+// getCurrentPosition: Successful return
+function getPosSuccess(pos) {
+    // Get the coordinates and accuracy properties from the returned object
+    var geoLat = pos.coords.latitude.toFixed(5);
+    var geoLng = pos.coords.longitude.toFixed(5);
+    var geoAcc = pos.coords.accuracy.toFixed(1);
+    var URLRequest = "https://api.weather.gov/points/" +  String(geoLat) + "," + String(geoLng);
+    $.getJSON( URLRequest )
+    .done(function( data ) {
+         URLRequest = data.properties.observationStations;
+         $.getJSON( URLRequest )
+         .done(function( data ) {
+
+           var nstat = 5;
+           var AJAX = [];
+           var names = [];
+
+           for (var i=0; i < nstat; i++){
+             var stationURL = data.features[i].id + "/observations/latest/";
+             names.push(data.features[i].properties.name);
+             //alert(stationURL);
+             AJAX.push($.getJSON(stationURL) );
+           }
+
+           $.when.apply($, AJAX).done(function(){
+             // one for each AJAX call
+             // Each argument is an array with the following structure: [data, statusText, jqXHR]
+             for(var i = 0; i < nstat; i++){
+
+                 var datastat = arguments[i][0];
+                 var Temp = datastat.properties.temperature.value;
+                 var windSpeed = datastat.properties.windSpeed.value;
+                 var Press = datastat.properties.barometricPressure.value;
+                 var relHum = datastat.properties.relativeHumidity.value;
+                 var heatIndex = datastat.properties.heatIndex.value;
+
+
+                 if(!Temp || !windSpeed || !Press ){
+                   continue;
+                 }
+                 else {
+
+                   if (units === "metric"){
+                     Tunit = "°C";
+                     windSpeedUnit = "kph";
+                     density = Press/(287.05*(Temp+273.15));
+                   }
+                   if (units === "imperial"){
+                     //using SI units for density (Temp in C) and then convert
+                     density = 1.0/16.0185*Press/(287.05*(Temp+273.15));
+                     Temp = (9./5.*(Temp)+32.0);
+                     if(!heatIndex) {} else{
+                       heatIndex = (9./5.*(heatIndex)+32.0);
+                     }
+                     Tunit = "°F";
+                     windSpeed =  (windSpeed/1.609);
+                     windSpeedUnit = "mph";
+                   }
+                   wdir = datastat.properties.windDirection.value;
+
+                   var div = document.getElementById("weather_div");
+
+                   div.innerHTML = "";
+                   div.innerHTML += "<strong>" + names[i] + "</strong><BR>";
+                   const event = new Date(datastat.properties.timestamp);
+                   div.innerHTML += event.toLocaleTimeString('en-US') + "&nbsp;&nbsp;&nbsp;" + event.toLocaleDateString('en-US') + "<BR>";
+                   div.innerHTML += "Temperature: " + Temp.toFixed(1) + Tunit + "<BR>" ;
+                   div.innerHTML += "Relative Humidity: " + relHum.toFixed(1) + "%<BR>" ;
+                    if(!heatIndex) {} else{
+                     div.innerHTML += "Heat Index: " + heatIndex.toFixed(1) + Tunit + "<BR>" ;
+                   }
+                   div.innerHTML += "Wind speed: " + windSpeed.toFixed(1) + "&nbsp;" + windSpeedUnit + "<BR>" ;
+                   document.getElementById("wind").value = windSpeed.toFixed(1);
+
+                   const compass = ["N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW","N"];
+                   var index = Math.round((wdir%360)/22.5);
+                   div.innerHTML += "Wind direction: " + wdir + "&#176&nbsp;/&nbspFrom the&nbsp;" + compass[index] + "<BR>";
+
+
+                   document.getElementById("density").value = density.toFixed(3);
+
+                   document.getElementById("weather_div_img").innerHTML = "<img class='m-4' src='" + datastat.properties.icon + "'></img>"
+
+                   div = document.getElementById("weather_div_lower");
+
+                   div.innerHTML = "<table class='table w-auto' id='wcTable'><thead><tr><td>Speed</td><td>Windchill<sup>&#8224;</sup></td></tr></thead>";
+                   div.innerHTML += "<caption><sup>&#8224;</sup>Windchill temperatures riding into headwind. Valid for temperatures at or below 50°F and wind speeds above 3 mph. <a href='https://www.weather.gov/safety/cold-wind-chill-chart'>More info.</a></caption></table>";
+
+                   var table = document.getElementById("wcTable");
+                   for(var i = 0; i <= 4 ; i++) {
+                     var row = table.insertRow();
+                     var cell1 = row.insertCell(0);
+                     var cell2 = row.insertCell(1);
+                     var sp = i*5.0;
+                     var wc;
+                         if (units === "metric"){
+                            wch = (13.12+0.6215*Temp-11.37*Math.pow(windSpeed+sp,0.16)+0.3965*Temp*Math.pow(windSpeed+sp,0.16));
+                         }
+                         if (units === "imperial"){
+                            wch = (35.74+0.6215*Temp-35.75*Math.pow(windSpeed+sp,0.16)+0.4275*Temp*Math.pow(windSpeed+sp,0.16));
+                         }
+                         cell1.innerHTML = sp + "&nbsp;" + windSpeedUnit;
+                         cell2.innerHTML = wch.toFixed(1) + Tunit ;
+                  }
+
+
+                   break;
+                 }
+              }
+           });
+       })
+     })
+   }
+
+
+// getCurrentPosition: Error returned
+function getPosErr(err) {
+    switch (err.code) {
+      case err.PERMISSION_DENIED:
+        alert("User denied the request for Geolocation.");
+        break;
+      case err.POSITION_UNAVAILABLE:
+        alert("Location information is unavailable.");
+        break;
+      case err.TIMEOUT:
+        alert("The request to get user location timed out.");
+        break;
+      default:
+        alert("An unknown error occurred.");
+    }
+}
+
+</script>
+
+
+<body>
+  <div class="container-fluid" style="border: 1px">
+
+    <div class="row">
+      <div class="col-xs-12 col-md-8">
+
+        <div class="form-row align-items-center">
+          <legend class="col-form-label col-sm-2 pt-0">Units</legend>
+          <div class="col-sm-4">
+          <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="units" id="imperial" onchange="ChangeUnits(this);" value="imperial" checked>
+          <label class="form-check-label" for="imperial">imperial</label>
+          </div>
+          <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="units" id="metric" onchange="ChangeUnits(this);" value="metric">
+          <label class="form-check-label" for="metric">metric</label>
+          </div>
+          </div>
+
+          <div class='col-xs-6 mx.auto m-2'>
+          <button class="btn btn-primary active" type="button" data-toggle="tooltip" title="Retrieving weather will update the headwind and air density values." onclick="getWeather();">Retrieve Local Weather</button>
+          </div>
+        </div>
+
+      <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text">Rider Weight</span>
+      </div>
+      <input type="text" class="form-control" id="rider_weight" aria-label="Rider Weight" value="170">
+      <div class="input-group-append">
+      <span class="input-group-text" id="weight_unit">lb</span>
+      </div>
+      </div>
+
+      <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text">Bike Weight</span>
+      </div>
+      <input type="text" class="form-control" id="bike_weight" aria-label="Bike Weight" value="30">
+      <div class="input-group-append">
+      <span class="input-group-text" id="weight_unit2">lb</span>
+      </div>
+      </div>
+
+      <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text">Drag Area
+        <button type="button" class="btn btn-link btn-sm py-0 my-0" data-toggle="modal" data-target="#CdAModal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+        <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+        </svg>
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="CdAModal" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Drag area</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="align:left; word-break: normal; white-space: normal;">
+
+        <p class="text-left">The drag area or effective frontal area is the product of a dimensionless drag coefficient with the frontal area of the bike/rider system.</p>
+
+          <table class='table w-auto table-bordered' >
+          <thead><tr><td>Position</td><td>C<sub>d</sub>A [m<sup>2</sup>]</td><td>C<sub>d</sub>A [ft<sup>2</sup>]</td></tr></thead>
+          <caption>Wind tunnel tests by Defraeye et al. (2010).  Taken from table 3 of the review <a href=" https://www.sciencedirect.com/science/article/pii/S0167610521001574" target="_blank">Cyclist aerodynamics through time: Better, faster, stronger</a></caption>
+          <tr><td>upright</td><td>0.270</td><td>2.91</td></tr>
+          <tr><td>dropped</td><td>0.243</td><td>2.62</td></tr>
+          <tr><td>time-trail</td><td>0.211</td><td>2.27</td></tr>
+          </table>
+
+
+        </div>
+        </div>
+        </div>
+        </div>
+      </span><!-- End Drag label -->
+
+      </span>
+      </div>
+      <input type="text" class="form-control" id="CdA" aria-label="CdA" value="2.91" >
+      <div class="input-group-append">
+      <span class="input-group-text" id="CdA_unit">ft$^2$</span>
+      </div>
+      </div>
+
+      <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text">$C_{rr}$ &nbsp;&nbsp;
+
+      <button type="button" class="btn btn-link btn-sm py-0 my-0" data-toggle="modal" data-target="#CrrModal">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+      <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+      </svg>
+      </button>
+      <!-- Modal -->
+      <div class="modal fade" id="CrrModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Coefficient of rolling resistance</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="align:left; word-break: normal; white-space: normal;">
+
+      <p class="text-left"></p>
+
+        <table class='table w-auto table-bordered' >
+        <thead><tr><td>Tire</td><td>size</td><td>pressure</td><td>C<sub>rr</sub></td></tr></thead>
+        <caption></caption>
+        <tr><td><a href="https://www.bicyclerollingresistance.com/tour-reviews/vittoria-randonneur-2015" target="_blank">Vittoria Randonneur</a><td>37-622</td><td>75 psi</td><td>0.00869</td></tr>
+        <tr><td><a href="https://www.bicyclerollingresistance.com/road-bike-reviews/continental-grand-prix-4-season-2015" target="_blank">Continental Grand Prix 4 Season</a> <td>700x25C</td></td><td>100 psi</td><td>0.00543</td></tr>
+        <tr><td><a href="https://www.bicyclerollingresistance.com/mtb-reviews/maxxis-ardent-race-exo-2016" target="_blank">Maxxis Ardent Race 3C EXO TR</a><td>29x2.20</td></td><td>25 psi</td><td>0.01052</td></tr>
+        </table>
+
+      </div>
+      </div>
+      </div>
+      </div>
+    </span><!-- End Crr input -->
+
+      </div>
+      <input type="text" class="form-control" id="Crr" aria-label="Crr" value="0.00869" >
+      </div>
+
+      <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text" >Drivetrain Efficiency</span>
+      </div>
+      <input type="text" class="form-control" id="eta" aria-label="eta" value="97" >
+      <div class="input-group-append">
+      <span class="input-group-text" id="">%</span>
+      </div>
+      </div>
+
+      <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text">Grade</span>
+      </div>
+      <input type="text" class="form-control" id="grade" aria-label="grade" value="0" >
+      <div class="input-group-append">
+      <span class="input-group-text" id="">%</span>
+      </div>
+      </div>
+
+      <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text">Headwind</span>
+      </div>
+      <input type="text" class="form-control" id="wind" aria-label="headwind" value="0" >
+      <div class="input-group-append">
+      <span class="input-group-text" id="wind_unit">mph</span>
+      </div>
+      </div>
+
+      <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text">Air density</span>
+      </div>
+      <input type="text" class="form-control" id="density" aria-label="density" value="0.0765" >
+      <div class="input-group-append">
+      <span class="input-group-text" id="density_unit">lb/ft$^3$&nbsp;</span>
+      </div>
+      </div>
+
+      <hr>
+
+      <div class="row">
+
+      <div class="col-xs-6 col-md-7">
+
+        <label for="speed">Speed</label>
+        <div class="input-group mb-3">
+        <input type="text" class="form-control" id="speed" aria-label="speed" value="0" onchange="var mypow = Power(this.value); document.getElementById('Power').value = mypow.toFixed(1); document.getElementById('PWR').value = PWR(mypow).toFixed(2); document.getElementById('kcal').value = cal(mypow).toFixed(0);" >
+        <div class="input-group-prepend">
+        <span class="input-group-text" id="speed_unit">mph</span>
+        </div>
+
+        <span class="input-group-addon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div class="btn-group-vertical py-0" role="group" aria-label="...">
+            <button type="button" class="btn btn-primary btn-sm py-0 my-0" style="font-size: 0.5em;" onclick="var mypow = Power(document.getElementById('speed').value); document.getElementById('Power').value = mypow.toFixed(1); document.getElementById('PWR').value = PWR(mypow).toFixed(2); document.getElementById('kcal').value = cal(mypow).toFixed(0);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 3 16 10"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/></svg>
+            </button>
+            <button type="button" class="btn btn-primary btn-sm py-0 my-0" style="font-size: 0.5em;" onclick="var mypow = document.getElementById('Power').value; document.getElementById('speed').value = Speed(mypow).toFixed(1); document.getElementById('PWR').value = PWR(mypow).toFixed(2); document.getElementById('kcal').value = cal(mypow).toFixed(0);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 5 16 10"><path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/></svg>
+          </button>
+          </div>
+        </span>
+        </div>
+
+      </div>
+      <div class="col-xs-6 col-md-5">
+
+        <label for="power">Power</label>
+        <div class="input-group mb-3">
+        <input type="text" class="form-control" id="Power" aria-label="Power" value="0" onchange="document.getElementById('speed').value = Speed(this.value).toFixed(1);" >
+        <div class="input-group-prepend">
+        <span class="input-group-text" id="power_unit">Watts</span>
+        </div>
+        </div>
+
+        <div class="input-group mb-3">
+        <div class="input-group-prepend">
+        <span class="input-group-text">PWR
+          &nbsp;&nbsp;
+
+         <button type="button" class="btn btn-link btn-sm py-0 my-0" data-toggle="modal" data-target="#PWRModal">
+         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+         <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+         </svg>
+         </button>
+         <!-- Modal -->
+         <div class="modal fade" id="PWRModal" tabindex="-1" role="dialog">
+           <div class="modal-dialog" role="document">
+             <div class="modal-content">
+               <div class="modal-header">
+                 <h5 class="modal-title">PWR</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+           </button>
+         </div>
+         <div class="modal-body" style="align:left; word-break: normal; white-space: normal;">
+
+         <p class="text-left"></p>
+         The Power to Weight Ratio (PWR) is your power output divided by the rider weight in kilograms.
+         A recreational cyclist might have a PWR of 2.5, 2.1, 1.8 for 5, 20, and 60 minutes of sustained activity respectively.
+
+         </div>
+         </div>
+         </div>
+         </div>
+       </span><!-- End PWR input -->
+
+        </div>
+        <input type="text" class="form-control" id="PWR" aria-label="PWR" value="" >
+        <div class="input-group-append">
+        <span class="input-group-text" id="">W/kg</span>
+        </div>
+        </div>
+
+        <div class="input-group mb-3">
+        <div class="input-group-prepend">
+        <span class="input-group-text">Energy
+          &nbsp;&nbsp;
+
+         <button type="button" class="btn btn-link btn-sm py-0 my-0" data-toggle="modal" data-target="#CalModal">
+         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+         <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+         </svg>
+         </button>
+         <!-- Modal -->
+         <div class="modal fade" id="CalModal" tabindex="-1" role="dialog">
+           <div class="modal-dialog" role="document">
+             <div class="modal-content">
+               <div class="modal-header">
+                 <h5 class="modal-title">Energy Expenditure</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+           </button>
+         </div>
+         <div class="modal-body" style="align:left; word-break: normal; white-space: normal;">
+
+         <p class="text-left">
+
+           The energy expenditure was calculated using an efficiency <span id="bodyeff">0</span>%.
+           It uses the formula taken from:<BR><BR>
+           Ettema, G., & Lorås, H. W. (2009). Efficiency in cycling: a review. European Journal of Applied Physiology, 106(1), 1–14. doi:10.1007/s00421-009-1008-7
+           <BR><BR>
+           The efficiency is a function of both cadence (here taken to be 80 rpm) and external power.
+        </p>
+
+         </div>
+         </div>
+         </div>
+         </div>
+       </span><!-- End Energy input -->
+
+        </div>
+        <input type="text" class="form-control" id="kcal" aria-label="kcal" value="" >
+        <div class="input-group-append">
+        <span class="input-group-text" id="">kcal/hr</span>
+        </div>
+        </div>
+
+
+
+
+      </div>
+
+      </div>
+
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#PowerCurveModal" onclick="makePlot();">Show power curve</button>
+
+      <button type="button" class="btn btn-outline-primary" data-toggle="tooltip" data-placement="bottom" title="Copy to clipboard" onclick="createURL();">
+     <svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M17,9H7V7H17M17,13H7V11H17M14,17H7V15H14M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3Z" /></svg>
+     </button>
+
+
+
+</div>
+
+<div class="col-xs-6 col-md-4">
+
+    <div class='container'>
+
+      <div class='row'>
+      </div>
+
+      <div class='row'>
+        <div class='col-xs-6' id='weather_div'></div>
+        <div class="col-xs-6" style="display: flex; justify-content: center; align-items: center" id="weather_div_img"></div>
+      </div>
+      <div class='row'>
+        <div class='col-12' id='weather_div_lower'></div>
+      </div>
+
+    </div>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- Power Curve Modal -->
+<div class="modal fade" id="PowerCurveModal" tabindex="-1" role="dialog" aria-labelledby="PowerCurveModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Power Curve</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="chart" id="power_plot_div"></div>
+      </div>
+      <div class="modal-footer" id="pc_footer">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TSB5RJ1T0J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TSB5RJ1T0J');
+</script>
+
+
+</body>
+</html>
