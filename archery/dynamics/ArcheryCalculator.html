@@ -1,0 +1,362 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <title>Archery Ballistics Calculator</title>
+      <meta name="description" content="Archery Ballistics Calculator: Calculates arrow drop, speed, energy and momentum.">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta charset="utf-8">
+      <meta name="author" content="Kevin Dusling" />
+      <meta NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+	  
+
+	  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  
+      <script type="text/javascript" src="ODEint.js"></script>
+	  <script src="https://cdn.plot.ly/plotly-2.34.0.min.js" charset="utf-8"></script>
+ 
+</head>
+
+<script>
+
+var VictoryVAP = {
+		weight: 315,
+		speed: 150.0,
+		length: 31,
+		diameter: 0.223,
+		flength: 3.5,
+		fheight: 0.5,
+		point: "bullet",
+		fletchSurface: "feather",
+		CD: 0
+}
+
+var ACEEaston = {
+		weight: 220.7,
+		speed: 150.0,
+		length: 24.6,
+		diameter: 0.2067,
+		flength: 1.75,
+		fheight: 0.5,
+		point: "bullet",
+		fletchSurface: "plastic",
+		CD: 0
+}
+
+
+var myarrow = VictoryVAP;
+
+window.onload = function() {
+
+   // your page initialization code here
+   // the DOM will be available here
+	LoadArrow(VictoryVAP);
+}
+
+
+
+function LoadArrow(arrow) {
+	document.getElementById('weight').value = arrow.weight;
+	document.getElementById('speed').value = arrow.speed;
+	document.getElementById('length').value = arrow.length;
+	document.getElementById('diameter').value = arrow.diameter;
+	document.getElementById('fletch-length').value = arrow.flength;
+	document.getElementById('fletch-height').value = arrow.fheight;
+	
+	if (arrow.fletchSurface == "plastic") {document.getElementById('plastic-fletch').checked = true;}
+	if (arrow.fletchSurface == "feather") {document.getElementById('feather-fletch').checked = true;}
+	
+	if (arrow.point == "bullet") {document.getElementById('bullet').checked = true;}
+	if (arrow.point == "pile") {document.getElementById('pile').checked = true;}
+	if (arrow.point == "blunt") {document.getElementById('blunt').checked = true;}
+}
+
+function SaveArrow(arrow) {
+	arrow.weight = document.getElementById('weight').value;
+	arrow.speed = document.getElementById('speed').value;
+	arrow.length = document.getElementById('length').value;
+	arrow.diameter = document.getElementById('diameter').value;
+	arrow.flength = document.getElementById('fletch-length').value;
+	arrow.fheight = document.getElementById('fletch-height').value;
+	
+	
+	var FletchArea = 0.5*6.0*(arrow.fheight)*(arrow.flength);
+	
+    if( document.getElementById("feather-fletch").checked ) {
+		FletchArea *= 2.0;
+		arrow.fletchSurface = "feather";
+	}
+	
+	if( document.getElementById("plastic-fletch").checked ) {
+		FletchArea *= 1.0;
+		arrow.fletchSurface = "plastic";
+	}
+	
+	console.log('Fletch Area: %f', FletchArea);
+	
+	var B=0;
+	
+	if( document.getElementById("bullet").checked ) {
+		B = 1.0;
+		arrow.point = "bullet";
+	}
+	
+	if( document.getElementById("pile").checked ) {
+		B = 2.2;
+		arrow.fletchSurface = "pile";
+	}
+	
+	if( document.getElementById("blunt").checked ) {
+		B = 7.0;
+		arrow.fletchSurface = "blunt";
+	}
+	
+	arrow.CD = 0.0000013*B*Math.pow(arrow.diameter,2.0);
+	arrow.CD += 0.000000035*arrow.diameter*arrow.length;
+	arrow.CD += 0.000000077*FletchArea;
+	//console.log('CD: %f',arrow.CD);
+	console.log('Point CD:  %f',8*(0.0000013*B*144)/(3.14159)/(0.002377) );
+	console.log('Reynolds:  %f',(arrow.diameter/12)*arrow.speed/(0.0001572) );
+	console.log('Mach No:  %f',arrow.speed/(1116.5) );
+	console.log('Arrow CD:  %f',8*(arrow.CD)/(3.14159)/(0.002377)/Math.pow(arrow.diameter/12,2.0) );
+}
+
+var dataPoints = {
+		t: [],
+		x: [],
+		z: [],
+		vx: [],
+		vz: [],
+		ax: [],
+		az: []
+}
+
+function pushData(t, r, drdt) {
+	dataPoints.t.push(t);
+	dataPoints.x.push(r[0]);
+	dataPoints.z.push(r[1]);
+	dataPoints.vx.push(r[2]);
+	dataPoints.vz.push(r[3]);
+	
+	var drdt = [];
+	deriv(t, r, drdt)
+	dataPoints.ax.push(drdt[2]);
+	dataPoints.az.push(drdt[3]);
+}
+
+function clearData() {
+	dataPoints.t = [];
+	dataPoints.x = [];
+	dataPoints.z = [];
+	dataPoints.vx = [];
+	dataPoints.vz = [];
+	dataPoints.ax = [];
+	dataPoints.az = [];
+}
+
+function deriv(t, r, drdt){ 
+	
+	var g = 32.174;
+	m = myarrow.weight/7000./g;
+	
+	// dxdt = vx;
+	drdt[0] = r[2];
+	// dzdt = vz;
+	drdt[1] = r[3];
+	
+	var vmag = Math.pow(r[2]*r[2]+r[3]*r[3],0.5);
+	
+	drdt[2] = -myarrow.CD/m*vmag*r[2];
+	drdt[3] = -myarrow.CD/m*vmag*r[3] - g;
+	
+	return;
+}
+	
+	
+function run() {
+	
+	clearData();
+	SaveArrow(myarrow);
+    
+	//x, z, vx, vz
+	var r = [0, 0, 1.0*myarrow.speed, 0.0];
+
+	var drdt = [];
+	var t = 0.;
+	var dt = .01;
+	
+	deriv(t, r, drdt);
+	pushData(t, r, drdt);
+	
+	while ( r[0] <= 320  ){
+		
+		[t,dt] = RK4(r, deriv, t, dt);
+		deriv(t, r, drdt);
+		pushData(t, r, drdt);
+		
+	}
+
+	
+	//populate table
+	var table = document.getElementById("tabResult");
+	document.getElementById('tabResult').innerHTML = '';
+
+
+	distances = [0, 30, 60, 65.6168, 90, 98.4252, 120, 150, 164.042, 180, 210, 229.659, 240, 270, 300] 
+	
+	var dtdx = [];
+	for (var i = 0; i < dataPoints.x.length; i++) {
+		dtdx.push(1.0/dataPoints.vx[i]);
+	}
+	for (var i = 0; i < distances.length; i++){
+		var row = table.insertRow(-1);
+		
+		var cell1 = row.insertCell(-1);
+		if (i==3 || i== 5 || i==8 || i==11) {
+		row.className = "table-info";
+		cell1.innerHTML = Math.round(distances[i]/3.281) + "&nbsp;m";
+		} else {
+		cell1.innerHTML = distances[i]/3 + "&nbsp;yd";
+		}
+		
+		var myt = cubicHermiteInterp(distances[i], dataPoints.x, dataPoints.t, dtdx)
+	
+		var cell2 = row.insertCell(-1);
+		var myz = cubicHermiteInterp(myt, dataPoints.t, dataPoints.z, dataPoints.vz);
+		cell2.innerHTML = (12.0*myz).toFixed(2);
+		
+		var vx = cubicHermiteInterp(myt, dataPoints.t, dataPoints.vx, dataPoints.ax);
+		var vy = cubicHermiteInterp(myt, dataPoints.t, dataPoints.vz, dataPoints.az);
+		var vmag = Math.sqrt(vx*vx + vy*vy);
+		var cell3 = row.insertCell(-1);
+		cell3.innerHTML = vmag.toFixed(2);
+		
+		var mass = myarrow.weight/7000./32.174;
+		
+		var cell4 = row.insertCell(-1);
+		cell4.innerHTML = (0.5*mass*vmag*vmag).toFixed(2);
+		
+		var cell5 = row.insertCell(-1);
+		cell5.innerHTML = (mass*vmag).toFixed(2);
+	}
+}
+
+</script>
+
+<body class="bg-light">
+<div class="container"><div class="py-5 text-center">
+
+<h2>Archery Ballistics Calculator</h2>
+
+	  <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text">Weight</span>
+      </div>
+      <input type="text" class="form-control" id="weight" aria-label="Arrow weight in grains" value="">
+      <div class="input-group-append">
+      <span class="input-group-text">grains</span>
+      </div>
+      </div>
+	  
+	  <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text">Speed</span>
+      </div>
+      <input type="text" class="form-control" id="speed" aria-label="Arrow speed in fps" value="100">
+      <div class="input-group-append">
+      <span class="input-group-text">fps</span>
+      </div>
+      </div>
+	  
+	  <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text">Shaft Length</span>
+      </div>
+      <input type="text" class="form-control" id="length" aria-label="Shaft length in inches" value="32">
+      <div class="input-group-append">
+      <span class="input-group-text">inch</span>
+      </div>
+      </div>
+	  
+	  <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text">Shaft Diameter</span>
+      </div>
+      <input type="text" class="form-control" id="diameter" aria-label="Shaft diameter in inches" value="0.359">
+      <div class="input-group-append">
+      <span class="input-group-text">inch</span>
+      </div>
+      </div>
+	  
+	  <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text">Fletch Length</span>
+      </div>
+      <input type="text" class="form-control" id="fletch-length" aria-label="Shaft diameter in inches">
+      <div class="input-group-append">
+      <span class="input-group-text">inch</span>
+      </div>
+      </div>
+
+	  <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text">Fletch Height</span>
+      </div>
+      <input type="text" class="form-control" id="fletch-height" aria-label="Shaft diameter in inches">
+      <div class="input-group-append">
+      <span class="input-group-text">inch</span>
+      </div>
+      </div>
+	  
+	   <fieldset class="form-group row border p-2">
+          <legend class="col-form-legend col-sm-2">Fletching</legend>
+          
+          <div class="form-check form-check-inline">
+          <input class="form-check-input radio-inline" type="radio" name="Fletching" id="plastic-fletch">
+          <label class="form-check-label" for="plastic-fletch">plastic vanes</label>
+          </div>		  
+          <div class="form-check form-check-inline">
+          <input class="form-check-input radio-inline" type="radio" name="Fletching" id="feather-fletch">
+          <label class="form-check-label" for="feather-fletch">feather fletch</label>
+          </div>
+		</fieldset>
+
+		<fieldset class="form-group row border p-2">
+          <legend class="col-form-legend col-sm-2 pt-0">Point</legend>
+          
+          <div class="form-check form-check-inline">
+          <input class="form-check-input radio-inline" type="radio" name="Point" id="bullet">
+          <label class="form-check-label" for="bullet">bullet</label>
+          </div>		  
+          <div class="form-check form-check-inline">
+          <input class="form-check-input radio-inline" type="radio" name="Point" id="pile">
+          <label class="form-check-label" for="pile">parallel piles</label>
+          </div>
+          <div class="form-check form-check-inline">
+          <input class="form-check-input radio-inline" type="radio" name="Point" id="blunt">
+          <label class="form-check-label" for="blunt">blunt</label>
+          </div>
+		</fieldset>
+
+	<button class="btn btn-primary" onclick="run();">Calculate</button>
+</div>
+<table class="table .table-sm" >
+  <thead>
+    <tr>
+      <th scope="col">Distance</th>
+      <th scope="col">Vertical Drop (inch)</th>
+      <th scope="col">Speed (fps)</th>
+      <th scope="col">Energy (ft&#183;lb)</th>
+	  <th scope="col">Momentum (lb&#183;s)</th>
+    </tr>
+  </thead>
+  <tbody id="tabResult">
+   </tbody>
+  </table>
+
+</div>
+</body>
+
+</html>
+ 

@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <title>Cubic Hermite spline Interpolation</title>
+      <meta name="description" content="Cubic Hermite spline Interpolation">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta charset="utf-8">
+      <meta name="author" content="Kevin Dusling" />
+      <meta NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+	  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  
+      <script type="text/javascript" src="ODEint.js"></script>
+	  <script src="https://cdn.plot.ly/plotly-2.34.0.min.js" charset="utf-8"></script>
+ 
+</head>
+
+<script>
+
+
+
+window.onload = function() {
+
+   // your page initialization code here
+   // the DOM will be available here
+	run();
+}
+
+
+var dataPoints = {
+		x: [],
+		y: [],
+		dydx: []
+}
+
+var interPoints = {
+		x: [],
+		y: []
+}
+
+var FnPoints = {
+		x: [],
+		y: []
+}
+	
+function updatePlot(){
+
+  const TESTER = document.getElementById('tester');
+
+var trace1 = {
+  x: dataPoints.x,
+  y: dataPoints.y,
+  mode: 'markers',
+  type: 'scatter'
+};
+
+var trace2 = {
+  x: interPoints.x,
+  y: interPoints.y,
+  mode: 'lines',
+  type: 'scatter'
+};
+
+var trace3 = {
+  x: FnPoints.x,
+  y: FnPoints.y,
+  mode: 'lines',
+  type: 'scatter'
+};
+
+var data = [trace1, trace2, trace3];
+
+
+  Plotly.newPlot(TESTER, data);
+  
+}
+
+var a = Math.random();
+var b = 15*Math.random();
+var c = 25*Math.random();
+var d = 5*Math.random();
+	
+function f(x) {
+
+	return a*x*x*x - b*x*x + c*x + d;
+}
+
+function fp(x) {
+
+	return 3*a*x*x - 2*b*x + c;
+}
+	
+function run() {
+
+	var pts = [1,3,5,7,11,14,16.2,20];
+	
+	for ( var i = 0; i < pts.length; i++){
+		
+		dataPoints.x.push(pts[i]);
+		dataPoints.y.push(f(pts[i]));
+		dataPoints.dydx.push(fp(pts[i]));
+	}
+	
+	
+	for ( var t = pts[0]; t <= pts[pts.length-1]; t+= 0.1){
+		
+		interPoints.x.push(t);
+		interPoints.y.push( cubicHermiteInterp(t, dataPoints.x, dataPoints.y, dataPoints.dydx) );
+		
+		FnPoints.x.push(t);
+		FnPoints.y.push( f(t) );
+	}
+	
+
+	updatePlot();
+}
+
+</script>
+<body>
+
+<div id="tester" style="width:600px;height:600px;"></div>
+
+</body>
+</html>
+ 
