@@ -102,25 +102,39 @@ function run() {
 		dataPoints.dydx.push(fp(pts[i]));
 	}
 	
-	
-	for ( var t = pts[0]; t <= pts[pts.length-1]; t+= 0.1){
-		
+	var dt = (pts[pts.length-1] - pts[0])/100.;
+	for ( var i = 0; i <= 100; i++){
+
+		var t = pts[0] + i*dt;
 		interPoints.x.push(t);
 		interPoints.y.push( cubicHermiteInterp(t, dataPoints.x, dataPoints.y, dataPoints.dydx) );
 		
 		FnPoints.x.push(t);
 		FnPoints.y.push( f(t) );
+		
 	}
 	
-
 	updatePlot();
 }
 
 </script>
 <body>
 
-<div id="tester" style="width:600px;height:600px;"></div>
+<h2>Cubic Hermite spline Interpolation</h2>
+
+<div id="tester" style="width:800px;height:600px;"></div>
 
 </body>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TSB5RJ1T0J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TSB5RJ1T0J');
+</script>
+
 </html>
  
