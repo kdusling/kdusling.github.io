@@ -48,58 +48,79 @@ function updatePlot(){
 
   const TESTER = document.getElementById('tester');
 
-var trace1 = {
-  x: dataPoints.x,
-  y: dataPoints.y,
-  mode: 'markers',
-  type: 'scatter'
-};
+	var trace1 = {
+		x: dataPoints.x,
+		y: dataPoints.y,
+		mode: 'markers',
+		type: 'scatter'
+	};
 
-var trace2 = {
-  x: interPoints.x,
-  y: interPoints.y,
-  mode: 'lines',
-  type: 'scatter'
-};
+	var trace2 = {
+		x: interPoints.x,
+		y: interPoints.y,
+		mode: 'lines',
+		type: 'scatter'
+	};
 
-var trace3 = {
-  x: FnPoints.x,
-  y: FnPoints.y,
-  mode: 'lines',
-  type: 'scatter'
-};
+	var trace3 = {
+		x: FnPoints.x,
+		y: FnPoints.y,
+		mode: 'lines',
+		type: 'scatter'
+	};
 
-var data = [trace1, trace2, trace3];
-
-
-  Plotly.newPlot(TESTER, data);
-  
+	var data = [trace1, trace2, trace3];
+	Plotly.newPlot(TESTER, data);
 }
 
-var a = Math.random();
-var b = 15*Math.random();
-var c = 25*Math.random();
-var d = 5*Math.random();
 	
-function f(x) {
-
-	return a*x*x*x - b*x*x + c*x + d;
+function poly(x, coeffs) {
+	
+	var val = 0;
+	
+	for (var i = 0; i < coeffs.length; i++) {
+		val += coeffs[i]*Math.pow(x,i);
+	}	
+	return val;
 }
 
-function fp(x) {
+function poly_deriv(x, coeffs) {
 
-	return 3*a*x*x - 2*b*x + c;
+	var val = 0;
+	
+	for (var i = 1; i < coeffs.length; i++) {
+		val += i*coeffs[i]*Math.pow(x,i-1);
+	}	
+	return val;
 }
 	
 function run() {
 
-	var pts = [1,3,5,7,11,14,16.2,20];
+	dataPoints.x = [];
+	dataPoints.y = [];
+	dataPoints.dydx = [];
+	
+	interPoints.x = [];
+	interPoints.y = [];
+	
+	FnPoints.x = [];
+	FnPoints.y = [];
+	
+	var coeffs = [];
+	var deg = document.getElementById('degree').value;
+	
+	for (let i = 0; i <= deg; i++) {
+		coeffs.push( Math.floor(Math.random() * 10) );
+	}
+	
+	var pts = [1, 2 ,3, 4, 5, 6, 7, 8];
+		
 	
 	for ( var i = 0; i < pts.length; i++){
 		
-		dataPoints.x.push(pts[i]);
-		dataPoints.y.push(f(pts[i]));
-		dataPoints.dydx.push(fp(pts[i]));
+		dataPoints.x.push( pts[i] );
+		dataPoints.y.push( poly(pts[i], coeffs) );
+		dataPoints.dydx.push( poly_deriv(pts[i], coeffs) );
 	}
 	
 	var dt = (pts[pts.length-1] - pts[0])/100.;
@@ -110,7 +131,7 @@ function run() {
 		interPoints.y.push( cubicHermiteInterp(t, dataPoints.x, dataPoints.y, dataPoints.dydx) );
 		
 		FnPoints.x.push(t);
-		FnPoints.y.push( f(t) );
+		FnPoints.y.push( poly(t, coeffs) );
 		
 	}
 	
@@ -118,11 +139,23 @@ function run() {
 }
 
 </script>
-<body>
+<body class="bg-light">
+<div class="container"><div class="py-5 text-center">
 
 <h2>Cubic Hermite spline Interpolation</h2>
 
+	  <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text">Polynomial Degree</span>
+      </div>
+      <input type="text" class="form-control" id="degree" aria-label="Polynomial Degree" value="3">
+      </div>
+	  
+	  <button class="btn btn-primary" onclick="run();">Calculate</button>
+</div>
+
 <div id="tester" style="width:800px;height:600px;"></div>
+
 
 </body>
 

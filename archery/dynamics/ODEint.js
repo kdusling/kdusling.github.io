@@ -11,7 +11,7 @@ function cubicHermiteInterp(s, x, y, yp) {
 		
 		var indexL = 0;
 		for (var i = 0; i < x.length; i++) {
-			if (x[i+1] > s) {indexL = i; break;}
+			if (x[i+1] >= s) {indexL = i; break;}
 		}
 		var t = ( s-x[indexL] )/( x[indexL+1]-x[indexL] );
 
