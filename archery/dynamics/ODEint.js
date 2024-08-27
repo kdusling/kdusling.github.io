@@ -1,3 +1,33 @@
+function bisection(f, a, b, tol = 1e-6, maxIter = 10000) {
+  
+  if (f(a) * f(b) > 0 || b < a) {
+    throw new Error("Invalid interval");
+  }
+  
+  
+  for (let i = 0; i < maxIter; i++) {
+    const c = (a + b) / 2.0;
+    if (f(c) == 0 || (b - a)/2.0 < tol) {
+      return c;
+    }
+    if ( f(a) * f(c) > 0 ) {
+      a = c;
+    } else {
+      b = c;
+    }
+  }
+
+  throw new Error("Exceeded maximum iterations");
+}
+
+/*
+
+*/
+function HermitePolynomial(x, x0, x1, p0, p1, m0, m1) {
+	var t = ( x-x0 )/( x1-x0 );
+	return (2*t*t*t - 3*t*t + 1)*p0 + (t*t*t - 2*t*t + t)*m0*(x1-x0) + (-2*t*t*t + 3*t*t)*p1 + (t*t*t - t*t)*m1*(x1-x0);
+}
+
 /*
 The array x must be ordered.
 Returns the interpolated value of y(s) given
@@ -10,14 +40,12 @@ function cubicHermiteInterp(s, x, y, yp) {
 		}
 		
 		var indexL = 0;
+		
 		for (var i = 0; i < x.length; i++) {
 			if (x[i+1] >= s) {indexL = i; break;}
 		}
-		var t = ( s-x[indexL] )/( x[indexL+1]-x[indexL] );
-
-		var p = (2*t*t*t - 3*t*t + 1)*y[indexL] + (t*t*t - 2*t*t + t)*yp[indexL]*(x[indexL+1]-x[indexL]) + (-2*t*t*t + 3*t*t)*y[indexL+1] + (t*t*t - t*t)*yp[indexL+1]*(x[indexL+1]-x[indexL]);
 		
-		return p;
+		return HermitePolynomial(s, x[indexL], x[indexL+1], y[indexL], y[indexL+1], yp[indexL], yp[indexL+1]);
 }
 	
 

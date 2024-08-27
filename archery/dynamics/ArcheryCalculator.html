@@ -13,8 +13,11 @@
 
 	  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   
-      <script type="text/javascript" src="ODEint.js"></script>
-	  <script src="https://cdn.plot.ly/plotly-2.34.0.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="ODEint.js"></script>
+	<script src="https://cdn.plot.ly/plotly-2.34.0.min.js" charset="utf-8"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
  
 </head>
 
@@ -63,6 +66,7 @@ function LoadArrow(arrow) {
 	document.getElementById('diameter').value = arrow.diameter;
 	document.getElementById('fletch-length').value = arrow.flength;
 	document.getElementById('fletch-height').value = arrow.fheight;
+	document.getElementById('pod').value = 0;
 	
 	if (arrow.fletchSurface == "plastic") {document.getElementById('plastic-fletch').checked = true;}
 	if (arrow.fletchSurface == "feather") {document.getElementById('feather-fletch').checked = true;}
@@ -172,15 +176,128 @@ function deriv(t, r, drdt){
 	
 	return;
 }
+
+function updatePlot(){
+
+	const plot = document.getElementById('myplot');
+  
+	var xdata = [];
+	var ydata = [];
+  
+	for (var i = 0; i < dataPoints.x.length; i++) {
+	xdata.push(1./3.*dataPoints.x[i]);
+	ydata.push(12.0*dataPoints.z[i]);
+	}
+
+	var trace1 = {
+		x: xdata,
+		y: ydata,
+		mode: 'lines',
+		type: 'scatter'
+	};
+	
+	var layout = {
+	title: {
+		text:'',
+			font: {
+				family: 'Courier New, monospace',
+				size: 24
+			},
+		xref: 'paper',
+		x: 0.05,
+	},
+	xaxis: {
+		title: {
+			text: 'yards',
+			font: {
+				family: '',
+				size: 18,
+				color: '#7f7f7f'
+			}
+		},
+	},
+	yaxis: {
+		title: {
+			text: 'inches',
+			font: {
+				family: '',
+				size: 18,
+				color: '#7f7f7f'
+			}
+		}
+	}
+	};
+
+	var data = [trace1];
+	Plotly.newPlot(plot, data, layout, {scrollZoom: true});
+}
+
+
+
+function Distance(alpha) {
+
+	alpha = alpha * 3.14159/180.;
+	
+	var r = [0, 0, myarrow.speed*Math.cos(alpha), myarrow.speed*Math.sin(alpha)];
+	
+	//console.log( 'distance (no drag):  %f at time %f', 2.0*r[2]*r[3]/32.174,  2.0*r[3]/32.174);
+	
+	var t = 0.;
+	var dt = 0.01;
+	
+	var t0, t1, x0, x1, y0, y1, vx0, vx1, vy0, vy1;
+	
+	while ( r[1] >= 0 ){	
+		t0 = t;
+		x0 = r[0];
+		y0 = r[1];
+		vx0 = r[2];
+		vy0 = r[3];
+		
+		[t,dt] = RKF45(r, deriv, t, dt);
+		
+		t1 = t;
+		x1 = r[0];
+		y1 = r[1];
+		vx1 = r[2];
+		vy1 = r[3];
+	}
+		
+	function f(x) {
+		return HermitePolynomial(x, t0, t1, y0, y1, vy0, vy1);
+	}
+	var myt = bisection(f, t0, t1);
+
+	var myx = HermitePolynomial(myt, t0, t1, x0, x1, vx0, vx1) ;
+	
+	return myx;
+
+}
+
+function FindLaunchAngle(dist) {
+
+	if (dist < 1.e-3) {return 0.;}
+	
+	function f(x) {
+		return Distance(x)-dist;
+	}
+	return bisection(f, 0, 25);
+}
 	
 	
 function run() {
 	
 	clearData();
 	SaveArrow(myarrow);
-    
+
+	var pod = 3.0*document.getElementById('pod').value;
+	
+	var ang = FindLaunchAngle(pod) ;
+    console.log("pod = %f ft, launch angle = %f degrees",pod, ang);
+	ang = ang * 3.14159/180.;
+
 	//x, z, vx, vz
-	var r = [0, 0, 1.0*myarrow.speed, 0.0];
+	var r = [0, 0, myarrow.speed*Math.cos(ang), myarrow.speed*Math.sin(ang)];
 
 	var drdt = [];
 	var t = 0.;
@@ -209,6 +326,7 @@ function run() {
 	for (var i = 0; i < dataPoints.x.length; i++) {
 		dtdx.push(1.0/dataPoints.vx[i]);
 	}
+	
 	for (var i = 0; i < distances.length; i++){
 		var row = table.insertRow(-1);
 		
@@ -220,8 +338,28 @@ function run() {
 		cell1.innerHTML = distances[i]/3 + "&nbsp;yd";
 		}
 		
-		var myt = cubicHermiteInterp(distances[i], dataPoints.x, dataPoints.t, dtdx)
+		//Find the time myt to travel the distance distances[i]
+		for (var j = 0; j < dataPoints.x.length; j++) {
+		
+			z0 = dataPoints.t[j];
+			p0 = dataPoints.x[j];
+			m0 = dataPoints.vx[j];
+		
+			z1 = dataPoints.t[j+1];
+			p1 = dataPoints.x[j+1];
+			m1 = dataPoints.vx[j+1];
+			
+			if( p1 > distances[i] ) 
+				{break;}
+		}
+		
+		function f(x) {
+			return HermitePolynomial(x, z0, z1, p0, p1, m0, m1) - distances[i];
+		}
+		var myt = bisection(f, z0, z1);
 	
+		
+		
 		var cell2 = row.insertCell(-1);
 		var myz = cubicHermiteInterp(myt, dataPoints.t, dataPoints.z, dataPoints.vz);
 		cell2.innerHTML = (12.0*myz).toFixed(2);
@@ -240,6 +378,8 @@ function run() {
 		var cell5 = row.insertCell(-1);
 		cell5.innerHTML = (mass*vmag).toFixed(2);
 	}
+	
+	updatePlot();
 }
 
 </script>
@@ -338,8 +478,21 @@ function run() {
           <label class="form-check-label" for="blunt">blunt</label>
           </div>
 		</fieldset>
+		
+	  <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text">Point-on distance</span>
+      </div>
+      <input type="text" class="form-control" id="pod" aria-label="point-on distance">
+      <div class="input-group-append">
+      <span class="input-group-text">yd</span>
+      </div>
+      </div>
 
 	<button class="btn btn-primary" onclick="run();">Calculate</button>
+	<button type="button" onclick="run();" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">
+  Plot trajectory
+</button>
 </div>
 <table class="table .table-sm" >
   <thead>
@@ -354,8 +507,27 @@ function run() {
   <tbody id="tabResult">
    </tbody>
   </table>
+  
+
+
+
+
+
+<div class="card">
+  <div class="card-header">
+    About
+  </div>
+  <div class="card-body">
+    
+	The above calculation is based on a 2D model of arrow flight. The arrow's orientation is assumed to be fixed to its velocity (angle of attack is always zero degrees). The equations of motion are solved with a fourth order Runge–Kutta method. The drag coefficient is calculated using the formulas from  
+<a href="https://www.archerylibrary.com/books/hickman/archery-the-technical-side/rheingans/exterior-ballistics-of-bows-and-arrows/">Exterior Ballistics of Bows and Arrows
+by J. W. Rheingans</a>.
+	
+  </div>
+</div>
 
 </div>
+
 </body>
 
 <!-- Google tag (gtag.js) -->
@@ -367,6 +539,29 @@ function run() {
 
   gtag('config', 'G-TSB5RJ1T0J');
 </script>
+
+<!-- Modal -->
+<div class="modal fade  bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Arrow Trajectory</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="myplot" style=""></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
 </html>
  
