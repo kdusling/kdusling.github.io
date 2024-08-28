@@ -47,14 +47,27 @@ var ACEEaston = {
 		CD: 0
 }
 
+var MIMKR = {
+		weight: 435,
+		speed: 320.0,
+		length: 20,
+		diameter: 0.344,
+		flength: 3.70,
+		fheight: 0.47,
+		point: "bullet",
+		fletchSurface: "plastic",
+		CD: 0
+}
 
-var myarrow = VictoryVAP;
+
+
+var myarrow = MIMKR;
 
 window.onload = function() {
 
    // your page initialization code here
    // the DOM will be available here
-	LoadArrow(VictoryVAP);
+	LoadArrow(MIMKR);
 }
 
 
@@ -107,7 +120,7 @@ function SaveArrow(arrow) {
 	}
 	
 	if( document.getElementById("pile").checked ) {
-		B = 2.2;
+		B = 2.3;
 		arrow.fletchSurface = "pile";
 	}
 	
@@ -120,10 +133,10 @@ function SaveArrow(arrow) {
 	arrow.CD += 0.000000035*arrow.diameter*arrow.length;
 	arrow.CD += 0.000000077*FletchArea;
 	//console.log('CD: %f',arrow.CD);
-	console.log('Point CD:  %f',8*(0.0000013*B*144)/(3.14159)/(0.002377) );
+	console.log('Point CD:  %f',8*(0.0000013*B*144)/(Math.PI)/(0.002377) );
 	console.log('Reynolds:  %f',(arrow.diameter/12)*arrow.speed/(0.0001572) );
 	console.log('Mach No:  %f',arrow.speed/(1116.5) );
-	console.log('Arrow CD:  %f',8*(arrow.CD)/(3.14159)/(0.002377)/Math.pow(arrow.diameter/12,2.0) );
+	console.log('Arrow CD:  %f',8*(arrow.CD)/(Math.PI)/(0.002377)/Math.pow(arrow.diameter/12,2.0) );
 }
 
 var dataPoints = {
@@ -161,7 +174,7 @@ function clearData() {
 
 function deriv(t, r, drdt){ 
 	
-	var g = 32.174;
+	var g = 32.17405;
 	m = myarrow.weight/7000./g;
 	
 	// dxdt = vx;
@@ -179,7 +192,7 @@ function deriv(t, r, drdt){
 
 function updatePlot(){
 
-	const plot = document.getElementById('myplot');
+	const plotdiv = document.getElementById('myplot');
   
 	var xdata = [];
 	var ydata = [];
@@ -197,14 +210,13 @@ function updatePlot(){
 	};
 	
 	var layout = {
+	autosize: true,
 	title: {
 		text:'',
 			font: {
 				family: 'Courier New, monospace',
 				size: 24
 			},
-		xref: 'paper',
-		x: 0.05,
 	},
 	xaxis: {
 		title: {
@@ -229,14 +241,17 @@ function updatePlot(){
 	};
 
 	var data = [trace1];
-	Plotly.newPlot(plot, data, layout, {scrollZoom: true});
+	//Plotly.newPlot(plot, data, layout, {scrollZoom: true});
+	$('#exampleModal').on('shown.bs.modal', function (e) {
+		Plotly.newPlot(plotdiv, data, layout, {scrollZoom: true});
+	})
 }
 
 
 
 function Distance(alpha) {
 
-	alpha = alpha * 3.14159/180.;
+	alpha = alpha * Math.PI/180.;
 	
 	var r = [0, 0, myarrow.speed*Math.cos(alpha), myarrow.speed*Math.sin(alpha)];
 	
@@ -293,15 +308,15 @@ function run() {
 	var pod = 3.0*document.getElementById('pod').value;
 	
 	var ang = FindLaunchAngle(pod) ;
-    console.log("pod = %f ft, launch angle = %f degrees",pod, ang);
-	ang = ang * 3.14159/180.;
+    console.log("pod = %f ft, launch angle = %f degrees, %f moa",pod, ang, ang*60.);
+	ang = ang * Math.PI/180.;
 
 	//x, z, vx, vz
 	var r = [0, 0, myarrow.speed*Math.cos(ang), myarrow.speed*Math.sin(ang)];
 
 	var drdt = [];
 	var t = 0.;
-	var dt = .01;
+	var dt = .0001;
 	
 	deriv(t, r, drdt);
 	pushData(t, r, drdt);
@@ -311,7 +326,6 @@ function run() {
 		[t,dt] = RK4(r, deriv, t, dt);
 		deriv(t, r, drdt);
 		pushData(t, r, drdt);
-		
 	}
 
 	
@@ -550,8 +564,10 @@ by J. W. Rheingans</a>.
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <div id="myplot" style=""></div>
+      <div class="modal-body"">
+        <div id="myplot" style="width: 100%;">
+		<!-- Plotly chart will be drawn inside this DIV -->
+		</div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
