@@ -110,7 +110,7 @@ function SaveArrow(arrow) {
 		arrow.fletchSurface = "plastic";
 	}
 	
-	console.log('Fletch Area: %f', FletchArea);
+	//console.log('Fletch Area: %f', FletchArea);
 	
 	var B=0;
 	
@@ -133,10 +133,9 @@ function SaveArrow(arrow) {
 	arrow.CD += 0.000000035*arrow.diameter*arrow.length;
 	arrow.CD += 0.000000077*FletchArea;
 	//console.log('CD: %f',arrow.CD);
-	console.log('Point CD:  %f',8*(0.0000013*B*144)/(Math.PI)/(0.002377) );
-	console.log('Reynolds:  %f',(arrow.diameter/12)*arrow.speed/(0.0001572) );
-	console.log('Mach No:  %f',arrow.speed/(1116.5) );
-	console.log('Arrow CD:  %f',8*(arrow.CD)/(Math.PI)/(0.002377)/Math.pow(arrow.diameter/12,2.0) );
+	//console.log('Point CD:  %f',8*(0.0000013*B*144)/(Math.PI)/(0.002377) );
+	//console.log('Mach No:  %f',arrow.speed/(1116.5) );
+
 }
 
 var dataPoints = {
@@ -344,6 +343,7 @@ function run() {
 	//populate table
 	var table = document.getElementById("tabResult");
 	document.getElementById('tabResult').innerHTML = '';
+	document.getElementById('tabFooter').innerHTML = '';
 
 
 	distances = [0, 30, 60, 65.6168, 90, 98.4252, 120, 150, 164.042, 180, 210, 229.659, 240, 270, 300];
@@ -360,7 +360,7 @@ function run() {
 		
 		var cell1 = row.insertCell(-1);
 		if (i==3 || i== 5 || i==8 || i==11) {
-		row.className = "table-info";
+		row.className = "table-secondary";
 		cell1.innerHTML = Math.round(distances[i]/3.281) + "&nbsp;m";
 		} else {
 		cell1.innerHTML = distances[i]/3 + "&nbsp;yd";
@@ -407,6 +407,19 @@ function run() {
 		cell5.innerHTML = (mass*vmag).toFixed(2);
 	}
 	
+		
+	var footer = document.getElementById("tabFooter");
+	var rowfoot = footer.insertRow(0);
+	rowfoot.className  = "table-info"
+	var cellfoot = rowfoot.insertCell(0);
+	cellfoot.colSpan = "5";
+
+	cellfoot.innerHTML = "launch angle: " + (ang*180/Math.PI).toFixed(3) + "° = " + (60.0*ang*180/Math.PI).toFixed(2) + "&#8242;<BR>";
+	
+	cellfoot.innerHTML += "Drag Coefficient: " + (8*(myarrow.CD)/(Math.PI)/(0.002377)/Math.pow(myarrow.diameter/12,2.0)).toFixed(3) + "<BR>";
+
+	cellfoot.innerHTML += "Reynolds No.: " + Math.round((myarrow.diameter/12.)*myarrow.speed/(0.0001572));
+		
 	updatePlot();
 }
 
@@ -526,7 +539,7 @@ function run() {
   Plot trajectory
 </button>
 </div>
-<table class="table .table-sm" >
+<table class="table .table-sm">
   <thead>
     <tr>
       <th scope="col">Distance</th>
@@ -538,6 +551,7 @@ function run() {
   </thead>
   <tbody id="tabResult">
    </tbody>
+   <tfoot id="tabFooter"> </tfoot>
   </table>
   
 
