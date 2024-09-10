@@ -1,0 +1,318 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <title>Projectile Motion Calculator</title>
+      <meta name="description" content="Projectile Motion Calculator">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta charset="utf-8">
+      <meta name="author" content="Kevin Dusling" />
+      <meta NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+	  
+
+	  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  
+    <script type="text/javascript" src="ODEint.js"></script>
+	<script src="https://cdn.plot.ly/plotly-2.34.0.min.js" charset="utf-8"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ 
+</head>
+
+<script>
+
+var projectile = {
+		mass: 100.,
+		CD: 1.0
+}
+
+
+window.onload = function() {
+
+   // your page initialization code here
+   // the DOM will be available here
+}
+
+
+var dataPoints = {
+		t: [],
+		x: [],
+		z: [],
+		vx: [],
+		vz: [],
+		ax: [],
+		az: []
+}
+
+function pushData(t, r, drdt) {
+	dataPoints.t.push(t);
+	dataPoints.x.push(r[0]);
+	dataPoints.z.push(r[1]);
+	dataPoints.vx.push(r[2]);
+	dataPoints.vz.push(r[3]);
+	
+	var drdt = [];
+	deriv(t, r, drdt)
+	dataPoints.ax.push(drdt[2]);
+	dataPoints.az.push(drdt[3]);
+}
+
+function clearData() {
+	dataPoints.t = [];
+	dataPoints.x = [];
+	dataPoints.z = [];
+	dataPoints.vx = [];
+	dataPoints.vz = [];
+	dataPoints.ax = [];
+	dataPoints.az = [];
+}
+
+function deriv(t, r, drdt){ 
+	
+	var g = 9.81;
+	
+	// dxdt = vx;
+	drdt[0] = r[2];
+	// dzdt = vz;
+	drdt[1] = r[3];
+	
+	var vmag = Math.pow(r[2]*r[2]+r[3]*r[3],0.5);
+	
+	drdt[2] = -projectile.CD/projectile.mass*vmag*r[2];
+	drdt[3] = -projectile.CD/projectile.mass*vmag*r[3] - g;
+	
+	return;
+}
+
+function updatePlot(tfinal){
+
+	const plotdiv = document.getElementById('myplot');
+  
+	var xdata = [];
+	var ydata = [];
+	
+	var pts = 100;
+	var dt = tfinal/pts;
+	
+	for (var i = 0; i <= pts; i++) {
+		var t = dt*i;
+		var x = cubicHermiteInterp(t, dataPoints.t, dataPoints.x, dataPoints.vx);
+		var z = cubicHermiteInterp(t, dataPoints.t, dataPoints.z, dataPoints.vz);
+		xdata.push(x);
+		ydata.push(z);
+	}
+
+	var trace1 = {
+		x: xdata,
+		y: ydata,
+		mode: 'markers+lines',
+		type: 'scatter'
+	};
+	
+	var layout = {
+	autosize: true,
+	title: {
+		text:'',
+			font: {
+				family: 'Courier New, monospace',
+				size: 24
+			},
+	},
+	xaxis: {
+		title: {
+			text: 'yards',
+			font: {
+				family: '',
+				size: 18,
+				color: '#7f7f7f'
+			}
+		},
+	},
+	yaxis: {
+		title: {
+			text: 'inches',
+			font: {
+				family: '',
+				size: 18,
+				color: '#7f7f7f'
+			}
+		}
+	}
+	};
+
+	var data = [trace1];
+	Plotly.react(myplot, data, layout, {scrollZoom: true});
+
+}
+
+
+
+	
+function run() {
+	
+	clearData();
+	console.log( document.getElementById('massunit').value );
+	
+	projectile.mass = document.getElementById("mass").value;
+	projectile.CD = document.getElementById("CD").value;
+	var speed = document.getElementById("speed").value;
+	var ang = document.getElementById("angle").value;
+	
+	//x, z, vx, vz
+	var r = [0, 0, speed*Math.cos(ang*Math.PI/180.), speed*Math.sin(ang*Math.PI/180.)];
+
+	var drdt = [];
+	var t = 0.;
+	var dt = .001;
+	var tfinal = 10;
+	
+	deriv(t, r, drdt);
+	pushData(t, r, drdt);
+	
+	//terminate calculation when vertical distances is below horizontal
+	while ( r[1] >= 0 ){
+		
+		[t,dt] = RKF45(r, deriv, t, dt);
+		deriv(t, r, drdt);
+		pushData(t, r, drdt);
+	}
+	
+	var N = dataPoints.t.length;
+	
+	t0 = dataPoints.t[N-2];
+	x0 = dataPoints.x[N-2];
+	z0 = dataPoints.z[N-2];
+	vx0 = dataPoints.vx[N-2];
+	vz0 = dataPoints.vz[N-2];
+	az0 = dataPoints.az[N-2];
+			
+	t1 = dataPoints.t[N-1];
+	x1 = dataPoints.x[N-1];
+	z1 = dataPoints.z[N-1];
+	vx1 = dataPoints.vx[N-1];
+	vz1 = dataPoints.vz[N-1];
+	az1 = dataPoints.az[N-1];	
+	
+	//calculate x distance
+	function f(x) {
+		return HermitePolynomial(x, t0, t1, z0, z1, vz0, vz1);
+	}
+	var mytfx = bisection(f, t0, t1);
+
+	var myx = HermitePolynomial(mytfx, t0, t1, x0, x1, vx0, vx1) ;
+	
+	console.log("t=%f; x=%f\n;",mytfx,myx);
+	
+	//calculate maximum elevation
+	function f2(x) {
+		return cubicHermiteInterp(x, dataPoints.t, dataPoints.vz, dataPoints.az);
+	}
+	var mytfz = bisection(f2, 0, t1);
+	var myxfz = cubicHermiteInterp(mytfz, dataPoints.t, dataPoints.x, dataPoints.vx) ;
+	var myzfz = cubicHermiteInterp(mytfz, dataPoints.t, dataPoints.z, dataPoints.vz) ;
+	
+	
+	console.log("t=%f; x=%f\n; z=%f\n",mytfz, myxfz, myzfz);
+
+	updatePlot(mytfx);
+}
+
+</script>
+
+<body class="bg-light">
+<div class="container"><div class="py-5 text-center">
+
+<h2>Projectile Motion Calculator</h2>
+
+	  <div class="input-group mb-3">
+			<div class="input-group-prepend">
+			<span class="input-group-text">Mass</span>
+			</div>
+			
+			<input type="text" class="form-control" id="mass" aria-label="mass" value="5">
+			
+			<div class="input-group-append">
+				<select class="form-control input-group-addon" id="massunit">
+				<option selected>kg</option>
+				<option >lb</option>
+				</select>
+			</div>
+		</div>
+	  
+	  <div class="input-group mb-3">
+			<div class="input-group-prepend">
+			<span class="input-group-text">Speed</span>
+			</div>
+			
+			<input type="text" class="form-control" id="speed" aria-label="speed" value="25">
+			
+			<div class="input-group-append">
+				<select class="form-control input-group-addon" id="speedunit">
+				<option selected>m/s</option>
+				<option >ft/s</option>
+				<option >kph</option>
+				<option >mph</option>
+				</select>
+			</div>
+		</div>
+	  
+	  <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text">Launch angle</span>
+      </div>
+      <input type="text" class="form-control" id="angle" aria-label="Launch angle" value="45">
+      <div class="input-group-append">
+      <span class="input-group-text">degrees</span>
+      </div>
+      </div>
+	  
+	  <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text">Drag Coefficient</span>
+      </div>
+      <input type="text" class="form-control" id="CD" aria-label="Drag Coefficient" value="0.75">
+      </div>
+	  
+	  <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text">Drag Function</span>
+      </div>
+				<select class="form-control input-group-addon" id="dragfunction">
+				<option selected>quadratic</option>
+				</select>
+      </div>
+	  
+	  
+
+	<button class="btn btn-primary" onclick="run();">Calculate</button>
+</button>
+</div>
+
+
+
+   <div>
+        <div id="myplot">
+		<!-- Plotly chart will be drawn inside this DIV -->
+		</div>
+
+</div>
+
+</body>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TSB5RJ1T0J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TSB5RJ1T0J');
+</script>
+
+
+
+
+</html>
+ 
