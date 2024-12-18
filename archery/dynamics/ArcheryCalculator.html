@@ -19,6 +19,8 @@
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
  
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7080617284731198"
+     crossorigin="anonymous"></script>
 </head>
 
 <script>
@@ -132,9 +134,9 @@ function SaveArrow(arrow) {
 	arrow.CD = 0.0000013*B*Math.pow(arrow.diameter,2.0);
 	arrow.CD += 0.000000035*arrow.diameter*arrow.length;
 	arrow.CD += 0.000000077*FletchArea;
-	//console.log('CD: %f',arrow.CD);
-	//console.log('Point CD:  %f',8*(0.0000013*B*144)/(Math.PI)/(0.002377) );
-	//console.log('Mach No:  %f',arrow.speed/(1116.5) );
+	console.log('CD: %f',arrow.CD);
+	console.log('Point CD:  %f',8*(0.0000013*B*144)/(Math.PI)/(0.002377) );
+	console.log('Mach No:  %f',arrow.speed/(1116.5) );
 
 }
 
@@ -346,7 +348,7 @@ function run() {
 	document.getElementById('tabFooter').innerHTML = '';
 
 
-	distances = [0, 30, 60, 65.6168, 90, 98.4252, 120, 150, 164.042, 180, 210, 229.659, 240, 270, 300];
+	distances = [0, 15, 16.4042, 30, 32.8084, 45, 49.2126, 60, 65.6168, 75, 82.021, 90, 98.4252, 105, 114.829, 120,131.234, 150, 164.042, 180, 210, 229.659, 240, 270, 300];
 	
 	distances = distances.filter(function(x) {return x <= maxdistance; });
 	
@@ -359,7 +361,8 @@ function run() {
 		var row = table.insertRow(-1);
 		
 		var cell1 = row.insertCell(-1);
-		if (i==3 || i== 5 || i==8 || i==11) {
+		//if (i==1 || i==2 || i==8 || i==11) {
+		if (distances[i] % 1 != 0) {
 		row.className = "table-secondary";
 		cell1.innerHTML = Math.round(distances[i]/3.281) + "&nbsp;m";
 		} else {
@@ -392,19 +395,22 @@ function run() {
 		var myz = cubicHermiteInterp(myt, dataPoints.t, dataPoints.z, dataPoints.vz);
 		cell2.innerHTML = (12.0*myz).toFixed(2);
 		
+		var cell2 = row.insertCell(-1);
+		cell2.innerHTML = (30.48*myz).toFixed(2);
+		
 		var vx = cubicHermiteInterp(myt, dataPoints.t, dataPoints.vx, dataPoints.ax);
 		var vy = cubicHermiteInterp(myt, dataPoints.t, dataPoints.vz, dataPoints.az);
 		var vmag = Math.sqrt(vx*vx + vy*vy);
-		var cell3 = row.insertCell(-1);
-		cell3.innerHTML = vmag.toFixed(2);
+		var cell4 = row.insertCell(-1);
+		cell4.innerHTML = vmag.toFixed(2);
 		
 		var mass = myarrow.weight/7000./32.174;
 		
-		var cell4 = row.insertCell(-1);
-		cell4.innerHTML = (0.5*mass*vmag*vmag).toFixed(2);
-		
 		var cell5 = row.insertCell(-1);
-		cell5.innerHTML = (mass*vmag).toFixed(2);
+		cell5.innerHTML = (0.5*mass*vmag*vmag).toFixed(2);
+		
+		var cell6 = row.insertCell(-1);
+		cell6.innerHTML = (mass*vmag).toFixed(2);
 	}
 	
 		
@@ -412,14 +418,17 @@ function run() {
 	var rowfoot = footer.insertRow(0);
 	rowfoot.className  = "table-info"
 	var cellfoot = rowfoot.insertCell(0);
-	cellfoot.colSpan = "5";
+	cellfoot.colSpan = "6";
 
 	cellfoot.innerHTML = "launch angle: " + (ang*180/Math.PI).toFixed(3) + "° = " + (60.0*ang*180/Math.PI).toFixed(2) + "&#8242;<BR>";
 	
-	cellfoot.innerHTML += "Drag Coefficient: " + (8*(myarrow.CD)/(Math.PI)/(0.002377)/Math.pow(myarrow.diameter/12,2.0)).toFixed(3) + "<BR>";
+	var CD = (8*(myarrow.CD)/(Math.PI)/(0.002377)/Math.pow(myarrow.diameter/12,2.0));
+	
+	cellfoot.innerHTML += "Drag Coefficient: " + CD.toFixed(3) + "<BR>";
 
 	cellfoot.innerHTML += "Reynolds No.: " + Math.round((myarrow.diameter/12.)*myarrow.speed/(0.0001572));
-		
+
+
 	updatePlot();
 }
 
@@ -429,6 +438,8 @@ function run() {
 <div class="container"><div class="py-5 text-center">
 
 <h2>Archery Ballistics Calculator</h2>
+
+
 
 	  <div class="input-group mb-3">
       <div class="input-group-prepend">
@@ -539,14 +550,15 @@ function run() {
   Plot trajectory
 </button>
 </div>
-<table class="table .table-sm">
+<table class="table .table-sm"  style="text-align: center;">
   <thead>
     <tr>
       <th scope="col">Distance</th>
-      <th scope="col">Vertical Drop (inch)</th>
-      <th scope="col">Speed (fps)</th>
-      <th scope="col">Energy (ft&#183;lb)</th>
-	  <th scope="col">Momentum (lb&#183;s)</th>
+      <th scope="col">Vertical Drop<BR>(inch)</th>
+	  <th scope="col">Vertical Drop<BR>(cm)</th>
+      <th scope="col">Speed<BR>(fps)</th>
+      <th scope="col">Energy<BR>(ft&#183;lb)</th>
+	  <th scope="col">Momentum<BR>(lb&#183;s)</th>
     </tr>
   </thead>
   <tbody id="tabResult">
@@ -571,6 +583,7 @@ by J. W. Rheingans</a>.
 	
   </div>
 </div>
+<BR><HR><BR>
 
 </div>
 

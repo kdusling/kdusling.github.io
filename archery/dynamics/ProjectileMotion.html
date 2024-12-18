@@ -31,8 +31,51 @@ var projectile = {
 
 window.onload = function() {
 
+	window.location.replace("https://kdusling.github.io/archery/dynamics/ArcheryCalculator.html") 
+
    // your page initialization code here
    // the DOM will be available here
+   const params = new URLSearchParams(window.location.search);
+   
+   if ( params.has('mass') )
+   {
+    document.getElementById("mass").value =  params.get('mass');
+   }
+   
+   if ( params.has('massunit') )
+   {
+    document.getElementById("massunit").value =  params.get('massunit');
+   }
+   
+   if ( params.has('speed') )
+   {
+    document.getElementById("speed").value =  params.get('speed');
+   }
+   
+   if ( params.has('speedunit') )
+   {
+    document.getElementById("speedunit").value =  params.get('speedunit');
+   }
+   
+   if ( params.has('angle') )
+   {
+    document.getElementById("angle").value =  params.get('angle');
+   }
+   
+   if ( params.has('CD') )
+   {
+    document.getElementById("CD").value =  params.get('CD');
+   }
+
+   if ( params.has('run') )
+   {
+    if ( params.get('run') == "True")
+	{
+	run();
+	}
+   }
+
+  
 }
 
 
@@ -71,7 +114,7 @@ function clearData() {
 
 function deriv(t, r, drdt){ 
 	
-	var g = 9.81;
+	var g = 32.17405;
 	
 	// dxdt = vx;
 	drdt[0] = r[2];
@@ -93,13 +136,13 @@ function updatePlot(tfinal){
 	var xdata = [];
 	var ydata = [];
 	
-	var pts = 100;
+	var pts = 1000;
 	var dt = tfinal/pts;
 	
 	for (var i = 0; i <= pts; i++) {
 		var t = dt*i;
-		var x = cubicHermiteInterp(t, dataPoints.t, dataPoints.x, dataPoints.vx);
-		var z = cubicHermiteInterp(t, dataPoints.t, dataPoints.z, dataPoints.vz);
+		var x = 1/3*cubicHermiteInterp(t, dataPoints.t, dataPoints.x, dataPoints.vx);
+		var z = 12*cubicHermiteInterp(t, dataPoints.t, dataPoints.z, dataPoints.vz);
 		xdata.push(x);
 		ydata.push(z);
 	}
@@ -155,18 +198,19 @@ function run() {
 	clearData();
 	console.log( document.getElementById('massunit').value );
 	
-	projectile.mass = document.getElementById("mass").value;
+	projectile.mass = (document.getElementById("mass").value)/32.17405;
 	projectile.CD = document.getElementById("CD").value;
 	var speed = document.getElementById("speed").value;
 	var ang = document.getElementById("angle").value;
+	console.log(projectile.mass);
+	console.log(projectile.CD);
+	console.log(speed);
 	
 	//x, z, vx, vz
-	var r = [0, 0, speed*Math.cos(ang*Math.PI/180.), speed*Math.sin(ang*Math.PI/180.)];
-
+	var r = [0, 1, speed*Math.cos(ang*Math.PI/180.), speed*Math.sin(ang*Math.PI/180.)];
 	var drdt = [];
 	var t = 0.;
-	var dt = .001;
-	var tfinal = 10;
+	var dt = .00001;
 	
 	deriv(t, r, drdt);
 	pushData(t, r, drdt);
@@ -174,7 +218,7 @@ function run() {
 	//terminate calculation when vertical distances is below horizontal
 	while ( r[1] >= 0 ){
 		
-		[t,dt] = RKF45(r, deriv, t, dt);
+		[t,dt] = RK4(r, deriv, t, dt);
 		deriv(t, r, drdt);
 		pushData(t, r, drdt);
 	}
@@ -193,7 +237,7 @@ function run() {
 	z1 = dataPoints.z[N-1];
 	vx1 = dataPoints.vx[N-1];
 	vz1 = dataPoints.vz[N-1];
-	az1 = dataPoints.az[N-1];	
+	az1 = dataPoints.az[N-1];
 	
 	//calculate x distance
 	function f(x) {
@@ -203,7 +247,7 @@ function run() {
 
 	var myx = HermitePolynomial(mytfx, t0, t1, x0, x1, vx0, vx1) ;
 	
-	console.log("t=%f; x=%f\n;",mytfx,myx);
+	console.log("t_final=%f; x_max=%f\n;",mytfx,myx);
 	
 	//calculate maximum elevation
 	function f2(x) {
@@ -270,9 +314,15 @@ function run() {
 	  
 	  <div class="input-group mb-3">
       <div class="input-group-prepend">
-      <span class="input-group-text">Drag Coefficient</span>
+      <span class="input-group-text">Drag Area (C<sub>d</sub>A)</span>
       </div>
-      <input type="text" class="form-control" id="CD" aria-label="Drag Coefficient" value="0.75">
+      <input type="text" class="form-control" id="CD" aria-label="Drag Area" value="0.75">
+	  <div class="input-group-append">
+      		    <select class="form-control input-group-addon" id="CdAUnit">
+				<option selected>ft²</option>
+				<option >m²</option>
+				</select>
+      </div>
       </div>
 	  
 	  <div class="input-group mb-3">
