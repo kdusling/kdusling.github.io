@@ -112,8 +112,12 @@ def update(myt):
     return toppoint, pospoint, velpoint,accpoint, posline, velline,accline
 
 
-ani = animation.FuncAnimation(fig, func=update, blit=True, interval=1000./30., frames=np.linspace(-1,t[-1]+1,300,endpoint=True))
-ani.save(filename="11_007.gif", writer="pillow", fps=30)
+ani = animation.FuncAnimation(fig, func=update, blit=True, interval=1000./30., frames=np.linspace(0,t[-1],300,endpoint=True))
+Writer = animation.writers['ffmpeg']
+writer = Writer(fps=30, metadata=dict(artist='Kevin Dusling'), bitrate=1800)
+
+# 6. Save the animation
+ani.save('11_007.mp4', writer=writer)
 
 
 plt.show()
