@@ -112,18 +112,25 @@ google.charts.setOnLoadCallback(makePlot);
 
 function Speed(pow)
 {
- var a = 1;
- var b = 2;
+ var a = 0;
+ var b = 100;
  var err = 1.e-10;
 
- var c;
-
  do {
-        c=(a*(Power(b)-pow)-b*(Power(a)-pow))/(Power(b)-Power(a));
-        a=b;
-        b=c;
+        c=(a+b)/2;
+        fc = Power(c)[0]-pow;
+		
+        if (fc === 0) {
+            return c; // Found exact root
+        } else if ( (Power(a)[0]-pow) * fc < 0) {
+            b = c; // Root is in the left half
+        } else {
+            a = c; // Root is in the right half
+        }
 
-    } while( Math.abs(Power(c)-pow)>err );
+    } while( Math.abs(Power(c)[0]-pow)>err );
+
+
 
 return c;
 } //function Speed
@@ -140,11 +147,10 @@ function Power(sp) {
   var rho = parseFloat(document.getElementById("density").value);
 
 if (units === "metric"){
-  var g = 9.81;
+  var g = 9.8067;
   var Pincline = Wt*g*Math.sin(angle)*(sp/3.6);
   var Prr = Crr*Wt*g*Math.cos(angle)*(sp/3.6);
   var Pwind = Math.sign(sp+wind)*0.5*rho*CdA*Math.pow((sp+wind)/3.6,2.)*(sp/3.6);
-  return (Pincline + Prr + Pwind)/eta;
   }
 
 if (units === "imperial"){
@@ -152,14 +158,16 @@ if (units === "imperial"){
   var Pincline = Wt*Math.sin(angle)*(sp*1.467)*745.7/550.;
   var Prr = Crr*Wt*Math.cos(angle)*(sp*1.467)*745.7/550.;
   var Pwind = Math.sign(sp+wind)*0.5*rho/g*CdA*Math.pow((sp+wind)*1.467,2.)*(sp*1.467)*745.7/550.;
-  return (Pincline + Prr + Pwind)/eta;
   }
+  
+  if ( (Pincline + Prr + Pwind) < 0 ) {
+	return [(Pincline + Prr + Pwind),Pincline,Prr,Pwind];
+  } else {
+	return [(Pincline + Prr + Pwind)/eta,Pincline,Prr,Pwind];
+  }
+  
 } // function Power
 
-function Compute() {
-  //document.getElementById("Power").value = Power(document.getElementById("speed").value).toFixed(2)  ;
-  document.getElementById("speed").value = Speed(parseFloat(document.getElementById("Power").value));
-}
 
 function PWR(pow) {
   var Wt = parseFloat(document.getElementById("rider_weight").value);
@@ -196,62 +204,35 @@ function makePlot() {
      data.addColumn('number', 'Incline \n + Rolling');
      data.addColumn('number', 'Incline \n + Rolling \n + Drag');
 
-     var pts = 201;
+     var pts = 1001;
 
      data.addRows(pts);
 
-     var CdA = document.getElementById("CdA").value;
-     var Crr = document.getElementById("Crr").value;
-     var eta = document.getElementById("eta").value/100.0;
-     var Wt = parseFloat(document.getElementById("bike_weight").value) + parseFloat(document.getElementById("rider_weight").value);
-     var angle = Math.atan(parseFloat(document.getElementById("grade").value)/100.);
-     var wind = parseFloat(document.getElementById("wind").value);
-     var rho = parseFloat(document.getElementById("density").value);
-     var pmax = 400;
+     var pmax = 2000;
+	 
 
- if (units === "metric"){
-     var g = 9.81;
+	if (units === "metric"){
      var xaxis_label = "km/hr";
+ 	}
 
-     for(var i = 0; i < pts ; i++) {
-       var sp = i*0.25;
-       var Pincline = Wt*g*Math.sin(angle)*(sp/3.6);
-       var Prr = Crr*Wt*g*Math.cos(angle)*(sp/3.6);
-       var Pwind = Math.sign(sp+wind)*0.5*rho*CdA*Math.pow((sp+wind)/3.6,2.)*(sp/3.6);
-
-       var y1 = Pincline/eta;
-       var y2 = y1 + Prr/eta;
-       var y3 = y2 + Pwind/eta;
-       if ( y3 > pmax) {break;}
-       data.setCell(i, 0, sp, sp + " kph");
-       data.setCell(i, 1, y1, Math.round(y1) + ' Watts');
-       data.setCell(i, 2, y2, Math.round(y2) + ' Watts');
-       data.setCell(i, 3, y3, Math.round(y3) + ' Watts');
-
-     }
-   }
-
-  if (units === "imperial"){
-    var g = 32.17;
-    var xaxis_label = "mph";
+    if (units === "imperial"){
+      var xaxis_label = "mph";
+	} 
 
 
     for(var i = 0; i < pts ; i++) {
       var sp = i*0.25;
-      var Pincline = Wt*Math.sin(angle)*(sp*1.467)*745.7/550.;
-      var Prr = Crr*Wt*Math.cos(angle)*(sp*1.467)*745.7/550.;
-      var Pwind = Math.sign(sp+wind)*0.5*rho/g*CdA*Math.pow((sp+wind)*1.467,2.)*(sp*1.467)*745.7/550.;
-
-      var y1 = Pincline/eta;
-      var y2 = y1 + Prr/eta;
-      var y3 = y2 + Pwind/eta;
+	  var [Ptot, Pinc, Prr, Pwind] = Power(sp);
+      
+      var y1 = Pinc;
+      var y2 = y1 + Prr;
+      var y3 = y2 + Pwind;
       if ( y3 > pmax) {break;}
-      data.setCell(i, 0, sp, sp + " mph");
+      data.setCell(i, 0, sp, sp + " " + xaxis_label);
       data.setCell(i, 1, y1, Math.round(y1) + ' Watts');
       data.setCell(i, 2, y2, Math.round(y2) + ' Watts');
       data.setCell(i, 3, y3, Math.round(y3) + ' Watts');
     }
-  }
 
 
      var plotOptions = {
@@ -266,7 +247,7 @@ function makePlot() {
        vAxis: {
          title: 'Power (Watts)',
          scaleType: 'linear',
-         ticks: [100,200,300,400]
+         ticks: [-2000,-1500,-1000,-500,500,1000,1500,2000]
        },
        legend: {
          position : 'right'
@@ -481,6 +462,20 @@ function getPosErr(err) {
     }
 }
 
+function UpdatePowFromSpeed() {
+	var mypow = Power(document.getElementById('speed').value)[0]; 
+	document.getElementById('Power').value = mypow.toFixed(1); 
+	document.getElementById('PWR').value = PWR(mypow).toFixed(2); 
+	document.getElementById('kcal').value = cal(mypow).toFixed(0);
+}
+
+function UpdateSpeedFromPower() {
+	var mypow = document.getElementById('Power').value; 
+	document.getElementById('speed').value = (Speed(mypow)[0]).toFixed(1); 
+	document.getElementById('PWR').value = PWR(mypow).toFixed(2); 
+	document.getElementById('kcal').value = cal(mypow).toFixed(0);
+}
+
 </script>
 
 
@@ -664,17 +659,17 @@ function getPosErr(err) {
 
         <label for="speed">Speed</label>
         <div class="input-group mb-3">
-        <input type="text" class="form-control" id="speed" aria-label="speed" value="0" onchange="var mypow = Power(this.value); document.getElementById('Power').value = mypow.toFixed(1); document.getElementById('PWR').value = PWR(mypow).toFixed(2); document.getElementById('kcal').value = cal(mypow).toFixed(0);" >
+        <input type="text" class="form-control" id="speed" aria-label="speed" value="0" onchange="UpdatePowFromSpeed();" >
         <div class="input-group-prepend">
         <span class="input-group-text" id="speed_unit">mph</span>
         </div>
 
         <span class="input-group-addon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <div class="btn-group-vertical py-0" role="group" aria-label="...">
-            <button type="button" class="btn btn-primary btn-sm py-0 my-0" style="font-size: 0.5em;" onclick="var mypow = Power(document.getElementById('speed').value); document.getElementById('Power').value = mypow.toFixed(1); document.getElementById('PWR').value = PWR(mypow).toFixed(2); document.getElementById('kcal').value = cal(mypow).toFixed(0);">
+            <button type="button" class="btn btn-primary btn-sm py-0 my-0" style="font-size: 0.5em;" onclick="UpdatePowFromSpeed();">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 3 16 10"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/></svg>
             </button>
-            <button type="button" class="btn btn-primary btn-sm py-0 my-0" style="font-size: 0.5em;" onclick="var mypow = document.getElementById('Power').value; document.getElementById('speed').value = Speed(mypow).toFixed(1); document.getElementById('PWR').value = PWR(mypow).toFixed(2); document.getElementById('kcal').value = cal(mypow).toFixed(0);">
+            <button type="button" class="btn btn-primary btn-sm py-0 my-0" style="font-size: 0.5em;" onclick="UpdateSpeedFromPower();">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 5 16 10"><path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/></svg>
           </button>
           </div>
