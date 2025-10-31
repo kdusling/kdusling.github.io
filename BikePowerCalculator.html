@@ -116,13 +116,22 @@ google.charts.setOnLoadCallback(makePlot);
 
 function Speed(pow)
 {
+ var maxv = 250;
+ 
  var a = 0;
- var b = 100;
+ var b = maxv;
  var err = 1.e-10;
+ var maxitr = 100;
+ var itr=0;
+ document.getElementById("speedout").className = "form-control";
+ 
 
  do {
+		itr++;
         c=(a+b)/2;
         fc = Power(c)[0]-pow;
+		
+		console.log(a,b,Power(c)[0]);
 		
         if (fc === 0) {
             return c; // Found exact root
@@ -131,8 +140,13 @@ function Speed(pow)
         } else {
             a = c; // Root is in the right half
         }
+		
+		if ( maxv-c < err) {
+			document.getElementById("speedout").className = "form-control is-invalid";
+			return c;
+		}
 
-    } while( Math.abs(Power(c)[0]-pow)>err );
+    } while( Math.abs(Power(c)[0]-pow)>err && itr<maxitr );
 
 
 
@@ -694,9 +708,13 @@ function UpdateSpeedFromPower() {
         <label for="speedout">Speed</label>
         <div class="input-group mb-3">
         <input type="text" class="form-control output" id="speedout" aria-label="speedout">
+		
         <div class="input-group-prepend">
         <span class="input-group-text" id="speed_unit_out">mph</span>
         </div>
+		<div class="invalid-feedback">
+		Error: Maximum speed obtained. Please check input values.  
+      </div>
         </div>
       </div>
 	  </div> <!-- ends the previous row-->
