@@ -28,6 +28,8 @@
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7080617284731198"
      crossorigin="anonymous"></script>
+	 
+	 <link rel="stylesheet" href="styles/BikePowerStyle.css">
 
 </head>
 
@@ -88,6 +90,8 @@ window.onload = function() {
   {
     document.getElementById("density").value =  params.get('density');
   }
+  
+  UpdateAll();
 
 }; //end window.onload
 
@@ -170,6 +174,7 @@ if (units === "imperial"){
 
 
 function PWR(pow) {
+  
   var Wt = parseFloat(document.getElementById("rider_weight").value);
 
   if (units === "metric"){
@@ -287,6 +292,9 @@ function ChangeUnits(myRadio){
 
      document.getElementById("speed_unit").textContent="kph";
      document.getElementById("speed").value = ((document.getElementById("speed").value)*1.609).toFixed(0);
+	 
+	 document.getElementById("speed_unit_out").textContent="kph";
+     document.getElementById("speedout").value = ((document.getElementById("speedout").value)*1.609).toFixed(0);
 
      document.getElementById("density_unit").textContent="kg/m$^3$ ";
      MathJax.Hub.Queue(["Typeset",MathJax.Hub,"density_unit"]);
@@ -311,6 +319,9 @@ function ChangeUnits(myRadio){
 
      document.getElementById("speed_unit").textContent="mph";
      document.getElementById("speed").value = ((document.getElementById("speed").value)/1.609).toFixed(0);
+	 
+	 document.getElementById("speed_unit_out").textContent="mph";
+     document.getElementById("speedout").value = ((document.getElementById("speedout").value)/1.609).toFixed(0);
 
      document.getElementById("density_unit").textContent="lb/ft$^3$ ";
      MathJax.Hub.Queue(["Typeset",MathJax.Hub,"density_unit"]);
@@ -462,18 +473,23 @@ function getPosErr(err) {
     }
 }
 
+function UpdateAll() {
+	UpdatePowFromSpeed();
+	UpdateSpeedFromPower();
+	
+}
+
 function UpdatePowFromSpeed() {
 	var mypow = Power(document.getElementById('speed').value)[0]; 
-	document.getElementById('Power').value = mypow.toFixed(1); 
+	document.getElementById('powerout').value = mypow.toFixed(1); 
 	document.getElementById('PWR').value = PWR(mypow).toFixed(2); 
 	document.getElementById('kcal').value = cal(mypow).toFixed(0);
 }
 
 function UpdateSpeedFromPower() {
-	var mypow = document.getElementById('Power').value; 
-	document.getElementById('speed').value = (Speed(mypow)[0]).toFixed(1); 
-	document.getElementById('PWR').value = PWR(mypow).toFixed(2); 
-	document.getElementById('kcal').value = cal(mypow).toFixed(0);
+
+	var mypow = document.getElementById('power').value; 
+	document.getElementById('speedout').value = (Speed(mypow)).toFixed(1); 
 }
 
 </script>
@@ -489,17 +505,17 @@ function UpdateSpeedFromPower() {
           <legend class="col-form-label col-sm-2 pt-0">Units</legend>
           <div class="col-sm-4">
           <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="units" id="imperial" onchange="ChangeUnits(this);" value="imperial" checked>
+          <input class="form-check-input" type="radio" name="units" id="imperial" onchange="ChangeUnits(this);UpdateAll();" value="imperial" checked>
           <label class="form-check-label" for="imperial">imperial</label>
           </div>
           <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="units" id="metric" onchange="ChangeUnits(this);" value="metric">
+          <input class="form-check-input" type="radio" name="units" id="metric" onchange="ChangeUnits(this);UpdateAll();" value="metric">
           <label class="form-check-label" for="metric">metric</label>
           </div>
           </div>
 
           <div class='col-xs-6 mx.auto m-2'>
-          <button class="btn btn-primary active" type="button" data-toggle="tooltip" title="Retrieving weather will update the headwind and air density values." onclick="getWeather();">Retrieve Local Weather</button>
+          <button class="btn btn-primary active" type="button" data-toggle="tooltip" title="Retrieving weather will update the headwind and air density values." onclick="getWeather(); UpdateAll();">Retrieve Local Weather</button>
           </div>
         </div>
 
@@ -507,7 +523,7 @@ function UpdateSpeedFromPower() {
       <div class="input-group-prepend">
       <span class="input-group-text">Rider Weight</span>
       </div>
-      <input type="text" class="form-control" id="rider_weight" aria-label="Rider Weight" value="170">
+      <input type="text" class="form-control" id="rider_weight" aria-label="Rider Weight" value="180" onchange="UpdateAll();">
       <div class="input-group-append">
       <span class="input-group-text" id="weight_unit">lb</span>
       </div>
@@ -517,7 +533,7 @@ function UpdateSpeedFromPower() {
       <div class="input-group-prepend">
       <span class="input-group-text">Bike Weight</span>
       </div>
-      <input type="text" class="form-control" id="bike_weight" aria-label="Bike Weight" value="30">
+      <input type="text" class="form-control" id="bike_weight" aria-label="Bike Weight" value="30" onchange="UpdateAll();">
       <div class="input-group-append">
       <span class="input-group-text" id="weight_unit2">lb</span>
       </div>
@@ -563,7 +579,7 @@ function UpdateSpeedFromPower() {
 
       </span>
       </div>
-      <input type="text" class="form-control" id="CdA" aria-label="CdA" value="2.91" >
+      <input type="text" class="form-control" id="CdA" aria-label="CdA" value="2.91" onchange="UpdateAll();">
       <div class="input-group-append">
       <span class="input-group-text" id="CdA_unit">ft$^2$</span>
       </div>
@@ -608,14 +624,14 @@ function UpdateSpeedFromPower() {
     </span><!-- End Crr input -->
 
       </div>
-      <input type="text" class="form-control" id="Crr" aria-label="Crr" value="0.00869" >
+      <input type="text" class="form-control" id="Crr" aria-label="Crr" value="0.00869" onchange="UpdateAll();" >
       </div>
 
       <div class="input-group mb-3">
       <div class="input-group-prepend">
       <span class="input-group-text" >Drivetrain Efficiency</span>
       </div>
-      <input type="text" class="form-control" id="eta" aria-label="eta" value="97" >
+      <input type="text" class="form-control" id="eta" aria-label="eta" value="97"  onchange="UpdateAll();" >
       <div class="input-group-append">
       <span class="input-group-text" id="">%</span>
       </div>
@@ -625,7 +641,7 @@ function UpdateSpeedFromPower() {
       <div class="input-group-prepend">
       <span class="input-group-text">Grade</span>
       </div>
-      <input type="text" class="form-control" id="grade" aria-label="grade" value="0" >
+      <input type="text" class="form-control" id="grade" aria-label="grade" value="0"  onchange="UpdateAll();" >
       <div class="input-group-append">
       <span class="input-group-text" id="">%</span>
       </div>
@@ -635,7 +651,7 @@ function UpdateSpeedFromPower() {
       <div class="input-group-prepend">
       <span class="input-group-text">Headwind</span>
       </div>
-      <input type="text" class="form-control" id="wind" aria-label="headwind" value="0" >
+      <input type="text" class="form-control" id="wind" aria-label="headwind" value="0"  onchange="UpdateAll();" >
       <div class="input-group-append">
       <span class="input-group-text" id="wind_unit">mph</span>
       </div>
@@ -645,13 +661,45 @@ function UpdateSpeedFromPower() {
       <div class="input-group-prepend">
       <span class="input-group-text">Air density</span>
       </div>
-      <input type="text" class="form-control" id="density" aria-label="density" value="0.0765" >
+      <input type="text" class="form-control" id="density" aria-label="density" value="0.0765" onchange="UpdateAll();" >
       <div class="input-group-append">
       <span class="input-group-text" id="density_unit">lb/ft$^3$&nbsp;</span>
       </div>
       </div>
 
       <hr>
+	  
+	  <div class="row">
+	  	  <div class="col-xs-6 col-md-7">
+
+        <label for="power">Power</label>
+        <div class="input-group mb-3">
+        <input type="text" class="form-control" id="power" aria-label="power" value="200" onchange="UpdateSpeedFromPower();" >
+        <div class="input-group-prepend">
+        <span class="input-group-text" id="power_unit">Watts</span>
+        </div>
+
+        <span class="input-group-addon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div class="btn-group-vertical py-0" role="group" aria-label="...">
+            <button type="button" class="btn btn-primary btn-sm py-0 my-0" style="font-size: 0.5em;" onclick="UpdateSpeedFromPower();">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="32" fill="currentColor" class="bi bi-arrow-right" viewBox="0 3 16 10"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/></svg>
+            </button>
+          </div>
+        </span>
+        </div>
+
+      </div>
+	  
+      <div class="col-xs-6 col-md-5">
+        <label for="speedout">Speed</label>
+        <div class="input-group mb-3">
+        <input type="text" class="form-control output" id="speedout" aria-label="speedout">
+        <div class="input-group-prepend">
+        <span class="input-group-text" id="speed_unit_out">mph</span>
+        </div>
+        </div>
+      </div>
+	  </div> <!-- ends the previous row-->
 
       <div class="row">
 
@@ -659,7 +707,7 @@ function UpdateSpeedFromPower() {
 
         <label for="speed">Speed</label>
         <div class="input-group mb-3">
-        <input type="text" class="form-control" id="speed" aria-label="speed" value="0" onchange="UpdatePowFromSpeed();" >
+        <input type="text" class="form-control" id="speed" aria-label="speed" value="15" onchange="UpdatePowFromSpeed();" >
         <div class="input-group-prepend">
         <span class="input-group-text" id="speed_unit">mph</span>
         </div>
@@ -667,11 +715,8 @@ function UpdateSpeedFromPower() {
         <span class="input-group-addon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <div class="btn-group-vertical py-0" role="group" aria-label="...">
             <button type="button" class="btn btn-primary btn-sm py-0 my-0" style="font-size: 0.5em;" onclick="UpdatePowFromSpeed();">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 3 16 10"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="32" fill="currentColor" class="bi bi-arrow-right" viewBox="0 3 16 10"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/></svg>
             </button>
-            <button type="button" class="btn btn-primary btn-sm py-0 my-0" style="font-size: 0.5em;" onclick="UpdateSpeedFromPower();">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 5 16 10"><path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/></svg>
-          </button>
           </div>
         </span>
         </div>
@@ -681,7 +726,7 @@ function UpdateSpeedFromPower() {
 
         <label for="power">Power</label>
         <div class="input-group mb-3">
-        <input type="text" class="form-control" id="Power" aria-label="Power" value="0" onchange="document.getElementById('speed').value = Speed(this.value).toFixed(1);" >
+        <input type="text" class="form-control output" id="powerout" aria-label="powerout">
         <div class="input-group-prepend">
         <span class="input-group-text" id="power_unit">Watts</span>
         </div>
@@ -721,7 +766,7 @@ function UpdateSpeedFromPower() {
        </span><!-- End PWR input -->
 
         </div>
-        <input type="text" class="form-control" id="PWR" aria-label="PWR" value="" >
+        <input type="text" class="form-control output" id="PWR" aria-label="PWR" value="" >
         <div class="input-group-append">
         <span class="input-group-text" id="">W/kg</span>
         </div>
@@ -766,7 +811,7 @@ function UpdateSpeedFromPower() {
        </span><!-- End Energy input -->
 
         </div>
-        <input type="text" class="form-control" id="kcal" aria-label="kcal" value="" >
+        <input type="text" class="form-control output" id="kcal" aria-label="kcal" value="">
         <div class="input-group-append">
         <span class="input-group-text" id="">kcal/hr</span>
         </div>
@@ -776,12 +821,14 @@ function UpdateSpeedFromPower() {
 
 
       </div>
+	  
+	  
 
       </div>
 
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#PowerCurveModal" onclick="makePlot();">Show power curve</button>
 
-      <button type="button" class="btn btn-outline-primary" data-toggle="tooltip" data-placement="bottom" title="Copy to clipboard" onclick="createURL();">
+      <button type="button" class="btn btn-outline-primary" data-toggle="tooltip" data-placement="bottom" title="Copy custom url to clipboard" onclick="createURL();">
      <svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M17,9H7V7H17M17,13H7V11H17M14,17H7V15H14M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3Z" /></svg>
      </button>
 
