@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Problem 1-2</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<link href="https://vjs.zencdn.net/8.23.4/video-js.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div class="question">
+<div class="question-title">Sample Problem 1-2</div>
+<div class="question-content">
+
+   A sprinter runs a 100-m race. For the first 5 seconds the runner accelerates uniformly and covers a distance of 25 meters. The runner then maintains a constant velocity for the remaining 75 meters. Determine the runner's a) acceleration, b) final velocity, c) finishing time. Then find (d) the speed of the runner at the 10 meter mark.
+
+
+
+<hr class="question-divider">
+
+(a) For the first part of the race the runner accelerates uniformly (\a=\text{const}\). We solve for the unknown acceleration using:
+
+\begin{align*}
+x&=x_0 + v_0t+\frac{1}{2}at^2\\
+25&=0 + 0t +\frac{1}{2}a(5)^2\Longrightarrow a=2~\textrm{m/s}^2
+\end{align*}
+
+(b) Now that we have the acceleration the velocity at the end of the first 5 seconds can be found:
+
+\begin{align*}
+v&=v_0 + at\\
+v&=0 + 2(5) \Longrightarrow v=10~\textrm{m/s}
+\end{align*}
+
+(c) This part of the question asks us to find the finishing time. We already know that the first 25 meters took 5 seconds to complete.  We need to add this 5 seconds to the time needed to run the remaining 75 meters. Since the velocity remains constant over this final section of the race we can use our equation for uniform rectilinear motion since \(a=0\).  The time required to run the remaining 75 meters is:
+
+\begin{align*}
+    x(t) &= x_0+vt \\
+    100 &= 25 + 10t\Longrightarrow t=7.5~\textrm{s}
+\end{align*}
+
+The total time is therefore the sum of the initial 5 second acceleration phase and 7.5 seconds of constant velocity for a total of 12.5 seconds.<BR><BR>
+
+(d) asks us to find the speed of the runner at the 10 meter mark. The most direct way to solve this is using the equation for uniformly accelerated rectilinear motion that contains velocity and position:
+
+\begin{align*}
+ v^2(x)&=v_0^2+2a\left(x-x_0\right)
+\end{align*}
+
+The runner starts from rest so \(v_0=0\) and we can set the starting line to be located at \(x_0=0\). From part (a) we know that 
+\(a=2~\textrm{m/s}^2\).
+
+\begin{align*}
+ v^2(x=15)&=0^2+2(2~\textrm{m/s}^2)\left(10~\textrm{m}-0\right)\\
+ v^2&=40~(\textrm{m/s})^2 \Longrightarrow v=6.3~\textrm{m/s} 
+\end{align*}
+
+The plots below show graphs of the sprinter's acceleration, velocity and position as functions of time. 
+
+<img
+  width="400px"
+  src="SP1-2-plots.svg"
+  alt="Kinematic diagrams showing the position, velocity and acceleration of the sprinter as a function of time."
+  style="display: block; margin: auto;"
+ />
+
+</div></div>
+
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+body {
+  background-color: #f5f5f5;
+  width: 600px;
+  margin: 0 auto;
+  padding: 0;
+  padding-bottom: 100px;
+}
+
+.impeq {
+			border: 0.5pt solid #a3c9ff; /* colframe=blue!75!black */
+            border-radius: 10pt;          /* arc=3pt */
+            background-color: #ffffff;   /* colback=white */
+            overflow: hidden;            /* Clips title to match radius */
+            margin: 20px auto;
+            max-width: 800px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.impeq-title{
+            background-color: #e5edff;   /* colframe color */
+            color: #000;
+            padding: 5pt 10pt;           /* boxsep=5pt */
+            font-weight: bold;           /* fonttitle=\bfseries */
+            font-size: 1.1rem;                 /* align text to the left (you can centre if you prefer) */
+}
+
+.impeq-content{
+            padding: 5pt 5mm;            /* boxsep=5pt, left/right=5mm */
+            color: #333;
+            line-height: 1.5;                 /* align text to the left (you can centre if you prefer) */
+}
+
+
+
+/* CSS */
+.button-43 {
+  background-image: linear-gradient(-180deg, #37AEE2 0%, #1E96C8 100%);
+  border-radius: .5rem;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-size: 16px;
+  justify-content: center;
+  padding: 1rem 1.75rem;
+  text-decoration: none;
+  width: 100%;
+  border: 0;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-43:hover {
+  background-image: linear-gradient(-180deg, #1D95C9 0%, #17759C 100%);
+}
+
+.a-button-43 {
+  text-decoration: none;
+  padding: 1rem 1.75rem; 
+}
+
+@media (min-width: 768px) {
+  .button-43 {
+    padding: 1rem 2rem;
+  }
+}

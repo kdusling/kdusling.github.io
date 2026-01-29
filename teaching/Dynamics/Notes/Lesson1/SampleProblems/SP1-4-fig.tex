@@ -1,0 +1,56 @@
+\documentclass[tikz]{standalone} 
+
+\input{../../pulley.tex}
+
+\begin{document}
+
+\def\w{8*\R}  % mass width
+\def\h{0.9}  % mass height
+
+\begin{tikzpicture}
+  \def\W{4.9}  % ceiling width
+  \def\H{2.5}  % ceiling height
+  \def\D{0.3}  % ceiling depth
+  \def\px{0.0*\W} % pulley x position
+  \def\py{0.8*\H} % pulley y position
+  \def\mx{\px+4*\R}  % mass x position
+  \def\my{-0.25*\H} % mass y position
+  \coordinate (PLT) at (\px,\py); % pulley
+  \coordinate (PRT) at (\px+4*\R,\py); % pulley
+  \coordinate (PLB) at (\px+2*\R,\my+0.5*\h); 
+  \coordinate (PRB) at (\px+6*\R,\my+0.5*\h); 
+  \coordinate (X)  at (-0.1*\W,0.40*\H);  % mass
+  \coordinate (M)  at (\mx,\my);  % mass
+  
+  \draw[ground] (-\W/2,\H) rectangle++ (\W,\D);
+  \draw (-\W/2,\H) --++ (\W,0);
+  
+  \pic at (PLT) {pulley};
+  \pic at (PRT) {pulley};
+  \pic at (PLB) {pulley};
+  \pic at (PRB) {pulley};
+
+  \rope{ 
+  (\px+7*\R,\H) -- ($(PRB)+(\R,0)$) arc (0:-180:\R) -- ($(PRT)+(\R,0)$) arc (0:180:\R) -- ($(PLB)+(\R,0)$) arc (0:-180:\R)-- ($(PLT)+(\R,0)$) arc (0:180:\R) -- ($(PLT)+(-\R,-\H-2)$)};
+    
+  \pic at (PRT) {mount={90:\H-\py}};
+  \pic at (PLT) {mount={90:\H-\py}};
+  \pic at (PRB) {mount={-90:0.5*\h}};
+  \pic at (PLB) {mount={-90:0.5*\h}};
+
+  \draw[mass] (M)++(-\w/2,0) rectangle++ (\w,-\h) node[midway] {\;$m_B$};
+
+  \draw[mass] ($(PLT)+(-\R,-\H-2)$)++(-\h/2,0) rectangle++ (\h,-\h) node[midway] {\;$m_A$};
+  
+  %\draw[force,green!40!black] ($(PLT)+(-\R,-\H-\h-2.2)$) --++ (0,-1) node[below] {$v=2$ ft/s};
+
+  \draw[force,green!40!black] ($(PLT)+(-\R-\h,-\H-2)$) --++ (0,-1) node[midway,left] {$v=2$ ft/s};
+
+  \draw[->] (\px-\R-0.5*\h-0.2,\H) -- (\px-\R-0.5*\h-0.2,-\H) node[midway,left] {$x_A$};
+
+  \draw[->] (0.5*\W+0.2,\H) -- (0.5*\W+0.2,\my) node[midway,right] {$x_B$};
+  
+\end{tikzpicture}
+
+
+\end{document}

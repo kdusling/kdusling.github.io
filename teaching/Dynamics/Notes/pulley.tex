@@ -1,0 +1,74 @@
+%\documentclass[border=3pt,tikz]{standalone}
+\usepackage{tikz,pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{pgfplots.groupplots,arrows.meta,angles,quotes,svg.path}
+
+\usetikzlibrary{calc}
+\usetikzlibrary{angles,quotes} % for pic
+\usetikzlibrary{patterns,decorations.pathmorphing}
+
+
+\tikzset{>=latex} % for LaTeX arrow head
+\colorlet{xcol}{blue!85!black}
+\colorlet{vcol}{green!40!black}
+\colorlet{myred}{red!65!black}
+\colorlet{myblue}{blue!65!black}
+
+\tikzstyle{force}=[->,myred,thick,line cap=round]
+\tikzstyle{acc}=[->,myblue,thick,line cap=round]
+\tikzstyle{vel}=[->,vcol,thick,line cap=round]
+%\tikzstyle{vvec}=[->,vcol,thick,line cap=round]
+
+\tikzstyle{ground}=[preaction={fill,top color=black!10,bottom color=black!5,shading angle=20},
+                    fill,pattern=north east lines,draw=none,minimum width=0.3,minimum height=0.6]
+\tikzstyle{metal}=[fill,top color=black!40,bottom color=black!20,shading angle=10]
+\tikzstyle{wood}=[fill,top color=brown!40,bottom color=brown!20,shading angle=30]
+\tikzstyle{mass}=[line width=0.6,red!30!black,fill=red!40!black!10,rounded corners=1,top color=red!40!black!20,bottom color=red!40!black!10,shading angle=20]
+\tikzstyle{collar}=[line width=0.6,green!30!black,top color=green!40!black!20,bottom color=green!40!black!80,shading angle=90,rounded corners=2]
+\tikzstyle{pulcol}=[draw=blue!30!black,%fill=blue!40!black!10
+                    top color=blue!40!black!20,bottom color=blue!40!black!10,shading angle=20]
+\tikzstyle{rope}=[brown!70!black,very thick,line cap=round]
+\def\rope#1{ \draw[black,line width=1.5] #1; \draw[rope] #1; }
+\tikzstyle{mount}=[blue!20!black,fill,top color=blue!20!black!70,bottom color=blue!20!black!40,shading angle=10]
+
+
+\tikzstyle{spring} = [decorate, decoration={snake, amplitude=5, segment length=5,coil},line width=0.8,black!80,line cap=round]
+                         
+\pgfdeclarelayer{back} % to draw on background
+\pgfsetlayers{back,main} % set order
+
+
+
+
+% PULLEY
+\def\r{0.05} % pulley small radius
+\def\R{0.30} % pulley big radius
+\tikzset{
+  pics/pulley/.style={
+    code={
+      \draw[pulcol,line width=0.6] (0,0) circle (#1);
+      \draw[pulcol,thick] (0,0) circle (\r);
+  }},
+  pics/mount/.style args={#1:#2}{ % angle, length
+    code={
+      \draw[mount] (0,0)++(#1-90:0.9*\r) arc (#1-90:#1-270:0.9*\r) --++ (#1:#2) --++ (#1-90:1.8*\r) -- cycle;
+  }},
+  pics/weight/.style args={#1,#2,#3}{ % bottom width, top width, height
+    code={
+      \draw[mass] (0,0) -- (#2/2,0) -- (#1/2,-0.7*#3)
+        |- (-#1/2,-#3) -- (-#1/2,-0.7*#3) -- (-#2/2,0) -- cycle;
+      \path[mass] (0,0) -- (0,-#3) node[pos=0.52] {$m$};
+  }},
+  pics/bracket/.style args={#1:#2}{ % angle, length
+    code={
+        \begin{scope}[scale=#1,rotate=#2]
+        \draw[ground] (-1,-0.75) -- (1,-0.75) -- (1,-0.95) -- (-1,-0.95);
+        \draw[black,thick] (-1,-0.75) -- (1,-0.75);
+        \draw[fill=lightgray,shading angle=270] (-0.5,-0.75) -- (-0.5,0)  arc (180:0:0.5) -- (0.5,-0.75) -- (-0.5,-0.75);
+        \filldraw[color=black, fill=white] (0,0) circle (0.08 cm);
+        \end{scope}
+  }},
+  pics/pulley/.default=0.3,
+}
+
+

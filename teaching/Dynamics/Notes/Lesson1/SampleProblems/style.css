@@ -1,0 +1,63 @@
+body {
+	padding-bottom: 100px;
+}
+
+.vjs-custom-style .vjs-control-bar {
+    /* Position it below the video area within the player's total height */
+    position: relative;
+    top: 100%; /* Places the top of the control bar at the bottom of the video region */
+    /* You might need to adjust the player container's height to prevent overlap with other page elements */
+    /* Or use a negative margin on the element below the player */
+	
+	/*background-color: #ff0000;*/
+}
+
+.vjs-custom-style {
+    /* Ensure the player container has enough height to show the control bar below */
+    /*height: calc(480px + 30px); /* Original height + control bar height (approx 30px default) */
+}
+
+/* Example: Customize the big play button */
+.vjs-custom-style .vjs-big-play-button {
+  font-size: 5em;
+  border-radius: 9999px; /* Makes it a circle */
+  border: none;
+}
+
+.question {
+			border: 0.5pt solid #a3c9ff; /* colframe=blue!75!black */
+            border-radius: 10pt;          /* arc=3pt */
+            background-color: #ffffff;   /* colback=white */
+            overflow: hidden;            /* Clips title to match radius */
+            margin: 20px auto;
+            max-width: 800px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.question-title{
+            background-color: #e5edff;   /* colframe color */
+            color: #000;
+            padding: 5pt 10pt;           /* boxsep=5pt */
+            font-weight: bold;           /* fonttitle=\bfseries */
+            font-size: 1.1rem;                 /* align text to the left (you can centre if you prefer) */
+}
+
+.question-content{
+            padding: 5pt 5mm;            /* boxsep=5pt, left/right=5mm */
+            color: #333;
+            line-height: 1.5;                 /* align text to the left (you can centre if you prefer) */
+}
+
+.question-divider {
+	border: none; /* Remove default hr styles */
+    border-top: 4px solid #a3c9ff; /* Light gray horizontal line */
+    margin: 15px 0; /* Spacing above and below the line */
+}
+
+.videodiv {
+	margin: 20px auto;
+	text-align: center; 
+    padding: 20px;
+    max-width: 800px;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Problem 1-1</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	  <link href="https://vjs.zencdn.net/8.23.4/video-js.css" rel="stylesheet" />
+	  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div class="question">
+<div class="question-title">Sample Problem 1-1</div>
+<div class="question-content">
+
+An RC car moves along a straight line.  It's position as a function of time is given as
+\begin{align}
+    x=t^3- 3t^2-24t+36
+\end{align}
+where \(x\) is in meters and \(t\) is in seconds. Find (a) the time when the velocity is zero, (b) the position and the total distance traveled at that time, and (c) the acceleration at that time. 
+
+
+<hr class="question-divider">
+
+We first find the equations for the velocity and acceleration by taking derivatives
+
+\begin{align*}
+x&=t^3- 3t^2-24t+36\\
+v=\frac{dx}{dt}&=3t^2-6t-24\\
+a=\frac{dv}{dt}&=6t-6
+\end{align*}
+
+
+<p>(a) Find the time when \(v=0\).
+
+\begin{align*}
+    0=3t^2-6t-24 \longrightarrow t=-2~\text{s} \text{ and } t=4~\text{s}
+\end{align*}
+
+Only the solution \(t=4~\text{s}\) occurs after the motion has started.
+</p>
+
+<p>(b) The position at that time is 
+\begin{align*}
+    x(t=4)=4^3- 3(4)^2-24(4)+36=-44~\text{m}
+\end{align*}
+
+and distance traveled is the final location minus the initial location
+\begin{align*}
+    \text{distance traveled}=\vert x(4)-x(0)\vert|=\vert-44-36\vert=80~\text{m}
+\end{align*}
+</p>
+
+<p>
+(c) The acceleration at that time is
+
+\begin{align*}
+    a(t=4)=6(4)-6=18~\text{m/s}^2
+\end{align*}
+
+</p>
+
+</div></div>
+
+<div class="videodiv">
+   <video
+        id="my-video"
+        class="video-js vjs-custom-style"
+        controls
+        preload="auto"
+        width="640"
+		height="480"
+        data-setup='{ "playbackRates": [0.25, 0.5, 1] }'>
+        <!-- MP4 Source -->
+        <source src="SP1-1.mp4" type="video/mp4" />
+        
+        <!-- Fallback text for non-HTML5 browsers -->
+        <p class="vjs-no-js">
+            To view this video please enable JavaScript, and consider upgrading to a web browser that
+            <a href="https://videojs.com" target="_blank">supports HTML5 video</a>
+        </p>
+    </video>
+</div>	
+
+	
+  <script src="https://vjs.zencdn.net/8.23.4/video.min.js"></script>
+</body>
+</html>
