@@ -24,12 +24,11 @@
      <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
  </script>
 
-
+<!--
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7080617284731198"
      crossorigin="anonymous"></script>
-	 
-	 <!--<link rel="stylesheet" href="styles/BikePowerStyle.css">-->
-	 
+--> 
+
 	 <script src='https://cdn.plot.ly/plotly-3.3.0.min.js'></script>
 
 </head>
@@ -45,6 +44,28 @@
 window.onload = function() {
 
   const params = new URLSearchParams(window.location.search);
+  
+  if (params.has('config') )
+  {
+   if ( params.get('config') === "Racing" ){
+		document.getElementById("rider_weight").value = 81;
+		document.getElementById("bike_weight").value = 14;
+		document.getElementById("CdA").value = 0.40;
+		document.getElementById("Crr").value = 0.0045;
+		document.getElementById("pmax").value = 200;
+		document.getElementById("PRopt").value = 80;
+		document.getElementById("circ").value = 2.146;
+   }
+   if ( params.get('config') === "Touring" ){
+		document.getElementById("rider_weight").value = 73;
+		document.getElementById("bike_weight").value = 8;
+		document.getElementById("CdA").value = 0.32;
+		document.getElementById("Crr").value = 0.0030;
+		document.getElementById("pmax").value = 900;
+		document.getElementById("PRopt").value = 110;
+		document.getElementById("circ").value = 2.096;
+   }
+  }
 
   if ( params.has('units') )
   {
@@ -144,7 +165,7 @@ function findMin(f,a,b,aux)
 {
 
  var err = 1.e-10;
- var ep = 1.e-3;
+ var ep = 1.e-5;
 
  do {
  
@@ -177,6 +198,8 @@ function makePlotVinf() {
 	var PRopt = parseFloat(document.getElementById("PRopt").value);
 	var circ = parseFloat(document.getElementById("circ").value);
 	
+	pmax=eta*pmax;
+	
 	if (units === "imperial"){
 		mass = mass/2.205;
 		CdA = CdA/3.28084**2;
@@ -203,7 +226,7 @@ function makePlotVinf() {
   
 	function vinf(D) {
 		var vopt = D/60*PRopt;
-		var vbar = eta*pmax/(2*mass*cd*vopt**2)
+		var vbar = pmax/(2*mass*cd*vopt**2)
 		var vinf = Math.sqrt( vbar**2 + 4*vbar*vopt - gs/cd ) - vbar;
 		return vinf;
 	}
@@ -266,11 +289,12 @@ function makePlotVinf() {
 				font: {size: 18}
 			}
 		},
-		height: 400, 
-		width: 600, 
+		autosize: true, 
 	};
+	
+	var config = { responsive: true };
 
-	Plotly.newPlot('vinf-plot-div', [trace], layout);
+	Plotly.newPlot('vinf-plot-div', [trace], layout, config);
 	
 }
 
@@ -286,6 +310,8 @@ function makePlotDopt() {
 	var PRopt = parseFloat(document.getElementById("PRopt").value);
 	var circ = parseFloat(document.getElementById("circ").value);
 	
+	pmax=eta*pmax;
+		
 	if (units === "imperial"){
 		mass = mass/2.205;
 		CdA = CdA/3.28084**2;
@@ -302,17 +328,17 @@ function makePlotDopt() {
   
 	function tfinal(D,x) {
 		var vopt = D/60*PRopt;
-		var vbar = eta*pmax/(2*mass*cd*vopt**2)
+		var vbar = pmax/(2*mass*cd*vopt**2)
 		var vinf = Math.sqrt( vbar**2 + 4*vbar*vopt - gs/cd ) - vbar;
 		return x/vinf + 1/(cd*vinf)*Math.log(2*(vinf+vbar)/(vinf+2*vbar));
 	}
 	
 	
 
-	var xaxis_label = "distance (m)";
+	var xaxis_label = "Distance (m)";
     
 	if (units === "imperial"){
-      xaxis_label = "distance (feet)";
+      xaxis_label = "Distance (feet)";
 	} 
 
     // 2. Generate the x and y coordinates
@@ -321,22 +347,25 @@ function makePlotDopt() {
 	const time_values = [];
 	const distance_values = [];
 	const start_x = 2;
-	const end_x = (units==="imperial" ? 6 : 5);
+	const end_x = 5;
 	
 	const step_size = end_x/1000;
 		
 	for (let x = start_x; x <= end_x; x += step_size) {
 		dist = 10**x;
 		var dopt = findMin(D => tfinal(D,dist) ,0.1, Dmax);
-		x_values.push( dist );
-		y_values.push( dopt/circ );
+		
 		y_values.push( dopt/circ );
 
 		time_values.push( new Date(tfinal(dopt,dist)*1000).toISOString().substring(11, 19)  );
+		
 		if (units === "metric"){
+			x_values.push( dist );
 			distance_values.push( dist > 999 ? (dist / 1000).toFixed(1) + 'km' : dist.toFixed(0) + 'm');
 		}
 		if (units === "imperial"){
+			dist = 3.28084*dist;
+			x_values.push( dist );
 			distance_values.push( dist > 5280 ? (dist / 5280).toFixed(1) + 'mi' : dist.toFixed(0) + ' ft' );
 		}
 	}
@@ -345,7 +374,7 @@ function makePlotDopt() {
 	var table = document.getElementById("tab-results");	
 	table.innerHTML = '';
 	tabdist = [250,500,750,1500,4000,10000,50000];
-	for (let i = 0; i<6; i++) {
+	for (let i = 0; i<7; i++) {
 		dist = tabdist[i]
 		var dopt = findMin(D => tfinal(D,dist) ,0.1, Dmax);
 		var time = tfinal(dopt,dist);
@@ -392,11 +421,12 @@ function makePlotDopt() {
 				font: {size: 18}
 			}
 		},
-		height: 400, 
-		width: 600, 
+		autosize: true, 
 	};
+	
+	var config = { responsive: true };
 
-	Plotly.newPlot('dopt-plot-div', [trace], layout);
+	Plotly.newPlot('dopt-plot-div', [trace], layout, config);
 	
 }
 
@@ -580,16 +610,16 @@ function UpdateAll() {
 
 	<div>
 	<table  class="table .table-sm"  style="text-align: center;">
-	<thead><th>Race Distance</th><th>Optimum Development (m)</th><th>Gear Ratio</th><th>Time</th></thead>
+	<thead><th>Race Distance</th><th>Optimal Development (m)</th><th>Optimal Gear Ratio</th><th>Race Time</th></thead>
 	<tbody id="tab-results">
     </tbody>
     <tfoot id="tab-footer"> </tfoot>
     </table>
 	</div>
     
-	<div id='vinf-plot-div'><!-- Plotly chart will be drawn inside this DIV --></div>
+	<div id='vinf-plot-div' style="height:500px"></div>
 	
-	<div id='dopt-plot-div'><!-- Plotly chart will be drawn inside this DIV --></div>
+	<div id='dopt-plot-div' style="height:500px"></div>
 	
 		
 
@@ -602,7 +632,7 @@ function UpdateAll() {
 
 
 <!-- Google tag (gtag.js) -->
-<!--
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TSB5RJ1T0J"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -611,7 +641,7 @@ function UpdateAll() {
 
   gtag('config', 'G-TSB5RJ1T0J');
 </script>
--->
+
 
 </body>
 </html>
