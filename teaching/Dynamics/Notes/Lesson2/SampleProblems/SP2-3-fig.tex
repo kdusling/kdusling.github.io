@@ -1,0 +1,37 @@
+\documentclass[tikz]{standalone} 
+
+\input{../../pulley.tex}
+
+\begin{document}
+
+    \begin{tikzpicture}[]
+    \coordinate (AO) at (6.4,0);
+    \coordinate (BO) at (0,0);
+    \coordinate (A) at (8.38,1.98);
+    \coordinate (X) at (10,0);
+    \coordinate (Y) at (0,5);
+    \coordinate (B) at (3.48,1.98);
+
+    \draw[|<->|] (0,-0.75) -- (6.4,-0.75) node [midway,below] {$640~\textrm{km}$};
+   
+    \draw[-{Latex[length=3mm,width=2mm]}, thick, black] 
+    (0,0) -- (X) node[left, above] {$x$};
+    
+    \draw[-{Latex[length=3mm,width=2mm]}, thick, black] (0,0) -- (Y) node[left, above] {$y$};
+
+    \draw[ fill=green!40!black] (BO) circle [radius=1mm] node[right,below,shift={(0,-.1)}] {$B$};
+        
+    \draw[-{Latex[length=3mm,width=2mm]}, very thick, blue] (BO) -- (B) node[above] {$800~\textrm{kph}$};
+
+    \draw[ fill=green!40!black] (AO) circle [radius=1mm] node[right,below,shift={(0,-.1)}] {$A$};
+        
+    \draw[-{Latex[length=3mm,width=2mm]}, very thick, blue] (AO) -- (A) node[above] {$560~\textrm{kph}$};
+
+    \pic["$45^\circ$",draw=black,angle eccentricity=1.4,angle radius=1cm] {angle = X--AO--A};
+
+    \pic["$\theta$",draw=black,angle eccentricity=1.2,angle radius=1cm] {angle = X--BO--B};
+
+\end{tikzpicture}
+
+
+\end{document}

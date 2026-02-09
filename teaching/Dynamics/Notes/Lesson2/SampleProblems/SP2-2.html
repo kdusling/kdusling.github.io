@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Problem 2-2</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	  <link href="https://vjs.zencdn.net/8.23.4/video-js.css" rel="stylesheet" />
+	  <link rel="stylesheet" type="text/css" href="../../SPstyle.css">
+</head>
+<body>
+
+<div class="question">
+<div class="question-title">Sample Problem 2-2</div>
+<div class="question-content">
+
+
+
+An archer fires an arrow at a target that is 100 yards away. The target center is 51.2 inches off the ground. The arrow is released at a height of 70 inches from the ground with a speed of 400 fps.  What firing angle \(\alpha\), measured with respect to the horizontal, is required to hit the target? 
+
+
+
+<hr class="question-divider">
+
+
+
+<h3>Horizontal motion</h3>
+
+\begin{align*}
+    v_{x0}=400\cos\alpha
+\end{align*}
+
+\begin{align*}
+    x(t)=x_0+ v_{x0} t=0+(400\cos\alpha) t
+\end{align*}
+
+<p>
+The time, let's call it \(t_{hit}\) when the arrow reaches 100 yd = 300 ft is
+
+\begin{align*}
+    300=(400\cos\alpha) t_{hit}\Longrightarrow t_{hit}&=\frac{300}{400\cos\alpha}\\
+   t_{hit} &=\frac{3}{4\cos\alpha}
+\end{align*}
+
+<h3>Vertical motion</h3>
+
+\begin{align*}
+    v_{y0}=400\sin\alpha
+\end{align*}
+
+\begin{align*}
+    y(t)=y_0+ v_{y0} t - \frac{1}{2}gt^2=\frac{70}{12}+(400\sin\alpha) t -\frac{1}{2}(32.2) t^2\\
+\end{align*}
+
+<h3>Projectile hits target</h3>
+
+We want the vertical distance to be 51.1 inches at the time when the arrow hits the target. We therefore set \(t=t_{hit}\) and \(y(t_{hit})=51.2~\)inches.
+
+\begin{align*}
+    \frac{51.2}{12}=\frac{70}{12}+(400\sin\alpha)\left(\frac{3}{4\cos\alpha}\right) -\frac{1}{2}(32.2)\left(\frac{3}{4\cos\alpha}\right)^2\\
+\end{align*}
+
+
+Using the identity \(1/\cos^2\alpha=1+\tan^2\alpha\)
+
+\begin{align*}
+    \frac{51.2}{12}=\frac{70}{12}+300\tan\alpha -\frac{9}{32}(32.2)(1+\tan^2\alpha)
+\end{align*}
+
+Some more rearranging 
+
+\begin{align*}
+    0&=\frac{70}{12}-\frac{51.2}{12} -\frac{9}{32}(32.2)+300\tan\alpha-\frac{9}{32}(32.2)\tan^2\alpha\\
+    0&=-7.49 +300\tan\alpha - 9.06\tan^2\alpha 
+\end{align*}
+
+The above expression is quadratic in \(\tan\alpha\). 
+
+\begin{alignat*}{2}
+\tan\alpha&=0.0250\qquad \tan\alpha&=33.09\\
+\alpha&=1.43^\circ\qquad ~~~~~~~~~\alpha&=88.3^\circ
+\end{alignat*}
+
+Both of these solutions are physical, but we are likely to choose the lower angle, which is what I've plotted below. In case you're curious, 
+
+<img
+  width="600px"
+  src="SP2-2-fig.svg"
+  alt=""
+  style="display: block; margin: auto; padding: 25px"
+ />
+ 
+
+
+</body>
+</html>

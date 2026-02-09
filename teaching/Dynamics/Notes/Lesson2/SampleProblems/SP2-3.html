@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Problem 2-3</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	  <link href="https://vjs.zencdn.net/8.23.4/video-js.css" rel="stylesheet" />
+	  <link rel="stylesheet" type="text/css" href="../../SPstyle.css">
+</head>
+<body>
+
+<div class="question">
+<div class="question-title">Sample Problem 2-3</div>
+<div class="question-content">
+
+
+   Airplane B is traveling at a constant velocity of 800 km/h, and is chasing airplane A, which is traveling northeast at a constant velocity of 560 km/hr. At time \(t=0~\)s, airplane A is 640 km east of airplane B. Determine (a) the direction airplane B should travel (measured from the east) to intercept plane A; (b) how long it takes for airplane \(B\) to catch airplane \(A\); (c) the rate at which the distance between the planes is decreasing.
+
+
+<hr class="question-divider">
+
+<img
+  width="500px"
+  src="SP2-3-fig.svg"
+  alt=""
+  style="display: block; margin: auto; padding: 25px"
+ />
+
+<p>
+   Both airplanes have a constant velocity. These velocity are
+</p>
+ 
+    \begin{align*}
+\vec{v}_A&=\left(560\cos45\right)\hat{i}+\left(560\sin45\right)\hat{j}\\
+\vec{v}_B&=\left(800\cos\theta\right)\hat{i}+\left(800\sin\theta\right)\hat{j}
+    \end{align*}
+
+Integrating, the position is
+
+    \begin{align*}
+\vec{r}_A&=\left[\left(560\cos45\right)t+640\right]\hat{i}+\left[\left(560\sin45\right)t\right]\hat{j}\\
+\vec{r}_B&=\left[\left(800\cos\theta\right)t\right]\hat{i}+\left[\left(800\sin\theta\right)t\right]\hat{j}
+    \end{align*}
+
+<p>
+    Plane B intercepts plane A when \(\vec{r}_A=\vec{r_B}\).  We first set the \(y-\)components equal and solve for \(\theta\).
+</p>
+
+    \begin{align*}
+        \left(800\sin\theta\right)t=\left(560\sin45\right)t
+    \end{align*}
+    The $t$ cancels from both sides and we are left with
+    \begin{align*}
+        \sin\theta=\frac{\left(560\sin45\right)}{800}=0.4950\Longrightarrow \theta=29.67^\circ
+    \end{align*}   
+
+<p>
+    Next we set the \(x-\)components equal and solve for \(t\):
+</p>
+
+    \begin{align*}
+    \left(560\cos45\right)t+640&=\left(800\cos29.67\right)t\\
+    396t + 640&=695.1t\\
+    640&=\left(695.1-396\right)t=299.1t\\
+    t&=\frac{640}{299.1}=2.14~\textrm{hr}
+    \end{align*}
+
+<p>
+    The rate at which the distance is decreasing is the magnitude of \(\vec{v}_{B/A}\).
+
+	From above we have
+</p>
+
+    \begin{align*}
+        \vec{v}_A=396\hat{i}+396\hat{j}\\
+        \vec{v}_B=695.1\hat{i}+396\hat{j}
+    \end{align*}
+
+    \begin{align*}
+    \vec{v}_{B/A}&=\vec{v}_B-\vec{v_a}=\left(695.1-396\right)\hat{i} + \left(396-396\right)\hat{j}=299.1\hat{i} \\  
+    \vert \vec{v}_{B/A} \vert&= 299.1~\textrm{kph}
+    \end{align*}
+    
+
+</div>
+</body>
+</html>

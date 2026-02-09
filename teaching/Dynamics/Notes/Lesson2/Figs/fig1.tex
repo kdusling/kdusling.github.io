@@ -1,0 +1,70 @@
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage{tikz,pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{calc}
+\usetikzlibrary{angles,quotes} % for pic
+\usetikzlibrary{patterns,decorations.pathmorphing}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{calc} 
+\tikzset{>=latex}
+
+\begin{document}
+
+
+\pgfmathdeclarefunction{myx}{1}{%
+  \pgfmathparse{3+#1)}%
+}
+\pgfmathdeclarefunction{myy}{1}{%
+  \pgfmathparse{0.5*#1 + 0.01*#1^4)}%
+}
+\pgfmathdeclarefunction{myvx}{1}{%
+  \pgfmathparse{1.0}%
+}
+\pgfmathdeclarefunction{myvy}{1}{%
+  \pgfmathparse{0.5 + 0.04*#1^3)}%
+}
+
+\begin{tikzpicture}[]
+    \begin{axis}[
+        xlabel={$x$},
+        ylabel={$y$},
+        %grid=major,
+        axis lines=center,
+        xmin=-1, xmax=10,
+        ymin=-1, ymax=6,
+        %title={Parametric Plot with Time Parameter}
+        xticklabel=\empty, 
+        yticklabel=\empty,
+        tick style={draw=none}
+    ]
+    \addplot[variable=\t,
+        parametric,
+        domain=0:6, % Domain for the parameter 't'
+        samples=100,    % Number of samples 
+        black,           % Line color
+        line width=1pt  % Line thickness
+    ] ({myx(t)},{myy(t)});
+
+    \newcommand\ta{2}
+    \newcommand\tb{4}
+
+    \node[draw, fill=white, circle, inner sep=1.5pt, label=above left:$O$] at (0,0) {};
+    
+    \node[draw, fill=green!40!blue, rectangle, inner sep=1.5pt, label={[text=black]right:$P$}]at ({myx(\ta)},{myy(\ta)}) {};
+
+    \node[draw, fill=green!40!blue, rectangle, inner sep=1.5pt, label={[text=black]right:$P^\prime$}] at ({myx(\tb)},{myy(\tb)}) {};
+
+    \draw[-{Latex[length=3mm,width=2mm]}, thick, blue] (0,0) -- ({myx(\ta)},{myy(\ta)}) node[midway, above] {$\vec{r}$};
+
+    \draw[-{Latex[length=3mm,width=2mm]}, thick, blue] (0,0) -- ({myx(\tb)},{myy(\tb)}) node[midway, above] {$\vec{r}^\prime$};
+
+    \draw[-{Latex[length=3mm,width=2mm]}, thick, purple] ({myx(\ta)},{myy(\ta)}) -- ({myx(\tb)},{myy(\tb)}) node[midway,left] {$\Delta\vec{r}$};
+
+    %I rescaled the velocity by 2 since this is just a cartoon
+    \draw[-{Latex[length=3mm,width=2mm]}, thick, green!40!black] ({myx(\ta)},{myy(\ta)}) --++ (axis direction cs:{2.0*myvx(\ta)},{2.0*myvy(\ta)}) node[right] {$\vec{v}$};
+   
+    \end{axis}
+\end{tikzpicture}
+
+\end{document}
