@@ -61,3 +61,10 @@ body {
     padding: 20px;
     max-width: 800px;
 }
+
+@media print {
+  .new-page {
+    break-after: always; /* Modern property */
+    page-break-after: always; /* Older, widely supported property */
+  }
+}

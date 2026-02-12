@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kinematics Dashboard</title>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/3.1.1/plotly.min.js"></script>
+  <style>
+.wrapper {
+    display:table;
+    width:700px;
+}
+.row {
+    display:table-row;
+}
+.first {
+    display:table-cell;
+    width:200px;
+}
+.second {
+    display:table-cell;
+    width:300px;
+}
+.third {
+    display:table-cell;
+    width:200px;
+}
+.eqinput {
+	width: 30px;
+}
+  </style>
+
+</head>
+<body>
+
+    <h2>Interactive Kinematics Plots</h2>
+
+    <!-- UI Sliders -->
+    <div class="controls">
+        <div class="slider-group">
+            <label>time: </label>
+            <input type="range" id="t" min="0" max="50" value="0" step="1">
+			<span id="t-val">0</span>
+        </div>
+    </div>
+	
+	<div>
+	\(r(t)=\Bigl(\) 
+	<input type="text" class="eqinput" id="ax">\(+\)
+	<input type="text" class="eqinput" id="bx">\(t+\)
+	<input type="text" class="eqinput" id="cx">\(t^2+\)
+	<input type="text" class="eqinput" id="dx">\(t^3+\)
+	<input type="text" class="eqinput" id="ex">\(t^4\Bigr)~\hat{i}~+~\Bigl(\)
+	
+	<input type="text" class="eqinput" id="ay">\(+\)
+	<input type="text" class="eqinput" id="by">\(t+\)
+	<input type="text" class="eqinput" id="cy">\(t^2+\)
+	<input type="text" class="eqinput" id="dy">\(t^3+\)
+	<input type="text" class="eqinput" id="ey">\(t^4\Bigr)~\hat{j}\)
+
+	</div>
+	
+	
+<div class="wrapper">
+  <div class="row">
+    <div class="first">
+		<h2 class="h3 mb0">Rectangular coordinates</h2>
+	 
+      	<p>
+		\(\vec{r}=\)<span id="xpos"></span>\(\hat{i}\)+<span id="ypos"></span>	\(\hat{j}\) 
+		</p>
+		<p>
+		\(\vec{v}=\)<span id="xvel"></span>\(\hat{i}\)+<span id="yvel"></span>\(\hat{j}\) 
+		</p>
+		<p>
+		\(\vec{a}=\)<span id="xacc"></span>\(\hat{i}\)+<span id="yacc"></span>\(\hat{j}\) 
+
+	
+	</div>
+    <div class="second">
+	
+		<h2 class="h3 mb0">Tangential and normal coordinates</h2>
+      	<p>
+		\(\vec{v}=\)<span id="vtang"></span>\(\hat{e}_t\)
+		</p>
+	
+		<p>
+		\(\vec{a}=\)<span id="atang"></span>\(\hat{e}_t\)+<span id="anorm"></span>\(\hat{e}_n\)
+		</p>
+		
+	</div>
+    <div class="third">
+	
+	    <h2 class="h3 mb0">Polar coordinates</h2>
+	
+		<p>
+		\(\vec{v}=\)<span id="vrad"></span>\(\hat{e}_r\)+<span id="vtrans"></span>\(\hat{e}_\theta\)
+		</p>
+	
+		<p>
+		\(\vec{a}=\)<span id="arad"></span>\(\hat{e}_r\)+<span id="atrans"></span>\(\hat{e}_\theta\)
+		</p>
+	
+	
+	</div>
+  </div>
+</div>
+
+
+	
+
+
+    <!-- Div for Plotly Chart -->
+    <div id='plot-window' style="max-width: 600px;"></div>
+
+    <script>
+        const plotDiv = document.getElementById('plot-window');
+        const sliders = ['t'];
+		const tmax = 6;
+		document.getElementById('t').max = tmax;
+		document.getElementById('t').step = 1;
+		const pts = 500;
+		
+		const ax=1; bx=1; cx=0.1; dx=0; ex=0;
+		const ay=0; by=0.5; cy=0; dy=0; ey=0.02;
+		
+		document.getElementById('ax').value = ax;
+		document.getElementById('bx').value = bx;
+		document.getElementById('cx').value = cx;
+		document.getElementById('dx').value = dx;
+		document.getElementById('ex').value = ex;
+		
+		document.getElementById('ay').value = ay;
+		document.getElementById('by').value = by;
+		document.getElementById('cy').value = cy;
+		document.getElementById('dy').value = dy;
+		document.getElementById('ey').value = ey;
+		
+		//pos, vel and acc in rectangular coordinates
+		
+		function pos(t) {
+			x = ax + bx*t + cx*t**2 + dx*t**3 + ex*t**4;
+			y = ay + by*t + cy*t**2 + dy*t**3 + ey*t**4;
+			return [x, y];
+		}
+		function vel(t) {
+			x = bx + 2*cx*t + 3*dx*t**2 + 4*ex*t**3;
+			y = by + 2*cy*t + 3*dy*t**2 + 4*ey*t**3;
+			return [x, y];
+		}
+		function acc(t) {
+			x = 2*cx + 6*dx*t + 12*ex*t**2;
+			y = 2*cy + 6*dy*t + 12*ey*t**2;
+			return [x, y];
+		}
+		
+		//vel and acc in tangential-normal coordinates
+		function vmag(t) {
+			return ( vel(t)[0]**2+vel(t)[1]**2 )**0.5;
+		} 
+		
+		function atang(t) {
+			return (vel(t)[0]*acc(t)[0]+vel(t)[1]*acc(t)[1])/vmag(t);
+		} 
+		
+		function rho(t) {
+			return vmag(t)**3/Math.abs(vel(t)[0]*acc(t)[1]-vel(t)[1]*acc(t)[0]);
+		} 
+		
+		function anorm(t) {
+			return vmag(t)**2/rho(t);
+		} 
+		
+		//vel and acc in polar coordinates
+		function rmag(t) {
+			return ( pos(t)[0]**2+pos(t)[1]**2 )**0.5;
+		} 
+		
+		function rdot(t) {
+			return (pos(t)[0]*vel(t)[0]+pos(t)[1]*vel(t)[1])/rmag(t)
+		}
+		
+		function rdotdot(t) {
+			return (vmag(t)**2 + pos(t)[0]*acc(t)[0] + pos(t)[1]*acc(t)[1]-rdot(t)**2)/rmag(t)
+		}
+		
+		function thetadot(t) {
+			return (pos(t)[0]*vel(t)[1]-pos(t)[1]*vel(t)[0])/rmag(t)**2
+		}
+	
+		function thetadotdot(t) {
+			return (pos(t)[0]*acc(t)[1]-pos(t)[1]*acc(t)[0]-2*rdot(t)*thetadot(t))/rmag(t)
+		}
+		
+		function vtrans(t) {
+			return rmag(t)*thetadot(t);
+		}
+		
+				
+		function arad(t) {
+			return rdotdot(t) - rmag(t)*thetadot(t)**2;
+		}
+		
+				
+		function atrans(t) {
+			return rmag(t)*thetadotdot(t)+2*rdot(t)*thetadot(t);
+		}
+		
+
+        function updatePlots() {
+            // 1. Get current slider values
+            const myt = parseFloat(document.getElementById('t').value);
+			
+			document.getElementById('xpos').innerText = pos(myt)[0].toFixed(2);
+			document.getElementById('ypos').innerText = pos(myt)[1].toFixed(2);
+			document.getElementById('xvel').innerText = vel(myt)[0].toFixed(2);
+			document.getElementById('yvel').innerText = vel(myt)[1].toFixed(2);
+			document.getElementById('xacc').innerText = acc(myt)[0].toFixed(2);
+			document.getElementById('yacc').innerText = acc(myt)[1].toFixed(2);
+			document.getElementById('vtang').innerText = vmag(myt).toFixed(2);
+			document.getElementById('atang').innerText = atang(myt).toFixed(2);
+			document.getElementById('anorm').innerText = anorm(myt).toFixed(2);
+			document.getElementById('vrad').innerText = rdot(myt).toFixed(2);
+			document.getElementById('vtrans').innerText = vtrans(myt).toFixed(2);
+			document.getElementById('arad').innerText = arad(myt).toFixed(2);
+			document.getElementById('atrans').innerText = atrans(myt).toFixed(2);
+
+
+            // Update text labels
+            document.getElementById('t-val').innerText = myt;
+
+            // 2. Generate data points (t = 0 to 10 seconds)
+            const t = Array.from({length: pts}, (_, i) => i * tmax/(pts-1) );
+            const posX = t.map(time => pos(time)[0] );
+            const posY = t.map(time => pos(time)[1] );
+
+            // 3. Define Traces
+            const tracePos = { x: posX, y: posY, name: 'Position (m)', xaxis: 'x1', yaxis: 'y1', 
+			type: 'scatter', hoverinfo: 'none' };
+            
+			
+
+
+            // 4. Layout with Subplots
+            const layout = {
+                grid: { rows: 1, columns: 1, pattern: 'independent' },
+                title: 'Motion Over Time',
+                showlegend: false,
+                yaxis: { title: {text: 'y'},  range: [0, 10] },
+                xaxis: { title: {text: 'x'},  range: [0, 10] },
+				annotations: [
+				{xref: 'x',	yref: 'y', axref: 'x', ayref: 'y',
+				 x: pos(myt)[0], y: pos(myt)[1],
+				 ax: 0, ay: 0, 
+				 text: '', showarrow: true, arrowhead: 1, arrowsize: 1, arrowwidth:2,arrowcolor: 'blue'},
+				{xref: 'x',	yref: 'y', axref: 'x', ayref: 'y',
+				 x: pos(myt)[0]+vel(myt)[0], y: pos(myt)[1]+vel(myt)[1],
+				 ax: pos(myt)[0], ay: pos(myt)[1], 
+				 text: '', showarrow: true, arrowhead: 1, arrowsize: 1, arrowwidth:2,arrowcolor: 'green'},
+				{xref: 'x',	yref: 'y', axref: 'x', ayref: 'y',
+				 x: pos(myt)[0]+acc(myt)[0], y: pos(myt)[1]+acc(myt)[1],
+				 ax: pos(myt)[0], ay: pos(myt)[1], 
+				 text: '', showarrow: true, arrowhead: 1, arrowsize: 1, arrowwidth:2,arrowcolor: 'red'}
+				],
+            };
+			
+			var config = { responsive: true };
+
+            Plotly.react(plotDiv, [tracePos], layout, config);
+        }
+
+        // Attach listeners to update on every slider movement
+        sliders.forEach(id => {
+            document.getElementById(id).addEventListener('input', updatePlots);
+        });
+
+        // Initial plot call
+        updatePlots();
+    </script>
+</body>
+</html>

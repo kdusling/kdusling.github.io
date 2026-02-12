@@ -24,6 +24,12 @@
 \pgfmathdeclarefunction{myvy}{1}{%
   \pgfmathparse{0.5 + 0.08*#1^3)}%
 }
+\pgfmathdeclarefunction{myax}{1}{%
+  \pgfmathparse{0.2}%
+}
+\pgfmathdeclarefunction{myay}{1}{%
+  \pgfmathparse{0.24*#1^2)}%
+}
 
 \begin{tikzpicture}[]
     \begin{axis}[
@@ -41,28 +47,22 @@
     \addplot[variable=\t,
         parametric,
         domain=0:6, % Domain for the parameter 't'
-        samples=100,    % Number of samples 
+        samples=500,    % Number of samples 
         black,           % Line color
         line width=1pt  % Line thickness
     ] ({myx(t)},{myy(t)});
 
-    \newcommand\ta{2.5}
-    \newcommand\tb{4}
+    \newcommand\ta{2.}
+    \newcommand\tb{3.}
 
     \node[draw, fill=white, circle, inner sep=1.5pt, label=above left:$O$] at (0,0) {};
     
-    \node[draw, fill=green!40!blue, rectangle, inner sep=1.5pt, label={[text=black]right:$P$}]at ({myx(\ta)},{myy(\ta)}) {};
-
-    \node[draw, fill=green!40!blue, rectangle, inner sep=1.5pt, label={[text=black]right:$P^\prime$}] at ({myx(\tb)},{myy(\tb)}) {};
-
-    \draw[-{Latex[length=3mm,width=2mm]}, thick, blue] (0,0) -- ({myx(\ta)},{myy(\ta)}) node[midway, above] {$\vec{r}$};
-
-    \draw[-{Latex[length=3mm,width=2mm]}, thick, blue] (0,0) -- ({myx(\tb)},{myy(\tb)}) node[midway, above] {$\vec{r}^{\,\prime}$};
-
-    \draw[-{Latex[length=3mm,width=2mm]}, thick, purple] ({myx(\ta)},{myy(\ta)}) -- ({myx(\tb)},{myy(\tb)}) node[midway,left] {$\Delta\vec{r}$};
-
-    \draw[-{Latex[length=3mm,width=2mm]}, thick, green!40!black] ({myx(\ta)},{myy(\ta)}) --++ (axis direction cs:{myvx(\ta)},{myvy(\ta)}) node[right] {$\vec{v}$};
-   
+    \draw[-{Latex[length=3mm,width=2mm]}, thick, green!40!black] (axis cs:{myx(\ta)},{myy(\ta)}) --++ (axis direction cs:{myvx(\ta)},{myvy(\ta)}) node[right] {$\vec{v}$};
+    \draw[-{Latex[length=3mm,width=2mm]}, thick, red!40!black] (axis cs:{myx(\ta)},{myy(\ta)}) --++ (axis direction cs:{myax(\ta)},{myay(\ta)}) node[left] {$\vec{a}$};
+	
+	\draw[-{Latex[length=3mm,width=2mm]}, thick, green!40!black] (axis cs:{myx(\tb)},{myy(\tb)}) --++ (axis direction cs:{myvx(\tb)},{myvy(\tb)}) node[right] {$\vec{v}$};
+    \draw[-{Latex[length=3mm,width=2mm]}, thick, red!40!black] (axis cs:{myx(\tb)},{myy(\tb)}) --++ (axis direction cs:{myax(\tb)},{myay(\tb)}) node[left] {$\vec{a}$};
+	
     \end{axis}
 \end{tikzpicture}
 

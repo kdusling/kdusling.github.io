@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kinematics Dashboard</title>
+	 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/3.1.1/plotly.min.js"></script>
+</head>
+<body>
+
+    <h2>Interactive Kinematics Plotsa</h2>
+	
+	\(x^2\)
+
+    <!-- UI Sliders -->
+    <div class="controls">
+        <div class="slider-group">
+            <label>time: </label>
+            <input type="range" id="t" min="0" max="50" value="0" step="1">
+			<span id="t-val">0</span>
+        </div>
+    </div>
+
+    <!-- Div for Plotly Chart -->
+    <div id='plot-window' style="max-width: 600px;"></div>
+
+    <script>
+        const plotDiv = document.getElementById('plot-window');
+        const sliders = ['t'];
+		const tmax = 6;
+		document.getElementById('t').max = tmax;
+		document.getElementById('t').step = 0.1;
+		const pts = 500;
+		
+		const ax=1; bx=1; cx=0.1;
+		const ay=0; by=0.5; cy=0; dy=0.; ey=0.02;
+		
+		function pos(t) {
+			x = ax + bx*t + cx*t**2;
+			y = ay + by*t + cy*t**2 + dy*t**3 + ey*t**4;
+			return [x, y];
+		}
+		function vel(t) {
+			x = bx + 2*cx*t;
+			y = by + 2*cy*t + 3*dy*t**2 + 4*ey*t**3;
+			return [x, y];
+		}
+		function acc(t) {
+			x = 2*cx;
+			y = 2*cy + 6*dy*t + 12*ey*t**2;
+			return [x, y];
+		}
+		
+
+        function updatePlots() {
+            // 1. Get current slider values
+            const myt = parseFloat(document.getElementById('t').value);
+
+            // Update text labels
+            document.getElementById('t-val').innerText = myt;
+
+            // 2. Generate data points (t = 0 to 10 seconds)
+            const t = Array.from({length: pts}, (_, i) => i * tmax/(pts-1) );
+            const posX = t.map(time => pos(time)[0] );
+            const posY = t.map(time => pos(time)[1] );
+
+            // 3. Define Traces
+            const tracePos = { x: posX, y: posY, name: 'Position (m)', xaxis: 'x1', yaxis: 'y1', 
+			type: 'scatter', hoverinfo: 'none' };
+            
+			
+
+
+            // 4. Layout with Subplots
+            const layout = {
+                grid: { rows: 1, columns: 1, pattern: 'independent' },
+                title: 'Motion Over Time',
+                showlegend: false,
+                yaxis: { title: {text: 'y'},  range: [0, 10] },
+                xaxis: { title: {text: 'x'},  range: [0, 10] },
+				annotations: [
+				{xref: 'x',	yref: 'y', axref: 'x', ayref: 'y',
+				 x: pos(myt)[0]+vel(myt)[0], y: pos(myt)[1]+vel(myt)[1],
+				 ax: pos(myt)[0], ay: pos(myt)[1], 
+				 text: '', showarrow: true, arrowhead: 1, arrowsize: 1, arrowwidth:2,arrowcolor: 'green'},
+				{xref: 'x',	yref: 'y', axref: 'x', ayref: 'y',
+				 x: pos(myt)[0]+acc(myt)[0], y: pos(myt)[1]+acc(myt)[1],
+				 ax: pos(myt)[0], ay: pos(myt)[1], 
+				 text: '', showarrow: true, arrowhead: 1, arrowsize: 1, arrowwidth:2,arrowcolor: 'red'}
+				],
+            };
+			
+			var config = { responsive: true };
+
+            Plotly.react(plotDiv, [tracePos], layout, config);
+        }
+
+        // Attach listeners to update on every slider movement
+        sliders.forEach(id => {
+            document.getElementById(id).addEventListener('input', updatePlots);
+        });
+
+        // Initial plot call
+        updatePlots();
+    </script>
+</body>
+</html>

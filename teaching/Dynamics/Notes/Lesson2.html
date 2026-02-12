@@ -17,30 +17,42 @@
 
 <p>
 
-Consider a particle that moves in the \(xy\) plane as shown below. At some time, \(t\), the particle is located at point \(P\). Its position is specified by the vector \(\vec{r}\) connecting the origin \(O\) and \(P\).
+Consider a particle that moves in the \(xy\) plane as shown below. At some time \(t\) the particle is located at point \(P\). Its position is specified by the vector \(\vec{r}\) connecting the origin \(O\) and \(P\). This is shown in figure below.
 
-At some later time, \(t^\prime\), the particle is located at point \(P^\prime\) defined by vector \(\vec{r}^{\,\prime}\). The displacement of the particle from time \(t\) to \(t^\prime\) is given as
+Let's say that at some later time \(t^\prime\) the particle is located at a new point \(P^\prime\) defined by vector \(\vec{r}^{\,\prime}\). As the particle moves from its position at time \(t\) to its final position at time \(t^\prime\) its displacement is given as
 
 \begin{align*}
     \Delta\vec{r}=\vec{r}^{\,\prime}-\vec{r}
 \end{align*}
 
-The instantaneous velocity is defined as
+Note that \(\Delta\vec{r}\) is a vector and therefore represents both a change in magnitude and direction. The instantaneous velocity is defined as
 \begin{align*}
     \vec{v}=\lim_{\Delta t\to 0 }\frac{\Delta\vec{r}}{\Delta t}=\frac{d\vec{r}}{dt}
 \end{align*}
-and is tangent to the path of the particle as shown in the figure below. Similarly the acceleration is given as
-\begin{align*}
-    \vec{a}=\frac{d{\vec v}}{dt}
-\end{align*} 
-</p>
+We again stress that \(\vec{v}\) is a vector.  The magnitude of \(\vec{v}\) is called the <em>speed</em> of the particle.   The direction of the velocity vector is 
+is tangent to the path of the particle as shown in the figure below. 
+
 
 <img
-  width="500px"
+  width="400px"
   src="Lesson2/Figs/fig1.svg"
   alt=""
   style="display: block; margin: auto;"
  />
+
+Similarly, the acceleration is given as the time derivative of the velocity vector
+\begin{align*}
+    \vec{a}=\frac{d{\vec v}}{dt}
+\end{align*} 
+The plot below shows an example of the velocity and acceleration vector at two representative times. Note that velocity vector is tangent to the curve at each time, while the acceleration vector is not necessarily tangent to the path. 
+ 
+<img
+  width="400px"
+  src="Lesson2/Figs/fig1b.svg"
+  alt=""
+  style="display: block; margin: auto;"
+ />
+</p>
 
 <h3> Rectangular Components of Velocity and Acceleration</h3>
 
@@ -73,17 +85,20 @@ where \(\hat{i}\) and \(\hat{j}\) are the unit vectors in the \(x\) and \(y\) di
 <h3>Projectile motion</h3>
 
  
-<p>For the motion of a projectile the only force acting on the particle is that of gravity.  The components of the acceleration are therefore</p>
+<p>For the motion of a projectile the only force acting on the particle is that of gravity in the vertical or \(y\)-direction.  The components of the acceleration are therefore</p>
 
 \begin{align*}
     a_x=\ddot{x}=0\qquad a_y=\ddot{y}=-g
 \end{align*}
 
-We can integrate to find the velocity and position
+<p>
+We therefore have uniform rectilinear motion in the horizontal or \(x\)-direction and uniformly accelerated rectilinear motion in the vertical or \(y\)-direction.
+
+The velocity and position are therfore given as
 
 \begin{alignat*}{3}
-    v_x(t)&=\dot{x}(t)=v_{x0} &\qquad& v_y(t)&=&\dot{y}(t)=v_{y0}-gt\\
-    x(t)&=x_0+v_{x0}t &\qquad& ~~y(t)&=&y_0+v_{y0}t-\frac{1}{2}gt^2
+    v_x(t)&=v_{x0} &\qquad& v_y(t)&=&\, v_{y0}-gt\\
+    x(t)&=x_0+v_{x0}t &\qquad& ~~y(t)&=&\, y_0+v_{y0}t-\frac{1}{2}gt^2
 \end{alignat*}
 
 <a href="Lesson2/SampleProblems/SP2-2.html" class="a-button-43"><button class="button-43" role="button">Go to Sample problem 2-2</button></a>
@@ -92,7 +107,7 @@ We can integrate to find the velocity and position
 <h3>Motion Relative to a Frame in Translation</h3>
 
 
-Consider two particles, $A$ and $B$.  In our \emph{fixed frame of reference} $O_{xy}$ particle $A$ and $B$ are located at $\vec{r}_A$ and $\vec{r}_B$, respectively.
+Consider two particles, \(A\) and \(B\).  In our <em>fixed frame of reference</em> \(O_{xy}\) particle \(A\) and  \(B\) are located at \(\vec{r}_A\) and \(\vec{r}_B\), respectively.
 
 <img
   width="500px"
@@ -101,15 +116,15 @@ Consider two particles, $A$ and $B$.  In our \emph{fixed frame of reference} $O_
   style="display: block; margin: auto;"
  />
 
-Let us now consider another coordinate system whose origin coincides with the position of particle $A$. We call this coordinate system $A_{x^\prime y^\prime}$. We suppose that that while the origin of the axes move with particle $A$ their orientation remains unchanged ({\em i.e. }$x^\prime$ remains pointing right and $y^\prime$ always points up).
+Let us now consider another coordinate system whose origin coincides with the position of particle \(A\). We call this coordinate system \(A_{x^\prime y^\prime}\) and is shown in red in the figure below. The origin of this new system moves with particle \(A\) and its orientation remains unchanged (\(x^\prime\) points right and \(y^\prime\) points up as the axis moves with particle \(A\)).
 
-The position of particle $B$ in the moving frame $A$ is
+The position of particle \(B\) in this new translating frame \(A_{x^\prime y^\prime}\) is
 
 \begin{align*}
     \vec{r}_B=\vec{r}_A+\vec{r}_{B/A}
 \end{align*}
 
-Taking time derivatives
+Taking time derivatives we have the following relations
 
 \begin{align*}
     \vec{v}_B=\vec{v}_A+\vec{v}_{B/A}\\

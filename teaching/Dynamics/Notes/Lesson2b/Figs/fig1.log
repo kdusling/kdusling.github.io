@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=latex 2026.1.27)  10 FEB 2026 08:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=latex 2026.1.27)  12 FEB 2026 08:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./fig2.tex
-(fig2.tex
+**./fig1.tex
+(fig1.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
 
@@ -573,8 +573,8 @@ File: l3backend-dvips.def 2025-10-09 L3 backend support: dvips
 \g__pdfannot_backend_int=\count315
 \g__pdfannot_backend_link_int=\count316
 \g__pdfannot_backend_link_sf_int=\count317
-) (fig2.aux)
-\openout1 = `fig2.aux'.
+) (fig1.aux)
+\openout1 = `fig1.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
@@ -595,24 +595,24 @@ Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 23.
+(Font)              <7> on input line 81.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 23.
+(Font)              <5> on input line 81.
 [1
 
-] (fig2.aux)
+] (fig1.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 23032 strings out of 467871
- 626354 string characters out of 5418381
- 1147915 words of memory out of 5000000
- 51575 multiletter control sequences out of 15000+600000
+ 23589 strings out of 467871
+ 641536 string characters out of 5418381
+ 1167787 words of memory out of 5000000
+ 52132 multiletter control sequences out of 15000+600000
  627721 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 117i,5n,121p,727b,666s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,8n,121p,727b,2346s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on fig2.dvi (1 page, 18456 bytes).
+Output written on fig1.dvi (1 page, 23384 bytes).

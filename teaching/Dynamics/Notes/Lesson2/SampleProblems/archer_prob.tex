@@ -1,0 +1,33 @@
+\documentclass[tikz,border=3.14mm]{standalone}
+
+\newcommand\hillx{15}
+\newcommand\xo{1.5}
+\newcommand\yo{1.25}
+\newcommand\vo{20}
+\newcommand\sang{0.2588190451}
+\newcommand\cang{0.96592582628}
+
+\tikzset{every node/.style={font=\LARGE}}
+
+\begin{document}
+  \begin{tikzpicture}[]
+  
+    \fill[green!30!black] plot[smooth,domain=0:\hillx+0.1,samples=501] (\x,0.1+0.1*rnd) |- (0,0.0);
+    
+
+
+    \node[inner sep=0pt] at (1,0.9) {\includegraphics[width=1cm]{archer.png}};
+
+    \draw[|-|,black] (-0.2,0.1) --++ (0,1.) node[midway,left] {1.5 m};
+
+    \draw[dashed,thick] plot[smooth,domain=0:1,samples=501,variable=\t](\xo+\vo*\cang*\t,\yo+\vo*\sang*\t-0.5*10*\t^2);
+
+    \fill[green!30!black] plot[smooth,domain=\hillx:22,samples=501] (\x,0.1*rnd + 3*\x^0.6 - 3*\hillx^0.6 ) |- (\hillx,0);
+
+    \draw[|-|] (1,-.5) -- (\hillx+3.5,-.5) node[midway,below] {80 m};
+
+    \draw[|-|,white,thick] (\hillx+3.5,0.1) --++ (0,1.8) node[midway,below,right] {3 m};
+
+
+  \end{tikzpicture}
+\end{document}

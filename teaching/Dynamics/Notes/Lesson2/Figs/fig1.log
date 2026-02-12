@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=latex 2026.1.27)  5 FEB 2026 14:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=latex 2026.1.27)  10 FEB 2026 11:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -595,9 +595,9 @@ Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 67.
+(Font)              <7> on input line 66.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 67.
+(Font)              <5> on input line 66.
 [1
 
 ] (fig1.aux)
@@ -607,12 +607,12 @@ L3 programming layer <2025-12-24>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 23534 strings out of 467871
- 640303 string characters out of 5418381
- 1167290 words of memory out of 5000000
- 52077 multiletter control sequences out of 15000+600000
+ 23536 strings out of 467871
+ 640329 string characters out of 5418381
+ 1168529 words of memory out of 5000000
+ 52079 multiletter control sequences out of 15000+600000
  627721 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 117i,8n,121p,727b,2262s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,8n,121p,727b,2269s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on fig1.dvi (1 page, 23308 bytes).
+Output written on fig1.dvi (1 page, 23616 bytes).
