@@ -16,31 +16,20 @@
 
 <p>
 
-In normal-tangential coordinates the particle itself serves as the origin point. The $t$ or tangential direction points in the direction of motion at that instant in time.  The unit vector in the $t$ direction is denoted as $\hat{e}_t$. By definition is magnitude is one but is direction changes as the particle moves along its path. 
-
-The velocity vector can therefore be expressed as:
+Consider a particle that moves a long a curved path.  At any given point we identify a unit vector called \(\hat{e}_t\) that points in the direction tangent to the path and in the direction of motion. The velocity vector can therefore be expressed as:
 \begin{align}
     \vec{v}(t)=v(t)\hat{e}_t
 \end{align}
-where $v(t)$ is the speed of the particle at a given time.
+where \(v(t)\) is the speed of the particle as a function of time.
+
+Note that while the magnitude of \(\hat{e}_t\) is one by definition, its direction changes as the particle moves along the path.
+
 
 We won't derive this here but the acceleration in this coordinate system is expressed as
 \begin{align}
     \vec{a}=\frac{dv}{dt}\hat{e}_t+\frac{v^2}{\rho}\hat{e}_n
 \end{align}
-where $\hat{e}_n$ is a unit vector in the normal direction, pointing $90^\circ$ counterclockwise from the $t$-direction. $\rho$ is the radius of curvature of the path at the points current position. 
-
-It will sometimes be convenient to represent the components of the acceleration as
-\begin{align*}
-    a_t=\frac{dv}{dt}\,,\qquad a_n=\frac{v^2}{\rho} 
-\end{align*}
-therefore
-\begin{align}
-    \vec{a}=a_t\hat{e}_t+a_n\hat{e}_n
-\end{align}
-
-<!--Need a discussion on 1/ direction of normal componenta and 2/ where normal acceleration comes from
--->
+where \(\hat{e}_n\) is a unit vector pointing into the center of curvature of the path and \(\rho\) is the radius of curvature of the path. An example of these unit vectors at two different points are given in the figure below.
 
 <img
   width="400px"
@@ -49,6 +38,18 @@ therefore
   style="display: block; margin: auto;"
  />
 
+It will sometimes be convenient to represent the acceleration in terms of its scalar components
+\begin{align*}
+    a_t=\frac{dv}{dt}\,,\qquad a_n=\frac{v^2}{\rho} 
+\end{align*}
+such that
+\begin{align}
+    \vec{a}=a_t\hat{e}_t+a_n\hat{e}_n
+\end{align}
+
+In summary, the tangential component of the acceleration \(a_t\) changes the speed of the particle, while the normal component \(a_n\) results in a change in direction. 
+
+</p>
 
 <a href="Lesson2b/SampleProblems/SP2b-1.html" class="a-button-43"><button class="button-43" role="button">Go to Sample problem 2b-1</button></a>
 
