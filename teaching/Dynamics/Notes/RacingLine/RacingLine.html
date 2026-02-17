@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Racing Lines</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	  <link href="https://vjs.zencdn.net/8.23.4/video-js.css" rel="stylesheet" />
+	  <link rel="stylesheet" type="text/css" href="../SPstyle.css">
+</head>
+<body>
+
+<div class="question">
+<div class="question-title">Racing Lines</div>
+<div class="question-content">
+
+<p>
+In this problem we wish to find an optimal racing line for an F1 driver navigating a corner. We will simplify the problem by considering the three racing lines shown in the figure below.  The outside line is shown in red and has a corner radius of \(r_o=20~\text{m}\). The inside line is shown in yellow and has a corner radius of \(r_i=15~\text{m}\). The middle line is shown in dashed blue and has a corner radius of \(r_m=35~\text{m}\). 
+</p>
+
+<img
+  width="600px"
+  src="racetrack.svg"
+  alt=""
+  style="display: block; margin: auto; padding: 25px"
+ />
+
+<p>
+The timer starts when the car passes the dashed white line labeled "start" and the timer stops when the car passes the dashed white line labeled "end". The straight-line distance, labeled \(s\), that the car must travel on the inside and outside lines before entering and leaving the curve is \(s=32~\text{m}\). The car on the middle line is always in the curve.
+</p>
+
+<p>
+The car can accelerate at \(1.6g\) and brake with \(-1.5g\). If the coefficient of friction between tires and tarmac is \(\mu_s=1.1\) find the best race time for each of the three lines. The car enters the start line at any speed of your choosing. Make a plot of velocity vs time for the three lines.
+</p>
+
+<hr class="question-divider">
+
+<p>
+Here is how I recommend you approach the problem. For all three lines, when the car is in the turn its fastest speed is determined by the tire's grip. If the normal component of the car's acceleration exceeds the friction from the road the car will loose control. Find this speed for all three lines and determine the time spent in the turn when maintaining this speed.
+</p>
+
+<p>
+Since the middle line is always in the turn, the time you found is the total time.  For the inside and outside lines we have to add the time spent in the straight segments. To minimize the time the car should cross the start line with the maximum speed allowable so that it can brake in time for the turn.  When we exit the curve we accelerate as much as possible. These times need to be added to the time spent in the turn. 
+</p>
+
+
+
+</div></div>
+</body>
+</html>

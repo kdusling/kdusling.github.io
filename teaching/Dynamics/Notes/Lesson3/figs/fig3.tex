@@ -1,0 +1,26 @@
+\documentclass[tikz,border=7pt]{standalone}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{calc} 
+\tikzset{>=latex}
+\input{../../pulley.tex}
+
+\begin{document}
+
+\begin{tikzpicture}[]
+  \draw [mass] (0,0) rectangle ++(2.5,1);
+  \node at (1.25,0.5) {$m=1~$slug}; 
+  \draw[force] (2.5, 0.5) -- (3.5,0.5) node[right] {1 lb}; 
+
+  \node at (5.,0.5) {{\LARGE =}}; 
+  
+  \begin{scope}[shift={(6.,0)}]
+  \draw [mass] (0,0) rectangle ++(2.5,1);
+  \node at (1.25,0.5) {$m=1~$slug}; 
+  \draw[acc] (2.5, 0.5) -- (3.5,0.5) node[right] {1 ft/s$^2$}; 
+  
+  \end{scope}
+\end{tikzpicture}
+
+
+\end{document}
