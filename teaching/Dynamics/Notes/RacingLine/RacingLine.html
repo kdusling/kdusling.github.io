@@ -9,6 +9,15 @@
 	  <link href="https://vjs.zencdn.net/8.23.4/video-js.css" rel="stylesheet" />
 	  <link rel="stylesheet" type="text/css" href="../SPstyle.css">
 </head>
+<style>
+      table,
+      th,
+      td {
+        padding: 10px;
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+    </style>
 <body>
 
 <div class="question">
@@ -44,7 +53,12 @@ Here is how I recommend you approach the problem. For all three lines, when the 
 Since the middle line is always in the turn, the time you found is the total time.  For the inside and outside lines we have to add the time spent in the straight segments. To minimize the time the car should cross the start line with the maximum speed allowable so that it can brake in time for the turn.  When we exit the curve we accelerate as much as possible. These times need to be added to the time spent in the turn. 
 </p>
 
-
+<table>
+<tr><th>Racing Line</th><th>Speed at start</th><th>Time in entry</th><th>Speed in curve</th><th>Time in curve</th><th>Speed at end</th><th>Time in exit</th><th>Total Time</th></tr>
+<tr><td>Inside (Yellow)</td><td>21.36</td><td>0.6627</td><td></td><td></td><td></td><td></td><td>2.94</td></tr>
+<tr><td>Middle (Blue)</td><td></td><td>0</td><td></td><td></td><td></td><td>0</td><td></td>
+<tr><td>Outside (Red)</td><td></td><td></td><td></td><td></td><td>21.70</td><td>0.6177</td><td></td></tr>
+</table>
 
 </div></div>
 </body>
