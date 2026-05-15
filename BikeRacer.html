@@ -24,14 +24,61 @@
      <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
  </script>
 
-<!--
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7080617284731198"
-     crossorigin="anonymous"></script>
---> 
 
-	 <script src='https://cdn.plot.ly/plotly-3.3.0.min.js'></script>
 
-</head>
+<style>
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #2a2a35;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+        canvas {
+            background: #111;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+        .controls {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            gap: 12px;
+        }
+        button, select {
+            background: #4f46e5;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        button:hover, select:hover { 
+            background: #6366f1; 
+        }
+        select {
+            outline: none;
+            text-align: center;
+        }
+        input[type="range"] {
+            flex-grow: 1;
+            cursor: pointer;
+        }
+        .time-display {
+            font-family: monospace;
+            font-size: 14px;
+            color: #a7f3d0;
+            min-width: 90px;
+            text-align: right;
+        }
+    </style>
+
+
 
 
 
@@ -39,7 +86,8 @@
 
   <script type="text/javascript">
 
-  var units = "metric";
+    var units = "metric";
+
 
 window.onload = function() {
 
@@ -218,11 +266,10 @@ function makePlotVinf() {
 	footer.innerHTML = '';
 	var rowfoot = footer.insertRow(0);
 	rowfoot.className  = "table-info"
-	//var cellfoot = rowfoot.insertCell(0);
-	//cellfoot.colSpan = "4";
+	var cellfoot = rowfoot.insertCell(0);
+	cellfoot.colSpan = "4";
 
-	//cellfoot.innerHTML = "For endurance efforts the optimum developement is " + DoptInf.toFixed(2) + "m corresponding to a gear ratio of " + (DoptInf/circ).toFixed(2)+" and a resulting speed of " + (3.6*vinf(DoptInf)).toFixed(2) + " kph (" + (0.621371*3.6*vinf(DoptInf)).toFixed(2) + " mph).";
-
+	cellfoot.innerHTML = "For endurance efforts the optimum developement is " + DoptInf.toFixed(2) + "m corresponding to a gear ratio of " + (DoptInf/circ).toFixed(2)+" and a resulting speed of " + (3.6*vinf(DoptInf)).toFixed(2) + " kph (" + (0.621371*3.6*vinf(DoptInf)).toFixed(2) + " mph).";
 	
   
 	function vinf(D) {
@@ -234,10 +281,10 @@ function makePlotVinf() {
 	
 
 
-	var yaxis_label = "speed (kph)";
+	var yaxis_label = "kph";
     
 	if (units === "imperial"){
-      yaxis_label = "speed (mph)";
+      yaxis_label = "mph";
 	} 
 
     // 2. Generate the x and y coordinates
@@ -268,9 +315,9 @@ function makePlotVinf() {
 		y: y_values,
 		customdata: customDataCombined,
 		hovertemplate: 'gear ratio: %{x:.2f}<br>' +
-                        'v: %{y:.2f} ' + yaxis_label + '<br>' +
-                        'rpm: %{customdata[0]:.2f}<br>' +
-						'power: %{customdata[1]:.2f} W',
+                        'v= %{y:.2f} ' + yaxis_label + '<br>' +
+                        'rpm= %{customdata[0]:.2f}<br>' +
+						'power= %{customdata[1]:.2f} W',
 		mode: 'lines',
 		type: 'scatter',
 		name: ''
@@ -336,10 +383,10 @@ function makePlotDopt() {
 	
 	
 
-	var xaxis_label = "Race Distance (m)";
+	var xaxis_label = "Distance (m)";
     
 	if (units === "imperial"){
-      xaxis_label = "Race Distance (feet)";
+      xaxis_label = "Distance (feet)";
 	} 
 
     // 2. Generate the x and y coordinates
@@ -384,11 +431,7 @@ function makePlotDopt() {
 		var cell = row.insertCell(-1);
 	    cell.innerHTML = ( dist > 999 ? (dist / 1000).toFixed(1) + ' km' : dist.toFixed(0) + ' m');
 		cell = row.insertCell(-1);
-	    if (units === "imperial"){
-			cell.innerHTML = (dopt/0.07979645).toFixed(2);
-		} else {
-			cell.innerHTML = dopt.toFixed(2);
-		}
+	    cell.innerHTML = dopt.toFixed(2);
 		cell = row.insertCell(-1);
 	    cell.innerHTML = (dopt/circ).toFixed(2);
 		cell = row.insertCell(-1);
@@ -403,9 +446,9 @@ function makePlotDopt() {
 		x: x_values,
 		y: y_values,
 		customdata: customDataCombined,
-		hovertemplate: 'race distance: %{customdata[1]}<br>' +
-                        'optimal gear ratio: %{y:.2f}<br>' +
-                        'race time: %{customdata[0]}<br>',
+		hovertemplate: 'distance: %{customdata[1]}<br>' +
+                        'gear ratio= %{y:.2f}<br>' +
+                        'time= %{customdata[0]}<br>',
 		mode: 'lines',
 		type: 'scatter',
 		name: ''
@@ -422,7 +465,7 @@ function makePlotDopt() {
 		},
 		yaxis: {
 			title: {
-				text: 'Optimal Gear Ratio',
+				text: 'Gear Ratio',
 				font: {size: 18}
 			}
 		},
@@ -451,8 +494,6 @@ function ChangeUnits(myRadio){
 
      document.getElementById("wheel_unit").textContent="m";
      document.getElementById("circ").value = ((document.getElementById("circ").value)/39.3701).toFixed(3);
-	 
-	 document.getElementById("optDevHeader").innerHTML="Optimal Development (m)";
 
    }
 
@@ -470,37 +511,18 @@ function ChangeUnits(myRadio){
      document.getElementById("wheel_unit").textContent="inches";
      document.getElementById("circ").value = ((document.getElementById("circ").value)*39.3701).toFixed(1);
 	 
-	 document.getElementById("optDevHeader").innerHTML="Gear Inches";
 
    }
 
 }
 
 function UpdateAll() {
-
-    document.getElementById("grade").className = "form-control";
-
-  if ( document.getElementById("grade").value < 0 )
-  {
-    document.getElementById("grade").className = "form-control is-invalid";
-	document.getElementById("grade").value = "Please enter a road grade larger than zero.";
-    return;
-  }
-  
-  if ( document.getElementById("grade").value > 50 )
-  {
-    document.getElementById("grade").className = "form-control is-invalid";
-	document.getElementById("grade").value = "Please enter a smaller road grade.";
-    return;
-  }
-
-
  makePlotVinf();
  makePlotDopt();
 }
 
 </script>
-
+</head>
 
 <body>
   <div class="border p-3" class="container-fluid">
@@ -531,79 +553,56 @@ function UpdateAll() {
 		
 		</div> <!--end div for form-row-->
 		
-		
-
-      <div class="input-group mb-3">
-      <div class="input-group-prepend">
-      <span class="input-group-text">Rider Weight</span>
-      </div>
-      <input type="text" class="form-control" id="rider_weight" aria-label="Rider Weight" value="81" onchange="UpdateAll();">
+<div class="row">
+  <div class="col-6">
+    <h2 class="h3">Bike A</h2>
+  
+	  <div class="input-group mb-3">
+	  <div class="input-group-prepend">
+	  <span class="input-group-text">Bike+Rider Weight</span>
+	  </div>
+	  <input type="text" class="form-control" id="weightA" aria-label="Bike + Rider Weight" value="81" onchange="UpdateAll();">
       <div class="input-group-append">
       <span class="input-group-text" id="weight_unit">kg</span>
       </div>
       </div>
-
-      <div class="input-group mb-3">
-      <div class="input-group-prepend">
-      <span class="input-group-text">Bike Weight</span>
-      </div>
-      <input type="text" class="form-control" id="bike_weight" aria-label="Bike Weight" value="14" onchange="UpdateAll();">
-      <div class="input-group-append">
-      <span class="input-group-text" id="weight_unit2">kg</span>
-      </div>
-      </div>
-
-      <div class="input-group mb-3">
+	  
+	  <div class="input-group mb-3">
       <div class="input-group-prepend">
       <span class="input-group-text">Drag Area</span>
       </div>
-      <input type="text" class="form-control" id="CdA" aria-label="CdA" value="0.40" onchange="UpdateAll();">
+      <input type="text" class="form-control" id="CdAA" aria-label="CdAA" value="0.40" onchange="UpdateAll();">
       <div class="input-group-append">
       <span class="input-group-text" id="CdA_unit">m$^2$</span>
       </div>
       </div>
-
-      <div class="input-group mb-3">
+	  
+	  <div class="input-group mb-3">
       <div class="input-group-prepend">
       <span class="input-group-text">$C_{rr}$</span>
-
       </div>
-      <input type="text" class="form-control" id="Crr" aria-label="Crr" value="0.0045" onchange="UpdateAll();" >
+      <input type="text" class="form-control" id="CrrA" aria-label="CrrA" value="0.0045" onchange="UpdateAll();" >
       </div>
-
-      <div class="input-group mb-3">
+	  
+	  <div class="input-group mb-3">
       <div class="input-group-prepend">
-      <span class="input-group-text" >Drivetrain Efficiency</span>
+      <span class="input-group-text">Wheel Circumference</span>
       </div>
-      <input type="text" class="form-control" id="eta" aria-label="eta" value="100"  onchange="UpdateAll();" >
+	  
+
+	  
+      <input type="text" class="form-control" id="circA" aria-label="circA" value="2.146" onchange="UpdateAll();" >
       <div class="input-group-append">
-      <span class="input-group-text" id="">%</span>
+      <span class="input-group-text" id="wheel_unit">m</span>
       </div>
       </div>
-
-      <div class="input-group mb-3">
+	  
+	  
+	  <div class="input-group mb-3">
       <div class="input-group-prepend">
-      <span class="input-group-text">Grade</span>
+      <span class="input-group-text">Max Power</span>
       </div>
-      <input type="text" class="form-control" id="grade" aria-label="grade" value="0"  onchange="UpdateAll();" >
-      <div class="input-group-append">
-      <span class="input-group-text" id="">%
-	  </span>
-      </div>
-      </div>
-
-      <div class="input-group mb-3">
-      <div class="input-group-prepend">
-      <span class="input-group-text">Max Power 
-	     <button type="button" class="btn btn-link btn-sm py-0 my-0" data-toggle="modal" data-target="#PowModelModal">
-         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
-         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-         <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
-         </svg>
-         </button>
-	  </span>
-      </div>
-      <input type="text" class="form-control" id="pmax" aria-label="pmax" value="200"  onchange="UpdateAll();" >
+      <input type="text" class="form-control" id="pmaxA" aria-label="pmaxA" value="200"  onchange="UpdateAll();" >
       <div class="input-group-append">
       <span class="input-group-text" id="power_unit">Watts</span>
       </div>
@@ -611,58 +610,71 @@ function UpdateAll() {
 
       <div class="input-group mb-3">
       <div class="input-group-prepend">
-      <span class="input-group-text">Optimum Cadence
-	     <button type="button" class="btn btn-link btn-sm py-0 my-0" data-toggle="modal" data-target="#PowModelModal">
-         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
-         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-         <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
-         </svg>
-         </button>
-	  </span>
+      <span class="input-group-text">Optimum Cadence</span>
       </div>
-      <input type="text" class="form-control" id="PRopt" aria-label="PRopt" value="80" onchange="UpdateAll();" >
+      <input type="text" class="form-control" id="PRoptA" aria-label="PRoptA" value="80" onchange="UpdateAll();" >
       <div class="input-group-append">
       <span class="input-group-text" id="PRopt_unit">rpm</span>
       </div>
       </div>
 	  
 	  
+      
+	  
+  
+  </div>
+  <div class="col-6">
+    <h2 class="h3">Bike B</h2>
+    <p>Content for the second column goes here.</p>
+  </div>
+</div>
+
+
+
       <div class="input-group mb-3">
       <div class="input-group-prepend">
-      <span class="input-group-text">Wheel Circumference</span>
+      <span class="input-group-text">Road Grade</span>
       </div>
-	  
-	  <div class="dropdown">
-	  <button class="btn btn-secondary btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		Select
-	  </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="wheel-list" onclick='UpdateAll();'>
-
-	  </div>
-	  </div>
-	  
-      <input type="text" class="form-control" id="circ" aria-label="circ" value="2.146" onchange="UpdateAll();" >
+      <input type="text" class="form-control" id="grade" aria-label="grade" value="0"  onchange="UpdateAll();" >
       <div class="input-group-append">
-      <span class="input-group-text" id="wheel_unit">m</span>
+      <span class="input-group-text" id="">%</span>
       </div>
       </div>
 
+      <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text">Race Distance</span>
+      </div>
+      <input type="text" class="form-control" id="pmax" aria-label="pmax" value="200"  onchange="UpdateAll();" >
+      <div class="input-group-append">
+      <span class="input-group-text" id="power_unit">km</span>
+      </div>
+      </div>
 
+	  
+	  
+      
 
-	<div>
-	<table  class="table .table-sm"  style="text-align: center;">
-	<thead><th>Race Distance</th><th id="optDevHeader">Optimal Development (m)</th><th>Optimal Gear Ratio</th><th>Race Time</th></thead>
-	<tbody id="tab-results">
-    </tbody>
-    <tfoot id="tab-footer"> </tfoot>
-    </table>
-	</div>
+<div class="container">
+    <!-- 1D Animation Screen Viewport -->
+    <canvas id="animationCanvas" width="550" height="100"></canvas>
     
-	<div id='dopt-plot-div' style="height:500px"></div>
-	
-	<div id='vinf-plot-div' style="height:500px"></div>
-	
+    <!-- Unified Control Bar Component -->
+    <div class="controls">
+        <button id="playPauseBtn">Play</button>
+        <button id="resetBtn">Reset</button>
+        
+        <!-- Speed Selection Dropdown -->
+        <select id="speedSelect">
+            <option value="0.5">0.5x</option>
+            <option value="1.0" selected>1.0x</option>
+            <option value="2.0">2.0x</option>
+        </select>
 
+        <input type="range" id="timeline" min="0" max="1" step="0.001" value="0">
+        <span id="timeLabel" class="time-display">0.00s / 3.00s</span>
+    </div>
+</div>
 	
 		
 
@@ -670,31 +682,113 @@ function UpdateAll() {
 </div>
 </div>
 
-<!-- Modal -->
-         <div class="modal fade" id="PowModelModal" tabindex="-1" role="dialog">
-           <div class="modal-dialog" role="document">
-             <div class="modal-content">
-               <div class="modal-header">
-                 <h5 class="modal-title">Cyclist Power Model</h5>
-           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-             <span aria-hidden="true">&times;</span>
-           </button>
-         </div>
-         <div class="modal-body" style="align:left; word-break: normal; white-space: normal;">
-
-         <p class="text-left"></p>
-		 This calculator uses a power model where the rider's power output is a quadratic function of their cadence.
-         $$ P_F=P_{\text{max}}\left[2\left(\frac{\text{PR}}{\text{PR}_{\text{opt}}}\right)-\left(\frac{\text{PR}}{\text{PR}_{\text{opt}}}\right)^2\right]
-		$$
-		The parameter $\text{PR}_{\text{opt}}$ is the optimal cadence for an individual rider and $P_{\text{max}}$ is the power output maintained at that cadence.
-
-         </div>
-         </div>
-         </div>
-         </div>
-       </span><!-- End modal -->
 
 
+
+
+
+
+<script>
+    // Document Selectors
+    const canvas = document.getElementById('animationCanvas');
+    const ctx = canvas.getContext('2d');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const speedSelect = document.getElementById('speedSelect');
+    const timeline = document.getElementById('timeline');
+    const timeLabel = document.getElementById('timeLabel');
+
+    // Core Animation Configuration State
+    let isPlaying = false;
+    let progress = 0; // Boundary range system: 0.0 -> 1.0
+    let playbackSpeed = 1.0; // Speed modifier multiplier
+    const loopDuration = 3000; // Base duration: 3 seconds
+    let lastTime = performance.now();
+
+    // Dimensional 1D Environment Parameters
+    const dotRadius = 15;
+    const padding = 40; 
+    const startX = padding;
+    const endX = canvas.width - padding;
+    const yPosition = canvas.height / 2; // Fixed single dimension line height
+
+    // String Converter Interface Logic
+    function updateTimeDisplay() {
+        const elapsedSeconds = ((progress * loopDuration) / 1000).toFixed(2);
+        const totalSeconds = (loopDuration / 1000).toFixed(2);
+        timeLabel.textContent = `${elapsedSeconds}s / ${totalSeconds}s`;
+    }
+
+    // Main Core Loop Engine
+    function updateAndDraw(currentTime) {
+        if (isPlaying) {
+            const delta = currentTime - lastTime;
+            lastTime = currentTime;
+
+            // Advance timeline progress modified by chosen playback speed multiplier
+            progress += (delta * playbackSpeed) / loopDuration;
+            //if (progress > 1) progress %= 1; // Smooth runtime loop wrapping
+			if (progress > 1) {playPauseBtn.click(); } // Smooth runtime loop wrapping
+            if (progress < 0) progress = 0; // Guard rail safety
+            
+            timeline.value = progress; 
+        } else {
+            lastTime = currentTime; // Prevent time-jumping on unpause
+        }
+
+        // Process Update Outputs
+        updateTimeDisplay();
+
+        // Canvas Redraw Sequence
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Render Track Support Guide Line
+        ctx.beginPath();
+        ctx.moveTo(startX, yPosition);
+        ctx.lineTo(endX, yPosition);
+        ctx.strokeStyle = '#444';
+        ctx.lineWidth = 4;
+        ctx.stroke();
+
+        // Map Trigonometric Oscillations directly over 1D line path coordinates
+        const sineFactor = (Math.sin(progress * Math.PI * 2/5 - Math.PI /3) + 1) / 2;
+        const currentX = startX + (endX - startX) * sineFactor;
+
+        // Render Animated Target Dot Asset
+        ctx.beginPath();
+        ctx.arc(currentX, yPosition, dotRadius, 0, Math.PI * 2);
+        ctx.fillStyle = '#10b981';
+        ctx.fill();
+
+        // Loop execution request
+        requestAnimationFrame(updateAndDraw);
+    }
+
+    // Event Handlers for Playback Interface
+    playPauseBtn.addEventListener('click', () => {
+	if (!isPlaying && progress > 1) { progress %= 1;}
+        isPlaying = !isPlaying;
+        playPauseBtn.textContent = isPlaying ? 'Pause' : 'Play';
+    });
+
+    resetBtn.addEventListener('click', () => {
+        progress = 0;
+        timeline.value = 0;
+        updateTimeDisplay();
+    });
+
+    speedSelect.addEventListener('change', (e) => {
+        playbackSpeed = parseFloat(e.target.value);
+    });
+
+    timeline.addEventListener('input', (e) => {
+        progress = parseFloat(e.target.value);
+        updateTimeDisplay(); // Instantly update digital clock while scrubbing
+    });
+
+    // Run Engine Initializer Sequence
+    requestAnimationFrame(updateAndDraw);
+</script>
 
 <!-- Google tag (gtag.js) -->
 
@@ -706,7 +800,5 @@ function UpdateAll() {
 
   gtag('config', 'G-TSB5RJ1T0J');
 </script>
-
-
 </body>
 </html>
