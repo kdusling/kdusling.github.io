@@ -47,7 +47,7 @@ window.onload = function() {
   
   if (params.has('config') )
   {
-   if ( params.get('config') === "Racing" ){
+   if ( params.get('config') === "Touring" ){
 		document.getElementById("rider_weight").value = 81;
 		document.getElementById("bike_weight").value = 14;
 		document.getElementById("CdA").value = 0.40;
@@ -56,7 +56,7 @@ window.onload = function() {
 		document.getElementById("PRopt").value = 80;
 		document.getElementById("circ").value = 2.146;
    }
-   if ( params.get('config') === "Touring" ){
+   if ( params.get('config') === "Racing" ){
 		document.getElementById("rider_weight").value = 73;
 		document.getElementById("bike_weight").value = 8;
 		document.getElementById("CdA").value = 0.32;
@@ -64,6 +64,16 @@ window.onload = function() {
 		document.getElementById("pmax").value = 900;
 		document.getElementById("PRopt").value = 110;
 		document.getElementById("circ").value = 2.096;
+   }
+   if ( params.get('config') === "Sprinting" ){
+		document.getElementById("rider_weight").value = 92;
+		document.getElementById("bike_weight").value = 8;
+		document.getElementById("CdA").value = 0.21;
+		document.getElementById("Crr").value = 0.0025;
+		document.getElementById("pmax").value = 1800;
+		document.getElementById("PRopt").value = 130;
+		document.getElementById("circ").value = 2.09858;
+		document.getElementById("eff").value = 91;
    }
   }
 
