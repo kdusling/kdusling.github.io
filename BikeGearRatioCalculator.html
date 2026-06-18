@@ -384,7 +384,7 @@ function makePlotDopt() {
 
 	var table = document.getElementById("tab-results");	
 	table.innerHTML = '';
-	tabdist = [250,500,750,1500,4000,10000,50000];
+	tabdist = [250,500,750,1000,1500,4000,10000,50000];
 	for (let i = 0; i<7; i++) {
 		dist = tabdist[i]
 		var dopt = findMin(D => tfinal(D,dist) ,0.1, Dmax);
