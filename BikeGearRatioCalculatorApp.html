@@ -3,8 +3,8 @@
 <html lang="en">
 
    <head>
-      <title>Bike Gear Ratio Calculator</title>
-      <meta name="description" content="Bike Calculator: Computes optimal development / gear ratio for a realistic power model.  Includes incline, rolling resistance and drag. Find optimal gear ratio for a given bike setup.">
+      <title>Bike Gear Performance \& Race Time Simulator</title>
+      <meta name="description" content="Optimize your gearing based on your power curve, bike aerodynamics, and course topography to find your fastest setup.">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta charset="utf-8">
       <meta name="author" content="Kevin Dusling" />
@@ -93,8 +93,10 @@
 
 
 
-<!-- Javascript for the Toggle functionality -->
+
   <script>
+  
+  <!-- Javascript for the Advanced Menu Toggle functionality -->
     document.addEventListener("DOMContentLoaded", function() {
       const toggleBtn = document.getElementById("advancedToggle");
 	  const advancedSettings = document.querySelectorAll('[id="advancedSettings"]');
@@ -116,6 +118,39 @@
     });
 	
    });
+   
+   <!-- Javascript for the wheel choice dropdown functionality -->
+	document.addEventListener("DOMContentLoaded", function() {
+  const dropdownMenu = document.querySelector('.dropdown-menu');
+  // Fixed the ID typo here to match the HTML
+  const dropdownButton = document.getElementById('wheelSizeDropdownButton'); 
+  const circInput = document.getElementById('circ');
+
+  dropdownMenu.addEventListener('click', function (e) {
+    const targetItem = e.target.closest('.dropdown-item');
+    if (!targetItem) return;
+
+    // Prevent default anchor link behavior
+    e.preventDefault(); 
+
+    // Update the button text
+    dropdownButton.textContent = targetItem.textContent;
+
+    // Remove active status from previous items and add to the current one
+    dropdownMenu.querySelectorAll('.dropdown-item').forEach(item => item.classList.remove('active'));
+    targetItem.classList.add('active');
+
+    // Update the actual circumference input field and trigger the calculation
+    const val = targetItem.getAttribute('data-value');
+    if (val && val !== 'custom') {
+      circInput.value = (units === "imperial" ? (val*39.3701).toFixed(1) : val);
+      UpdateAll(); // Refreshes the calculations automatically
+    } else if (val === 'custom') {
+      circInput.focus();
+      circInput.select();
+    }
+  });
+});
   </script>
 
 
@@ -124,19 +159,6 @@
   var units = "metric";
   var g = 9.81;
   
-   const wheeldata = [
-    { text: "700x18C / 18-622", value: "2.070" },
-    { text: "700x19C / 19-622", value: "2.080" },
-    { text: "700x20C / 20-622", value: "2.086" },
-	{ text: "700x23C / 23-622", value: "2.096" },
-	{ text: "700x25C / 25-622", value: "2.105" },
-    { text: "700x28C / 28-622", value: "2.136" },
-    { text: "700x30C / 30-622", value: "2.146" },
-	{ text: "700x32C / 32-622", value: "2.155" },
-    { text: "700x35C / 35-622", value: "2.168" },
-    { text: "700x38C / 38-622", value: "2.180" },
-	{ text: "700x40C / 40-622", value: "2.200" },
-	];
 	
 	function LoadProfile(profile)
 	{
@@ -244,17 +266,16 @@ window.onload = function() {
     document.getElementById("density").value =  params.get('rho');
   }
   
+  if ( params.has('dist') )
+  {
+    document.getElementById("distance").value =  params.get('dist');
+  }
+  
   if ( params.has('g') )
   {
     g =  params.get('g');
   }
 
-  
-  const dropdown = document.getElementById("wheel-list");
-  
-  wheeldata.forEach(item => {
-  dropdown.innerHTML += "<a class='dropdown-item' href='javascript:void(0)' onclick='document.getElementById(\"circ\").value=\"" + item.value + "\";'>" + item.text + "</a>";
-  });
   
   UpdateAll();
 
@@ -262,7 +283,7 @@ window.onload = function() {
 
 function createURL()
 {
-var url = "https://kdusling.github.io/BikeGearRatioCalculator.html?units=" + units;
+var url = "https://kdusling.github.io/BikeGearRatioCalculatorApp.html?units=" + units;
      url += "&RiderWeight=" + document.getElementById("rider_weight").value;
      url += "&BikeWeight=" + document.getElementById("bike_weight").value;
      url += "&CdA=" + document.getElementById("CdA").value;
@@ -273,6 +294,8 @@ var url = "https://kdusling.github.io/BikeGearRatioCalculator.html?units=" + uni
      url += "&PRopt=" + document.getElementById("PRopt").value;
 	 url += "&circ=" + document.getElementById("circ").value;
 	 url += "&rho=" + document.getElementById("density").value;
+	 url += "&dist=" + document.getElementById("distance").value;
+	 url += "&g=" + g;
 
 navigator.clipboard.writeText(url);
 }
@@ -402,81 +425,6 @@ function RunCalc() {
 		cell.innerHTML = (units === "metric" ? 3.6*myv : 0.621371*3.6*myv) .toFixed(3);
 	}
 	
-	
-
-	var xaxis_label = "Race Distance (m)";
-    
-	if (units === "imperial"){
-      xaxis_label = "Race Distance (feet)";
-	} 
-
-    // 2. Generate the x and y coordinates
-	const x_values = [];
-	const y_values = [];
-	const time_values = [];
-	const distance_values = [];
-	const start_x = 2;
-	const end_x = 5;
-	
-	const step_size = end_x/1000;
-		
-	for (let x = start_x; x <= end_x; x += step_size) {
-		dist = 10**x;
-		var dopt = findMin(D => tfinal(D,dist) ,0.1, Dmax);
-		
-		y_values.push( dopt/circ );
-
-		time_values.push( new Date(tfinal(dopt,dist)*1000).toISOString().substring(11, 19)  );
-		
-		if (units === "metric"){
-			x_values.push( dist );
-			distance_values.push( dist > 999 ? (dist / 1000).toFixed(1) + 'km' : dist.toFixed(0) + 'm');
-		}
-		if (units === "imperial"){
-			dist = 3.28084*dist;
-			x_values.push( dist );
-			distance_values.push( dist > 5280 ? (dist / 5280).toFixed(1) + 'mi' : dist.toFixed(0) + ' ft' );
-		}
-	}	
-
-	
-	const customDataCombined = time_values.map((d1, i) => [d1, distance_values[i]]);
-
-
-	const trace = {
-		x: x_values,
-		y: y_values,
-		customdata: customDataCombined,
-		hovertemplate: 'race distance: %{customdata[1]}<br>' +
-                        'optimal gear ratio: %{y:.2f}<br>' +
-                        'race time: %{customdata[0]}<br>',
-		mode: 'lines',
-		type: 'scatter',
-		name: ''
-	};
-
-	
-	var layout = {
-        xaxis: {
-			title: {
-				text: xaxis_label, 
-				font: {size: 18}
-			},
-			type: 'log',
-		},
-		yaxis: {
-			title: {
-				text: 'Optimal Gear Ratio',
-				font: {size: 18}
-			}
-		},
-		autosize: true, 
-	};
-	
-	var config = { responsive: true };
-
-	Plotly.newPlot('dopt-plot-div', [trace], layout, config);
-	
 }
 
 function ChangeUnits(myRadio){
@@ -504,12 +452,7 @@ function ChangeUnits(myRadio){
      document.getElementById("density").value = ((document.getElementById("density").value)*16.0185).toFixed(3);
 	 
 	 document.getElementById("AvgSpdHeader").innerHTML="Avg. Speed (kph)";
-	 
-	const dropdown = document.getElementById("wheel-list");
-	dropdown.innerHTML = "";
-	wheeldata.forEach(item => {
-	dropdown.innerHTML += "<a class='dropdown-item' href='javascript:void(0)' onclick='document.getElementById(\"circ\").value=\"" + item.value + "\";'>" + item.text + "</a>";
-	});
+	
 
    }
 
@@ -536,12 +479,6 @@ function ChangeUnits(myRadio){
 	 
 	 document.getElementById("AvgSpdHeader").innerHTML="Avg. Speed (mph)";
 	 
-	const dropdown = document.getElementById("wheel-list");
-	dropdown.innerHTML = "";
-	wheeldata.forEach(item => {
-	dropdown.innerHTML += "<a class='dropdown-item' href='javascript:void(0)' onclick='document.getElementById(\"circ\").value=\"" + (item.value*39.3701).toFixed(1) + "\";'>" + item.text + "</a>";
-	});
-
    }
 
 }
@@ -576,51 +513,55 @@ function UpdateAll() {
 <body>
   <div class="border p-3" class="container-fluid">
   <div class="col-xs-12 col-md-8">
+<h2>Optimal Gear Ratio & Race Time Simulator</h2>
 
 <!--start div for top-row-->
-<div class="form-row align-items-center justify-content-start p-0">
+<div class="row align-items-center w-100 m-0 p-0">
   
-  <legend class="col-form-label col-auto pl-4 pb-2 pt-2">Units:</legend>
-  
-  <div class="col-auto">
+  <div class="col-12 col-lg-6 d-flex align-items-center pb-2 pt-2 px-0">
+    <legend class="col-form-label pr-3 mb-0" style="font-size: inherit; border: none; width: auto;">Units:</legend>
     <div class="form-check form-check-inline">
       <input class="form-check-input" type="radio" name="units" id="metric" onchange="ChangeUnits(this);UpdateAll();" value="metric" checked>
       <label class="form-check-label" for="metric">metric</label>
     </div>
-    
     <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="units" id="imperial" onchange="ChangeUnits(this);UpdateAll();" value="imperial" >
+      <input class="form-check-input" type="radio" name="units" id="imperial" onchange="ChangeUnits(this);UpdateAll();" value="imperial">
       <label class="form-check-label" for="imperial">imperial</label>
     </div>
   </div>
   
-  <div class="col-auto d-flex align-items-center pl-4 pb-2 pt-2">
-      <label for="profileSelect" class="col-form-label mr-2">Profile:</label>
-      <select class="custom-select custom-select-sm" id="profileSelect" onchange="LoadProfile(this.value);UpdateAll();">
-        <option value="default" selected>Select a setup...</option>
-        <option value="touring">Touring</option>
-        <option value="racing">Racing</option>
-        <option value="sprinting">Sprinting</option>
-      </select>
-    </div>
-  
-  
-  <div class="col-auto align-items-center justify-content-start pl-4 pb-2 pt-2">
-        <!-- The Toggle Button -->
-      <button type="button" id="advancedToggle" class="toggle-btn">
-        Show Advanced Settings ▼
-      </button>
+  <div class="col-12 col-lg-6 d-flex align-items-center pb-2 pt-2 px-0 justify-content-start justify-content-lg-end">
+    <label for="profileSelect" class="col-form-label mr-2 text-nowrap">Rider / Course Preset:</label>
+    <select class="custom-select custom-select-sm" id="profileSelect" onchange="LoadProfile(this.value);UpdateAll();" style="max-width: 200px; width: 100%;">
+      <option value="default" selected>Select a setup...</option>
+      <option value="touring">Touring</option>
+      <option value="racing">Racing</option>
+      <option value="sprinting">Sprinting</option>
+    </select>
   </div>
   
+</div>
+	
+	<!--start div for second-row-->
+<div class="row align-items-center w-100 m-0 p-0">
   
-  <div class="col-auto align-items-center justify-content-start pl-4 pb-2 pt-2">
-    <span class="mr-2">Save url to clipboard:</span>
-    <button type="button" class="btn btn-outline-primary" data-toggle="tooltip" data-placement="bottom" title="Copy custom url to clipboard" onclick="createURL();">
-      <svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M17,9H7V7H17M17,13H7V11H17M14,17H7V15H14M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3Z" /></svg>
+  <div class="col-12 col-lg-6 d-flex align-items-center pb-2 pt-2 px-0">
+    <button type="button" id="advancedToggle" class="toggle-btn">
+      Show Advanced Settings ▼
     </button>
   </div>
+  
+  <div class="col-12 col-lg-6 d-flex align-items-center pb-2 pt-2 px-0 justify-content-start justify-content-lg-end">
+    <span class="mr-2 text-nowrap">Save url to clipboard:</span>
+    <button type="button" class="btn btn-outline-primary d-inline-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="bottom" title="Copy custom url to clipboard" onclick="createURL();" style="padding: 0.375rem 0.75rem;">
+      <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: currentColor;">
+        <path d="M17,9H7V7H17M17,13H7V11H17M14,17H7V15H14M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3Z" />
+      </svg>
+    </button>
+  </div>
+
 </div>
-<!--end div for top-row-->
+<!--end div for second-row-->
 		
 	  <h4 class="mb-3">Rider Profile</h4>
 
@@ -639,7 +580,7 @@ function UpdateAll() {
 	  <div id="advancedSettings" class="advanced-content">
 	  <div class="input-group mb-3">
       <div class="input-group-prepend">
-      <span class="input-group-text">Drag Area</span>
+      <span class="input-group-text">Aerodynamic Drag Area ($C_dA$)</span>
       </div>
       <input type="text" class="form-control" id="CdA" aria-label="CdA" value="0.40" onchange="UpdateAll();">
       <div class="input-group-append">
@@ -718,30 +659,74 @@ function UpdateAll() {
       </div>
 	  </div>
 	  
+	  
+	  
+	  
 	  <div class="input-group mb-3">
       <div class="input-group-prepend">
       <span class="input-group-text">Wheel Circumference</span>
       </div>
 	  
-	  <div class="dropdown">
-	  <button class="btn btn-secondary btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		Select
-	  </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="wheel-list" onclick='UpdateAll();'>
-
-	  </div>
-	  </div>
+	
 	  
-      <input type="text" class="form-control" id="circ" aria-label="circ" value="2.146" onchange="UpdateAll();" >
+	  
+	  <div class="dropdown">
+  <button class="btn btn-secondary btn dropdown-toggle" type="button" id="wheelSizeDropdownButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Select Wheel Size
+  </button>
+  
+  <ul class="dropdown-menu" aria-labelledby="wheelSizeDropdownButton" id="wheel-size-select">
+    
+    <li><h6 class="dropdown-header">Road (700c / ISO 622)</h6></li>
+    <li><a class="dropdown-item" href="#" data-value="2.096">700c x 20mm</a></li>
+    <li><a class="dropdown-item" href="#" data-value="2.099">700c x 23mm</a></li>
+    <li><a class="dropdown-item" href="#" data-value="2.111">700c x 25mm</a></li>
+    <li><a class="dropdown-item" href="#" data-value="2.130">700c x 28mm</a></li>
+    <li><a class="dropdown-item" href="#" data-value="2.146">700c x 30mm</a></li>
+    <li><a class="dropdown-item" href="#" data-value="2.155">700c x 32mm</a></li>
+    <li><a class="dropdown-item" href="#" data-value="2.168">700c x 35mm</a></li>
+    <li><a class="dropdown-item" href="#" data-value="2.180">700c x 38mm</a></li>
+    
+    <li><hr class="dropdown-divider"></li>
+
+    <li><h6 class="dropdown-header">Gravel & Commuting</h6></li>
+    <li><a class="dropdown-item" href="#" data-value="2.220">700c x 42mm (Wide Gravel)</a></li>
+    <li><a class="dropdown-item" href="#" data-value="2.104">650b x 47mm (Road Plus)</a></li>
+    
+    <li><hr class="dropdown-divider"></li>
+
+    <li><h6 class="dropdown-header">Mountain Bike (MTB)</h6></li>
+    <li><a class="dropdown-item" href="#" data-value="2.210">27.5" x 2.25" (Trail)</a></li>
+    <li><a class="dropdown-item" href="#" data-value="2.333">29" x 2.2" (XC Race)</a></li>
+    <li><a class="dropdown-item" href="#" data-value="2.365">29" x 2.4" (Trail/Enduro)</a></li>
+    
+    <li><hr class="dropdown-divider"></li>
+
+    <li><h6 class="dropdown-header">Urban & Classic</h6></li>
+    <li><a class="dropdown-item" href="#" data-value="2.035">26" x 1.75" (Retro MTB/Touring)</a></li>
+    <li><a class="dropdown-item" href="#" data-value="1.515">20" x 1.75" (Folding/Cargo)</a></li>
+    
+    <li><hr class="dropdown-divider"></li>
+    
+    <li><a class="dropdown-item text-primary" href="#" data-value="custom">Enter custom...</a></li>
+  </ul>
+</div>
+
+	  
+      <input type="text" class="form-control" id="circ" aria-label="circ" value="2.146" onkeyup="document.querySelectorAll('#wheel-size-select .dropdown-item').forEach(item => {
+    item.classList.remove('active');});document.getElementById('wheelSizeDropdownButton').textContent = 'Select Wheel Size';";  onchange="UpdateAll();" >
       <div class="input-group-append">
       <span class="input-group-text" id="wheel_unit">m</span>
       </div>
       </div>
 	  
+	  
+
+	  
 	  <div id="advancedSettings" class="advanced-content">
 	  <div class="input-group mb-3">
       <div class="input-group-prepend">
-      <span class="input-group-text">$C_{rr}$</span>
+      <span class="input-group-text">Rolling Resistance ($C_{rr}$)</span>
       </div>
       <input type="text" class="form-control" id="Crr" aria-label="Crr" value="0.0045" onchange="UpdateAll();" >
       </div>
@@ -749,7 +734,7 @@ function UpdateAll() {
 	  
 
 	 <hr class="my-4">
-	 <h4 class="mb-3">Environment</h4>
+	 <h4 class="mb-3">Course Profile</h4>
 
 
 
@@ -769,7 +754,7 @@ function UpdateAll() {
 	  
       <div class="input-group mb-3">
       <div class="input-group-prepend">
-      <span class="input-group-text">distance</span>
+      <span class="input-group-text">Segment / Race Distance</span>
       </div>
       <input type="text" class="form-control" id="distance" aria-label="distance" value="1000" onchange="UpdateAll();">
       <div class="input-group-append">
@@ -844,9 +829,9 @@ function UpdateAll() {
 
          <p class="text-left"></p>
 		 This calculator uses a power model where the rider's power output is a quadratic function of their cadence.
-         $$ P_F=P_{\text{max}}\left[2\left(\frac{\text{PR}}{\text{PR}_{\text{opt}}}\right)-\left(\frac{\text{PR}}{\text{PR}_{\text{opt}}}\right)^2\right]
+         $$ P_F=P_{\text{max}}\left[2\left(\frac{\text{RPM}}{\text{RPM}_{\text{opt}}}\right)-\left(\frac{\text{RPM}}{\text{RPM}_{\text{opt}}}\right)^2\right]
 		$$
-		The parameter $\text{PR}_{\text{opt}}$ is the optimal cadence for an individual rider and $P_{\text{max}}$ is the power output maintained at that cadence.
+		The parameter $\text{RPM}_{\text{opt}}$ is the optimal cadence for an individual rider and $P_{\text{max}}$ is the power output maintained at that cadence.
 
          </div>
          </div>
