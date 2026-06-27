@@ -1,31 +1,34 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
-   <head>
-      <title>Bike Gear Performance \& Race Time Simulator</title>
-      <meta name="description" content="Optimize your gearing based on your power curve, bike aerodynamics, and course topography to find your fastest setup.">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta charset="utf-8">
-      <meta name="author" content="Kevin Dusling" />
-      <meta NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<head>
+  <title>Bike Gear Performance & Race Time Simulator</title>
+  <meta name="description" content="Optimize your gearing based on your power curve, bike aerodynamics, and course topography to find your fastest setup.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="author" content="Kevin Dusling" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW">
 
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- jQuery, Popper.js, and Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-     <script type="text/x-mathjax-config">
-       MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-     </script>
+  <!-- MathJax -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
-     <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
- </script>
+  <!-- Plotly -->
+  <script src='https://cdn.plot.ly/plotly-3.3.0.min.js'></script>
 
-<style>
-   /* Advanced Toggle Button */
+  <style>
+    /* Advanced Toggle Button */
     .toggle-btn {
       background: none;
       border: none;
@@ -33,8 +36,8 @@
       font-size: 0.9rem;
       font-weight: 600;
       cursor: pointer;
-      padding: 0px 0;
-      margin-bottom: 0px;
+      padding: 0;
+      margin-bottom: 0;
       display: block;
       width: 100%;
       text-align: left;
@@ -56,13 +59,13 @@
 
     .advanced-content.expanded {
       max-height: 200px;
-	  transition: max-height 0.3s ease-in, opacity 0.3s ease-in;
+      transition: max-height 0.3s ease-in, opacity 0.3s ease-in;
       opacity: 1;
     }
-	
-	    /* Prominent Results Section */
+
+    /* Prominent Results Section */
     .results-card {
-      grid-column: 1 / -1; /* Forces the results card to span the entire width */
+      grid-column: 1 / -1;
       background-color: #007bff;
       color: #ffffff;
       text-align: center;
@@ -79,804 +82,701 @@
       font-size: 1.5rem;
       font-weight: 400;
     }
-    
+
     .results-card strong {
       display: block;
       font-size: 2.5rem;
       font-weight: 700;
       margin-top: 10px;
     }
+    
+    .table-explanation {
+      font-size: 0.85rem;
+      color: #6c757d;
+      text-align: left;
+      padding: 10px;
+      background-color: #f8f9fa;
+    }
+  </style>
 
-</style>
-	
-	 <script src='https://cdn.plot.ly/plotly-3.3.0.min.js'></script>
+  <script type="text/javascript">
+    var units = "metric";
+    var g = 9.81;
 
-
-
-
-
-  <script>
-  
-  <!-- Javascript for the Advanced Menu Toggle functionality -->
+    // Toggle system handling all advanced blocks cleanly with one event hook
     document.addEventListener("DOMContentLoaded", function() {
       const toggleBtn = document.getElementById("advancedToggle");
-	  const advancedSettings = document.querySelectorAll('[id="advancedSettings"]');
-
-	advancedSettings.forEach((element) => {
-
+      const advancedSettings = document.querySelectorAll('.advanced-content');
 
       toggleBtn.addEventListener("click", function() {
-        // Toggle the visual expansion
-        element.classList.toggle("expanded");
+        let isExpanded = false;
+        advancedSettings.forEach((element) => {
+          element.classList.toggle("expanded");
+          isExpanded = element.classList.contains("expanded");
+        });
+        toggleBtn.textContent = isExpanded ? "Hide Advanced Settings ▲" : "Show Advanced Settings ▼";
+      });
+    });
 
-        // Update the arrow icon and text based on state
-        if (element.classList.contains("expanded")) {
-          toggleBtn.textContent = "Hide Advanced Settings ▲";
-        } else {
-          toggleBtn.textContent = "Show Advanced Settings ▼";
+    // Dropdown value selector functionality
+    document.addEventListener("DOMContentLoaded", function() {
+      const dropdownMenu = document.querySelector('.dropdown-menu');
+      const dropdownButton = document.getElementById('wheelSizeDropdownButton');
+      const circInput = document.getElementById('circ');
+
+      dropdownMenu.addEventListener('click', function(e) {
+        const targetItem = e.target.closest('.dropdown-item');
+        if (!targetItem) return;
+
+        e.preventDefault();
+        dropdownButton.textContent = targetItem.textContent;
+
+        dropdownMenu.querySelectorAll('.dropdown-item').forEach(item => item.classList.remove('active'));
+        targetItem.classList.add('active');
+
+        const val = targetItem.getAttribute('data-value');
+        if (val && val !== 'custom') {
+          circInput.value = (units === "imperial" ? (val * 39.3701).toFixed(1) : val);
+          UpdateAll();
+        } else if (val === 'custom') {
+          circInput.focus();
+          circInput.select();
         }
       });
     });
-	
-   });
-   
-   <!-- Javascript for the wheel choice dropdown functionality -->
-	document.addEventListener("DOMContentLoaded", function() {
-  const dropdownMenu = document.querySelector('.dropdown-menu');
-  // Fixed the ID typo here to match the HTML
-  const dropdownButton = document.getElementById('wheelSizeDropdownButton'); 
-  const circInput = document.getElementById('circ');
 
-  dropdownMenu.addEventListener('click', function (e) {
-    const targetItem = e.target.closest('.dropdown-item');
-    if (!targetItem) return;
+    function LoadProfile(profile) {
+      document.getElementById('profileSelect').value = profile;
+      document.querySelector('#metric').click();
 
-    // Prevent default anchor link behavior
-    e.preventDefault(); 
-
-    // Update the button text
-    dropdownButton.textContent = targetItem.textContent;
-
-    // Remove active status from previous items and add to the current one
-    dropdownMenu.querySelectorAll('.dropdown-item').forEach(item => item.classList.remove('active'));
-    targetItem.classList.add('active');
-
-    // Update the actual circumference input field and trigger the calculation
-    const val = targetItem.getAttribute('data-value');
-    if (val && val !== 'custom') {
-      circInput.value = (units === "imperial" ? (val*39.3701).toFixed(1) : val);
-      UpdateAll(); // Refreshes the calculations automatically
-    } else if (val === 'custom') {
-      circInput.focus();
-      circInput.select();
+      if (profile === "touring") {
+        document.getElementById("rider_weight").value = 81;
+        document.getElementById("bike_weight").value = 14;
+        document.getElementById("CdA").value = 0.40;
+        document.getElementById("Crr").value = 0.0045;
+        document.getElementById("pmax").value = 200;
+        document.getElementById("PRopt").value = 80;
+        document.getElementById("circ").value = 2.146;
+        document.getElementById("density").value = 1.225;
+      }
+      if (profile === "racing") {
+        document.getElementById("rider_weight").value = 73;
+        document.getElementById("bike_weight").value = 8;
+        document.getElementById("CdA").value = 0.32;
+        document.getElementById("Crr").value = 0.0030;
+        document.getElementById("pmax").value = 900;
+        document.getElementById("PRopt").value = 110;
+        document.getElementById("circ").value = 2.096;
+        document.getElementById("density").value = 1.225;
+      }
+      if (profile === "sprinting") {
+        document.getElementById("rider_weight").value = 92;
+        document.getElementById("bike_weight").value = 8;
+        document.getElementById("CdA").value = 0.21;
+        document.getElementById("Crr").value = 0.0025;
+        document.getElementById("pmax").value = 1800;
+        document.getElementById("PRopt").value = 130;
+        document.getElementById("circ").value = 2.09858;
+        document.getElementById("eta").value = 91;
+        document.getElementById("density").value = 1.14;
+      }
     }
-  });
-});
-  </script>
 
+    window.onload = function() {
+      const params = new URLSearchParams(window.location.search);
 
-  <script type="text/javascript">
+      if (params.has('config')) {
+        LoadProfile(params.get('config').toLowerCase());
+      }
+      if (params.has('units')) {
+        units = params.get('units');
+        document.getElementById(units).checked = true;
+        ChangeUnits(document.getElementById(units));
+      }
+      if (params.has('RiderWeight')) {
+        document.getElementById("rider_weight").value = params.get('RiderWeight');
+      }
+      if (params.has('BikeWeight')) {
+        document.getElementById("bike_weight").value = params.get('BikeWeight');
+      }
+      if (params.has('CdA')) {
+        document.getElementById("CdA").value = params.get('CdA');
+      }
+      if (params.has('Crr')) {
+        document.getElementById("Crr").value = params.get('Crr');
+      }
+      if (params.has('eff')) {
+        document.getElementById("eta").value = params.get('eff');
+      }
+      if (params.has('grade')) {
+        document.getElementById("grade").value = params.get('grade');
+      }
+      if (params.has('pmax')) {
+        document.getElementById("pmax").value = params.get('pmax');
+      }
+      if (params.has('PRopt')) {
+        document.getElementById("PRopt").value = params.get('PRopt');
+      }
+      if (params.has('circ')) {
+        document.getElementById("circ").value = params.get('circ');
+      }
+      if (params.has('rho')) {
+        document.getElementById("density").value = params.get('rho');
+      }
+      if (params.has('dist')) {
+        document.getElementById("distance").value = params.get('dist');
+      }
+      if (params.has('g')) {
+        g = params.get('g');
+      }
 
-  var units = "metric";
-  var g = 9.81;
-  
-	
-	function LoadProfile(profile)
-	{
-	document.getElementById('profileSelect').value = profile;
-	document.querySelector('#metric').click()
+      UpdateAll();
+    };
 
-	if ( profile === "touring" ){
-		document.getElementById("rider_weight").value = 81;
-		document.getElementById("bike_weight").value = 14;
-		document.getElementById("CdA").value = 0.40;
-		document.getElementById("Crr").value = 0.0045;
-		document.getElementById("pmax").value = 200;
-		document.getElementById("PRopt").value = 80;
-		document.getElementById("circ").value = 2.146;
-		document.getElementById("density").value = 1.225;
-   }
-   if ( profile === "racing" ){
-		document.getElementById("rider_weight").value = 73;
-		document.getElementById("bike_weight").value = 8;
-		document.getElementById("CdA").value = 0.32;
-		document.getElementById("Crr").value = 0.0030;
-		document.getElementById("pmax").value = 900;
-		document.getElementById("PRopt").value = 110;
-		document.getElementById("circ").value = 2.096;
-		document.getElementById("density").value = 1.225;
-   }
-   if ( profile === "sprinting" ){
-		document.getElementById("rider_weight").value = 92;
-		document.getElementById("bike_weight").value = 8;
-		document.getElementById("CdA").value = 0.21;
-		document.getElementById("Crr").value = 0.0025;
-		document.getElementById("pmax").value = 1800;
-		document.getElementById("PRopt").value = 130;
-		document.getElementById("circ").value = 2.09858;
-		document.getElementById("eta").value = 91;
-		document.getElementById("density").value = 1.14;
-   }
+    function createURL() {
+      var url = "https://kdusling.github.io/BikeGearRatioCalculatorApp.html?units=" + units;
+      url += "&RiderWeight=" + document.getElementById("rider_weight").value;
+      url += "&BikeWeight=" + document.getElementById("bike_weight").value;
+      url += "&CdA=" + document.getElementById("CdA").value;
+      url += "&Crr=" + document.getElementById("Crr").value;
+      url += "&eff=" + document.getElementById("eta").value;
+      url += "&grade=" + document.getElementById("grade").value;
+      url += "&pmax=" + document.getElementById("pmax").value;
+      url += "&PRopt=" + document.getElementById("PRopt").value;
+      url += "&circ=" + document.getElementById("circ").value;
+      url += "&rho=" + document.getElementById("density").value;
+      url += "&dist=" + document.getElementById("distance").value;
+      url += "&g=" + g;
 
-}
+      navigator.clipboard.writeText(url);
 
-window.onload = function() {
+      var oldtext = document.getElementById("savetxt").innerHTML;
+      document.getElementById("savetxt").classList.add('text-success');
+      document.getElementById("savetxt").innerHTML = '✓ Copied!';
+      document.getElementById("savebtn").classList.add('btn-outline-success');
 
-  const params = new URLSearchParams(window.location.search);
-  
+      setTimeout(() => {
+        document.getElementById("savetxt").classList.remove('text-success');
+        document.getElementById("savebtn").classList.remove('btn-outline-success');
+        document.getElementById("savetxt").innerHTML = oldtext;
+      }, 2000);
+    }
 
-  
-  if ( params.has('config') )
-  {
-   LoadProfile(params.get('config').toLowerCase());
-  }
+    function getGears(target) {
+      let candidates = [];
+      var minR = 9;
+      var maxR = 55;
+      var minF = 24;
+      var maxF = 70;
 
-  if ( params.has('units') )
-  {
-    var units = params.get('units');
-    document.getElementById(units).checked = true;
-    ChangeUnits(  document.getElementById(units) );
-  }
-
-  if ( params.has('RiderWeight') )
-  {
-    document.getElementById("rider_weight").value =  params.get('RiderWeight');
-  }
-  if ( params.has('BikeWeight') )
-  {
-    document.getElementById("bike_weight").value =  params.get('BikeWeight');
-  }
-
-  if ( params.has('CdA') )
-  {
-    document.getElementById("CdA").value =  params.get('CdA');
-  }
-
-  if ( params.has('Crr') )
-  {
-    document.getElementById("Crr").value =  params.get('Crr');
-  }
-
-  if ( params.has('eff') )
-  {
-    document.getElementById("eta").value =  params.get('eff');
-  }
-
-  if ( params.has('grade') )
-  {
-    document.getElementById("grade").value =  params.get('grade');
-  }
-
-  if ( params.has('pmax') )
-  {
-    document.getElementById("pmax").value =  params.get('pmax');
-  }
-
-  if ( params.has('PRopt') )
-  {
-    document.getElementById("PRopt").value =  params.get('PRopt');
-  }
-  
-  if ( params.has('circ') )
-  {
-    document.getElementById("circ").value =  params.get('circ');
-  }
-  
-  if ( params.has('rho') )
-  {
-    document.getElementById("density").value =  params.get('rho');
-  }
-  
-  if ( params.has('dist') )
-  {
-    document.getElementById("distance").value =  params.get('dist');
-  }
-  
-  if ( params.has('g') )
-  {
-    g =  params.get('g');
-  }
-
-  
-  UpdateAll();
-
-}; //end window.onload
-
-function createURL()
-{
-var url = "https://kdusling.github.io/BikeGearRatioCalculatorApp.html?units=" + units;
-     url += "&RiderWeight=" + document.getElementById("rider_weight").value;
-     url += "&BikeWeight=" + document.getElementById("bike_weight").value;
-     url += "&CdA=" + document.getElementById("CdA").value;
-     url += "&Crr=" + document.getElementById("Crr").value;
-     url += "&eff=" + document.getElementById("eta").value;
-     url += "&grade=" + document.getElementById("grade").value;
-     url += "&pmax=" + document.getElementById("pmax").value;
-     url += "&PRopt=" + document.getElementById("PRopt").value;
-	 url += "&circ=" + document.getElementById("circ").value;
-	 url += "&rho=" + document.getElementById("density").value;
-	 url += "&dist=" + document.getElementById("distance").value;
-	 url += "&g=" + g;
-
-navigator.clipboard.writeText(url);
-
-
-oldtext = document.getElementById("savetxt").innerHTML;
-document.getElementById("savetxt").classList.add('text-success');
-document.getElementById("savetxt").innerHTML = '✓ Copied!';
-
-document.getElementById("savebtn").classList.add('btn-outline-success');
-
-setTimeout(() => {
-      document.getElementById("savetxt").classList.remove('text-success');
-	  document.getElementById("savebtn").classList.remove('btn-outline-success');
-	  document.getElementById("savetxt").innerHTML = oldtext;
-    }, 2000);
-	
-	
-}
-
-
-function getGears(target) {
-    let candidates = [];
-	
-	//gear ratio is defined as front/rear = f/r
-	
-	var minR = 9;
-	var maxR = 55;
-	
-	var minF = 24;
-	var maxF = 70;
-
-    // Loop through every permissible denominator
-    for (let r = minR; r <= maxR; r++) {
-        // Find the closest integer numerator for the current denominator
+      for (let r = minR; r <= maxR; r++) {
         let f = Math.round(target * r);
-
-        // Clamp the numerator to ensure it stays within the allowed range
         if (f < minF) f = minF;
         if (f > maxF) f = maxF;
 
-        // Calculate the absolute error
-        let currentVal = f/r;
+        let currentVal = f / r;
         let error = Math.abs(target - currentVal);
-
-        // Store the result
         candidates.push({ f, r, error, value: currentVal });
+      }
+
+      candidates.sort((a, b) => a.error - b.error);
+      return candidates.slice(0, 50);
     }
 
-    // Sort candidates by the smallest error first
-    candidates.sort((a, b) => a.error - b.error);
-	
-	return candidates.slice(0, 50);
-}
+    function findMin(f, a, b, aux) {
+      var err = 1.e-10;
+      var ep = 1.e-5;
+      do {
+        var mid = (a + b) / 2;
+        var deriv = (f(mid + ep) - f(mid - ep)) / (2 * ep);
+        if (deriv > 0) {
+          b = mid;
+        } else {
+          a = mid;
+        }
+      } while (b - a > err);
+      return (a + b) / 2;
+    }
 
+    function UpdateFooter(hasPower) {
+      const footer = document.getElementById("tab-gearing-footer");
+      if (footer) {
+        footer.style.display = hasPower ? "table-footer-group" : "none";
+      }
+    }
 
+    function RunCalc() {
+      var CdA = document.getElementById("CdA").value;
+      var Crr = document.getElementById("Crr").value;
+      var eta = document.getElementById("eta").value / 100.0;
+      var mass = parseFloat(document.getElementById("bike_weight").value) + parseFloat(document.getElementById("rider_weight").value);
+      var angle = Math.atan(parseFloat(document.getElementById("grade").value) / 100.);
+      var pmax = parseFloat(document.getElementById("pmax").value);
+      var PRopt = parseFloat(document.getElementById("PRopt").value);
+      var circ = parseFloat(document.getElementById("circ").value);
+      var rho = parseFloat(document.getElementById("density").value);
+      var mydist = document.getElementById("distance").value;
 
-function findMin(f,a,b,aux)
-{
+      pmax = eta * pmax;
 
- var err = 1.e-10;
- var ep = 1.e-5;
+      if (units === "imperial") {
+        mass = mass / 2.20462;
+        CdA = CdA / 3.28084 ** 2;
+        circ = circ / 39.3701;
+        mydist = 1609.34 * mydist;
+        rho = rho * 16.0185;
+      }
 
- do {
- 
-		var mid = (a+b)/2;
+      var cd = 1 / (2 * mass) * rho * CdA;
+      var gs = Crr * g * Math.cos(angle) + g * Math.sin(angle);
 
-		var deriv = (f(mid + ep) - f(mid - ep)) / (2 * ep)
- 
-		if (deriv > 0) {
-			b = mid;
-		} else {
-			a = mid;
-		}
+      function tfinal(D, x) {
+        var vopt = D / 60 * PRopt;
+        var vbar = pmax / (2 * mass * cd * vopt ** 2);
+        
+        // Safety guard against negative values under the square root (insufficient power)
+        var sqrtTerm = vbar ** 2 + 4 * vbar * vopt - gs / cd;
+        if (sqrtTerm < 0 || isNaN(sqrtTerm)) {
+          return null; 
+        }
+        
+        var vinf = Math.sqrt(sqrtTerm) - vbar;
+        if (vinf <= 0) return null;
+        
+        return x / vinf + 1 / (cd * vinf) * Math.log(2 * (vinf + vbar) / (vinf + 2 * vbar));
+      }
 
-    } while( b-a >err );
+      if (gs === 0) { gs = 1.e-8; }
+	  
+      var dopt = findMin(D => {
+        var t = tfinal(D, mydist);
+        return t === null ? 99999999 : t;
+      }, 0.1, 2 * pmax * 60 / PRopt / mass / gs);
+      
+      var timeopt = tfinal(dopt, mydist);
 
+      // Handle UI if user has insufficient power for the slope
+      if (timeopt === null || isNaN(timeopt)) {
+        document.getElementById("myGRopt").innerHTML = "N/A";
+        document.getElementById("myTime").innerHTML = "N/A";
+        document.getElementById("myAvgVel").innerHTML = "0.000";
+        document.getElementById("tab-gearing-results").innerHTML = '<tr><td colspan="4" class="text-danger">Rider power is insufficient to overcome the course profile limitations.</td></tr>';
+        UpdateFooter(false);
+        return;
+      }
 
-return (a+b)/2;
-} 
+      document.getElementById("myGRopt").innerHTML = (dopt / circ).toFixed(2);
+      document.getElementById("myTime").innerHTML = new Date(timeopt * 1000).toISOString().substring(11, 23).replace(/^00:/, '');
+      document.getElementById("myAvgVel").innerHTML = (units === "metric" ? 3.6 * (mydist / timeopt) : 0.621371 * 3.6 * (mydist / timeopt)).toFixed(3);
+      
+      const myGears = getGears(dopt / circ);
+      var table = document.getElementById("tab-gearing-results");
+      table.innerHTML = '';
 
+      for (let i = 0; i < myGears.length; i++) {
+        var mygr = (myGears[i].f) / (myGears[i].r);
+        var time = tfinal(mygr * circ, mydist);
+        var row = table.insertRow(-1);
 
-function RunCalc() {
+        if (time === null) {
+          row.classList.add('table-danger');
+          var cell = row.insertCell(-1);
+          cell.innerHTML = myGears[i].f + "&times;" + myGears[i].r;
+          cell = row.insertCell(-1);
+          cell.innerHTML = ((myGears[i].f) / (myGears[i].r)).toFixed(4);
+          cell = row.insertCell(-1);
+          cell.innerHTML = "Stall";
+          cell = row.insertCell(-1);
+          cell.innerHTML = "0.000";
+          continue;
+        }
 
-	var CdA = document.getElementById("CdA").value;
-	var Crr = document.getElementById("Crr").value;
-	var eta = document.getElementById("eta").value/100.0;
-	var mass = parseFloat(document.getElementById("bike_weight").value) + parseFloat(document.getElementById("rider_weight").value);
-	var angle = Math.atan(parseFloat(document.getElementById("grade").value)/100.);
-	var pmax = parseFloat(document.getElementById("pmax").value);
-	var PRopt = parseFloat(document.getElementById("PRopt").value);
-	var circ = parseFloat(document.getElementById("circ").value);
-	var rho = parseFloat(document.getElementById("density").value);
-	var mydist = document.getElementById("distance").value;
-	
-	pmax=eta*pmax;
-		
-	if (units === "imperial"){
-		mass = mass/2.20462;
-		CdA = CdA/3.28084**2;
-		circ = circ/39.3701;
-		mydist = 1609.34*mydist;
-		rho = rho*16.0185;
-	}
-  
-	var cd = 1/(2*mass)*rho*CdA;
-	var gs = Crr*g*Math.cos(angle)+g*Math.sin(angle);
+        if (Math.abs(timeopt - time) * 1000 < 1) {
+          row.classList.add('table-success');
+        } else if (Math.abs(timeopt - time) * 1000 <= 5) {
+          row.classList.add('table-warning');
+        } else {
+          row.classList.add('table-danger');
+        }
 
-	
-	var Dmax = 2*pmax*60/PRopt/mass/gs;
-	var DoptInf = 60/PRopt*Math.sqrt(4*gs/3/cd)*Math.sinh(1/3*Math.asinh(Math.sqrt(27*cd*pmax**2/(4*mass**2*gs**3))));
-  
-	function tfinal(D,x) {
-		var vopt = D/60*PRopt;
-		var vbar = pmax/(2*mass*cd*vopt**2)
-		var vinf = Math.sqrt( vbar**2 + 4*vbar*vopt - gs/cd ) - vbar;
-		return x/vinf + 1/(cd*vinf)*Math.log(2*(vinf+vbar)/(vinf+2*vbar));
-	}
-	
-		
-	dopt = findMin(D => tfinal(D,mydist) ,0.1, Dmax);
-	timeopt = tfinal(dopt,mydist);
-	document.getElementById("myGRopt").innerHTML = (dopt/circ).toFixed(2);
-	document.getElementById("myTime").innerHTML = new Date(timeopt * 1000).toISOString().substring(11, 23);
-	const myGears = getGears(dopt/circ);
-	//end main window results
-	
-	var table = document.getElementById("tab-gearing-results");
-	table.innerHTML = '';
-	for (let i = 0; i<myGears.length; i++) {
-		mygr = (myGears[i].f)/(myGears[i].r)
-		var time = tfinal(mygr*circ,mydist);
-		
-		var row = table.insertRow(-1);
-		
-		if (Math.abs(timeopt - time)*1000 < 1) {
-			row.classList.add('table-success');
-		} else if (Math.abs(timeopt - time)*1000 <= 5) {
-			row.classList.add('table-warning');
-		} else {
-			row.classList.add('table-danger');
-		}
-		var cell = row.insertCell(-1);
-	    cell.innerHTML = myGears[i].f + "&times;" + myGears[i].r;
-		cell = row.insertCell(-1);
-		cell.innerHTML = ((myGears[i].f)/(myGears[i].r)).toFixed(4);
-		cell = row.insertCell(-1);
-		cell.innerHTML = new Date(time * 1000).toISOString().substring(11, 23);
-		cell = row.insertCell(-1);
-		myv = mydist/time;
-		cell.innerHTML = (units === "metric" ? 3.6*myv : 0.621371*3.6*myv) .toFixed(3);
-	}
-	
-}
+        var cell = row.insertCell(-1);
+        cell.innerHTML = myGears[i].f + "&times;" + myGears[i].r;
+        cell = row.insertCell(-1);
+        cell.innerHTML = ((myGears[i].f) / (myGears[i].r)).toFixed(4);
+        cell = row.insertCell(-1);
+        cell.innerHTML = new Date(time * 1000).toISOString().substring(11, 23);
+        cell = row.insertCell(-1);
+        var myv = mydist / time;
+        cell.innerHTML = (units === "metric" ? 3.6 * myv : 0.621371 * 3.6 * myv).toFixed(3);
+      }
+      
+      UpdateFooter(true);
+    }
 
-function ChangeUnits(myRadio){
-   units = myRadio.value;
+    function ChangeUnits(myRadio) {
+      units = myRadio.value;
 
-   if (units === "metric"){
-     document.getElementById("weight_unit").textContent="kg";
-     document.getElementById("rider_weight").value = ((document.getElementById("rider_weight").value)/2.205).toFixed(0);
+      if (units === "metric") {
+        document.getElementById("weight_unit").textContent = "kg";
+        document.getElementById("rider_weight").value = ((document.getElementById("rider_weight").value) / 2.205).toFixed(0);
 
-     document.getElementById("weight_unit2").textContent="kg";
-     document.getElementById("bike_weight").value = ((document.getElementById("bike_weight").value)/2.205).toFixed(0);
+        document.getElementById("weight_unit2").textContent = "kg";
+        document.getElementById("bike_weight").value = ((document.getElementById("bike_weight").value) / 2.205).toFixed(0);
 
-     document.getElementById("CdA_unit").textContent="m$^2$";
-     MathJax.Hub.Queue(["Typeset",MathJax.Hub,"CdA_unit"]);
-     document.getElementById("CdA").value = ((document.getElementById("CdA").value)/3.28084/3.28084).toPrecision(3);
+        document.getElementById("CdA_unit").textContent = "m$^2$";
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, "CdA_unit"]);
+        document.getElementById("CdA").value = ((document.getElementById("CdA").value) / 3.28084 / 3.28084).toPrecision(3);
 
-     document.getElementById("wheel_unit").textContent="m";
-     document.getElementById("circ").value = ((document.getElementById("circ").value)/39.3701).toFixed(3);
-	 
-	 document.getElementById("distance_unit").textContent="m";
-     document.getElementById("distance").value = ((document.getElementById("distance").value)*1609.34).toFixed(1);
-	 
-	 document.getElementById("density_unit").textContent="kg/m$^3$ ";
-     MathJax.Hub.Queue(["Typeset",MathJax.Hub,"density_unit"]);
-     document.getElementById("density").value = ((document.getElementById("density").value)*16.0185).toFixed(3);
-	 
-	 document.getElementById("AvgSpdHeader").innerHTML="Avg. Speed (kph)";
-	
+        document.getElementById("wheel_unit").textContent = "m";
+        document.getElementById("circ").value = ((document.getElementById("circ").value) / 39.3701).toFixed(3);
 
-   }
+        document.getElementById("distance_unit").textContent = "m";
+        document.getElementById("distance").value = ((document.getElementById("distance").value) * 1609.34).toFixed(1);
 
-   if (units === "imperial"){
-     document.getElementById("weight_unit").textContent="lb";
-     document.getElementById("rider_weight").value = ((document.getElementById("rider_weight").value)*2.205).toFixed(0);
+        document.getElementById("density_unit").textContent = "kg/m$^3$ ";
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, "density_unit"]);
+        document.getElementById("density").value = ((document.getElementById("density").value) * 16.0185).toFixed(3);
 
-     document.getElementById("weight_unit2").textContent="lb";
-     document.getElementById("bike_weight").value = ((document.getElementById("bike_weight").value)*2.205).toFixed(0);
+        document.getElementById("AvgSpdHeader").innerHTML = "Avg. Speed (kph)";
+        document.getElementById("AvgSpdHeaderTable").innerHTML = "Avg. Speed (kph)";
+      }
 
-     document.getElementById("CdA_unit").textContent="ft$^2$";
-     MathJax.Hub.Queue(["Typeset",MathJax.Hub,"CdA_unit"]);
-     document.getElementById("CdA").value = ((document.getElementById("CdA").value)*3.28084*3.28084).toPrecision(3);
+      if (units === "imperial") {
+        document.getElementById("weight_unit").textContent = "lb";
+        document.getElementById("rider_weight").value = ((document.getElementById("rider_weight").value) * 2.205).toFixed(0);
 
-     document.getElementById("wheel_unit").textContent="inches";
-     document.getElementById("circ").value = ((document.getElementById("circ").value)*39.3701).toFixed(1);
-	 
-	 document.getElementById("distance_unit").textContent="miles";
-     document.getElementById("distance").value = ((document.getElementById("distance").value)/1609.34).toFixed(4);
-	 
-	 document.getElementById("density_unit").textContent="lb/ft$^3$ ";
-     MathJax.Hub.Queue(["Typeset",MathJax.Hub,"density_unit"]);
-     document.getElementById("density").value = ((document.getElementById("density").value)/16.0185).toFixed(4);
-	 
-	 document.getElementById("AvgSpdHeader").innerHTML="Avg. Speed (mph)";
-	 
-   }
+        document.getElementById("weight_unit2").textContent = "lb";
+        document.getElementById("bike_weight").value = ((document.getElementById("bike_weight").value) * 2.205).toFixed(0);
 
-}
+        document.getElementById("CdA_unit").textContent = "ft$^2$";
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, "CdA_unit"]);
+        document.getElementById("CdA").value = ((document.getElementById("CdA").value) * 3.28084 * 3.28084).toPrecision(3);
 
-function UpdateAll() {
+        document.getElementById("wheel_unit").textContent = "inches";
+        document.getElementById("circ").value = ((document.getElementById("circ").value) * 39.3701).toFixed(1);
 
-    document.getElementById("grade").className = "form-control";
+        document.getElementById("distance_unit").textContent = "miles";
+        document.getElementById("distance").value = ((document.getElementById("distance").value) / 1609.34).toFixed(4);
 
-  if ( document.getElementById("grade").value < 0 )
-  {
-    document.getElementById("grade").className = "form-control is-invalid";
-	document.getElementById("grade").value = "Please enter a road grade larger than zero.";
-    return;
-  }
-  
-  if ( document.getElementById("grade").value > 50 )
-  {
-    document.getElementById("grade").className = "form-control is-invalid";
-	document.getElementById("grade").value = "Please enter a smaller road grade.";
-    return;
-  }
+        document.getElementById("density_unit").textContent = "lb/ft$^3$ ";
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, "density_unit"]);
+        document.getElementById("density").value = ((document.getElementById("density").value) / 16.0185).toFixed(4);
 
+        document.getElementById("AvgSpdHeader").innerHTML = "Avg. Speed (mph)";
+        document.getElementById("AvgSpdHeaderTable").innerHTML = "Avg. Speed (mph)";
+      }
+    }
 
- RunCalc();
-}
+    function UpdateAll() {
+      const gradeInput = document.getElementById("grade");
+      gradeInput.className = "form-control";
 
-</script>
-
+      const val = parseFloat(gradeInput.value);
+      if (val < 0 || val > 50 || isNaN(val)) {
+        gradeInput.className = "form-control is-invalid";
+        return;
+      }
+      RunCalc();
+    }
+  </script>
 </head>
 
-
 <body>
-  <div class="border p-3" class="container-fluid">
-  <div class="col-xs-12 col-md-8">
-<h2>Optimal Gear Ratio & Race Time Simulator</h2>
+  <div class="border p-3 container-fluid">
+    <div class="col-xs-12 col-md-8">
+      <h2>Optimal Gear Ratio & Race Time Simulator</h2>
 
-<!--start div for top-row-->
-<div class="row align-items-center w-100 m-0 p-0">
-  
-  <div class="col-12 col-lg-6 d-flex align-items-center pb-2 pt-2 px-0">
-    <legend class="col-form-label pr-3 mb-0" style="font-size: inherit; border: none; width: auto;">Units:</legend>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="units" id="metric" onchange="ChangeUnits(this);UpdateAll();" value="metric" checked>
-      <label class="form-check-label" for="metric">metric</label>
+      <div class="row align-items-center w-100 m-0 p-0">
+        <div class="col-12 col-lg-6 d-flex align-items-center pb-2 pt-2 px-0">
+          <legend class="col-form-label pr-3 mb-0" style="font-size: inherit; border: none; width: auto;">Units:</legend>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="units" id="metric" onchange="ChangeUnits(this);UpdateAll();" value="metric" checked>
+            <label class="form-check-label" for="metric">metric</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="units" id="imperial" onchange="ChangeUnits(this);UpdateAll();" value="imperial">
+            <label class="form-check-label" for="imperial">imperial</label>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-6 d-flex align-items-center pb-2 pt-2 px-0 justify-content-start justify-content-lg-end">
+          <label for="profileSelect" class="col-form-label mr-2 text-nowrap">Rider / Course Preset:</label>
+          <select class="custom-select custom-select-sm" id="profileSelect" onchange="LoadProfile(this.value);UpdateAll();" style="max-width: 200px; width: 100%;">
+            <option value="default" selected>Select a setup...</option>
+            <option value="touring">Touring</option>
+            <option value="racing">Racing</option>
+            <option value="sprinting">Sprinting</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row align-items-center w-100 m-0 p-0">
+        <div class="col-12 col-lg-6 d-flex align-items-center pb-2 pt-2 px-0">
+          <button type="button" id="advancedToggle" class="toggle-btn">
+            Show Advanced Settings ▼
+          </button>
+        </div>
+
+        <div class="col-12 col-lg-6 d-flex align-items-center pb-2 pt-2 px-0 justify-content-start justify-content-lg-end">
+          <span class="mr-2 text-nowrap" id="savetxt">Save url to clipboard:</span>
+          <button type="button" id="savebtn" class="btn btn-outline-primary d-inline-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="bottom" title="Copy Link to Share" onclick="createURL();" style="padding: 0.375rem 0.75rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <h4 class="mb-3">Rider Profile</h4>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Rider Weight</span>
+        </div>
+        <input type="text" class="form-control" id="rider_weight" aria-label="Rider Weight" value="81" onchange="UpdateAll();">
+        <div class="input-group-append">
+          <span class="input-group-text" id="weight_unit">kg</span>
+        </div>
+      </div>
+
+      <div class="advanced-content">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Aerodynamic Drag Area ($C_dA$)</span>
+          </div>
+          <input type="text" class="form-control" id="CdA" aria-label="CdA" value="0.40" onchange="UpdateAll();">
+          <div class="input-group-append">
+            <span class="input-group-text" id="CdA_unit">m$^2$</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Optimum Cadence
+            <button type="button" class="btn btn-link btn-sm py-0 my-0" data-toggle="modal" data-target="#PowModelModal">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+              </svg>
+            </button>
+          </span>
+        </div>
+        <input type="text" class="form-control" id="PRopt" aria-label="PRopt" value="80" onchange="UpdateAll();">
+        <div class="input-group-append">
+          <span class="input-group-text" id="PRopt_unit">rpm</span>
+        </div>
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Max Power 
+            <button type="button" class="btn btn-link btn-sm py-0 my-0" data-toggle="modal" data-target="#PowModelModal">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+              </svg>
+            </button>
+          </span>
+        </div>
+        <input type="text" class="form-control" id="pmax" aria-label="pmax" value="200" onchange="UpdateAll();">
+        <div class="input-group-append">
+          <span class="input-group-text" id="power_unit">Watts</span>
+        </div>
+      </div>
+
+      <hr class="my-4">
+      <h4 class="mb-3">Bike Specifications</h4>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Bike Weight</span>
+        </div>
+        <input type="text" class="form-control" id="bike_weight" aria-label="Bike Weight" value="14" onchange="UpdateAll();">
+        <div class="input-group-append">
+          <span class="input-group-text" id="weight_unit2">kg</span>
+        </div>
+      </div>
+
+      <div class="advanced-content">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Drivetrain Efficiency</span>
+          </div>
+          <input type="text" class="form-control" id="eta" aria-label="eta" value="100" onchange="UpdateAll();">
+          <div class="input-group-append">
+            <span class="input-group-text">%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Wheel Circumference</span>
+        </div>
+
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="wheelSizeDropdownButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Select Wheel Size
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="wheelSizeDropdownButton" id="wheel-size-select">
+            <li><h6 class="dropdown-header">Road (700c / ISO 622)</h6></li>
+            <li><a class="dropdown-item" href="#" data-value="2.096">700c x 20mm</a></li>
+            <li><a class="dropdown-item" href="#" data-value="2.099">700c x 23mm</a></li>
+            <li><a class="dropdown-item" href="#" data-value="2.111">700c x 25mm</a></li>
+            <li><a class="dropdown-item" href="#" data-value="2.130">700c x 28mm</a></li>
+            <li><a class="dropdown-item" href="#" data-value="2.146">700c x 30mm</a></li>
+            <li><a class="dropdown-item" href="#" data-value="2.155">700c x 32mm</a></li>
+            <li><a class="dropdown-item" href="#" data-value="2.168">700c x 35mm</a></li>
+            <li><a class="dropdown-item" href="#" data-value="2.180">700c x 38mm</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Gravel & Commuting</h6></li>
+            <li><a class="dropdown-item" href="#" data-value="2.220">700c x 42mm (Wide Gravel)</a></li>
+            <li><a class="dropdown-item" href="#" data-value="2.104">650b x 47mm (Road Plus)</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Mountain Bike (MTB)</h6></li>
+            <li><a class="dropdown-item" href="#" data-value="2.210">27.5" x 2.25" (Trail)</a></li>
+            <li><a class="dropdown-item" href="#" data-value="2.333">29" x 2.2" (XC Race)</a></li>
+            <li><a class="dropdown-item" href="#" data-value="2.365">29" x 2.4" (Trail/Enduro)</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Urban & Classic</h6></li>
+            <li><a class="dropdown-item" href="#" data-value="2.035">26" x 1.75" (Retro MTB/Touring)</a></li>
+            <li><a class="dropdown-item" href="#" data-value="1.515">20" x 1.75" (Folding/Cargo)</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item text-primary" href="#" data-value="custom">Enter custom...</a></li>
+          </ul>
+        </div>
+
+        <input type="text" class="form-control" id="circ" aria-label="circ" value="2.146" onkeyup="document.querySelectorAll('#wheel-size-select .dropdown-item').forEach(item => { item.classList.remove('active'); }); document.getElementById('wheelSizeDropdownButton').textContent = 'Select Wheel Size';" onchange="UpdateAll();">
+        <div class="input-group-append">
+          <span class="input-group-text" id="wheel_unit">m</span>
+        </div>
+      </div>
+
+      <div class="advanced-content">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Rolling Resistance ($C_{rr}$)</span>
+          </div>
+          <input type="text" class="form-control" id="Crr" aria-label="Crr" value="0.0045" onchange="UpdateAll();">
+        </div>
+      </div>
+
+      <hr class="my-4">
+      <h4 class="mb-3">Course Profile</h4>
+
+      <div class="advanced-content">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Grade</span>
+          </div>
+          <input type="text" class="form-control" id="grade" aria-label="grade" value="0" onchange="UpdateAll();">
+          <div class="input-group-append">
+            <span class="input-group-text">%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Segment / Race Distance</span>
+        </div>
+        <input type="text" class="form-control" id="distance" aria-label="distance" value="1000" onchange="UpdateAll();">
+        <div class="input-group-append">
+          <span class="input-group-text" id="distance_unit">m</span>
+        </div>
+      </div>
+
+      <div class="advanced-content">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Air density</span>
+          </div>
+          <input type="text" class="form-control" id="density" aria-label="density" value="1.225" onchange="UpdateAll();">
+          <div class="input-group-append">
+            <span class="input-group-text" id="density_unit">kg/m$^3$&nbsp;</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-card results-card container-fluid">
+        <div class="row">
+          <div class="col-12 col-xl-4 pb-3 pb-xl-0 px-xl-4">
+            <h2 class="text-nowrap">Optimal Gear Ratio <strong><span id="myGRopt"></span></strong></h2>
+          </div>
+          <div class="col-12 d-block d-xl-none">
+            <hr class="my-2 opacity-25">
+          </div>
+          <div class="col-12 col-xl-4 py-3 py-xl-0 px-xl-4">
+            <h2 class="text-nowrap">Race Time <strong><span id="myTime"></span></strong></h2>
+          </div>
+          <div class="col-12 d-block d-xl-none">
+            <hr class="my-2 opacity-25">
+          </div>
+          <div class="col-12 col-xl-4 pt-3 pt-xl-0 px-xl-4">
+            <h2 class="text-nowrap"><span id="AvgSpdHeader">Avg. Speed (kph)</span> <strong><span id="myAvgVel"></span></strong></h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="overflow-auto mt-5" style="max-height: 500px; position: relative;">
+        <table class="table table-sm mb-0" style="text-align: center;">
+          <thead class="thead-dark" style="position: sticky; top: 0; z-index: 2;">
+            <tr>
+              <th>Gearing</th>
+              <th>Gear Ratio</th>
+              <th>Race Time</th>
+              <th id="AvgSpdHeaderTable">Avg. Speed (kph)</th>
+            </tr>
+          </thead>
+          <tbody id="tab-gearing-results"></tbody>
+          
+          <tfoot id="tab-gearing-footer" style="position: sticky; bottom: 0; z-index: 2;">
+            <tr>
+              <td colspan="4" class="text-left p-3" style="font-size: 0.85rem; color: #6c757d; background-color: #f8f9fa; border-top: 2px solid #dee2e6;">
+                <strong>Table Guide:</strong> This matrix displays physical chainring &times; sprocket gear combinations ranked by overall speed for the simulated course. 
+                Rows are color-coded based on variance from the optimal configuration:
+                <div class="mt-2">
+                  <span class="badge badge-success px-2 py-1 mr-1">Green</span> Optimal gear configurations ($\le$ 1ms variance).<br>
+                  <span class="badge badge-warning px-2 py-1 mr-1">Yellow</span> Highly viable alternative gears ($\le$ 5ms variance).<br>
+                  <span class="badge badge-danger px-2 py-1 mr-1">Red</span> Sub-optimal pairings causing noticeable speed drops or stalling.
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
     </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="units" id="imperial" onchange="ChangeUnits(this);UpdateAll();" value="imperial">
-      <label class="form-check-label" for="imperial">imperial</label>
+  </div>
+
+  <div class="modal fade" id="PowModelModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Cyclist Power Model</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="text-align: left; word-break: normal; white-space: normal;">
+          <p class="text-left"></p>
+          This calculator uses a power model where the rider's power output is a quadratic function of their cadence.
+          $$ P_F=P_{\text{max}}\left[2\left(\frac{\text{RPM}}{\text{RPM}_{\text{opt}}}\right)-\left(\frac{\text{RPM}}{\text{RPM}_{\text{opt}}}\right)^2\right] $$
+          The parameter $\text{RPM}_{\text{opt}}$ is the optimal cadence for an individual rider and $P_{\text{max}}$ is the power output maintained at that cadence.
+        </div>
+      </div>
     </div>
   </div>
-  
-  <div class="col-12 col-lg-6 d-flex align-items-center pb-2 pt-2 px-0 justify-content-start justify-content-lg-end">
-    <label for="profileSelect" class="col-form-label mr-2 text-nowrap">Rider / Course Preset:</label>
-    <select class="custom-select custom-select-sm" id="profileSelect" onchange="LoadProfile(this.value);UpdateAll();" style="max-width: 200px; width: 100%;">
-      <option value="default" selected>Select a setup...</option>
-      <option value="touring">Touring</option>
-      <option value="racing">Racing</option>
-      <option value="sprinting">Sprinting</option>
-    </select>
-  </div>
-  
-</div>
-	
-	<!--start div for second-row-->
-<div class="row align-items-center w-100 m-0 p-0">
-  
-  <div class="col-12 col-lg-6 d-flex align-items-center pb-2 pt-2 px-0">
-    <button type="button" id="advancedToggle" class="toggle-btn">
-      Show Advanced Settings ▼
-    </button>
-  </div>
-  
-  <div class="col-12 col-lg-6 d-flex align-items-center pb-2 pt-2 px-0 justify-content-start justify-content-lg-end">
-    <span class="mr-2 text-nowrap" id="savetxt">Save url to clipboard:</span>
-    <button type="button" id="savebtn" class="btn btn-outline-primary d-inline-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="bottom" title="Copy Link to Share" onclick="createURL();" style="padding: 0.375rem 0.75rem;">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-</svg>
-    </button>
-  </div>
 
-</div>
-<!--end div for second-row-->
-		
-	  <h4 class="mb-3">Rider Profile</h4>
-
-      <div class="input-group mb-3">
-      <div class="input-group-prepend">
-      <span class="input-group-text">Rider Weight</span>
-      </div>
-      <input type="text" class="form-control" id="rider_weight" aria-label="Rider Weight" value="81" onchange="UpdateAll();">
-      <div class="input-group-append">
-      <span class="input-group-text" id="weight_unit">kg</span>
-      </div>
-      </div>
-	  
-	  
-	  
-	  <div id="advancedSettings" class="advanced-content">
-	  <div class="input-group mb-3">
-      <div class="input-group-prepend">
-      <span class="input-group-text">Aerodynamic Drag Area ($C_dA$)</span>
-      </div>
-      <input type="text" class="form-control" id="CdA" aria-label="CdA" value="0.40" onchange="UpdateAll();">
-      <div class="input-group-append">
-      <span class="input-group-text" id="CdA_unit">m$^2$</span>
-      </div>
-      </div>
-	  </div>
-	  
-	  
-	  
-	  <div class="input-group mb-3">
-      <div class="input-group-prepend">
-      <span class="input-group-text">Optimum Cadence
-	     <button type="button" class="btn btn-link btn-sm py-0 my-0" data-toggle="modal" data-target="#PowModelModal">
-         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
-         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-         <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
-         </svg>
-         </button>
-	  </span>
-      </div>
-      <input type="text" class="form-control" id="PRopt" aria-label="PRopt" value="80" onchange="UpdateAll();" >
-      <div class="input-group-append">
-      <span class="input-group-text" id="PRopt_unit">rpm</span>
-      </div>
-      </div>
-	  
-	  
-      <div class="input-group mb-3">
-      <div class="input-group-prepend">
-      <span class="input-group-text">Max Power 
-	     <button type="button" class="btn btn-link btn-sm py-0 my-0" data-toggle="modal" data-target="#PowModelModal">
-         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
-         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-         <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
-         </svg>
-         </button>
-	  </span>
-      </div>
-      <input type="text" class="form-control" id="pmax" aria-label="pmax" value="200"  onchange="UpdateAll();" >
-      <div class="input-group-append">
-      <span class="input-group-text" id="power_unit">Watts</span>
-      </div>
-      </div>
-	  
-	  
-
-
-	 
-	 <hr class="my-4">
-	 <h4 class="mb-3">Bike Specifications</h4>
-	  
-	  
-	  
-
-      <div class="input-group mb-3">
-      <div class="input-group-prepend">
-      <span class="input-group-text">Bike Weight</span>
-      </div>
-      <input type="text" class="form-control" id="bike_weight" aria-label="Bike Weight" value="14" onchange="UpdateAll();">
-      <div class="input-group-append">
-      <span class="input-group-text" id="weight_unit2">kg</span>
-      </div>
-      </div>
-	  
-	  
-	  <div id="advancedSettings" class="advanced-content">
-	  <div class="input-group mb-3">
-      <div class="input-group-prepend">
-      <span class="input-group-text" >Drivetrain Efficiency</span>
-      </div>
-      <input type="text" class="form-control" id="eta" aria-label="eta" value="100"  onchange="UpdateAll();" >
-      <div class="input-group-append">
-      <span class="input-group-text" id="">%</span>
-      </div>
-      </div>
-	  </div>
-	  
-	  
-	  
-	  
-	  <div class="input-group mb-3">
-      <div class="input-group-prepend">
-      <span class="input-group-text">Wheel Circumference</span>
-      </div>
-	  
-	
-	  
-	  
-	  <div class="dropdown">
-  <button class="btn btn-secondary btn dropdown-toggle" type="button" id="wheelSizeDropdownButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Select Wheel Size
-  </button>
-  
-  <ul class="dropdown-menu" aria-labelledby="wheelSizeDropdownButton" id="wheel-size-select">
-    
-    <li><h6 class="dropdown-header">Road (700c / ISO 622)</h6></li>
-    <li><a class="dropdown-item" href="#" data-value="2.096">700c x 20mm</a></li>
-    <li><a class="dropdown-item" href="#" data-value="2.099">700c x 23mm</a></li>
-    <li><a class="dropdown-item" href="#" data-value="2.111">700c x 25mm</a></li>
-    <li><a class="dropdown-item" href="#" data-value="2.130">700c x 28mm</a></li>
-    <li><a class="dropdown-item" href="#" data-value="2.146">700c x 30mm</a></li>
-    <li><a class="dropdown-item" href="#" data-value="2.155">700c x 32mm</a></li>
-    <li><a class="dropdown-item" href="#" data-value="2.168">700c x 35mm</a></li>
-    <li><a class="dropdown-item" href="#" data-value="2.180">700c x 38mm</a></li>
-    
-    <li><hr class="dropdown-divider"></li>
-
-    <li><h6 class="dropdown-header">Gravel & Commuting</h6></li>
-    <li><a class="dropdown-item" href="#" data-value="2.220">700c x 42mm (Wide Gravel)</a></li>
-    <li><a class="dropdown-item" href="#" data-value="2.104">650b x 47mm (Road Plus)</a></li>
-    
-    <li><hr class="dropdown-divider"></li>
-
-    <li><h6 class="dropdown-header">Mountain Bike (MTB)</h6></li>
-    <li><a class="dropdown-item" href="#" data-value="2.210">27.5" x 2.25" (Trail)</a></li>
-    <li><a class="dropdown-item" href="#" data-value="2.333">29" x 2.2" (XC Race)</a></li>
-    <li><a class="dropdown-item" href="#" data-value="2.365">29" x 2.4" (Trail/Enduro)</a></li>
-    
-    <li><hr class="dropdown-divider"></li>
-
-    <li><h6 class="dropdown-header">Urban & Classic</h6></li>
-    <li><a class="dropdown-item" href="#" data-value="2.035">26" x 1.75" (Retro MTB/Touring)</a></li>
-    <li><a class="dropdown-item" href="#" data-value="1.515">20" x 1.75" (Folding/Cargo)</a></li>
-    
-    <li><hr class="dropdown-divider"></li>
-    
-    <li><a class="dropdown-item text-primary" href="#" data-value="custom">Enter custom...</a></li>
-  </ul>
-</div>
-
-	  
-      <input type="text" class="form-control" id="circ" aria-label="circ" value="2.146" onkeyup="document.querySelectorAll('#wheel-size-select .dropdown-item').forEach(item => {
-    item.classList.remove('active');});document.getElementById('wheelSizeDropdownButton').textContent = 'Select Wheel Size';";  onchange="UpdateAll();" >
-      <div class="input-group-append">
-      <span class="input-group-text" id="wheel_unit">m</span>
-      </div>
-      </div>
-	  
-	  
-
-	  
-	  <div id="advancedSettings" class="advanced-content">
-	  <div class="input-group mb-3">
-      <div class="input-group-prepend">
-      <span class="input-group-text">Rolling Resistance ($C_{rr}$)</span>
-      </div>
-      <input type="text" class="form-control" id="Crr" aria-label="Crr" value="0.0045" onchange="UpdateAll();" >
-      </div>
-	  </div>
-	  
-
-	 <hr class="my-4">
-	 <h4 class="mb-3">Course Profile</h4>
-
-
-
-	  <div id="advancedSettings" class="advanced-content">
-      <div class="input-group mb-3">
-      <div class="input-group-prepend">
-      <span class="input-group-text">Grade</span>
-      </div>
-      <input type="text" class="form-control" id="grade" aria-label="grade" value="0"  onchange="UpdateAll();" >
-      <div class="input-group-append">
-      <span class="input-group-text" id="">%
-	  </span>
-      </div>
-      </div>
-	  </div>
-	  
-      <div class="input-group mb-3">
-      <div class="input-group-prepend">
-      <span class="input-group-text">Segment / Race Distance</span>
-      </div>
-      <input type="text" class="form-control" id="distance" aria-label="distance" value="1000" onchange="UpdateAll();">
-      <div class="input-group-append">
-      <span class="input-group-text" id="distance_unit">m</span>
-      </div>
-      </div>
-	  
-	  <div id="advancedSettings" class="advanced-content">
-	  <div class="input-group mb-3">
-      <div class="input-group-prepend">
-      <span class="input-group-text">Air density</span>
-      </div>
-      <input type="text" class="form-control" id="density" aria-label="density" value="1.225" onchange="UpdateAll();" >
-      <div class="input-group-append">
-      <span class="input-group-text" id="density_unit">kg/m$^3$&nbsp;</span>
-      </div>
-      </div>
-	  </div>
-	  
-	  <div class="input-card results-card">
-	  <h2>Optimal Gear Ratio <strong><span id="myGRopt"></span></strong></h2>
-      <h2>Race Time <strong><span id="myTime"></span></strong></h2>
-      </div>
-
-		
-	  <div class="overflow-auto" style="max-height: 200px;">
-	  <table class="table .table-sm"  style="text-align: center;">
-	  <thead class="thead-dark" style="position: sticky; top: 0;"><th>Gearing</th><th>Gear Ratio</th><th>Race Time</th><th id="AvgSpdHeader">Avg. Speed (kph)</th></thead>
-	  <tbody id="tab-gearing-results">
-      </tbody>
-      <tfoot id="tab-gearing-footer"> </tfoot>
-      </table>
-	  </div>
-
-
-  
-
-
-
-
-    
-	
-	
-	<div id='vinf-plot-div' style="height:500px"></div>
-	
-
-	<span class="input-group-text">Max Power 
-	     <button type="button" class="btn btn-link btn-sm py-0 my-0" data-toggle="modal" data-target="#DoptVSx">
-         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
-         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-         <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
-         </svg>
-         </button>
-	  </span>
-		
-
-
-</div>
-</div>
-
-<!-- Modal -->
-         <div class="modal fade" id="PowModelModal" tabindex="-1" role="dialog">
-           <div class="modal-dialog" role="document">
-             <div class="modal-content">
-               <div class="modal-header">
-                 <h5 class="modal-title">Cyclist Power Model</h5>
-           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-             <span aria-hidden="true">&times;</span>
-           </button>
-         </div>
-         <div class="modal-body" style="align:left; word-break: normal; white-space: normal;">
-
-         <p class="text-left"></p>
-		 This calculator uses a power model where the rider's power output is a quadratic function of their cadence.
-         $$ P_F=P_{\text{max}}\left[2\left(\frac{\text{RPM}}{\text{RPM}_{\text{opt}}}\right)-\left(\frac{\text{RPM}}{\text{RPM}_{\text{opt}}}\right)^2\right]
-		$$
-		The parameter $\text{RPM}_{\text{opt}}$ is the optimal cadence for an individual rider and $P_{\text{max}}$ is the power output maintained at that cadence.
-
-         </div>
-         </div>
-         </div>
-         </div>
-       </span>
-<!-- End modal -->
-
-
-
-<!-- Google tag (gtag.js) -->
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TSB5RJ1T0J"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-TSB5RJ1T0J');
-</script>
-
-
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TSB5RJ1T0J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TSB5RJ1T0J');
+  </script>
 </body>
+
 </html>
