@@ -9,22 +9,18 @@
   <meta name="author" content="Kevin Dusling" />
   <meta name="ROBOTS" content="INDEX, FOLLOW">
 
-  <!-- jQuery, Popper.js, and Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-  <!-- MathJax -->
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
   </script>
   <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
-  <!-- Plotly -->
   <script src='https://cdn.plot.ly/plotly-3.3.0.min.js'></script>
 
   <style>
@@ -158,6 +154,7 @@
         document.getElementById("PRopt").value = 80;
         document.getElementById("circ").value = 2.146;
         document.getElementById("density").value = 1.225;
+		document.getElementById("distance").value = 10000;
       }
       if (profile === "racing") {
         document.getElementById("rider_weight").value = 73;
@@ -168,6 +165,7 @@
         document.getElementById("PRopt").value = 110;
         document.getElementById("circ").value = 2.096;
         document.getElementById("density").value = 1.225;
+		document.getElementById("distance").value = 4000;
       }
       if (profile === "sprinting") {
         document.getElementById("rider_weight").value = 92;
@@ -179,6 +177,19 @@
         document.getElementById("circ").value = 2.09858;
         document.getElementById("eta").value = 91;
         document.getElementById("density").value = 1.14;
+		document.getElementById("distance").value = 1000;
+      }
+	  if (profile === "BMX") {
+        document.getElementById("rider_weight").value = 80.6;
+        document.getElementById("bike_weight").value = 9;
+        document.getElementById("CdA").value = 0.55;
+        document.getElementById("Crr").value = 0.0093;
+        document.getElementById("pmax").value = 1945;
+        document.getElementById("PRopt").value = 122;
+        document.getElementById("circ").value = 1.55;
+        document.getElementById("eta").value = 92;
+        document.getElementById("density").value = 1.225;
+		document.getElementById("distance").value = 20;
       }
     }
 
@@ -283,7 +294,7 @@
       return candidates.slice(0, 50);
     }
 
-    function findMin(f, a, b, aux) {
+    function findMin(f, a, b) {
       var err = 1.e-10;
       var ep = 1.e-5;
       do {
@@ -329,6 +340,8 @@
 
       var cd = 1 / (2 * mass) * rho * CdA;
       var gs = Crr * g * Math.cos(angle) + g * Math.sin(angle);
+	  
+	  if (gs === 0) { gs = 1.e-8; }
 
       function tfinal(D, x) {
         var vopt = D / 60 * PRopt;
@@ -342,16 +355,34 @@
         
         var vinf = Math.sqrt(sqrtTerm) - vbar;
         if (vinf <= 0) return null;
-        
-        return x / vinf + 1 / (cd * vinf) * Math.log(2 * (vinf + vbar) / (vinf + 2 * vbar));
-      }
+		
 
-      if (gs === 0) { gs = 1.e-8; }
+		
+		if (x >= 500) {
+			return x / vinf + 1 / (cd * vinf) * Math.log(2 * (vinf + vbar) / (vinf + 2 * vbar));
+		} else if (x < 500) {
+		
+			function xoft(t){
+				var A = (0+vbar)/(vinf+vbar);
+				var cosharg = cd*(vinf+vbar)*t + Math.atanh(A);
+				var logarg = (1-A**2)*(Math.cosh(cosharg))**2;
+				return Math.abs(x - 1/(2*cd)*Math.log(logarg) + vbar*t);
+			}
+			
+			console.log( x, findMin( xoft, 0, 100*x/vinf ), x / vinf + 1 / (cd * vinf) * Math.log(2 * (vinf + vbar) / (vinf + 2 * vbar)) );
+			
+			return findMin( xoft, 1.e-5, 100*x/vinf );
+		
+		
+		}
+	  
+	  }
 	  
       var dopt = findMin(D => {
         var t = tfinal(D, mydist);
         return t === null ? 99999999 : t;
-      }, 0.1, 2 * pmax * 60 / PRopt / mass / gs);
+      }, circ*24/55, 2 * pmax * 60 / PRopt / mass / gs);
+	  
       
       var timeopt = tfinal(dopt, mydist);
 
@@ -360,7 +391,7 @@
         document.getElementById("myGRopt").innerHTML = "N/A";
         document.getElementById("myTime").innerHTML = "N/A";
         document.getElementById("myAvgVel").innerHTML = "0.000";
-        document.getElementById("tab-gearing-results").innerHTML = '<tr><td colspan="4" class="text-danger">Rider power is insufficient to overcome the course profile limitations.</td></tr>';
+        document.getElementById("tab-gearing-results").innerHTML = '<tr><td colspan="4" class="text-danger">Rider power is insufficient to overcome the course.</td></tr>';
         UpdateFooter(false);
         return;
       }
@@ -500,12 +531,13 @@
         </div>
 
         <div class="col-12 col-lg-6 d-flex align-items-center pb-2 pt-2 px-0 justify-content-start justify-content-lg-end">
-          <label for="profileSelect" class="col-form-label mr-2 text-nowrap">Rider / Course Preset:</label>
+          <label for="profileSelect" class="col-form-label mr-2 text-nowrap">Rider / Course Presets:</label>
           <select class="custom-select custom-select-sm" id="profileSelect" onchange="LoadProfile(this.value);UpdateAll();" style="max-width: 200px; width: 100%;">
             <option value="default" selected>Select a setup...</option>
             <option value="touring">Touring</option>
             <option value="racing">Racing</option>
             <option value="sprinting">Sprinting</option>
+			<option value="BMX">BMX</option>
           </select>
         </div>
       </div>
@@ -543,7 +575,14 @@
       <div class="advanced-content">
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <span class="input-group-text">Aerodynamic Drag Area ($C_dA$)</span>
+            <span class="input-group-text">Air Resistance ($C_dA$)
+			<button type="button" class="btn btn-link btn-sm py-0 my-0" data-toggle="modal" data-target="#CdAModal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+        <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+        </svg>
+        </button></span>
+		
           </div>
           <input type="text" class="form-control" id="CdA" aria-label="CdA" value="0.40" onchange="UpdateAll();">
           <div class="input-group-append">
@@ -613,12 +652,12 @@
 
       <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text">Wheel Circumference</span>
+          <span class="input-group-text">Tire Circumference</span>
         </div>
 
         <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="wheelSizeDropdownButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Select Wheel Size
+          <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="wheelSizeDropdownButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Select Size
           </button>
           <ul class="dropdown-menu" aria-labelledby="wheelSizeDropdownButton" id="wheel-size-select">
             <li><h6 class="dropdown-header">Road (700c / ISO 622)</h6></li>
@@ -639,6 +678,14 @@
             <li><a class="dropdown-item" href="#" data-value="2.210">27.5" x 2.25" (Trail)</a></li>
             <li><a class="dropdown-item" href="#" data-value="2.333">29" x 2.2" (XC Race)</a></li>
             <li><a class="dropdown-item" href="#" data-value="2.365">29" x 2.4" (Trail/Enduro)</a></li>
+			<li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">BMX Racing</h6></li>
+            <li><a class="dropdown-item" href="#" data-value="1.460">20" x 1-1/8" (Junior/Expert)</a></li>
+            <li><a class="dropdown-item" href="#" data-value="1.490">20" x 1-3/8" (Expert XL)</a></li>
+            <li><a class="dropdown-item" href="#" data-value="1.535">20" x 1.60" (Pro Front/Rear)</a></li>
+            <li><a class="dropdown-item" href="#" data-value="1.555">20" x 1.75" (Pro Standard)</a></li>
+            <li><a class="dropdown-item" href="#" data-value="1.595">20" x 1.95" (Pro Oversized Front)</a></li>
+            <li><a class="dropdown-item" href="#" data-value="1.855">24" x 1.75" (Cruiser Race)</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><h6 class="dropdown-header">Urban & Classic</h6></li>
             <li><a class="dropdown-item" href="#" data-value="2.035">26" x 1.75" (Retro MTB/Touring)</a></li>
@@ -648,7 +695,7 @@
           </ul>
         </div>
 
-        <input type="text" class="form-control" id="circ" aria-label="circ" value="2.146" onkeyup="document.querySelectorAll('#wheel-size-select .dropdown-item').forEach(item => { item.classList.remove('active'); }); document.getElementById('wheelSizeDropdownButton').textContent = 'Select Wheel Size';" onchange="UpdateAll();">
+        <input type="text" class="form-control" id="circ" aria-label="circ" value="2.146" onkeyup="document.querySelectorAll('#wheel-size-select .dropdown-item').forEach(item => { item.classList.remove('active'); }); document.getElementById('wheelSizeDropdownButton').textContent = 'Select Size';" onchange="UpdateAll();">
         <div class="input-group-append">
           <span class="input-group-text" id="wheel_unit">m</span>
         </div>
@@ -657,7 +704,16 @@
       <div class="advanced-content">
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <span class="input-group-text">Rolling Resistance ($C_{rr}$)</span>
+            <span class="input-group-text">Rolling Resistance ($C_{rr}$) &nbsp;&nbsp;
+
+      <button type="button" class="btn btn-link btn-sm py-0 my-0" data-toggle="modal" data-target="#CrrModal">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+      <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+      </svg>
+      </button>
+	  
+	  </span>
           </div>
           <input type="text" class="form-control" id="Crr" aria-label="Crr" value="0.0045" onchange="UpdateAll();">
         </div>
@@ -769,7 +825,51 @@
       </div>
     </div>
   </div>
-
+  
+  <div class="modal fade" id="CdAModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Drag area</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="text-align: left; word-break: normal; white-space: normal;">
+          <p class="text-left">The drag area or effective frontal area is the product of a dimensionless drag coefficient with the frontal area of the bike/rider system.</p>
+          <table class='table w-auto table-bordered'>
+            <thead><tr><td>Position</td><td>C<sub>d</sub>A [m<sup>2</sup>]</td><td>C<sub>d</sub>A [ft<sup>2</sup>]</td></tr></thead>
+            <caption>Wind tunnel tests by Defraeye et al. (2010). Taken from table 3 of the review <a href=" https://www.sciencedirect.com/science/article/pii/S0167610521001574" target="_blank">Cyclist aerodynamics through time: Better, faster, stronger</a></caption>
+            <tr><td>upright</td><td>0.270</td><td>2.91</td></tr>
+            <tr><td>dropped</td><td>0.243</td><td>2.62</td></tr>
+            <tr><td>time-trail</td><td>0.211</td><td>2.27</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="CrrModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Coefficient of rolling resistance</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="text-align: left; word-break: normal; white-space: normal;">
+          <p class="text-left"></p>
+          <table class='table w-auto table-bordered'>
+            <thead><tr><td>Tire</td><td>size</td><td>pressure</td><td>C<sub>rr</sub></td></tr></thead>
+            <caption></caption>
+            <tr><td><a href="https://www.bicyclerollingresistance.com/tour-reviews/vittoria-randonneur-2015" target="_blank">Vittoria Randonneur</a></td><td>37-622</td><td>75 psi</td><td>0.00869</td></tr>
+            <tr><td><a href="https://www.bicyclerollingresistance.com/road-bike-reviews/continental-grand-prix-4-season-2015" target="_blank">Continental Grand Prix 4 Season</a></td><td>700x25C</td><td>100 psi</td><td>0.00543</td></tr>
+            <tr><td><a href="https://www.bicyclerollingresistance.com/mtb-reviews/maxxis-ardent-race-exo-2016" target="_blank">Maxxis Ardent Race 3C EXO TR</a></td><td>29x2.20</td><td>25 psi</td><td>0.01052</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TSB5RJ1T0J"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
