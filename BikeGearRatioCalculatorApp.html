@@ -9,10 +9,9 @@
   <meta name="author" content="Kevin Dusling" />
   <meta name="ROBOTS" content="INDEX, FOLLOW">
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -96,10 +95,24 @@
   </style>
 
   <script type="text/javascript">
-    var units = "metric";
+
+    var current_units = "metric";
     var g = 9.81;
 
-    // Toggle system handling all advanced blocks cleanly with one event hook
+    var state = {
+      rider_weight: 81, // kg
+      bike_weight: 14,  // kg
+      CdA: 0.40,        // m^2
+      Crr: 0.0045,
+      pmax: 200,        // Watts
+      PRopt: 80,        // rpm
+      circ: 2.146,      // m
+      eta: 100,         // %
+      grade: 0,         // %
+      distance: 1000,   // m
+      density: 1.225    // kg/m^3
+    };
+
     document.addEventListener("DOMContentLoaded", function() {
       const toggleBtn = document.getElementById("advancedToggle");
       const advancedSettings = document.querySelectorAll('.advanced-content');
@@ -114,7 +127,6 @@
       });
     });
 
-    // Dropdown value selector functionality
     document.addEventListener("DOMContentLoaded", function() {
       const dropdownMenu = document.querySelector('.dropdown-menu');
       const dropdownButton = document.getElementById('wheelSizeDropdownButton');
@@ -130,9 +142,10 @@
         dropdownMenu.querySelectorAll('.dropdown-item').forEach(item => item.classList.remove('active'));
         targetItem.classList.add('active');
 
-        const val = targetItem.getAttribute('data-value');
+        const val = parseFloat(targetItem.getAttribute('data-value'));
         if (val && val !== 'custom') {
-          circInput.value = (units === "imperial" ? (val * 39.3701).toFixed(1) : val);
+          state.circ = val;
+          UpdateDOMValues();
           UpdateAll();
         } else if (val === 'custom') {
           circInput.focus();
@@ -143,54 +156,31 @@
 
     function LoadProfile(profile) {
       document.getElementById('profileSelect').value = profile;
-      document.querySelector('#metric').click();
+      current_units = "metric";
+      document.getElementById("metric").checked = true;
+      ChangeUnitsLabels("metric");
 
       if (profile === "touring") {
-        document.getElementById("rider_weight").value = 81;
-        document.getElementById("bike_weight").value = 14;
-        document.getElementById("CdA").value = 0.40;
-        document.getElementById("Crr").value = 0.0045;
-        document.getElementById("pmax").value = 200;
-        document.getElementById("PRopt").value = 80;
-        document.getElementById("circ").value = 2.146;
-        document.getElementById("density").value = 1.225;
-		document.getElementById("distance").value = 10000;
+        state.rider_weight = 81; state.bike_weight = 14; state.CdA = 0.40; state.Crr = 0.0045;
+        state.pmax = 200; state.PRopt = 80; state.circ = 2.146; state.density = 1.225;
+        state.distance = 10000; state.eta = 100; state.grade = 0;
       }
       if (profile === "racing") {
-        document.getElementById("rider_weight").value = 73;
-        document.getElementById("bike_weight").value = 8;
-        document.getElementById("CdA").value = 0.32;
-        document.getElementById("Crr").value = 0.0030;
-        document.getElementById("pmax").value = 900;
-        document.getElementById("PRopt").value = 110;
-        document.getElementById("circ").value = 2.096;
-        document.getElementById("density").value = 1.225;
-		document.getElementById("distance").value = 4000;
+        state.rider_weight = 73; state.bike_weight = 8; state.CdA = 0.32; state.Crr = 0.0030;
+        state.pmax = 900; state.PRopt = 110; state.circ = 2.096; state.density = 1.225;
+        state.distance = 4000; state.eta = 100; state.grade = 0;
       }
       if (profile === "sprinting") {
-        document.getElementById("rider_weight").value = 92;
-        document.getElementById("bike_weight").value = 8;
-        document.getElementById("CdA").value = 0.21;
-        document.getElementById("Crr").value = 0.0025;
-        document.getElementById("pmax").value = 1800;
-        document.getElementById("PRopt").value = 130;
-        document.getElementById("circ").value = 2.09858;
-        document.getElementById("eta").value = 91;
-        document.getElementById("density").value = 1.14;
-		document.getElementById("distance").value = 1000;
+        state.rider_weight = 92; state.bike_weight = 8; state.CdA = 0.21; state.Crr = 0.0025;
+        state.pmax = 1800; state.PRopt = 130; state.circ = 2.09858; state.eta = 91;
+        state.density = 1.14; state.distance = 1000; state.grade = 0;
       }
-	  if (profile === "BMX") {
-        document.getElementById("rider_weight").value = 80.6;
-        document.getElementById("bike_weight").value = 9;
-        document.getElementById("CdA").value = 0.55;
-        document.getElementById("Crr").value = 0.0093;
-        document.getElementById("pmax").value = 1945;
-        document.getElementById("PRopt").value = 122;
-        document.getElementById("circ").value = 1.55;
-        document.getElementById("eta").value = 92;
-        document.getElementById("density").value = 1.225;
-		document.getElementById("distance").value = 20;
+      if (profile === "BMX") {
+        state.rider_weight = 80.6; state.bike_weight = 9; state.CdA = 0.55; state.Crr = 0.0093;
+        state.pmax = 1944.6; state.PRopt = 112.2; state.circ = 1.55; state.eta = 92;
+        state.density = 1.21; state.distance = 18; state.grade = -53;
       }
+      UpdateDOMValues();
     }
 
     window.onload = function() {
@@ -200,63 +190,62 @@
         LoadProfile(params.get('config').toLowerCase());
       }
       if (params.has('units')) {
-        units = params.get('units');
-        document.getElementById(units).checked = true;
-        ChangeUnits(document.getElementById(units));
+        current_units = params.get('units');
+        document.getElementById(current_units).checked = true;
+        ChangeUnitsLabels(current_units);
       }
-      if (params.has('RiderWeight')) {
-        document.getElementById("rider_weight").value = params.get('RiderWeight');
-      }
-      if (params.has('BikeWeight')) {
-        document.getElementById("bike_weight").value = params.get('BikeWeight');
-      }
-      if (params.has('CdA')) {
-        document.getElementById("CdA").value = params.get('CdA');
-      }
-      if (params.has('Crr')) {
-        document.getElementById("Crr").value = params.get('Crr');
-      }
-      if (params.has('eff')) {
-        document.getElementById("eta").value = params.get('eff');
-      }
-      if (params.has('grade')) {
-        document.getElementById("grade").value = params.get('grade');
-      }
-      if (params.has('pmax')) {
-        document.getElementById("pmax").value = params.get('pmax');
-      }
-      if (params.has('PRopt')) {
-        document.getElementById("PRopt").value = params.get('PRopt');
-      }
-      if (params.has('circ')) {
-        document.getElementById("circ").value = params.get('circ');
-      }
-      if (params.has('rho')) {
-        document.getElementById("density").value = params.get('rho');
-      }
-      if (params.has('dist')) {
-        document.getElementById("distance").value = params.get('dist');
-      }
-      if (params.has('g')) {
-        g = params.get('g');
-      }
+      if (params.has('RiderWeight')) state.rider_weight = parseFloat(params.get('RiderWeight'));
+      if (params.has('BikeWeight')) state.bike_weight = parseFloat(params.get('BikeWeight'));
+      if (params.has('CdA')) state.CdA = parseFloat(params.get('CdA'));
+      if (params.has('Crr')) state.Crr = parseFloat(params.get('Crr'));
+      if (params.has('eff')) state.eta = parseFloat(params.get('eff'));
+      if (params.has('grade')) state.grade = parseFloat(params.get('grade'));
+      if (params.has('pmax')) state.pmax = parseFloat(params.get('pmax'));
+      if (params.has('PRopt')) state.PRopt = parseFloat(params.get('PRopt'));
+      if (params.has('circ')) state.circ = parseFloat(params.get('circ'));
+      if (params.has('rho')) state.density = parseFloat(params.get('rho'));
+      if (params.has('dist')) state.distance = parseFloat(params.get('dist'));
+      if (params.has('g')) g = parseFloat(params.get('g'));
 
+      UpdateDOMValues();
       UpdateAll();
     };
 
+    function UpdateDOMValues() {
+      if (current_units === "metric") {
+        document.getElementById("rider_weight").value = state.rider_weight.toFixed(1);
+        document.getElementById("bike_weight").value = state.bike_weight.toFixed(1);
+        document.getElementById("CdA").value = state.CdA.toPrecision(3);
+        document.getElementById("circ").value = state.circ.toFixed(3);
+        document.getElementById("distance").value = state.distance.toFixed(1);
+        document.getElementById("density").value = state.density.toFixed(3);
+      } else {
+        document.getElementById("rider_weight").value = (state.rider_weight * 2.20462).toFixed(1);
+        document.getElementById("bike_weight").value = (state.bike_weight * 2.20462).toFixed(1);
+        document.getElementById("CdA").value = (state.CdA * 3.28084 * 3.28084).toPrecision(3);
+        document.getElementById("circ").value = (state.circ * 39.3701).toFixed(1);
+        document.getElementById("distance").value = (state.distance / 1609.34).toFixed(4);
+        document.getElementById("density").value = (state.density / 16.0185).toFixed(4);
+      }
+      document.getElementById("pmax").value = state.pmax.toFixed(1);
+      document.getElementById("PRopt").value = state.PRopt.toFixed(1);
+      document.getElementById("eta").value = state.eta.toFixed(1);
+      document.getElementById("grade").value = state.grade.toFixed(1);
+    }
+
     function createURL() {
-      var url = "https://kdusling.github.io/BikeGearRatioCalculatorApp.html?units=" + units;
-      url += "&RiderWeight=" + document.getElementById("rider_weight").value;
-      url += "&BikeWeight=" + document.getElementById("bike_weight").value;
-      url += "&CdA=" + document.getElementById("CdA").value;
-      url += "&Crr=" + document.getElementById("Crr").value;
-      url += "&eff=" + document.getElementById("eta").value;
-      url += "&grade=" + document.getElementById("grade").value;
-      url += "&pmax=" + document.getElementById("pmax").value;
-      url += "&PRopt=" + document.getElementById("PRopt").value;
-      url += "&circ=" + document.getElementById("circ").value;
-      url += "&rho=" + document.getElementById("density").value;
-      url += "&dist=" + document.getElementById("distance").value;
+      var url = window.location.origin + window.location.pathname + "?units=" + current_units;
+      url += "&RiderWeight=" + state.rider_weight;
+      url += "&BikeWeight=" + state.bike_weight;
+      url += "&CdA=" + state.CdA;
+      url += "&Crr=" + state.Crr;
+      url += "&eff=" + state.eta;
+      url += "&grade=" + state.grade;
+      url += "&pmax=" + state.pmax;
+      url += "&PRopt=" + state.PRopt;
+      url += "&circ=" + state.circ;
+      url += "&rho=" + state.density;
+      url += "&dist=" + state.distance;
       url += "&g=" + g;
 
       navigator.clipboard.writeText(url);
@@ -275,10 +264,7 @@
 
     function getGears(target) {
       let candidates = [];
-      var minR = 9;
-      var maxR = 55;
-      var minF = 24;
-      var maxF = 70;
+      var minR = 9; var maxR = 55; var minF = 24; var maxF = 70;
 
       for (let r = minR; r <= maxR; r++) {
         let f = Math.round(target * r);
@@ -295,99 +281,96 @@
     }
 
     function findMin(f, a, b) {
-      var err = 1.e-10;
-      var ep = 1.e-5;
+      var err = 1.e-10; var ep = 1.e-5;
       do {
         var mid = (a + b) / 2;
         var deriv = (f(mid + ep) - f(mid - ep)) / (2 * ep);
-        if (deriv > 0) {
-          b = mid;
-        } else {
-          a = mid;
-        }
+        if (deriv > 0) { b = mid; } else { a = mid; }
       } while (b - a > err);
       return (a + b) / 2;
     }
 
     function UpdateFooter(hasPower) {
       const footer = document.getElementById("tab-gearing-footer");
-      if (footer) {
-        footer.style.display = hasPower ? "table-footer-group" : "none";
-      }
+      if (footer) footer.style.display = hasPower ? "table-footer-group" : "none";
     }
 
     function RunCalc() {
-      var CdA = document.getElementById("CdA").value;
-      var Crr = document.getElementById("Crr").value;
-      var eta = document.getElementById("eta").value / 100.0;
-      var mass = parseFloat(document.getElementById("bike_weight").value) + parseFloat(document.getElementById("rider_weight").value);
-      var angle = Math.atan(parseFloat(document.getElementById("grade").value) / 100.);
-      var pmax = parseFloat(document.getElementById("pmax").value);
-      var PRopt = parseFloat(document.getElementById("PRopt").value);
-      var circ = parseFloat(document.getElementById("circ").value);
-      var rho = parseFloat(document.getElementById("density").value);
-      var mydist = document.getElementById("distance").value;
+      var CdA = state.CdA;
+      var Crr = state.Crr;
+      var eta = state.eta / 100.0;
+      var mass = state.bike_weight + state.rider_weight;
+      var angle = Math.atan(state.grade / 100.);
+      var pmax = state.pmax;
+      var PRopt = state.PRopt;
+      var circ = state.circ;
+      var rho = state.density;
+      var mydist = state.distance;
 
       pmax = eta * pmax;
 
-      if (units === "imperial") {
-        mass = mass / 2.20462;
-        CdA = CdA / 3.28084 ** 2;
-        circ = circ / 39.3701;
-        mydist = 1609.34 * mydist;
-        rho = rho * 16.0185;
-      }
-
       var cd = 1 / (2 * mass) * rho * CdA;
       var gs = Crr * g * Math.cos(angle) + g * Math.sin(angle);
-	  
 	  if (gs === 0) { gs = 1.e-8; }
+	  
+	  function voft(D, t) {
+		var vopt = D / 60 * PRopt;
+        var vbar = pmax / (2 * mass * cd * vopt ** 2);
+        var sqrtTerm = vbar ** 2 + 4 * vbar * vopt - gs / cd;
+        if (sqrtTerm < 0 || isNaN(sqrtTerm)) return 0;
+              
+        var vinf = Math.sqrt(sqrtTerm) - vbar;
+		var A = (0+vbar)/(vinf+vbar);
+        if((1-A**2) <= 0 || (vinf+vbar) <= 0) return 0;
+
+		var cosharg = cd*(vinf+vbar)*t + Math.atanh(A);
+		var myv = (vinf + vbar)*Math.tanh(cosharg)-vbar;
+		return myv;
+	  }
 
       function tfinal(D, x) {
         var vopt = D / 60 * PRopt;
         var vbar = pmax / (2 * mass * cd * vopt ** 2);
         
-        // Safety guard against negative values under the square root (insufficient power)
         var sqrtTerm = vbar ** 2 + 4 * vbar * vopt - gs / cd;
-        if (sqrtTerm < 0 || isNaN(sqrtTerm)) {
-          return null; 
-        }
+        if (sqrtTerm < 0 || isNaN(sqrtTerm)) return null; 
         
         var vinf = Math.sqrt(sqrtTerm) - vbar;
         if (vinf <= 0) return null;
 		
-
+		var A = (0+vbar)/(vinf+vbar);
+		if (A >= 1 || A <= -1) return null; // Guard against out-of-bounds domain errors for atanh()
+		
+		var myt; 
 		
 		if (x >= 500) {
-			return x / vinf + 1 / (cd * vinf) * Math.log(2 * (vinf + vbar) / (vinf + 2 * vbar));
-		} else if (x < 500) {
-		
+			var denom = (vinf + 2 * vbar);
+			if (denom <= 0) return null;
+			myt =  x / vinf + 1 / (cd * vinf) * Math.log(2 * (vinf + vbar) / denom);
+		} else {
 			function xoft(t){
-				var A = (0+vbar)/(vinf+vbar);
 				var cosharg = cd*(vinf+vbar)*t + Math.atanh(A);
 				var logarg = (1-A**2)*(Math.cosh(cosharg))**2;
-				return Math.abs(x - 1/(2*cd)*Math.log(logarg) + vbar*t);
+				if (logarg <= 0) return 99999999;
+				return Math.abs( x - 1/(2*cd)*Math.log(logarg) + vbar*t );
 			}
-			
-			console.log( x, findMin( xoft, 0, 100*x/vinf ), x / vinf + 1 / (cd * vinf) * Math.log(2 * (vinf + vbar) / (vinf + 2 * vbar)) );
-			
-			return findMin( xoft, 1.e-5, 100*x/vinf );
-		
-		
+			myt =  findMin( xoft, 1.e-5, 100*x/vinf );
 		}
-	  
+		
+		if( 2*vopt < voft(D,myt) ){
+			return 99999999;
+		}
+		
+		return myt;
 	  }
 	  
       var dopt = findMin(D => {
         var t = tfinal(D, mydist);
-        return t === null ? 99999999 : t;
-      }, circ*24/55, 2 * pmax * 60 / PRopt / mass / gs);
+        return (t === null || isNaN(t)) ? 99999999 : t;
+      }, circ*24/55, 2 * pmax * 60 / PRopt / mass / Math.max(Math.abs(gs), 1e-3));
 	  
-      
       var timeopt = tfinal(dopt, mydist);
-
-      // Handle UI if user has insufficient power for the slope
-      if (timeopt === null || isNaN(timeopt)) {
+      if (timeopt === null || isNaN(timeopt) ) {
         document.getElementById("myGRopt").innerHTML = "N/A";
         document.getElementById("myTime").innerHTML = "N/A";
         document.getElementById("myAvgVel").innerHTML = "0.000";
@@ -396,9 +379,21 @@
         return;
       }
 
+	  var vopt = dopt / 60 * PRopt;
+	  var vfinal = voft(dopt,timeopt);
+	  
+      if (vfinal >= 2*vopt || timeopt >= 99999999) {
+        document.getElementById("myGRopt").innerHTML = "N/A";
+        document.getElementById("myTime").innerHTML = "N/A";
+        document.getElementById("myAvgVel").innerHTML = "0.000";
+        document.getElementById("tab-gearing-results").innerHTML = '<tr><td colspan="4" class="text-danger">Unable to find gear ratio without freewheeling.</td></tr>';
+        UpdateFooter(false);
+        return;
+      }
+
       document.getElementById("myGRopt").innerHTML = (dopt / circ).toFixed(2);
       document.getElementById("myTime").innerHTML = new Date(timeopt * 1000).toISOString().substring(11, 23).replace(/^00:/, '');
-      document.getElementById("myAvgVel").innerHTML = (units === "metric" ? 3.6 * (mydist / timeopt) : 0.621371 * 3.6 * (mydist / timeopt)).toFixed(3);
+      document.getElementById("myAvgVel").innerHTML = (current_units === "metric" ? 3.6 * (mydist / timeopt) : 0.621371 * 3.6 * (mydist / timeopt)).toFixed(3);
       
       const myGears = getGears(dopt / circ);
       var table = document.getElementById("tab-gearing-results");
@@ -406,19 +401,26 @@
 
       for (let i = 0; i < myGears.length; i++) {
         var mygr = (myGears[i].f) / (myGears[i].r);
+		var myvopt = mygr*circ / 60 * PRopt;
         var time = tfinal(mygr * circ, mydist);
+		var myv = voft(mygr*circ,timeopt);
         var row = table.insertRow(-1);
 
-        if (time === null) {
+        if (time === null || isNaN(time)) {
           row.classList.add('table-danger');
-          var cell = row.insertCell(-1);
-          cell.innerHTML = myGears[i].f + "&times;" + myGears[i].r;
-          cell = row.insertCell(-1);
-          cell.innerHTML = ((myGears[i].f) / (myGears[i].r)).toFixed(4);
-          cell = row.insertCell(-1);
-          cell.innerHTML = "Stall";
-          cell = row.insertCell(-1);
-          cell.innerHTML = "0.000";
+          var cell = row.insertCell(-1); cell.innerHTML = myGears[i].f + "&times;" + myGears[i].r;
+          cell = row.insertCell(-1); cell.innerHTML = ((myGears[i].f) / (myGears[i].r)).toFixed(4);
+          cell = row.insertCell(-1); cell.innerHTML = "Stall";
+          cell = row.insertCell(-1); cell.innerHTML = "0.000";
+          continue;
+        }
+		
+		if (2*myvopt <= myv) {
+          row.classList.add('table-info');
+          var cell = row.insertCell(-1); cell.innerHTML = myGears[i].f + "&times;" + myGears[i].r;
+          cell = row.insertCell(-1); cell.innerHTML = ((myGears[i].f) / (myGears[i].r)).toFixed(4);
+          cell = row.insertCell(-1); cell.innerHTML = "Spin out";
+          cell = row.insertCell(-1); cell.innerHTML = "";
           continue;
         }
 
@@ -430,83 +432,74 @@
           row.classList.add('table-danger');
         }
 
-        var cell = row.insertCell(-1);
-        cell.innerHTML = myGears[i].f + "&times;" + myGears[i].r;
-        cell = row.insertCell(-1);
-        cell.innerHTML = ((myGears[i].f) / (myGears[i].r)).toFixed(4);
-        cell = row.insertCell(-1);
-        cell.innerHTML = new Date(time * 1000).toISOString().substring(11, 23);
-        cell = row.insertCell(-1);
-        var myv = mydist / time;
-        cell.innerHTML = (units === "metric" ? 3.6 * myv : 0.621371 * 3.6 * myv).toFixed(3);
+        var cell = row.insertCell(-1); cell.innerHTML = myGears[i].f + "&times;" + myGears[i].r;
+        cell = row.insertCell(-1); cell.innerHTML = ((myGears[i].f) / (myGears[i].r)).toFixed(4);
+        cell = row.insertCell(-1); cell.innerHTML = new Date(time * 1000).toISOString().substring(11, 23);
+        var myvel = mydist / time;
+        cell = row.insertCell(-1); cell.innerHTML = (current_units === "metric" ? 3.6 * myvel : 0.621371 * 3.6 * myvel).toFixed(3);
       }
-      
       UpdateFooter(true);
     }
 
-    function ChangeUnits(myRadio) {
-      units = myRadio.value;
-
-      if (units === "metric") {
+    function ChangeUnitsLabels(targetUnits) {
+      if (targetUnits === "metric") {
         document.getElementById("weight_unit").textContent = "kg";
-        document.getElementById("rider_weight").value = ((document.getElementById("rider_weight").value) / 2.205).toFixed(0);
-
         document.getElementById("weight_unit2").textContent = "kg";
-        document.getElementById("bike_weight").value = ((document.getElementById("bike_weight").value) / 2.205).toFixed(0);
-
         document.getElementById("CdA_unit").textContent = "m$^2$";
-        MathJax.Hub.Queue(["Typeset", MathJax.Hub, "CdA_unit"]);
-        document.getElementById("CdA").value = ((document.getElementById("CdA").value) / 3.28084 / 3.28084).toPrecision(3);
-
         document.getElementById("wheel_unit").textContent = "m";
-        document.getElementById("circ").value = ((document.getElementById("circ").value) / 39.3701).toFixed(3);
-
         document.getElementById("distance_unit").textContent = "m";
-        document.getElementById("distance").value = ((document.getElementById("distance").value) * 1609.34).toFixed(1);
-
         document.getElementById("density_unit").textContent = "kg/m$^3$ ";
-        MathJax.Hub.Queue(["Typeset", MathJax.Hub, "density_unit"]);
-        document.getElementById("density").value = ((document.getElementById("density").value) * 16.0185).toFixed(3);
-
         document.getElementById("AvgSpdHeader").innerHTML = "Avg. Speed (kph)";
         document.getElementById("AvgSpdHeaderTable").innerHTML = "Avg. Speed (kph)";
-      }
-
-      if (units === "imperial") {
+      } else {
         document.getElementById("weight_unit").textContent = "lb";
-        document.getElementById("rider_weight").value = ((document.getElementById("rider_weight").value) * 2.205).toFixed(0);
-
         document.getElementById("weight_unit2").textContent = "lb";
-        document.getElementById("bike_weight").value = ((document.getElementById("bike_weight").value) * 2.205).toFixed(0);
-
         document.getElementById("CdA_unit").textContent = "ft$^2$";
-        MathJax.Hub.Queue(["Typeset", MathJax.Hub, "CdA_unit"]);
-        document.getElementById("CdA").value = ((document.getElementById("CdA").value) * 3.28084 * 3.28084).toPrecision(3);
-
         document.getElementById("wheel_unit").textContent = "inches";
-        document.getElementById("circ").value = ((document.getElementById("circ").value) * 39.3701).toFixed(1);
-
         document.getElementById("distance_unit").textContent = "miles";
-        document.getElementById("distance").value = ((document.getElementById("distance").value) / 1609.34).toFixed(4);
-
         document.getElementById("density_unit").textContent = "lb/ft$^3$ ";
-        MathJax.Hub.Queue(["Typeset", MathJax.Hub, "density_unit"]);
-        document.getElementById("density").value = ((document.getElementById("density").value) / 16.0185).toFixed(4);
-
         document.getElementById("AvgSpdHeader").innerHTML = "Avg. Speed (mph)";
         document.getElementById("AvgSpdHeaderTable").innerHTML = "Avg. Speed (mph)";
       }
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub, "CdA_unit"]);
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub, "density_unit"]);
+    }
+
+    function ChangeUnits(myRadio) {
+      current_units = myRadio.value;
+      ChangeUnitsLabels(current_units);
+      UpdateDOMValues();
+      RunCalc();
     }
 
     function UpdateAll() {
-      const gradeInput = document.getElementById("grade");
-      gradeInput.className = "form-control";
+      let invalidFields = 0;
+      const inputs = ["rider_weight", "bike_weight", "CdA", "circ", "distance", "density", "pmax", "PRopt", "eta", "grade"];
+      
+      inputs.forEach(id => {
+        let el = document.getElementById(id);
+        let val = parseFloat(el.value);
+        if (isNaN(val) || (id !== "grade" && val < 0)) {
+          el.classList.add("is-invalid");
+          invalidFields++;
+        } else {
+          el.classList.remove("is-invalid");
+          
+          // Save valid inputs back cleanly into state using contextual unit metrics
+          if (current_units === "metric") {
+            state[id] = val;
+          } else {
+            if (id === "rider_weight" || id === "bike_weight") state[id] = val / 2.20462;
+            else if (id === "CdA") state[id] = val / (3.28084 ** 2);
+            else if (id === "circ") state[id] = val / 39.3701;
+            else if (id === "distance") state[id] = val * 1609.34;
+            else if (id === "density") state[id] = val * 16.0185;
+            else state[id] = val;
+          }
+        }
+      });
 
-      const val = parseFloat(gradeInput.value);
-      if (val < 0 || val > 50 || isNaN(val)) {
-        gradeInput.className = "form-control is-invalid";
-        return;
-      }
+      if (invalidFields > 0) return;
       RunCalc();
     }
   </script>
@@ -521,11 +514,11 @@
         <div class="col-12 col-lg-6 d-flex align-items-center pb-2 pt-2 px-0">
           <legend class="col-form-label pr-3 mb-0" style="font-size: inherit; border: none; width: auto;">Units:</legend>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="units" id="metric" onchange="ChangeUnits(this);UpdateAll();" value="metric" checked>
+            <input class="form-check-input" type="radio" name="units" id="metric" onchange="ChangeUnits(this);" value="metric" checked>
             <label class="form-check-label" for="metric">metric</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="units" id="imperial" onchange="ChangeUnits(this);UpdateAll();" value="imperial">
+            <input class="form-check-input" type="radio" name="units" id="imperial" onchange="ChangeUnits(this);" value="imperial">
             <label class="form-check-label" for="imperial">imperial</label>
           </div>
         </div>
@@ -796,7 +789,8 @@
                 <div class="mt-2">
                   <span class="badge badge-success px-2 py-1 mr-1">Green</span> Optimal gear configurations ($\le$ 1ms variance).<br>
                   <span class="badge badge-warning px-2 py-1 mr-1">Yellow</span> Highly viable alternative gears ($\le$ 5ms variance).<br>
-                  <span class="badge badge-danger px-2 py-1 mr-1">Red</span> Sub-optimal pairings causing noticeable speed drops or stalling.
+                  <span class="badge badge-danger px-2 py-1 mr-1">Red</span> Sub-optimal pairings causing noticeable speed drops or stalling.<br>
+				  <span class="badge badge-info px-2 py-1 mr-1">Blue</span> Gear ratio could work but rider will be spinning out. This calculator doesn't (yet) support this option.
                 </div>
               </td>
             </tr>
