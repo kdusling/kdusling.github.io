@@ -231,6 +231,7 @@
       document.getElementById("PRopt").value = state.PRopt.toFixed(1);
       document.getElementById("eta").value = state.eta.toFixed(1);
       document.getElementById("grade").value = state.grade.toFixed(1);
+	  document.getElementById("Crr").value = state.Crr.toFixed(4);
     }
 
     function createURL() {
@@ -474,7 +475,7 @@
 
     function UpdateAll() {
       let invalidFields = 0;
-      const inputs = ["rider_weight", "bike_weight", "CdA", "circ", "distance", "density", "pmax", "PRopt", "eta", "grade"];
+      const inputs = ["rider_weight", "bike_weight", "CdA", "circ", "distance", "density", "pmax", "PRopt", "eta", "grade", "Crr"];
       
       inputs.forEach(id => {
         let el = document.getElementById(id);
