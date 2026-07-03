@@ -293,7 +293,7 @@
 
     function UpdateFooter(hasPower) {
       const footer = document.getElementById("tab-gearing-footer");
-      if (footer) footer.style.display = hasPower ? "table-footer-group" : "none";
+      if (footer) footer.style.display = hasPower ? "table" : "none";
     }
 
     function RunCalc() {
@@ -651,7 +651,7 @@
 
         <div class="dropdown">
           <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="wheelSizeDropdownButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Select Size
+            Select
           </button>
           <ul class="dropdown-menu" aria-labelledby="wheelSizeDropdownButton" id="wheel-size-select">
             <li><h6 class="dropdown-header">Road (700c / ISO 622)</h6></li>
@@ -689,7 +689,7 @@
           </ul>
         </div>
 
-        <input type="text" class="form-control" id="circ" aria-label="circ" value="2.146" onkeyup="document.querySelectorAll('#wheel-size-select .dropdown-item').forEach(item => { item.classList.remove('active'); }); document.getElementById('wheelSizeDropdownButton').textContent = 'Select Size';" onchange="UpdateAll();">
+        <input type="text" class="form-control" style="min-width: 5ch;" id="circ" aria-label="circ" value="2.146" onkeyup="document.querySelectorAll('#wheel-size-select .dropdown-item').forEach(item => { item.classList.remove('active'); }); document.getElementById('wheelSizeDropdownButton').textContent = 'Select';" onchange="UpdateAll();">
         <div class="input-group-append">
           <span class="input-group-text" id="wheel_unit">m</span>
         </div>
@@ -770,28 +770,35 @@
         </div>
       </div>
 
-      <div class="overflow-auto mt-5" style="max-height: 500px; position: relative;">
-        <table class="table table-sm mb-0" style="text-align: center;">
-          <thead class="thead-dark" style="position: sticky; top: 0; z-index: 2;">
+      <div class="mt-5 pb-4" style="position: relative;">
+        <table class="table table-sm mb-0" style="text-align: center; table-layout: fixed;">
+          <thead class="thead-dark">
             <tr>
-              <th>Gearing</th>
-              <th>Gear Ratio</th>
-              <th>Race Time</th>
-              <th id="AvgSpdHeaderTable">Avg. Speed (kph)</th>
+              <th style="width: 25%;">Gearing</th>
+              <th style="width: 25%;">Gear Ratio</th>
+              <th style="width: 25%;">Race Time</th>
+              <th style="width: 25%;" id="AvgSpdHeaderTable">Avg. Speed (kph)</th>
             </tr>
           </thead>
-          <tbody id="tab-gearing-results"></tbody>
-          
-          <tfoot id="tab-gearing-footer" style="position: sticky; bottom: 0; z-index: 2;">
+        </table>
+        
+        <div style="height: 500px; overflow-y: auto; border-left: 1px solid #dee2e6; border-right: 1px solid #dee2e6; border-bottom: 1px solid #dee2e6;">
+          <table class="table table-sm mb-0" style="text-align: center; table-layout: fixed;">
+            <tbody id="tab-gearing-results"></tbody>
+          </table>
+        </div>
+        
+        <table class="table table-sm mb-0" id="tab-gearing-footer" style="text-align: center; display: table;">
+          <tbody>
             <tr>
-              <td colspan="4" class="text-left p-3" style="font-size: 0.85rem; color: #6c757d; background-color: #f8f9fa; border-top: 2px solid #dee2e6;">
+              <td class="text-left p-3" style="font-size: 0.85rem; color: #6c757d; background-color: #f8f9fa; border-top: 2px solid #dee2e6;">
                 <strong>Table Guide:</strong> This matrix displays physical chainring &times; sprocket gear combinations ranked by overall speed for the simulated course. 
                 Rows are color-coded based on variance from the optimal configuration:
                 <div class="mt-2">
                   <span class="badge badge-success px-2 py-1 mr-1">Green</span> Optimal gear configurations ($\le$ 1ms variance).<br>
                   <span class="badge badge-warning px-2 py-1 mr-1">Yellow</span> Highly viable alternative gears ($\le$ 5ms variance).<br>
                   <span class="badge badge-danger px-2 py-1 mr-1">Red</span> Sub-optimal pairings causing noticeable speed drops or stalling.<br>
-				  <span class="badge badge-info px-2 py-1 mr-1">Blue</span> Gear ratio could work but rider will be spinning out. This calculator doesn't (yet) support this option.
+				  <span class="badge badge-info px-2 py-1 mr-1">Blue</span> Gear ratio could work but rider will be spinning out. This app doesn't (yet) support this calculation.
                 </div>
               </td>
             </tr>
@@ -800,10 +807,16 @@
       </div>
 
     </div>
+	
+	  <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support me on Ko-fi', '#72a4f2', 'B2R522ILR6');kofiwidget2.draw();</script> 
+
+
   </div>
 
+  <!-- Modal 1: Cyclist Power Model -->
   <div class="modal fade" id="PowModelModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">Cyclist Power Model</h5>
@@ -812,59 +825,119 @@
           </button>
         </div>
         <div class="modal-body" style="text-align: left; word-break: normal; white-space: normal;">
-          <p class="text-left"></p>
-          This calculator uses a power model where the rider's power output is a quadratic function of their cadence.
-          $$ P_F=P_{\text{max}}\left[2\left(\frac{\text{RPM}}{\text{RPM}_{\text{opt}}}\right)-\left(\frac{\text{RPM}}{\text{RPM}_{\text{opt}}}\right)^2\right] $$
-          The parameter $\text{RPM}_{\text{opt}}$ is the optimal cadence for an individual rider and $P_{\text{max}}$ is the power output maintained at that cadence.
+          <p class="mb-3">The model used in this simulator assumes that your power output is a function of cadence. The model has two parameters;
+			<ol>
+			<li>$\text{RPM}_{\text{opt}}$: your optimal cadence in RPM  </li>
+			<li>$P_{\text{max}}$: the power in Watts that you hold at that cadence. </li>
+			</ol>
+
+		Your power output at any other cadence is calculated from the following functional form:</p>
+          <div class="p-3 bg-light rounded text-center mb-3">
+            $$ P=P_{\text{max}}\left[2\left(\frac{\text{RPM}}{\text{RPM}_{\text{opt}}}\right)-\left(\frac{\text{RPM}}{\text{RPM}_{\text{opt}}}\right)^2\right] $$
+          </div>
+		  
+			<div class="modal-body p-0 text-center"> 
+			<img src="images/PowerVSspeedTouring.svg" class="img-fluid rounded-bottom" alt="Graph of Power vs cadence">
+			</div>
+          
         </div>
       </div>
     </div>
   </div>
   
+  <!-- Modal 2: Drag Area Guide -->
   <div class="modal fade" id="CdAModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document"> 
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Drag area</h5>
+          <h5 class="modal-title">Drag Area ($C_dA$) Guide</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body" style="text-align: left; word-break: normal; white-space: normal;">
-          <p class="text-left">The drag area or effective frontal area is the product of a dimensionless drag coefficient with the frontal area of the bike/rider system.</p>
-          <table class='table w-auto table-bordered'>
-            <thead><tr><td>Position</td><td>C<sub>d</sub>A [m<sup>2</sup>]</td><td>C<sub>d</sub>A [ft<sup>2</sup>]</td></tr></thead>
-            <caption>Wind tunnel tests by Defraeye et al. (2010). Taken from table 3 of the review <a href=" https://www.sciencedirect.com/science/article/pii/S0167610521001574" target="_blank">Cyclist aerodynamics through time: Better, faster, stronger</a></caption>
-            <tr><td>upright</td><td>0.270</td><td>2.91</td></tr>
-            <tr><td>dropped</td><td>0.243</td><td>2.62</td></tr>
-            <tr><td>time-trail</td><td>0.211</td><td>2.27</td></tr>
+          <p class="mb-3">The drag area or effective frontal area is the product of a dimensionless drag coefficient with the frontal area of the bike/rider system.</p>
+          
+          <table class="table table-sm table-bordered mb-2">
+            <thead class="thead-light">
+              <tr>
+                <th>Position</th>
+                <th>$C_dA$ [m<sup>2</sup>]</th>
+                <th>$C_dA$ [ft<sup>2</sup>]</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>upright</strong></td>
+                <td><code>0.270</code></td>
+                <td><code>2.91</code></td>
+              </tr>
+              <tr>
+                <td><strong>dropped</strong></td>
+                <td><code>0.243</code></td>
+                <td><code>2.62</code></td>
+              </tr>
+              <tr>
+                <td><strong>time-trail</strong></td>
+                <td><code>0.211</code></td>
+                <td><code>2.27</code></td>
+              </tr>
+            </tbody>
           </table>
+          <p class="text-muted small mt-0 mb-0">Wind tunnel tests by Defraeye et al. (2010). Taken from table 3 of the review <a href="https://www.sciencedirect.com/science/article/pii/S0167610521001574" target="_blank">Cyclist aerodynamics through time: Better, faster, stronger</a></p>
         </div>
       </div>
     </div>
   </div>
+  
+  <!-- Modal 3: Coefficient of Rolling Resistance -->
   <div class="modal fade" id="CrrModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Coefficient of rolling resistance</h5>
+          <h5 class="modal-title">Coefficient of Rolling Resistance ($C_{rr}$)</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body" style="text-align: left; word-break: normal; white-space: normal;">
-          <p class="text-left"></p>
-          <table class='table w-auto table-bordered'>
-            <thead><tr><td>Tire</td><td>size</td><td>pressure</td><td>C<sub>rr</sub></td></tr></thead>
-            <caption></caption>
-            <tr><td><a href="https://www.bicyclerollingresistance.com/tour-reviews/vittoria-randonneur-2015" target="_blank">Vittoria Randonneur</a></td><td>37-622</td><td>75 psi</td><td>0.00869</td></tr>
-            <tr><td><a href="https://www.bicyclerollingresistance.com/road-bike-reviews/continental-grand-prix-4-season-2015" target="_blank">Continental Grand Prix 4 Season</a></td><td>700x25C</td><td>100 psi</td><td>0.00543</td></tr>
-            <tr><td><a href="https://www.bicyclerollingresistance.com/mtb-reviews/maxxis-ardent-race-exo-2016" target="_blank">Maxxis Ardent Race 3C EXO TR</a></td><td>29x2.20</td><td>25 psi</td><td>0.01052</td></tr>
+          <p class="mb-3">The rolling resistance coefficient ($C_{rr}$) represents the energy loss scalar as tires deform across standard surfaces under uniform systemic loading parameters.</p>
+          <table class="table table-sm table-bordered mb-2">
+            <thead class="thead-light">
+              <tr>
+                <th>Tire</th>
+                <th>Size / Spec</th>
+                <th>Pressure</th>
+                <th>$C_{rr}$ Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="https://www.bicyclerollingresistance.com/tour-reviews/vittoria-randonneur-2015" target="_blank">Vittoria Randonneur</a></td>
+                <td><code>37-622</code></td>
+                <td>75 psi</td>
+                <td><code>0.00869</code></td>
+              </tr>
+              <tr>
+                <td><a href="https://www.bicyclerollingresistance.com/road-bike-reviews/continental-grand-prix-4-season-2015" target="_blank">Continental Grand Prix 4 Season</a></td>
+                <td><code>700x25C</code></td>
+                <td>100 psi</td>
+                <td><code>0.00543</code></td>
+              </tr>
+              <tr>
+                <td><a href="https://www.bicyclerollingresistance.com/mtb-reviews/maxxis-ardent-race-exo-2016" target="_blank">Maxxis Ardent Race 3C EXO TR</a></td>
+                <td><code>29x2.20</code></td>
+                <td>25 psi</td>
+                <td><code>0.01052</code></td>
+              </tr>
+            </tbody>
           </table>
+          <p class="text-muted small mt-0 mb-0">Empirical benchmarking data sourced directly from comprehensive laboratory test metrics cataloged via <a href="https://www.bicyclerollingresistance.com" target="_blank">Bicycle Rolling Resistance</a>.</p>
         </div>
       </div>
     </div>
   </div>
+  
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TSB5RJ1T0J"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -872,6 +945,6 @@
     gtag('js', new Date());
     gtag('config', 'G-TSB5RJ1T0J');
   </script>
-</body>
 
+</body>
 </html>
