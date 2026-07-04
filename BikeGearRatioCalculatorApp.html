@@ -424,14 +424,30 @@
           cell = row.insertCell(-1); cell.innerHTML = "";
           continue;
         }
-
-        if (Math.abs(timeopt - time) * 1000 < 1) {
-          row.classList.add('table-success');
-        } else if (Math.abs(timeopt - time) * 1000 <= 5) {
-          row.classList.add('table-warning');
-        } else {
-          row.classList.add('table-danger');
-        }
+		
+		if (mydist <= 4000){
+			if ( Math.abs(timeopt - time)*1000  < 1) {
+			row.classList.add('table-success');
+				} else if (Math.abs(timeopt - time)*1000 <= 5) {
+			row.classList.add('table-warning');
+				} else {
+			row.classList.add('table-danger');
+			}
+			document.getElementById("variance1").innerHTML = "1 ms";
+			document.getElementById("variance2").innerHTML = "5 ms";
+		
+		} else {
+		
+			if ( Math.abs(timeopt - time)/timeopt*100  < 1) {
+			row.classList.add('table-success');
+				} else if (Math.abs(timeopt - time)/timeopt*100 <= 5) {
+			row.classList.add('table-warning');
+				} else {
+			row.classList.add('table-danger');
+			}
+			document.getElementById("variance1").innerHTML = "1 &percnt;";
+			document.getElementById("variance2").innerHTML = "5 &percnt;";
+		}
 
         var cell = row.insertCell(-1); cell.innerHTML = myGears[i].f + "&times;" + myGears[i].r;
         cell = row.insertCell(-1); cell.innerHTML = ((myGears[i].f) / (myGears[i].r)).toFixed(4);
@@ -795,8 +811,8 @@
                 <strong>Table Guide:</strong> This matrix displays physical chainring &times; sprocket gear combinations ranked by overall speed for the simulated course. 
                 Rows are color-coded based on variance from the optimal configuration:
                 <div class="mt-2">
-                  <span class="badge badge-success px-2 py-1 mr-1">Green</span> Optimal gear configurations ($\le$ 1ms variance).<br>
-                  <span class="badge badge-warning px-2 py-1 mr-1">Yellow</span> Highly viable alternative gears ($\le$ 5ms variance).<br>
+                  <span class="badge badge-success px-2 py-1 mr-1">Green</span> Optimal gear configurations ($\le$ <span id="variance1"></span> variance).<br>
+                  <span class="badge badge-warning px-2 py-1 mr-1">Yellow</span> Highly viable alternative gears ($\le$ <span id="variance2"></span> variance).<br>
                   <span class="badge badge-danger px-2 py-1 mr-1">Red</span> Sub-optimal pairings causing noticeable speed drops or stalling.<br>
 				  <span class="badge badge-info px-2 py-1 mr-1">Blue</span> Gear ratio could work but rider will be spinning out. This app doesn't (yet) support this calculation.
                 </div>
