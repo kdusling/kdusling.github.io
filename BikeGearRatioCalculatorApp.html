@@ -92,6 +92,52 @@
       padding: 10px;
       background-color: #f8f9fa;
     }
+	
+	
+	@media screen and (max-width: 600px) {
+		/* Force the table to behave like block elements */
+		table, thead, tbody, th, td, tr {
+		display: block;
+		}
+
+		/* Hide the desktop header row on mobile views */
+		thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+		}
+
+		/* Style rows as individual vertical block cards */
+		tr {
+			border: 1px solid #ccc;
+			margin-bottom: 12px;
+			padding: 8px;
+			border-radius: 4px;
+		}
+
+		/* Split table cells to separate the label and value */
+		td {
+			border: none;
+			position: relative;
+			padding-left: 50% !important;
+			text-align: right !important;
+			min-height: 32px;
+		}
+
+		/* DYNAMICALLY inject whatever text is mapped inside the HTML data-label */
+		td:before {
+			content: attr(data-label); /* Automatically grabs the column header text */
+			position: absolute;
+			top: 6px;
+			left: 6px;
+			width: 45%;
+			padding-right: 10px;
+			white-space: nowrap;
+			text-align: left;
+			font-weight: bold;
+		}
+	}
+
   </style>
 
   <script type="text/javascript">
@@ -410,18 +456,30 @@
         if (time === null || isNaN(time)) {
           row.classList.add('table-danger');
           var cell = row.insertCell(-1); cell.innerHTML = myGears[i].f + "&times;" + myGears[i].r;
-          cell = row.insertCell(-1); cell.innerHTML = ((myGears[i].f) / (myGears[i].r)).toFixed(4);
-          cell = row.insertCell(-1); cell.innerHTML = "Stall";
+          cell.setAttribute("data-label", "Gearing"); 
+		  
+		  cell = row.insertCell(-1); cell.innerHTML = ((myGears[i].f) / (myGears[i].r)).toFixed(4);
+          cell.setAttribute("data-label", "Gear Ratio"); 
+		  
+		  cell = row.insertCell(-1); cell.innerHTML = "Stall";
+		  cell.setAttribute("data-label", "Race Time"); 
           cell = row.insertCell(-1); cell.innerHTML = "0.000";
+		  cell.setAttribute("data-label", "Avg. Speed"); 
           continue;
         }
 		
 		if (2*myvopt <= myv) {
           row.classList.add('table-info');
           var cell = row.insertCell(-1); cell.innerHTML = myGears[i].f + "&times;" + myGears[i].r;
+		  cell.setAttribute("data-label", "Gearing"); 
+		  
           cell = row.insertCell(-1); cell.innerHTML = ((myGears[i].f) / (myGears[i].r)).toFixed(4);
-          cell = row.insertCell(-1); cell.innerHTML = "Spin out";
-          cell = row.insertCell(-1); cell.innerHTML = "";
+          cell.setAttribute("data-label", "Gear Ratio"); 
+		  
+		  cell = row.insertCell(-1); cell.innerHTML = "Spin out";
+          cell.setAttribute("data-label", "Race Time"); 
+		  cell = row.insertCell(-1); cell.innerHTML = "";
+		  cell.setAttribute("data-label", "Avg. Speed"); 
           continue;
         }
 		
@@ -450,10 +508,14 @@
 		}
 
         var cell = row.insertCell(-1); cell.innerHTML = myGears[i].f + "&times;" + myGears[i].r;
+		cell.setAttribute("data-label", "Gearing"); 
         cell = row.insertCell(-1); cell.innerHTML = ((myGears[i].f) / (myGears[i].r)).toFixed(4);
+		cell.setAttribute("data-label", "Gear Ratio"); 
         cell = row.insertCell(-1); cell.innerHTML = new Date(time * 1000).toISOString().substring(11, 23);
-        var myvel = mydist / time;
+        cell.setAttribute("data-label", "Race Time"); 
+		var myvel = mydist / time;
         cell = row.insertCell(-1); cell.innerHTML = (current_units === "metric" ? 3.6 * myvel : 0.621371 * 3.6 * myvel).toFixed(3);
+		cell.setAttribute("data-label", "Avg. Speed"); 
       }
       UpdateFooter(true);
     }
@@ -785,7 +847,7 @@
           </div>
         </div>
       </div>
-
+	  
       <div class="mt-5 pb-4" style="position: relative;">
         <table class="table table-sm mb-0" style="text-align: center; table-layout: fixed;">
           <thead class="thead-dark">
