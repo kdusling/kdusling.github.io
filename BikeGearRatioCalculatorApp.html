@@ -594,11 +594,11 @@
           <legend class="col-form-label pr-3 mb-0" style="font-size: inherit; border: none; width: auto;">Units:</legend>
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="units" id="metric" onchange="ChangeUnits(this);" value="metric" checked>
-            <label class="form-check-label" for="metric">metric</label>
+            <label class="form-check-label" for="metric">Metric</label>
           </div>
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="units" id="imperial" onchange="ChangeUnits(this);" value="imperial">
-            <label class="form-check-label" for="imperial">imperial</label>
+            <label class="form-check-label" for="imperial">Imperial</label>
           </div>
         </div>
 
@@ -870,13 +870,12 @@
           <tbody>
             <tr>
               <td class="text-left p-3" style="font-size: 0.85rem; color: #6c757d; background-color: #f8f9fa; border-top: 2px solid #dee2e6;">
-                <strong>Table Guide:</strong> This matrix displays physical chainring &times; sprocket gear combinations ranked by overall speed for the simulated course. 
-                Rows are color-coded based on variance from the optimal configuration:
+                <strong>Table Guide:</strong> This table displays chainring &times; sprocket gear combinations ranked from fastest to slowest for the simulated course. Rows are color-coded based on variance from the optimal configuration:
                 <div class="mt-2">
                   <span class="badge badge-success px-2 py-1 mr-1">Green</span> Optimal gear configurations ($\le$ <span id="variance1"></span> variance).<br>
                   <span class="badge badge-warning px-2 py-1 mr-1">Yellow</span> Highly viable alternative gears ($\le$ <span id="variance2"></span> variance).<br>
                   <span class="badge badge-danger px-2 py-1 mr-1">Red</span> Sub-optimal pairings causing noticeable speed drops or stalling.<br>
-				  <span class="badge badge-info px-2 py-1 mr-1">Blue</span> Gear ratio could work but rider will be spinning out. This app doesn't (yet) support this calculation.
+				  <span class="badge badge-info px-2 py-1 mr-1">Blue</span> Rider will spin out. The current simulation does not calculate race times when a rider freewheels.
                 </div>
               </td>
             </tr>
@@ -903,10 +902,10 @@
           </button>
         </div>
         <div class="modal-body" style="text-align: left; word-break: normal; white-space: normal;">
-          <p class="mb-3">The model used in this simulator assumes that your power output is a function of cadence. The model has two parameters;
+          <p class="mb-3">This simulator calculates your power output as a function of cadence based on two parameters:
 			<ol>
 			<li>$\text{RPM}_{\text{opt}}$: your optimal cadence in RPM  </li>
-			<li>$P_{\text{max}}$: the power in Watts that you hold at that cadence. </li>
+			<li>$P_{\text{max}}$: the power in Watts that you hold at that cadence for the duration of the event.  </li>
 			</ol>
 
 		Your power output at any other cadence is calculated from the following functional form:</p>
@@ -915,7 +914,7 @@
           </div>
 		  
 			<div class="modal-body p-0 text-center"> 
-			<img src="images/PowerVSspeedTouring.svg" class="img-fluid rounded-bottom" alt="Graph of Power vs cadence">
+			<img src="images/PowerVSspeedTouring.svg" class="img-fluid rounded-bottom" alt="Graph of Power vs Cadence">
 			</div>
           
         </div>
@@ -934,7 +933,7 @@
           </button>
         </div>
         <div class="modal-body" style="text-align: left; word-break: normal; white-space: normal;">
-          <p class="mb-3">The drag area or effective frontal area is the product of a dimensionless drag coefficient with the frontal area of the bike/rider system.</p>
+          <p class="mb-3">The drag area (or effective frontal area) is the product of a dimensionless drag coefficient ($C_d$) and the frontal area ($A$) of the bike and rider.</p>
           
           <table class="table table-sm table-bordered mb-2">
             <thead class="thead-light">
@@ -956,7 +955,7 @@
                 <td><code>2.62</code></td>
               </tr>
               <tr>
-                <td><strong>time-trail</strong></td>
+                <td><strong>time-trial</strong></td>
                 <td><code>0.211</code></td>
                 <td><code>2.27</code></td>
               </tr>
@@ -979,7 +978,7 @@
           </button>
         </div>
         <div class="modal-body" style="text-align: left; word-break: normal; white-space: normal;">
-          <p class="mb-3">The rolling resistance coefficient ($C_{rr}$) represents the energy loss scalar as tires deform across standard surfaces under uniform systemic loading parameters.</p>
+          <p class="mb-3">The rolling resistance coefficient ($C_{rr}$) represents the energy loss from a loaded tire deforming and recovering while under rotation. Key factors influencing $C_{rr}$ include road surface/condition, tire pressure, width and construction. </p>
           <table class="table table-sm table-bordered mb-2">
             <thead class="thead-light">
               <tr>
@@ -1010,7 +1009,7 @@
               </tr>
             </tbody>
           </table>
-          <p class="text-muted small mt-0 mb-0">Empirical benchmarking data sourced directly from comprehensive laboratory test metrics cataloged via <a href="https://www.bicyclerollingresistance.com" target="_blank">Bicycle Rolling Resistance</a>.</p>
+          <p class="text-muted small mt-0 mb-0">Empirical data sourced directly from <a href="https://www.bicyclerollingresistance.com" target="_blank">Bicycle Rolling Resistance</a>.</p>
         </div>
       </div>
     </div>
