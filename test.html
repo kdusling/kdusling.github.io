@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Speed and Grade Tracker</title>
+    <title>Speed and Grade Tracker with Plot</title>
+    <!-- Include Chart.js from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -12,42 +14,62 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
+            justify-content: flex-start;
+            min-height: 100vh;
             margin: 0;
+            padding: 20px 0;
         }
         .card {
             background: #1e1e1e;
-            padding: 24px;
+            padding: 16px;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.5);
             text-align: center;
             width: 85%;
-            max-width: 320px;
-            margin-bottom: 20px;
+            max-width: 340px;
+            margin-bottom: 12px;
         }
-        h2 { margin-top: 0; color: #bb86fc; font-size: 1.2rem; }
-        .value { font-size: 2.5rem; font-weight: bold; margin: 10px 0; color: #03dac6; }
-        .unit { font-size: 0.9rem; color: #9e9e9e; }
+        h2 { margin-top: 0; color: #bb86fc; font-size: 1rem; }
+        .value { font-size: 1.8rem; font-weight: bold; margin: 4px 0; color: #03dac6; }
+        .unit { font-size: 0.8rem; color: #9e9e9e; }
         button {
             background: #bb86fc;
             color: #121212;
             border: none;
-            padding: 12px 24px;
-            font-size: 1rem;
+            padding: 10px 16px;
+            font-size: 0.9rem;
             font-weight: bold;
             border-radius: 8px;
             cursor: pointer;
-            margin-top: 10px;
+            width: 100%;
+            margin-top: 6px;
         }
         button:active { background: #9965f4; }
-        #status { font-size: 0.8rem; color: #cf6679; margin-top: 10px; }
+        #tare-btn { background: #03dac6; }
+        #tare-btn:active { background: #018786; }
+        #status { font-size: 0.75rem; color: #cf6679; margin-top: 6px; }
+        #tare-status { font-size: 0.75rem; color: #03dac6; margin-top: 4px; }
+        
+        /* Chart container styling */
+        .chart-card {
+            background: #1e1e1e;
+            padding: 12px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            width: 85%;
+            max-width: 340px;
+            margin-bottom: 12px;
+        }
+        canvas {
+            width: 100% !important;
+            height: 160px !important;
+        }
     </style>
 </head>
 <body>
 
     <div class="card">
-        <h2>Speed</h2>
+        <h2>True 3D Speed</h2>
         <div id="speed" class="value">0.0</div>
         <div class="unit">mph</div>
     </div>
@@ -58,46 +80,116 @@
         <div class="unit">%</div>
     </div>
 
-    <div class="card" style="padding: 16px;">
+    <div class="card" style="padding: 12px;">
         <button id="start-btn">Start Sensors</button>
+        <button id="tare-btn">Tare (Zero Current Angle)</button>
+        <div id="tare-status">Offset: 0.0°</div>
         <div id="status"></div>
+    </div>
+
+    <div class="chart-card">
+        <h2>History (Last 60s)</h2>
+        <canvas id="metricsChart"></canvas>
     </div>
 
     <script>
         const speedEl = document.getElementById('speed');
         const gradeEl = document.getElementById('grade');
         const statusEl = document.getElementById('status');
+        const tareStatusEl = document.getElementById('tare-status');
         const startBtn = document.getElementById('start-btn');
+        const tareBtn = document.getElementById('tare-btn');
+
+        let rawSpeedMph = 0;
+        let currentPitchOffset = 0;
+        let latestRawPitch = 0;
+        let trueSpeedMph = 0;
+        let gradePercent = 0;
+
+        // Setup Chart.js
+        const ctx = document.getElementById('metricsChart').getContext('2d');
+        const maxDataPoints = 60; // Keep last 60 entries (approx 1 per second or update tick)
+        
+        const metricsChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [], // Time labels
+                datasets: [
+                    {
+                        label: 'Speed (mph)',
+                        data: [],
+                        borderColor: '#03dac6',
+                        backgroundColor: '#03dac6',
+                        borderWidth: 2,
+                        pointRadius: 0,
+                        yAxisID: 'y-speed',
+                        tension: 0.2
+                    },
+                    {
+                        label: 'Grade (%)',
+                        data: [],
+                        borderColor: '#bb86fc',
+                        backgroundColor: '#bb86fc',
+                        borderWidth: 2,
+                        pointRadius: 0,
+                        yAxisID: 'y-grade',
+                        tension: 0.2
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: false, // Disable animations for smooth real-time streaming
+                scales: {
+                    x: {
+                        grid: { color: '#2a2a2a' },
+                        ticks: { color: '#888', maxTicksLimit: 6, font: { size: 10 } }
+                    },
+                    'y-speed': {
+                        type: 'linear',
+                        position: 'left',
+                        min: 0,
+                        grid: { color: '#2a2a2a' },
+                        ticks: { color: '#03dac6', font: { size: 10 } }
+                    },
+                    'y-grade': {
+                        type: 'linear',
+                        position: 'right',
+                        min: -20,
+                        max: 20,
+                        grid: { drawOnChartArea: false }, // Avoid overlapping grid lines
+                        ticks: { color: '#bb86fc', font: { size: 10 } }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: { color: '#ccc', boxWidth: 12, font: { size: 10 } }
+                    }
+                }
+            }
+        });
 
         startBtn.addEventListener('click', async () => {
             statusEl.textContent = '';
             
-            // 1. Request Geolocation for Speed
+            // 1. Geolocation Speed Watcher
             if ('geolocation' in navigator) {
                 navigator.geolocation.watchPosition(
                     (position) => {
-                        // position.speed is in meters per second (m/s)
-                        // Convert m/s to mph (multiply by 2.23694) or km/h (multiply by 3.6)
                         const speedMs = position.coords.speed;
-                        if (speedMs !== null && speedMs >= 0) {
-                            const speedMph = speedMs * 2.23694;
-                            speedEl.textContent = speedMph.toFixed(1);
-                        } else {
-                            speedEl.textContent = "0.0";
-                        }
+                        rawSpeedMph = (speedMs !== null && speedMs >= 0) ? speedMs * 2.23694 : 0;
+                        updateMetrics();
                     },
-                    (error) => {
-                        statusEl.textContent = `GPS Error: ${error.message}`;
-                    },
+                    (error) => { statusEl.textContent = `GPS Error: ${error.message}`; },
                     { enableHighAccuracy: true, maximumAge: 0, timeout: 5000 }
                 );
             } else {
                 statusEl.textContent = 'Geolocation not supported.';
             }
 
-            // 2. Request Device Orientation for Grade (Pitch)
+            // 2. Device Orientation Setup
             if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
-                // iOS 13+ permission request
                 try {
                     const permissionState = await DeviceOrientationEvent.requestPermission();
                     if (permissionState === 'granted') {
@@ -109,24 +201,54 @@
                     statusEl.textContent = `Orientation error: ${error}`;
                 }
             } else if ('ondeviceorientation' in window) {
-                // Android / Standard browsers
                 window.addEventListener('deviceorientation', handleOrientation);
             } else {
-                statusEl.textContent += ' Device Orientation not supported.';
+                statusEl.textContent += ' Orientation not supported.';
             }
+
+            // Start periodic chart updater loop (every 1 second)
+            setInterval(pushDataToChart, 1000);
         });
 
         function handleOrientation(event) {
-            // event.beta represents front-to-back tilt in degrees (-180 to 180)
-            // Assuming phone is mounted upright/flat relative to travel direction,
-            // grade percentage can be approximated using the tangent of the pitch angle.
-            const pitchDegrees = event.beta; 
-            if (pitchDegrees !== null) {
-                // Grade % = tan(pitch) * 100
-                const radians = pitchDegrees * (Math.PI / 180);
-                const gradePercent = Math.tan(radians) * 100;
-                gradeEl.textContent = gradePercent.toFixed(1);
+            if (event.beta !== null) {
+                latestRawPitch = event.beta;
+                updateMetrics();
             }
+        }
+
+        tareBtn.addEventListener('click', () => {
+            currentPitchOffset = latestRawPitch;
+            tareStatusEl.textContent = `Offset: ${currentPitchOffset.toFixed(1)}°`;
+        });
+
+        function updateMetrics() {
+            const adjustedPitch = latestRawPitch - currentPitchOffset;
+            const radians = adjustedPitch * (Math.PI / 180);
+            gradePercent = Math.tan(radians) * 100;
+            gradeEl.textContent = gradePercent.toFixed(1);
+
+            const g = gradePercent / 100;
+            trueSpeedMph = rawSpeedMph * Math.sqrt(1 + (g * g));
+            speedEl.textContent = trueSpeedMph.toFixed(1);
+        }
+
+        function pushDataToChart() {
+            const now = new Date();
+            const timeLabel = now.toTimeString().split(' ')[0]; // HH:MM:SS
+
+            metricsChart.data.labels.push(timeLabel);
+            metricsChart.data.datasets[0].data.push(trueSpeedMph);
+            metricsChart.data.datasets[1].data.push(gradePercent);
+
+            // Maintain sliding window size
+            if (metricsChart.data.labels.length > maxDataPoints) {
+                metricsChart.data.labels.shift();
+                metricsChart.data.datasets[0].data.shift();
+                metricsChart.data.datasets[1].data.shift();
+            }
+
+            metricsChart.update();
         }
     </script>
 </body>
