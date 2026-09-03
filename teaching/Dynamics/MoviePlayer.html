@@ -129,7 +129,6 @@
             background: #007c82;
         }
 
-        /* Interactive Time Input Layout Styling */
         .time-display-container {
             font-size: 13px;
             color: #aaa;
@@ -179,8 +178,9 @@
 <body>
 
     <div class="player-container">
+        <!-- Explicitly defining preload/crossorigin permissions configuration -->
         <div class="video-wrapper">
-            <video id="custom-video" src=""></video>
+            <video id="custom-video" preload="auto" crossorigin="anonymous"></video>
         </div>
 
         <div class="controls-panel">
@@ -191,7 +191,6 @@
             <div class="control-buttons">
                 <div class="left-controls">
                     <button id="play-btn" class="primary-btn">Play</button>
-                    <!-- Clickable Interactive Timestamp Engine -->
                     <div class="time-display-container">
                         <input type="text" id="current-time-input" class="time-input" value="00:00.000" title="Click to manually enter time (MM:SS.mmm)">
                         <span>/</span>
@@ -229,6 +228,7 @@
             const videoUrl = urlParams.get('video');
 
             if (videoUrl) {
+                // FIXED: Setting video.src directly triggers an automatic hardware media pipeline reboot
                 video.src = decodeURIComponent(videoUrl);
                 video.load();
             }
@@ -248,19 +248,15 @@
             }
         }
 
-        // Expanded formatting rule to extract structural milliseconds
         function formatTimeWithMs(seconds) {
             if (isNaN(seconds)) return "00:00.000";
             const mins = Math.floor(seconds / 60);
             const secs = Math.floor(seconds % 60);
             const ms = Math.floor((seconds % 1) * 1000);
-            
             return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}.${ms.toString().padStart(3, '0')}`;
         }
 
-        // Mathematical conversion parsing text inputs back to runtime seconds
         function parseTimeToSeconds(timeStr) {
-            // Evaluates format options cleanly like: MM:SS.mmm, MM:SS, or just pure seconds
             const parts = timeStr.split(':');
             if (parts.length === 2) {
                 const minutes = parseFloat(parts[0]);
@@ -283,16 +279,23 @@
             }
         }
 
+        // Error detection logger to explicitly print stream issues directly inside screen panel alerts
+        video.addEventListener('error', () => {
+            console.error("HTML Video Error Code: ", video.error);
+            if(video.src && video.src !== window.location.href) {
+                alert(`Error loading movie asset. Verify your filename case sensitivity, track pathing structure, or verify if the file is a valid H.264 MP4.\n\nAttempted path:\n${video.src}`);
+            }
+        });
+
         function setVideoProgress() {
             if (video.duration) {
                 video.currentTime = (progressBar.value * video.duration) / 100;
             }
         }
 
-        // Time Input UX Management
         currentTimeInput.addEventListener('focus', () => {
             isEditingTime = true;
-            currentTimeInput.select(); // Highlight entire value for effortless re-typing
+            currentTimeInput.select();
         });
 
         currentTimeInput.addEventListener('blur', () => {
@@ -302,7 +305,7 @@
 
         currentTimeInput.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
-                currentTimeInput.blur(); // Triggers the save action
+                currentTimeInput.blur();
             } else if (e.key === 'Escape') {
                 isEditingTime = false;
                 currentTimeInput.value = formatTimeWithMs(video.currentTime);
@@ -310,6 +313,3 @@
             }
         });
 
-        function processManualTimeInput() {
-            const targetSeconds = parseTimeToSeconds(currentTimeInput.value);
-            
