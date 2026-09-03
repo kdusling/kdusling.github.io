@@ -36,7 +36,7 @@
             position: relative;
             width: 100%;
             background: #000;
-            padding: 20px; 
+            padding: 20px;
             aspect-ratio: 16 / 9;
             display: flex;
             align-items: center;
@@ -178,7 +178,6 @@
 <body>
 
     <div class="player-container">
-        <!-- Explicitly defining preload/crossorigin permissions configuration -->
         <div class="video-wrapper">
             <video id="custom-video" preload="auto" crossorigin="anonymous"></video>
         </div>
@@ -228,9 +227,10 @@
             const videoUrl = urlParams.get('video');
 
             if (videoUrl) {
-                // FIXED: Setting video.src directly triggers an automatic media pipeline reboot
                 video.src = decodeURIComponent(videoUrl);
                 video.load();
+            } else {
+                alert("Please append '?video=YOUR_URL' to the URL address bar to stream a video!");
             }
         }
 
@@ -271,6 +271,15 @@
             return null;
         }
 
+        function processManualTimeInput() {
+            const seconds = parseTimeToSeconds(currentTimeInput.value);
+            if (seconds !== null && !isNaN(seconds)) {
+                video.currentTime = Math.max(0, Math.min(seconds, video.duration || seconds));
+            } else {
+                currentTimeInput.value = formatTimeWithMs(video.currentTime);
+            }
+        }
+
         function updateProgress() {
             if (video.duration && !isEditingTime) {
                 const percentage = (video.currentTime / video.duration) * 100;
@@ -279,19 +288,38 @@
             }
         }
 
-        // Error detection logger to explicitly print stream issues directly inside screen panel alerts
-        video.addEventListener('error', () => {
-            console.error("HTML Video Error Code: ", video.error);
-            if(video.src && video.src !== window.location.href) {
-                alert(`Error loading movie asset. Verify your filename case sensitivity, track pathing structure, or verify if the file is a valid H.264 MP4.\n\nAttempted path:\n${video.src}`);
-            }
-        });
-
         function setVideoProgress() {
             if (video.duration) {
                 video.currentTime = (progressBar.value * video.duration) / 100;
             }
         }
+
+        // --- Event Listeners ---
+        window.addEventListener('DOMContentLoaded', loadVideoFromURL);
+        playBtn.addEventListener('click', togglePlay);
+        video.addEventListener('click', togglePlay);
+        video.addEventListener('timeupdate', updateProgress);
+        
+        video.addEventListener('loadedmetadata', () => {
+            durationTimeDisplay.textContent = formatTimeWithMs(video.duration);
+        });
+
+        progressBar.addEventListener('input', setVideoProgress);
+
+        speedSelect.addEventListener('change', (e) => {
+            video.playbackRate = parseFloat(e.target.value);
+        });
+
+        video.addEventListener('ended', () => {
+            playBtn.textContent = 'Play';
+        });
+
+        video.addEventListener('error', () => {
+            console.error("HTML Video Error Code: ", video.error);
+            if (video.src && video.src !== window.location.href) {
+                alert(`Error loading movie asset. Verify your filename case sensitivity, track pathing structure, or verify if the file is a valid H.264 MP4.\n\nAttempted path:\n${video.src}`);
+            }
+        });
 
         currentTimeInput.addEventListener('focus', () => {
             isEditingTime = true;
@@ -312,4 +340,6 @@
                 currentTimeInput.blur();
             }
         });
-
+    </script>
+</body>
+</html>
