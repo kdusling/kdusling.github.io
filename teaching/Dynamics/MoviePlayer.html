@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom HTML5 Video Player</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .player-container {
+            max-width: 850px;
+            width: 100%;
+            background: #1e1e1e;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            background: #000;
+            padding: 20px; 
+            aspect-ratio: 16 / 9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .controls-panel {
+            background: #1a1a1a;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .timeline-container {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .timeline {
+            width: 100%;
+            height: 6px;
+            background: #444;
+            border-radius: 3px;
+            cursor: pointer;
+            -webkit-appearance: none;
+            appearance: none;
+            outline: none;
+        }
+
+        .timeline::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #00adb5;
+            cursor: pointer;
+            transition: transform 0.1s ease;
+        }
+
+        .timeline::-webkit-slider-thumb:hover {
+            transform: scale(1.3);
+        }
+
+        .control-buttons {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .left-controls, .right-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        button {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: #333;
+        }
+
+        .primary-btn {
+            background: #00adb5;
+            color: #fff;
+        }
+
+        .primary-btn:hover {
+            background: #007c82;
+        }
+
+        /* Interactive Time Input Layout Styling */
+        .time-display-container {
+            font-size: 13px;
+            color: #aaa;
+            font-family: monospace;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .time-input {
+            background: #2a2a2a;
+            border: 1px solid #444;
+            color: #00adb5;
+            font-family: monospace;
+            font-size: 13px;
+            width: 90px;
+            text-align: center;
+            padding: 2px 4px;
+            border-radius: 4px;
+            outline: none;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        .time-input:focus {
+            border-color: #00adb5;
+            background: #333;
+            cursor: text;
+        }
+
+        select {
+            background: #2a2a2a;
+            color: white;
+            border: 1px solid #444;
+            padding: 6px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            outline: none;
+            font-size: 13px;
+        }
+
+        select:hover {
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="player-container">
+        <div class="video-wrapper">
+            <video id="custom-video" src=""></video>
+        </div>
+
+        <div class="controls-panel">
+            <div class="timeline-container">
+                <input type="range" class="timeline" id="progress-bar" min="0" max="100" value="0" step="any">
+            </div>
+
+            <div class="control-buttons">
+                <div class="left-controls">
+                    <button id="play-btn" class="primary-btn">Play</button>
+                    <!-- Clickable Interactive Timestamp Engine -->
+                    <div class="time-display-container">
+                        <input type="text" id="current-time-input" class="time-input" value="00:00.000" title="Click to manually enter time (MM:SS.mmm)">
+                        <span>/</span>
+                        <span id="duration-time">00:00.000</span>
+                    </div>
+                </div>
+
+                <div class="right-controls">
+                    <label for="speed-select" style="font-size: 13px; color: #aaa;">Speed:</label>
+                    <select id="speed-select">
+                        <option value="0.25">0.25x</option>
+                        <option value="0.5">0.5x</option>
+                        <option value="1" selected>Normal</option>
+                        <option value="1.25">1.25x</option>
+                        <option value="1.5">1.5x</option>
+                        <option value="2">2x</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const video = document.getElementById('custom-video');
+        const playBtn = document.getElementById('play-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const currentTimeInput = document.getElementById('current-time-input');
+        const durationTimeDisplay = document.getElementById('duration-time');
+        const speedSelect = document.getElementById('speed-select');
+
+        let isEditingTime = false;
+
+        function loadVideoFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const videoUrl = urlParams.get('video');
+
+            if (videoUrl) {
+                video.src = decodeURIComponent(videoUrl);
+                video.load();
+            }
+        }
+
+        function togglePlay() {
+            if (!video.src || video.src === window.location.href) {
+                alert("Please append '?video=YOUR_URL' to the URL address bar to stream a video!");
+                return;
+            }
+            if (video.paused) {
+                video.play();
+                playBtn.textContent = 'Pause';
+            } else {
+                video.pause();
+                playBtn.textContent = 'Play';
+            }
+        }
+
+        // Expanded formatting rule to extract structural milliseconds
+        function formatTimeWithMs(seconds) {
+            if (isNaN(seconds)) return "00:00.000";
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            const ms = Math.floor((seconds % 1) * 1000);
+            
+            return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}.${ms.toString().padStart(3, '0')}`;
+        }
+
+        // Mathematical conversion parsing text inputs back to runtime seconds
+        function parseTimeToSeconds(timeStr) {
+            // Evaluates format options cleanly like: MM:SS.mmm, MM:SS, or just pure seconds
+            const parts = timeStr.split(':');
+            if (parts.length === 2) {
+                const minutes = parseFloat(parts[0]);
+                const seconds = parseFloat(parts[1]);
+                if (isNaN(minutes) || isNaN(seconds)) return null;
+                return (minutes * 60) + seconds;
+            } else if (parts.length === 1) {
+                const seconds = parseFloat(parts[0]);
+                if (isNaN(seconds)) return null;
+                return seconds;
+            }
+            return null;
+        }
+
+        function updateProgress() {
+            if (video.duration && !isEditingTime) {
+                const percentage = (video.currentTime / video.duration) * 100;
+                progressBar.value = percentage;
+                currentTimeInput.value = formatTimeWithMs(video.currentTime);
+            }
+        }
+
+        function setVideoProgress() {
+            if (video.duration) {
+                video.currentTime = (progressBar.value * video.duration) / 100;
+            }
+        }
+
+        // Time Input UX Management
+        currentTimeInput.addEventListener('focus', () => {
+            isEditingTime = true;
+            currentTimeInput.select(); // Highlight entire value for effortless re-typing
+        });
+
+        currentTimeInput.addEventListener('blur', () => {
+            isEditingTime = false;
+            processManualTimeInput();
+        });
+
+        currentTimeInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                currentTimeInput.blur(); // Triggers the save action
+            } else if (e.key === 'Escape') {
+                isEditingTime = false;
+                currentTimeInput.value = formatTimeWithMs(video.currentTime);
+                currentTimeInput.blur();
+            }
+        });
+
+        function processManualTimeInput() {
+            const targetSeconds = parseTimeToSeconds(currentTimeInput.value);
+            

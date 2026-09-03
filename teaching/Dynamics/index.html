@@ -1,49 +1,204 @@
-
-
-
 <!DOCTYPE html>
-<html>
-   <head>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta charset="utf-8">
-      <meta name="author" content="Kevin Dusling" />
-      <meta name="description" content="">
-      <title>Dynamics</title>
-   </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MET 302: Dynamics</title>
+    <style>
+        /* Modern-Retro Monospace Stylesheet */
+        :root {
+            --bg-color: #f4f1ea;
+            --text-color: #111111;
+            --accent-color: #0000dd;
+            --border-color: #222222;
+            --box-bg: #ffffff;
+            --sub-text: #444444;
+        }
 
+        body {
+            font-family: "Courier New", Courier, monospace;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.5;
+        }
 
+        header {
+            border-bottom: 3px double var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin: 0 0 5px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            font-style: italic;
+            margin: 0;
+        }
+
+        nav {
+            margin: 15px 0 25px 0;
+            padding: 8px;
+            background-color: var(--box-bg);
+            border: 1px solid var(--border-color);
+        }
+
+        nav a {
+            color: var(--accent-color);
+            text-decoration: underline;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            background-color: var(--accent-color);
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .notice-box {
+            background-color: var(--box-bg);
+            border: 2px solid var(--border-color);
+            padding: 12px 15px;
+            margin-bottom: 25px;
+            box-shadow: 4px 4px 0px var(--border-color);
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 3px;
+            margin-top: 30px;
+        }
+
+        ul.notes-list {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+
+        ul.notes-list > li {
+            margin-bottom: 15px;
+        }
+
+        .date {
+            color: #555555;
+            font-size: 0.85rem;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            border: 1px solid var(--border-color);
+            padding: 1px 4px;
+            margin-left: 5px;
+            background-color: #e0e0e0;
+        }
+
+        /* Collapsible Sub-menu Styling */
+        details.sub-menu-container {
+            margin-top: 5px;
+            margin-left: 5px;
+        }
+
+        summary.sub-menu-title {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            cursor: pointer;
+            user-select: none;
+            display: inline-block;
+        }
+
+        summary.sub-menu-title:hover {
+            background-color: var(--accent-color);
+            color: #ffffff;
+        }
+
+        ul.sub-menu {
+            list-style-type: none;
+            padding-left: 10px;
+            margin: 5px 0 0 5px;
+            border-left: 1px dashed var(--border-color);
+        }
+
+        ul.sub-menu li {
+            font-size: 0.9rem;
+            margin-bottom: 3px;
+            color: var(--sub-text);
+        }
+
+        ul.sub-menu li::before {
+            content: "|-- ";
+            color: #888888;
+        }
+
+        footer {
+            margin-top: 50px;
+            border-top: 1px dashed var(--border-color);
+            padding-top: 15px;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+    </style>
+</head>
 <body>
 
-<h1>Dynamics</h1>
+    <header>
+        <h1>MET 302: Dynamics</h1>
+        <p class="subtitle">Farmingdale State College</p>
+    </header>
 
-<ul>
-	<li> <a href="https://mechanicsmap.psu.edu/index.html">Mechanics Map Digital Textbook Project</a>
-    <li> <a href="EquationSheet.html">Equation Sheet</a>
-	<li> <a href="Examples/index.html">Worked out problems</a>
-</ul>
+    <nav>
+        <a href="#notes">[Lecture Notes]</a>
+        <a href="#resources">[Reference Docs]</a>
+    </nav>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TSB5RJ1T0J"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <div class="notice-box">
+        <strong>NOTICE:</strong> These notes are self-maintained and updated randomly. Expect typos.
+    </div>
 
-  gtag('config', 'G-TSB5RJ1T0J');
-</script>
+    <main>
+        <h2 id="notes">01. Lecture Notes</h2>
+        <ul class="notes-list">
+            
+			<li>
+                <div>
+                    <span class="date">[Week 01]</span> 
+                    <a href="PDF-Notes/Lesson1.pdf">Rectilinear motion of particles</a> 
+                    <span class="tag">PDF</span>
+                </div>
 
-<h1>My Notes</h1>
+                <!-- Collapsible Sub-menu -->
+                <details class="sub-menu-container">
+                    <summary class="sub-menu-title">[+ Supplemental Material]</summary>
+                    <ul class="sub-menu">
+                        <li><a href="Python/SP11_5.mp4">Elevator Movie</a><span class="tag">MP4</span></li>
+                    </ul>
+                </details>
+            </li>
+			
+			
+			
+        </ul>
 
-<ul>
-<li><a href="Notes/Lesson1.html">Lesson 1:  Rectilinear motion of particles </a></li>
-<li><a href="Notes/Lesson2.html">Lesson 2:  Curvilinear motion of particles </a></li>
-	<ul>
-	<li><a href="Notes/Lesson2b.html">Lesson 2b:  Curvilinear motion: Normal-Tangential Coordinates </a></li>
-	</ul>
-<li><a href="Notes/Lesson3.pdf">Lesson 3: Newton's 2nd Law</a></li>
-	<ul>
-	<li><a href="Notes/Lesson3b.pdf">Lesson 3b:   Newton's 2nd Law: Normal-Tangential Coordinates </a></li>
-	</ul>
-</ul>
+        <h2 id="resources">03. Reference Material</h2>
+        <ul class="notes-list">
+            <li><a href="https://urldefense.com/v3/__https://docs.google.com/document/d/1y7ogU5MPmWCebzgkoFT4Yi52mmOsvTwEYbWppI-K9YQ/edit?usp=sharing__;!!MNCIUfNAXBILe-T7!MOpfLewhcpHTGwE0w__ge8R0m8z8bHOzHc9dygwYEDb9yeWmJx2izz_sNm_z0cLWouAvUhxAnrPQA07ZrwhKV_eTOT4YqAJdTqBCHFkyelRg2lU$">Course Syllabus</a></li>
+            <li><a href="https://www.mechanicsmap.org/">Mechanics Map Digital Textbook</a></li>
+        </ul>
+        
+    </main>
+
+    <footer>
+        <p>Maintained via plain text | Last updated: September 2026</p>
+    </footer>
 
 </body>
+</html>
