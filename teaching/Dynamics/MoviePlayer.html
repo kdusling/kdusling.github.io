@@ -228,7 +228,7 @@
             const videoUrl = urlParams.get('video');
 
             if (videoUrl) {
-                // FIXED: Setting video.src directly triggers an automatic hardware media pipeline reboot
+                // FIXED: Setting video.src directly triggers an automatic media pipeline reboot
                 video.src = decodeURIComponent(videoUrl);
                 video.load();
             }
