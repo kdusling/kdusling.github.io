@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QR Code Generator</title>
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+<style>
+  :root {
+    --bg: #f4f2fb;
+    --card: #ffffff;
+    --primary: #6d4aff;
+    --text: #1b1b21;
+    --muted: #6b6b76;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(109, 74, 255, 0.12);
+    padding: 32px;
+    width: 100%;
+    max-width: 460px;
+  }
+  h1 { font-size: 1.5rem; margin-bottom: 4px; }
+  p.sub { color: var(--muted); font-size: 0.9rem; margin-bottom: 20px; }
+  label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; }
+  input, select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e4e1f0;
+    border-radius: 10px;
+    font-size: 1rem;
+    margin-bottom: 16px;
+    font-family: inherit;
+  }
+  input:focus, select:focus { outline: none; border-color: var(--primary); }
+  button {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+  button:hover { opacity: 0.88; }
+  .preview {
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+    border: 2px dashed #e4e1f0;
+    border-radius: 12px;
+    margin: 8px 0 16px;
+    min-height: 180px;
+    align-items: center;
+  }
+  .downloads { display: flex; gap: 10px; }
+  .downloads button { flex: 1; }
+  .row { display: flex; gap: 10px; }
+  .row > div { flex: 1; }
+  #status { font-size: 0.85rem; color: #b91c1c; margin-top: 10px; min-height: 1em; }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h1>QR Code Generator</h1>
+  <p class="sub">Paste a URL and download your QR code as PNG, JPEG, or SVG.</p>
+
+  <label for="url">Website URL</label>
+  <input type="text" id="url" placeholder="https://example.com">
+
+  <div class="row">
+    <div>
+      <label for="size">Export size</label>
+      <select id="size">
+        <option value="256">256 × 256 px</option>
+        <option value="512" selected>512 × 512 px</option>
+        <option value="1024">1024 × 1024 px</option>
+      </select>
+    </div>
+    <div>
+      <label for="ecc">Error correction</label>
+      <select id="ecc">
+        <option value="L">Low (7%)</option>
+        <option value="M">Medium (15%)</option>
+        <option value="Q">Quartile (25%)</option>
+        <option value="H" selected>High (30%)</option>
+      </select>
+    </div>
+  </div>
+
+  <button id="generate" style="width:100%; margin-top:8px;">Generate QR Code</button>
+  <div id="status"></div>
+
+  <div id="result" hidden>
+    <div class="preview" id="preview"></div>
+    <div class="downloads">
+      <button id="dl-png">⬇ PNG</button>
+      <button id="dl-jpg">⬇ JPEG</button>
+      <button id="dl-svg">⬇ SVG</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  const statusEl  = document.getElementById('status');
+  const resultEl  = document.getElementById('result');
+  const previewEl = document.getElementById('preview');
+
+  // Holds the current QR object after a successful generate
+  let currentQR = null;
+
+  function setStatus(msg) { statusEl.textContent = msg || ''; }
+
+  function makeQR(url, ecc) {
+    if (typeof qrcode !== 'function') {
+      throw new Error('QR library failed to load. Check your internet connection and refresh.');
+    }
+    const qr = qrcode(0, ecc); // type 0 = automatic size
+    qr.addData(url);
+    qr.make();
+    return qr;
+  }
+
+  // ---------- Canvas drawing (used for PNG and JPEG) ----------
+  function drawToCanvas(qr, size, backgroundColor) {
+    const n = qr.getModuleCount();
+    const marginModules = 4;                 // quiet zone, in modules
+    const total = n + marginModules * 2;
+    const cell = size / total;
+
+    const canvas = document.createElement('canvas');
+    canvas.width = size;
+    canvas.height = size;
+    const ctx = canvas.getContext('2d');
+
+    if (backgroundColor) {
+      ctx.fillStyle = backgroundColor;
+      ctx.fillRect(0, 0, size, size);
+    }
+
+    ctx.fillStyle = '#000000';
+    for (let row = 0; row < n; row++) {
+      for (let col = 0; col < n; col++) {
+        if (qr.isDark(row, col)) {
+          ctx.fillRect(
+            Math.floor((col + marginModules) * cell),
+            Math.floor((row + marginModules) * cell),
+            Math.ceil(cell),
+            Math.ceil(cell)
+          );
+        }
+      }
+    }
+    return canvas;
+  }
+
+  // ---------- Hand-built SVG (used for SVG download and preview) ----------
+  function buildSVG(qr, cellPx, marginPx, backgroundColor) {
+    const n = qr.getModuleCount();
+    const dim = n * cellPx + marginPx * 2;
+
+    let rects = '';
+    if (backgroundColor) {
+      rects += '<rect width="' + dim + '" height="' + dim + '" fill="' + backgroundColor + '"/>';
+    }
+    for (let row = 0; row < n; row++) {
+      for (let col = 0; col < n; col++) {
+        if (qr.isDark(row, col)) {
+          const x = col * cellPx + marginPx;
+          const y = row * cellPx + marginPx;
+          rects += '<rect x="' + x + '" y="' + y + '" width="' + cellPx + '" height="' + cellPx + '"/>';
+        }
+      }
+    }
+    return '<svg xmlns="http://www.w3.org/2000/svg" width="' + dim + '" height="' + dim +
+           '" viewBox="0 0 ' + dim + ' ' + dim + '">' + rects + '</svg>';
+  }
+
+  // ---------- Helpers ----------
+  function download(blob, filename) {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+
+  // ---------- Generate ----------
+  document.getElementById('generate').addEventListener('click', function () {
+    let url = document.getElementById('url').value.trim();
+    if (!url) { setStatus('Please enter a URL first.'); return; }
+
+    // Add https:// if the user omitted the scheme
+    if (!/^[a-zA-Z][a-zA-Z0-9+.-]*:/.test(url)) url = 'https://' + url;
+
+    const ecc = document.getElementById('ecc').value;
+
+    try {
+      currentQR = makeQR(url, ecc);
+      previewEl.innerHTML = buildSVG(currentQR, 6, 24, null);
+      const svg = previewEl.querySelector('svg');
+      svg.style.width = '220px';
+      svg.style.height = '220px';
+      resultEl.hidden = false;
+      setStatus('');
+    } catch (err) {
+      resultEl.hidden = true;
+      setStatus('Error: ' + err.message);
+    }
+  });
+
+  // Allow pressing Enter in the URL field to generate
+  document.getElementById('url').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      document.getElementById('generate').click();
+    }
+  });
+
+  // ---------- Downloads ----------
+  document.getElementById('dl-png').addEventListener('click', function () {
+    if (!currentQR) return;
+    const size = parseInt(document.getElementById('size').value, 10);
+    const canvas = drawToCanvas(currentQR, size, null); // transparent background
+    canvas.toBlob(function (b) { download(b, 'qrcode.png'); }, 'image/png');
+  });
+
+  document.getElementById('dl-jpg').addEventListener('click', function () {
+    if (!currentQR) return;
+    const size = parseInt(document.getElementById('size').value, 10);
+    const canvas = drawToCanvas(currentQR, size, '#ffffff'); // white background
+    canvas.toBlob(function (b) { download(b, 'qrcode.jpg'); }, 'image/jpeg', 0.95);
+  });
+
+  document.getElementById('dl-svg').addEventListener('click', function () {
+    if (!currentQR) return;
+    const svg = buildSVG(currentQR, 6, 24, null);
+    download(new Blob([svg], { type: 'image/svg+xml' }), 'qrcode.svg');
+  });
+})();
+</script>
+
+</body>
+</html>
